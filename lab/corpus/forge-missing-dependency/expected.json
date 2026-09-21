@@ -1,5 +1,7 @@
 {
   "situation": "DEP_MISSING",
   "culprit": "moonlight",
-  "log": "crash-2026-09-21_22.17.17-fml.txt"
+  "logs": [
+    "crash-2026-09-21_23.13.21-fml.txt"
+  ]
 }

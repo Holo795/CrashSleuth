@@ -1,0 +1,7 @@
+{
+  "situation": "DEP_MISSING",
+  "culprit": "puzzleslib",
+  "logs": [
+    "crash-2026-09-21_23.38.57-fml.txt"
+  ]
+}

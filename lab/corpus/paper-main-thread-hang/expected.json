@@ -1,0 +1,7 @@
+{
+  "situation": "HANG",
+  "culprit": "CrashSleuthFixture",
+  "logs": [
+    "latest.log"
+  ]
+}

@@ -1,0 +1,48 @@
+{
+ "platform": "NEOFORGE",
+ "minecraftVersion": "1.21.1",
+ "loaderVersion": "21.1.251",
+ "side": "SERVER",
+ "jars": [
+  {
+   "file": "lithium-fabric-0.15.4+mc1.21.1.jar",
+   "folder": "mods",
+   "size": 797454,
+   "mods": [
+    {
+     "format": "FABRIC",
+     "id": "lithium",
+     "name": "Lithium",
+     "version": "0.15.4+mc1.21.1",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "fabricloader",
+       "versionRange": ">=0.15.1",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "1.21 || 1.21.1",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [
+      {
+       "id": "optifabric",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "nested": [],
+   "error": null
+  }
+ ]
+}

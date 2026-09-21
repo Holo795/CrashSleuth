@@ -1,7 +1,7 @@
 ---- Minecraft Crash Report ----
-// But it works on my machine.
+// Who set us up the TNT?
 
-Time: 2026-09-21 22:10:25
+Time: 2026-09-21 23:06:06
 Description: Mod loading failures have occurred; consult the issue messages for more details
 
 net.neoforged.neoforge.logging.CrashReportExtender$ModLoadingCrashException: Mod loading has failed
@@ -27,7 +27,7 @@ Details:
 	Operating System: Linux (amd64) version 6.1.0-53-cloud-amd64
 	Java Version: 21.0.12, Eclipse Adoptium
 	Java VM Version: OpenJDK 64-Bit Server VM (mixed mode, sharing), Eclipse Adoptium
-	Memory: 38293728 bytes (36 MiB) / 322961408 bytes (308 MiB) up to 2147483648 bytes (2048 MiB)
+	Memory: 68644792 bytes (65 MiB) / 348127232 bytes (332 MiB) up to 2147483648 bytes (2048 MiB)
 	CPUs: 4
 	Processor Vendor: GenuineIntel
 	Processor Name: Intel(R) Xeon(R) CPU E5-2470 v2 @ 2.40GHz
@@ -43,14 +43,14 @@ Details:
 	Graphics card #0 deviceId: unknown
 	Graphics card #0 versionInfo: unknown
 	Virtual memory max (MiB): 3976.64
-	Virtual memory used (MiB): 1090.24
+	Virtual memory used (MiB): 1903.63
 	Swap memory total (MiB): 0.00
 	Swap memory used (MiB): 0.00
 	Space in storage for jna.tmpdir (MiB): <path not set>
 	Space in storage for org.lwjgl.system.SharedLibraryExtractPath (MiB): <path not set>
 	Space in storage for io.netty.native.workdir (MiB): <path not set>
-	Space in storage for java.io.tmpdir (MiB): available: 49524.44, total: 60267.50
-	Space in storage for workdir (MiB): available: 49524.44, total: 60267.50
+	Space in storage for java.io.tmpdir (MiB): available: 42800.46, total: 60267.50
+	Space in storage for workdir (MiB): available: 42800.46, total: 60267.50
 	JVM Flags: 2 total; -Xms256M -Xmx2G
 	ModLauncher: 11.0.5+main.901c6ea8
 	ModLauncher launch target: forgeserver

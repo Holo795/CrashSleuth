@@ -1,0 +1,135 @@
+{
+ "platform": "PAPER",
+ "minecraftVersion": "26.3",
+ "loaderVersion": null,
+ "side": "SERVER",
+ "jars": [
+  {
+   "file": "Chunky-Bukkit-1.5.3.jar",
+   "folder": "plugins",
+   "size": 304616,
+   "mods": [
+    {
+     "format": "BUKKIT",
+     "id": "Chunky",
+     "name": null,
+     "version": "1.5.3",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "dynmap",
+       "versionRange": null,
+       "required": false,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "BlueMap",
+       "versionRange": null,
+       "required": false,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "squaremap",
+       "versionRange": null,
+       "required": false,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "WorldBorder",
+       "versionRange": null,
+       "required": false,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": "1.13"
+    }
+   ],
+   "nested": [],
+   "error": null
+  },
+  {
+   "file": "LuckPerms-Bukkit-5.5.71.jar",
+   "folder": "plugins",
+   "size": 1501521,
+   "mods": [
+    {
+     "format": "BUKKIT",
+     "id": "LuckPerms",
+     "name": null,
+     "version": "5.5.71",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "LilyPad-Connect",
+       "versionRange": null,
+       "required": false,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "ViaVersion",
+       "versionRange": null,
+       "required": false,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": "1.13"
+    }
+   ],
+   "nested": [],
+   "error": null
+  },
+  {
+   "file": "ViaVersion-5.12.0.jar",
+   "folder": "plugins",
+   "size": 6503775,
+   "mods": [
+    {
+     "format": "FABRIC",
+     "id": "viaversion",
+     "name": "ViaVersion",
+     "version": "5.12.0",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "viafabric",
+       "versionRange": ">=0.4.14",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "BUKKIT",
+     "id": "ViaVersion",
+     "name": null,
+     "version": "5.12.0",
+     "environment": "UNKNOWN",
+     "dependencies": [],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": "1.13"
+    },
+    {
+     "format": "VELOCITY",
+     "id": "viaversion",
+     "name": "ViaVersion",
+     "version": "5.12.0",
+     "environment": "UNKNOWN",
+     "dependencies": [],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "nested": [],
+   "error": null
+  }
+ ]
+}

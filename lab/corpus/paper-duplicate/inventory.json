@@ -1,0 +1,98 @@
+{
+ "platform": "PAPER",
+ "minecraftVersion": "1.21.1",
+ "loaderVersion": null,
+ "side": "SERVER",
+ "jars": [
+  {
+   "file": "Chunky-Bukkit-1.4.36.jar",
+   "folder": "plugins",
+   "size": 296078,
+   "mods": [
+    {
+     "format": "BUKKIT",
+     "id": "Chunky",
+     "name": null,
+     "version": "1.4.36",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "dynmap",
+       "versionRange": null,
+       "required": false,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "BlueMap",
+       "versionRange": null,
+       "required": false,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "squaremap",
+       "versionRange": null,
+       "required": false,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "WorldBorder",
+       "versionRange": null,
+       "required": false,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": "1.13"
+    }
+   ],
+   "nested": [],
+   "error": null
+  },
+  {
+   "file": "Chunky-Bukkit-1.4.40.jar",
+   "folder": "plugins",
+   "size": 296244,
+   "mods": [
+    {
+     "format": "BUKKIT",
+     "id": "Chunky",
+     "name": null,
+     "version": "1.4.40",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "dynmap",
+       "versionRange": null,
+       "required": false,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "BlueMap",
+       "versionRange": null,
+       "required": false,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "squaremap",
+       "versionRange": null,
+       "required": false,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "WorldBorder",
+       "versionRange": null,
+       "required": false,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": "1.13"
+    }
+   ],
+   "nested": [],
+   "error": null
+  }
+ ]
+}

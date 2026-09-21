@@ -1,0 +1,53 @@
+{
+ "platform": "FABRIC",
+ "minecraftVersion": "1.21.1",
+ "loaderVersion": "0.19.5",
+ "side": "SERVER",
+ "jars": [
+  {
+   "file": "Chunky-Fabric-1.4.23.jar",
+   "folder": "mods",
+   "size": 342979,
+   "mods": [
+    {
+     "format": "FABRIC",
+     "id": "chunky",
+     "name": "Chunky",
+     "version": "1.4.23",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "fabricloader",
+       "versionRange": ">=0.15.11",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": ">=1.21-rc.1",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "java",
+       "versionRange": ">=21",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "nested": [],
+   "error": null
+  }
+ ]
+}

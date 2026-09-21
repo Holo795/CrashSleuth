@@ -1,0 +1,28 @@
+{
+ "platform": "PAPER",
+ "minecraftVersion": "1.21.1",
+ "loaderVersion": null,
+ "side": "SERVER",
+ "jars": [
+  {
+   "file": "CrashSleuthFixture-1.0.0.jar",
+   "folder": "plugins",
+   "size": 2720,
+   "mods": [
+    {
+     "format": "BUKKIT",
+     "id": "CrashSleuthFixture",
+     "name": null,
+     "version": "1.0.0",
+     "environment": "UNKNOWN",
+     "dependencies": [],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": "1.21"
+    }
+   ],
+   "nested": [],
+   "error": null
+  }
+ ]
+}

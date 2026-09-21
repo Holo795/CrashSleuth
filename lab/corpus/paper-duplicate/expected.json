@@ -1,0 +1,7 @@
+{
+  "situation": "DUPLICATE",
+  "culprit": "chunky",
+  "logs": [
+    "latest.log"
+  ]
+}

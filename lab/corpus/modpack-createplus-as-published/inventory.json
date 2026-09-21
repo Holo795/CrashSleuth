@@ -1,0 +1,8126 @@
+{
+ "platform": "NEOFORGE",
+ "minecraftVersion": "1.21.1",
+ "loaderVersion": "21.1.251",
+ "side": "SERVER",
+ "jars": [
+  {
+   "file": "ArmorStatues-v21.1.0-1.21.1-NeoForge.jar",
+   "folder": "mods",
+   "size": 263404,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "armorstatues",
+     "name": "Armor Statues",
+     "version": "21.1.0",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.21,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1]",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "puzzleslib",
+       "versionRange": "[21.1.8,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "statuemenus",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "nested": [
+    {
+     "format": "NEOFORGE",
+     "id": "statuemenus",
+     "name": "Statue Menus",
+     "version": "21.1.0",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.21,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1]",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "puzzleslib",
+       "versionRange": "[21.1.8,)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "error": null
+  },
+  {
+   "file": "AxesAreWeapons-1.10.2-neoforge-1.21.jar",
+   "folder": "mods",
+   "size": 36026,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "axesareweapons",
+     "name": "Axes Are Weapons",
+     "version": "1.10.2",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.0.110-beta,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21, 1.21.2)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "cloth_config",
+       "versionRange": "[14,)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "nested": [],
+   "error": null
+  },
+  {
+   "file": "CarryOnAeroCompat-1.21.1-1.1.1.jar",
+   "folder": "mods",
+   "size": 71561,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "carryonaerocompat",
+     "name": "Carry On + Create Aeronautics Compat",
+     "version": "1.1.1",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1]",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "neoforge",
+       "versionRange": null,
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "carryon",
+       "versionRange": null,
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "nested": [],
+   "error": null
+  },
+  {
+   "file": "Companion-1.21.1-NeoForge-6.2.1.jar",
+   "folder": "mods",
+   "size": 42634,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "companion",
+     "name": "Companion",
+     "version": null,
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "kiwi",
+       "versionRange": "[15,)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "nested": [],
+   "error": null
+  },
+  {
+   "file": "ConfiguredDefaults-v21.1.3-1.21.1-NeoForge.jar",
+   "folder": "mods",
+   "size": 43521,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "configureddefaults",
+     "name": "Configured Defaults",
+     "version": "21.1.3",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.21,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1]",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "nested": [],
+   "error": null
+  },
+  {
+   "file": "ConnectorExtras-1.12.1+1.21.1.jar",
+   "folder": "mods",
+   "size": 86284,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "connectorextras",
+     "name": "Connector Extras",
+     "version": "1.12.1+1.21.1",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "nested": [
+    {
+     "format": "NEOFORGE",
+     "id": "connectorextras_terrablender_bridge",
+     "name": "Connector Extras Terrablender Bridge",
+     "version": "1.12.1+1.21.1",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "connectorextras_rei_bridge",
+     "name": "Connector Extras REI Bridge",
+     "version": "1.12.1+1.21.1",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "connectorextras_pehkui_bridge",
+     "name": "Connector Extras Pehkui Bridge",
+     "version": "1.12.1+1.21.1",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "connectorextras_modmenu_bridge",
+     "name": "Connector Extras ModMenu Bridge",
+     "version": "1.12.1+1.21.1",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "modmenu",
+     "name": "ModMenu (Connector Extras)",
+     "version": "11.0.1",
+     "environment": "UNKNOWN",
+     "dependencies": [],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "connectorextras_kubejs_bridge",
+     "name": "Connector Extras KubeJS Bridge",
+     "version": "1.12.1+1.21.1",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "connectorextras_jei_bridge",
+     "name": "Connector Extras JEI Bridge",
+     "version": "1.12.1+1.21.1",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "connectorextras_energy_bridge",
+     "name": "Connector Extras Energy Bridge",
+     "version": "1.12.1+1.21.1",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "connectorextras_emi_bridge",
+     "name": "Connector Extras EMI Bridge",
+     "version": "1.12.1+1.21.1",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "error": null
+  },
+  {
+   "file": "Create Components and Additions 2.3.jar",
+   "folder": "mods",
+   "size": 1124993,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "create_ca",
+     "name": "Create: Components and Additions",
+     "version": "2.3",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1]",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "create",
+       "versionRange": "[6.0.10,6.1.0)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "nested": [],
+   "error": null
+  },
+  {
+   "file": "CreateDragonsPlus-1.11.2b.jar",
+   "folder": "mods",
+   "size": 1006723,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "create_dragons_plus",
+     "name": "Create: Dragons Plus",
+     "version": "1.11.2b",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.0,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1, 1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "create",
+       "versionRange": "[6.0.10,)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "nested": [
+    {
+     "format": "NEOFORGE",
+     "id": "conditional_mixin",
+     "name": "conditional mixin",
+     "version": "0.6.4",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[20.5,)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "error": null
+  },
+  {
+   "file": "EasyAnvils-v21.1.0-1.21.1-NeoForge.jar",
+   "folder": "mods",
+   "size": 152297,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "easyanvils",
+     "name": "Easy Anvils",
+     "version": "21.1.0",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.21,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1]",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "puzzleslib",
+       "versionRange": "[21.1.9,)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "nested": [],
+   "error": null
+  },
+  {
+   "file": "FarmersDelight-1.21.1-1.3.2.jar",
+   "folder": "mods",
+   "size": 3163042,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "farmersdelight",
+     "name": "Farmer's Delight",
+     "version": "1.3.2",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.219,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1]",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "crafttweaker",
+       "versionRange": "[14.0.6,)",
+       "required": false,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "nested": [],
+   "error": null
+  },
+  {
+   "file": "Kiwi-1.21.1-NeoForge-15.8.4.jar",
+   "folder": "mods",
+   "size": 1538618,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "kiwi",
+     "name": "Kiwi Library",
+     "version": "15.8.4+neoforge",
+     "environment": "UNKNOWN",
+     "dependencies": [],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "nested": [
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_api_base",
+     "name": "Forgified Fabric API Base",
+     "version": "0.4.42+d1308ded19",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.219,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "error": null
+  },
+  {
+   "file": "MyNethersDelight-1.21.1-1.10.2.jar",
+   "folder": "mods",
+   "size": 825875,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "mynethersdelight",
+     "name": "My Nether's Delight",
+     "version": "1.10.2",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.4,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "farmersdelight",
+       "versionRange": "1.21-1.3",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minersdelight",
+       "versionRange": "[1.4,)",
+       "required": false,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "nested": [],
+   "error": null
+  },
+  {
+   "file": "Not Enough Recipe Book-NEOFORGE-0.4.3+1.21.jar",
+   "folder": "mods",
+   "size": 23830,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "nerb",
+     "name": "Not Enough Recipe Book",
+     "version": "0.4.3",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.0,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "architectury",
+       "versionRange": "[13.0.2,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "octolib",
+       "versionRange": "[0.4.2,)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "nested": [],
+   "error": null
+  },
+  {
+   "file": "OctoLib-NEOFORGE-0.6.2+1.21.jar",
+   "folder": "mods",
+   "size": 544378,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "octolib",
+     "name": "OctoLib",
+     "version": "0.6.2",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.0,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "architectury",
+       "versionRange": "[13.0.2,)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "nested": [],
+   "error": null
+  },
+  {
+   "file": "PuzzlesLib-v21.1.51-1.21.1-NeoForge.jar",
+   "folder": "mods",
+   "size": 1425185,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "puzzleslib",
+     "name": "Puzzles Lib",
+     "version": "21.1.51",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.21,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1]",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "nested": [],
+   "error": null
+  },
+  {
+   "file": "Quark-4.1-480.jar",
+   "folder": "mods",
+   "size": 15542634,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "quark",
+     "name": "Quark",
+     "version": "4.1-480",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.230,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "zeta",
+       "versionRange": "[1,1.2)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "biolith",
+       "versionRange": "[3.0.0,3.1.0)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "lootr",
+       "versionRange": "[1.10.34.86,)",
+       "required": false,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "nested": [
+    {
+     "format": "NEOFORGE",
+     "id": "biolith",
+     "name": "Biolith",
+     "version": "3.0.10",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.22,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.21.2)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "error": null
+  },
+  {
+   "file": "Updating World Icon-neoforge-1.21.1-1.0.1.jar",
+   "folder": "mods",
+   "size": 876758,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "updatingworldicon",
+     "name": "Updating World Icon",
+     "version": "1.0.1",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21,)",
+       "required": true,
+       "side": "CLIENT"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "=1.21.1",
+       "required": true,
+       "side": "CLIENT"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "nested": [],
+   "error": null
+  },
+  {
+   "file": "YungsApi-1.21.1-NeoForge-5.1.6.jar",
+   "folder": "mods",
+   "size": 388678,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "yungsapi",
+     "name": "YUNG's API",
+     "version": "1.21.1-NeoForge-5.1.6",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21, 1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "neoforge",
+       "versionRange": "[21.0.0,)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "nested": [],
+   "error": null
+  },
+  {
+   "file": "YungsBetterDesertTemples-1.21.1-NeoForge-4.1.5.jar",
+   "folder": "mods",
+   "size": 905839,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "betterdeserttemples",
+     "name": "YUNG's Better Desert Temples",
+     "version": "1.21.1-NeoForge-4.1.5",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21, 1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "neoforge",
+       "versionRange": "[21.0.0,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "yungsapi",
+       "versionRange": "[1.21.1-NeoForge-5.1.4,)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "nested": [],
+   "error": null
+  },
+  {
+   "file": "YungsBetterDungeons-1.21.1-NeoForge-5.1.4.jar",
+   "folder": "mods",
+   "size": 782160,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "betterdungeons",
+     "name": "YUNG's Better Dungeons",
+     "version": "1.21.1-NeoForge-5.1.4",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21, 1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "neoforge",
+       "versionRange": "[21.0.0,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "yungsapi",
+       "versionRange": "[1.21.1-NeoForge-5.1.3,)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "nested": [],
+   "error": null
+  },
+  {
+   "file": "YungsBetterNetherFortresses-1.21.1-NeoForge-3.1.5.jar",
+   "folder": "mods",
+   "size": 609639,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "betterfortresses",
+     "name": "YUNG's Better Nether Fortresses",
+     "version": "1.21.1-NeoForge-3.1.5",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21, 1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "neoforge",
+       "versionRange": "[21.0.0,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "yungsapi",
+       "versionRange": "[1.21.1-NeoForge-5.1.4,)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "nested": [],
+   "error": null
+  },
+  {
+   "file": "YungsBetterOceanMonuments-1.21.1-NeoForge-4.1.2.jar",
+   "folder": "mods",
+   "size": 1025571,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "betteroceanmonuments",
+     "name": "YUNG's Better Ocean Monuments",
+     "version": "1.21.1-NeoForge-4.1.2",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21, 1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "neoforge",
+       "versionRange": "[21.0.0,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "yungsapi",
+       "versionRange": "[1.21.1-NeoForge-5.1.3,)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "nested": [],
+   "error": null
+  },
+  {
+   "file": "YungsBetterStrongholds-1.21.1-NeoForge-5.1.3.jar",
+   "folder": "mods",
+   "size": 461244,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "betterstrongholds",
+     "name": "YUNG's Better Strongholds",
+     "version": "1.21.1-NeoForge-5.1.3",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21, 1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "neoforge",
+       "versionRange": "[21.0.0,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "yungsapi",
+       "versionRange": "[1.21.1-NeoForge-5.1.4,)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "nested": [],
+   "error": null
+  },
+  {
+   "file": "YungsExtras-1.21.1-NeoForge-5.1.1.jar",
+   "folder": "mods",
+   "size": 198183,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "yungsextras",
+     "name": "YUNG's Extras",
+     "version": "1.21.1-NeoForge-5.1.1",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21, 1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "neoforge",
+       "versionRange": "[21.0.0,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "yungsapi",
+       "versionRange": "[1.21.1-NeoForge-5.1.2,)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "nested": [],
+   "error": null
+  },
+  {
+   "file": "Zeta-1.1-40.jar",
+   "folder": "mods",
+   "size": 763725,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "zeta",
+     "name": "Zeta",
+     "version": "1.1-40",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.192,)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "nested": [],
+   "error": null
+  },
+  {
+   "file": "aeroencasedpipe-1.0.7.jar",
+   "folder": "mods",
+   "size": 56483,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "aeroencasedpipe",
+     "name": "Create Aeronautics: Encased Fluid Pipes",
+     "version": "1.0.7",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[4,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "create",
+       "versionRange": "[6.0.0,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "aeronautics",
+       "versionRange": "[1.0.0,)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "nested": [],
+   "error": null
+  },
+  {
+   "file": "aileron-1.21.1-neoforge-1.1.4.jar",
+   "folder": "mods",
+   "size": 269209,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "aileron",
+     "name": "Aileron",
+     "version": "1.21.1-neoforge-1.1.4",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "nested": [
+    {
+     "format": "NEOFORGE",
+     "id": "midnightlib",
+     "name": "MidnightLib",
+     "version": "1.6.9",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[20.5,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.20.5,)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "error": null
+  },
+  {
+   "file": "alloyed-3.0.9+1.21.1-neoforge.jar",
+   "folder": "mods",
+   "size": 873568,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "alloyed",
+     "name": "Alloyed",
+     "version": "3.0.9+1.21.1",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "create",
+       "versionRange": "[6.0.0,)",
+       "required": false,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "farmersdelight",
+       "versionRange": "[1.2,)",
+       "required": false,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21, 1.21.2]",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "createdeco",
+       "versionRange": "[2.0.3-1.20.1,)",
+       "required": false,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "nested": [],
+   "error": null
+  },
+  {
+   "file": "amendments-1.21-2.0.15-neoforge.jar",
+   "folder": "mods",
+   "size": 1143659,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "amendments",
+     "name": "Amendments",
+     "version": "1.21-2.0.15",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[4,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "moonlight",
+       "versionRange": "[1.21-2.29.0,)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "nested": [],
+   "error": null
+  },
+  {
+   "file": "another_furniture-neoforge-4.0.2.jar",
+   "folder": "mods",
+   "size": 2417424,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "another_furniture",
+     "name": "Another Furniture",
+     "version": "4.0.2",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.0,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "nested": [],
+   "error": null
+  },
+  {
+   "file": "appleskin-neoforge-mc1.21-3.0.9.jar",
+   "folder": "mods",
+   "size": 75804,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "appleskin",
+     "name": "AppleSkin",
+     "version": "3.0.9+mc1.21",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.0.0-beta,)",
+       "required": true,
+       "side": "CLIENT"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "nested": [],
+   "error": null
+  },
+  {
+   "file": "architectury-13.0.8-neoforge.jar",
+   "folder": "mods",
+   "size": 584004,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "architectury",
+     "name": "Architectury",
+     "version": "13.0.8",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "neoforge",
+       "versionRange": "[21.0.110-beta,)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "nested": [],
+   "error": null
+  },
+  {
+   "file": "ballastmod-0.1.0.jar",
+   "folder": "mods",
+   "size": 30230,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "ballastmod",
+     "name": "Create: Ballast",
+     "version": "0.1.0",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.0.0-beta,21.1.227)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21,)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "nested": [],
+   "error": null
+  },
+  {
+   "file": "balm-neoforge-1.21.1-21.0.58.jar",
+   "folder": "mods",
+   "size": 701868,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "balm",
+     "name": "Balm",
+     "version": "21.0.58",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.0.82-beta,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "nested": [
+    {
+     "format": "NEOFORGE",
+     "id": "kuma_api",
+     "name": "KumaAPI",
+     "version": "21.0.8",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21-beta,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21,)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "error": null
+  },
+  {
+   "file": "bellsandwhistles-0.4.7-1.21.1.jar",
+   "folder": "mods",
+   "size": 193619,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "bellsandwhistles",
+     "name": "Create: Bells & Whistles",
+     "version": "0.4.7-1.21.1",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.0.0-beta,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21,1.21.2)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "create",
+       "versionRange": "[6.0.2,6.1.0)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "nested": [],
+   "error": null
+  },
+  {
+   "file": "bits_n_bobs-0.0.44.jar",
+   "folder": "mods",
+   "size": 1613264,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "bits_n_bobs",
+     "name": "Create Bits 'n' Bobs",
+     "version": "0.0.44",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.186,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1]",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "nested": [],
+   "error": null
+  },
+  {
+   "file": "bookshelf-neoforge-1.21.1-21.1.81.jar",
+   "folder": "mods",
+   "size": 328813,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "bookshelf",
+     "name": "Bookshelf",
+     "version": "21.1.81",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.209,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1, 1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "nested": [],
+   "error": null
+  },
+  {
+   "file": "brick_and_mortar-neoforge-1.21.1-1.1.0.jar",
+   "folder": "mods",
+   "size": 1658586,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "brick_and_mortar",
+     "name": "Brick and Mortar",
+     "version": "1.1.0",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.181,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1, 1.21.2)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "nested": [],
+   "error": null
+  },
+  {
+   "file": "c2me-neoforge-mc1.21.1-0.3.0+alpha.0.93.jar",
+   "folder": "mods",
+   "size": 4510749,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "c2me",
+     "name": "Concurrent Chunk Management Engine",
+     "version": "0.3.0+alpha.0.93+1.21.1",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.21.2)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "nested": [
+    {
+     "format": "NEOFORGE",
+     "id": "c2me_base",
+     "name": "Concurrent Chunk Management Engine (Base)",
+     "version": "0.3.0+alpha.0.93+1.21.1",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "minecraft",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "c2me_client_uncapvd",
+     "name": "Concurrent Chunk Management Engine (Client/Uncap View Distance)",
+     "version": "0.3.0+alpha.0.93+1.21.1",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "minecraft",
+       "versionRange": "*",
+       "required": true,
+       "side": "CLIENT"
+      },
+      {
+       "id": "c2me_base",
+       "versionRange": "*",
+       "required": true,
+       "side": "CLIENT"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "c2me_fixes_chunkio_threading_issues",
+     "name": "Concurrent Chunk Management Engine (Fixes/Chunk IO/Threading Issues)",
+     "version": "0.3.0+alpha.0.93+1.21.1",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "minecraft",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "c2me_base",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "c2me_fixes_general_threading_issues",
+     "name": "Concurrent Chunk Management Engine (Fixes/General/Threading Issues)",
+     "version": "0.3.0+alpha.0.93+1.21.1",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "minecraft",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "c2me_base",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "c2me_fixes_worldgen_threading_issues",
+     "name": "Concurrent Chunk Management Engine (Fixes/WorldGen/Threading Issues)",
+     "version": "0.3.0+alpha.0.93+1.21.1",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "minecraft",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "c2me_base",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "c2me_fixes_general_threading_issues",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "c2me_fixes_worldgen_vanilla_bugs",
+     "name": "Concurrent Chunk Management Engine (Fixes/WorldGen/Vanilla Bugs)",
+     "version": "0.3.0+alpha.0.93+1.21.1",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "minecraft",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "c2me_base",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "c2me_notickvd",
+     "name": "Concurrent Chunk Management Engine (No Tick View Distance)",
+     "version": "0.3.0+alpha.0.93+1.21.1",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "minecraft",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "c2me_base",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "c2me_opts_allocs",
+     "name": "Concurrent Chunk Management Engine (Optimizations/Memory Allocations)",
+     "version": "0.3.0+alpha.0.93+1.21.1",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "minecraft",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "c2me_base",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "c2me_opts_chunkio",
+     "name": "Concurrent Chunk Management Engine (Optimizations/Chunk IO)",
+     "version": "0.3.0+alpha.0.93+1.21.1",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "minecraft",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "c2me_base",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "c2me_opts_dfc",
+     "name": "Concurrent Chunk Management Engine (Optimizations/Density Function Compiler)",
+     "version": "0.3.0+alpha.0.93+1.21.1",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "minecraft",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "c2me_base",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "c2me_opts_math",
+     "name": "Concurrent Chunk Management Engine (Optimizations/Math)",
+     "version": "0.3.0+alpha.0.93+1.21.1",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "minecraft",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "c2me_base",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "c2me_opts_natives_math",
+     "name": "Concurrent Chunk Management Engine (Optimizations/Natives Math)",
+     "version": "0.3.0+alpha.0.93+1.21.1",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "minecraft",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "c2me_base",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "c2me_opts_scheduling",
+     "name": "Concurrent Chunk Management Engine (Optimizations/Scheduling)",
+     "version": "0.3.0+alpha.0.93+1.21.1",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "minecraft",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "c2me_base",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "c2me_opts_worldgen_general",
+     "name": "Concurrent Chunk Management Engine (Optimizations/General WorldGen)",
+     "version": "0.3.0+alpha.0.93+1.21.1",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "minecraft",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "c2me_base",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "c2me_opts_worldgen_vanilla",
+     "name": "Concurrent Chunk Management Engine (Optimizations/Vanilla WorldGen)",
+     "version": "0.3.0+alpha.0.93+1.21.1",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "minecraft",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "c2me_base",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "c2me_opts_worldgen_general",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "c2me_rewrites_chunk_serializer",
+     "name": "Concurrent Chunk Management Engine (Rewrites/Chunk Serializer)",
+     "version": "0.3.0+alpha.0.93+1.21.1",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "minecraft",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "c2me_base",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "c2me_rewrites_chunk_system",
+     "name": "Concurrent Chunk Management Engine (Rewrites/Chunk System)",
+     "version": "0.3.0+alpha.0.93+1.21.1",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "minecraft",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "c2me_base",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "c2me_rewrites_chunkio",
+     "name": "Concurrent Chunk Management Engine (Rewrites/Chunk IO)",
+     "version": "0.3.0+alpha.0.93+1.21.1",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "minecraft",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "c2me_base",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "c2me_server_utils",
+     "name": "Concurrent Chunk Management Engine (Server Utils)",
+     "version": "0.3.0+alpha.0.93+1.21.1",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "minecraft",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "c2me_base",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "FABRIC",
+     "id": "c2me-threading-lighting",
+     "name": "Concurrent Chunk Management Engine (Threading/Lighting)",
+     "version": "${version}",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "minecraft",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabricloader",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "c2me-base",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "c2me-fixes-general-threading-issues",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "c2me_threading_lighting",
+     "name": "Concurrent Chunk Management Engine (Threading/Lighting)",
+     "version": "0.3.0+alpha.0.93+1.21.1",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "minecraft",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "c2me_base",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "error": null
+  },
+  {
+   "file": "carryon-neoforge-1.21.1-2.2.4.4.jar",
+   "folder": "mods",
+   "size": 357489,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "carryon",
+     "name": "Carry On",
+     "version": "2.2.4",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[4,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1, 1.21.2)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "nested": [],
+   "error": null
+  },
+  {
+   "file": "cerulean-neoforge-1.0.0-1.21.1.jar",
+   "folder": "mods",
+   "size": 340526,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "cerulean",
+     "name": "Cerulean",
+     "version": "1.0.0",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "txnilib",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "FORGE",
+     "id": "cerulean",
+     "name": "Cerulean",
+     "version": "1.0.0",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "txnilib",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "nested": [],
+   "error": null
+  },
+  {
+   "file": "cloth-config-15.0.140-neoforge.jar",
+   "folder": "mods",
+   "size": 1163890,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "cloth_config",
+     "name": "Cloth Config v15 API",
+     "version": "15.0.140",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.0.110-beta,)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "nested": [],
+   "error": null
+  },
+  {
+   "file": "connectiblechains-neoforge-1.21.1-2.1.0.jar",
+   "folder": "mods",
+   "size": 202954,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "connectiblechains",
+     "name": "Reconnectible Chains",
+     "version": "2.1.0",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.222,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1, 1.21.2)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "cloth_config",
+       "versionRange": "[15.0.140,)",
+       "required": true,
+       "side": "CLIENT"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "nested": [],
+   "error": null
+  },
+  {
+   "file": "connector-2.0.0-beta.14+1.21.1-full.jar",
+   "folder": "mods",
+   "size": 4526785,
+   "mods": [],
+   "nested": [
+    {
+     "format": "NEOFORGE",
+     "id": "connector",
+     "name": "Sinytra Connector",
+     "version": "2.0.0-beta.14+1.21.1",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.97,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "error": null
+  },
+  {
+   "file": "coroutil-neoforge-1.21.0-1.3.8.jar",
+   "folder": "mods",
+   "size": 63981,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "coroutil",
+     "name": "CoroUtil",
+     "version": "1.21.0-1.3.8",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.0.0-beta,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "nested": [],
+   "error": null
+  },
+  {
+   "file": "create-1.21.1-6.0.10.jar",
+   "folder": "mods",
+   "size": 19123767,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "create",
+     "name": "Create",
+     "version": "6.0.10",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.219,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1]",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "flywheel",
+       "versionRange": "[1.0.0,2.0)",
+       "required": true,
+       "side": "CLIENT"
+      },
+      {
+       "id": "ponder",
+       "versionRange": "[1.0.82,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "sodium",
+       "versionRange": "[0.6.9,)",
+       "required": false,
+       "side": "CLIENT"
+      },
+      {
+       "id": "lithium",
+       "versionRange": "[0.14.7,)",
+       "required": false,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "journeymap",
+       "versionRange": "[1.21.1-6.0.0-beta.46,)",
+       "required": false,
+       "side": "CLIENT"
+      },
+      {
+       "id": "xaeroworldmap",
+       "versionRange": "[1.40.2,)",
+       "required": false,
+       "side": "CLIENT"
+      }
+     ],
+     "breaks": [
+      {
+       "id": "radium",
+       "versionRange": null,
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "palladium",
+       "versionRange": null,
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "nested": [
+    {
+     "format": "NEOFORGE",
+     "id": "flywheel",
+     "name": "Flywheel",
+     "version": "1.0.6",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.21.2)",
+       "required": true,
+       "side": "CLIENT"
+      },
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.66,)",
+       "required": true,
+       "side": "CLIENT"
+      },
+      {
+       "id": "embeddium",
+       "versionRange": "[0.3.25,)",
+       "required": false,
+       "side": "CLIENT"
+      },
+      {
+       "id": "sodium",
+       "versionRange": "[0.6.0-beta.2,)",
+       "required": false,
+       "side": "CLIENT"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "ponder",
+     "name": "Ponder",
+     "version": "1.0.82+mc1.21.1",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.206,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1]",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "flywheel",
+       "versionRange": "[1.0.0,2.0)",
+       "required": true,
+       "side": "CLIENT"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "error": null
+  },
+  {
+   "file": "create-aeronautics-bundled-1.21.1-1.3.0.jar",
+   "folder": "mods",
+   "size": 33120013,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "aeronautics_bundled",
+     "name": "Create Aeronautics",
+     "version": "1.3.0",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.228,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1]",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "nested": [
+    {
+     "format": "NEOFORGE",
+     "id": "aeronautics",
+     "name": "Create Aeronautics",
+     "version": "1.3.0",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.228,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1]",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "create",
+       "versionRange": "[6.0.10,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "sable",
+       "versionRange": "[2.0.0,3.0.0)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "simulated",
+       "versionRange": "[1.3.0,)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "offroad",
+     "name": "Create Offroad",
+     "version": "1.3.0",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.228,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1]",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "create",
+       "versionRange": "[6.0.10,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "sable",
+       "versionRange": "[2.0.0,3.0.0)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "simulated",
+       "versionRange": "[1.3.0,)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "simulated",
+     "name": "Create Simulated",
+     "version": "1.3.0",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.228,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1]",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "create",
+       "versionRange": "[6.0.10,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "flywheel",
+       "versionRange": "[1.0.6,)",
+       "required": true,
+       "side": "CLIENT"
+      },
+      {
+       "id": "sable",
+       "versionRange": "[2.0.0,3.0.0)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "error": null
+  },
+  {
+   "file": "create-cardboarded-conveynience-1.21.1-neoforge-1.0.0.jar",
+   "folder": "mods",
+   "size": 189149,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "cardboarded_conveynience",
+     "name": "Create: Cardboarded Conveynience",
+     "version": "1.0.0",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "create",
+       "versionRange": "[6.0,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "architectury",
+       "versionRange": "[13.0,)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "nested": [],
+   "error": null
+  },
+  {
+   "file": "create-enchantment-industry-2.4.2.jar",
+   "folder": "mods",
+   "size": 1283517,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "create_enchantment_industry",
+     "name": "Create: Enchantment Industry",
+     "version": "2.4.2",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.0,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1, 1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "create",
+       "versionRange": "[6.0.10,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "create_dragons_plus",
+       "versionRange": "[1.11.1,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "apothic_enchanting",
+       "versionRange": "[1.5.3,)",
+       "required": false,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "apotheosis",
+       "versionRange": "[8.5.4,)",
+       "required": false,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "apothic_spawners",
+       "versionRange": "[1.3.4,)",
+       "required": false,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "sable",
+       "versionRange": "[1.2.2,)",
+       "required": false,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "touhou_little_maid",
+       "versionRange": "[1.2.0,)",
+       "required": false,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "nested": [
+    {
+     "format": "NEOFORGE",
+     "id": "conditional_mixin",
+     "name": "conditional mixin",
+     "version": "0.6.4",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[20.5,)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "error": null
+  },
+  {
+   "file": "create-extended-wrenches-1.21.1-2.0.2.jar",
+   "folder": "mods",
+   "size": 401219,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "extendedwrenches",
+     "name": "Extended Wrenches",
+     "version": "2.0.2",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.200,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1]",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "create",
+       "versionRange": "[6.0.4,6.1.0)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "everycomp",
+       "versionRange": "[1.21-2.11.2,)",
+       "required": false,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "nested": [],
+   "error": null
+  },
+  {
+   "file": "create-shufflefilter-2.1.0-neo.jar",
+   "folder": "mods",
+   "size": 222577,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "createshufflefilter",
+     "name": "Create Shuffle Filter",
+     "version": "2.1.0",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.219,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1]",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "create",
+       "versionRange": "[6.0.7,6.1.0)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "nested": [],
+   "error": null
+  },
+  {
+   "file": "create_factory-0.7a-1.21.1.jar",
+   "folder": "mods",
+   "size": 211171,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "create_factory",
+     "name": "Create: Factory",
+     "version": "0.7a-1.21.1",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.228,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1]",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "create",
+       "versionRange": "[6.0.8,6.1.0)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "create_confectionery",
+       "versionRange": null,
+       "required": false,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "ecologics",
+       "versionRange": null,
+       "required": false,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "nested": [],
+   "error": null
+  },
+  {
+   "file": "create_pattern_schematics-2.0.10.jar",
+   "folder": "mods",
+   "size": 221764,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "create_pattern_schematics",
+     "name": "Create: Pattern Schematics",
+     "version": "2.0.10",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.0.0,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1]",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "create",
+       "versionRange": "[6.0.1,6.1.0)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "nested": [],
+   "error": null
+  },
+  {
+   "file": "createbigcannons-5.11.6+mc.1.21.1.jar",
+   "folder": "mods",
+   "size": 3767934,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "createbigcannons",
+     "name": "Create Big Cannons",
+     "version": "5.11.6",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "21.1.225",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1]",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "create",
+       "versionRange": "[6.0.7,6.1.0)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "ritchiesprojectilelib",
+       "versionRange": "[2.1.2,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "copycats",
+       "versionRange": "[3.0.0,)",
+       "required": false,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "framedblocks",
+       "versionRange": "[10.0.0,)",
+       "required": false,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "curios",
+       "versionRange": "[9.2.0,)",
+       "required": false,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "sable",
+       "versionRange": "[1.2.0,)",
+       "required": false,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "simulated",
+       "versionRange": "[1.2.0,)",
+       "required": false,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "aeronautics",
+       "versionRange": "[1.2.0,)",
+       "required": false,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "offroad",
+       "versionRange": "[1.2.0,)",
+       "required": false,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "nested": [],
+   "error": null
+  },
+  {
+   "file": "createframed-1.21.1-1.7.3.jar",
+   "folder": "mods",
+   "size": 1661342,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "createframed",
+     "name": "Create: Framed",
+     "version": "1.7.3",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.213,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1]",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "create",
+       "versionRange": "[6.0.9,)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "nested": [],
+   "error": null
+  },
+  {
+   "file": "createprism-1.2.2.jar",
+   "folder": "mods",
+   "size": 1287223,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "createprism",
+     "name": "Create: Prismatic Shine",
+     "version": "1.2.2",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.0,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1, 1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "create",
+       "versionRange": "[6.0.4,)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "nested": [],
+   "error": null
+  },
+  {
+   "file": "distractingtrims-neoforge-1.21.1-21.1.1.jar",
+   "folder": "mods",
+   "size": 16730,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "distractingtrims",
+     "name": "DistractingTrims",
+     "version": "21.1.1",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.61,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1, 1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "bookshelf",
+       "versionRange": "[21.1, 21.2)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "prickle",
+       "versionRange": "[21.1, 21.2)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "nested": [],
+   "error": null
+  },
+  {
+   "file": "e4mc-neoforge-6.1.2.jar",
+   "folder": "mods",
+   "size": 664019,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "e4mc",
+     "name": "e4mc",
+     "version": "6.1.2",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.18,)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "FORGE",
+     "id": "e4mc",
+     "name": "e4mc",
+     "version": "6.1.2",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.18,)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "nested": [],
+   "error": null
+  },
+  {
+   "file": "ecologics-1.21.1-2.3.6.jar",
+   "folder": "mods",
+   "size": 1886895,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "ecologics",
+     "name": "Ecologics",
+     "version": "2.3.6",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.83,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "nested": [],
+   "error": null
+  },
+  {
+   "file": "emi-1.1.24+1.21.1+neoforge.jar",
+   "folder": "mods",
+   "size": 1111538,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "emi",
+     "name": "EMI",
+     "version": "1.1.24+1.21.1+neoforge",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[20.4.72-beta,)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "nested": [],
+   "error": null
+  },
+  {
+   "file": "emi_loot-0.7.9+1.21+neoforge.jar",
+   "folder": "mods",
+   "size": 465870,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "emi_loot",
+     "name": "EMI Loot",
+     "version": "0.7.9+1.21+neoforge",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.0,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "emi",
+       "versionRange": "[1.0.0,)",
+       "required": true,
+       "side": "CLIENT"
+      },
+      {
+       "id": "fzzy_config",
+       "versionRange": "[0.4.1,)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "nested": [],
+   "error": null
+  },
+  {
+   "file": "ends_delight-2.6+neoforge.1.21.1.jar",
+   "folder": "mods",
+   "size": 258138,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "ends_delight",
+     "name": "End's Delight",
+     "version": "2.6+neoforge.1.21.1",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.219,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "farmersdelight",
+       "versionRange": "[1.3.1,)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "nested": [],
+   "error": null
+  },
+  {
+   "file": "fastpaintings-1.21-1.3.0-neoforge.jar",
+   "folder": "mods",
+   "size": 155810,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "fastpaintings",
+     "name": "Fast Paintings",
+     "version": "1.21-1.3.0",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[4,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "moonlight",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "nested": [],
+   "error": null
+  },
+  {
+   "file": "ferritecore-7.0.3-neoforge.jar",
+   "folder": "mods",
+   "size": 121559,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "ferritecore",
+     "name": "Ferrite Core",
+     "version": "7.0.3",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.218,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "nested": [],
+   "error": null
+  },
+  {
+   "file": "forgified-fabric-api-0.116.7+2.2.4+1.21.1.jar",
+   "folder": "mods",
+   "size": 5569793,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_api",
+     "name": "Forgified Fabric API",
+     "version": "0.116.7+2.2.4+1.21.1",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.169,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "forgified_fabric_api",
+     "name": "Forgified Fabric API (dummy)",
+     "version": "0.116.7+2.2.4+1.21.1",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.169,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "nested": [
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_api_base",
+     "name": "Forgified Fabric API Base",
+     "version": "0.4.42+d1308ded19",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.219,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_api_lookup_api_v1",
+     "name": "Forgified Fabric API Lookup API (v1)",
+     "version": "1.6.71+c290471319",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.219,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric_api_base",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric_lifecycle_events_v1",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_biome_api_v1",
+     "name": "Forgified Fabric Biome API (v1)",
+     "version": "13.0.31+1e62d33c19",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.219,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_block_api_v1",
+     "name": "Forgified Fabric Block API (v1)",
+     "version": "1.1.0+b0c22bb819",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.219,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_block_view_api_v2",
+     "name": "Forgified Fabric BlockView API (v2)",
+     "version": "1.0.11+e9036fd419",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.219,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_blockrenderlayer_v1",
+     "name": "Forgified Fabric BlockRenderLayer Registration (v1)",
+     "version": "1.1.52+c290471319",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.219,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric_api_base",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_client_tags_api_v1",
+     "name": "Forgified Fabric Client Tags",
+     "version": "1.1.15+e053909619",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.219,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_command_api_v2",
+     "name": "Forgified Fabric Command API (v2)",
+     "version": "2.2.28+36d727be19",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.219,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric_api_base",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_content_registries_v0",
+     "name": "Forgified Fabric Content Registries (v0)",
+     "version": "8.0.19+5e0d320019",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.219,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric_api_base",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric_lifecycle_events_v1",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric_resource_loader_v0",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_convention_tags_v1",
+     "name": "Forgified Fabric Convention Tags",
+     "version": "2.1.5+7f945d5b19",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.219,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_convention_tags_v2",
+     "name": "Forgified Fabric Convention Tags (v2)",
+     "version": "2.11.1+87e5848019",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.219,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric_lifecycle_events_v1",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_data_attachment_api_v1",
+     "name": "Forgified Fabric Data Attachment API (v1)",
+     "version": "1.4.5+26d408aa19",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.219,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric_entity_events_v1",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric_object_builder_api_v1",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric_networking_api_v1",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_data_generation_api_v1",
+     "name": "Forgified Fabric Data Generation API (v1)",
+     "version": "20.2.34+a4c3605619",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.219,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_entity_events_v1",
+     "name": "Forgified Fabric Entity Events (v1)",
+     "version": "1.8.0+5ede667619",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.219,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_events_interaction_v0",
+     "name": "Forgified Fabric Events Interaction (v0)",
+     "version": "0.7.13+86e0887119",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.219,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric_api_base",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_game_rule_api_v1",
+     "name": "Forgified Fabric Game Rule API (v1)",
+     "version": "1.0.53+36d727be19",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.219,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_gametest_api_v1",
+     "name": "Forgified Fabric Game Test API (v1)",
+     "version": "2.0.5+29f188ce19",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.219,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric_resource_loader_v0",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_item_api_v1",
+     "name": "Forgified Fabric Item API (v1)",
+     "version": "11.2.0+0c57911319",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.219,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric_api_base",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_item_group_api_v1",
+     "name": "Forgified Fabric Item Group API (v1)",
+     "version": "4.1.7+e324903319",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.219,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric_api_base",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric_resource_loader_v0",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_key_binding_api_v1",
+     "name": "Forgified Fabric Key Binding API (v1)",
+     "version": "1.0.47+62cc7ce119",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.219,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_lifecycle_events_v1",
+     "name": "Forgified Fabric Lifecycle Events (v1)",
+     "version": "2.6.0+e40d8add19",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.219,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric_api_base",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_loot_api_v2",
+     "name": "Forgified Fabric Loot API (v2)",
+     "version": "3.0.15+a3ee712d19",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.219,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric_api_base",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric_resource_loader_v0",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_loot_api_v3",
+     "name": "Forgified Fabric Loot API (v3)",
+     "version": "1.0.3+333dfad919",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.219,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric_api_base",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric_resource_loader_v0",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_message_api_v1",
+     "name": "Forgified Fabric Message API (v1)",
+     "version": "6.0.14+6a754fce19",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.219,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric_api_base",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_model_loading_api_v1",
+     "name": "Forgified Fabric Model Loading API (v1)",
+     "version": "2.1.0+6e8f52c719",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.219,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric_api_base",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_networking_api_v1",
+     "name": "Forgified Fabric Networking API (v1)",
+     "version": "4.3.0+30a980d919",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.219,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric_api_base",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_object_builder_api_v1",
+     "name": "Forgified Fabric Object Builder API (v1)",
+     "version": "15.2.1+cc242efd19",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.219,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric_api_base",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_particles_v1",
+     "name": "Forgified Fabric Particles (v1)",
+     "version": "4.0.2+824f924c19",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.219,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_recipe_api_v1",
+     "name": "Forgified Fabric Recipe API (v1)",
+     "version": "5.0.15+59440bcc19",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.219,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_registry_sync_v0",
+     "name": "Forgified Fabric Registry Sync (v0)",
+     "version": "5.3.1+f9aace1619",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.219,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric_api_base",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_renderer_api_v1",
+     "name": "Forgified Fabric Renderer API (v1)",
+     "version": "3.4.1+9125b6dc19",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.219,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric_api_base",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_renderer_indigo",
+     "name": "Forgified Fabric Renderer - Indigo",
+     "version": "1.7.1+9125b6dc19",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.219,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric_api_base",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric_renderer_api_v1",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_rendering_data_attachment_v1",
+     "name": "Forgified Fabric Rendering Data Attachment (v1)",
+     "version": "0.3.49+73761d2e19",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.219,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric_block_view_api_v2",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_rendering_fluids_v1",
+     "name": "Forgified Fabric Rendering Fluids (v1)",
+     "version": "3.1.6+a51883b219",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.219,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric_api_base",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_rendering_v1",
+     "name": "Forgified Fabric Rendering (v1)",
+     "version": "5.1.0+1a09bd5a19",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.219,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric_api_base",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_resource_conditions_api_v1",
+     "name": "Forgified Fabric Resource Conditions API (v1)",
+     "version": "4.3.0+5bdd099819",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.219,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_resource_loader_v0",
+     "name": "Forgified Fabric Resource Loader (v0)",
+     "version": "1.3.1+4ea8954419",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.219,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_screen_api_v1",
+     "name": "Forgified Fabric Screen API (v1)",
+     "version": "2.0.25+0ae1214819",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.219,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric_api_base",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_screen_handler_api_v1",
+     "name": "Forgified Fabric Screen Handler API (v1)",
+     "version": "1.3.90+8dbc56dd19",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.219,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric_api_base",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_sound_api_v1",
+     "name": "Forgified Fabric Sound API (v1)",
+     "version": "1.0.23+10b84f8419",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.219,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_transfer_api_v1",
+     "name": "Forgified Fabric Transfer API (v1)",
+     "version": "5.4.3+a25cb45619",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.219,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric_api_lookup_api_v1",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric_rendering_fluids_v1",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_transitive_access_wideners_v1",
+     "name": "Forgified Fabric Transitive Access Wideners (v1)",
+     "version": "6.2.0+6c854b6f19",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.219,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "error": null
+  },
+  {
+   "file": "fzzy_config-0.7.6+1.21+neoforge.jar",
+   "folder": "mods",
+   "size": 2369895,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "fzzy_config",
+     "name": "Fzzy Config",
+     "version": "0.7.6+1.21+neoforge",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.0.0-beta,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "kotlinforforge",
+       "versionRange": "[5.3.0,)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "nested": [],
+   "error": null
+  },
+  {
+   "file": "gml-6.0.2.jar",
+   "folder": "mods",
+   "size": 10981280,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "gml",
+     "name": "GroovyModLoader",
+     "version": "6.0.2",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.0.14-beta,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.0,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "commongroovylibrary",
+       "versionRange": "[0.5.1,)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "nested": [
+    {
+     "format": "NEOFORGE",
+     "id": "commongroovylibrary",
+     "name": "CommonGroovyLibrary",
+     "version": "0.5.1",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "neoforge",
+       "versionRange": "[21.0.14-beta,)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "FABRIC",
+     "id": "groovybundler",
+     "name": "GroovyBundler",
+     "version": "2.1.7",
+     "environment": "UNKNOWN",
+     "dependencies": [],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "FABRIC",
+     "id": "org_apache_groovy_groovy",
+     "name": "groovy",
+     "version": "4.0.24",
+     "environment": "UNKNOWN",
+     "dependencies": [],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "FABRIC",
+     "id": "dev_lukebemish_opensesame_opensesame-core",
+     "name": "opensesame-core",
+     "version": "0.5.13",
+     "environment": "UNKNOWN",
+     "dependencies": [],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "FABRIC",
+     "id": "dev_lukebemish_opensesame_opensesame-groovy",
+     "name": "opensesame-groovy",
+     "version": "0.5.13",
+     "environment": "UNKNOWN",
+     "dependencies": [],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "FABRIC",
+     "id": "org_apache_groovy_groovy-datetime",
+     "name": "groovy-datetime",
+     "version": "4.0.24",
+     "environment": "UNKNOWN",
+     "dependencies": [],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "FABRIC",
+     "id": "org_apache_groovy_groovy-macro",
+     "name": "groovy-macro",
+     "version": "4.0.24",
+     "environment": "UNKNOWN",
+     "dependencies": [],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "FABRIC",
+     "id": "org_apache_groovy_groovy-xml",
+     "name": "groovy-xml",
+     "version": "4.0.24",
+     "environment": "UNKNOWN",
+     "dependencies": [],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "FABRIC",
+     "id": "org_apache_groovy_groovy-ginq",
+     "name": "groovy-ginq",
+     "version": "4.0.24",
+     "environment": "UNKNOWN",
+     "dependencies": [],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "FABRIC",
+     "id": "dev_lukebemish_opensesame_opensesame-compile",
+     "name": "opensesame-compile",
+     "version": "0.5.13",
+     "environment": "UNKNOWN",
+     "dependencies": [],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "FABRIC",
+     "id": "org_apache_groovy_groovy-typecheckers",
+     "name": "groovy-typecheckers",
+     "version": "4.0.24",
+     "environment": "UNKNOWN",
+     "dependencies": [],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "FABRIC",
+     "id": "com_fasterxml_jackson_dataformat_jackson-dataformat-toml",
+     "name": "jackson-dataformat-toml",
+     "version": "2.18.1",
+     "environment": "UNKNOWN",
+     "dependencies": [],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "FABRIC",
+     "id": "com_fasterxml_jackson_core_jackson-core",
+     "name": "jackson-core",
+     "version": "2.18.1",
+     "environment": "UNKNOWN",
+     "dependencies": [],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "FABRIC",
+     "id": "org_apache_groovy_groovy-toml",
+     "name": "groovy-toml",
+     "version": "4.0.24",
+     "environment": "UNKNOWN",
+     "dependencies": [],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "FABRIC",
+     "id": "com_fasterxml_jackson_core_jackson-annotations",
+     "name": "jackson-annotations",
+     "version": "2.18.1",
+     "environment": "UNKNOWN",
+     "dependencies": [],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "FABRIC",
+     "id": "org_apache_groovy_groovy-templates",
+     "name": "groovy-templates",
+     "version": "4.0.24",
+     "environment": "UNKNOWN",
+     "dependencies": [],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "FABRIC",
+     "id": "org_apache_groovy_groovy-macro-library",
+     "name": "groovy-macro-library",
+     "version": "4.0.24",
+     "environment": "UNKNOWN",
+     "dependencies": [],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "FABRIC",
+     "id": "com_fasterxml_jackson_core_jackson-databind",
+     "name": "jackson-databind",
+     "version": "2.18.1",
+     "environment": "UNKNOWN",
+     "dependencies": [],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "FABRIC",
+     "id": "org_apache_groovy_groovy-contracts",
+     "name": "groovy-contracts",
+     "version": "4.0.24",
+     "environment": "UNKNOWN",
+     "dependencies": [],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "FABRIC",
+     "id": "org_apache_groovy_groovy-nio",
+     "name": "groovy-nio",
+     "version": "4.0.24",
+     "environment": "UNKNOWN",
+     "dependencies": [],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "FABRIC",
+     "id": "org_apache_groovy_groovy-dateutil",
+     "name": "groovy-dateutil",
+     "version": "4.0.24",
+     "environment": "UNKNOWN",
+     "dependencies": [],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "FABRIC",
+     "id": "org_apache_groovy_groovy-json",
+     "name": "groovy-json",
+     "version": "4.0.24",
+     "environment": "UNKNOWN",
+     "dependencies": [],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "error": null
+  },
+  {
+   "file": "iChunUtil-1.21-NeoForge-1.0.3.jar",
+   "folder": "mods",
+   "size": 688343,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "ichunutil",
+     "name": "iChunUtil",
+     "version": "1.0.3",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.0,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "nested": [],
+   "error": null
+  },
+  {
+   "file": "konkrete_neoforge_1.9.9_MC_1.21.jar",
+   "folder": "mods",
+   "size": 618842,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "konkrete",
+     "name": "Konkrete",
+     "version": "1.9.9",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.0.20-beta,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21,)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "nested": [],
+   "error": null
+  },
+  {
+   "file": "kotlinforforge-5.11.0-all.jar",
+   "folder": "mods",
+   "size": 6869790,
+   "mods": [],
+   "nested": [
+    {
+     "format": "NEOFORGE",
+     "id": "kotlinforforge",
+     "name": "Kotlin For Forge",
+     "version": "5.11.0",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "minecraft",
+       "versionRange": "[1.20.6,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "FORGE",
+     "id": "kotlinforforge",
+     "name": "Kotlin For Forge",
+     "version": "5.11.0",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "minecraft",
+       "versionRange": "[1.20.6,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "error": null
+  },
+  {
+   "file": "lithium-neoforge-0.15.3+mc1.21.1.jar",
+   "folder": "mods",
+   "size": 774148,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "lithium",
+     "name": "Lithium",
+     "version": "0.15.3+mc1.21.1",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21, 1.21.1]",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "nested": [],
+   "error": null
+  },
+  {
+   "file": "lodestone-1.21.1-1.8.2.jar",
+   "folder": "mods",
+   "size": 818829,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "lodestone",
+     "name": "Lodestone",
+     "version": "1.8.2",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.0.0-beta,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21,1.21.1)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "nested": [],
+   "error": null
+  },
+  {
+   "file": "lootr-neoforge-1.21.1-1.11.37.120.jar",
+   "folder": "mods",
+   "size": 976023,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "lootr",
+     "name": "Lootr",
+     "version": "1.21.1-1.11.37.120",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "minecraft",
+       "versionRange": "1.21.1",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.195,)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "nested": [],
+   "error": null
+  },
+  {
+   "file": "map_atlases-neoforge-1.21-6.6.0.jar",
+   "folder": "mods",
+   "size": 670463,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "map_atlases",
+     "name": "Map Atlases",
+     "version": "1.21-6.6.0",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1]",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "moonlight",
+       "versionRange": "[1.21-2.29.17,)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "nested": [],
+   "error": null
+  },
+  {
+   "file": "minersdelight-1.21.1-1.4.5.jar",
+   "folder": "mods",
+   "size": 390203,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "minersdelight",
+     "name": "Miners Delight",
+     "version": "1.4.5",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.0.0-beta,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21,1.21.1)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "lodestone",
+       "versionRange": "[1.7.0,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "farmersdelight",
+       "versionRange": "[1.3,)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "nested": [],
+   "error": null
+  },
+  {
+   "file": "modernfix-neoforge-5.27.12+mc1.21.1.jar",
+   "folder": "mods",
+   "size": 589533,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "modernfix",
+     "name": "ModernFix",
+     "version": "5.27.12+mc1.21.1",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.0.111-beta,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21, 1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "jei",
+       "versionRange": "[15.8.0.11,)",
+       "required": false,
+       "side": "CLIENT"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "nested": [],
+   "error": null
+  },
+  {
+   "file": "moonlight-neoforge-1.21.1-3.0.17.jar",
+   "folder": "mods",
+   "size": 1589156,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "moonlight",
+     "name": "Moonlight Lib",
+     "version": "1.21.1-3.0.17",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1]",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "nested": [],
+   "error": null
+  },
+  {
+   "file": "more_sounds-1.21.x-0.3.0-beta.jar",
+   "folder": "mods",
+   "size": 697823,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "more_sounds",
+     "name": "More Sounds",
+     "version": "1.21.x-0.3.0-beta",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.0,)",
+       "required": false,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "forge",
+       "versionRange": "[52,)",
+       "required": false,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "sounds",
+       "versionRange": "any",
+       "required": true,
+       "side": "CLIENT"
+      },
+      {
+       "id": "sophisticatedcore",
+       "versionRange": "any",
+       "required": false,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "jei",
+       "versionRange": "any",
+       "required": false,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "ae2",
+       "versionRange": "any",
+       "required": false,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "nested": [],
+   "error": null
+  },
+  {
+   "file": "mru-1.0.19+LTS+1.21.1+neoforge.jar",
+   "folder": "mods",
+   "size": 243953,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "mru",
+     "name": "M.R.U",
+     "version": "1.0.19+LTS+1.21.1+neoforge",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[2,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21, 1.21.1]",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "nested": [],
+   "error": null
+  },
+  {
+   "file": "neobeefix-1.21.1-2.0.1.jar",
+   "folder": "mods",
+   "size": 34003,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "neobeefix",
+     "name": "Neo Bee Fix",
+     "version": "2.0.1",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.233,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1]",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "nested": [],
+   "error": null
+  },
+  {
+   "file": "netherite_horse_armor-neoforge-1.21.1-2.0a.jar",
+   "folder": "mods",
+   "size": 19602,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "netherite_horse_armor",
+     "name": "Netherite Horse Armor",
+     "version": "1.21.1-2.0a",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21, 1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "nested": [],
+   "error": null
+  },
+  {
+   "file": "netherportalfix-neoforge-1.21.1-21.1.1.jar",
+   "folder": "mods",
+   "size": 211972,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "netherportalfix",
+     "name": "NetherPortalFix",
+     "version": "21.1.1",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21-beta,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "balm",
+       "versionRange": "[21.0.0,)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "nested": [],
+   "error": null
+  },
+  {
+   "file": "potionstacks-1.0.0.jar",
+   "folder": "mods",
+   "size": 6763,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "potionstacks",
+     "name": "Potion Stacks",
+     "version": "1.0.0",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.80,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1]",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "nested": [],
+   "error": null
+  },
+  {
+   "file": "prickle-neoforge-1.21.1-21.1.11.jar",
+   "folder": "mods",
+   "size": 84812,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "prickle",
+     "name": "PrickleMC",
+     "version": "21.1.11",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.61,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1, 1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "nested": [],
+   "error": null
+  },
+  {
+   "file": "quick-pack-neoforge-1.3.2+1.21.8.jar",
+   "folder": "mods",
+   "size": 11507,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "quick_pack",
+     "name": "quick-pack",
+     "version": "1.3.2",
+     "environment": "UNKNOWN",
+     "dependencies": [],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "nested": [],
+   "error": null
+  },
+  {
+   "file": "railways-0.2.1+neoforge-mc1.21.1.jar",
+   "folder": "mods",
+   "size": 12118736,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "railways",
+     "name": "Create: Steam 'n' Rails 1.21.1",
+     "version": "0.2.1+neoforge-mc1.21.1",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.233,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1]",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "create",
+       "versionRange": "[6.0.7,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "hexcasting",
+       "versionRange": "[0,)",
+       "required": false,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "voicechat",
+       "versionRange": "[0,)",
+       "required": false,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "nested": [],
+   "error": null
+  },
+  {
+   "file": "reliable_advancements-neoforge-1.21.1-4.0.0.jar",
+   "folder": "mods",
+   "size": 206554,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "reliable_advancements",
+     "name": "Reliable Advancements",
+     "version": "4.0.0",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.181,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1, 1.21.2)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "cloth_config",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "nested": [],
+   "error": null
+  },
+  {
+   "file": "resourcefulconfig-neoforge-1.21-3.0.11.jar",
+   "folder": "mods",
+   "size": 341009,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "resourcefulconfig",
+     "name": "Resourcefulconfig",
+     "version": "3.0.11",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[20.5,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.20.5,)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "nested": [],
+   "error": null
+  },
+  {
+   "file": "ritchiesprojectilelib-2.1.2+mc.1.21.1-neoforge.jar",
+   "folder": "mods",
+   "size": 76369,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "ritchiesprojectilelib",
+     "name": "Ritchie's Projectile Library",
+     "version": "2.1.2",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.206,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "1.21.1",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "nested": [],
+   "error": null
+  },
+  {
+   "file": "sable-neoforge-1.21.1-2.0.1.jar",
+   "folder": "mods",
+   "size": 12888110,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "sable",
+     "name": "Sable",
+     "version": "2.0.1",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.228,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1]",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "flywheel",
+       "versionRange": "[1.0.6,)",
+       "required": false,
+       "side": "CLIENT"
+      },
+      {
+       "id": "create",
+       "versionRange": "[6.0.10,6.1.0)",
+       "required": false,
+       "side": "CLIENT"
+      }
+     ],
+     "breaks": [
+      {
+       "id": "sablecompanion",
+       "versionRange": "(1.6.0,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "sodium",
+       "versionRange": "(,0.8.12-alpha.2+mc1.21.1)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "scalablelux",
+       "versionRange": null,
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "littletiles",
+       "versionRange": null,
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "nested": [
+    {
+     "format": "NEOFORGE",
+     "id": "sablecompanion",
+     "name": "Sable Companion",
+     "version": "1.6.0",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.80,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "veil",
+     "name": "Veil",
+     "version": "4.1.4",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.1,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.21.3]",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [
+      {
+       "id": "rubidium",
+       "versionRange": null,
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "embeddium",
+       "versionRange": null,
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "sodium",
+       "versionRange": "(,0.8.12-alpha.2+mc1.21.1)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "error": null
+  },
+  {
+   "file": "sablebeyond-neoforge-1.21.1-v0.4.1.jar",
+   "folder": "mods",
+   "size": 1253584,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "sable_beyond",
+     "name": "Sable Beyond",
+     "version": "0.4.1",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "sable",
+       "versionRange": "[0,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "create",
+       "versionRange": "[0,)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "nested": [
+    {
+     "format": "NEOFORGE",
+     "id": "cloth_config",
+     "name": "Cloth Config v15 API",
+     "version": "15.0.140",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.0.110-beta,)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "error": null
+  },
+  {
+   "file": "sablephysicscompat-1.3.0.jar",
+   "folder": "mods",
+   "size": 25334,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "sablephysicscompat",
+     "name": "Sable: Physics Compat",
+     "version": "1.3.0",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.227,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1]",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "sable",
+       "versionRange": "[0,)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "nested": [],
+   "error": null
+  },
+  {
+   "file": "scholar-neoforge-1.21.1-1.1.16.jar",
+   "folder": "mods",
+   "size": 723415,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "scholar",
+     "name": "Scholar",
+     "version": "1.1.16",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21,)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "nested": [],
+   "error": null
+  },
+  {
+   "file": "seamlesssleep-neoforge-1.21-2.5.3.jar",
+   "folder": "mods",
+   "size": 148048,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "seamlesssleep",
+     "name": "Seamless Sleep",
+     "version": "2.5.3",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.0.166,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21, 1.21.1)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "yet_another_config_lib_v3",
+       "versionRange": "[3.6.2,)",
+       "required": false,
+       "side": "CLIENT"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "nested": [],
+   "error": null
+  },
+  {
+   "file": "sliceanddice-forge-4.2.4.jar",
+   "folder": "mods",
+   "size": 406699,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "sliceanddice",
+     "name": "Create Slice & Dice",
+     "version": "4.2.4",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "kotlinforforge",
+       "versionRange": "[5.8,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "create",
+       "versionRange": "[6.0.9,7.0.0)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "create_enchantment_industry",
+       "versionRange": "[1.3.0,)",
+       "required": false,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "nested": [],
+   "error": null
+  },
+  {
+   "file": "smarterfarmers-1.21-2.2.4-neoforge.jar",
+   "folder": "mods",
+   "size": 65924,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "smarterfarmers",
+     "name": "Smarter Farmers",
+     "version": "1.21-2.2.4",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[4,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "moonlight",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "nested": [],
+   "error": null
+  },
+  {
+   "file": "sophisticatedbackpacks-1.21.1-3.25.63.1912.jar",
+   "folder": "mods",
+   "size": 1141190,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "sophisticatedbackpacks",
+     "name": "Sophisticated Backpacks",
+     "version": "3.25.63",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "sophisticatedcore",
+       "versionRange": "[1.4.55,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.0,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.21.2)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "nested": [],
+   "error": null
+  },
+  {
+   "file": "sophisticatedcore-1.21.1-1.4.58.2026.jar",
+   "folder": "mods",
+   "size": 1648596,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "sophisticatedcore",
+     "name": "Sophisticated Core",
+     "version": "1.4.58",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.0,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.21.2)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "nested": [],
+   "error": null
+  },
+  {
+   "file": "statuseffectbars-1.21.1-NeoForge-1.0.2.jar",
+   "folder": "mods",
+   "size": 25114,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "statuseffectbars",
+     "name": "Status Effect Bars",
+     "version": "1.0.2",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "nested": [],
+   "error": null
+  },
+  {
+   "file": "structure_layout_optimizer-neoforge-1.0.12.jar",
+   "folder": "mods",
+   "size": 61777,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "structure_layout_optimizer",
+     "name": "Structure Layout Optimizer",
+     "version": "1.0.12",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "resourcefulconfig",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "nested": [],
+   "error": null
+  },
+  {
+   "file": "supplementaries-neoforge-1.21.1-3.6.8.jar",
+   "folder": "mods",
+   "size": 13302516,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "supplementaries",
+     "name": "Supplementaries",
+     "version": "1.21.1-3.6.8",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "1.21.1",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "moonlight",
+       "versionRange": "[1.21-2.30.0,]",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "create",
+       "versionRange": "[6.0.0,]",
+       "required": false,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "amendments",
+       "versionRange": "[1.21-2.0.0,]",
+       "required": false,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "nested": [
+    {
+     "format": "FORGE",
+     "id": "mixinsquared",
+     "name": "MixinSquared",
+     "version": "0.3.3",
+     "environment": "UNKNOWN",
+     "dependencies": [],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "sablecompanion",
+     "name": "Sable Companion",
+     "version": "1.6.0",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.80,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "error": null
+  },
+  {
+   "file": "trashslot-neoforge-1.21.1-21.1.11.jar",
+   "folder": "mods",
+   "size": 77535,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "trashslot",
+     "name": "TrashSlot",
+     "version": "21.1.11",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21-beta,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "balm",
+       "versionRange": "[21.0.39,)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "nested": [],
+   "error": null
+  },
+  {
+   "file": "txnilib-neoforge-1.0.24-1.21.1.jar",
+   "folder": "mods",
+   "size": 6276522,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "txnilib",
+     "name": "TxniLib",
+     "version": "1.0.24",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "FORGE",
+     "id": "txnilib",
+     "name": "TxniLib",
+     "version": "1.0.24",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "nested": [
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_api",
+     "name": "Forgified Fabric API",
+     "version": "0.115.6+2.1.0+1.21.1",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.169,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_api_base",
+     "name": "Forgified Fabric API Base",
+     "version": "0.4.42+d1308ded19",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.169,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_api_lookup_api_v1",
+     "name": "Forgified Fabric API Lookup API (v1)",
+     "version": "1.6.70+c21168c319",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.169,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric_api_base",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric_lifecycle_events_v1",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_biome_api_v1",
+     "name": "Forgified Fabric Biome API (v1)",
+     "version": "13.0.31+1e62d33c19",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.169,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_block_api_v1",
+     "name": "Forgified Fabric Block API (v1)",
+     "version": "1.0.22+a6e994cd19",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.169,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_block_view_api_v2",
+     "name": "Forgified Fabric BlockView API (v2)",
+     "version": "1.0.11+e9036fd419",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.169,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_blockrenderlayer_v1",
+     "name": "Forgified Fabric BlockRenderLayer Registration (v1)",
+     "version": "1.1.52+b089b4bd19",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.169,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric_api_base",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_client_tags_api_v1",
+     "name": "Forgified Fabric Client Tags",
+     "version": "1.1.15+e053909619",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.169,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_command_api_v2",
+     "name": "Forgified Fabric Command API (v2)",
+     "version": "2.2.28+36d727be19",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.169,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric_api_base",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_content_registries_v0",
+     "name": "Forgified Fabric Content Registries (v0)",
+     "version": "8.0.18+0a0c14ff19",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.169,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric_api_base",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric_lifecycle_events_v1",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric_resource_loader_v0",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_convention_tags_v1",
+     "name": "Forgified Fabric Convention Tags",
+     "version": "2.1.4+7f945d5b19",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.169,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_convention_tags_v2",
+     "name": "Forgified Fabric Convention Tags (v2)",
+     "version": "2.11.0+87e5848019",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.169,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric_lifecycle_events_v1",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_data_attachment_api_v1",
+     "name": "Forgified Fabric Data Attachment API (v1)",
+     "version": "1.4.3+58235da019",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.169,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric_entity_events_v1",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric_object_builder_api_v1",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric_networking_api_v1",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_data_generation_api_v1",
+     "name": "Forgified Fabric Data Generation API (v1)",
+     "version": "20.2.28+2d91a6db19",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.169,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_entity_events_v1",
+     "name": "Forgified Fabric Entity Events (v1)",
+     "version": "1.7.0+1af6e62419",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.169,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_events_interaction_v0",
+     "name": "Forgified Fabric Events Interaction (v0)",
+     "version": "0.7.13+7b71cc1619",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.169,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric_api_base",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_game_rule_api_v1",
+     "name": "Forgified Fabric Game Rule API (v1)",
+     "version": "1.0.53+36d727be19",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.169,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_gametest_api_v1",
+     "name": "Forgified Fabric Game Test API (v1)",
+     "version": "2.0.5+29f188ce19",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.169,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric_resource_loader_v0",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_item_api_v1",
+     "name": "Forgified Fabric Item API (v1)",
+     "version": "11.1.1+57cdfa8219",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.169,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric_api_base",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_item_group_api_v1",
+     "name": "Forgified Fabric Item Group API (v1)",
+     "version": "4.1.7+e324903319",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.169,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric_api_base",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric_resource_loader_v0",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_key_binding_api_v1",
+     "name": "Forgified Fabric Key Binding API (v1)",
+     "version": "1.0.47+62cc7ce119",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.169,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_lifecycle_events_v1",
+     "name": "Forgified Fabric Lifecycle Events (v1)",
+     "version": "2.5.0+a2ee258a19",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.169,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric_api_base",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_loot_api_v2",
+     "name": "Forgified Fabric Loot API (v2)",
+     "version": "3.0.15+a3ee712d19",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.169,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric_api_base",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric_resource_loader_v0",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_loot_api_v3",
+     "name": "Forgified Fabric Loot API (v3)",
+     "version": "1.0.3+333dfad919",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.169,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric_api_base",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric_resource_loader_v0",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_message_api_v1",
+     "name": "Forgified Fabric Message API (v1)",
+     "version": "6.0.13+e053909619",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.169,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric_api_base",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_model_loading_api_v1",
+     "name": "Forgified Fabric Model Loading API (v1)",
+     "version": "2.0.0+986ae77219",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.169,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric_api_base",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_networking_api_v1",
+     "name": "Forgified Fabric Networking API (v1)",
+     "version": "4.3.0+4f690eb619",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.169,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric_api_base",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_object_builder_api_v1",
+     "name": "Forgified Fabric Object Builder API (v1)",
+     "version": "15.2.1+cc242efd19",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.169,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric_api_base",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_particles_v1",
+     "name": "Forgified Fabric Particles (v1)",
+     "version": "4.0.2+824f924c19",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.169,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_recipe_api_v1",
+     "name": "Forgified Fabric Recipe API (v1)",
+     "version": "5.0.14+59440bcc19",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.169,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_registry_sync_v0",
+     "name": "Forgified Fabric Registry Sync (v0)",
+     "version": "5.2.0+867470b919",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.169,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric_api_base",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_renderer_api_v1",
+     "name": "Forgified Fabric Renderer API (v1)",
+     "version": "3.4.0+9c40919e19",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.169,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric_api_base",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_renderer_indigo",
+     "name": "Forgified Fabric Renderer - Indigo",
+     "version": "1.7.0+4198af7119",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.169,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric_api_base",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric_renderer_api_v1",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_rendering_data_attachment_v1",
+     "name": "Forgified Fabric Rendering Data Attachment (v1)",
+     "version": "0.3.49+73761d2e19",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.169,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric_block_view_api_v2",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_rendering_fluids_v1",
+     "name": "Forgified Fabric Rendering Fluids (v1)",
+     "version": "3.1.6+857185bc19",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.169,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric_api_base",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_rendering_v1",
+     "name": "Forgified Fabric Rendering (v1)",
+     "version": "5.0.5+077ba95f19",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.169,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric_api_base",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_resource_conditions_api_v1",
+     "name": "Forgified Fabric Resource Conditions API (v1)",
+     "version": "4.3.0+5bdd099819",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.169,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_resource_loader_v0",
+     "name": "Forgified Fabric Resource Loader (v0)",
+     "version": "1.3.1+4ea8954419",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.169,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_screen_api_v1",
+     "name": "Forgified Fabric Screen API (v1)",
+     "version": "2.0.25+4228281319",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.169,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric_api_base",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_screen_handler_api_v1",
+     "name": "Forgified Fabric Screen Handler API (v1)",
+     "version": "1.3.88+8dbc56dd19",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.169,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric_api_base",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_sound_api_v1",
+     "name": "Forgified Fabric Sound API (v1)",
+     "version": "1.0.23+10b84f8419",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.169,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_transfer_api_v1",
+     "name": "Forgified Fabric Transfer API (v1)",
+     "version": "5.4.2+a25cb45619",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.169,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric_api_lookup_api_v1",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric_rendering_fluids_v1",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_transitive_access_wideners_v1",
+     "name": "Forgified Fabric Transitive Access Wideners (v1)",
+     "version": "6.2.0+6c854b6f19",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.169,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "error": null
+  },
+  {
+   "file": "voicechat-neoforge-1.21.1-2.6.18.jar",
+   "folder": "mods",
+   "size": 4902837,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "voicechat",
+     "name": "Simple Voice Chat",
+     "version": "1.21.1-2.6.18",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.0.0-beta,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21,1.21.1]",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "cloth_config",
+       "versionRange": "[15.0.127,)",
+       "required": false,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "voicechat_api",
+     "name": "Simple Voice Chat API",
+     "version": "2.6.13",
+     "environment": "UNKNOWN",
+     "dependencies": [],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "nested": [],
+   "error": null
+  },
+  {
+   "file": "yet_another_config_lib_v3-3.8.2+1.21.1-neoforge.jar",
+   "folder": "mods",
+   "size": 1118651,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "yet_another_config_lib_v3",
+     "name": "YetAnotherConfigLib",
+     "version": "3.8.2+1.21.1-neoforge",
+     "environment": "UNKNOWN",
+     "dependencies": [],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "nested": [],
+   "error": null
+  },
+  {
+   "file": "zfastnoise-1.0.11+2+1.21.1+neoforge.jar",
+   "folder": "mods",
+   "size": 27366,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "zfastnoise",
+     "name": "Fast Noise Mod",
+     "version": "1.0.11+2+1.21.1+neoforge",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.233,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.21.8]",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "c2me",
+       "versionRange": null,
+       "required": false,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "lithium",
+       "versionRange": null,
+       "required": false,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [
+      {
+       "id": "moonrise",
+       "versionRange": null,
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "nested": [],
+   "error": null
+  }
+ ]
+}

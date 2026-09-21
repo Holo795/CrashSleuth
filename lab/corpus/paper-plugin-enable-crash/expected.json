@@ -1,0 +1,7 @@
+{
+  "situation": "UNCAUGHT_EXCEPTION",
+  "culprit": "CrashSleuthFixture",
+  "logs": [
+    "latest.log"
+  ]
+}

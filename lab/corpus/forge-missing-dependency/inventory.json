@@ -1,0 +1,82 @@
+{
+ "platform": "FORGE",
+ "minecraftVersion": "1.20.1",
+ "loaderVersion": "47.4.23",
+ "side": "SERVER",
+ "jars": [
+  {
+   "file": "supplementaries-1.20-3.1.43-forge.jar",
+   "folder": "mods",
+   "size": 13667742,
+   "mods": [
+    {
+     "format": "FORGE",
+     "id": "supplementaries",
+     "name": "Supplementaries",
+     "version": "1.20-3.1.43",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "forge",
+       "versionRange": "[47.1,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.20.1,1.20.2)",
+       "required": true,
+       "side": "CLIENT"
+      },
+      {
+       "id": "moonlight",
+       "versionRange": "[1.20-2.16.26,]",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "quark",
+       "versionRange": "[1.19-3.4-404,]",
+       "required": false,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "create",
+       "versionRange": "[6.0.0,]",
+       "required": false,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "nested": [
+    {
+     "format": "FORGE",
+     "id": "mixinextras",
+     "name": "MixinExtras",
+     "version": "0.3.6",
+     "environment": "UNKNOWN",
+     "dependencies": [],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "FORGE",
+     "id": "mixinsquared",
+     "name": "MixinSquared",
+     "version": "0.1.1",
+     "environment": "UNKNOWN",
+     "dependencies": [],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "error": null
+  }
+ ]
+}

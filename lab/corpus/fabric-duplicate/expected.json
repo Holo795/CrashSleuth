@@ -1,0 +1,7 @@
+{
+  "situation": "DUPLICATE",
+  "culprit": "lithium",
+  "logs": [
+    "latest.log"
+  ]
+}

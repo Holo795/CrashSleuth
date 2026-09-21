@@ -1,0 +1,7 @@
+{
+  "situation": "WRONG_MC",
+  "culprit": "lithium",
+  "logs": [
+    "latest.log"
+  ]
+}

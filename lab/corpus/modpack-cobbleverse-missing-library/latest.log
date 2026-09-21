@@ -1,0 +1,27 @@
+[23:39:24] [main/INFO]: Loading Minecraft 1.21.1 with Fabric Loader 0.19.5
+[23:39:24] [main/INFO]: Fabric is preparing JARs on first launch, this may take a few seconds...
+[23:39:24] [ForkJoinPool-1-worker-2/WARN]: Mod nochatrestrictions uses the version Fabric-MC1.21.11-v1.0.0 which isn't compatible with Loader's extended semantic version format (Could not parse version number component 'Fabric'!), SemVer is recommended for reliably evaluating dependencies and prioritizing newer version
+[23:39:24] [ForkJoinPool-1-worker-3/WARN]: The mod "accessories_compat_layer" contains invalid entries in its mod json:
+- Unsupported root entry "#COMMENT_breaks" at line 53 column 20
+[23:39:24] [ForkJoinPool-1-worker-2/WARN]: Mod legendarymonuments uses the version Cobbleverse which isn't compatible with Loader's extended semantic version format (Could not parse version number component 'Cobbleverse'!), SemVer is recommended for reliably evaluating dependencies and prioritizing newer version
+[23:39:24] [ForkJoinPool-1-worker-4/WARN]: Mod com_github_rtyley_animated-gif-lib-for-java uses the version animated-gif-lib-1.7 which isn't compatible with Loader's extended semantic version format (Could not parse version number component 'animated'!), SemVer is recommended for reliably evaluating dependencies and prioritizing newer version
+[23:39:25] [main/WARN]: Mod resolution failed
+[23:39:25] [main/INFO]: Immediate reason: [HARD_DEP_NO_CANDIDATE cobblemonraiddens 0.11.3+1.21.1 {depends geckolib @ [>=4.7.0]}, ROOT_FORCELOAD_SINGLE cobblemonraiddens 0.11.3+1.21.1]
+[23:39:25] [main/INFO]: Reason: [HARD_DEP cobblemonraiddens 0.11.3+1.21.1 {depends geckolib @ [>=4.7.0]}, HARD_DEP pokeblocks 1.4.0-1.21.1 {depends geckolib @ [>=4.7.3]}, HARD_DEP c2me-opts-natives-math 0.4.0-alpha.0.23+1.21.1 {depends java @ [>=25]}]
+[23:39:25] [main/INFO]: SERVER environment disabled: [fabric-renderer-api-v1, entity_model_features, fabric-keybindings-v0, entity_texture_features, lumyrei, modmenu, betterbeds, mousetweaks, customsplashscreen, fabric-screen-api-v1, fabric-renderer-indigo, reeses-sodium-options, particlerain, brb, tooltipfix, fabric-rendering-v0, fabric-sound-api-v1, fabric-key-binding-api-v1, fabric-rendering-v1, controlling, searchables, paginatedadvancements, c2me-client-uncapvd, fabric-model-loading-api-v1, betterthirdperson, iris, resourcepackoverrides, moreculling, immediatelyfast, continuity, fabric-client-tags-api-v1, soundsbegone, fabric-blockrenderlayer-v1, sodium, betterf3, fabric-renderer-registries-v1, particle_core, catchindicator, infinite-music, catchrate-display, badoptimizations, betterf1, zoomify, libjf-config-ui-tiny, euphoria_patcher, musicnotification, advancementplaques]
+[23:39:25] [main/INFO]: Fix: add [add:geckolib 4.7.3 ([[4.7.3,∞)])], remove [], replace []
+[23:39:25] [main/ERROR]: Incompatible mods found!
+net.fabricmc.loader.impl.FormattedException: Some of your mods are incompatible with the game or each other!
+A potential solution has been determined, this may resolve your problem:
+	 - Install geckolib, version 4.7.3 or later.
+More details:
+	 - Mod 'Cobblemon Raid Dens' (cobblemonraiddens) 0.11.3+1.21.1 requires version 4.7.0 or later of geckolib, which is missing!
+	 - Mod 'Pokeblocks' (pokeblocks) 1.4.0-1.21.1 requires version 4.7.3 or later of geckolib, which is missing!
+	 - Mod 'Concurrent Chunk Management Engine (Optimizations/Natives Math)' (c2me-opts-natives-math) 0.4.0-alpha.0.23+1.21.1 requires version 25 or later of 'OpenJDK 64-Bit Server VM' (java), but only the wrong version is present: 21!
+	at net.fabricmc.loader.impl.FormattedException.ofLocalized(FormattedException.java:51) ~[fabric-loader-0.19.5.jar:?]
+	at net.fabricmc.loader.impl.FabricLoaderImpl.load(FabricLoaderImpl.java:202) ~[fabric-loader-0.19.5.jar:?]
+	at net.fabricmc.loader.impl.launch.knot.Knot.init(Knot.java:142) ~[fabric-loader-0.19.5.jar:?]
+	at net.fabricmc.loader.impl.launch.knot.Knot.launch(Knot.java:66) [fabric-loader-0.19.5.jar:?]
+	at net.fabricmc.loader.impl.launch.knot.KnotServer.main(KnotServer.java:23) [fabric-loader-0.19.5.jar:?]
+	at net.fabricmc.loader.impl.launch.server.FabricServerLauncher.main(FabricServerLauncher.java:69) [fabric-loader-0.19.5.jar:?]
+	at net.fabricmc.installer.ServerLauncher.main(ServerLauncher.java:69) [server.jar:1.1.2]

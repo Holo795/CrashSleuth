@@ -1,0 +1,5 @@
+name: CrashSleuthFixture
+version: 1.0.0
+main: dev.holo795.crashsleuth.fixture.FixturePlugin
+api-version: '1.21'
+description: Test plugin of the CrashSleuth lab. Misbehaves on purpose, as set in fixture-mode.txt.

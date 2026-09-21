@@ -27,6 +27,7 @@ import sys
 import time
 import urllib.parse
 import urllib.request
+import zipfile
 from dataclasses import dataclass, field
 from pathlib import Path
 
@@ -112,13 +113,14 @@ def forge_installer(minecraft: str) -> tuple[Path, str]:
 
 # ---------------------------------------------------------------------------------------- Modrinth
 
-def modrinth_version(slug: str, loader: str, minecraft: str) -> dict:
+def modrinth_version(slug: str, loader: str, minecraft: str, index: int = 0) -> dict:
+    """Latest release (or the index-th one) of a project for a loader and Minecraft version."""
     query = urllib.parse.urlencode({"loaders": json.dumps([loader]), "game_versions": json.dumps([minecraft])})
     versions = http_json(f"https://api.modrinth.com/v2/project/{slug}/version?{query}")
     if not versions:
         raise LookupError(f"{slug} has no {loader} build for {minecraft}")
     stable = [v for v in versions if v["version_type"] == "release"] or versions
-    return stable[0]
+    return stable[min(index, len(stable) - 1)]
 
 
 def modrinth_file(version: dict) -> Path:
@@ -147,6 +149,61 @@ def resolve_mods(slugs: list[str], loader: str, minecraft: str, skip: set[str]) 
     return resolved
 
 
+def install_modpack(slug: str, loader: str, minecraft: str, directory: Path, remove: list[str]) -> list[str]:
+    """Installs the server side of a Modrinth modpack; returns the names of the files removed on purpose."""
+    version = modrinth_version(slug, loader, minecraft)
+    archive = modrinth_file(version)
+    removed = []
+    with zipfile.ZipFile(archive) as pack:
+        index = json.loads(pack.read("modrinth.index.json"))
+        for file in index["files"]:
+            if file.get("env", {}).get("server") == "unsupported":
+                continue
+            name = Path(file["path"]).name
+            if any(token.lower() in name.lower() for token in remove):
+                removed.append(name)
+                continue
+            target = directory / file["path"]
+            target.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy(download(file["downloads"][0], name, file["hashes"].get("sha1")), target)
+        for member in pack.namelist():
+            for prefix in ("overrides/", "server-overrides/"):
+                if member.startswith(prefix) and not member.endswith("/"):
+                    target = directory / member[len(prefix):]
+                    target.parent.mkdir(parents=True, exist_ok=True)
+                    target.write_bytes(pack.read(member))
+    return removed
+
+
+def paper_api(minecraft: str) -> Path:
+    """Paper API jar for compiling the fixture plugin."""
+    base = f"https://repo.papermc.io/repository/maven-public/io/papermc/paper/paper-api/{minecraft}-R0.1-SNAPSHOT"
+    request = urllib.request.Request(f"{base}/maven-metadata.xml", headers={"User-Agent": USER_AGENT})
+    with urllib.request.urlopen(request, timeout=60) as response:
+        metadata = response.read().decode()
+    stamp = re.search(r"<timestamp>([^<]+)</timestamp>", metadata).group(1)
+    build = re.search(r"<buildNumber>([^<]+)</buildNumber>", metadata).group(1)
+    return download(f"{base}/paper-api-{minecraft}-R0.1-{stamp}-{build}.jar")
+
+
+def build_paper_fixture(minecraft: str) -> Path:
+    """Compiles lab/fixtures/paper into a plugin jar, in a Java container."""
+    output = CACHE / "fixtures" / f"CrashSleuthFixture-{minecraft}.jar"
+    if output.exists():
+        return output
+    work = CACHE / "fixtures" / f"build-{minecraft}"
+    shutil.rmtree(work, ignore_errors=True)
+    shutil.copytree(LAB_DIR / "fixtures" / "paper", work / "src-root")
+    shutil.copy(paper_api(minecraft), work / "paper-api.jar")
+    script = ("mkdir -p out && javac -nowarn -proc:none -d out -cp paper-api.jar $(find src-root/src -name '*.java') "
+              "&& cp src-root/plugin.yml out/ && cd out && jar cf ../fixture.jar .")
+    subprocess.run(["docker", "run", "--rm", "-v", f"{work}:/w", "-w", "/w", "eclipse-temurin:21-jdk", "sh", "-c", script],
+                   check=True, capture_output=True)
+    output.parent.mkdir(parents=True, exist_ok=True)
+    shutil.copy(work / "fixture.jar", output)
+    return output
+
+
 # ---------------------------------------------------------------------------------------- scenarios
 
 @dataclass
@@ -165,7 +222,11 @@ class Scenario:
     java: int
     mods: list[str] = field(default_factory=list)       # Modrinth slugs (mods or plugins)
     skip: list[str] = field(default_factory=list)       # dependencies deliberately left out
-    extra: list[dict] = field(default_factory=list)     # raw files from another loader: {"slug", "loader"}
+    extra: list[dict] = field(default_factory=list)     # {"slug", "loader", "minecraft"?, "index"?}: extra files as they are
+    modpack: str | None = None                          # Modrinth modpack slug, server side installed
+    remove: list[str] = field(default_factory=list)     # modpack files removed on purpose (name substrings)
+    fixture: str | None = None                          # fixture plugin mode (Paper): enable-npe, task-exception, main-thread-hang
+    after_ready: int = 0                                # seconds to keep the server running once it is ready
     memory: str = "2G"
     timeout: int = 420
     expect: Expectation | None = None                   # None: must start cleanly with no finding
@@ -217,8 +278,16 @@ def prepare(scenario: Scenario, directory: Path) -> list[str]:
                 shutil.copy(path, mods_dir / path.name)
     for item in scenario.extra:
         mods_dir.mkdir(exist_ok=True)
-        path = modrinth_file(modrinth_version(item["slug"], item["loader"], scenario.minecraft))
+        version = modrinth_version(item["slug"], item["loader"], item.get("minecraft", scenario.minecraft), item.get("index", 0))
+        path = modrinth_file(version)
         shutil.copy(path, mods_dir / path.name)
+    if scenario.modpack:
+        removed = install_modpack(scenario.modpack, loader, scenario.minecraft, directory, scenario.remove)
+        (directory / "removed-on-purpose.txt").write_text("\n".join(removed) + "\n")
+    if scenario.fixture:
+        mods_dir.mkdir(exist_ok=True)
+        shutil.copy(build_paper_fixture(scenario.minecraft), mods_dir / "CrashSleuthFixture-1.0.0.jar")
+        (directory / "fixture-mode.txt").write_text(scenario.fixture + "\n")
     return ["sh", "-c", command]
 
 
@@ -241,6 +310,10 @@ def run_server(scenario: Scenario, directory: Path, command: list[str]) -> tuple
         console = (directory / "console.log").read_text(errors="replace")
         if DONE.search(console):
             outcome = "ready"
+            # Some problems only show up once the server runs (plugin tasks, main thread blocked).
+            deadline = time.time() + scenario.after_ready
+            while time.time() < deadline and process.poll() is None:
+                time.sleep(2)
             break
         time.sleep(2)
     if process.poll() is None:
@@ -271,11 +344,18 @@ def pick_log(directory: Path) -> Path:
     return console
 
 
-def analyse(cli: str, log: Path) -> dict:
-    result = subprocess.run([cli, "analyze", str(log), "--json"], capture_output=True, text=True, timeout=120)
+def cli_json(cli: str, *arguments: str) -> dict:
+    result = subprocess.run([cli, *arguments], capture_output=True, text=True, timeout=180)
     if result.returncode != 0:
         raise RuntimeError(result.stderr or result.stdout)
     return json.loads(result.stdout)
+
+
+def analyse(cli: str, directory: Path, log: Path) -> tuple[dict, dict]:
+    """Diagnosis of the server folder (installed jars) with the chosen log, and the inventory itself."""
+    report = cli_json(cli, "analyze", str(directory), str(log), "--json")
+    inventory = cli_json(cli, "inventory", str(directory))
+    return report, inventory
 
 
 def verdict(scenario: Scenario, outcome: str, report: dict) -> tuple[bool, str]:
@@ -299,7 +379,8 @@ def verdict(scenario: Scenario, outcome: str, report: dict) -> tuple[bool, str]:
 
 
 def anonymise(text: str) -> str:
-    text = re.sub(r"\b\d{1,3}(?:\.\d{1,3}){3}\b", "0.0.0.0", text)
+    # IPv4 addresses only: versions such as jei-19.50.0.414 or 1.21.1.2 must survive.
+    text = re.sub(r"(?<=/)\d{1,3}(?:\.\d{1,3}){3}\b|\b\d{1,3}(?:\.\d{1,3}){3}(?=:\d)", "0.0.0.0", text)
     return text.replace(str(RUNS), "/srv")
 
 
@@ -315,20 +396,22 @@ def run(names: list[str], cli: str, keep: bool) -> int:
             command = prepare(scenario, directory)
             outcome, duration = run_server(scenario, directory, command)
             log = pick_log(directory)
-            report = analyse(cli, log)
+            report, inventory = analyse(cli, directory, log)
             ok, detail = verdict(scenario, outcome, report)
         except Exception as error:  # a broken scenario must not stop the others
-            ok, detail, duration, log = False, f"lab error: {error}", 0.0, None
+            ok, detail, duration, log, inventory = False, f"lab error: {error}", 0.0, None, None
         failures += 0 if ok else 1
         print(f"   {'PASS' if ok else 'FAIL'} ({duration:.0f} s) {detail}", flush=True)
         if log is not None:
             target = CORPUS / scenario.name
             target.mkdir(parents=True, exist_ok=True)
             (target / log.name).write_text(anonymise(log.read_text(errors="replace")))
+            if inventory is not None:
+                (target / "inventory.json").write_text(anonymise(json.dumps(inventory, indent=1)) + "\n")
             (target / "expected.json").write_text(json.dumps(
                 {"situation": scenario.expect.situation if scenario.expect else None,
                  "culprit": scenario.expect.culprit if scenario.expect else None,
-                 "log": log.name}, indent=2) + "\n")
+                 "logs": [log.name]}, indent=2) + "\n")
         if not keep:
             shutil.rmtree(directory, ignore_errors=True)
     print(f"\n{len(selected) - failures}/{len(selected)} scenarios passed")

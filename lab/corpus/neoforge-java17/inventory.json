@@ -1,0 +1,7 @@
+{
+ "platform": "NEOFORGE",
+ "minecraftVersion": "1.21.1",
+ "loaderVersion": "21.1.251",
+ "side": "SERVER",
+ "jars": []
+}

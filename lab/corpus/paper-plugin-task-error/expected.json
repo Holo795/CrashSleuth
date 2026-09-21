@@ -1,0 +1,7 @@
+{
+  "situation": "SILENT_ERROR",
+  "culprit": "CrashSleuthFixture",
+  "logs": [
+    "latest.log"
+  ]
+}

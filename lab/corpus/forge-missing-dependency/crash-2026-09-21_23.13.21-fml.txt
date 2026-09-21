@@ -1,7 +1,7 @@
 ---- Minecraft Crash Report ----
-// There are four lights!
+// I'm sorry, Dave.
 
-Time: 2026-09-21 22:17:17
+Time: 2026-09-21 23:13:21
 Description: Mod loading error has occurred
 
 java.lang.Exception: Mod Loading has failed
@@ -71,7 +71,7 @@ Details:
 	Operating System: Linux (amd64) version 6.1.0-53-cloud-amd64
 	Java Version: 17.0.20, Eclipse Adoptium
 	Java VM Version: OpenJDK 64-Bit Server VM (mixed mode, sharing), Eclipse Adoptium
-	Memory: 175240960 bytes (167 MiB) / 324009984 bytes (309 MiB) up to 2147483648 bytes (2048 MiB)
+	Memory: 79620096 bytes (75 MiB) / 268435456 bytes (256 MiB) up to 2147483648 bytes (2048 MiB)
 	CPUs: 4
 	Processor Vendor: GenuineIntel
 	Processor Name: Intel(R) Xeon(R) CPU E5-2470 v2 @ 2.40GHz
@@ -87,7 +87,7 @@ Details:
 	Graphics card #0 deviceId: unknown
 	Graphics card #0 versionInfo: unknown
 	Virtual memory max (MB): 3976.64
-	Virtual memory used (MB): 1100.53
+	Virtual memory used (MB): 1837.24
 	Swap memory total (MB): 0.00
 	Swap memory used (MB): 0.00
 	JVM Flags: 2 total; -Xms256M -Xmx2G

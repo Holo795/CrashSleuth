@@ -1,5 +1,7 @@
 {
   "situation": "CLIENT_ONLY_ON_SERVER",
   "culprit": "sodium",
-  "log": "console.log"
+  "logs": [
+    "console.log"
+  ]
 }

@@ -1,0 +1,555 @@
+{
+ "platform": "NEOFORGE",
+ "minecraftVersion": "1.21.1",
+ "loaderVersion": "21.1.251",
+ "side": "SERVER",
+ "jars": [
+  {
+   "file": "Cobblemon-neoforge-1.8.1+1.21.1.jar",
+   "folder": "mods",
+   "size": 139056524,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "cobblemon",
+     "name": "Cobblemon",
+     "version": "1.8.1+1.21.1",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1]",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "neoforge",
+       "versionRange": "[21,)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "nested": [],
+   "error": null
+  },
+  {
+   "file": "appliedenergistics2-19.2.17.jar",
+   "folder": "mods",
+   "size": 8230896,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "ae2",
+     "name": "Applied Energistics 2",
+     "version": "19.2.17",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.169,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1]",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "guideme",
+       "versionRange": "[21.1.1,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "emi",
+       "versionRange": null,
+       "required": false,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "theoneprobe",
+       "versionRange": "[1.20.0,)",
+       "required": false,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "jade",
+       "versionRange": "[15.0.0,)",
+       "required": false,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "nested": [],
+   "error": null
+  },
+  {
+   "file": "create-1.21.1-6.0.10.jar",
+   "folder": "mods",
+   "size": 19123767,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "create",
+     "name": "Create",
+     "version": "6.0.10",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.219,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1]",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "flywheel",
+       "versionRange": "[1.0.0,2.0)",
+       "required": true,
+       "side": "CLIENT"
+      },
+      {
+       "id": "ponder",
+       "versionRange": "[1.0.82,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "sodium",
+       "versionRange": "[0.6.9,)",
+       "required": false,
+       "side": "CLIENT"
+      },
+      {
+       "id": "lithium",
+       "versionRange": "[0.14.7,)",
+       "required": false,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "journeymap",
+       "versionRange": "[1.21.1-6.0.0-beta.46,)",
+       "required": false,
+       "side": "CLIENT"
+      },
+      {
+       "id": "xaeroworldmap",
+       "versionRange": "[1.40.2,)",
+       "required": false,
+       "side": "CLIENT"
+      }
+     ],
+     "breaks": [
+      {
+       "id": "radium",
+       "versionRange": null,
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "palladium",
+       "versionRange": null,
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "nested": [
+    {
+     "format": "NEOFORGE",
+     "id": "flywheel",
+     "name": "Flywheel",
+     "version": "1.0.6",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.21.2)",
+       "required": true,
+       "side": "CLIENT"
+      },
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.66,)",
+       "required": true,
+       "side": "CLIENT"
+      },
+      {
+       "id": "embeddium",
+       "versionRange": "[0.3.25,)",
+       "required": false,
+       "side": "CLIENT"
+      },
+      {
+       "id": "sodium",
+       "versionRange": "[0.6.0-beta.2,)",
+       "required": false,
+       "side": "CLIENT"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "ponder",
+     "name": "Ponder",
+     "version": "1.0.82+mc1.21.1",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.206,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1]",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "flywheel",
+       "versionRange": "[1.0.0,2.0)",
+       "required": true,
+       "side": "CLIENT"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "error": null
+  },
+  {
+   "file": "guideme-21.1.19.jar",
+   "folder": "mods",
+   "size": 9311992,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "guideme",
+     "name": "GuideME",
+     "version": "21.1.19",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.1,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1]",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "nested": [],
+   "error": null
+  },
+  {
+   "file": "kotlinforforge-5.12.0-all.jar",
+   "folder": "mods",
+   "size": 7279264,
+   "mods": [],
+   "nested": [
+    {
+     "format": "NEOFORGE",
+     "id": "kotlinforforge",
+     "name": "Kotlin For Forge",
+     "version": "5.12.0",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "minecraft",
+       "versionRange": "[1.20.6,1.21.9)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "FORGE",
+     "id": "kotlinforforge",
+     "name": "Kotlin For Forge",
+     "version": "5.12.0",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "minecraft",
+       "versionRange": "[1.20.6,1.21.9)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "error": null
+  },
+  {
+   "file": "moonlight-1.21.1-3.6.8-neoforge.jar",
+   "folder": "mods",
+   "size": 2286560,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "moonlight",
+     "name": "Moonlight Lib",
+     "version": "1.21.1-3.6.8",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1]",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "nested": [
+    {
+     "format": "NEOFORGE",
+     "id": "codecui",
+     "name": "CodecUI",
+     "version": "1.21.1-1.4.5",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": null,
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1, 1.21.2)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "error": null
+  },
+  {
+   "file": "sophisticatedbackpacks-1.21.1-3.26.3.2158.jar",
+   "folder": "mods",
+   "size": 1251706,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "sophisticatedbackpacks",
+     "name": "Sophisticated Backpacks",
+     "version": "3.26.3",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "sophisticatedcore",
+       "versionRange": "[1.5.1,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.229,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.21.2)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "nested": [],
+   "error": null
+  },
+  {
+   "file": "sophisticatedcore-1.21.1-1.5.1.2341.jar",
+   "folder": "mods",
+   "size": 1785221,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "sophisticatedcore",
+     "name": "Sophisticated Core",
+     "version": "1.5.1",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "jei",
+       "versionRange": "[19.32.0.359,)",
+       "required": false,
+       "side": "CLIENT"
+      },
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.229,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.21.2)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "nested": [],
+   "error": null
+  },
+  {
+   "file": "supplementaries-1.21.1-3.9.9-neoforge.jar",
+   "folder": "mods",
+   "size": 13548968,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "supplementaries",
+     "name": "Supplementaries",
+     "version": "1.21.1-3.9.9",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.247,]",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "1.21.1",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "moonlight",
+       "versionRange": "[1.21-3.6.4,]",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "create",
+       "versionRange": "[6.0.0,]",
+       "required": false,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "amendments",
+       "versionRange": "[1.21-2.0.0,]",
+       "required": false,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [
+      {
+       "id": "farmersdelight",
+       "versionRange": "[0,1.3.0)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "sodium",
+       "versionRange": "[0,0.8.12-beta.1)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "nested": [
+    {
+     "format": "FORGE",
+     "id": "mixinsquared",
+     "name": "MixinSquared",
+     "version": "0.3.7-beta.3",
+     "environment": "UNKNOWN",
+     "dependencies": [],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "sablecompanion",
+     "name": "Sable Companion",
+     "version": "1.6.0",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.80,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "error": null
+  }
+ ]
+}

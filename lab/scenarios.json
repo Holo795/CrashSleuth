@@ -215,5 +215,259 @@
       "situation": "DEP_MISSING",
       "culprit": "moonlight"
     }
+  },
+  {
+    "name": "fabric-duplicate",
+    "description": "Fabric 1.21.1 with two versions of Lithium",
+    "platform": "fabric",
+    "minecraft": "1.21.1",
+    "java": 21,
+    "mods": [
+      "fabric-api"
+    ],
+    "extra": [
+      {
+        "slug": "lithium",
+        "loader": "fabric"
+      },
+      {
+        "slug": "lithium",
+        "loader": "fabric",
+        "index": 1
+      }
+    ],
+    "expect": {
+      "situation": "DUPLICATE",
+      "culprit": "lithium"
+    }
+  },
+  {
+    "name": "neoforge-duplicate",
+    "description": "NeoForge 1.21.1 with two versions of JEI",
+    "platform": "neoforge",
+    "minecraft": "1.21.1",
+    "java": 21,
+    "extra": [
+      {
+        "slug": "jei",
+        "loader": "neoforge"
+      },
+      {
+        "slug": "jei",
+        "loader": "neoforge",
+        "index": 1
+      }
+    ],
+    "expect": {
+      "situation": "DUPLICATE",
+      "culprit": "jei"
+    }
+  },
+  {
+    "name": "paper-duplicate",
+    "description": "Paper 1.21.1 with two versions of Chunky",
+    "platform": "paper",
+    "minecraft": "1.21.1",
+    "java": 21,
+    "extra": [
+      {
+        "slug": "chunky",
+        "loader": "paper"
+      },
+      {
+        "slug": "chunky",
+        "loader": "paper",
+        "index": 1
+      }
+    ],
+    "expect": {
+      "situation": "DUPLICATE",
+      "culprit": "chunky"
+    }
+  },
+  {
+    "name": "fabric-wrong-minecraft",
+    "description": "Fabric 1.21.1 with Lithium made for 1.20.1",
+    "platform": "fabric",
+    "minecraft": "1.21.1",
+    "java": 21,
+    "extra": [
+      {
+        "slug": "lithium",
+        "loader": "fabric",
+        "minecraft": "1.20.1"
+      }
+    ],
+    "expect": {
+      "situation": "WRONG_MC",
+      "culprit": "lithium"
+    }
+  },
+  {
+    "name": "paper-mod-in-plugins",
+    "description": "Paper 1.21.1 with a NeoForge mod (JEI) in the plugins folder",
+    "platform": "paper",
+    "minecraft": "1.21.1",
+    "java": 21,
+    "extra": [
+      {
+        "slug": "jei",
+        "loader": "neoforge"
+      }
+    ],
+    "expect": {
+      "situation": "WRONG_LOADER",
+      "culprit": "jei"
+    }
+  },
+  {
+    "name": "paper-plugin-enable-crash",
+    "description": "Paper 1.21.1, a plugin throws a NullPointerException while enabling",
+    "platform": "paper",
+    "minecraft": "1.21.1",
+    "java": 21,
+    "fixture": "enable-npe",
+    "expect": {
+      "situation": "UNCAUGHT_EXCEPTION",
+      "culprit": "CrashSleuthFixture"
+    }
+  },
+  {
+    "name": "paper-plugin-task-error",
+    "description": "Paper 1.21.1, a plugin task keeps failing while the server runs",
+    "platform": "paper",
+    "minecraft": "1.21.1",
+    "java": 21,
+    "fixture": "task-exception",
+    "after_ready": 20,
+    "expect": {
+      "situation": "SILENT_ERROR",
+      "culprit": "CrashSleuthFixture"
+    }
+  },
+  {
+    "name": "paper-main-thread-hang",
+    "description": "Paper 1.21.1, a plugin blocks the main thread (watchdog)",
+    "platform": "paper",
+    "minecraft": "1.21.1",
+    "java": 21,
+    "fixture": "main-thread-hang",
+    "after_ready": 45,
+    "expect": {
+      "situation": "HANG",
+      "culprit": "CrashSleuthFixture"
+    }
+  },
+  {
+    "name": "vanilla-26-baseline",
+    "description": "Vanilla 26.3 with Java 25, must start cleanly",
+    "platform": "vanilla",
+    "minecraft": "26.3",
+    "java": 25
+  },
+  {
+    "name": "vanilla-26-java21",
+    "description": "Vanilla 26.3 started with Java 21",
+    "platform": "vanilla",
+    "minecraft": "26.3",
+    "java": 21,
+    "expect": {
+      "situation": "JAVA_VERSION"
+    }
+  },
+  {
+    "name": "paper-26-baseline",
+    "description": "Paper 26.3 with LuckPerms, Chunky and ViaVersion, must start cleanly",
+    "platform": "paper",
+    "minecraft": "26.3",
+    "java": 25,
+    "mods": [
+      "luckperms",
+      "chunky",
+      "viaversion"
+    ]
+  },
+  {
+    "name": "fabric-26-baseline",
+    "description": "Fabric 26.3 with Fabric API and Lithium, must start cleanly",
+    "platform": "fabric",
+    "minecraft": "26.3",
+    "java": 25,
+    "mods": [
+      "fabric-api",
+      "lithium"
+    ]
+  },
+  {
+    "name": "modpack-cobbleverse-baseline",
+    "description": "Cobbleverse modpack (Fabric 1.21.1, 168 mods), must start cleanly",
+    "platform": "fabric",
+    "minecraft": "1.21.1",
+    "java": 21,
+    "modpack": "cobbleverse",
+    "memory": "5G",
+    "timeout": 1500
+  },
+  {
+    "name": "modpack-cobbleverse-missing-library",
+    "description": "Cobbleverse without GeckoLib",
+    "platform": "fabric",
+    "minecraft": "1.21.1",
+    "java": 21,
+    "modpack": "cobbleverse",
+    "remove": [
+      "geckolib"
+    ],
+    "memory": "5G",
+    "timeout": 1500,
+    "expect": {
+      "situation": "DEP_MISSING",
+      "culprit": "geckolib"
+    }
+  },
+  {
+    "name": "modpack-createplus-as-published",
+    "description": "Create Plus server files as published: they ship Status Effect Bars, a client-only mod",
+    "platform": "neoforge",
+    "minecraft": "1.21.1",
+    "java": 21,
+    "modpack": "create_plus",
+    "memory": "5G",
+    "timeout": 1500,
+    "expect": {
+      "situation": "CLIENT_ONLY_ON_SERVER",
+      "culprit": "statuseffectbars"
+    }
+  },
+  {
+    "name": "modpack-createplus-baseline",
+    "description": "Create Plus modpack (NeoForge 1.21.1) without its client-only mod, must start cleanly",
+    "platform": "neoforge",
+    "minecraft": "1.21.1",
+    "java": 21,
+    "modpack": "create_plus",
+    "memory": "5G",
+    "timeout": 1500,
+    "remove": [
+      "statuseffectbars"
+    ]
+  },
+  {
+    "name": "modpack-createplus-missing-library",
+    "description": "Create Plus without Puzzles Lib",
+    "platform": "neoforge",
+    "minecraft": "1.21.1",
+    "java": 21,
+    "modpack": "create_plus",
+    "remove": [
+      "puzzleslib",
+      "statuseffectbars"
+    ],
+    "memory": "5G",
+    "timeout": 1500,
+    "expect": {
+      "situation": "DEP_MISSING",
+      "culprit": "puzzleslib"
+    }
   }
 ]

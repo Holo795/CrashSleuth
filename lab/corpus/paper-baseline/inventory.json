@@ -1,0 +1,242 @@
+{
+ "platform": "PAPER",
+ "minecraftVersion": "1.21.1",
+ "loaderVersion": null,
+ "side": "SERVER",
+ "jars": [
+  {
+   "file": "Chunky-Bukkit-1.4.40.jar",
+   "folder": "plugins",
+   "size": 296244,
+   "mods": [
+    {
+     "format": "BUKKIT",
+     "id": "Chunky",
+     "name": null,
+     "version": "1.4.40",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "dynmap",
+       "versionRange": null,
+       "required": false,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "BlueMap",
+       "versionRange": null,
+       "required": false,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "squaremap",
+       "versionRange": null,
+       "required": false,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "WorldBorder",
+       "versionRange": null,
+       "required": false,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": "1.13"
+    }
+   ],
+   "nested": [],
+   "error": null
+  },
+  {
+   "file": "CoreProtect-CE-24.0.jar",
+   "folder": "plugins",
+   "size": 1102175,
+   "mods": [
+    {
+     "format": "BUKKIT",
+     "id": "CoreProtect",
+     "name": null,
+     "version": "24.0",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "WorldEdit",
+       "versionRange": null,
+       "required": false,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": "1.16"
+    }
+   ],
+   "nested": [],
+   "error": null
+  },
+  {
+   "file": "LuckPerms-Bukkit-5.5.71.jar",
+   "folder": "plugins",
+   "size": 1501521,
+   "mods": [
+    {
+     "format": "BUKKIT",
+     "id": "LuckPerms",
+     "name": null,
+     "version": "5.5.71",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "LilyPad-Connect",
+       "versionRange": null,
+       "required": false,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "ViaVersion",
+       "versionRange": null,
+       "required": false,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": "1.13"
+    }
+   ],
+   "nested": [],
+   "error": null
+  },
+  {
+   "file": "ViaVersion-5.12.0.jar",
+   "folder": "plugins",
+   "size": 6503775,
+   "mods": [
+    {
+     "format": "FABRIC",
+     "id": "viaversion",
+     "name": "ViaVersion",
+     "version": "5.12.0",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "viafabric",
+       "versionRange": ">=0.4.14",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "BUKKIT",
+     "id": "ViaVersion",
+     "name": null,
+     "version": "5.12.0",
+     "environment": "UNKNOWN",
+     "dependencies": [],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": "1.13"
+    },
+    {
+     "format": "VELOCITY",
+     "id": "viaversion",
+     "name": "ViaVersion",
+     "version": "5.12.0",
+     "environment": "UNKNOWN",
+     "dependencies": [],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "nested": [],
+   "error": null
+  },
+  {
+   "file": "squaremap-paper-mc1.21.1-1.3.2.jar",
+   "folder": "plugins",
+   "size": 7549277,
+   "mods": [
+    {
+     "format": "BUKKIT",
+     "id": "squaremap",
+     "name": null,
+     "version": "1.3.2",
+     "environment": "UNKNOWN",
+     "dependencies": [],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": "1.21.1"
+    }
+   ],
+   "nested": [],
+   "error": null
+  },
+  {
+   "file": "voicechat-bukkit-2.6.24.jar",
+   "folder": "plugins",
+   "size": 939426,
+   "mods": [
+    {
+     "format": "BUKKIT",
+     "id": "voicechat",
+     "name": null,
+     "version": "2.6.24",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "PlaceholderAPI",
+       "versionRange": null,
+       "required": false,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "ViaVersion",
+       "versionRange": null,
+       "required": false,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": "1.13"
+    }
+   ],
+   "nested": [],
+   "error": null
+  },
+  {
+   "file": "worldedit-bukkit-7.3.9.jar",
+   "folder": "plugins",
+   "size": 6108176,
+   "mods": [
+    {
+     "format": "BUKKIT",
+     "id": "WorldEdit",
+     "name": null,
+     "version": "7.3.9+6959-7adf70b",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "Vault",
+       "versionRange": null,
+       "required": false,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": "1.13"
+    }
+   ],
+   "nested": [],
+   "error": null
+  }
+ ]
+}

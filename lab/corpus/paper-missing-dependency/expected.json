@@ -1,5 +1,7 @@
 {
   "situation": "DEP_MISSING",
   "culprit": "chunky",
-  "log": "latest.log"
+  "logs": [
+    "latest.log"
+  ]
 }

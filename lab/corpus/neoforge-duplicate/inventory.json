@@ -1,0 +1,74 @@
+{
+ "platform": "NEOFORGE",
+ "minecraftVersion": "1.21.1",
+ "loaderVersion": "21.1.251",
+ "side": "SERVER",
+ "jars": [
+  {
+   "file": "jei-1.21.1-neoforge-19.50.0.414.jar",
+   "folder": "mods",
+   "size": 1787629,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "jei",
+     "name": "Just Enough Items",
+     "version": "19.50.0.414",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.238,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21, 1.21.1)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "nested": [],
+   "error": null
+  },
+  {
+   "file": "jei-1.21.1-neoforge-19.51.0.418.jar",
+   "folder": "mods",
+   "size": 1804792,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "jei",
+     "name": "Just Enough Items",
+     "version": "19.51.0.418",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.238,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21, 1.21.1)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "nested": [],
+   "error": null
+  }
+ ]
+}

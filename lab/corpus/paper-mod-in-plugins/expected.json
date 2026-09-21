@@ -1,0 +1,7 @@
+{
+  "situation": "WRONG_LOADER",
+  "culprit": "jei",
+  "logs": [
+    "latest.log"
+  ]
+}

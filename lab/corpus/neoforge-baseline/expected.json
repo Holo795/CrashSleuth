@@ -1,5 +1,7 @@
 {
   "situation": null,
   "culprit": null,
-  "log": "latest.log"
+  "logs": [
+    "latest.log"
+  ]
 }

@@ -1,0 +1,7 @@
+{
+  "situation": "CLIENT_ONLY_ON_SERVER",
+  "culprit": "statuseffectbars",
+  "logs": [
+    "crash-2026-09-21_23.35.31-fml.txt"
+  ]
+}

@@ -1,10 +1,10 @@
-[22:16:30] [main/INFO]: Loading Minecraft 1.21.1 with Fabric Loader 0.19.5
-[22:16:31] [main/INFO]: Fabric is preparing JARs on first launch, this may take a few seconds...
-[22:16:31] [main/WARN]: Mod resolution failed
-[22:16:31] [main/INFO]: Immediate reason: [HARD_DEP_NO_CANDIDATE chunky 1.4.23 {depends fabric @ [*]}, ROOT_FORCELOAD_SINGLE chunky 1.4.23]
-[22:16:31] [main/INFO]: Reason: [HARD_DEP chunky 1.4.23 {depends fabric @ [*]}]
-[22:16:31] [main/INFO]: Fix: add [add:fabric 1 ([(-∞,∞)])], remove [], replace []
-[22:16:31] [main/ERROR]: Incompatible mods found!
+[23:12:29] [main/INFO]: Loading Minecraft 1.21.1 with Fabric Loader 0.19.5
+[23:12:29] [main/INFO]: Fabric is preparing JARs on first launch, this may take a few seconds...
+[23:12:29] [main/WARN]: Mod resolution failed
+[23:12:29] [main/INFO]: Immediate reason: [HARD_DEP_NO_CANDIDATE chunky 1.4.23 {depends fabric @ [*]}, ROOT_FORCELOAD_SINGLE chunky 1.4.23]
+[23:12:29] [main/INFO]: Reason: [HARD_DEP chunky 1.4.23 {depends fabric @ [*]}]
+[23:12:29] [main/INFO]: Fix: add [add:fabric 1 ([(-∞,∞)])], remove [], replace []
+[23:12:29] [main/ERROR]: Incompatible mods found!
 net.fabricmc.loader.impl.FormattedException: Some of your mods are incompatible with the game or each other!
 A potential solution has been determined, this may resolve your problem:
 	 - Install fabric, any version.

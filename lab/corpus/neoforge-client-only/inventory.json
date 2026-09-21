@@ -1,0 +1,188 @@
+{
+ "platform": "NEOFORGE",
+ "minecraftVersion": "1.21.1",
+ "loaderVersion": "21.1.251",
+ "side": "SERVER",
+ "jars": [
+  {
+   "file": "sodium-neoforge-0.8.13+mc1.21.1.jar",
+   "folder": "mods",
+   "size": 1292934,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "sodium",
+     "name": "Sodium",
+     "version": "0.8.13+mc1.21.1",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "minecraft",
+       "versionRange": "1.21.1",
+       "required": true,
+       "side": "CLIENT"
+      },
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.82,)",
+       "required": true,
+       "side": "CLIENT"
+      }
+     ],
+     "breaks": [
+      {
+       "id": "embeddium",
+       "versionRange": "[0.0.1,)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "nested": [
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_api_base",
+     "name": "Forgified Fabric API Base",
+     "version": "0.4.42+d1308ded19",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.219,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_block_view_api_v2",
+     "name": "Forgified Fabric BlockView API (v2)",
+     "version": "1.0.10+9afaaf8c19",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.115,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_renderer_api_v1",
+     "name": "Forgified Fabric Renderer API (v1)",
+     "version": "3.4.1+9125b6dc19",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.219,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric_api_base",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_rendering_data_attachment_v1",
+     "name": "Forgified Fabric Rendering Data Attachment (v1)",
+     "version": "0.3.48+73761d2e19",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.115,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric_block_view_api_v2",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "sodium",
+     "name": "Sodium",
+     "version": "0.8.13+mc1.21.1",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "minecraft",
+       "versionRange": "1.21.1",
+       "required": true,
+       "side": "CLIENT"
+      },
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.82,)",
+       "required": true,
+       "side": "CLIENT"
+      }
+     ],
+     "breaks": [
+      {
+       "id": "embeddium",
+       "versionRange": "[0.0.1,)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "provides": [],
+     "apiVersion": null
+    }
+   ],
+   "error": null
+  }
+ ]
+}

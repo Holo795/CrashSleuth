@@ -1,5 +1,7 @@
 {
   "situation": "JAVA_VERSION",
   "culprit": null,
-  "log": "console.log"
+  "logs": [
+    "console.log"
+  ]
 }
