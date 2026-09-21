@@ -31,6 +31,15 @@ cli/build/install/crashsleuth/bin/crashsleuth analyze hs_err_pid1234.log --json
 
 It currently recognises missing and outdated dependencies (NeoForge, Forge, Fabric, Quilt, Paper, Spigot, Purpur), plugins that fail to load or enable, wrong Java versions, mixin failures, crashes on a ticking entity or block (with its position), out of memory errors, stack overflows, native Java crashes (including graphics drivers), and it attributes other errors to the mod or plugin found in the stack trace.
 
+## Real-world lab
+
+CrashSleuth is tested against real servers, not only unit tests. `lab/lab.py` builds real vanilla, Paper, Purpur, Fabric, NeoForge and Forge servers from official sources, installs real mods and plugins from Modrinth, breaks them on purpose (missing dependency, wrong loader, client-only mod on a server, wrong Java, out of memory...), runs them in Docker with the right Java version, and checks the diagnosis. The resulting logs are kept in `lab/corpus` and replayed by the test suite on every change. Healthy servers must produce no finding.
+
+```
+python3 lab/lab.py list
+python3 lab/lab.py run all --cli lab/crashsleuth-docker.sh
+```
+
 ## License
 
 [MIT](LICENSE)

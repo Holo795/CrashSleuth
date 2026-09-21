@@ -1,8 +1,12 @@
 # CrashSleuth — Spécification
 
-**Version 2 — 21/09/2026** — v1 + décisions sur le public prioritaire et le lancement côté client.
+**Version 3 — 22/09/2026** — v2 + labo de tests en conditions réelles.
 
-### Changements depuis la v1
+### Changements depuis la v2
+- **Tests en conditions réelles obligatoires** (§11) : un labo construit de vrais serveurs depuis les sources officielles, installe de vrais mods et plugins depuis Modrinth, les casse volontairement, les lance avec la bonne version de Java, puis vérifie que CrashSleuth trouve la bonne cause. Les journaux obtenus forment un **corpus réel** rejoué en intégration continue ; les démarrages sains doivent ne donner **aucun** constat.
+- **Premier lot : 14 scénarios réels, 14 réussis** (vanilla, Paper, Purpur, NeoForge, Forge 1.20.1, Fabric) après correction des détecteurs à partir des vrais messages.
+
+### Changements de la v2 (rappel)
 - **Admins de serveurs d'abord** : la recherche du coupable côté serveur (jalon 3) passe avant l'application de bureau et la recherche côté client (jalon 4).
 - **Lancement côté client** : l'outil installe lui-même la bonne version de Minecraft et le bon loader dans son espace de travail, avec un profil local de test ; il ne réutilise ni ne modifie jamais le launcher ou l'installation du joueur.
 - **Fenêtres de jeu** : chaque essai côté client ouvre le jeu dans une petite fenêtre qui se ferme toute seule ; l'utilisateur est prévenu avant le lancement de la recherche.
@@ -197,7 +201,8 @@ Ordre de passage, du gratuit au payant :
 - **Kotlin (JVM 21)**, Gradle en Kotlin DSL, multi-modules :
   - `core-model` (situations, rapports) · `core-static` (descripteurs, dépendances, ASM, mixins) · `core-logs` (découpage, retraduction, attribution) · `core-signatures` · `core-runner` (lancement client/serveur, verdict) · `core-bisect` (bisection et ddmin) · `cli` · `desktop` (Compose).
 - Téléchargement des versions de Minecraft, loaders et serveurs (Paper, Purpur…) à la demande, avec cache.
-- Tests : packs d'exemple qui plantent volontairement (un par situation), lancés en CI.
+- **Tests en conditions réelles** (`lab/`) : de vrais serveurs (vanilla, Paper, Purpur, Fabric, NeoForge, Forge) téléchargés depuis les sources officielles, de vrais mods et plugins depuis Modrinth, cassés volontairement (dépendance retirée, mauvais loader, mod client sur serveur, mauvaise version de Java, mémoire insuffisante…), lancés dans Docker avec la bonne version de Java. Chaque journal obtenu est anonymisé et rangé dans `lab/corpus` avec la réponse attendue, puis rejoué en CI. Les démarrages sains servent à garantir l'absence de faux positifs. Les mods et serveurs ne sont jamais versionnés, seulement les journaux.
+- Tests unitaires en complément, pour les formats rares ou difficiles à provoquer.
 - Traductions : fichiers de ressources, anglais par défaut, français inclus.
 
 ---

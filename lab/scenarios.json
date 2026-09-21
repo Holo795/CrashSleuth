@@ -1,0 +1,219 @@
+[
+  {
+    "name": "vanilla-java17",
+    "description": "Vanilla 1.21.1 started with Java 17",
+    "platform": "vanilla",
+    "minecraft": "1.21.1",
+    "java": 17,
+    "expect": {
+      "situation": "JAVA_VERSION"
+    }
+  },
+  {
+    "name": "paper-java17",
+    "description": "Paper 1.21.1 started with Java 17",
+    "platform": "paper",
+    "minecraft": "1.21.1",
+    "java": 17,
+    "expect": {
+      "situation": "JAVA_VERSION"
+    }
+  },
+  {
+    "name": "paper-baseline",
+    "description": "Paper 1.21.1 with 7 popular plugins, must start cleanly",
+    "platform": "paper",
+    "minecraft": "1.21.1",
+    "java": 21,
+    "mods": [
+      "luckperms",
+      "chunky",
+      "worldedit",
+      "coreprotect",
+      "viaversion",
+      "squaremap",
+      "simple-voice-chat"
+    ]
+  },
+  {
+    "name": "paper-missing-dependency",
+    "description": "Paper 1.21.1, ChunkyBorder without Chunky",
+    "platform": "paper",
+    "minecraft": "1.21.1",
+    "java": 21,
+    "mods": [
+      "chunkyborder"
+    ],
+    "skip": [
+      "chunky"
+    ],
+    "expect": {
+      "situation": "DEP_MISSING",
+      "culprit": "chunky"
+    }
+  },
+  {
+    "name": "purpur-missing-dependency",
+    "description": "Purpur 1.21.1, ChunkyBorder without Chunky",
+    "platform": "purpur",
+    "minecraft": "1.21.1",
+    "java": 21,
+    "mods": [
+      "chunkyborder"
+    ],
+    "skip": [
+      "chunky"
+    ],
+    "expect": {
+      "situation": "DEP_MISSING",
+      "culprit": "chunky"
+    }
+  },
+  {
+    "name": "neoforge-baseline",
+    "description": "NeoForge 1.21.1 with a dozen large mods, must start cleanly",
+    "platform": "neoforge",
+    "minecraft": "1.21.1",
+    "java": 21,
+    "mods": [
+      "jei",
+      "farmers-delight",
+      "supplementaries",
+      "create",
+      "waystones",
+      "sophisticated-backpacks",
+      "ae2",
+      "modernfix",
+      "ferrite-core",
+      "jade",
+      "appleskin",
+      "cobblemon"
+    ],
+    "memory": "4G",
+    "timeout": 900
+  },
+  {
+    "name": "neoforge-missing-dependency",
+    "description": "NeoForge 1.21.1, Supplementaries without Moonlight",
+    "platform": "neoforge",
+    "minecraft": "1.21.1",
+    "java": 21,
+    "mods": [
+      "supplementaries"
+    ],
+    "skip": [
+      "moonlight"
+    ],
+    "expect": {
+      "situation": "DEP_MISSING",
+      "culprit": "moonlight"
+    }
+  },
+  {
+    "name": "neoforge-client-only",
+    "description": "NeoForge 1.21.1 server with Sodium (client-only)",
+    "platform": "neoforge",
+    "minecraft": "1.21.1",
+    "java": 21,
+    "mods": [
+      "sodium"
+    ],
+    "expect": {
+      "situation": "CLIENT_ONLY_ON_SERVER",
+      "culprit": "sodium"
+    }
+  },
+  {
+    "name": "neoforge-wrong-loader",
+    "description": "NeoForge 1.21.1 with the Fabric build of Lithium",
+    "platform": "neoforge",
+    "minecraft": "1.21.1",
+    "java": 21,
+    "extra": [
+      {
+        "slug": "lithium",
+        "loader": "fabric"
+      }
+    ],
+    "expect": {
+      "situation": "WRONG_LOADER",
+      "culprit": "lithium"
+    }
+  },
+  {
+    "name": "neoforge-java17",
+    "description": "NeoForge 1.21.1 started with Java 17",
+    "platform": "neoforge",
+    "minecraft": "1.21.1",
+    "java": 17,
+    "expect": {
+      "situation": "JAVA_VERSION"
+    }
+  },
+  {
+    "name": "neoforge-out-of-memory",
+    "description": "NeoForge 1.21.1 with large mods and 512 MB of memory",
+    "platform": "neoforge",
+    "minecraft": "1.21.1",
+    "java": 21,
+    "mods": [
+      "create",
+      "ae2",
+      "cobblemon",
+      "supplementaries",
+      "sophisticated-backpacks"
+    ],
+    "memory": "512M",
+    "timeout": 900,
+    "expect": {
+      "situation": "OUT_OF_MEMORY"
+    }
+  },
+  {
+    "name": "fabric-baseline",
+    "description": "Fabric 1.21.1 with Fabric API, Lithium, Chunky, Styled Chat, must start cleanly",
+    "platform": "fabric",
+    "minecraft": "1.21.1",
+    "java": 21,
+    "mods": [
+      "fabric-api",
+      "lithium",
+      "chunky",
+      "styled-chat"
+    ]
+  },
+  {
+    "name": "fabric-missing-fabric-api",
+    "description": "Fabric 1.21.1, Chunky without Fabric API (declared under its legacy id 'fabric')",
+    "platform": "fabric",
+    "minecraft": "1.21.1",
+    "java": 21,
+    "mods": [
+      "chunky"
+    ],
+    "skip": [
+      "fabric-api"
+    ],
+    "expect": {
+      "situation": "DEP_MISSING",
+      "culprit": "fabric"
+    }
+  },
+  {
+    "name": "forge-missing-dependency",
+    "description": "Forge 1.20.1, Supplementaries without Moonlight",
+    "platform": "forge",
+    "minecraft": "1.20.1",
+    "java": 17,
+    "mods": [
+      "supplementaries"
+    ],
+    "skip": [
+      "moonlight"
+    ],
+    "expect": {
+      "situation": "DEP_MISSING",
+      "culprit": "moonlight"
+    }
+  }
+]

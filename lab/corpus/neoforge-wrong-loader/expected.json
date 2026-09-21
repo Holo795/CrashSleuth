@@ -1,0 +1,5 @@
+{
+  "situation": "WRONG_LOADER",
+  "culprit": "lithium",
+  "log": "latest.log"
+}

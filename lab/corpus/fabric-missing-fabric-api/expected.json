@@ -1,0 +1,5 @@
+{
+  "situation": "DEP_MISSING",
+  "culprit": "fabric",
+  "log": "latest.log"
+}
