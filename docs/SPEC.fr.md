@@ -1,6 +1,11 @@
 # CrashSleuth — Spécification
 
-**Version 1 — 21/09/2026** — première version.
+**Version 2 — 21/09/2026** — v1 + décisions sur le public prioritaire et le lancement côté client.
+
+### Changements depuis la v1
+- **Admins de serveurs d'abord** : la recherche du coupable côté serveur (jalon 3) passe avant l'application de bureau et la recherche côté client (jalon 4).
+- **Lancement côté client** : l'outil installe lui-même la bonne version de Minecraft et le bon loader dans son espace de travail, avec un profil local de test ; il ne réutilise ni ne modifie jamais le launcher ou l'installation du joueur.
+- **Fenêtres de jeu** : chaque essai côté client ouvre le jeu dans une petite fenêtre qui se ferme toute seule ; l'utilisateur est prévenu avant le lancement de la recherche.
 
 > CrashSleuth trouve pourquoi Minecraft plante et **qui** est en cause, pour les joueurs comme pour les serveurs : vanilla, serveurs à plugins et modpacks. Il analyse, vérifie avant lancement et, si besoin, **relance le jeu ou le serveur tout seul** en retirant des mods ou des plugins jusqu'à désigner le coupable.
 
@@ -132,7 +137,7 @@ Chaque situation a un identifiant stable (utilisé par les signatures et les rap
 - **Crashs aléatoires** : relances multiples, score de confiance.
 - Lancements **en parallèle** quand la machine le permet, **cache** des combinaisons déjà testées, **budget** de temps réglable.
 - **Isolation** : le travail se fait sur une **copie** ; les fichiers de l'utilisateur ne sont jamais modifiés.
-- Côté serveur : lancement sans écran. Côté client : fenêtre de jeu (ou écran virtuel sous Linux), monde de test généré, compte hors ligne local.
+- Côté serveur : lancement sans écran. Côté client : l'outil installe lui-même la version et le loader dans son espace de travail, lance le jeu en **petite fenêtre** (écran virtuel possible sous Linux), avec un monde de test généré et un profil local de test ; l'installation du joueur n'est jamais touchée. L'utilisateur est prévenu avant que les fenêtres s'ouvrent.
 - **Reproduction en jeu** (plus tard) : sur une copie du monde, téléportation aux coordonnées du crash, chargement du chunk, puis recherche du coupable dans ce scénario.
 
 ### 6.4 Gels et lag
@@ -216,8 +221,11 @@ Ordre de passage, du gratuit au payant :
 - Commits en anglais, Conventional Commits, auteur Holo795, **aucune mention d'outil ou d'assistant** dans les commits, le code ou la documentation.
 - La spec est mise à jour à chaque changement de conception.
 
-## 14. Questions ouvertes
+## 14. Décisions prises
 
-1. Côté client, la recherche du coupable ouvre une fenêtre de jeu à chaque essai (sauf sous Linux avec écran virtuel) : acceptable, ou mode « fenêtre réduite » à creuser ?
-2. Pour lancer le client, l'outil réutilise-t-il le launcher de l'utilisateur (Prism, officiel…) ou installe-t-il ses propres versions avec un compte hors ligne local ?
-3. Priorité du premier public : admins de serveurs (jalon 3 d'abord) ou joueurs (jalon 4 d'abord) ?
+- Nom **CrashSleuth**, dépôt public `Holo795/CrashSleuth`, licence MIT.
+- Kotlin (JVM), interface Compose Multiplatform, anglais par défaut + français.
+- Vanilla, serveurs à plugins et modpacks traités à égalité ; versions et loaders principaux d'abord.
+- **Admins de serveurs d'abord**, joueurs ensuite.
+- Côté client : **installations propres à l'outil**, **petite fenêtre** à chaque essai.
+- IA en dernier recours seulement.
