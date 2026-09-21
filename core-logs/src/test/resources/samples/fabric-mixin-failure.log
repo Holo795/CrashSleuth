@@ -1,0 +1,5 @@
+[10:00:00] [main/INFO]: Loading Minecraft 1.21.1 with Fabric Loader 0.16.14
+[10:00:04] [main/ERROR]: Mixin apply for mod betterclouds failed betterclouds.mixins.json:WorldRendererMixin from mod betterclouds -> net.minecraft.class_761: org.spongepowered.asm.mixin.injection.throwables.InvalidInjectionException Critical injection failure: @Inject annotation on renderClouds could not find any targets matching 'renderClouds' in net.minecraft.class_761. Using refmap betterclouds-refmap.json [PREINJECT Applicator Phase -> betterclouds.mixins.json:WorldRendererMixin from mod betterclouds -> Prepare Injections]
+org.spongepowered.asm.mixin.injection.throwables.InvalidInjectionException: Critical injection failure: @Inject annotation on renderClouds could not find any targets matching 'renderClouds' in net.minecraft.class_761.
+	at org.spongepowered.asm.mixin.injection.struct.InjectionInfo.validateTargets(InjectionInfo.java:656)
+	at org.spongepowered.asm.mixin.transformer.MixinApplicatorStandard.apply(MixinApplicatorStandard.java:392)

@@ -1,0 +1,5 @@
+[21Sep2026 10:00:01.123] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgeserver, --fml.neoForgeVersion, 21.1.209, --fml.mcVersion, 1.21.1]
+[21Sep2026 10:00:02.456] [main/INFO] [net.neoforged.fml.loading.FMLLoader/CORE]: Loading NeoForge 21.1.209 for Minecraft 1.21.1
+[21Sep2026 10:00:09.789] [main/ERROR] [net.neoforged.fml.loading.ModSorter/LOADING]: Missing or unsupported mandatory dependencies:
+	Mod ID: 'geckolib', Requested by: 'alexsmobs', Expected range: '[4.4.9,)', Actual version: '[MISSING]'
+	Mod ID: 'create', Requested by: 'createdeco', Expected range: '[6.0.4,)', Actual version: '6.0.1'

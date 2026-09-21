@@ -4,7 +4,7 @@
 
 CrashSleuth diagnoses crashes, startup failures, hangs and lag for **players and server admins**, on **vanilla, plugin servers and modpacks**. It reads your logs, checks your mods or plugins before launch, and when that is not enough, **launches the game or server by itself**, removing mods or plugins step by step until it names the culprit. No need to answer "did it crash?" after every run.
 
-> Status: early design. See the [specification (French)](docs/SPEC.fr.md) and the [prior art review](docs/PRIOR_ART.md).
+> Status: in development. Log analysis already works from the command line. See the [specification (French)](docs/SPEC.fr.md) and the [prior art review](docs/PRIOR_ART.md).
 
 ## What it will do
 
@@ -18,6 +18,19 @@ CrashSleuth diagnoses crashes, startup failures, hangs and lag for **players and
 
 Vanilla, Paper, Spigot, Purpur, NeoForge, Forge and Fabric, on the most used versions (1.20.1, 1.21.x, 26.x). Quilt, Folia, Velocity and BungeeCord come next.
 
+## Usage (early preview)
+
+Log analysis already works from the command line (Java 21 required):
+
+```
+./gradlew :cli:installDist
+cli/build/install/crashsleuth/bin/crashsleuth analyze path/to/crash-report.txt
+cli/build/install/crashsleuth/bin/crashsleuth analyze logs/latest.log --lang fr
+cli/build/install/crashsleuth/bin/crashsleuth analyze hs_err_pid1234.log --json
+```
+
+It currently recognises missing and outdated dependencies (NeoForge, Forge, Fabric, Quilt, Paper, Spigot, Purpur), plugins that fail to load or enable, wrong Java versions, mixin failures, crashes on a ticking entity or block (with its position), out of memory errors, stack overflows, native Java crashes (including graphics drivers), and it attributes other errors to the mod or plugin found in the stack trace.
+
 ## License
 
 [MIT](LICENSE)
@@ -30,6 +43,6 @@ Vanilla, Paper, Spigot, Purpur, NeoForge, Forge and Fabric, on the most used ver
 
 CrashSleuth diagnostique les crashs, les échecs de démarrage, les gels et le lag, pour les **joueurs comme pour les admins de serveurs**, en **vanilla, sur serveurs à plugins et en modpacks**. Il lit vos journaux, vérifie vos mods ou plugins avant le lancement et, si ça ne suffit pas, **relance lui-même le jeu ou le serveur** en retirant des mods ou des plugins jusqu'à désigner le coupable, sans vous demander « ça a planté ? » après chaque essai.
 
-> État : conception. Voir la [spécification](docs/SPEC.fr.md) et l'[état de l'existant](docs/PRIOR_ART.md).
+> État : en développement, l'analyse des journaux fonctionne déjà en ligne de commande (`crashsleuth analyze <fichier> --lang fr`). Voir la [spécification](docs/SPEC.fr.md) et l'[état de l'existant](docs/PRIOR_ART.md).
 
 Licence [MIT](LICENSE).

@@ -1,0 +1,9 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00007ffb2c1a3f10, pid=4242, tid=11200
+#
+# JRE version: OpenJDK Runtime Environment Temurin-21.0.4+7 (21.0.4+7) (build 21.0.4+7-LTS)
+# Problematic frame:
+# C  [atio6axx.dll+0x1a3f10]
+#

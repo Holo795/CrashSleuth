@@ -1,0 +1,11 @@
+[10:00:00] [main/INFO]: Loading Minecraft 1.21.1 with Fabric Loader 0.16.14
+[10:00:01] [main/ERROR]: Incompatible mods found!
+net.fabricmc.loader.impl.FormattedException: Some of your mods are incompatible with the game or each other!
+A potential solution has been determined, this may resolve your problem:
+	 - Install fabric-api, any version.
+	 - Replace mod 'Sodium' (sodium) 0.5.8 with any version that is compatible with the other mods and the game.
+More details:
+	 - Mod 'Mod Menu' (modmenu) 11.0.3 requires any version of fabric-api, which is missing!
+	 - Mod 'Iris' (iris) 1.8.1 requires version 0.6.0 or later of mod 'Sodium' (sodium), but only the wrong version is present: 0.5.8!
+	at net.fabricmc.loader.impl.FormattedException.ofLocalized(FormattedException.java:51)
+	at net.fabricmc.loader.impl.FabricLoaderImpl.load(FabricLoaderImpl.java:198)

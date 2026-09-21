@@ -1,0 +1,11 @@
+---- Minecraft Crash Report ----
+Description: Exception in server tick loop
+
+java.lang.OutOfMemoryError: Java heap space
+	at java.base/java.util.Arrays.copyOf(Arrays.java:3537)
+	at net.minecraft.server.MinecraftServer.tickServer(MinecraftServer.java:1000)
+
+-- System Details --
+	Minecraft Version: 1.20.1
+	Java Version: 17.0.12, Eclipse Adoptium
+	Type: Dedicated Server (map_server.txt)

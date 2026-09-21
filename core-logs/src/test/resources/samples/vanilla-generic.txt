@@ -1,0 +1,11 @@
+---- Minecraft Crash Report ----
+Description: Exception in server tick loop
+
+java.lang.IllegalArgumentException: Invalid chunk position
+	at net.minecraft.world.level.ChunkPos.<init>(ChunkPos.java:40)
+	at net.minecraft.server.MinecraftServer.tickServer(MinecraftServer.java:1000)
+
+-- System Details --
+	Minecraft Version: 1.21.1
+	Java Version: 21.0.4, Eclipse Adoptium
+	Type: Dedicated Server (map_server.txt)

@@ -1,0 +1,96 @@
+package dev.holo795.crashsleuth.logs
+
+import dev.holo795.crashsleuth.model.Environment
+import dev.holo795.crashsleuth.model.Platform
+import dev.holo795.crashsleuth.model.Side
+
+/** Works out the platform, versions and side from the content of a log or crash report. */
+object EnvironmentDetector {
+    // Old builds: "version git-Paper-196 (MC: 1.20.1)"; recent ones: "version 1.21.1-133-master@a1b2c3d (date) (Implementing API version 1.21.1-R0.1-SNAPSHOT)".
+    private val PAPER = Regex("""This server is running (Paper|Purpur|Folia|Pufferfish) version (\S+)""")
+    private val CRAFTBUKKIT = Regex("""This server is running CraftBukkit version (\S+)""")
+    private val MC_TAG = Regex("""\(MC: ([\w.-]+)\)|Implementing API version (\d[\w.]*?)-R""")
+    private val VANILLA_SERVER = Regex("""Starting minecraft server version ([\w.-]+)""")
+    private val NEOFORGE = Regex("""(?:NeoForge|neoforge|net\.neoforged)[ :-]+(?:version\s+|net\.neoforged:)?(\d+\.\d+\.\d+[\w.-]*)""")
+    private val FORGE = Regex("""(?:Forge|forge)[ :-]+(?:version\s+)?((?:\d+\.){2,3}\d+)""")
+    private val FABRIC_LOADER = Regex("""(?:Fabric Loader|fabricloader)[ :]+(?:version\s+)?(\d+\.\d+\.\d+)""")
+    private val QUILT_LOADER = Regex("""(?:Quilt Loader|quilt_loader)[ :]+(?:version\s+)?(\d+\.\d+\.\d+[\w.-]*)""")
+    private val LOADING_MINECRAFT = Regex("""Loading Minecraft ([\w.-]+) with (Fabric|Quilt) Loader ([\w.+-]+)""")
+    private val JAVA_FIELD = Regex("""^\s*Java Version:\s*([\d._]+)""", RegexOption.MULTILINE)
+    private val JAVA_RUNTIME = Regex("""(?:Java|JVM)[^\n]*?\b(\d{2})\.(\d+)\.(\d+)""")
+
+    /** Minecraft version of a Bukkit-family server, read after its "This server is running" line. */
+    private fun serverVersion(text: String, line: MatchResult): String? {
+        val rest = text.substring(line.range.first, minOf(text.length, line.range.last + 200)).substringBefore('\n')
+        return MC_TAG.find(rest)?.let { it.groupValues[1].ifEmpty { it.groupValues[2] } }
+            ?: Regex("""^(\d+\.\d+(?:\.\d+)?)-""").find(line.groupValues[2])?.groupValues?.get(1)
+    }
+
+    fun detect(document: LogDocument): Environment {
+        val text = document.text
+        var platform = Platform.UNKNOWN
+        var minecraft: String? = document.field("Minecraft Version")
+        var loader: String? = null
+        var side = Side.UNKNOWN
+
+        PAPER.find(text)?.let {
+            platform = Platform.valueOf(it.groupValues[1].uppercase().let { name -> if (name == "PUFFERFISH") "PAPER" else name })
+            loader = it.groupValues[2]
+            minecraft = serverVersion(text, it)
+            side = Side.SERVER
+        }
+        if (platform == Platform.UNKNOWN) {
+            CRAFTBUKKIT.find(text)?.let {
+                platform = Platform.SPIGOT
+                loader = it.groupValues[1]
+                minecraft = serverVersion(text, it)
+                side = Side.SERVER
+            }
+        }
+        if (platform == Platform.UNKNOWN) {
+            LOADING_MINECRAFT.find(text)?.let {
+                minecraft = minecraft ?: it.groupValues[1]
+                platform = if (it.groupValues[2] == "Quilt") Platform.QUILT else Platform.FABRIC
+                loader = it.groupValues[3]
+            }
+        }
+        if (platform == Platform.UNKNOWN) {
+            platform = when {
+                text.contains("neoforged", ignoreCase = true) || NEOFORGE.containsMatchIn(text) -> Platform.NEOFORGE
+                text.contains("net.minecraftforge") || text.contains("MinecraftForge") || text.contains("fml.loading") -> Platform.FORGE
+                text.contains("quilt_loader") || text.contains("org.quiltmc") -> Platform.QUILT
+                text.contains("fabricloader") || text.contains("net.fabricmc") -> Platform.FABRIC
+                VANILLA_SERVER.containsMatchIn(text) || document.isCrashReport -> Platform.VANILLA
+                else -> Platform.UNKNOWN
+            }
+            loader = when (platform) {
+                Platform.NEOFORGE -> NEOFORGE.find(text)?.groupValues?.get(1)
+                Platform.FORGE -> FORGE.find(text)?.groupValues?.get(1)
+                Platform.FABRIC -> FABRIC_LOADER.find(text)?.groupValues?.get(1)
+                Platform.QUILT -> QUILT_LOADER.find(text)?.groupValues?.get(1)
+                else -> null
+            }
+        }
+        minecraft = minecraft ?: VANILLA_SERVER.find(text)?.groupValues?.get(1)
+
+        if (side == Side.UNKNOWN) {
+            side = when {
+                text.contains("Dedicated Server") || text.contains("DedicatedServer") ||
+                    VANILLA_SERVER.containsMatchIn(text) || text.contains("Is Modded: Probably not. Server") -> Side.SERVER
+                text.contains("Launched Version:") || text.contains("LWJGL") || text.contains("Render thread") -> Side.CLIENT
+                else -> Side.UNKNOWN
+            }
+        }
+
+        val java = JAVA_FIELD.find(text)?.groupValues?.get(1)
+            ?: JAVA_RUNTIME.find(text)?.let { "${it.groupValues[1]}.${it.groupValues[2]}.${it.groupValues[3]}" }
+
+        return Environment(
+            platform = platform,
+            minecraftVersion = minecraft,
+            loaderVersion = loader,
+            javaVersion = java,
+            side = side,
+        )
+    }
+}

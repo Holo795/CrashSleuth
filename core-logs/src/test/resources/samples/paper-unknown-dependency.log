@@ -1,0 +1,10 @@
+[10:00:00 INFO]: Starting minecraft server version 1.21.1
+[10:00:01 INFO]: This server is running Paper version 1.21.1-133-master@a1b2c3d (2026-09-01T10:00:00Z) (Implementing API version 1.21.1-R0.1-SNAPSHOT)
+[10:00:02 ERROR]: Could not load 'plugins/EssentialsChat-2.21.0.jar' in folder 'plugins'
+org.bukkit.plugin.UnknownDependencyException: Unknown/missing dependency plugins: [Essentials]. Please download and install these plugins to run 'EssentialsChat'.
+	at org.bukkit.plugin.SimplePluginManager.loadPlugins(SimplePluginManager.java:291) ~[paper-api-1.21.1-R0.1-SNAPSHOT.jar:?]
+	at org.bukkit.craftbukkit.CraftServer.loadPlugins(CraftServer.java:465) ~[paper-1.21.1.jar:1.21.1-133-a1b2c3d]
+[10:00:02 ERROR]: Could not load 'plugins/OldShop-1.4.jar' in folder 'plugins'
+org.bukkit.plugin.InvalidPluginException: Unsupported API version 1.22
+	at org.bukkit.craftbukkit.util.CraftMagicNumbers.checkSupported(CraftMagicNumbers.java:400) ~[paper-1.21.1.jar:1.21.1-133-a1b2c3d]
+[10:00:05 INFO]: Done (4.123s)! For help, type "help"

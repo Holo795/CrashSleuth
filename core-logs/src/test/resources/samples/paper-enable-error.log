@@ -1,0 +1,6 @@
+[10:00:01 INFO]: This server is running Paper version 1.21.1-133-master@a1b2c3d (2026-09-01T10:00:00Z) (Implementing API version 1.21.1-R0.1-SNAPSHOT)
+[10:00:03 ERROR]: Error occurred while enabling WorldGuardExtra v3.2.1 (Is it up to date?)
+java.lang.NullPointerException: Cannot invoke "org.bukkit.plugin.Plugin.getDescription()" because "worldguard" is null
+	at com.example.wgextra.WorldGuardExtra.onEnable(WorldGuardExtra.java:42) ~[WorldGuardExtra-3.2.1.jar:?]
+	at org.bukkit.plugin.java.JavaPlugin.setEnabled(JavaPlugin.java:288) ~[paper-api-1.21.1-R0.1-SNAPSHOT.jar:?]
+	at io.papermc.paper.plugin.manager.PaperPluginInstanceManager.enablePlugin(PaperPluginInstanceManager.java:202) ~[paper-1.21.1.jar:1.21.1-133-a1b2c3d]
