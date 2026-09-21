@@ -31,6 +31,13 @@ object Attribution {
         "net.md_5.", "com.velocitypowered.",
     )
 
+    /** Java modules of the game, loaders and libraries (NeoForge and Forge print them in frames). */
+    private val PLATFORM_MODULE = Regex(
+        """^(java\..*|jdk\..*|minecraft|neoforge|forge|fml_loader|fmlloader|fmlcore|javafmllanguage|mclanguage|""" +
+            """lowcodelanguage|cpw\.mods\..*|bootstraplauncher|securejarhandler|modlauncher|org\..*|com\.google\..*|""" +
+            """io\.netty\..*|net\.neoforged\..*|net\.minecraftforge\..*|mixinextras.*|coremods|accesstransformers|eventbus)$""",
+    )
+
     private val VERSION_SUFFIX = Regex("""[-_+](?:mc)?v?\d.*$""", RegexOption.IGNORE_CASE)
     private val LOADER_TAG = Regex("""[-_](?:fabric|neoforge|forge|quilt|paper|bukkit|spigot|mc)$""", RegexOption.IGNORE_CASE)
 
@@ -62,10 +69,13 @@ object Attribution {
             exception.frames.forEachIndexed { position, frame ->
                 val key: String
                 val file: String?
-                if (frame.jar != null && !isPlatformJar(frame.jar)) {
+                if (frame.module != null && !PLATFORM_MODULE.matches(frame.module) && !isPlatformClass(frame.className)) {
+                    key = frame.module.removeSuffix("_service")
+                    file = null
+                } else if (frame.jar != null && !isPlatformJar(frame.jar)) {
                     key = idFromJar(frame.jar)
                     file = frame.jar
-                } else if (frame.jar == null && !isPlatformClass(frame.className)) {
+                } else if (frame.jar == null && frame.module == null && !isPlatformClass(frame.className)) {
                     key = packageRoot(frame.className)
                     file = null
                 } else {

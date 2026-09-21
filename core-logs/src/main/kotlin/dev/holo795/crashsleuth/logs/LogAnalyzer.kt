@@ -56,7 +56,10 @@ class LogAnalyzer(
     companion object {
         val DEFAULT_DETECTORS: List<Detector> = listOf(
             FmlDependencyDetector,
+            FmlFailureMessageDetector,
             FabricDependencyDetector,
+            WrongLoaderDetector,
+            ClientOnlyDetector,
             PluginLoadDetector,
             JavaVersionDetector,
             OutOfMemoryDetector,

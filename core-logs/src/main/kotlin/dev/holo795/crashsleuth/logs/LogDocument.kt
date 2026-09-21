@@ -8,6 +8,9 @@ data class Frame(
     /** Jar name printed by Log4j after the frame, for example `~[MyPlugin-1.2.jar:?]`. */
     val jar: String?,
     val lineIndex: Int,
+    /** Java module of the frame, for example `sodium_service` in `LAYER SERVICE/sodium_service@0.8.13/...`. */
+    val module: String? = null,
+    val moduleVersion: String? = null,
 ) {
     val packageName: String get() = className.substringBeforeLast('.', "")
 }
@@ -29,7 +32,9 @@ data class StackTrace(
 }
 
 /** A log or crash report split into lines, with its stack traces extracted. */
-class LogDocument(val text: String) {
+class LogDocument(rawText: String) {
+    /** Text without terminal colour codes, which consoles often keep. */
+    val text: String = ANSI.replace(rawText, "")
     val lines: List<String> = text.lines()
 
     val isCrashReport: Boolean = lines.take(5).any { it.contains("---- Minecraft Crash Report ----") }
@@ -90,14 +95,7 @@ class LogDocument(val text: String) {
             val frame = FRAME.find(line)
             when {
                 frame != null -> {
-                    val qualified = frame.groupValues[1]
-                    frames += Frame(
-                        className = qualified.substringBeforeLast('.'),
-                        method = qualified.substringAfterLast('.'),
-                        source = frame.groupValues[2].ifEmpty { null },
-                        jar = JAR.find(line.substring(frame.range.last))?.groupValues?.get(1)?.trim(),
-                        lineIndex = index,
-                    )
+                    frames += parseFrame(frame, line, index)
                     index++
                 }
                 MORE.containsMatchIn(line) -> index++
@@ -120,13 +118,36 @@ class LogDocument(val text: String) {
         ) to index
     }
 
-    /** Removes the Log4j prefix such as `[12:00:00] [main/ERROR]: `. */
-    private fun stripPrefix(line: String): String = LOG_PREFIX.replace(line, "").trim()
+    /**
+     * `at com.foo.Bar.baz(Bar.java:1)`, `at java.base/java.lang.Thread.run(...)` or
+     * `at LAYER SERVICE/sodium_service@0.8.13+mc1.21.1/net.caffeinemc.Foo.bar(...)`.
+     */
+    private fun parseFrame(frame: MatchResult, line: String, index: Int): Frame {
+        val segments = frame.groupValues[1].split('/')
+        val qualified = segments.last()
+        val moduleSegment = segments.dropLast(1).lastOrNull()
+        val module = moduleSegment?.substringBefore('@')?.takeIf { it.isNotBlank() && !it.contains(' ') }
+        val moduleVersion = moduleSegment?.takeIf { it.contains('@') }?.substringAfter('@')
+        return Frame(
+            className = qualified.substringBeforeLast('.'),
+            method = qualified.substringAfterLast('.'),
+            source = frame.groupValues[2].ifEmpty { null },
+            jar = JAR.find(line.substring(frame.range.last))?.groupValues?.get(1)?.trim(),
+            lineIndex = index,
+            module = module,
+            moduleVersion = moduleVersion,
+        )
+    }
+
+    /** Removes the Log4j prefix such as `[12:00:00] [main/ERROR]: ` and `Exception in thread "main" `. */
+    private fun stripPrefix(line: String): String = THREAD_PREFIX.replace(LOG_PREFIX.replace(line, "").trim(), "").trim()
 
     companion object {
         private val LOG_PREFIX = Regex("""^\s*(\[[^]]*]\s*)*(\[[^]]*]:\s*)?""")
         private val EXCEPTION_HEADER = Regex("""((?:[a-zA-Z_$][\w$]*\.)+[A-Z][\w$]*(?:Exception|Error|Throwable|Failure|Crash[\w$]*))(?::\s*(.*))?""")
-        private val FRAME = Regex("""^\s*at\s+([\w$.<>/\[\]-]+)\((.*?)\)""")
+        private val FRAME = Regex("""^\s*at\s+((?:[\w .+@-]+/)*[\w$.<>\[\]-]+)\((.*?)\)""")
+        private val ANSI = Regex("""\u001B\[[0-9;]*m""")
+        private val THREAD_PREFIX = Regex("""^Exception in thread "[^"]*"\s*""")
         private val JAR = Regex("""[~\[]\s*\[?([^\[\]:{}]+\.jar)""")
         private val MORE = Regex("""^\s*\.\.\.\s*\d+\s*more""")
         private val CAUSED_BY = Regex("""^\s*Caused by:\s*(.+)$""")

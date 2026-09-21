@@ -76,6 +76,7 @@ object EnvironmentDetector {
         if (side == Side.UNKNOWN) {
             side = when {
                 text.contains("Dedicated Server") || text.contains("DedicatedServer") ||
+                    Regex("""launchTarget, (?:neo)?forgeserver|--launchTarget (?:neo)?forgeserver|forgeserveruserdev""").containsMatchIn(text) ||
                     VANILLA_SERVER.containsMatchIn(text) || text.contains("Is Modded: Probably not. Server") -> Side.SERVER
                 text.contains("Launched Version:") || text.contains("LWJGL") || text.contains("Render thread") -> Side.CLIENT
                 else -> Side.UNKNOWN

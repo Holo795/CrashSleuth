@@ -78,6 +78,7 @@ class ReportPrinter(private val messages: Messages) {
             Situation.TICK_ENTITY, Situation.TICK_BLOCK_ENTITY ->
                 messages.advice(finding.situation, details["object"], details["location"] ?: "?", first)
             Situation.NATIVE_CRASH -> messages.advice(finding.situation, details["library"])
+            Situation.WRONG_LOADER -> messages.advice(finding.situation, first, details["platform"])
             else -> messages.advice(finding.situation, first)
         }
     }

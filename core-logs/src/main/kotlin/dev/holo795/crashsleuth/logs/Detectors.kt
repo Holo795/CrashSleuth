@@ -5,6 +5,7 @@ import dev.holo795.crashsleuth.model.Culprit
 import dev.holo795.crashsleuth.model.CulpritKind
 import dev.holo795.crashsleuth.model.Environment
 import dev.holo795.crashsleuth.model.Finding
+import dev.holo795.crashsleuth.model.Side
 import dev.holo795.crashsleuth.model.Situation
 
 /** Recognises one family of problems in a log. */
@@ -42,8 +43,8 @@ object FabricDependencyDetector : Detector {
             val requesterName = g[1]
             val requesterId = g[2]
             val expected = g[4].ifEmpty { g[5] }.ifEmpty { "any" }
-            val dependencyName = g[6].ifEmpty { g[8] }
             val dependencyId = g[7].ifEmpty { g[8] }
+            val dependencyName = g[6].ifEmpty { KNOWN_NAMES[dependencyId] ?: g[8] }
             val missing = g[9].startsWith("which is missing")
             Finding(
                 situation = if (missing) Situation.DEP_MISSING else Situation.DEP_VERSION,
@@ -58,6 +59,50 @@ object FabricDependencyDetector : Detector {
                     "requester" to requesterId,
                     "expected" to expected,
                     "actual" to (g[10].ifEmpty { "[MISSING]" }),
+                ),
+            )
+        }.toList()
+}
+
+/** Identifiers whose readable name is not in the message: `fabric` is the legacy id of Fabric API. */
+private val KNOWN_NAMES = mapOf(
+    "fabric" to "Fabric API",
+    "fabric-api" to "Fabric API",
+    "fabricloader" to "Fabric Loader",
+    "quilted_fabric_api" to "Quilted Fabric API",
+    "neoforge" to "NeoForge",
+    "forge" to "Forge",
+    "minecraft" to "Minecraft",
+    "java" to "Java",
+)
+
+/**
+ * NeoForge and Forge mod loading crash reports:
+ * `Failure message: Mod supplementaries requires moonlight 1.21-3.6.4 or above` then
+ * `Currently, moonlight is not installed` (or `is 1.21-3.5.0`).
+ */
+object FmlFailureMessageDetector : Detector {
+    private val FAILURE = Regex("""Mod ([\w.-]+) requires ([\w.-]+) (.+?)\s*\n\s*Currently, ([\w.-]+) is ([^\n]+)""")
+    private val SECTION_FILE = Regex("""Mod [Ff]ile: (\S+\.jar)""")
+
+    override fun detect(document: LogDocument, environment: Environment): List<Finding> =
+        document.findAll(FAILURE).map { match ->
+            val (requester, dependency, expected, _, current) = match.destructured
+            val missing = current.trim().startsWith("not installed")
+            val file = SECTION_FILE.findAll(document.text.substring(0, match.range.first)).lastOrNull()?.groupValues?.get(1)
+            Finding(
+                situation = if (missing) Situation.DEP_MISSING else Situation.DEP_VERSION,
+                confidence = Confidence.CERTAIN,
+                culprits = listOf(
+                    Culprit(CulpritKind.MOD, requester, file = file?.substringAfterLast('/')),
+                    Culprit(CulpritKind.MOD, dependency, KNOWN_NAMES[dependency]),
+                ),
+                evidence = match.value.lines().map { it.trim() }.filter { it.isNotEmpty() },
+                details = mapOf(
+                    "dependency" to dependency,
+                    "requester" to requester,
+                    "expected" to expected.trim(),
+                    "actual" to if (missing) "[MISSING]" else current.trim(),
                 ),
             )
         }.toList()
@@ -122,7 +167,7 @@ object JavaVersionDetector : Detector {
     private val LINE = Regex("""UnsupportedClassVersionError: (\S+) has been compiled by a more recent version of the Java Runtime \(class file version (\d+)(?:\.\d+)?\), this version of the Java Runtime only recognizes class file versions up to (\d+)""")
 
     override fun detect(document: LogDocument, environment: Environment): List<Finding> {
-        val match = document.find(LINE) ?: return emptyList()
+        val match = document.find(LINE) ?: return moduleFormat(document, environment)
         val required = match.groupValues[2].toInt() - 44
         val current = match.groupValues[3].toInt() - 44
         val trace = document.stackTraces.firstOrNull { it.chain().any { e -> e.type.endsWith("UnsupportedClassVersionError") } }
@@ -140,6 +185,22 @@ object JavaVersionDetector : Detector {
             ),
         )
     }
+}
+
+/** Module loader wording, used when the loader itself needs a newer Java: `Unsupported major.minor version 65.0`. */
+private fun moduleFormat(document: LogDocument, environment: Environment): List<Finding> {
+    val match = document.find(Regex("""Unsupported major\.minor version (\d+)(?:\.\d+)?""")) ?: return emptyList()
+    val required = match.groupValues[1].toInt() - 44
+    val current = environment.javaVersion?.substringBefore('.') ?: "?"
+    return listOf(
+        Finding(
+            situation = Situation.JAVA_VERSION,
+            confidence = Confidence.CERTAIN,
+            culprits = listOf(Culprit(CulpritKind.JAVA, "java", "Java $current")),
+            evidence = listOfNotNull(document.lineContaining("FindException"), match.value),
+            details = mapOf("required" to required.toString(), "current" to current),
+        ),
+    )
 }
 
 /** `java.lang.OutOfMemoryError: Java heap space`, `GC overhead limit exceeded`, `Metaspace`. */
@@ -197,6 +258,50 @@ object MixinDetector : Detector {
             ),
         )
     }
+}
+
+/**
+ * A client-only mod on a server: it needs classes that only exist in the game client (rendering,
+ * LWJGL, `net.minecraft.client`), or the loader refuses to load a client class on a dedicated server.
+ */
+object ClientOnlyDetector : Detector {
+    private val CLIENT_CLASS = Regex("""(?:NoClassDefFoundError|ClassNotFoundException):\s*((?:org[/.]lwjgl|net[/.]minecraft[/.]client|com[/.]mojang[/.]blaze3d)[\w/.$]*)""")
+    private val INVALID_DIST = Regex("""Attempted to load class (\S+) for invalid dist DEDICATED_SERVER""")
+
+    override fun detect(document: LogDocument, environment: Environment): List<Finding> {
+        if (environment.side == Side.CLIENT) return emptyList()
+        val match = document.find(CLIENT_CLASS) ?: document.find(INVALID_DIST) ?: return emptyList()
+        val trace = document.stackTraces.firstOrNull { it.chain().any { e -> CLIENT_CLASS.containsMatchIn(e.headline) } }
+            ?: document.stackTraces.firstOrNull { it.lineIndex >= lineOf(document, match.range.first) - 1 }
+        val culprits = trace?.let { Attribution.culprits(it, environment, 2) }.orEmpty()
+        val version = trace?.chain()?.flatMap { it.frames }?.firstOrNull { it.module?.removeSuffix("_service") == culprits.firstOrNull()?.id }?.moduleVersion
+        return listOf(
+            Finding(
+                situation = Situation.CLIENT_ONLY_ON_SERVER,
+                confidence = if (culprits.isNotEmpty()) Confidence.HIGH else Confidence.MEDIUM,
+                culprits = culprits.mapIndexed { index, culprit -> if (index == 0 && version != null) culprit.copy(version = version) else culprit },
+                evidence = listOf(match.value),
+                details = mapOf("class" to match.groupValues[1].replace('/', '.')),
+            ),
+        )
+    }
+}
+
+/** A mod made for another loader: NeoForge skips it with a warning and the server may still start. */
+object WrongLoaderDetector : Detector {
+    private val SKIPPED = Regex("""File (\S+?\.jar) is a (Fabric|Quilt|Forge|NeoForge|LiteLoader|Rift|Bukkit|Paper) (?:mod|plugin) and cannot be loaded""")
+
+    override fun detect(document: LogDocument, environment: Environment): List<Finding> =
+        document.findAll(SKIPPED).map { match ->
+            val jar = match.groupValues[1].substringAfterLast('/')
+            Finding(
+                situation = Situation.WRONG_LOADER,
+                confidence = Confidence.CERTAIN,
+                culprits = listOf(Culprit(CulpritKind.MOD, Attribution.idFromJar(jar), file = jar)),
+                evidence = listOf(match.value),
+                details = mapOf("madeFor" to match.groupValues[2], "platform" to environment.platform.displayName),
+            )
+        }.toList()
 }
 
 /** Crash report sections `-- Entity being ticked --` and `-- Block entity being ticked --`. */
