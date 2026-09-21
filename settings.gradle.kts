@@ -10,4 +10,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "crashsleuth"
 
-include("core-model", "core-logs", "cli")
+include("core-model", "core-logs", "core-inventory", "core-engine", "cli")

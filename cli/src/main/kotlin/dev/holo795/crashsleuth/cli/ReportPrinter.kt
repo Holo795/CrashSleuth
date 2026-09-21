@@ -71,6 +71,7 @@ class ReportPrinter(private val messages: Messages) {
     private fun advice(finding: Finding): String {
         val details = finding.details
         val first = finding.culprits.firstOrNull { it.kind != CulpritKind.JAVA }?.let { describe(it) } ?: "?"
+        details["adviceKey"]?.let { return messages.get(it, first) }
         return when (finding.situation) {
             Situation.DEP_MISSING -> messages.advice(finding.situation, details["dependency"], details["requester"])
             Situation.DEP_VERSION -> messages.advice(finding.situation, details["dependency"], details["requester"], details["expected"], details["actual"])
@@ -79,6 +80,11 @@ class ReportPrinter(private val messages: Messages) {
                 messages.advice(finding.situation, details["object"], details["location"] ?: "?", first)
             Situation.NATIVE_CRASH -> messages.advice(finding.situation, details["library"])
             Situation.WRONG_LOADER -> messages.advice(finding.situation, first, details["platform"])
+            Situation.WRONG_MC -> messages.advice(finding.situation, first, details["actual"] ?: "?", details["expected"] ?: "?")
+            Situation.SILENT_ERROR -> messages.advice(finding.situation, first, details["count"] ?: "1")
+            Situation.DUPLICATE -> messages.advice(finding.situation, first, details["files"] ?: "")
+            Situation.MOD_CONFLICT -> messages.advice(finding.situation, first, finding.culprits.getOrNull(1)?.let { describe(it) } ?: "?")
+            Situation.WORLD_DOWNGRADE -> messages.advice(finding.situation, details["expected"], details["actual"])
             else -> messages.advice(finding.situation, first)
         }
     }

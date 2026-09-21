@@ -3,7 +3,7 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":core-logs"))
+    implementation(project(":core-engine"))
     implementation(libs.clikt)
 }
 

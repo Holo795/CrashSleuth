@@ -66,6 +66,8 @@ data class Report(
     val environment: Environment,
     val findings: List<Finding>,
     val exceptions: List<String> = emptyList(),
+    /** Files the report was built from (logs, crash reports, folders). */
+    val sources: List<String> = emptyList(),
 ) {
     val primary: Finding? get() = findings.firstOrNull()
 }
