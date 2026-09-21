@@ -20,7 +20,11 @@ class LogAnalyzer(
         val findings = if (specific.any { it.situation != Situation.UNCAUGHT_EXCEPTION || it.confidence >= Confidence.HIGH }) {
             specific
         } else {
+            // Outside a real crash, an exception nobody can be blamed for is only listed, not reported:
+            // healthy modpacks log plenty of harmless ones (seen on a 106-mod NeoForge pack).
+            val fatal = FATAL.containsMatchIn(document.text)
             specific + UncaughtExceptionDetector.detect(document, environment)
+                .filter { fatal || it.confidence > Confidence.LOW || it.culprits.isNotEmpty() }
         }
         return Report(
             environment = environment,
@@ -54,6 +58,11 @@ class LogAnalyzer(
         )
 
     companion object {
+        private val FATAL = Regex(
+            """---- Minecraft Crash Report ----|Exception in thread "(?:main|Server thread)"|Encountered an unexpected exception|""" +
+                """Failed to start the minecraft server|A fatal error has been detected by the Java Runtime Environment""",
+        )
+
         val DEFAULT_DETECTORS: List<Detector> = listOf(
             FmlDependencyDetector,
             FmlFailureMessageDetector,
@@ -61,6 +70,11 @@ class LogAnalyzer(
             WrongLoaderDetector,
             ClientOnlyDetector,
             PluginLoadDetector,
+            PluginRuntimeDetector,
+            NotAPluginDetector,
+            DuplicateDetector,
+            HangDetector,
+            SignatureDetector.BUILT_IN,
             JavaVersionDetector,
             OutOfMemoryDetector,
             StackOverflowDetector,

@@ -46,6 +46,9 @@ object FabricDependencyDetector : Detector {
             val dependencyId = g[7].ifEmpty { g[8] }
             val dependencyName = g[6].ifEmpty { KNOWN_NAMES[dependencyId] ?: g[8] }
             val missing = g[9].startsWith("which is missing")
+            if (dependencyId == "minecraft" && !missing) {
+                return@map wrongMinecraft(Culprit(CulpritKind.MOD, requesterId, requesterName, g[3]), expected, g[10], match.value.trim())
+            }
             Finding(
                 situation = if (missing) Situation.DEP_MISSING else Situation.DEP_VERSION,
                 confidence = Confidence.CERTAIN,
@@ -90,6 +93,12 @@ object FmlFailureMessageDetector : Detector {
             val (requester, dependency, expected, _, current) = match.destructured
             val missing = current.trim().startsWith("not installed")
             val file = SECTION_FILE.findAll(document.text.substring(0, match.range.first)).lastOrNull()?.groupValues?.get(1)
+            if (dependency == "minecraft" && !missing) {
+                return@map wrongMinecraft(
+                    Culprit(CulpritKind.MOD, requester, file = file?.substringAfterLast('/')), expected.trim(), current.trim(),
+                    match.value.lines().joinToString(" ") { it.trim() }.trim(),
+                )
+            }
             Finding(
                 situation = if (missing) Situation.DEP_MISSING else Situation.DEP_VERSION,
                 confidence = Confidence.CERTAIN,
@@ -267,14 +276,38 @@ object MixinDetector : Detector {
 object ClientOnlyDetector : Detector {
     private val CLIENT_CLASS = Regex("""(?:NoClassDefFoundError|ClassNotFoundException):\s*((?:org[/.]lwjgl|net[/.]minecraft[/.]client|com[/.]mojang[/.]blaze3d)[\w/.$]*)""")
     private val INVALID_DIST = Regex("""Attempted to load class (\S+) for invalid dist DEDICATED_SERVER""")
+    /** NeoForge/Forge crash report block: the mod is named, with its version and file. */
+    private val FML_FAILURE = Regex(
+        """Failure message: (.+?) \(([\w.-]+)\) has failed to load correctly\s*\n\s*(.*(?:invalid dist DEDICATED_SERVER|NoClassDefFoundError: (?:org/lwjgl|net/minecraft/client|com/mojang/blaze3d)).*)""",
+    )
+    private val MOD_VERSION = Regex("""^\s*Mod version: (\S+)""", RegexOption.MULTILINE)
+    private val MOD_FILE = Regex("""Mod file: (\S+\.jar)""")
 
     override fun detect(document: LogDocument, environment: Environment): List<Finding> {
         if (environment.side == Side.CLIENT) return emptyList()
-        val match = document.find(CLIENT_CLASS) ?: document.find(INVALID_DIST) ?: return emptyList()
-        val trace = document.stackTraces.firstOrNull { it.chain().any { e -> CLIENT_CLASS.containsMatchIn(e.headline) } }
-            ?: document.stackTraces.firstOrNull { it.lineIndex >= lineOf(document, match.range.first) - 1 }
-        val culprits = trace?.let { Attribution.culprits(it, environment, 2) }.orEmpty()
-        val version = trace?.chain()?.flatMap { it.frames }?.firstOrNull { it.module?.removeSuffix("_service") == culprits.firstOrNull()?.id }?.moduleVersion
+        val failures = document.findAll(FML_FAILURE).map { match ->
+            val following = document.text.substring(match.range.last, minOf(document.text.length, match.range.last + 400))
+            val preceding = document.text.substring(maxOf(0, match.range.first - 300), match.range.first)
+            val file = MOD_FILE.findAll(preceding).lastOrNull()?.groupValues?.get(1)?.substringAfterLast('/')
+            Finding(
+                situation = Situation.CLIENT_ONLY_ON_SERVER,
+                confidence = Confidence.CERTAIN,
+                culprits = listOf(Culprit(CulpritKind.MOD, match.groupValues[2], match.groupValues[1], MOD_VERSION.find(following)?.groupValues?.get(1), file)),
+                evidence = listOf(match.value.lines().joinToString(" ") { it.trim() }),
+                details = mapOfNotNull("class" to INVALID_DIST.find(match.groupValues[3])?.groupValues?.get(1)?.replace('/', '.')),
+            )
+        }.distinctBy { it.culprits.first().id }.toList()
+        if (failures.isNotEmpty()) return failures
+
+        // Loose "invalid dist" lines are often harmless (mixin probing optional client classes):
+        // only an exception that actually stopped something counts.
+        val trace = document.stackTraces.firstOrNull { trace ->
+            trace.chain().any { CLIENT_CLASS.containsMatchIn(it.headline) || INVALID_DIST.containsMatchIn(it.headline) }
+        } ?: return emptyList()
+        val headline = trace.chain().map { it.headline }.first { CLIENT_CLASS.containsMatchIn(it) || INVALID_DIST.containsMatchIn(it) }
+        val match = CLIENT_CLASS.find(headline) ?: INVALID_DIST.find(headline)!!
+        val culprits = Attribution.culprits(trace, environment, 2)
+        val version = trace.chain().flatMap { it.frames }.firstOrNull { it.module?.removeSuffix("_service") == culprits.firstOrNull()?.id }?.moduleVersion
         return listOf(
             Finding(
                 situation = Situation.CLIENT_ONLY_ON_SERVER,
@@ -405,6 +438,14 @@ object UncaughtExceptionDetector : Detector {
     fun mainTrace(document: LogDocument): StackTrace? =
         if (document.isCrashReport) document.stackTraces.firstOrNull() else document.stackTraces.lastOrNull()
 }
+
+private fun wrongMinecraft(culprit: Culprit, expected: String, actual: String, evidence: String) = Finding(
+    situation = Situation.WRONG_MC,
+    confidence = Confidence.CERTAIN,
+    culprits = listOf(culprit),
+    evidence = listOf(evidence),
+    details = mapOf("expected" to expected, "actual" to actual),
+)
 
 private fun lineOf(document: LogDocument, offset: Int): Int = document.text.substring(0, offset).count { it == '\n' }
 

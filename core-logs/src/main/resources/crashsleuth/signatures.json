@@ -1,0 +1,156 @@
+{
+  "about": "Log signatures: a regular expression (Java syntax) and what it means. Groups name the culprits and details. Rules marked codex-minecraft are adapted from https://github.com/aternosorg/codex-minecraft (MIT, Copyright (c) 2019-2025 Aternos GmbH).",
+  "signatures": [
+    {
+      "id": "forge-mod-refuses-minecraft-version",
+      "situation": "WRONG_MC", "confidence": "CERTAIN",
+      "pattern": "The mod (\\S+) does not wish to run in Minecraft version Minecraft ([0-9.]+)",
+      "culprits": [{"group": 1, "kind": "MOD"}],
+      "details": {"actual": 2},
+      "source": "codex-minecraft"
+    },
+    {
+      "id": "fabric-incompatible-mods",
+      "situation": "MOD_CONFLICT", "confidence": "CERTAIN",
+      "pattern": "Mod '([^']+)' \\(([\\w.-]+)\\) [^\\n]*? (?:is incompatible|conflicts) with [^\\n]*? of (?:mod )?'([^']+)' \\(([\\w.-]+)\\)",
+      "culprits": [{"group": 2, "name": 1, "kind": "MOD"}, {"group": 4, "name": 3, "kind": "MOD"}],
+      "source": "codex-minecraft"
+    },
+    {
+      "id": "jpms-split-package",
+      "situation": "MOD_CONFLICT", "confidence": "CERTAIN",
+      "pattern": "ResolutionException: Modules (\\S+) and (\\S+) export package (\\S+) to module",
+      "culprits": [{"group": 1, "kind": "MOD"}, {"group": 2, "kind": "MOD"}],
+      "details": {"package": 3},
+      "source": "codex-minecraft"
+    },
+    {
+      "id": "jpms-package-in-two-modules",
+      "situation": "MOD_CONFLICT", "confidence": "CERTAIN",
+      "pattern": "ResolutionException: Module (\\S+) contains package (\\S+), module (\\S+) exports package",
+      "culprits": [{"group": 1, "kind": "MOD"}, {"group": 3, "kind": "MOD"}],
+      "details": {"package": 2},
+      "source": "codex-minecraft"
+    },
+    {
+      "id": "fabric-entrypoint-failed",
+      "situation": "UNCAUGHT_EXCEPTION", "confidence": "CERTAIN",
+      "pattern": "Could not execute entrypoint stage '[^']+' due to errors, provided by '([\\w.-]+)'",
+      "culprits": [{"group": 1, "kind": "MOD"}],
+      "source": "codex-minecraft"
+    },
+    {
+      "id": "forge-caught-exception-from-mod",
+      "situation": "UNCAUGHT_EXCEPTION", "confidence": "HIGH",
+      "pattern": "Caught exception from (?:mod )?([^(\\n]+?) \\(([\\w.-]+)\\)",
+      "culprits": [{"group": 2, "name": 1, "kind": "MOD"}],
+      "source": "codex-minecraft"
+    },
+    {
+      "id": "forge-mod-failed-to-load",
+      "situation": "UNCAUGHT_EXCEPTION", "confidence": "HIGH",
+      "pattern": "(?m)^\\s*(?:Failure message: )?([^(\\n]+?) \\(([\\w.-]+)\\) has failed to load correctly",
+      "culprits": [{"group": 2, "name": 1, "kind": "MOD"}],
+      "source": "codex-minecraft"
+    },
+    {
+      "id": "forge-language-provider-missing",
+      "situation": "DEP_MISSING", "confidence": "CERTAIN",
+      "pattern": "Mod File ([^/\\n]+?\\.jar) needs language provider ([\\w-]+):(\\S+?) to load",
+      "culprits": [{"group": 1, "kind": "MOD", "fromJar": true}, {"group": 2, "kind": "MOD"}],
+      "details": {"requester": 1, "dependency": 2, "expected": 3},
+      "source": "codex-minecraft"
+    },
+    {
+      "id": "world-saved-with-missing-mod",
+      "situation": "MOD_MISMATCH", "confidence": "HIGH",
+      "pattern": "This world was saved with mod (?!forge\\b)(?!minecraft\\b)(\\w+) which appears to be missing",
+      "culprits": [{"group": 1, "kind": "MOD"}],
+      "advice": "signature.world-missing-mod.advice",
+      "source": "codex-minecraft"
+    },
+    {
+      "id": "world-saved-with-other-mod-version",
+      "situation": "MOD_MISMATCH", "confidence": "MEDIUM",
+      "pattern": "This world was saved with mod (\\w+) version (\\S+) and it is now at version ([^,\\n]+)",
+      "culprits": [{"group": 1, "kind": "MOD"}],
+      "details": {"expected": 2, "actual": 3},
+      "advice": "signature.world-mod-version.advice",
+      "source": "codex-minecraft"
+    },
+    {
+      "id": "world-missing-datapack-mod",
+      "situation": "MOD_MISMATCH", "confidence": "HIGH",
+      "pattern": "Missing data pack mod:([\\w-]+)",
+      "culprits": [{"group": 1, "kind": "MOD"}],
+      "advice": "signature.world-missing-mod.advice",
+      "source": "codex-minecraft"
+    },
+    {
+      "id": "forge-fml-confirm",
+      "situation": "REGISTRY_MISMATCH", "confidence": "HIGH",
+      "pattern": "Run the command /fml confirm or (?:or )?/fml cancel to proceed",
+      "advice": "signature.fml-confirm.advice",
+      "source": "codex-minecraft"
+    },
+    {
+      "id": "world-newer-version",
+      "situation": "WORLD_DOWNGRADE", "confidence": "CERTAIN",
+      "pattern": "Server attempted to load chunk saved with newer version of minecraft! (\\d+) > (\\d+)",
+      "details": {"expected": 1, "actual": 2},
+      "source": "codex-minecraft"
+    },
+    {
+      "id": "bukkit-world-duplicate-uid",
+      "situation": "WORLD_DUPLICATE", "confidence": "CERTAIN",
+      "pattern": "World (\\S+) is a duplicate of another world and has been prevented from loading",
+      "culprits": [{"group": 1, "kind": "SYSTEM"}],
+      "source": "codex-minecraft"
+    },
+    {
+      "id": "multiverse-world-corrupt",
+      "situation": "CORRUPT_CHUNK", "confidence": "HIGH",
+      "pattern": "The world '([^']+)' could NOT be loaded because it contains errors and is probably corrupt",
+      "culprits": [{"group": 1, "kind": "SYSTEM"}],
+      "source": "codex-minecraft"
+    },
+    {
+      "id": "chunk-could-not-load",
+      "situation": "CORRUPT_CHUNK", "confidence": "MEDIUM",
+      "pattern": "Couldn't load chunk \\[?(-?\\d+, ?-?\\d+)\\]?",
+      "culprits": [{"group": 1, "kind": "SYSTEM"}],
+      "source": "codex-minecraft"
+    },
+    {
+      "id": "bukkit-command-exception",
+      "situation": "SILENT_ERROR", "confidence": "HIGH",
+      "pattern": "CommandException: Cannot execute command '([^']+)' in plugin (\\w+)",
+      "culprits": [{"group": 2, "kind": "PLUGIN"}],
+      "details": {"count": "1"},
+      "source": "codex-minecraft"
+    },
+    {
+      "id": "bukkit-plugin-disable-error",
+      "situation": "SILENT_ERROR", "confidence": "MEDIUM",
+      "pattern": "Error occurred while disabling (\\S+) [^(\\n]*\\(Is it up to date\\?\\)",
+      "culprits": [{"group": 1, "kind": "PLUGIN"}],
+      "details": {"count": "1"},
+      "source": "codex-minecraft"
+    },
+    {
+      "id": "permissionsex-config",
+      "situation": "CONFIG_BROKEN", "confidence": "CERTAIN",
+      "pattern": "Your configuration must be fixed before PEX will enable",
+      "culprits": [{"literal": "PermissionsEx", "kind": "PLUGIN"}],
+      "source": "codex-minecraft"
+    },
+    {
+      "id": "authme-stops-server",
+      "situation": "CONFIG_BROKEN", "confidence": "HIGH",
+      "pattern": "\\[AuthMe\\] THE SERVER IS GOING TO SHUT DOWN AS DEFINED IN THE CONFIGURATION",
+      "culprits": [{"literal": "AuthMe", "kind": "PLUGIN"}],
+      "advice": "signature.authme-shutdown.advice",
+      "source": "codex-minecraft"
+    }
+  ]
+}

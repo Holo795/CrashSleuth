@@ -126,13 +126,15 @@ class LogDocument(rawText: String) {
         val segments = frame.groupValues[1].split('/')
         val qualified = segments.last()
         val moduleSegment = segments.dropLast(1).lastOrNull()
-        val module = moduleSegment?.substringBefore('@')?.takeIf { it.isNotBlank() && !it.contains(' ') }
+        // Paper names plugin class loaders after their jar: `at MyPlugin-1.0.jar/com.foo.Bar.baz(...)`.
+        val loaderJar = segments.dropLast(1).firstOrNull { it.endsWith(".jar") }
+        val module = moduleSegment?.substringBefore('@')?.takeIf { it.isNotBlank() && !it.contains(' ') && loaderJar == null }
         val moduleVersion = moduleSegment?.takeIf { it.contains('@') }?.substringAfter('@')
         return Frame(
             className = qualified.substringBeforeLast('.'),
             method = qualified.substringAfterLast('.'),
             source = frame.groupValues[2].ifEmpty { null },
-            jar = JAR.find(line.substring(frame.range.last))?.groupValues?.get(1)?.trim(),
+            jar = loaderJar ?: JAR.find(line.substring(frame.range.last))?.groupValues?.get(1)?.trim(),
             lineIndex = index,
             module = module,
             moduleVersion = moduleVersion,
@@ -140,10 +142,10 @@ class LogDocument(rawText: String) {
     }
 
     /** Removes the Log4j prefix such as `[12:00:00] [main/ERROR]: ` and `Exception in thread "main" `. */
-    private fun stripPrefix(line: String): String = THREAD_PREFIX.replace(LOG_PREFIX.replace(line, "").trim(), "").trim()
+    internal fun stripPrefix(line: String): String = THREAD_PREFIX.replace(LOG_PREFIX.replace(line, "").trim(), "").trim()
 
     companion object {
-        private val LOG_PREFIX = Regex("""^\s*(\[[^]]*]\s*)*(\[[^]]*]:\s*)?""")
+        private val LOG_PREFIX = Regex("""^\s*(\[[^]]*]\s*)*(?:(?<=])\s*:)?\s*""")
         private val EXCEPTION_HEADER = Regex("""((?:[a-zA-Z_$][\w$]*\.)+[A-Z][\w$]*(?:Exception|Error|Throwable|Failure|Crash[\w$]*))(?::\s*(.*))?""")
         private val FRAME = Regex("""^\s*at\s+((?:[\w .+@-]+/)*[\w$.<>\[\]-]+)\((.*?)\)""")
         private val ANSI = Regex("""\u001B\[[0-9;]*m""")
