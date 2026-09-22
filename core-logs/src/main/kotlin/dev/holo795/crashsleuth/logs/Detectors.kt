@@ -368,8 +368,11 @@ object ClientOnlyDetector : Detector {
 object WrongLoaderDetector : Detector {
     private val SKIPPED = Regex("""File (\S+?\.jar) is a (Fabric|Quilt|Forge|NeoForge|LiteLoader|Rift|Bukkit|Paper) (?:mod|plugin) and cannot be loaded""")
 
-    override fun detect(document: LogDocument, environment: Environment): List<Finding> =
-        document.findAll(SKIPPED).map { match ->
+    override fun detect(document: LogDocument, environment: Environment): List<Finding> {
+        // Sinytra Connector loads Fabric mods on NeoForge itself: the loader skipping them first is
+        // how it works, not a problem to report.
+        if (document.text.contains("sinytra", ignoreCase = true)) return emptyList()
+        return document.findAll(SKIPPED).map { match ->
             val jar = match.groupValues[1].substringAfterLast('/')
             Finding(
                 situation = Situation.WRONG_LOADER,
@@ -379,6 +382,7 @@ object WrongLoaderDetector : Detector {
                 details = mapOf("madeFor" to match.groupValues[2], "platform" to environment.platform.displayName),
             )
         }.toList()
+    }
 }
 
 /** Crash report sections `-- Entity being ticked --` and `-- Block entity being ticked --`. */

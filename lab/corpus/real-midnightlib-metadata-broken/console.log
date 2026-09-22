@@ -1,0 +1,152 @@
+2026-09-22T21:24:33.723503432Z main WARN Advanced terminal features are not available in this environment
+[21:24:33] [main/INFO] [ne.ne.fm.st.Entrypoint/]: JVM Uptime at startup: 31ms
+[21:24:33] [main/INFO] [ne.ne.fm.lo.FMLLoader/]: Starting FancyModLoader version 12.0.0 (DEDICATED_SERVER in PROD)
+[21:24:33] [main/INFO] [ne.ne.fm.lo.FMLLoader/]: Game directory: /srv
+[21:24:33] [main/INFO] [ne.ne.fm.lo.EarlyServiceDiscovery/]: Found 2 early service jars (out of 67) in 9ms
+[21:24:33] [main/INFO] [ne.ne.fm.lo.FMLLoader/]: Loading FML Early Services:
+[21:24:33] [main/INFO] [ne.ne.fm.lo.FMLLoader/]:  - libraries/net/neoforged/fancymodloader/loader/12.0.0/loader-12.0.0.jar
+[21:24:33] [main/INFO] [ne.ne.fm.lo.FMLLoader/]:  - libraries/net/neoforged/fancymodloader/earlydisplay/12.0.0/earlydisplay-12.0.0.jar
+[21:24:33] [main/INFO] [ne.ne.fm.lo.ImmediateWindowHandler/]: Not loading early display in headless mode.
+[21:24:33] [main/INFO] [ne.ne.fm.lo.mo.lo.GameLocator/]: Failed to find common Minecraft classes and resources on the classpath. Assuming we're launching production.
+[21:24:33] [main/FATAL] [ne.ne.ne.la.MavenVersionAdapter/]: Failed to parse version spec [26.3)
+org.apache.maven.artifact.versioning.InvalidVersionSpecificationException: Single version must be surrounded by []: [26.3)
+	at org.apache.maven.artifact.versioning.VersionRange.parseRestriction(VersionRange.java:176) ~[maven-artifact-3.9.16.jar:3.9.16] {}
+	at org.apache.maven.artifact.versioning.VersionRange.createFromVersionSpec(VersionRange.java:129) ~[maven-artifact-3.9.16.jar:3.9.16] {}
+	at net.neoforged.neoforgespi.language.MavenVersionAdapter.createFromVersionSpec(MavenVersionAdapter.java:20) [loader-12.0.0.jar:12.0] {}
+	at java.base/java.util.Optional.map(Optional.java:260) [?:?] {}
+	at net.neoforged.fml.loading.moddiscovery.ModInfo$ModVersion.<init>(ModInfo.java:227) [loader-12.0.0.jar:12.0] {}
+	at net.neoforged.fml.loading.moddiscovery.ModInfo.lambda$new$8(ModInfo.java:100) [loader-12.0.0.jar:12.0] {}
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:214) [?:?] {}
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1716) [?:?] {}
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:570) [?:?] {}
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:560) [?:?] {}
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:635) [?:?] {}
+	at java.base/java.util.stream.AbstractPipeline.evaluateToArrayNode(AbstractPipeline.java:291) [?:?] {}
+	at java.base/java.util.stream.ReferencePipeline.toArray(ReferencePipeline.java:652) [?:?] {}
+	at java.base/java.util.stream.ReferencePipeline.toArray(ReferencePipeline.java:658) [?:?] {}
+	at java.base/java.util.stream.ReferencePipeline.toList(ReferencePipeline.java:663) [?:?] {}
+	at net.neoforged.fml.loading.moddiscovery.ModInfo.<init>(ModInfo.java:101) [loader-12.0.0.jar:12.0] {}
+	at net.neoforged.fml.loading.moddiscovery.ModFileInfo.lambda$new$0(ModFileInfo.java:78) [loader-12.0.0.jar:12.0] {}
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:214) [?:?] {}
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1716) [?:?] {}
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:570) [?:?] {}
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:560) [?:?] {}
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:635) [?:?] {}
+	at java.base/java.util.stream.AbstractPipeline.evaluateToArrayNode(AbstractPipeline.java:291) [?:?] {}
+	at java.base/java.util.stream.ReferencePipeline.toArray(ReferencePipeline.java:652) [?:?] {}
+	at java.base/java.util.stream.ReferencePipeline.toArray(ReferencePipeline.java:658) [?:?] {}
+	at java.base/java.util.stream.ReferencePipeline.toList(ReferencePipeline.java:663) [?:?] {}
+	at net.neoforged.fml.loading.moddiscovery.ModFileInfo.<init>(ModFileInfo.java:79) [loader-12.0.0.jar:12.0] {}
+	at net.neoforged.fml.loading.moddiscovery.ModFileParser.modsTomlParser(ModFileParser.java:51) [loader-12.0.0.jar:12.0] {}
+	at net.neoforged.fml.loading.moddiscovery.ModFileParser.readModList(ModFileParser.java:32) [loader-12.0.0.jar:12.0] {}
+	at net.neoforged.fml.loading.moddiscovery.ModFile.<init>(ModFile.java:79) [loader-12.0.0.jar:12.0] {}
+	at net.neoforged.fml.loading.moddiscovery.ModFile.<init>(ModFile.java:70) [loader-12.0.0.jar:12.0] {}
+	at net.neoforged.fml.loading.moddiscovery.readers.JarModsDotTomlModFileReader.createModFile(JarModsDotTomlModFileReader.java:45) [loader-12.0.0.jar:12.0] {}
+	at net.neoforged.fml.loading.moddiscovery.readers.JarModsDotTomlModFileReader.read(JarModsDotTomlModFileReader.java:92) [loader-12.0.0.jar:12.0] {}
+	at net.neoforged.fml.loading.moddiscovery.ModDiscoverer$DiscoveryPipeline.addJarContent(ModDiscoverer.java:235) [loader-12.0.0.jar:12.0] {}
+	at net.neoforged.fml.loading.moddiscovery.ModDiscoverer$DiscoveryPipeline.addPath(ModDiscoverer.java:212) [loader-12.0.0.jar:12.0] {}
+	at net.neoforged.neoforgespi.locating.IDiscoveryPipeline.addPath(IDiscoveryPipeline.java:32) [loader-12.0.0.jar:12.0] {}
+	at net.neoforged.fml.loading.moddiscovery.locators.ModsFolderLocator.findCandidates(ModsFolderLocator.java:70) [loader-12.0.0.jar:12.0] {}
+	at net.neoforged.fml.loading.moddiscovery.ModDiscoverer.discoverMods(ModDiscoverer.java:79) [loader-12.0.0.jar:12.0] {}
+	at net.neoforged.fml.loading.FMLLoader.runDiscovery(FMLLoader.java:674) [loader-12.0.0.jar:12.0] {}
+	at net.neoforged.fml.loading.FMLLoader.create(FMLLoader.java:346) [loader-12.0.0.jar:12.0] {}
+	at net.neoforged.fml.startup.Entrypoint.startup(Entrypoint.java:65) [loader-12.0.0.jar:12.0] {}
+	at net.neoforged.fml.startup.Server.main(Server.java:17) [loader-12.0.0.jar:12.0] {}
+[21:24:33] [main/INFO] [ne.ne.fm.lo.mo.lo.JarInJarDependencyLocator/]: Found 2 dependencies adding them to mods collection
+[21:24:33] [main/INFO] [ne.ne.fm.lo.mo.ModDiscoverer/]: 
+     Mod List:
+		Name Version (Mod Id)
+
+		Minecraft 26.3 (minecraft)
+		NeoForge 26.3.0.1-beta (neoforge)
+[21:24:33] [main/ERROR] [ne.ne.fm.lo.FMLLoader/]: File mods/midnightlib-neoforge-1.9.3+26.3.jar is not a valid mod file
+java.lang.RuntimeException: Failed to parse spec
+	at net.neoforged.neoforgespi.language.MavenVersionAdapter.createFromVersionSpec(MavenVersionAdapter.java:23) ~[loader-12.0.0.jar:12.0] {}
+	at java.base/java.util.Optional.map(Optional.java:260) ~[?:?] {}
+	at net.neoforged.fml.loading.moddiscovery.ModInfo$ModVersion.<init>(ModInfo.java:227) ~[loader-12.0.0.jar:12.0] {}
+	at net.neoforged.fml.loading.moddiscovery.ModInfo.lambda$new$8(ModInfo.java:100) ~[loader-12.0.0.jar:12.0] {}
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:214) ~[?:?] {}
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1716) ~[?:?] {}
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:570) ~[?:?] {}
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:560) ~[?:?] {}
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:635) ~[?:?] {}
+	at java.base/java.util.stream.AbstractPipeline.evaluateToArrayNode(AbstractPipeline.java:291) ~[?:?] {}
+	at java.base/java.util.stream.ReferencePipeline.toArray(ReferencePipeline.java:652) ~[?:?] {}
+	at java.base/java.util.stream.ReferencePipeline.toArray(ReferencePipeline.java:658) ~[?:?] {}
+	at java.base/java.util.stream.ReferencePipeline.toList(ReferencePipeline.java:663) ~[?:?] {}
+	at net.neoforged.fml.loading.moddiscovery.ModInfo.<init>(ModInfo.java:101) ~[loader-12.0.0.jar:12.0] {}
+	at net.neoforged.fml.loading.moddiscovery.ModFileInfo.lambda$new$0(ModFileInfo.java:78) ~[loader-12.0.0.jar:12.0] {}
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:214) ~[?:?] {}
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1716) ~[?:?] {}
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:570) ~[?:?] {}
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:560) ~[?:?] {}
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:635) ~[?:?] {}
+	at java.base/java.util.stream.AbstractPipeline.evaluateToArrayNode(AbstractPipeline.java:291) ~[?:?] {}
+	at java.base/java.util.stream.ReferencePipeline.toArray(ReferencePipeline.java:652) ~[?:?] {}
+	at java.base/java.util.stream.ReferencePipeline.toArray(ReferencePipeline.java:658) ~[?:?] {}
+	at java.base/java.util.stream.ReferencePipeline.toList(ReferencePipeline.java:663) ~[?:?] {}
+	at net.neoforged.fml.loading.moddiscovery.ModFileInfo.<init>(ModFileInfo.java:79) ~[loader-12.0.0.jar:12.0] {}
+	at net.neoforged.fml.loading.moddiscovery.ModFileParser.modsTomlParser(ModFileParser.java:51) ~[loader-12.0.0.jar:12.0] {}
+	at net.neoforged.fml.loading.moddiscovery.ModFileParser.readModList(ModFileParser.java:32) ~[loader-12.0.0.jar:12.0] {}
+	at net.neoforged.fml.loading.moddiscovery.ModFile.<init>(ModFile.java:79) ~[loader-12.0.0.jar:12.0] {}
+	at net.neoforged.fml.loading.moddiscovery.ModFile.<init>(ModFile.java:70) ~[loader-12.0.0.jar:12.0] {}
+	at net.neoforged.fml.loading.moddiscovery.readers.JarModsDotTomlModFileReader.createModFile(JarModsDotTomlModFileReader.java:45) ~[loader-12.0.0.jar:12.0] {}
+	at net.neoforged.fml.loading.moddiscovery.readers.JarModsDotTomlModFileReader.read(JarModsDotTomlModFileReader.java:92) ~[loader-12.0.0.jar:12.0] {}
+	at net.neoforged.fml.loading.moddiscovery.ModDiscoverer$DiscoveryPipeline.addJarContent(ModDiscoverer.java:235) ~[loader-12.0.0.jar:12.0] {}
+	at net.neoforged.fml.loading.moddiscovery.ModDiscoverer$DiscoveryPipeline.addPath(ModDiscoverer.java:212) ~[loader-12.0.0.jar:12.0] {}
+	at net.neoforged.neoforgespi.locating.IDiscoveryPipeline.addPath(IDiscoveryPipeline.java:32) ~[loader-12.0.0.jar:12.0] {}
+	at net.neoforged.fml.loading.moddiscovery.locators.ModsFolderLocator.findCandidates(ModsFolderLocator.java:70) ~[loader-12.0.0.jar:12.0] {}
+	at net.neoforged.fml.loading.moddiscovery.ModDiscoverer.discoverMods(ModDiscoverer.java:79) ~[loader-12.0.0.jar:12.0] {}
+	at net.neoforged.fml.loading.FMLLoader.runDiscovery(FMLLoader.java:674) ~[loader-12.0.0.jar:12.0] {}
+	at net.neoforged.fml.loading.FMLLoader.create(FMLLoader.java:346) [loader-12.0.0.jar:12.0] {}
+	at net.neoforged.fml.startup.Entrypoint.startup(Entrypoint.java:65) [loader-12.0.0.jar:12.0] {}
+	at net.neoforged.fml.startup.Server.main(Server.java:17) [loader-12.0.0.jar:12.0] {}
+Caused by: org.apache.maven.artifact.versioning.InvalidVersionSpecificationException: Single version must be surrounded by []: [26.3)
+	at org.apache.maven.artifact.versioning.VersionRange.parseRestriction(VersionRange.java:176) ~[maven-artifact-3.9.16.jar:3.9.16] {}
+	at org.apache.maven.artifact.versioning.VersionRange.createFromVersionSpec(VersionRange.java:129) ~[maven-artifact-3.9.16.jar:3.9.16] {}
+	at net.neoforged.neoforgespi.language.MavenVersionAdapter.createFromVersionSpec(MavenVersionAdapter.java:20) ~[loader-12.0.0.jar:12.0] {}
+	... 39 more
+[21:24:33] [main/INFO] [ne.ne.fm.lo.FMLLoader/]: Closing FML Loader 7b8233cd
+[21:24:33] [main/ERROR] [ne.ne.fm.lo.mo.BackgroundScanHandler/SCAN]: An error occurred scanning file jar(~libraries/net/neoforged/minecraft-server-patched/0.0.0.0-beta/minecraft-server-patched-26.3.0.1-beta.jar)
+java.util.concurrent.CancellationException: null
+	at java.base/java.util.concurrent.CompletableFuture.cancel(CompletableFuture.java:2552) [?:?] {}
+	at net.neoforged.fml.loading.moddiscovery.ModFile.close(ModFile.java:246) [loader-12.0.0.jar:12.0] {}
+	at net.neoforged.fml.loading.FMLLoader.close(FMLLoader.java:239) [loader-12.0.0.jar:12.0] {}
+	at net.neoforged.fml.loading.FMLLoader.create(FMLLoader.java:415) [loader-12.0.0.jar:12.0] {}
+	at net.neoforged.fml.startup.Entrypoint.startup(Entrypoint.java:65) [loader-12.0.0.jar:12.0] {}
+	at net.neoforged.fml.startup.Server.main(Server.java:17) [loader-12.0.0.jar:12.0] {}
+[21:24:33] [main/ERROR] [ne.ne.fm.lo.mo.BackgroundScanHandler/SCAN]: An error occurred scanning file jar(~libraries/net/neoforged/neoforge/0.0.0.0-beta/neoforge-26.3.0.1-beta-universal.jar)
+java.util.concurrent.CancellationException: null
+	at java.base/java.util.concurrent.CompletableFuture.cancel(CompletableFuture.java:2552) [?:?] {}
+	at net.neoforged.fml.loading.moddiscovery.ModFile.close(ModFile.java:246) [loader-12.0.0.jar:12.0] {}
+	at net.neoforged.fml.loading.FMLLoader.close(FMLLoader.java:239) [loader-12.0.0.jar:12.0] {}
+	at net.neoforged.fml.loading.FMLLoader.create(FMLLoader.java:415) [loader-12.0.0.jar:12.0] {}
+	at net.neoforged.fml.startup.Entrypoint.startup(Entrypoint.java:65) [loader-12.0.0.jar:12.0] {}
+	at net.neoforged.fml.startup.Server.main(Server.java:17) [loader-12.0.0.jar:12.0] {}
+[21:24:33] [main/ERROR] [ne.ne.fm.lo.mo.BackgroundScanHandler/SCAN]: An error occurred scanning file jar(~libraries/net/neoforged/neoforge/0.0.0.0-beta/neoforge-26.3.0.1-beta-universal.jar) > jar(~libraries/net/neoforged/neoforge/0.0.0.0-beta/neoforge-26.3.0.1-beta-universal.jar > mixinextras-neoforge-0.5.4.jar)
+java.util.concurrent.CancellationException: null
+	at java.base/java.util.concurrent.CompletableFuture.cancel(CompletableFuture.java:2552) [?:?] {}
+	at net.neoforged.fml.loading.moddiscovery.ModFile.close(ModFile.java:246) [loader-12.0.0.jar:12.0] {}
+	at net.neoforged.fml.loading.FMLLoader.close(FMLLoader.java:245) [loader-12.0.0.jar:12.0] {}
+	at net.neoforged.fml.loading.FMLLoader.create(FMLLoader.java:415) [loader-12.0.0.jar:12.0] {}
+	at net.neoforged.fml.startup.Entrypoint.startup(Entrypoint.java:65) [loader-12.0.0.jar:12.0] {}
+	at net.neoforged.fml.startup.Server.main(Server.java:17) [loader-12.0.0.jar:12.0] {}
+[21:24:33] [main/INFO] [ne.ne.fm.ModLoader/]: Clearing ModLoader
+[21:24:33] [main/ERROR] [ne.ne.fm.st.Entrypoint/]: Failed to start FML: net.neoforged.fml.ModLoadingException: Loading errors encountered:
+	- File mods/midnightlib-neoforge-1.9.3+26.3.jar is not a valid mod file
+
+	at net.neoforged.fml.loading.FMLLoader.create(FMLLoader.java:356)
+	at net.neoforged.fml.startup.Entrypoint.startup(Entrypoint.java:65)
+	at net.neoforged.fml.startup.Server.main(Server.java:17)
+
+net.neoforged.fml.startup.FatalStartupException: Failed to start FML: net.neoforged.fml.ModLoadingException: Loading errors encountered:
+	- File mods/midnightlib-neoforge-1.9.3+26.3.jar is not a valid mod file
+
+	at net.neoforged.fml.startup.Entrypoint.startup(Entrypoint.java:71)
+	at net.neoforged.fml.startup.Server.main(Server.java:17)
+Caused by: net.neoforged.fml.ModLoadingException: Loading errors encountered:
+	- File mods/midnightlib-neoforge-1.9.3+26.3.jar is not a valid mod file
+
+	at net.neoforged.fml.loading.FMLLoader.create(FMLLoader.java:356)
+	at net.neoforged.fml.startup.Entrypoint.startup(Entrypoint.java:65)
+	... 1 more

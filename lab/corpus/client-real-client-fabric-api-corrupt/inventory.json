@@ -1,0 +1,489 @@
+{
+    "platform": "FABRIC",
+    "minecraftVersion": null,
+    "loaderVersion": null,
+    "side": "UNKNOWN",
+    "jars": [
+        {
+            "file": "fabric-api-0.115.0+1.21.1.jar",
+            "folder": "mods",
+            "size": 65536,
+            "mods": [],
+            "nested": [],
+            "error": "zip END header not found",
+            "javaVersion": null
+        },
+        {
+            "file": "fabric-language-kotlin-1.14.1+kotlin.2.4.20.jar",
+            "folder": "mods",
+            "size": 8142858,
+            "mods": [
+                {
+                    "format": "FABRIC",
+                    "id": "fabric-language-kotlin",
+                    "name": "Fabric Language Kotlin",
+                    "version": "1.14.1+kotlin.2.4.20",
+                    "environment": "UNKNOWN",
+                    "dependencies": [
+                        {
+                            "id": "fabricloader",
+                            "versionRange": ">=0.19.5",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        }
+                    ],
+                    "breaks": [],
+                    "provides": [],
+                    "apiVersion": null,
+                    "entrypoints": [],
+                    "addsContent": false,
+                    "optionalOnClient": false
+                }
+            ],
+            "nested": [
+                {
+                    "format": "FABRIC",
+                    "id": "org_jetbrains_kotlinx_atomicfu-jvm",
+                    "name": "atomicfu-jvm",
+                    "version": "0.33.0",
+                    "environment": "UNKNOWN",
+                    "dependencies": [],
+                    "breaks": [],
+                    "provides": [],
+                    "apiVersion": null,
+                    "entrypoints": [],
+                    "addsContent": false,
+                    "optionalOnClient": false
+                },
+                {
+                    "format": "FABRIC",
+                    "id": "org_jetbrains_kotlin_kotlin-reflect",
+                    "name": "kotlin-reflect",
+                    "version": "2.4.20",
+                    "environment": "UNKNOWN",
+                    "dependencies": [],
+                    "breaks": [],
+                    "provides": [],
+                    "apiVersion": null,
+                    "entrypoints": [],
+                    "addsContent": false,
+                    "optionalOnClient": false
+                },
+                {
+                    "format": "FABRIC",
+                    "id": "org_jetbrains_kotlin_kotlin-stdlib",
+                    "name": "kotlin-stdlib",
+                    "version": "2.4.20",
+                    "environment": "UNKNOWN",
+                    "dependencies": [],
+                    "breaks": [],
+                    "provides": [],
+                    "apiVersion": null,
+                    "entrypoints": [],
+                    "addsContent": false,
+                    "optionalOnClient": false
+                },
+                {
+                    "format": "FABRIC",
+                    "id": "org_jetbrains_kotlin_kotlin-stdlib-jdk7",
+                    "name": "kotlin-stdlib-jdk7",
+                    "version": "2.4.20",
+                    "environment": "UNKNOWN",
+                    "dependencies": [],
+                    "breaks": [],
+                    "provides": [],
+                    "apiVersion": null,
+                    "entrypoints": [],
+                    "addsContent": false,
+                    "optionalOnClient": false
+                },
+                {
+                    "format": "FABRIC",
+                    "id": "org_jetbrains_kotlin_kotlin-stdlib-jdk8",
+                    "name": "kotlin-stdlib-jdk8",
+                    "version": "2.4.20",
+                    "environment": "UNKNOWN",
+                    "dependencies": [],
+                    "breaks": [],
+                    "provides": [],
+                    "apiVersion": null,
+                    "entrypoints": [],
+                    "addsContent": false,
+                    "optionalOnClient": false
+                },
+                {
+                    "format": "FABRIC",
+                    "id": "org_jetbrains_kotlinx_kotlinx-coroutines-core-jvm",
+                    "name": "kotlinx-coroutines-core-jvm",
+                    "version": "1.11.0",
+                    "environment": "UNKNOWN",
+                    "dependencies": [],
+                    "breaks": [],
+                    "provides": [],
+                    "apiVersion": null,
+                    "entrypoints": [],
+                    "addsContent": false,
+                    "optionalOnClient": false
+                },
+                {
+                    "format": "FABRIC",
+                    "id": "org_jetbrains_kotlinx_kotlinx-coroutines-jdk8",
+                    "name": "kotlinx-coroutines-jdk8",
+                    "version": "1.11.0",
+                    "environment": "UNKNOWN",
+                    "dependencies": [],
+                    "breaks": [],
+                    "provides": [],
+                    "apiVersion": null,
+                    "entrypoints": [],
+                    "addsContent": false,
+                    "optionalOnClient": false
+                },
+                {
+                    "format": "FABRIC",
+                    "id": "org_jetbrains_kotlinx_kotlinx-datetime-jvm",
+                    "name": "kotlinx-datetime-jvm",
+                    "version": "0.8.0",
+                    "environment": "UNKNOWN",
+                    "dependencies": [],
+                    "breaks": [],
+                    "provides": [],
+                    "apiVersion": null,
+                    "entrypoints": [],
+                    "addsContent": false,
+                    "optionalOnClient": false
+                },
+                {
+                    "format": "FABRIC",
+                    "id": "org_jetbrains_kotlinx_kotlinx-io-bytestring-jvm",
+                    "name": "kotlinx-io-bytestring-jvm",
+                    "version": "0.9.1",
+                    "environment": "UNKNOWN",
+                    "dependencies": [],
+                    "breaks": [],
+                    "provides": [],
+                    "apiVersion": null,
+                    "entrypoints": [],
+                    "addsContent": false,
+                    "optionalOnClient": false
+                },
+                {
+                    "format": "FABRIC",
+                    "id": "org_jetbrains_kotlinx_kotlinx-io-core-jvm",
+                    "name": "kotlinx-io-core-jvm",
+                    "version": "0.9.1",
+                    "environment": "UNKNOWN",
+                    "dependencies": [],
+                    "breaks": [],
+                    "provides": [],
+                    "apiVersion": null,
+                    "entrypoints": [],
+                    "addsContent": false,
+                    "optionalOnClient": false
+                },
+                {
+                    "format": "FABRIC",
+                    "id": "org_jetbrains_kotlinx_kotlinx-serialization-cbor-jvm",
+                    "name": "kotlinx-serialization-cbor-jvm",
+                    "version": "1.11.0",
+                    "environment": "UNKNOWN",
+                    "dependencies": [],
+                    "breaks": [],
+                    "provides": [],
+                    "apiVersion": null,
+                    "entrypoints": [],
+                    "addsContent": false,
+                    "optionalOnClient": false
+                },
+                {
+                    "format": "FABRIC",
+                    "id": "org_jetbrains_kotlinx_kotlinx-serialization-core-jvm",
+                    "name": "kotlinx-serialization-core-jvm",
+                    "version": "1.11.0",
+                    "environment": "UNKNOWN",
+                    "dependencies": [],
+                    "breaks": [],
+                    "provides": [],
+                    "apiVersion": null,
+                    "entrypoints": [],
+                    "addsContent": false,
+                    "optionalOnClient": false
+                },
+                {
+                    "format": "FABRIC",
+                    "id": "org_jetbrains_kotlinx_kotlinx-serialization-json-jvm",
+                    "name": "kotlinx-serialization-json-jvm",
+                    "version": "1.11.0",
+                    "environment": "UNKNOWN",
+                    "dependencies": [],
+                    "breaks": [],
+                    "provides": [],
+                    "apiVersion": null,
+                    "entrypoints": [],
+                    "addsContent": false,
+                    "optionalOnClient": false
+                }
+            ],
+            "error": null,
+            "javaVersion": 8
+        },
+        {
+            "file": "yet_another_config_lib_v3-3.8.2+1.21.1-fabric.jar",
+            "folder": "mods",
+            "size": 1131265,
+            "mods": [
+                {
+                    "format": "FABRIC",
+                    "id": "yet_another_config_lib_v3",
+                    "name": "YetAnotherConfigLib",
+                    "version": "3.8.2+1.21.1-fabric",
+                    "environment": "UNKNOWN",
+                    "dependencies": [
+                        {
+                            "id": "fabricloader",
+                            "versionRange": ">=0.17.0",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        },
+                        {
+                            "id": "minecraft",
+                            "versionRange": "~1.21 <1.21.2",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        },
+                        {
+                            "id": "java",
+                            "versionRange": ">=17",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        },
+                        {
+                            "id": "fabric-api",
+                            "versionRange": ">=0.104.0+1.21.1",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        }
+                    ],
+                    "breaks": [],
+                    "provides": [],
+                    "apiVersion": null,
+                    "entrypoints": [
+                        "dev.isxander.yacl3.platform.PlatformEntrypoint"
+                    ],
+                    "addsContent": false,
+                    "optionalOnClient": false
+                }
+            ],
+            "nested": [
+                {
+                    "format": "FABRIC",
+                    "id": "com_twelvemonkeys_common_common-image",
+                    "name": "common-image",
+                    "version": "3.12.0",
+                    "environment": "UNKNOWN",
+                    "dependencies": [],
+                    "breaks": [],
+                    "provides": [],
+                    "apiVersion": null,
+                    "entrypoints": [],
+                    "addsContent": false,
+                    "optionalOnClient": false
+                },
+                {
+                    "format": "FABRIC",
+                    "id": "com_twelvemonkeys_common_common-io",
+                    "name": "common-io",
+                    "version": "3.12.0",
+                    "environment": "UNKNOWN",
+                    "dependencies": [],
+                    "breaks": [],
+                    "provides": [],
+                    "apiVersion": null,
+                    "entrypoints": [],
+                    "addsContent": false,
+                    "optionalOnClient": false
+                },
+                {
+                    "format": "FABRIC",
+                    "id": "com_twelvemonkeys_common_common-lang",
+                    "name": "common-lang",
+                    "version": "3.12.0",
+                    "environment": "UNKNOWN",
+                    "dependencies": [],
+                    "breaks": [],
+                    "provides": [],
+                    "apiVersion": null,
+                    "entrypoints": [],
+                    "addsContent": false,
+                    "optionalOnClient": false
+                },
+                {
+                    "format": "FABRIC",
+                    "id": "org_quiltmc_parsers_gson",
+                    "name": "gson",
+                    "version": "0.2.1",
+                    "environment": "UNKNOWN",
+                    "dependencies": [],
+                    "breaks": [],
+                    "provides": [],
+                    "apiVersion": null,
+                    "entrypoints": [],
+                    "addsContent": false,
+                    "optionalOnClient": false
+                },
+                {
+                    "format": "FABRIC",
+                    "id": "com_twelvemonkeys_imageio_imageio-core",
+                    "name": "imageio-core",
+                    "version": "3.12.0",
+                    "environment": "UNKNOWN",
+                    "dependencies": [],
+                    "breaks": [],
+                    "provides": [],
+                    "apiVersion": null,
+                    "entrypoints": [],
+                    "addsContent": false,
+                    "optionalOnClient": false
+                },
+                {
+                    "format": "FABRIC",
+                    "id": "com_twelvemonkeys_imageio_imageio-metadata",
+                    "name": "imageio-metadata",
+                    "version": "3.12.0",
+                    "environment": "UNKNOWN",
+                    "dependencies": [],
+                    "breaks": [],
+                    "provides": [],
+                    "apiVersion": null,
+                    "entrypoints": [],
+                    "addsContent": false,
+                    "optionalOnClient": false
+                },
+                {
+                    "format": "FABRIC",
+                    "id": "com_twelvemonkeys_imageio_imageio-webp",
+                    "name": "imageio-webp",
+                    "version": "3.12.0",
+                    "environment": "UNKNOWN",
+                    "dependencies": [],
+                    "breaks": [],
+                    "provides": [],
+                    "apiVersion": null,
+                    "entrypoints": [],
+                    "addsContent": false,
+                    "optionalOnClient": false
+                },
+                {
+                    "format": "FABRIC",
+                    "id": "org_quiltmc_parsers_json",
+                    "name": "json",
+                    "version": "0.2.1",
+                    "environment": "UNKNOWN",
+                    "dependencies": [],
+                    "breaks": [],
+                    "provides": [],
+                    "apiVersion": null,
+                    "entrypoints": [],
+                    "addsContent": false,
+                    "optionalOnClient": false
+                }
+            ],
+            "error": null,
+            "javaVersion": 21
+        },
+        {
+            "file": "zoomify-2.15.2+1.21.1.jar",
+            "folder": "mods",
+            "size": 872937,
+            "mods": [
+                {
+                    "format": "FABRIC",
+                    "id": "zoomify",
+                    "name": "Zoomify",
+                    "version": "2.15.2+1.21.1",
+                    "environment": "CLIENT",
+                    "dependencies": [
+                        {
+                            "id": "fabricloader",
+                            "versionRange": ">=0.18.0",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        },
+                        {
+                            "id": "fabric-language-kotlin",
+                            "versionRange": ">=1.13.8+kotlin.2.3.0",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        },
+                        {
+                            "id": "minecraft",
+                            "versionRange": "~1.21 <1.21.2",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        },
+                        {
+                            "id": "java",
+                            "versionRange": ">=17",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        },
+                        {
+                            "id": "yet_another_config_lib_v3",
+                            "versionRange": ">=3.6.6",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        }
+                    ],
+                    "breaks": [
+                        {
+                            "id": "optifabric",
+                            "versionRange": "*",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        },
+                        {
+                            "id": "controlify",
+                            "versionRange": "<2",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        }
+                    ],
+                    "provides": [],
+                    "apiVersion": null,
+                    "entrypoints": [
+                        "dev.isxander.zoomify.Zoomify",
+                        "dev.isxander.zoomify.integrations.ModMenuIntegration",
+                        "dev.isxander.zoomify.integrations.ControlifyIntegration"
+                    ],
+                    "addsContent": false,
+                    "optionalOnClient": false
+                }
+            ],
+            "nested": [
+                {
+                    "format": "FABRIC",
+                    "id": "com_akuleshov7_ktoml-core-jvm",
+                    "name": "ktoml-core-jvm",
+                    "version": "0.7.1",
+                    "environment": "UNKNOWN",
+                    "dependencies": [],
+                    "breaks": [],
+                    "provides": [],
+                    "apiVersion": null,
+                    "entrypoints": [],
+                    "addsContent": false,
+                    "optionalOnClient": false
+                }
+            ],
+            "error": null,
+            "javaVersion": 21
+        }
+    ],
+    "skipped": [],
+    "files": {
+        "worlds": [],
+        "eulaAccepted": null,
+        "configErrors": [],
+        "rootJars": []
+    }
+}

@@ -384,5 +384,45 @@
       "situation": "DEP_MISSING",
       "culprit": "flywheel"
     }
+  },
+  {
+    "name": "real-client-fabric-api-corrupt",
+    "minecraft": "1.21.1",
+    "description": "Fabric 1.21.1 client whose fabric-api jar was cut short by a failed download",
+    "mods": [
+      "zoomify"
+    ],
+    "skip": [
+      "fabric-api"
+    ],
+    "files": [
+      {
+        "path": "mods/fabric-api-0.115.0+1.21.1.jar",
+        "garbage": 65536
+      }
+    ],
+    "source": "https://github.com/orgs/FabricMC/discussions/3934",
+    "fix": "Delete that jar and download it again: it is there but unreadable, so the loader calls it missing.",
+    "expect": {
+      "situation": "CORRUPT_JAR",
+      "culprit": "fabric-api"
+    }
+  },
+  {
+    "name": "real-client-forge-config-truncated",
+    "minecraft": "1.19.2",
+    "loader": "forge",
+    "description": "Forge 1.19.2 client whose forge-resource-caching.toml was left half written",
+    "files": [
+      {
+        "path": "config/forge-resource-caching.toml",
+        "garbage": 12
+      }
+    ],
+    "source": "https://forums.minecraftforge.net/topic/120264-the-game-crashed-whilst-initializing-game-error-javalangexceptionininitializererror-null-exit-code-1/",
+    "fix": "Delete config/forge-resource-caching.toml: Forge writes a new one.",
+    "expect": {
+      "situation": "CONFIG_BROKEN"
+    }
   }
 ]

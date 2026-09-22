@@ -757,6 +757,20 @@
       },
       "advice": "signature.mod-metadata-invalid.advice",
       "source": "https://github.com/Flemmli97/TenshiLib/issues/17 and https://github.com/TeamMidnightDust/MidnightLib/issues/145 (replayed in the lab: TenshiLib 2.3.0 on NeoForge 1.21.1, whose version range is impossible)"
+    },
+    {
+      "id": "connector-locator-error",
+      "situation": "MOD_CONFLICT",
+      "confidence": "HIGH",
+      "pattern": "(Connector) locator error",
+      "culprits": [
+        {
+          "group": 1,
+          "kind": "MOD"
+        }
+      ],
+      "advice": "signature.connector-locator-error.advice",
+      "source": "https://github.com/Sinytra/Connector/issues/2002 (replayed in the lab: Connector 2.0.0-beta.10 on NeoForge 1.21.1 with the Forgified Fabric API and Axiom)"
     }
   ]
 }

@@ -1517,5 +1517,54 @@
       "situation": "WRONG_LOADER",
       "culprit": "collective"
     }
+  },
+  {
+    "platform": "neoforge",
+    "minecraft": "1.21.1",
+    "java": 21,
+    "name": "real-connector-transform-failure",
+    "description": "NeoForge 1.21.1 with Sinytra Connector beta.10, the Forgified Fabric API and Axiom",
+    "extra": [
+      {
+        "url": "https://cdn.modrinth.com/data/u58R1TMW/versions/a4IkLwwg/connector-2.0.0-beta.10%2B1.21.1-full.jar",
+        "file": "connector-2.0.0-beta.10.jar"
+      },
+      {
+        "url": "https://cdn.modrinth.com/data/Aqlf1Shp/versions/9uOfdsZC/forgified-fabric-api-0.115.6%2B2.1.4%2B1.21.1.jar",
+        "file": "forgified-fabric-api-0.115.6.jar"
+      },
+      {
+        "url": "https://cdn.modrinth.com/data/N6n5dqoA/versions/3CDQu1Wy/Axiom-5.1.0-for-MC1.21.1.jar",
+        "file": "Axiom-5.1.0.jar"
+      }
+    ],
+    "source": "https://github.com/Sinytra/Connector/issues/2002",
+    "fix": "Move to a later Connector build: this one cannot read that mod's mixin settings.",
+    "log": "console.log",
+    "expect": {
+      "situation": "MOD_CONFLICT",
+      "culprit": "Connector"
+    }
+  },
+  {
+    "platform": "neoforge",
+    "minecraft": "26.3",
+    "java": 25,
+    "name": "real-midnightlib-metadata-broken",
+    "description": "NeoForge 26.3 with MidnightLib 1.9.3, published with a version range the loader cannot read",
+    "loader_version": "26.3.0.1-beta",
+    "extra": [
+      {
+        "url": "https://cdn.modrinth.com/data/codAaoxh/versions/aLRTQpQU/midnightlib-neoforge-1.9.3%2B26.3.jar",
+        "file": "midnightlib-neoforge-1.9.3+26.3.jar"
+      }
+    ],
+    "source": "https://github.com/TeamMidnightDust/MidnightLib/issues/145",
+    "fix": "Take 1.9.3.1: the range in the published jar was written wrong.",
+    "log": "console.log",
+    "expect": {
+      "situation": "CORRUPT_JAR",
+      "culprit": "midnightlib"
+    }
   }
 ]

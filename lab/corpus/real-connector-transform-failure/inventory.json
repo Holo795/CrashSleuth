@@ -1,0 +1,1612 @@
+{
+ "platform": "NEOFORGE",
+ "minecraftVersion": "1.21.1",
+ "loaderVersion": "21.1.251",
+ "side": "SERVER",
+ "jars": [
+  {
+   "file": "Axiom-5.1.0.jar",
+   "folder": "mods",
+   "size": 42728927,
+   "mods": [
+    {
+     "format": "FABRIC",
+     "id": "axiom",
+     "name": "Axiom",
+     "version": "5.1.0",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "fabricloader",
+       "versionRange": ">=0.14.21",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric-api",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": ">=1.21.0 <1.21.2",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "java",
+       "versionRange": ">=17",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [
+      {
+       "id": "sodium",
+       "versionRange": "<=0.5.0",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "optifabric",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "immersive_portals",
+       "versionRange": "<=6.0.6",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [
+      "com.moulberry.axiom.datagen.DataGeneration",
+      "com.moulberry.axiom.Axiom",
+      "com.moulberry.axiom.utils.PreLaunch"
+     ],
+     "addsContent": false,
+     "optionalOnClient": false
+    }
+   ],
+   "nested": [
+    {
+     "format": "FABRIC",
+     "id": "com_moulberry_axiomclientapi",
+     "name": "axiomclientapi",
+     "version": "1.0.54",
+     "environment": "UNKNOWN",
+     "dependencies": [],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
+    },
+    {
+     "format": "FABRIC",
+     "id": "lattice",
+     "name": "Lattice",
+     "version": "1.2.15",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "fabricloader",
+       "versionRange": ">=0.17",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
+    },
+    {
+     "format": "FABRIC",
+     "id": "com_moulberry_mixinconstraints",
+     "name": "mixinconstraints",
+     "version": "1.0.9",
+     "environment": "UNKNOWN",
+     "dependencies": [],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
+    },
+    {
+     "format": "FABRIC",
+     "id": "mixinextras",
+     "name": "MixinExtras",
+     "version": "0.3.5",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "fabricloader",
+       "versionRange": ">=0.14.25",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [
+      "com_github_llamalad7_mixinextras"
+     ],
+     "apiVersion": null,
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
+    }
+   ],
+   "error": null,
+   "javaVersion": 17
+  },
+  {
+   "file": "connector-2.0.0-beta.10.jar",
+   "folder": "mods",
+   "size": 4589762,
+   "mods": [],
+   "nested": [
+    {
+     "format": "NEOFORGE",
+     "id": "connector",
+     "name": "Sinytra Connector",
+     "version": "2.0.0-beta.10+1.21.1",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.97,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": true
+    }
+   ],
+   "error": null,
+   "javaVersion": 7
+  },
+  {
+   "file": "forgified-fabric-api-0.115.6.jar",
+   "folder": "mods",
+   "size": 5578066,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_api",
+     "name": "Forgified Fabric API",
+     "version": "0.115.6+2.1.4+1.21.1",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.169,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "forgified_fabric_api",
+     "name": "Forgified Fabric API (dummy)",
+     "version": "0.115.6+2.1.4+1.21.1",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.169,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
+    }
+   ],
+   "nested": [
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_api_base",
+     "name": "Forgified Fabric API Base",
+     "version": "0.4.42+d1308ded19",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.169,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_api_lookup_api_v1",
+     "name": "Forgified Fabric API Lookup API (v1)",
+     "version": "1.6.70+c290471319",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.169,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric_api_base",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric_lifecycle_events_v1",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_biome_api_v1",
+     "name": "Forgified Fabric Biome API (v1)",
+     "version": "13.0.31+1e62d33c19",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.169,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_block_api_v1",
+     "name": "Forgified Fabric Block API (v1)",
+     "version": "1.0.22+a6e994cd19",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.169,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_block_view_api_v2",
+     "name": "Forgified Fabric BlockView API (v2)",
+     "version": "1.0.11+e9036fd419",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.169,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_blockrenderlayer_v1",
+     "name": "Forgified Fabric BlockRenderLayer Registration (v1)",
+     "version": "1.1.52+c290471319",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.169,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric_api_base",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_client_tags_api_v1",
+     "name": "Forgified Fabric Client Tags",
+     "version": "1.1.15+e053909619",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.169,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_command_api_v2",
+     "name": "Forgified Fabric Command API (v2)",
+     "version": "2.2.28+36d727be19",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.169,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric_api_base",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_content_registries_v0",
+     "name": "Forgified Fabric Content Registries (v0)",
+     "version": "8.0.18+c290471319",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.169,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric_api_base",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric_lifecycle_events_v1",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric_resource_loader_v0",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_convention_tags_v1",
+     "name": "Forgified Fabric Convention Tags",
+     "version": "2.1.4+7f945d5b19",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.169,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_convention_tags_v2",
+     "name": "Forgified Fabric Convention Tags (v2)",
+     "version": "2.11.0+87e5848019",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.169,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric_lifecycle_events_v1",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_data_attachment_api_v1",
+     "name": "Forgified Fabric Data Attachment API (v1)",
+     "version": "1.4.3+c290471319",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.169,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric_entity_events_v1",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric_object_builder_api_v1",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric_networking_api_v1",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_data_generation_api_v1",
+     "name": "Forgified Fabric Data Generation API (v1)",
+     "version": "20.2.28+2d91a6db19",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.169,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_entity_events_v1",
+     "name": "Forgified Fabric Entity Events (v1)",
+     "version": "1.7.0+1af6e62419",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.169,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_events_interaction_v0",
+     "name": "Forgified Fabric Events Interaction (v0)",
+     "version": "0.7.13+7b71cc1619",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.169,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric_api_base",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_game_rule_api_v1",
+     "name": "Forgified Fabric Game Rule API (v1)",
+     "version": "1.0.53+36d727be19",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.169,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_gametest_api_v1",
+     "name": "Forgified Fabric Game Test API (v1)",
+     "version": "2.0.5+29f188ce19",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.169,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric_resource_loader_v0",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_item_api_v1",
+     "name": "Forgified Fabric Item API (v1)",
+     "version": "11.1.1+57cdfa8219",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.169,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric_api_base",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_item_group_api_v1",
+     "name": "Forgified Fabric Item Group API (v1)",
+     "version": "4.1.7+e324903319",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.169,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric_api_base",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric_resource_loader_v0",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_key_binding_api_v1",
+     "name": "Forgified Fabric Key Binding API (v1)",
+     "version": "1.0.47+62cc7ce119",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.169,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_lifecycle_events_v1",
+     "name": "Forgified Fabric Lifecycle Events (v1)",
+     "version": "2.5.0+a2ee258a19",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.169,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric_api_base",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_loot_api_v2",
+     "name": "Forgified Fabric Loot API (v2)",
+     "version": "3.0.15+a3ee712d19",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.169,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric_api_base",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric_resource_loader_v0",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_loot_api_v3",
+     "name": "Forgified Fabric Loot API (v3)",
+     "version": "1.0.3+333dfad919",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.169,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric_api_base",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric_resource_loader_v0",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_message_api_v1",
+     "name": "Forgified Fabric Message API (v1)",
+     "version": "6.0.13+e053909619",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.169,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric_api_base",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_model_loading_api_v1",
+     "name": "Forgified Fabric Model Loading API (v1)",
+     "version": "2.0.0+986ae77219",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.169,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric_api_base",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_networking_api_v1",
+     "name": "Forgified Fabric Networking API (v1)",
+     "version": "4.3.0+30a980d919",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.169,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric_api_base",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_object_builder_api_v1",
+     "name": "Forgified Fabric Object Builder API (v1)",
+     "version": "15.2.1+cc242efd19",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.169,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric_api_base",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_particles_v1",
+     "name": "Forgified Fabric Particles (v1)",
+     "version": "4.0.2+824f924c19",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.169,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_recipe_api_v1",
+     "name": "Forgified Fabric Recipe API (v1)",
+     "version": "5.0.14+59440bcc19",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.169,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_registry_sync_v0",
+     "name": "Forgified Fabric Registry Sync (v0)",
+     "version": "5.2.0+867470b919",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.169,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric_api_base",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_renderer_api_v1",
+     "name": "Forgified Fabric Renderer API (v1)",
+     "version": "3.4.0+9c40919e19",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.169,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric_api_base",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_renderer_indigo",
+     "name": "Forgified Fabric Renderer - Indigo",
+     "version": "1.7.0+4198af7119",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.169,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric_api_base",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric_renderer_api_v1",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_rendering_data_attachment_v1",
+     "name": "Forgified Fabric Rendering Data Attachment (v1)",
+     "version": "0.3.49+73761d2e19",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.169,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric_block_view_api_v2",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_rendering_fluids_v1",
+     "name": "Forgified Fabric Rendering Fluids (v1)",
+     "version": "3.1.6+857185bc19",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.169,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric_api_base",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_rendering_v1",
+     "name": "Forgified Fabric Rendering (v1)",
+     "version": "5.0.5+c290471319",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.169,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric_api_base",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_resource_conditions_api_v1",
+     "name": "Forgified Fabric Resource Conditions API (v1)",
+     "version": "4.3.0+5bdd099819",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.169,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_resource_loader_v0",
+     "name": "Forgified Fabric Resource Loader (v0)",
+     "version": "1.3.1+4ea8954419",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.169,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_screen_api_v1",
+     "name": "Forgified Fabric Screen API (v1)",
+     "version": "2.0.25+4228281319",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.169,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric_api_base",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_screen_handler_api_v1",
+     "name": "Forgified Fabric Screen Handler API (v1)",
+     "version": "1.3.88+8dbc56dd19",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.169,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric_api_base",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_sound_api_v1",
+     "name": "Forgified Fabric Sound API (v1)",
+     "version": "1.0.23+10b84f8419",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.169,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_transfer_api_v1",
+     "name": "Forgified Fabric Transfer API (v1)",
+     "version": "5.4.2+a25cb45619",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.169,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric_api_lookup_api_v1",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric_rendering_fluids_v1",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_transitive_access_wideners_v1",
+     "name": "Forgified Fabric Transitive Access Wideners (v1)",
+     "version": "6.2.0+6c854b6f19",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.169,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
+    }
+   ],
+   "error": null,
+   "javaVersion": null
+  }
+ ],
+ "skipped": [],
+ "files": {
+  "worlds": [],
+  "eulaAccepted": true,
+  "configErrors": [],
+  "rootJars": []
+ }
+}

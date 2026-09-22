@@ -1,0 +1,9 @@
+{
+  "situation": "MOD_CONFLICT",
+  "culprit": "Connector",
+  "logs": [
+    "console.log"
+  ],
+  "source": "https://github.com/Sinytra/Connector/issues/2002",
+  "fix": "Move to a later Connector build: this one cannot read that mod's mixin settings."
+}

@@ -1,0 +1,9 @@
+{
+  "situation": "CORRUPT_JAR",
+  "culprit": "midnightlib",
+  "logs": [
+    "console.log"
+  ],
+  "source": "https://github.com/TeamMidnightDust/MidnightLib/issues/145",
+  "fix": "Take 1.9.3.1: the range in the published jar was written wrong."
+}

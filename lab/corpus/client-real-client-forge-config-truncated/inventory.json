@@ -1,0 +1,20 @@
+{
+    "platform": "UNKNOWN",
+    "minecraftVersion": null,
+    "loaderVersion": null,
+    "side": "UNKNOWN",
+    "jars": [],
+    "skipped": [],
+    "files": {
+        "worlds": [],
+        "eulaAccepted": null,
+        "configErrors": [
+            {
+                "file": "config/forge-resource-caching.toml",
+                "line": 1,
+                "message": "Unexpected '\\u0007', expected a-z, A-Z, 0-9, ', \", a table key, a newline, or end-of-input"
+            }
+        ],
+        "rootJars": []
+    }
+}

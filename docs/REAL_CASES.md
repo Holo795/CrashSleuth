@@ -8,10 +8,13 @@ to lead to the same answer on its own.
 | --- | --- | --- | --- | --- |
 | `client-real-client-create-standalone-flywheel` | DEP_VERSION | flywheel | https://github.com/Creators-of-Create/Create/issues/5215 | Delete the Flywheel jar you added: Create carries its own inside. |
 | `client-real-client-dependency-never-published` | DEP_MISSING | flywheel | https://github.com/Asek3/Oculus/issues/804 | Install Flywheel, or remove the bridge mod that asks for it. |
+| `client-real-client-fabric-api-corrupt` | CORRUPT_JAR | fabric-api | https://github.com/orgs/FabricMC/discussions/3934 | Delete that jar and download it again: it is there but unreadable, so the loader calls it missing. |
 | `client-real-client-fabric-api-wrong-point-release` | WRONG_MC | fabric-api | https://github.com/orgs/FabricMC/discussions/4034 | Take the Fabric API built for the exact point release you play. |
+| `client-real-client-forge-config-truncated` | CONFIG_BROKEN |  | https://forums.minecraftforge.net/topic/120264-the-game-crashed-whilst-initializing-game-error-javalangexceptionininitializererror-null-exit-code-1/ | Delete config/forge-resource-caching.toml: Forge writes a new one. |
 | `client-real-client-iris-needs-older-sodium` | DEP_VERSION | sodium | https://github.com/IrisShaders/Iris/issues/3136 | Iris 1.8.8 only works with Sodium 0.6.x: install that branch, or a newer Iris. |
 | `net-real-velocity-empty-secret-proxy` | PROXY_FORWARDING |  | https://forums.papermc.io/threads/how-to-solve-unable-to-read-load-save-your-velocity-toml.339/ | Write the secret inside the file named by forwarding-secret-file; the setting is a path, not the secret. |
 | `real-broken-version-range-in-metadata` | CORRUPT_JAR | tenshilib | https://github.com/Flemmli97/TenshiLib/issues/17 | Take the rebuilt jar (2.3.0.b): the range in its metadata was written wrong. |
+| `real-connector-transform-failure` | MOD_CONFLICT | Connector | https://github.com/Sinytra/Connector/issues/2002 | Move to a later Connector build: this one cannot read that mod's mixin settings. |
 | `real-corrupt-server-jar` | CORRUPT_JAR |  | https://github.com/itzg/docker-minecraft-server/discussions/2786 | Delete the jar and download it again: the file is incomplete. |
 | `real-densefuel-language-provider-pinned` | DEP_VERSION | densefuel | https://github.com/legoaggelos/densefuel/issues/1 | Stay below NeoForge 21.1.235, or the mod must widen the javafml range it asks for. |
 | `real-fabric-api-missing-journeymap` | DEP_MISSING | fabric | https://github.com/itzg/docker-minecraft-server/discussions/2661 | Install the Fabric API jar: nothing pulls it in for you. |
@@ -21,6 +24,7 @@ to lead to the same answer on its own.
 | `real-kotlin-language-provider-missing` | DEP_MISSING | kotlinforforge | https://github.com/thedarkcolour/KotlinForForge/issues/154 | Install the Kotlin for Forge language provider the mod asks for. |
 | `real-level-type-legacy` | clean start |  | https://github.com/itzg/docker-minecraft-server/issues/1445 | Nothing breaks: since 22w12a the value is minecraft:normal, and anything else falls back to it. |
 | `real-library-too-old-for-bundle` | DEP_VERSION | collective | https://github.com/Serilum/.issue-tracker/issues/3229 | Install Collective 8.4, or go back to the bundle built for 8.3. |
+| `real-midnightlib-metadata-broken` | CORRUPT_JAR | midnightlib | https://github.com/TeamMidnightDust/MidnightLib/issues/145 | Take 1.9.3.1: the range in the published jar was written wrong. |
 | `real-modernfix-loader-too-old` | DEP_VERSION | fabric | https://github.com/orgs/FabricMC/discussions/4410 | Run the Fabric installer again and pick loader 0.16.10 or later. |
 | `real-paper-needs-java21` | JAVA_VERSION | java | https://github.com/itzg/docker-minecraft-server/issues/2905 | Run Minecraft 1.20.5 and later with Java 21. |
 | `real-plugin-api-too-new` | PLUGIN_API | InvSee | https://github.com/Spottedleaf/OldGenerator/issues/9 | Run a server at least as recent as the plugin's api-version, or take an older build of the plugin. |
@@ -31,4 +35,4 @@ to lead to the same answer on its own.
 | `real-viaversion-warning-only` | clean start |  | https://github.com/ViaVersion/ViaVersion/issues/3917 | Nothing to fix: ViaVersion only lets newer clients in; older ones need ViaBackwards. |
 | `real-world-not-writable` | WORLD_LOCKED |  | https://github.com/itzg/docker-minecraft-server/issues/1080 | Give the folder to the user the server runs as (chown), or set the container's UID and GID to the owner's. |
 
-24 cases.
+28 cases.

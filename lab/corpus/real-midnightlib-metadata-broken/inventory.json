@@ -1,0 +1,52 @@
+{
+ "platform": "NEOFORGE",
+ "minecraftVersion": "26.3",
+ "loaderVersion": "26.3.0.1-beta",
+ "side": "SERVER",
+ "jars": [
+  {
+   "file": "midnightlib-neoforge-1.9.3+26.3.jar",
+   "folder": "mods",
+   "size": 61168,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "midnightlib",
+     "name": "MidnightLib",
+     "version": "1.9.3",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[20.5,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[26.3)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
+    }
+   ],
+   "nested": [],
+   "error": null,
+   "javaVersion": 25
+  }
+ ],
+ "skipped": [],
+ "files": {
+  "worlds": [],
+  "eulaAccepted": true,
+  "configErrors": [],
+  "rootJars": []
+ }
+}

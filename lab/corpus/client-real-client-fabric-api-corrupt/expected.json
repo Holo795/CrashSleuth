@@ -1,0 +1,9 @@
+{
+  "situation": "CORRUPT_JAR",
+  "culprit": "fabric-api",
+  "logs": [
+    "latest.log"
+  ],
+  "source": "https://github.com/orgs/FabricMC/discussions/3934",
+  "fix": "Delete that jar and download it again: it is there but unreadable, so the loader calls it missing."
+}
