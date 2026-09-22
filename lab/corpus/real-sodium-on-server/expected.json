@@ -1,0 +1,9 @@
+{
+  "situation": "CLIENT_ONLY_ON_SERVER",
+  "culprit": "sodium",
+  "logs": [
+    "console.log"
+  ],
+  "source": "https://github.com/CaffeineMC/sodium/issues/3791",
+  "fix": "Sodium only works in the game: take it out of the server's mods folder."
+}

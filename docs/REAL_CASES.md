@@ -8,6 +8,7 @@ to lead to the same answer on its own.
 | --- | --- | --- | --- | --- |
 | `client-real-client-create-standalone-flywheel` | DEP_VERSION | flywheel | https://github.com/Creators-of-Create/Create/issues/5215 | Delete the Flywheel jar you added: Create carries its own inside. |
 | `client-real-client-dependency-never-published` | DEP_MISSING | flywheel | https://github.com/Asek3/Oculus/issues/804 | Install Flywheel, or remove the bridge mod that asks for it. |
+| `client-real-client-dependency-that-does-not-exist` | DEP_MISSING | intermap | https://github.com/TheTypholorian/big_shot_lib/issues/4 | That library was never released: take a build of the mod from Modrinth instead. |
 | `client-real-client-fabric-api-corrupt` | CORRUPT_JAR | fabric-api | https://github.com/orgs/FabricMC/discussions/3934 | Delete that jar and download it again: it is there but unreadable, so the loader calls it missing. |
 | `client-real-client-fabric-api-wrong-point-release` | WRONG_MC | fabric-api | https://github.com/orgs/FabricMC/discussions/4034 | Take the Fabric API built for the exact point release you play. |
 | `client-real-client-forge-config-truncated` | CONFIG_BROKEN |  | https://forums.minecraftforge.net/topic/120264-the-game-crashed-whilst-initializing-game-error-javalangexceptionininitializererror-null-exit-code-1/ | Delete config/forge-resource-caching.toml: Forge writes a new one. |
@@ -41,7 +42,8 @@ to lead to the same answer on its own.
 | `real-protocollib-too-old` | WRONG_MC | ProtocolLib | https://github.com/dmulloy2/ProtocolLib/issues/3073 | Update ProtocolLib: it reads the server's packet registry, which changes with every Minecraft version. |
 | `real-rcon-port-taken` | PORT_IN_USE |  | https://www.gameserverkings.com/knowledge-base/minecraft/setting-up-rcon/ | Give RCON a port of its own, different from server-port. |
 | `real-sodium-extra-on-server` | CLIENT_ONLY_ON_SERVER | sodium | https://github.com/AllTheMods/ATM-10/issues/402 | Take the client-only rendering mods out of the server's mods folder. |
+| `real-sodium-on-server` | CLIENT_ONLY_ON_SERVER | sodium | https://github.com/CaffeineMC/sodium/issues/3791 | Sodium only works in the game: take it out of the server's mods folder. |
 | `real-viaversion-warning-only` | clean start |  | https://github.com/ViaVersion/ViaVersion/issues/3917 | Nothing to fix: ViaVersion only lets newer clients in; older ones need ViaBackwards. |
 | `real-world-not-writable` | WORLD_LOCKED |  | https://github.com/itzg/docker-minecraft-server/issues/1080 | Give the folder to the user the server runs as (chown), or set the container's UID and GID to the owner's. |
 
-37 cases.
+39 cases.

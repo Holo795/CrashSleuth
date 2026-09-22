@@ -1,0 +1,9 @@
+{
+  "situation": "DEP_MISSING",
+  "culprit": "intermap",
+  "logs": [
+    "latest.log"
+  ],
+  "source": "https://github.com/TheTypholorian/big_shot_lib/issues/4",
+  "fix": "That library was never released: take a build of the mod from Modrinth instead."
+}

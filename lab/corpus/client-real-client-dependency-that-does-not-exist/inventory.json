@@ -1,0 +1,92 @@
+{
+    "platform": "FABRIC",
+    "minecraftVersion": null,
+    "loaderVersion": null,
+    "side": "UNKNOWN",
+    "jars": [
+        {
+            "file": "big_shot_api-3.7.1.jar",
+            "folder": "mods",
+            "size": 605922,
+            "mods": [
+                {
+                    "format": "FABRIC",
+                    "id": "big_shot_api",
+                    "name": "Big Shot Api",
+                    "version": "3.7.1",
+                    "environment": "CLIENT",
+                    "dependencies": [
+                        {
+                            "id": "java",
+                            "versionRange": ">=21",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        },
+                        {
+                            "id": "intermap",
+                            "versionRange": "*",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        }
+                    ],
+                    "breaks": [
+                        {
+                            "id": "iris",
+                            "versionRange": "*",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        },
+                        {
+                            "id": "veil",
+                            "versionRange": "*",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        }
+                    ],
+                    "provides": [],
+                    "apiVersion": null,
+                    "entrypoints": [],
+                    "addsContent": false,
+                    "optionalOnClient": false
+                },
+                {
+                    "format": "NEOFORGE",
+                    "id": "big_shot_api",
+                    "name": "Big Shot Api",
+                    "version": "3.7.1",
+                    "environment": "UNKNOWN",
+                    "dependencies": [],
+                    "breaks": [
+                        {
+                            "id": "iris",
+                            "versionRange": "*",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        },
+                        {
+                            "id": "veil",
+                            "versionRange": "*",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        }
+                    ],
+                    "provides": [],
+                    "apiVersion": null,
+                    "entrypoints": [],
+                    "addsContent": false,
+                    "optionalOnClient": false
+                }
+            ],
+            "nested": [],
+            "error": null,
+            "javaVersion": 21
+        }
+    ],
+    "skipped": [],
+    "files": {
+        "worlds": [],
+        "eulaAccepted": null,
+        "configErrors": [],
+        "rootJars": []
+    }
+}

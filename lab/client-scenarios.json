@@ -445,5 +445,22 @@
       "situation": "MOD_CONFLICT",
       "culprit": "sodium"
     }
+  },
+  {
+    "name": "real-client-dependency-that-does-not-exist",
+    "minecraft": "1.21.1",
+    "description": "Fabric 1.21.1 client, a mod asking for a library its own author never published",
+    "extra": [
+      {
+        "url": "https://github.com/TheTypholorian/big_shot_lib/releases/download/3.7.1/big_shot_api-3.7.1.jar",
+        "file": "big_shot_api-3.7.1.jar"
+      }
+    ],
+    "source": "https://github.com/TheTypholorian/big_shot_lib/issues/4",
+    "fix": "That library was never released: take a build of the mod from Modrinth instead.",
+    "expect": {
+      "situation": "DEP_MISSING",
+      "culprit": "intermap"
+    }
   }
 ]

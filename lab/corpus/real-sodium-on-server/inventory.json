@@ -1,0 +1,214 @@
+{
+ "platform": "NEOFORGE",
+ "minecraftVersion": "1.21.1",
+ "loaderVersion": "21.1.251",
+ "side": "SERVER",
+ "jars": [
+  {
+   "file": "sodium-neoforge-0.8.12-beta.2.jar",
+   "folder": "mods",
+   "size": 1291421,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "sodium",
+     "name": "Sodium",
+     "version": "0.8.12-beta.2+mc1.21.1",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,)",
+       "required": true,
+       "side": "CLIENT"
+      },
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.82,)",
+       "required": true,
+       "side": "CLIENT"
+      }
+     ],
+     "breaks": [
+      {
+       "id": "embeddium",
+       "versionRange": "[0.0.1,)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
+    }
+   ],
+   "nested": [
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_api_base",
+     "name": "Forgified Fabric API Base",
+     "version": "0.4.42+d1308ded19",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.219,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_block_view_api_v2",
+     "name": "Forgified Fabric BlockView API (v2)",
+     "version": "1.0.10+9afaaf8c19",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.115,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_renderer_api_v1",
+     "name": "Forgified Fabric Renderer API (v1)",
+     "version": "3.4.1+9125b6dc19",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.219,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric_api_base",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "fabric_rendering_data_attachment_v1",
+     "name": "Forgified Fabric Rendering Data Attachment (v1)",
+     "version": "0.3.48+73761d2e19",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.115,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric_block_view_api_v2",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "sodium",
+     "name": "Sodium",
+     "version": "0.8.12-beta.2+mc1.21.1",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,)",
+       "required": true,
+       "side": "CLIENT"
+      },
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.82,)",
+       "required": true,
+       "side": "CLIENT"
+      }
+     ],
+     "breaks": [
+      {
+       "id": "embeddium",
+       "versionRange": "[0.0.1,)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
+    }
+   ],
+   "error": null,
+   "javaVersion": 21
+  }
+ ],
+ "skipped": [],
+ "files": {
+  "worlds": [],
+  "eulaAccepted": true,
+  "configErrors": [],
+  "rootJars": []
+ }
+}

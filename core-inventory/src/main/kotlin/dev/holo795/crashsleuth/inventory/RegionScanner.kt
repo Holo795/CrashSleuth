@@ -32,7 +32,7 @@ data class DamagedChunk(
  * (or run out of memory) when a player walks there. Large worlds are read within a time budget.
  */
 object RegionScanner {
-    class Result(val damaged: List<DamagedChunk>, val checked: Int, val complete: Boolean)
+    class Result(val damaged: List<DamagedChunk>, val checked: Int, val complete: Boolean, val oversized: List<DamagedChunk> = emptyList())
 
     private const val SECTOR = 4096
     private const val MAX_CHUNK = 16 * 1024 * 1024
@@ -42,6 +42,7 @@ object RegionScanner {
     fun scan(world: Path, budgetMillis: Long = 10_000): Result {
         val deadline = System.currentTimeMillis() + budgetMillis
         val damaged = mutableListOf<DamagedChunk>()
+        val oversized = mutableListOf<DamagedChunk>()
         var checked = 0
         var complete = true
         for (folder in folders(world)) {
@@ -51,10 +52,10 @@ object RegionScanner {
                 if (System.currentTimeMillis() > deadline) { complete = false; break }
                 val (rx, rz) = REGION.matchEntire(file.name)!!.destructured
                 val relative = file.insideOf(world)
-                checked += check(file, relative, kind, rx.toInt(), rz.toInt(), deadline, damaged)
+                checked += check(file, relative, kind, rx.toInt(), rz.toInt(), deadline, damaged, oversized)
             }
         }
-        return Result(damaged.take(MAX_REPORTED), checked, complete)
+        return Result(damaged.take(MAX_REPORTED), checked, complete, oversized.take(MAX_REPORTED))
     }
 
     /** region/ and entities/ of the overworld, DIM-1, DIM1 and datapack dimensions. */
@@ -62,7 +63,7 @@ object RegionScanner {
         stream.filter { it.isDirectory() && (it.name == "region" || it.name == "entities") }.sorted().toList()
     }
 
-    private fun check(file: Path, relative: String, kind: String, rx: Int, rz: Int, deadline: Long, damaged: MutableList<DamagedChunk>): Int {
+    private fun check(file: Path, relative: String, kind: String, rx: Int, rz: Int, deadline: Long, damaged: MutableList<DamagedChunk>, oversized: MutableList<DamagedChunk>): Int {
         FileChannel.open(file, StandardOpenOption.READ).use { channel ->
             val size = channel.size()
             if (size == 0L) return 0
@@ -103,7 +104,9 @@ object RegionScanner {
                 if (compression and 0x80 != 0) {
                     val x = rx * 32 + (index and 31)
                     val z = rz * 32 + (index shr 5)
-                    if (!file.resolveSibling("c.$x.$z.mcc").exists()) damage(index, "its data file c.$x.$z.mcc is missing")
+                    val apart = file.resolveSibling("c.$x.$z.mcc")
+                    if (!apart.exists()) damage(index, "its data file c.$x.$z.mcc is missing")
+                    else oversized += DamagedChunk(kind, relative, x, z, "kept apart in c.$x.$z.mcc (" + (Files.size(apart) / 1024) + " KB)")
                     continue
                 }
                 if (length <= 1 || length > sectors * SECTOR) { damage(index, "its length ($length bytes) does not fit its ${sectors * 4} KB"); continue }

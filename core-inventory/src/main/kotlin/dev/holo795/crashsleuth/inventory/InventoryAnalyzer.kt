@@ -10,6 +10,7 @@ import dev.holo795.crashsleuth.model.PlatformKind
 import dev.holo795.crashsleuth.model.Side
 import dev.holo795.crashsleuth.model.Situation
 import kotlinx.serialization.json.Json
+import kotlinx.serialization.json.JsonObject
 import kotlinx.serialization.json.jsonArray
 import kotlinx.serialization.json.jsonObject
 import kotlinx.serialization.json.jsonPrimitive
@@ -67,6 +68,7 @@ object InventoryAnalyzer {
             }
         }
         if (side == Side.SERVER && platform in setOf(Platform.NEOFORGE, Platform.FORGE)) findings += knownClientOnly(active)
+        findings += knownPairs(active)
         findings += javaVersions(loaded.filter { (jar, mods) -> mods.isNotEmpty() || jar.mods.isEmpty() }.map { it.first }, known.javaVersion, minecraft)
         findings += dependencies(active, provided, minecraft, side)
         findings += loaderRequirements(active, platform, known.loaderVersion ?: inventory.loaderVersion)
@@ -161,6 +163,43 @@ object InventoryAnalyzer {
         }
     }
 
+    private val KNOWN_PAIRS: JsonObject by lazy {
+        val text = InventoryAnalyzer::class.java.classLoader.getResourceAsStream("crashsleuth/known-pairs.json")!!.use { it.readBytes().toString(Charsets.UTF_8) }
+        Json.parseToJsonElement(text).jsonObject
+    }
+
+    /**
+     * Two mods people found out the hard way cannot live together, and mods that need another mod
+     * without saying so. Both are said before anything crashes, with where it was established.
+     */
+    private fun knownPairs(active: List<Pair<JarEntry, ModMetadata>>): List<Finding> {
+        val byId = active.associateBy { (_, mod) -> mod.id.lowercase() }
+        val findings = mutableListOf<Finding>()
+        KNOWN_PAIRS["incompatible"]?.jsonArray?.forEach { entry ->
+            val pair = entry.jsonObject
+            val first = byId[pair.getValue("a").jsonPrimitive.content] ?: return@forEach
+            val second = byId[pair.getValue("b").jsonPrimitive.content] ?: return@forEach
+            findings += Finding(
+                Situation.MOD_CONFLICT, Confidence.HIGH,
+                listOf(culprit(first.first, first.second), culprit(second.first, second.second)),
+                evidence = listOf(pair.getValue("why").jsonPrimitive.content, pair.getValue("source").jsonPrimitive.content),
+            )
+        }
+        KNOWN_PAIRS["needs"]?.jsonArray?.forEach { entry ->
+            val rule = entry.jsonObject
+            val mod = byId[rule.getValue("id").jsonPrimitive.content] ?: return@forEach
+            val needed = rule.getValue("needs").jsonPrimitive.content
+            if (byId.containsKey(needed)) return@forEach
+            findings += Finding(
+                Situation.DEP_MISSING, Confidence.HIGH,
+                listOf(culprit(mod.first, mod.second), Culprit(CulpritKind.MOD, needed)),
+                evidence = listOf(rule.getValue("why").jsonPrimitive.content, rule.getValue("source").jsonPrimitive.content),
+                details = mapOf("requester" to (mod.second.name ?: mod.second.id), "dependency" to needed),
+            )
+        }
+        return findings
+    }
+
     private val CLIENT_ONLY: Set<String> by lazy {
         val text = InventoryAnalyzer::class.java.classLoader.getResourceAsStream("crashsleuth/client-only.json")!!.use { it.readBytes().toString(Charsets.UTF_8) }
         Json.parseToJsonElement(text).jsonObject.getValue("mods").jsonArray.map { it.jsonObject.getValue("id").jsonPrimitive.content }.toSet()
@@ -242,6 +281,17 @@ object InventoryAnalyzer {
                     listOf(Culprit(CulpritKind.SYSTEM, player.name ?: player.file.substringAfterLast('/').substringBefore("_corrupted_").removeSuffix(".dat"))),
                     listOf("${world.name}/${player.file}: ${player.reason}"),
                     mapOf("world" to world.name, "file" to player.file, "backup" to player.hasBackup.toString()),
+                ))
+            }
+            // A chunk of entities too big for its region file holds thousands of them in one place: that
+            // is what makes a server fall behind long before anything is damaged (lab, 22/09/2026).
+            world.oversizedChunks.filter { it.folder == "entities" }.takeIf { it.isNotEmpty() }?.let { crowded ->
+                val first = crowded.first()
+                add(Finding(
+                    Situation.LAG, Confidence.LOW, emptyList(),
+                    crowded.take(5).map { "${world.name}/${it.file} [${it.x}, ${it.z}]: ${it.reason}" },
+                    mapOf("world" to world.name, "x" to first.x.toString(), "z" to first.z.toString(),
+                          "count" to crowded.size.toString(), "adviceKey" to "lag.entity-pileup"),
                 ))
             }
             // Blocks and entities apart: they are lost differently. Named by place, like the game's own log says it.

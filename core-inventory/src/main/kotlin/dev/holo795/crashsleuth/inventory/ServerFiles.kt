@@ -37,6 +37,8 @@ data class WorldInfo(
     /** Chunks of its region files the game cannot read (at most 50 listed). */
     val damagedChunks: List<DamagedChunk> = emptyList(),
     val chunksChecked: Int = 0,
+    /** Chunks so full that the game had to keep them in a file of their own (thousands of entities, usually). */
+    val oversizedChunks: List<DamagedChunk> = emptyList(),
     /** False when the world was too large to be read within the time given. */
     val chunksComplete: Boolean = true,
     /** Player files the game cannot read: that player loses inventory and position when joining. */
@@ -116,7 +118,7 @@ object ServerFilesScanner {
             locked = locked(directory.resolve("session.lock")),
         ).let { info ->
             val chunks = RegionScanner.scan(directory, (deadline - System.currentTimeMillis()).coerceAtLeast(0))
-            info.copy(damagedChunks = chunks.damaged, chunksChecked = chunks.checked, chunksComplete = chunks.complete, damagedPlayers = players(directory))
+            info.copy(damagedChunks = chunks.damaged, oversizedChunks = chunks.oversized, chunksChecked = chunks.checked, chunksComplete = chunks.complete, damagedPlayers = players(directory))
         }
     }
 

@@ -218,4 +218,22 @@ class InventoryTest {
         assertTrue(Versions.matches("26.1", ">=26.1-"), "unparsable ranges never accuse")
         assertTrue((Versions.compare("1.21-rc.1", "1.21") ?: 0) < 0)
     }
+
+    @Test
+    fun `two mods known not to work together are named before anything crashes`() {
+        fabricServer()
+        jar("mods", "jade.jar", mapOf("fabric.mod.json" to fabricMod("jade", "15.10.5")))
+        jar("mods", "nec.jar", mapOf("fabric.mod.json" to fabricMod("notenoughcrashes", "4.4.9")))
+        val found = situations(InstanceScanner.scan(root))
+        assertTrue(Situation.MOD_CONFLICT to "jade" in found, "$found")
+    }
+
+    @Test
+    fun `a mod that needs another without saying so is named, and left alone once it is there`() {
+        fabricServer()
+        jar("mods", "litematicatool.jar", mapOf("fabric.mod.json" to fabricMod("litematicatool", "2.0.0")))
+        assertTrue(Situation.DEP_MISSING to "litematicatool" in situations(InstanceScanner.scan(root)), "expected the missing one")
+        jar("mods", "litematica.jar", mapOf("fabric.mod.json" to fabricMod("litematica", "0.19.0")))
+        assertFalse(Situation.DEP_MISSING to "litematicatool" in situations(InstanceScanner.scan(root)), "nothing to say once it is installed")
+    }
 }

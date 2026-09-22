@@ -54,7 +54,7 @@
     "hasBackup": false,
     "locked": false,
     "damagedChunks": [],
-    "chunksChecked": 843,
+    "chunksChecked": 841,
     "chunksComplete": true,
     "damagedPlayers": []
    },
@@ -72,6 +72,9 @@
    }
   ],
   "eulaAccepted": true,
-  "configErrors": []
+  "configErrors": [],
+  "rootJars": [
+   "server.jar"
+  ]
  }
 }
