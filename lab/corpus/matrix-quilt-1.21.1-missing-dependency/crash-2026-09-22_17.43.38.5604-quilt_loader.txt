@@ -1,0 +1,128 @@
+---- Quilt Loader: Failed to load ----
+Date/Time: 2026/09/22 17:43:38.5617 [+0000]
+Quilt Loader Version: 0.30.1
+
+-- Error 1 --
+
+AppleSkin requires any version of fabric-api, which is missing!
+
+AppleSkin is loaded from <mods>/appleskin-fabric-mc1.21-3.0.6.jar
+
+
+-- Plugin State --
+
+Cycle number = 1
+Cycle Step = SOLVE
+
+Loaded Plugins (2):
+ - 'quilt_loader' (Builtin)
+ - 'quilted_fabric_loader' (Builtin)
+
+
+
+
+-- Mod Table --
+
+| Mod                      | ID               | Version      | Plugin                | Flags | File Hash (SHA-1)                        | File(s)                                                                                 | Sub-File                                                                                   |
+|--------------------------|------------------|--------------|-----------------------|-------|------------------------------------------|-----------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------|
+| AppleSkin                | appleskin        | 3.0.6+mc1.21 | quilted_fabric_loader | ..    | 97452cfadfde1f8f8c67838643019eabafa58fbb | <mods>/appleskin-fabric-mc1.21-3.0.6.jar                                                |                                                                                            |
+| Cloth Config v15         | cloth-config     | 15.0.127     | quilted_fabric_loader | ..    | 97452cfadfde1f8f8c67838643019eabafa58fbb | <mods>/appleskin-fabric-mc1.21-3.0.6.jar                                                | /META-INF/jars/cloth-config-fabric-15.0.127-fabric.jar                                     |
+| Cloth Config v15         | cloth-config     | 15.0.127     | quilted_fabric_loader | ..    | 97452cfadfde1f8f8c67838643019eabafa58fbb | <mods>/appleskin-fabric-mc1.21-3.0.6.jar                                                | /META-INF/jars/cloth-config-fabric-15.0.127-fabric.jar                                     |
+| Minecraft                | minecraft        | 1.21.1       | quilt_loader          | ..    | 9e6cb4dccfd957d36b8788b0f452987d4693f3ba | <game>/.cache/quilt_loader/remappedJars/minecraft-1.21.1-0.30.1/server-intermediary.jar |                                                                                            |
+| MixinExtras              | mixinextras      | 0.5.4        | quilted_fabric_loader | ..    | 2fa21d6438f63c8dd4f2e81290b0a09de1442b3  | <game>/libraries/org/quiltmc/quilt-loader/0.30.1/quilt-loader-0.30.1.jar                | /META-INF/jars/mixinextras-fabric-0.5.4.jar                                                |
+| MixinExtras              | mixinextras      | 0.5.4        | quilted_fabric_loader | ..    | 2fa21d6438f63c8dd4f2e81290b0a09de1442b3  | <game>/libraries/org/quiltmc/quilt-loader/0.30.1/quilt-loader-0.30.1.jar                | /META-INF/jars/mixinextras-fabric-0.5.4.jar                                                |
+| OpenJDK 64-Bit Server VM | java             | 21           | quilt_loader          | ..    |                                          | /opt/java/openjdk                                                                       |                                                                                            |
+| Quilt Loader             | quilt_loader     | 0.30.1       | quilt_loader          | ..    | 2fa21d6438f63c8dd4f2e81290b0a09de1442b3  | <game>/libraries/org/quiltmc/quilt-loader/0.30.1/quilt-loader-0.30.1.jar                |                                                                                            |
+| Quilt Loader             | quilt_loader     | 0.30.1       | quilt_loader          | ..    | 2fa21d6438f63c8dd4f2e81290b0a09de1442b3  | <game>/libraries/org/quiltmc/quilt-loader/0.30.1/quilt-loader-0.30.1.jar                |                                                                                            |
+| cloth-basic-math         | cloth-basic-math | 0.6.1        | quilted_fabric_loader | ..    | 97452cfadfde1f8f8c67838643019eabafa58fbb | <mods>/appleskin-fabric-mc1.21-3.0.6.jar                                                | /META-INF/jars/cloth-config-fabric-15.0.127-fabric.jar!/META-INF/jars/basic-math-0.6.1.jar |
+|--------------------------|------------------|--------------|-----------------------|-------|------------------------------------------|-----------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------|
+
+
+-- Mod Details --
+
+<game>/.cache/quilt_loader/remappedJars/minecraft-1.21.1-0.30.1/server-intermediary.jar:
+###############################
+#  Loaded by  'quilt_loader'  #
+#  Name     = 'Minecraft'     #
+#  ID       = 'minecraft'     #
+#  Version  = '1.21.1'        #
+#  LoadType = IF_REQUIRED     #
+#  Depends on 'java' [21, ∞)  #
+###############################
+
+<mods>/appleskin-fabric-mc1.21-3.0.6.jar:
+#############################################################
+#  Loaded by  'quilted_fabric_loader'                       #
+#  Name     = 'AppleSkin'                                   #
+#  ID       = 'appleskin'                                   #
+#  Version  = '3.0.6+mc1.21'                                #
+#  LoadType = IF_POSSIBLE                                   #
+#  Depends on 'fabricloader' [0.15.10, ∞)                   #
+#  Depends on 'fabric-api' (-∞, ∞)                          #
+#  Breaks  on 'roughlyenoughitems' (-∞, 6.0.306-alpha)      #
+#                                                           #
+#  Contained Jars (1):                                      #
+#                                                           #
+#  /META-INF/jars/cloth-config-fabric-15.0.127-fabric.jar:  #
+#  +--------------------------------------------+           #
+#  |  Loaded by  'quilted_fabric_loader'        |           #
+#  |  Name     = 'Cloth Config v15'             |           #
+#  |  ID       = 'cloth-config'                 |           #
+#  |  Version  = '15.0.127'                     |           #
+#  |  LoadType = IF_POSSIBLE                    |           #
+#  |  Provides   'cloth-config2' 15.0.127       |           #
+#  |  Depends on 'fabricloader' [0.14.0, ∞)     |           #
+#  |  Depends on 'minecraft' [1.21-, ∞)         |           #
+#  |                                            |           #
+#  |  Contained Jars (1):                       |           #
+#  |                                            |           #
+#  |  /META-INF/jars/basic-math-0.6.1.jar:      |           #
+#  |  ........................................  |           #
+#  |  :  Loaded by  'quilted_fabric_loader'  :  |           #
+#  |  :  Name     = 'cloth-basic-math'       :  |           #
+#  |  :  ID       = 'cloth-basic-math'       :  |           #
+#  |  :  Version  = '0.6.1'                  :  |           #
+#  |  :  LoadType = IF_POSSIBLE              :  |           #
+#  |  :......................................:  |           #
+#  |                                            |           #
+#  +--------------------------------------------+           #
+#                                                           #
+#############################################################
+
+/opt/java/openjdk:
+###########################################
+#  Loaded by  'quilt_loader'              #
+#  Name     = 'OpenJDK 64-Bit Server VM'  #
+#  ID       = 'java'                      #
+#  Version  = '21'                        #
+#  LoadType = IF_REQUIRED                 #
+###########################################
+
+<game>/libraries/org/quiltmc/quilt-loader/0.30.1/quilt-loader-0.30.1.jar:
+###############################################################
+#  Loaded by  'quilt_loader'                                  #
+#  Name     = 'Quilt Loader'                                  #
+#  ID       = 'quilt_loader'                                  #
+#  Version  = '0.30.1'                                        #
+#  LoadType = IF_REQUIRED                                     #
+#  Provides   'fabricloader' 0.19.3                           #
+#  Depends on 'mixinextras' (-∞, ∞)                           #
+#                                                             #
+#  Contained Jars (1):                                        #
+#                                                             #
+#  /META-INF/jars/mixinextras-fabric-0.5.4.jar:               #
+#  +-------------------------------------------------------+  #
+#  |  Loaded by  'quilted_fabric_loader'                   |  #
+#  |  Name     = 'MixinExtras'                             |  #
+#  |  ID       = 'mixinextras'                             |  #
+#  |  Version  = '0.5.4'                                   |  #
+#  |  LoadType = IF_POSSIBLE                               |  #
+#  |  Provides   'com_github_llamalad7_mixinextras' 0.5.4  |  #
+#  |  Depends on 'fabricloader' [0.14.25, ∞)               |  #
+#  +-------------------------------------------------------+  #
+#                                                             #
+###############################################################
+
+
+
+---- end of report ----

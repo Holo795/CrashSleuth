@@ -1,0 +1,151 @@
+{
+ "platform": "FORGE",
+ "minecraftVersion": "1.21.1",
+ "loaderVersion": "52.1.16",
+ "side": "SERVER",
+ "jars": [
+  {
+   "file": "fancymenu_forge_3.7.0_MC_1.21.1.jar",
+   "folder": "mods",
+   "size": 3593137,
+   "mods": [
+    {
+     "format": "FORGE",
+     "id": "fancymenu",
+     "name": "FancyMenu",
+     "version": "3.7.0",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "konkrete",
+       "versionRange": "[1.9.4,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "melody",
+       "versionRange": "[1.0.6,)",
+       "required": true,
+       "side": "CLIENT"
+      },
+      {
+       "id": "findme",
+       "versionRange": "[1.0.0,)",
+       "required": false,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "drippyloadingscreen",
+       "versionRange": "[3.0.0,)",
+       "required": false,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "rrls",
+       "versionRange": "[4.0.1,)",
+       "required": false,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "forge",
+       "versionRange": "[52.0.16,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
+    }
+   ],
+   "nested": [
+    {
+     "format": "FORGE",
+     "id": "mixinextras",
+     "name": "MixinExtras",
+     "version": "0.3.5",
+     "environment": "UNKNOWN",
+     "dependencies": [],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": true
+    }
+   ],
+   "error": null,
+   "javaVersion": 21
+  },
+  {
+   "file": "melody_forge_1.0.10_MC_1.21.jar",
+   "folder": "mods",
+   "size": 189827,
+   "mods": [
+    {
+     "format": "FORGE",
+     "id": "melody",
+     "name": "Melody",
+     "version": "1.0.10",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "forge",
+       "versionRange": "[51.0.5,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21,)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
+    }
+   ],
+   "nested": [
+    {
+     "format": "FORGE",
+     "id": "mixinextras",
+     "name": "MixinExtras",
+     "version": "0.3.2",
+     "environment": "UNKNOWN",
+     "dependencies": [],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": true
+    }
+   ],
+   "error": null,
+   "javaVersion": 21
+  }
+ ],
+ "skipped": [],
+ "files": {
+  "worlds": [],
+  "eulaAccepted": true,
+  "configErrors": [],
+  "rootJars": [
+   "forge-1.21.1-52.1.16-shim.jar"
+  ]
+ }
+}

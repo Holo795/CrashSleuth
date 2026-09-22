@@ -1,0 +1,50 @@
+{
+ "platform": "FOLIA",
+ "minecraftVersion": "1.20.6",
+ "loaderVersion": null,
+ "side": "SERVER",
+ "jars": [],
+ "skipped": [],
+ "files": {
+  "worlds": [
+   {
+    "name": "world",
+    "versionName": "1.20.6",
+    "dataVersion": 3839,
+    "unreadable": null,
+    "hasBackup": false,
+    "locked": false,
+    "damagedChunks": [],
+    "chunksChecked": 730,
+    "chunksComplete": true,
+    "damagedPlayers": []
+   },
+   {
+    "name": "world_nether",
+    "versionName": "1.20.6",
+    "dataVersion": 3839,
+    "unreadable": null,
+    "hasBackup": false,
+    "locked": false,
+    "damagedChunks": [],
+    "chunksChecked": 841,
+    "chunksComplete": true,
+    "damagedPlayers": []
+   },
+   {
+    "name": "world_the_end",
+    "versionName": "1.20.6",
+    "dataVersion": 3839,
+    "unreadable": null,
+    "hasBackup": false,
+    "locked": false,
+    "damagedChunks": [],
+    "chunksChecked": 851,
+    "chunksComplete": true,
+    "damagedPlayers": []
+   }
+  ],
+  "eulaAccepted": true,
+  "configErrors": []
+ }
+}

@@ -1,0 +1,300 @@
+[
+ {
+  "minecraft": "1.19.4",
+  "loader": "vanilla",
+  "java": 17,
+  "name": "matrix-client-vanilla-1.19.4-baseline",
+  "description": "Vanilla 1.19.4 client, clean start: no finding"
+ },
+ {
+  "minecraft": "1.20.1",
+  "loader": "vanilla",
+  "java": 17,
+  "name": "matrix-client-vanilla-1.20.1-baseline",
+  "description": "Vanilla 1.20.1 client, clean start: no finding"
+ },
+ {
+  "minecraft": "1.20.4",
+  "loader": "vanilla",
+  "java": 17,
+  "name": "matrix-client-vanilla-1.20.4-baseline",
+  "description": "Vanilla 1.20.4 client, clean start: no finding"
+ },
+ {
+  "minecraft": "1.21.1",
+  "loader": "vanilla",
+  "java": 21,
+  "name": "matrix-client-vanilla-1.21.1-baseline",
+  "description": "Vanilla 1.21.1 client, clean start: no finding"
+ },
+ {
+  "minecraft": "1.21.4",
+  "loader": "vanilla",
+  "java": 21,
+  "name": "matrix-client-vanilla-1.21.4-baseline",
+  "description": "Vanilla 1.21.4 client, clean start: no finding"
+ },
+ {
+  "minecraft": "1.21.11",
+  "loader": "vanilla",
+  "java": 21,
+  "name": "matrix-client-vanilla-1.21.11-baseline",
+  "description": "Vanilla 1.21.11 client, clean start: no finding"
+ },
+ {
+  "minecraft": "26.1.2",
+  "loader": "vanilla",
+  "java": 25,
+  "name": "matrix-client-vanilla-26.1.2-baseline",
+  "description": "Vanilla 26.1.2 client, clean start: no finding"
+ },
+ {
+  "minecraft": "26.3",
+  "loader": "vanilla",
+  "java": 25,
+  "name": "matrix-client-vanilla-26.3-baseline",
+  "description": "Vanilla 26.3 client, clean start: no finding"
+ },
+ {
+  "minecraft": "1.19.4",
+  "loader": "fabric",
+  "java": 17,
+  "name": "matrix-client-fabric-1.19.4-baseline",
+  "description": "Fabric 1.19.4 client, clean start: no finding"
+ },
+ {
+  "minecraft": "1.19.4",
+  "loader": "fabric",
+  "java": 17,
+  "name": "matrix-client-fabric-1.19.4-missing-dependency",
+  "description": "Fabric 1.19.4 client, a real mod without its required dependency",
+  "auto_missing": true,
+  "expect": {
+   "situation": "DEP_MISSING"
+  }
+ },
+ {
+  "minecraft": "1.20.1",
+  "loader": "fabric",
+  "java": 17,
+  "name": "matrix-client-fabric-1.20.1-baseline",
+  "description": "Fabric 1.20.1 client, clean start: no finding"
+ },
+ {
+  "minecraft": "1.20.1",
+  "loader": "fabric",
+  "java": 17,
+  "name": "matrix-client-fabric-1.20.1-missing-dependency",
+  "description": "Fabric 1.20.1 client, a real mod without its required dependency",
+  "auto_missing": true,
+  "expect": {
+   "situation": "DEP_MISSING"
+  }
+ },
+ {
+  "minecraft": "1.20.4",
+  "loader": "fabric",
+  "java": 17,
+  "name": "matrix-client-fabric-1.20.4-baseline",
+  "description": "Fabric 1.20.4 client, clean start: no finding"
+ },
+ {
+  "minecraft": "1.20.4",
+  "loader": "fabric",
+  "java": 17,
+  "name": "matrix-client-fabric-1.20.4-missing-dependency",
+  "description": "Fabric 1.20.4 client, a real mod without its required dependency",
+  "auto_missing": true,
+  "expect": {
+   "situation": "DEP_MISSING"
+  }
+ },
+ {
+  "minecraft": "1.21.1",
+  "loader": "fabric",
+  "java": 21,
+  "name": "matrix-client-fabric-1.21.1-baseline",
+  "description": "Fabric 1.21.1 client, clean start: no finding"
+ },
+ {
+  "minecraft": "1.21.1",
+  "loader": "fabric",
+  "java": 21,
+  "name": "matrix-client-fabric-1.21.1-missing-dependency",
+  "description": "Fabric 1.21.1 client, a real mod without its required dependency",
+  "auto_missing": true,
+  "expect": {
+   "situation": "DEP_MISSING"
+  }
+ },
+ {
+  "minecraft": "1.21.4",
+  "loader": "fabric",
+  "java": 21,
+  "name": "matrix-client-fabric-1.21.4-baseline",
+  "description": "Fabric 1.21.4 client, clean start: no finding"
+ },
+ {
+  "minecraft": "1.21.4",
+  "loader": "fabric",
+  "java": 21,
+  "name": "matrix-client-fabric-1.21.4-missing-dependency",
+  "description": "Fabric 1.21.4 client, a real mod without its required dependency",
+  "auto_missing": true,
+  "expect": {
+   "situation": "DEP_MISSING"
+  }
+ },
+ {
+  "minecraft": "1.21.11",
+  "loader": "fabric",
+  "java": 21,
+  "name": "matrix-client-fabric-1.21.11-baseline",
+  "description": "Fabric 1.21.11 client, clean start: no finding"
+ },
+ {
+  "minecraft": "1.21.11",
+  "loader": "fabric",
+  "java": 21,
+  "name": "matrix-client-fabric-1.21.11-missing-dependency",
+  "description": "Fabric 1.21.11 client, a real mod without its required dependency",
+  "auto_missing": true,
+  "expect": {
+   "situation": "DEP_MISSING"
+  }
+ },
+ {
+  "minecraft": "26.1.2",
+  "loader": "fabric",
+  "java": 25,
+  "name": "matrix-client-fabric-26.1.2-baseline",
+  "description": "Fabric 26.1.2 client, clean start: no finding"
+ },
+ {
+  "minecraft": "26.1.2",
+  "loader": "fabric",
+  "java": 25,
+  "name": "matrix-client-fabric-26.1.2-missing-dependency",
+  "description": "Fabric 26.1.2 client, a real mod without its required dependency",
+  "auto_missing": true,
+  "expect": {
+   "situation": "DEP_MISSING"
+  }
+ },
+ {
+  "minecraft": "26.3",
+  "loader": "fabric",
+  "java": 25,
+  "name": "matrix-client-fabric-26.3-baseline",
+  "description": "Fabric 26.3 client, clean start: no finding"
+ },
+ {
+  "minecraft": "26.3",
+  "loader": "fabric",
+  "java": 25,
+  "name": "matrix-client-fabric-26.3-missing-dependency",
+  "description": "Fabric 26.3 client, a real mod without its required dependency",
+  "auto_missing": true,
+  "expect": {
+   "situation": "DEP_MISSING"
+  }
+ },
+ {
+  "minecraft": "1.20.1",
+  "loader": "neoforge",
+  "java": 17,
+  "name": "matrix-client-neoforge-1.20.1-baseline",
+  "description": "Neoforge 1.20.1 client, clean start: no finding"
+ },
+ {
+  "minecraft": "1.20.4",
+  "loader": "neoforge",
+  "java": 17,
+  "name": "matrix-client-neoforge-1.20.4-baseline",
+  "description": "Neoforge 1.20.4 client, clean start: no finding"
+ },
+ {
+  "minecraft": "1.21.1",
+  "loader": "neoforge",
+  "java": 21,
+  "name": "matrix-client-neoforge-1.21.1-baseline",
+  "description": "Neoforge 1.21.1 client, clean start: no finding"
+ },
+ {
+  "minecraft": "1.21.4",
+  "loader": "neoforge",
+  "java": 21,
+  "name": "matrix-client-neoforge-1.21.4-baseline",
+  "description": "Neoforge 1.21.4 client, clean start: no finding"
+ },
+ {
+  "minecraft": "1.21.11",
+  "loader": "neoforge",
+  "java": 21,
+  "name": "matrix-client-neoforge-1.21.11-baseline",
+  "description": "Neoforge 1.21.11 client, clean start: no finding"
+ },
+ {
+  "minecraft": "26.1.2",
+  "loader": "neoforge",
+  "java": 25,
+  "name": "matrix-client-neoforge-26.1.2-baseline",
+  "description": "Neoforge 26.1.2 client, clean start: no finding"
+ },
+ {
+  "minecraft": "1.19.4",
+  "loader": "forge",
+  "java": 17,
+  "name": "matrix-client-forge-1.19.4-baseline",
+  "description": "Forge 1.19.4 client, clean start: no finding"
+ },
+ {
+  "minecraft": "1.20.1",
+  "loader": "forge",
+  "java": 17,
+  "name": "matrix-client-forge-1.20.1-baseline",
+  "description": "Forge 1.20.1 client, clean start: no finding"
+ },
+ {
+  "minecraft": "1.20.4",
+  "loader": "forge",
+  "java": 17,
+  "name": "matrix-client-forge-1.20.4-baseline",
+  "description": "Forge 1.20.4 client, clean start: no finding"
+ },
+ {
+  "minecraft": "1.21.1",
+  "loader": "forge",
+  "java": 21,
+  "name": "matrix-client-forge-1.21.1-baseline",
+  "description": "Forge 1.21.1 client, clean start: no finding"
+ },
+ {
+  "minecraft": "1.21.4",
+  "loader": "forge",
+  "java": 21,
+  "name": "matrix-client-forge-1.21.4-baseline",
+  "description": "Forge 1.21.4 client, clean start: no finding"
+ },
+ {
+  "minecraft": "1.21.11",
+  "loader": "forge",
+  "java": 21,
+  "name": "matrix-client-forge-1.21.11-baseline",
+  "description": "Forge 1.21.11 client, clean start: no finding"
+ },
+ {
+  "minecraft": "26.1.2",
+  "loader": "forge",
+  "java": 25,
+  "name": "matrix-client-forge-26.1.2-baseline",
+  "description": "Forge 26.1.2 client, clean start: no finding"
+ },
+ {
+  "minecraft": "26.3",
+  "loader": "forge",
+  "java": 25,
+  "name": "matrix-client-forge-26.3-baseline",
+  "description": "Forge 26.3 client, clean start: no finding"
+ }
+]

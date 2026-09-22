@@ -1,0 +1,61 @@
+{
+ "platform": "FABRIC",
+ "minecraftVersion": "26.1.2",
+ "loaderVersion": "0.19.5",
+ "side": "SERVER",
+ "jars": [
+  {
+   "file": "Jade-mc26.1-Fabric-26.1.9.jar",
+   "folder": "mods",
+   "size": 1022883,
+   "mods": [
+    {
+     "format": "FABRIC",
+     "id": "jade",
+     "name": "Jade",
+     "version": "26.1.9+fabric",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "fabric-api",
+       "versionRange": ">=0.144",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": ">=26.1",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [
+      "snownee.jade.util.CommonProxy",
+      "snownee.jade.util.ClientProxy",
+      "snownee.jade.addon.core.CorePlugin",
+      "snownee.jade.addon.vanilla.VanillaPlugin",
+      "snownee.jade.addon.universal.UniversalPlugin",
+      "snownee.jade.addon.access.AccessibilityPlugin",
+      "snownee.jade.addon.debug.DebugPlugin",
+      "snownee.jade.compat.ModMenuCompat",
+      "snownee.jade.compat.JEICompat"
+     ],
+     "addsContent": false,
+     "optionalOnClient": false
+    }
+   ],
+   "nested": [],
+   "error": null,
+   "javaVersion": 25
+  }
+ ],
+ "skipped": [],
+ "files": {
+  "worlds": [],
+  "eulaAccepted": true,
+  "configErrors": []
+ }
+}

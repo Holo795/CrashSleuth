@@ -20,7 +20,7 @@ class RunClientCommand : CliktCommand(name = "run-client") {
 
     private val gameDir by argument(help = "game folder (its mods/ and config/ are used as they are)").path()
     private val minecraft by option("--minecraft", help = "Minecraft version").required()
-    private val loader by option("--loader", help = "vanilla, fabric or neoforge").default("vanilla")
+    private val loader by option("--loader", help = "vanilla, fabric, neoforge or forge").default("vanilla")
     private val java by option("--java", help = "Java executable").default("java")
     private val timeout by option("--timeout", help = "minutes the game may take to reach the title screen").int().default(5)
     private val settle by option("--settle", help = "seconds the game stays open once ready").int().default(10)

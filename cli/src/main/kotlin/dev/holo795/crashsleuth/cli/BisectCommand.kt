@@ -33,7 +33,7 @@ class BisectCommand : CliktCommand(name = "bisect") {
     private val server by argument(help = "server folder, or game folder with --client").path(mustExist = true, canBeFile = false)
     private val client by option("--client", help = "search on the game client: the tool installs Minecraft itself and opens small windows").flag()
     private val minecraft by option("--minecraft", help = "Minecraft version of the game folder (--client)")
-    private val loader by option("--loader", help = "vanilla, fabric or neoforge (--client)").default("fabric")
+    private val loader by option("--loader", help = "vanilla, fabric, neoforge or forge (--client)").default("fabric")
     private val java by option("--java", help = "Java executable used to start the server").default("java")
     private val command by option("--command", help = "start command, if it cannot be detected (run in the server folder)")
     private val memory by option("--memory", help = "maximum heap, for example 6G (default: the server's own setting, else 4G)")

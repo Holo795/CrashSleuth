@@ -35,7 +35,7 @@ data class Target(
     /** Only folders can be launched; the client search supports vanilla, Fabric and NeoForge. */
     val searchable: Boolean get() = when (kind) {
         TargetKind.SERVER -> true
-        TargetKind.CLIENT -> loader == null || loader in setOf("fabric", "vanilla", "neoforge")
+        TargetKind.CLIENT -> loader == null || loader in setOf("fabric", "vanilla", "neoforge", "forge")
         else -> false
     }
 

@@ -1,0 +1,26 @@
+{
+ "platform": "VANILLA",
+ "minecraftVersion": "1.20.5",
+ "loaderVersion": null,
+ "side": "SERVER",
+ "jars": [],
+ "skipped": [],
+ "files": {
+  "worlds": [
+   {
+    "name": "world",
+    "versionName": "1.20.5",
+    "dataVersion": 3837,
+    "unreadable": null,
+    "hasBackup": true,
+    "locked": false,
+    "damagedChunks": [],
+    "chunksChecked": 851,
+    "chunksComplete": true,
+    "damagedPlayers": []
+   }
+  ],
+  "eulaAccepted": true,
+  "configErrors": []
+ }
+}

@@ -126,7 +126,8 @@ class Diagnoser(private val logAnalyzer: LogAnalyzer = LogAnalyzer()) {
 
         /** latest.log, plus the crash reports and JVM error files written during the same run. */
         fun recentLogs(root: Path): List<Path> {
-            val latest = root.resolve("logs/latest.log").takeIf { it.exists() }
+            // BungeeCord and Waterfall write proxy.log.0 next to their jar instead of logs/latest.log.
+            val latest = listOf("logs/latest.log", "proxy.log.0").map(root::resolve).firstOrNull { it.exists() }
             val since = latest?.getLastModifiedTime()?.toMillis()?.minus(30 * 60 * 1000) ?: 0
             val crashReports = root.resolve("crash-reports").takeIf { it.isDirectory() }
                 ?.listDirectoryEntries("*.txt").orEmpty()

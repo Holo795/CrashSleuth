@@ -8,7 +8,9 @@ object Privacy {
     private val HOME = System.getProperty("user.home").orEmpty()
     private val USER_PATH = Regex("""(?i)(/Users/|/home/|[A-Z]:\\Users\\|[A-Z]:/Users/)[^/\\\s:'"]+""")
     private val EMAIL = Regex("""[\w.+-]+@[\w-]+(?:\.[\w-]+)+""")
-    private val IPV4 = Regex("""\b(?!127\.0\.0\.1\b)(?:\d{1,3}\.){3}\d{1,3}\b""")
+    // Version numbers look like addresses (NeoForge 26.1.2.109): only what a log writes as an address counts,
+    // that is "/1.2.3.4" or "1.2.3.4:25565", and never the local address.
+    private val IPV4 = Regex("""(?<![\w.-])(?!127\.0\.0\.1(?![\d.]))((?:\d{1,3}\.){3}\d{1,3})(?=:\d)|(?<=/)(?!127\.0\.0\.1(?![\d.]))((?:\d{1,3}\.){3}\d{1,3})(?![\w.])""")
     private val UUID = Regex("""\b[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}\b""")
 
     fun clean(text: String): String {

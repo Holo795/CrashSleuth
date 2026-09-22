@@ -1,0 +1,57 @@
+{
+ "platform": "NEOFORGE",
+ "minecraftVersion": "26.1.2",
+ "loaderVersion": "26.1.2.109",
+ "side": "SERVER",
+ "jars": [
+  {
+   "file": "sophisticatedbackpacks-26.1.2-3.26.2.2156.jar",
+   "folder": "mods",
+   "size": 1267391,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "sophisticatedbackpacks",
+     "name": "Sophisticated Backpacks",
+     "version": "3.26.2",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "sophisticatedcore",
+       "versionRange": "[1.5.0,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "neoforge",
+       "versionRange": "[26.1.2.44-beta,26.2.0)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[26.1.2,26.2)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [],
+     "addsContent": true,
+     "optionalOnClient": false
+    }
+   ],
+   "nested": [],
+   "error": null,
+   "javaVersion": 25
+  }
+ ],
+ "skipped": [],
+ "files": {
+  "worlds": [],
+  "eulaAccepted": true,
+  "configErrors": []
+ }
+}

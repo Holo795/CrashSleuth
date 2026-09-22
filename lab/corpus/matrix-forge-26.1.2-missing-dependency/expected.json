@@ -1,0 +1,7 @@
+{
+  "situation": "DEP_MISSING",
+  "culprit": null,
+  "logs": [
+    "crash-2026-09-22_18.22.11-fml.txt"
+  ]
+}

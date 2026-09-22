@@ -1,0 +1,110 @@
+{
+ "platform": "FABRIC",
+ "minecraftVersion": "1.20.6",
+ "loaderVersion": "0.19.5",
+ "side": "SERVER",
+ "jars": [
+  {
+   "file": "appleskin-fabric-mc1.20.5-3.0.5.jar",
+   "folder": "mods",
+   "size": 1080847,
+   "mods": [
+    {
+     "format": "FABRIC",
+     "id": "appleskin",
+     "name": "AppleSkin",
+     "version": "3.0.5+mc1.20.5",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "fabricloader",
+       "versionRange": ">=0.15.10",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric-api",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [
+      {
+       "id": "roughlyenoughitems",
+       "versionRange": "<6.0.306-alpha",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [
+      "squeek.appleskin.AppleSkin",
+      "squeek.appleskin.AppleSkinCommon",
+      "squeek.appleskin.gui.ModMenuIntegration",
+      "squeek.appleskin.client.REITooltipPlugin"
+     ],
+     "addsContent": false,
+     "optionalOnClient": false
+    }
+   ],
+   "nested": [
+    {
+     "format": "FABRIC",
+     "id": "cloth-config",
+     "name": "Cloth Config v14",
+     "version": "14.0.126",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "fabricloader",
+       "versionRange": ">=0.14.0",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": ">=1.20.5-",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [
+      "cloth-config2"
+     ],
+     "apiVersion": null,
+     "entrypoints": [
+      "me.shedaniel.autoconfig.example.ExampleInits",
+      "me.shedaniel.clothconfig2.fabric.ClothConfigModMenuDemo"
+     ],
+     "addsContent": false,
+     "optionalOnClient": false
+    },
+    {
+     "format": "FABRIC",
+     "id": "cloth-basic-math",
+     "name": null,
+     "version": "0.6.1",
+     "environment": "UNKNOWN",
+     "dependencies": [],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
+    }
+   ],
+   "error": null,
+   "javaVersion": 21
+  }
+ ],
+ "skipped": [],
+ "files": {
+  "worlds": [],
+  "eulaAccepted": true,
+  "configErrors": []
+ }
+}

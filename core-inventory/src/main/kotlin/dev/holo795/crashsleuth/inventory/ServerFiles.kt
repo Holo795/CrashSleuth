@@ -63,6 +63,8 @@ data class ServerFiles(
     /** null when there is no eula.txt. */
     val eulaAccepted: Boolean? = null,
     val configErrors: List<ConfigError> = emptyList(),
+    /** Jars next to the server's files: the server software itself (paper-1.21.1.jar, waterfall.jar...). */
+    val rootJars: List<String> = emptyList(),
 )
 
 object ServerFilesScanner {
@@ -83,6 +85,7 @@ object ServerFilesScanner {
             properties(file)?.getProperty("eula")?.trim()?.equals("true", ignoreCase = true) ?: false
         },
         configErrors = configErrors(root),
+        rootJars = runCatching { Files.list(root).use { s -> s.filter { it.name.endsWith(".jar") }.map { it.name }.sorted().limit(20).toList() } }.getOrDefault(emptyList()),
     )
 
     private fun properties(file: Path): Properties? = runCatching { Properties().apply { Files.newBufferedReader(file).use(::load) } }.getOrNull()

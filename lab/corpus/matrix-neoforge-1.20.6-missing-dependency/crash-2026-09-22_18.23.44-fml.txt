@@ -1,0 +1,112 @@
+---- Minecraft Crash Report ----
+// Why did you do that?
+
+Time: 2026-09-22 18:23:44
+Description: Mod loading error has occurred
+
+java.lang.Exception: Mod Loading has failed
+	at TRANSFORMER/neoforge@20.6.141/net.neoforged.neoforge.logging.CrashReportExtender.dumpModLoadingCrashReport(CrashReportExtender.java:56) ~[neoforge-20.6.141-universal.jar%23125!/:?] {re:classloading}
+	at TRANSFORMER/neoforge@20.6.141/net.neoforged.neoforge.server.loading.ServerModLoader.load(ServerModLoader.java:39) ~[neoforge-20.6.141-universal.jar%23125!/:?] {re:classloading}
+	at TRANSFORMER/minecraft@1.20.6/net.minecraft.server.Main.main(Main.java:124) ~[server-1.20.6-20240627.102356-srg.jar%23124!/:?] {re:classloading}
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?] {}
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[?:?] {}
+	at MC-BOOTSTRAP/fml_loader@3.0.45/net.neoforged.fml.loading.targets.CommonLaunchHandler.runTarget(CommonLaunchHandler.java:136) ~[loader-3.0.45.jar%2361!/:3.0] {}
+	at MC-BOOTSTRAP/fml_loader@3.0.45/net.neoforged.fml.loading.targets.CommonLaunchHandler.serverService(CommonLaunchHandler.java:128) ~[loader-3.0.45.jar%2361!/:3.0] {}
+	at MC-BOOTSTRAP/fml_loader@3.0.45/net.neoforged.fml.loading.targets.CommonServerLaunchHandler.runService(CommonServerLaunchHandler.java:32) ~[loader-3.0.45.jar%2361!/:3.0] {}
+	at MC-BOOTSTRAP/fml_loader@3.0.45/net.neoforged.fml.loading.targets.CommonLaunchHandler.lambda$launchService$4(CommonLaunchHandler.java:118) ~[loader-3.0.45.jar%2361!/:3.0] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.2/cpw.mods.modlauncher.LaunchServiceHandlerDecorator.launch(LaunchServiceHandlerDecorator.java:30) [modlauncher-11.0.2.jar%2363!/:?] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.2/cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:53) [modlauncher-11.0.2.jar%2363!/:?] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.2/cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:71) [modlauncher-11.0.2.jar%2363!/:?] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.2/cpw.mods.modlauncher.Launcher.run(Launcher.java:103) [modlauncher-11.0.2.jar%2363!/:?] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.2/cpw.mods.modlauncher.Launcher.main(Launcher.java:74) [modlauncher-11.0.2.jar%2363!/:?] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.2/cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:26) [modlauncher-11.0.2.jar%2363!/:?] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.2/cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:23) [modlauncher-11.0.2.jar%2363!/:?] {}
+	at cpw.mods.bootstraplauncher@2.0.2/cpw.mods.bootstraplauncher.BootstrapLauncher.run(BootstrapLauncher.java:210) [bootstraplauncher-2.0.2.jar:?] {}
+	at cpw.mods.bootstraplauncher@2.0.2/cpw.mods.bootstraplauncher.BootstrapLauncher.main(BootstrapLauncher.java:69) [bootstraplauncher-2.0.2.jar:?] {}
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Thread: main
+Stacktrace:
+	at TRANSFORMER/neoforge@20.6.141/net.neoforged.neoforge.logging.CrashReportExtender.dumpModLoadingCrashReport(CrashReportExtender.java:56) ~[neoforge-20.6.141-universal.jar%23125!/:?] {re:classloading}
+-- MOD fancymenu --
+Details:
+	Mod File: /srv/mods/fancymenu_neoforge_3.3.2_MC_1.20.6.jar
+	Failure message: fml.modloading.missingdependency
+	Failure message arg 1: konkrete
+	Failure message arg 2: fancymenu
+	Failure message arg 3: [1.9.4,)
+	Failure message arg 4: null
+	Failure message arg 5: Optional.empty
+	Mod Version: 3.3.2
+	Mod Issue URL: NOT PROVIDED
+	Exception message: MISSING EXCEPTION MESSAGE
+Stacktrace:
+	at TRANSFORMER/neoforge@20.6.141/net.neoforged.neoforge.logging.CrashReportExtender.dumpModLoadingCrashReport(CrashReportExtender.java:56) ~[neoforge-20.6.141-universal.jar%23125!/:?] {re:classloading}
+	at TRANSFORMER/neoforge@20.6.141/net.neoforged.neoforge.server.loading.ServerModLoader.load(ServerModLoader.java:39) ~[neoforge-20.6.141-universal.jar%23125!/:?] {re:classloading}
+	at TRANSFORMER/minecraft@1.20.6/net.minecraft.server.Main.main(Main.java:124) ~[server-1.20.6-20240627.102356-srg.jar%23124!/:?] {re:classloading}
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?] {}
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[?:?] {}
+	at MC-BOOTSTRAP/fml_loader@3.0.45/net.neoforged.fml.loading.targets.CommonLaunchHandler.runTarget(CommonLaunchHandler.java:136) ~[loader-3.0.45.jar%2361!/:3.0] {}
+	at MC-BOOTSTRAP/fml_loader@3.0.45/net.neoforged.fml.loading.targets.CommonLaunchHandler.serverService(CommonLaunchHandler.java:128) ~[loader-3.0.45.jar%2361!/:3.0] {}
+	at MC-BOOTSTRAP/fml_loader@3.0.45/net.neoforged.fml.loading.targets.CommonServerLaunchHandler.runService(CommonServerLaunchHandler.java:32) ~[loader-3.0.45.jar%2361!/:3.0] {}
+	at MC-BOOTSTRAP/fml_loader@3.0.45/net.neoforged.fml.loading.targets.CommonLaunchHandler.lambda$launchService$4(CommonLaunchHandler.java:118) ~[loader-3.0.45.jar%2361!/:3.0] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.2/cpw.mods.modlauncher.LaunchServiceHandlerDecorator.launch(LaunchServiceHandlerDecorator.java:30) [modlauncher-11.0.2.jar%2363!/:?] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.2/cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:53) [modlauncher-11.0.2.jar%2363!/:?] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.2/cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:71) [modlauncher-11.0.2.jar%2363!/:?] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.2/cpw.mods.modlauncher.Launcher.run(Launcher.java:103) [modlauncher-11.0.2.jar%2363!/:?] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.2/cpw.mods.modlauncher.Launcher.main(Launcher.java:74) [modlauncher-11.0.2.jar%2363!/:?] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.2/cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:26) [modlauncher-11.0.2.jar%2363!/:?] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.2/cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:23) [modlauncher-11.0.2.jar%2363!/:?] {}
+	at cpw.mods.bootstraplauncher@2.0.2/cpw.mods.bootstraplauncher.BootstrapLauncher.run(BootstrapLauncher.java:210) [bootstraplauncher-2.0.2.jar:?] {}
+	at cpw.mods.bootstraplauncher@2.0.2/cpw.mods.bootstraplauncher.BootstrapLauncher.main(BootstrapLauncher.java:69) [bootstraplauncher-2.0.2.jar:?] {}
+
+
+-- System Details --
+Details:
+	Minecraft Version: 1.20.6
+	Minecraft Version ID: 1.20.6
+	Operating System: Linux (aarch64) version 7.0.14-orbstack-00380-ga7e0a2dc9535
+	Java Version: 21.0.12, Eclipse Adoptium
+	Java VM Version: OpenJDK 64-Bit Server VM (mixed mode, sharing), Eclipse Adoptium
+	Memory: 123731968 bytes (118 MiB) / 415236096 bytes (396 MiB) up to 2147483648 bytes (2048 MiB)
+	CPUs: 12
+	Processor Vendor: Apple
+	Processor Name: 
+	Identifier: Apple Family 8 Model 0x000 Stepping r0p0
+	Microarchitecture: unknown
+	Frequency (GHz): -0.00
+	Number of physical packages: 1
+	Number of physical CPUs: 12
+	Number of logical CPUs: 12
+	Graphics card #0 name: unknown
+	Graphics card #0 vendor: unknown
+	Graphics card #0 VRAM (MB): 0.00
+	Graphics card #0 deviceId: unknown
+	Graphics card #0 versionInfo: unknown
+	Virtual memory max (MB): 19048.21
+	Virtual memory used (MB): 1986.48
+	Swap memory total (MB): 13040.14
+	Swap memory used (MB): 0.00
+	JVM Flags: 2 total; -Xms256M -Xmx2G
+	ModLauncher: 11.0.2+main.4612c65f
+	ModLauncher launch target: forgeserver
+	ModLauncher services: 
+		sponge-mixin-0.13.4+mixin.0.8.5.jar mixin PLUGINSERVICE 
+		loader-3.0.45.jar slf4jfixer PLUGINSERVICE 
+		loader-3.0.45.jar runtime_enum_extender PLUGINSERVICE 
+		at-modlauncher-10.0.1.jar accesstransformer PLUGINSERVICE 
+		loader-3.0.45.jar runtimedistcleaner PLUGINSERVICE 
+		modlauncher-11.0.2.jar mixin TRANSFORMATIONSERVICE 
+		modlauncher-11.0.2.jar mixin-synthetic-package TRANSFORMATIONSERVICE 
+		modlauncher-11.0.2.jar fml TRANSFORMATIONSERVICE 
+	FML Language Providers: 
+		javafml@3.0
+		lowcodefml@3.0
+		minecraft@3.0
+	Mod List: 
+		server-1.20.6-20240627.102356-srg.jar             |Minecraft                     |minecraft                     |1.20.6              |Manifest: NOSIGNATURE
+		neoforge-20.6.141-universal.jar                   |NeoForge                      |neoforge                      |20.6.141            |Manifest: NOSIGNATURE

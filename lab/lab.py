@@ -90,6 +90,20 @@ def fabric_server(version: str, loader: str | None = None) -> Path:
     return download(url, f"fabric-server-{version}-{loader}.jar")
 
 
+def neoforge_versions(artifact: str = "neoforge") -> list[str]:
+    """NeoForge's own API: its maven-metadata.xml answers 404 now and then (seen on 22/09/2026)."""
+    try:
+        return http_json(f"https://maven.neoforged.net/api/maven/versions/releases/net%2Fneoforged%2F{artifact}")["versions"]
+    except Exception:
+        return maven_versions(f"https://maven.neoforged.net/releases/net/neoforged/{artifact}/maven-metadata.xml")
+
+
+def maven_versions(metadata_url: str) -> list[str]:
+    request = urllib.request.Request(metadata_url, headers={"User-Agent": USER_AGENT})
+    with urllib.request.urlopen(request, timeout=60) as response:
+        return re.findall(r"<version>([^<]+)</version>", response.read().decode())
+
+
 def maven_latest(metadata_url: str, prefix: str) -> str:
     request = urllib.request.Request(metadata_url, headers={"User-Agent": USER_AGENT})
     with urllib.request.urlopen(request, timeout=60) as response:
@@ -99,10 +113,58 @@ def maven_latest(metadata_url: str, prefix: str) -> str:
 
 
 def neoforge_installer(minecraft: str) -> tuple[Path, str]:
-    prefix = ".".join(minecraft.split(".")[1:]) + "."  # 1.21.1 -> 21.1.
-    version = maven_latest("https://maven.neoforged.net/releases/net/neoforged/neoforge/maven-metadata.xml", prefix)
+    if minecraft == "1.20.1":
+        # NeoForge began as a fork of Forge 1.20.1, published as net.neoforged:forge.
+        version = [v for v in neoforge_versions("forge") if v.startswith("1.20.1-")][-1]
+        return download(f"https://maven.neoforged.net/releases/net/neoforged/forge/{version}/forge-{version}-installer.jar"), version
+    # 1.21.1 -> 21.1., 1.21 -> 21.0., 26.2 -> 26.2.
+    parts = minecraft.split(".")
+    prefix = (f"{parts[1]}.{parts[2] if len(parts) > 2 else 0}." if parts[0] == "1" else minecraft + ".")
+    version = [v for v in neoforge_versions() if v.startswith(prefix) and "beta" not in v and "alpha" not in v][-1]
     url = f"https://maven.neoforged.net/releases/net/neoforged/neoforge/{version}/neoforge-{version}-installer.jar"
     return download(url), version
+
+
+def java_for(minecraft: str) -> int:
+    """Java the game itself needs: 17 up to 1.20.4, 21 from 1.20.5, 25 for 26.x."""
+    parts = [int(p) for p in minecraft.split(".")]
+    if parts[0] >= 26:
+        return 25
+    return 21 if (parts[1], parts[2] if len(parts) > 2 else 0) >= (20, 5) else 17
+
+
+def spigot_server(version: str) -> Path:
+    """Spigot is only published as source: SpigotMC's BuildTools compiles it (once, in a container with git)."""
+    target = CACHE / "files" / f"spigot-{version}.jar"
+    if target.exists():
+        return target
+    work = CACHE / "buildtools" / version
+    shutil.rmtree(work, ignore_errors=True)
+    work.mkdir(parents=True)
+    shutil.copy(download("https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar", "BuildTools.jar"), work / "BuildTools.jar")
+    image = f"crashsleuth-buildtools-{java_for(version)}"
+    subprocess.run(["docker", "build", "-q", "-t", image, "-"], input=f"FROM eclipse-temurin:{java_for(version)}-jdk\nRUN apt-get update && apt-get install -y --no-install-recommends git && rm -rf /var/lib/apt/lists/*\n",
+                   text=True, capture_output=True, check=True)
+    # MAVEN_OPTS: without a home for this user, Maven installs into a folder called "?" and cannot find it again.
+    result = subprocess.run(["docker", "run", "--rm", "-v", f"{work}:/work", "-w", "/work", "--user", f"{os.getuid()}:{os.getgid()}", "-e", "HOME=/work",
+                             "-e", "MAVEN_OPTS=-Duser.home=/work", image, "java", "-jar", "BuildTools.jar", "--rev", version, "--output-dir", "/work/out"],
+                            capture_output=True, text=True, timeout=3600)
+    built = sorted((work / "out").glob("spigot-*.jar"))
+    if not built:
+        raise RuntimeError(f"BuildTools could not build Spigot {version}: {result.stdout[-500:]}")
+    target.parent.mkdir(parents=True, exist_ok=True)
+    shutil.copy(built[-1], target)
+    shutil.rmtree(work, ignore_errors=True)
+    return target
+
+
+def quilt_install(version: str, directory: Path) -> None:
+    """Quilt's own installer puts the loader and the game server in the folder."""
+    installer_version = maven_latest("https://maven.quiltmc.org/repository/release/org/quiltmc/quilt-installer/maven-metadata.xml", "")
+    installer = download(f"https://maven.quiltmc.org/repository/release/org/quiltmc/quilt-installer/{installer_version}/quilt-installer-{installer_version}.jar")
+    java = os.environ.get("JAVA_HOME", "") + "/bin/java" if os.environ.get("JAVA_HOME") else "java"
+    subprocess.run([java, "-jar", str(installer), "install", "server", version, "--download-server", f"--install-dir={directory}"],
+                   capture_output=True, text=True, check=True, timeout=900)
 
 
 def forge_installer(minecraft: str) -> tuple[Path, str]:
@@ -153,6 +215,78 @@ def resolve_mods(slugs: list[str], loader: str, minecraft: str, skip: set[str]) 
             if project["slug"] not in skip:
                 queue.append(project["slug"])
     return resolved
+
+
+# Mods and plugins that declare a required dependency on Modrinth, tried in order for each loader and version.
+MISSING_CANDIDATES = {
+    "bukkit": ["worldguard", "multiverse-portals", "multiverse-inventories"],
+    "fabric": ["jade", "appleskin", "farmers-delight-refabricated", "waystones", "iris"],
+    "quilt": ["jade", "appleskin", "farmers-delight-refabricated", "waystones", "iris"],
+    "neoforge": ["sophisticated-backpacks", "iron-jetpacks", "mekanism-generators"],
+    "forge": ["sophisticated-backpacks", "iron-jetpacks", "mekanism-generators"],
+}
+
+
+def required_on_server(jar: Path, dependency: dict) -> bool:
+    """Reads the jar itself: a mod's dependency can be declared for the client only (FancyMenu needs Melody
+    there), and then a server does not care that it is missing."""
+    import tomllib
+    ids = {dependency["slug"], dependency["slug"].replace("-", ""), dependency.get("id", "")}
+    with zipfile.ZipFile(jar) as archive:
+        names = set(archive.namelist())
+        for name in ("META-INF/neoforge.mods.toml", "META-INF/mods.toml"):
+            if name not in names:
+                continue
+            data = tomllib.loads(archive.read(name).decode("utf-8", "replace"))
+            for entries in data.get("dependencies", {}).values():
+                for entry in entries:
+                    if entry.get("modId", "").lower() in {i.lower() for i in ids if i}:
+                        side = entry.get("side", "BOTH").upper()
+                        mandatory = entry.get("mandatory", entry.get("type", "required") == "required")
+                        return mandatory and side in ("BOTH", "SERVER")
+            return False
+        if "fabric.mod.json" in names:
+            mod = json.loads(archive.read("fabric.mod.json").decode("utf-8", "replace"))
+            return mod.get("environment", "*") in ("*", "server")
+    return True
+
+
+def auto_missing(loader: str, minecraft: str, server: bool = True) -> tuple[str, str]:
+    """The first candidate with a build for this version and a required dependency: (mod, dependency slug)."""
+    family = "bukkit" if loader in ("paper", "spigot", "folia", "purpur") else loader
+    for slug in MISSING_CANDIDATES[family]:
+        if server and family != "bukkit" and http_json(f"https://api.modrinth.com/v2/project/{slug}").get("server_side") == "unsupported":
+            continue
+        try:
+            version = modrinth_version(slug, loader, minecraft)
+        except LookupError:
+            continue
+        for dependency in version["dependencies"]:
+            if dependency["dependency_type"] != "required" or not dependency.get("project_id"):
+                continue
+            project = http_json(f"https://api.modrinth.com/v2/project/{dependency['project_id']}")
+            if server and not required_on_server(modrinth_file(version), project):
+                continue
+            return slug, project["slug"]
+    # Nothing in the short list fits this version: ask Modrinth for mods of this loader and take the first that fits.
+    facets = json.dumps([[f"categories:{loader}"], [f"versions:{minecraft}"], ["project_type:mod"]])
+    query = urllib.parse.urlencode({"facets": facets, "limit": 30, "index": "downloads"})
+    for hit in http_json(f"https://api.modrinth.com/v2/search?{query}")["hits"]:
+        slug = hit["slug"]
+        if server and hit.get("server_side") == "unsupported":
+            continue
+        try:
+            version = modrinth_version(slug, loader, minecraft)
+        except LookupError:
+            continue
+        for dependency in version["dependencies"]:
+            if dependency["dependency_type"] != "required" or not dependency.get("project_id"):
+                continue
+            project = http_json(f"https://api.modrinth.com/v2/project/{dependency['project_id']}")
+            if server and not required_on_server(modrinth_file(version), project):
+                continue
+            return slug, project["slug"]
+    raise LookupError(f"no {loader} mod with a required dependency for {minecraft}")
 
 
 def install_modpack(slug: str, loader: str, minecraft: str, directory: Path, remove: list[str]) -> list[str]:
@@ -249,6 +383,7 @@ class Scenario:
     mutate: list[dict] = field(default_factory=list)    # after a first clean start: {"garble"|"truncate"|"delete"|"write": path, ...}
     log: str | None = None                              # file to analyse instead of the usual pick (console.log: all a panel shows)
     console: list[dict] = field(default_factory=list)   # once ready: {"after": seconds, "command": "spark profiler start"}
+    auto_missing: bool = False                          # a real mod or plugin of this version, without a required dependency
     properties: str = ""                                # extra server.properties lines (a fixed level-seed)
     check_before: bool = False                          # judge the analysis made before the start (the server rewrites what it finds)
     flaky: bool = False                                 # crashes only sometimes: the first start may succeed
@@ -258,6 +393,9 @@ class Scenario:
 
 def load_scenarios() -> list[Scenario]:
     data = json.loads((LAB_DIR / "scenarios.json").read_text())
+    # The version matrix (lab/matrix.py): every platform on every line of Minecraft versions.
+    if (LAB_DIR / "matrix.json").exists():
+        data += json.loads((LAB_DIR / "matrix.json").read_text())
     scenarios = []
     for item in data:
         expect = item.pop("expect", None)
@@ -274,15 +412,19 @@ def prepare(scenario: Scenario, directory: Path) -> list[str]:
     # Default world generation: a flat world without generator settings makes the server log an error of its own.
     (directory / "server.properties").write_text("online-mode=false\nspawn-protection=0\nview-distance=4\nsimulation-distance=4\n" + scenario.properties)
     java = f"-Xms256M -Xmx{scenario.memory} {scenario.jvm_extra}".strip()
-    mods_dir = directory / ("plugins" if scenario.platform in ("paper", "purpur") else "mods")
+    mods_dir = directory / ("plugins" if scenario.platform in ("paper", "purpur", "spigot", "folia") else "mods")
 
     if scenario.platform == "vanilla":
         shutil.copy(vanilla_server(scenario.minecraft), directory / "server.jar")
         command = f"java {java} -jar server.jar nogui"
-    elif scenario.platform in ("paper", "purpur"):
-        jar = paper_server(scenario.minecraft) if scenario.platform == "paper" else purpur_server(scenario.minecraft)
+    elif scenario.platform in ("paper", "purpur", "folia", "spigot"):
+        jar = {"paper": lambda: paper_server(scenario.minecraft), "folia": lambda: paper_server(scenario.minecraft, "folia"),
+               "purpur": lambda: purpur_server(scenario.minecraft), "spigot": lambda: spigot_server(scenario.minecraft)}[scenario.platform]()
         shutil.copy(jar, directory / "server.jar")
         command = f"java {java} -jar server.jar nogui"
+    elif scenario.platform == "quilt":
+        quilt_install(scenario.minecraft, directory)
+        command = f"java {java} -jar quilt-server-launch.jar nogui"
     elif scenario.platform == "fabric":
         shutil.copy(fabric_server(scenario.minecraft, scenario.loader_version), directory / "server.jar")
         command = f"java {java} -jar server.jar nogui"
@@ -295,7 +437,13 @@ def prepare(scenario: Scenario, directory: Path) -> list[str]:
     else:
         raise ValueError(scenario.platform)
 
-    loader = {"paper": "paper", "purpur": "paper"}.get(scenario.platform, scenario.platform)
+    # Quilt runs Fabric mods, and most Quilt users install them: Modrinth lists them as Fabric.
+    loader = {"paper": "paper", "purpur": "paper", "spigot": "spigot", "folia": "folia", "quilt": "fabric"}.get(scenario.platform, scenario.platform)
+    if scenario.auto_missing:
+        mod, dependency = auto_missing(loader, scenario.minecraft)
+        scenario.mods = [mod]
+        scenario.skip = [dependency]
+        (directory / "missing-on-purpose.txt").write_text(f"{mod} without {dependency}\n")
     if scenario.mods:
         mods_dir.mkdir(exist_ok=True)
         for slug, path in resolve_mods(scenario.mods, loader, scenario.minecraft, set(scenario.skip)).items():
@@ -513,7 +661,12 @@ def anonymise(text: str) -> str:
 
 def run(names: list[str], cli: str, keep: bool) -> int:
     scenarios = {s.name: s for s in load_scenarios()}
-    selected = list(scenarios.values()) if names == ["all"] else [scenarios[n] for n in names]
+    import fnmatch
+    # "all", exact names, or patterns such as "matrix-paper-*".
+    selected = list(scenarios.values()) if names == ["all"] else [
+        s for name in names for s in (scenarios.values() if any(c in name for c in "*?[") else [scenarios[name]])
+        if not any(c in name for c in "*?[") or fnmatch.fnmatch(s.name, name)
+    ]
     failures = 0
     for scenario in selected:
         directory = RUNS / scenario.name

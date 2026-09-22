@@ -1,0 +1,60 @@
+{
+ "platform": "FORGE",
+ "minecraftVersion": "26.3",
+ "loaderVersion": "66.0.2",
+ "side": "SERVER",
+ "jars": [
+  {
+   "file": "BiomesOPlenty-forge-26.3-26.3.0.0.2.jar",
+   "folder": "mods",
+   "size": 22793289,
+   "mods": [
+    {
+     "format": "FORGE",
+     "id": "biomesoplenty",
+     "name": "Biomes O' Plenty",
+     "version": "26.3.0.0.2",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "forge",
+       "versionRange": "[66.0.2,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "glitchcore",
+       "versionRange": "[26.3.0.0.1,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "terrablender",
+       "versionRange": "[26.3.0.0.0,)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [],
+     "addsContent": true,
+     "optionalOnClient": false
+    }
+   ],
+   "nested": [],
+   "error": null,
+   "javaVersion": 25
+  }
+ ],
+ "skipped": [],
+ "files": {
+  "worlds": [],
+  "eulaAccepted": true,
+  "configErrors": [],
+  "rootJars": [
+   "forge-26.3-66.0.2-shim.jar"
+  ]
+ }
+}

@@ -1,0 +1,26 @@
+{
+ "platform": "FORGE",
+ "minecraftVersion": "1.21.1",
+ "loaderVersion": "52.1.16",
+ "side": "SERVER",
+ "jars": [],
+ "skipped": [],
+ "files": {
+  "worlds": [
+   {
+    "name": "world",
+    "versionName": "1.21.1",
+    "dataVersion": 3955,
+    "unreadable": null,
+    "hasBackup": true,
+    "locked": false,
+    "damagedChunks": [],
+    "chunksChecked": 845,
+    "chunksComplete": true,
+    "damagedPlayers": []
+   }
+  ],
+  "eulaAccepted": true,
+  "configErrors": []
+ }
+}

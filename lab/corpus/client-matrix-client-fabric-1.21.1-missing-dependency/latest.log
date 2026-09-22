@@ -1,0 +1,17 @@
+[19:22:42] [main/INFO]: Loading Minecraft 1.21.1 with Fabric Loader 0.19.5
+[19:22:42] [main/INFO]: Fabric is preparing JARs on first launch, this may take a few seconds...
+[19:22:42] [main/WARN]: Mod resolution failed
+[19:22:42] [main/INFO]: Immediate reason: [HARD_DEP_NO_CANDIDATE appleskin 3.0.6+mc1.21 {depends fabric-api @ [*]}, ROOT_FORCELOAD_SINGLE appleskin 3.0.6+mc1.21]
+[19:22:42] [main/INFO]: Reason: [HARD_DEP appleskin 3.0.6+mc1.21 {depends fabric-api @ [*]}]
+[19:22:42] [main/INFO]: Fix: add [add:fabric-api 1 ([(-∞,∞)])], remove [], replace []
+[19:22:42] [main/ERROR]: Incompatible mods found!
+net.fabricmc.loader.impl.FormattedException: Some of your mods are incompatible with the game or each other!
+A potential solution has been determined, this may resolve your problem:
+	 - Install fabric-api, any version.
+More details:
+	 - Mod 'AppleSkin' (appleskin) 3.0.6+mc1.21 requires any version of fabric-api, which is missing!
+	at net.fabricmc.loader.impl.FormattedException.ofLocalized(FormattedException.java:51) ~[fabric-loader-0.19.5.jar:?]
+	at net.fabricmc.loader.impl.FabricLoaderImpl.load(FabricLoaderImpl.java:202) ~[fabric-loader-0.19.5.jar:?]
+	at net.fabricmc.loader.impl.launch.knot.Knot.init(Knot.java:142) ~[fabric-loader-0.19.5.jar:?]
+	at net.fabricmc.loader.impl.launch.knot.Knot.launch(Knot.java:66) [fabric-loader-0.19.5.jar:?]
+	at net.fabricmc.loader.impl.launch.knot.KnotClient.main(KnotClient.java:23) [fabric-loader-0.19.5.jar:?]

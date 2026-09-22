@@ -1,0 +1,26 @@
+{
+ "platform": "FABRIC",
+ "minecraftVersion": "1.20.1",
+ "loaderVersion": "0.19.5",
+ "side": "SERVER",
+ "jars": [],
+ "skipped": [],
+ "files": {
+  "worlds": [
+   {
+    "name": "world",
+    "versionName": "1.20.1",
+    "dataVersion": 3465,
+    "unreadable": null,
+    "hasBackup": true,
+    "locked": false,
+    "damagedChunks": [],
+    "chunksChecked": 2069,
+    "chunksComplete": true,
+    "damagedPlayers": []
+   }
+  ],
+  "eulaAccepted": true,
+  "configErrors": []
+ }
+}

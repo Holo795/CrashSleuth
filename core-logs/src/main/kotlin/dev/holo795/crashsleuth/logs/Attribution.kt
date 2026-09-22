@@ -12,7 +12,7 @@ import dev.holo795.crashsleuth.model.PlatformKind
 object Attribution {
     /** Jars that belong to the game, the loader or common libraries: never a culprit. */
     private val PLATFORM_JAR = Regex(
-        """^(minecraft|client|server|loader|earlydisplay|paper|purpur|folia|spigot|velocity|bungeecord|waterfall|craftbukkit|bukkit|patched|forge|neoforge|fmlloader|fmlcore|""" +
+        """^(minecraft|client|server|loader|earlydisplay|bootstrap|securemodules|forgespi|jarjar\w*|paper|purpur|folia|spigot|velocity|bungeecord|waterfall|craftbukkit|bukkit|patched|forge|neoforge|fmlloader|fmlcore|""" +
             """javafmllanguage|lowcodelanguage|mclanguage|modlauncher|bootstraplauncher|securejarhandler|eventbus|coremods|""" +
             """mixin|sponge-mixin|mixinextras|fabric-loader|quilt-loader|intermediary|datafixerupper|netty|log4j|guava|gson|""" +
             """jopt|lwjgl|authlib|brigadier|fastutil|commons|slf4j|asm|jna|oshi|icu4j|kotlin|java|jdk|srgutils|terminalconsoleappender|""" +
@@ -52,7 +52,14 @@ object Attribution {
     /** The game itself as launchers install it: versions/1.21.1/1.21.1.jar, 24w14a.jar, 1.21.1-fabric.jar. */
     private val GAME_JAR = Regex("""^(\d+\.\d+(?:\.\d+)?|\d{2}w\d{2}[a-z])(?:[-_].*)?\.jar$""")
 
-    fun isPlatformClass(className: String): Boolean = PLATFORM_PACKAGES.any { className.startsWith(it) }
+    /**
+     * Game, loader, JDK or library code. A class without a package ("azu", "gfj$1") is the obfuscated game itself:
+     * mods and plugins always have one, and from 1.21.11 the game's frames no longer name their jar.
+     */
+    fun isPlatformClass(className: String): Boolean =
+        PLATFORM_PACKAGES.any { className.startsWith(it) } || OBFUSCATED_GAME.matches(className.substringAfterLast('/'))
+
+    private val OBFUSCATED_GAME = Regex("""[a-z]{1,4}(?:\$[\w$]+)?""")
 
     /** Readable identifier from a jar name: `create-1.21.1-6.0.4.jar` gives `create`. */
     fun idFromJar(jar: String): String {

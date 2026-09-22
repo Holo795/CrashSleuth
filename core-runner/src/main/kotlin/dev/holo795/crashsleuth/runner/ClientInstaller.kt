@@ -52,8 +52,9 @@ class ClientInstaller(
         val loaderJson = when (loader?.lowercase()) {
             null, "vanilla" -> null
             "fabric" -> fabricJson(minecraft, loaderVersion)
-            "neoforge" -> neoforgeJson(minecraft, loaderVersion, vanilla)
-            else -> error("Client launches support vanilla, Fabric and NeoForge for now, not $loader")
+            "neoforge" -> installerJson(minecraft, vanilla, neoforgeInstaller(minecraft, loaderVersion))
+            "forge" -> installerJson(minecraft, vanilla, forgeInstaller(minecraft, loaderVersion))
+            else -> error("Client launches support vanilla, Fabric, NeoForge and Forge, not $loader")
         }
         val libraries = merge(loaderJson?.get("libraries")?.jsonArray.orEmpty(), vanilla["libraries"]?.jsonArray.orEmpty())
         // listOf: a Path is itself Iterable, and "list + path" would add its name segments.
@@ -127,24 +128,31 @@ class ClientInstaller(
     }
 
     /**
-     * NeoForge's own installer, run headless into this cache (laid out like a launcher folder, never the
-     * player's): it downloads its libraries and patches the game, then its profile is read like Fabric's.
+     * The official installer of NeoForge or Forge, run headless into this cache (laid out like a launcher folder,
+     * never the player's): it downloads its libraries and patches the game, then its profile is read like Fabric's.
+     * The profile's name is the "id" of the installer's own version.json.
      */
-    private fun neoforgeJson(minecraft: String, loaderVersion: String?, vanilla: JsonObject): JsonObject {
-        val version = loaderVersion ?: latestNeoForge(minecraft)
-        val profile = cache.resolve("versions/neoforge-$version/neoforge-$version.json")
+    private fun installerJson(minecraft: String, vanilla: JsonObject, installerUrl: String): JsonObject {
+        val installerFile = cache.resolve("installers/" + installerUrl.substringAfterLast('/'))
+        if (!installerFile.exists()) {
+            installerFile.parent.createDirectories()
+            installerFile.writeBytes(get(URI(installerUrl)))
+        }
+        val id = java.util.zip.ZipFile(installerFile.toFile()).use { zip ->
+            val text = zip.getInputStream(zip.getEntry("version.json")).use { it.readBytes().decodeToString() }
+            json.parseToJsonElement(text).jsonObject.getValue("id").jsonPrimitive.content
+        }
+        val profile = cache.resolve("versions/$id/$id.json")
         if (!profile.exists()) {
             clientJar(minecraft, vanilla)
             val launcherProfiles = cache.resolve("launcher_profiles.json")
             if (!launcherProfiles.exists()) launcherProfiles.writeText("""{"profiles":{}}""")
-            val work = Files.createTempDirectory("crashsleuth-neoforge")
+            val work = Files.createTempDirectory("crashsleuth-installer")
             try {
-                val installer = work.resolve("installer.jar")
-                installer.writeBytes(get(URI("$NEOFORGE_MAVEN/$version/neoforge-$version-installer.jar")))
                 val java = Path.of(System.getProperty("java.home"), "bin", if (File.separatorChar == '\\') "java.exe" else "java").toString()
-                val process = ProcessBuilder(java, "-jar", installer.toString(), "--install-client", cache.toString())
+                val process = ProcessBuilder(java, "-jar", installerFile.toString(), "--installClient", cache.toString())
                     .directory(work.toFile()).redirectErrorStream(true).redirectOutput(work.resolve("install.log").toFile()).start()
-                check(process.waitFor() == 0 && profile.exists()) { "NeoForge $version installer failed: " + work.resolve("install.log").readText().lines().takeLast(5).joinToString(" ") }
+                check(process.waitFor() == 0 && profile.exists()) { "installer $id failed: " + work.resolve("install.log").readText().lines().takeLast(5).joinToString(" ") }
             } finally {
                 work.toFile().deleteRecursively()
             }
@@ -152,13 +160,32 @@ class ClientInstaller(
         return json.parseToJsonElement(profile.readText()).jsonObject
     }
 
-    /** NeoForge versions start with the game's minor and patch numbers: 1.21.1 is 21.1.x. */
-    private fun latestNeoForge(minecraft: String): String {
+    private fun mavenVersions(url: String): List<String> =
+        Regex("<version>([^<]+)</version>").findAll(get(URI(url)).toString(Charsets.UTF_8)).map { it.groupValues[1] }.toList()
+
+    /** NeoForge's own API; its maven-metadata.xml answers 404 now and then, so it is only the fallback. */
+    private fun neoforgeVersions(artifact: String): List<String> = runCatching {
+        Regex(""""([^"]+)"""").findAll(get(URI("$NEOFORGE_API/net%2Fneoforged%2F$artifact")).toString(Charsets.UTF_8).substringAfter(""""versions":["""))
+            .map { it.groupValues[1] }.toList()
+    }.getOrElse { mavenVersions("https://maven.neoforged.net/releases/net/neoforged/$artifact/maven-metadata.xml") }
+
+    /** NeoForge versions start with the game's minor and patch (1.21.1 is 21.1.x, 26.2 is 26.2.x); 1.20.1 is the old Forge fork. */
+    private fun neoforgeInstaller(minecraft: String, loaderVersion: String?): String {
+        if (minecraft == "1.20.1") {
+            val version = loaderVersion ?: neoforgeVersions("forge").lastOrNull { it.startsWith("1.20.1-") } ?: error("No NeoForge for 1.20.1")
+            return "$NEOFORGE_LEGACY/$version/forge-$version-installer.jar"
+        }
         val parts = minecraft.split('.')
-        val prefix = "${parts.getOrElse(1) { "0" }}.${parts.getOrElse(2) { "0" }}."
-        val metadata = get(URI("$NEOFORGE_MAVEN/maven-metadata.xml")).toString(Charsets.UTF_8)
-        return Regex("<version>([^<]+)</version>").findAll(metadata).map { it.groupValues[1] }
-            .filter { it.startsWith(prefix) && !it.contains("beta") }.lastOrNull() ?: error("No NeoForge release for Minecraft $minecraft")
+        val prefix = if (parts[0] == "1") "${parts.getOrElse(1) { "0" }}.${parts.getOrElse(2) { "0" }}." else "$minecraft."
+        val version = loaderVersion ?: neoforgeVersions("neoforge").lastOrNull { it.startsWith(prefix) && !it.contains("beta") && !it.contains("alpha") }
+            ?: error("No NeoForge release for Minecraft $minecraft")
+        return "$NEOFORGE_MAVEN/$version/neoforge-$version-installer.jar"
+    }
+
+    private fun forgeInstaller(minecraft: String, loaderVersion: String?): String {
+        val version = loaderVersion?.let { if (it.startsWith("$minecraft-")) it else "$minecraft-$it" }
+            ?: mavenVersions("$FORGE_MAVEN/maven-metadata.xml").lastOrNull { it.startsWith("$minecraft-") } ?: error("No Forge for Minecraft $minecraft")
+        return "$FORGE_MAVEN/$version/forge-$version-installer.jar"
     }
 
     private fun vanillaJson(minecraft: String): JsonObject {
@@ -249,7 +276,7 @@ class ClientInstaller(
         }
     }
 
-    private val ALWAYS = listOf("icons/", "minecraft/resourcepacks/", "minecraft/font/", "minecraft/textures/gui/title/")
+    private val ALWAYS = listOf("icons/", "minecraft/resourcepacks/", "minecraft/font/", "minecraft/textures/gui/title/", "minecraft/lang/en_us.json")
 
     private fun arguments(element: JsonElement?): List<String> = (element as? JsonArray).orEmpty().flatMap { argument ->
         when (argument) {
@@ -286,6 +313,9 @@ class ClientInstaller(
 
     companion object {
         private const val NEOFORGE_MAVEN = "https://maven.neoforged.net/releases/net/neoforged/neoforge"
+        private const val NEOFORGE_LEGACY = "https://maven.neoforged.net/releases/net/neoforged/forge"
+        private const val NEOFORGE_API = "https://maven.neoforged.net/api/maven/versions/releases"
+        private const val FORGE_MAVEN = "https://maven.minecraftforge.net/net/minecraftforge/forge"
         private const val MANIFEST = "https://piston-meta.mojang.com/mc/game/version_manifest_v2.json"
         private val PLACEHOLDER = Regex("""\$\{([A-Za-z_]+)}""")
         private val OS_NAME = System.getProperty("os.name").lowercase().let {
@@ -304,11 +334,21 @@ class ClientInstaller(
 
         private val client by lazy { HttpClient.newBuilder().followRedirects(HttpClient.Redirect.NORMAL).connectTimeout(Duration.ofSeconds(20)).build() }
 
+        /** Download servers answer an error now and then (a 404 from NeoForge's maven was seen once): retried before failing. */
         fun httpGet(uri: URI): ByteArray {
             val request = HttpRequest.newBuilder(uri).header("User-Agent", "Holo795/CrashSleuth (github.com/Holo795/CrashSleuth)").timeout(Duration.ofMinutes(5)).build()
-            val response = client.send(request, HttpResponse.BodyHandlers.ofByteArray())
-            check(response.statusCode() == 200) { "HTTP ${response.statusCode()} for $uri" }
-            return response.body()
+            var last: Exception? = null
+            for (attempt in 0 until 4) {
+                if (attempt > 0) Thread.sleep(1000L * (1 shl (2 * (attempt - 1))))
+                try {
+                    val response = client.send(request, HttpResponse.BodyHandlers.ofByteArray())
+                    if (response.statusCode() == 200) return response.body()
+                    last = IllegalStateException("HTTP ${response.statusCode()} for $uri")
+                } catch (error: java.io.IOException) {
+                    last = error
+                }
+            }
+            throw last!!
         }
     }
 }

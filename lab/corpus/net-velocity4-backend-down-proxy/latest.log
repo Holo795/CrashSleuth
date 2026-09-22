@@ -1,0 +1,35 @@
+[17:42:11] [main/INFO] [com.velocitypowered.proxy.VelocityServer]: Booting up Velocity 4.2.1-SNAPSHOT (git-a6f9de95-b31)...
+[17:42:11] [main/INFO] [com.velocitypowered.proxy.network.ConnectionManager]: Connections will use epoll channels, libdeflate (Linux aarch64) compression, OpenSSL 3.x.x (Linux aarch64) ciphers
+[17:42:11] [main/WARN] [com.velocitypowered.proxy.config.VelocityConfiguration]: The proxy is running in offline mode! This is a security risk and you will NOT receive any support!
+[17:42:11] [main/INFO] [com.velocitypowered.proxy.VelocityServer]: Loading localizations...
+[17:42:11] [main/INFO] [com.velocitypowered.proxy.VelocityServer]: Loading plugins...
+[17:42:11] [main/INFO] [com.velocitypowered.proxy.VelocityServer]: Loaded 1 plugins
+[17:42:11] [Netty epoll Boss #0/INFO] [com.velocitypowered.proxy.network.ConnectionManager]: Listening on /[0:0:0:0:0:0:0:0]:25577
+[17:42:11] [main/INFO] [com.velocitypowered.proxy.Metrics]: Velocity and some of its plugins collect metrics and send them to bStats (https://bStats.org).
+[17:42:11] [main/INFO] [com.velocitypowered.proxy.Metrics]: bStats collects some basic information for plugin authors, like how many people use
+[17:42:11] [main/INFO] [com.velocitypowered.proxy.Metrics]: their plugin and their total player count. It's recommended to keep bStats enabled, but
+[17:42:11] [main/INFO] [com.velocitypowered.proxy.Metrics]: if you're not comfortable with this, you can opt-out by editing the config.txt file in
+[17:42:11] [main/INFO] [com.velocitypowered.proxy.Metrics]: the '/plugins/bStats/' folder and setting enabled to false.
+[17:42:11] [main/INFO] [com.velocitypowered.proxy.Velocity]: Done (0.35s)!
+[17:42:18] [Netty epoll Worker #0/INFO] [com.velocitypowered.proxy.connection.client.AuthSessionHandler]: [connected player] CrashSleuth (/0.0.0.0:36752) has connected
+[17:42:18] [Netty epoll Worker #0/ERROR] [com.velocitypowered.proxy.connection.client.ConnectedPlayer]: [connected player] CrashSleuth (/0.0.0.0:36752): unable to connect to server lobby
+java.net.UnknownHostException: cs-backend: Name or service not known
+	at java.base/java.net.Inet6AddressImpl.lookupAllHostAddr(Native Method)
+	at java.base/java.net.Inet6AddressImpl.lookupAllHostAddr(Inet6AddressImpl.java:52)
+	at java.base/java.net.InetAddress$PlatformResolver.lookupByName(InetAddress.java:1134)
+	at java.base/java.net.InetAddress.getAddressesFromNameService(InetAddress.java:1712)
+	at java.base/java.net.InetAddress$NameServiceAddresses.get(InetAddress.java:1060)
+	at java.base/java.net.InetAddress.getAllByName0(InetAddress.java:1702)
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1582)
+	at java.base/java.net.InetAddress.getByName(InetAddress.java:1492)
+	at io.netty.util.internal.SocketUtils$8.run(SocketUtils.java:154)
+	at io.netty.util.internal.SocketUtils$8.run(SocketUtils.java:151)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:251)
+	at io.netty.util.internal.SocketUtils.addressByName(SocketUtils.java:151)
+	at io.netty.resolver.DefaultNameResolver.doResolve(DefaultNameResolver.java:41)
+	at io.netty.resolver.SimpleNameResolver.resolve(SimpleNameResolver.java:61)
+	at com.velocitypowered.proxy.network.netty.SeparatePoolInetNameResolver.lambda$doResolve$0(SeparatePoolInetNameResolver.java:92)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+[17:42:18] [Netty epoll Worker #0/INFO] [com.velocitypowered.proxy.connection.client.ConnectedPlayer]: [connected player] CrashSleuth (/0.0.0.0:36752) has disconnected: Unable to connect you to lobby. Please try again later.

@@ -1,0 +1,66 @@
+{
+ "platform": "FORGE",
+ "minecraftVersion": "26.2",
+ "loaderVersion": "65.1.3",
+ "side": "SERVER",
+ "jars": [
+  {
+   "file": "open-parties-and-claims-forge-26.2-0.31.6.jar",
+   "folder": "mods",
+   "size": 1825379,
+   "mods": [
+    {
+     "format": "FORGE",
+     "id": "openpartiesandclaims",
+     "name": "Open Parties and Claims",
+     "version": "0.31.6",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "forge",
+       "versionRange": "[65.1.0,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[26.2, 26.3.0)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "create",
+       "versionRange": "[6.0.0,)",
+       "required": false,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "forgeconfigapiport",
+       "versionRange": "[26.2.0,)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
+    }
+   ],
+   "nested": [],
+   "error": null,
+   "javaVersion": 25
+  }
+ ],
+ "skipped": [],
+ "files": {
+  "worlds": [],
+  "eulaAccepted": true,
+  "configErrors": [],
+  "rootJars": [
+   "forge-26.2-65.1.3-shim.jar"
+  ]
+ }
+}

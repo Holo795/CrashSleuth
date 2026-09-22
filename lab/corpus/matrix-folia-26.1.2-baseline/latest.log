@@ -1,0 +1,101 @@
+[17:36:16] [ServerMain/INFO]: [bootstrap] Running Java 25 (OpenJDK 64-Bit Server VM 25.0.4+7-LTS; Eclipse Adoptium Temurin-25.0.4+7) on Linux 7.0.14-orbstack-00380-ga7e0a2dc9535 (aarch64)
+[17:36:16] [ServerMain/INFO]: [bootstrap] Loading Folia 26.1.2-8-ver/26.1.x@62dc0f2 (2026-05-06T13:45:28Z) for Minecraft 26.1.2
+[17:36:16] [ServerMain/INFO]: [PluginInitializerManager] Initializing plugins...
+[17:36:16] [ServerMain/INFO]: [PluginInitializerManager] Initialized 0 plugins
+[17:36:18] [ServerMain/INFO]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, profilesHost=https://api.mojang.com, name=PROD]
+[17:36:18] [ServerMain/INFO]: Found new data pack file/bukkit, loading it automatically
+[17:36:18] [ServerMain/INFO]: Found new data pack paper, loading it automatically
+[17:36:18] [Worker-Main-2/INFO]: No existing world data, creating new world
+[17:36:18] [ServerMain/INFO]: Loaded 1515 recipes
+[17:36:18] [ServerMain/INFO]: Loaded 1617 advancements
+[17:36:18] [ServerMain/INFO]: [ca.spottedleaf.dataconverter.minecraft.datatypes.MCTypeRegistry] Initialising converters for DataConverter...
+[17:36:18] [ServerMain/INFO]: [ca.spottedleaf.dataconverter.minecraft.datatypes.MCTypeRegistry] Finished initialising converters for DataConverter in 148.4ms
+[17:36:18] [Server thread/INFO]: Starting minecraft server version 26.1.2
+[17:36:18] [Server thread/INFO]: Loading properties
+[17:36:18] [Server thread/INFO]: This server is running Folia version 26.1.2-8-ver/26.1.x@62dc0f2 (2026-05-06T13:45:28Z) (Implementing API version 26.1.2.build.8-stable)
+[17:36:18] [Server thread/INFO]: [spark] This server bundles the spark profiler. For more information please visit https://docs.papermc.io/paper/profiling
+[17:36:18] [Server thread/INFO]: Server Ping Player Sample Count: 12
+[17:36:18] [Server thread/INFO]: Using 4 threads for Netty based IO
+[17:36:19] [Server thread/INFO]: [MoonriseCommon] Paper is using 3 worker threads, 1 I/O threads
+[17:36:19] [Server thread/INFO]: [io.papermc.paper.threadedregions.TickRegions] Initialised EDF Folia scheduler with initial 1 target thread(s)
+[17:36:19] [Server thread/INFO]: Default game type: SURVIVAL
+[17:36:19] [Server thread/INFO]: Generating keypair
+[17:36:19] [Server thread/INFO]: Starting Minecraft server on *:25565
+[17:36:19] [Server thread/INFO]: Paper: Using libdeflate (Linux aarch64) compression from Velocity.
+[17:36:19] [Server thread/INFO]: Paper: Using OpenSSL 3.x.x (Linux aarch64) cipher from Velocity.
+[17:36:19] [Server thread/WARN]: **** SERVER IS RUNNING IN OFFLINE/INSECURE MODE!
+[17:36:19] [Server thread/WARN]: The server will make no attempt to authenticate usernames. Beware.
+[17:36:19] [Server thread/WARN]: While this makes the game possible to play without internet access, it also opens up the ability for hackers to connect with any username they choose.
+[17:36:19] [Server thread/WARN]: To change this, set "online-mode" to "true" in the server.properties file.
+[17:36:19] [Server thread/INFO]: Preparing level "world"
+[17:36:19] [Server thread/INFO]: Selecting spawn point for level 'minecraft:overworld'...
+[17:36:20] [Server thread/INFO]: Selecting spawn point for level 'minecraft:the_nether'...
+[17:36:20] [Server thread/INFO]: Selecting spawn point for level 'minecraft:the_end'...
+[17:36:20] [Server thread/INFO]: Loading 0 persistent chunks for level 'minecraft:overworld'...
+[17:36:20] [Server thread/INFO]: Preparing spawn area: 100%
+[17:36:20] [Server thread/INFO]: Prepared spawn area in 1600 ms
+[17:36:20] [Server thread/INFO]: Loading 0 persistent chunks for level 'minecraft:the_nether'...
+[17:36:20] [Server thread/INFO]: Preparing spawn area: 100%
+[17:36:20] [Server thread/INFO]: Prepared spawn area in 326 ms
+[17:36:20] [Server thread/INFO]: Loading 0 persistent chunks for level 'minecraft:the_end'...
+[17:36:20] [Server thread/INFO]: Preparing spawn area: 100%
+[17:36:20] [Server thread/INFO]: Prepared spawn area in 76 ms
+[17:36:20] [Server thread/INFO]: Done preparing level "world" (1.733s)
+[17:36:20] [Server thread/INFO]: [spark] The spark plugin has been preferred but was not loaded. The bundled spark profiler will enabled instead.
+[17:36:20] [Server thread/INFO]: [spark] The spark profiler will not be enabled because it is currently disabled in the configuration.
+[17:36:20] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:overworld
+[17:36:20] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:the_nether
+[17:36:21] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:the_end
+[17:36:21] [Server thread/INFO]: ThreadedAnvilChunkStorage (world): All chunks are saved
+[17:36:21] [Server thread/INFO]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[17:36:21] [Server thread/INFO]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[17:36:21] [Server thread/INFO]: ThreadedAnvilChunkStorage: All dimensions are saved
+[17:36:21] [Server thread/INFO]: Done (5.203s)! For help, type "help"
+[17:36:23] [Folia Region Scheduler Thread #0/INFO]: Stopping the server
+[17:36:23] [Region shutdown thread/INFO]: [RegionShutdownThread] Awaiting scheduler termination for 60s...
+[17:36:23] [Region shutdown thread/INFO]: [RegionShutdownThread] Scheduler halted
+[17:36:23] [Region shutdown thread/INFO]: Stopping server
+[17:36:23] [Region shutdown thread/INFO]: [RegionShutdownThread] Halting chunk systems...
+[17:36:23] [Region shutdown thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk system to halt for world 'minecraft:overworld'
+[17:36:23] [Region shutdown thread/INFO]: [ChunkHolderManager] Halted chunk system for world 'minecraft:overworld'
+[17:36:23] [Region shutdown thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk system to halt for world 'minecraft:the_nether'
+[17:36:23] [Region shutdown thread/INFO]: [ChunkHolderManager] Halted chunk system for world 'minecraft:the_nether'
+[17:36:23] [Region shutdown thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk system to halt for world 'minecraft:the_end'
+[17:36:23] [Region shutdown thread/INFO]: [ChunkHolderManager] Halted chunk system for world 'minecraft:the_end'
+[17:36:23] [Region shutdown thread/INFO]: [RegionShutdownThread] Halted chunk systems
+[17:36:23] [Region shutdown thread/INFO]: [RegionShutdownThread] Finishing pending teleports...
+[17:36:23] [Region shutdown thread/INFO]: [RegionShutdownThread] Finished pending teleports
+[17:36:23] [Region shutdown thread/INFO]: [RegionShutdownThread] Saving all worlds
+[17:36:23] [Region shutdown thread/INFO]: [RegionShutdownThread] Saving world data for world 'minecraft:overworld'
+[17:36:23] [Region shutdown thread/INFO]: [RegionShutdownThread] Closing player inventories...
+[17:36:23] [Region shutdown thread/INFO]: [RegionShutdownThread] Closed player inventories
+[17:36:23] [Region shutdown thread/INFO]: [RegionShutdownThread] Saving chunks...
+[17:36:23] [Region shutdown thread/INFO]: [RegionShutdownThread] Saved chunks
+[17:36:23] [Region shutdown thread/INFO]: [RegionShutdownThread] Saving level data...
+[17:36:23] [Region shutdown thread/INFO]: [RegionShutdownThread] Saved level data
+[17:36:23] [Region shutdown thread/INFO]: [RegionShutdownThread] Saved world data for world 'minecraft:overworld'
+[17:36:23] [Region shutdown thread/INFO]: [RegionShutdownThread] Saving world data for world 'minecraft:the_nether'
+[17:36:23] [Region shutdown thread/INFO]: [RegionShutdownThread] Closing player inventories...
+[17:36:23] [Region shutdown thread/INFO]: [RegionShutdownThread] Closed player inventories
+[17:36:23] [Region shutdown thread/INFO]: [RegionShutdownThread] Saving chunks...
+[17:36:23] [Region shutdown thread/INFO]: [RegionShutdownThread] Saved chunks
+[17:36:23] [Region shutdown thread/INFO]: [RegionShutdownThread] Saving level data...
+[17:36:23] [Region shutdown thread/INFO]: [RegionShutdownThread] Saved level data
+[17:36:23] [Region shutdown thread/INFO]: [RegionShutdownThread] Saved world data for world 'minecraft:the_nether'
+[17:36:23] [Region shutdown thread/INFO]: [RegionShutdownThread] Saving world data for world 'minecraft:the_end'
+[17:36:23] [Region shutdown thread/INFO]: [RegionShutdownThread] Closing player inventories...
+[17:36:23] [Region shutdown thread/INFO]: [RegionShutdownThread] Closed player inventories
+[17:36:23] [Region shutdown thread/INFO]: [RegionShutdownThread] Saving chunks...
+[17:36:23] [Region shutdown thread/INFO]: [RegionShutdownThread] Saved chunks
+[17:36:23] [Region shutdown thread/INFO]: [RegionShutdownThread] Saving level data...
+[17:36:23] [Region shutdown thread/INFO]: [RegionShutdownThread] Saved level data
+[17:36:23] [Region shutdown thread/INFO]: [RegionShutdownThread] Saved world data for world 'minecraft:the_end'
+[17:36:23] [Region shutdown thread/INFO]: [RegionShutdownThread] Saved all worlds
+[17:36:23] [Region shutdown thread/INFO]: [RegionShutdownThread] Saving global world data...
+[17:36:23] [Region shutdown thread/INFO]: [RegionShutdownThread] Saved global world data.
+[17:36:23] [Region shutdown thread/INFO]: [RegionShutdownThread] Saving all player data...
+[17:36:23] [Region shutdown thread/INFO]: [RegionShutdownThread] Saved all player data
+[17:36:23] [Region shutdown thread/INFO]: Waiting for all RegionFile I/O tasks to complete...
+[17:36:23] [Region shutdown thread/INFO]: All RegionFile I/O tasks to complete
+[17:36:23] [Region shutdown thread/INFO]: [MoonriseCommon] Awaiting termination of worker pool for up to 60s...
+[17:36:23] [Region shutdown thread/INFO]: [MoonriseCommon] Awaiting termination of I/O pool for up to 60s...

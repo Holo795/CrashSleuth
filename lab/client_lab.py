@@ -91,6 +91,9 @@ def test_world(minecraft: str) -> Path:
 
 def prepare(scenario: dict, directory: Path, java_home: Path) -> None:
     (directory / "mods").mkdir(parents=True)
+    if scenario.get("auto_missing"):
+        mod, dependency = lab.auto_missing(scenario.get("loader", "fabric"), scenario["minecraft"], server=False)
+        scenario["mods"], scenario["skip"] = [mod], [dependency]
     skip = set(scenario.get("skip", []))
     for slug, path in lab.resolve_mods(scenario.get("mods", []), scenario.get("loader", "fabric"), scenario["minecraft"], skip).items():
         if slug not in skip:
@@ -124,6 +127,13 @@ def prepare(scenario: dict, directory: Path, java_home: Path) -> None:
 def run(names: list[str], cli: str, java_home: Path) -> int:
     os.environ["CRASHSLEUTH_CLI_FOR_KEEP"] = cli
     scenarios = json.loads((LAB_DIR / "client-scenarios.json").read_text())
+    # The version matrix of the game client (lab/matrix.py).
+    if (LAB_DIR / "client-matrix.json").exists():
+        scenarios += json.loads((LAB_DIR / "client-matrix.json").read_text())
+    import fnmatch
+    if names != ["all"]:
+        scenarios = [s for s in scenarios if any(fnmatch.fnmatch(s["name"], n) for n in names)]
+        names = ["all"]
     selected = scenarios if names == ["all"] else [s for s in scenarios if s["name"] in names]
     java = str(java_home / "bin" / "java")
     failures = 0
@@ -131,6 +141,8 @@ def run(names: list[str], cli: str, java_home: Path) -> int:
         directory = RUNS / scenario["name"]
         shutil.rmtree(directory, ignore_errors=True)
         print(f"== {scenario['name']}: {scenario['description']}", flush=True)
+        # 26.x needs Java 25: CRASHSLEUTH_JAVA25_HOME points at one.
+        java = str(Path(os.environ["CRASHSLEUTH_JAVA25_HOME"]) / "bin" / "java") if scenario.get("java") == 25 else str(java_home / "bin" / "java")
         common = ["--minecraft", scenario["minecraft"], "--java", java]
         try:
             prepare(scenario, directory, java_home)

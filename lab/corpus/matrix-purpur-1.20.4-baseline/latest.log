@@ -1,0 +1,226 @@
+[17:30:40] [ServerMain/INFO]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
+[17:30:40] [ServerMain/INFO]: Found new data pack file/bukkit, loading it automatically
+[17:30:40] [ServerMain/INFO]: No existing world data, creating new world
+[17:30:40] [ServerMain/INFO]: Loaded 1174 recipes
+[17:30:40] [ServerMain/INFO]: Loaded 1271 advancements
+[17:30:40] [Server thread/INFO]: Starting minecraft server version 1.20.4
+[17:30:40] [Server thread/INFO]: Loading properties
+[17:30:40] [Server thread/INFO]: This server is running Purpur version git-Purpur-2176 (MC: 1.20.4) (Implementing API version 1.20.4-R0.1-SNAPSHOT) (Git: 6b1ee98 on HEAD)
+[17:30:41] [Server thread/INFO]: Server Ping Player Sample Count: 12
+[17:30:41] [Server thread/INFO]: Using 4 threads for Netty based IO
+[17:30:41] [Server thread/INFO]: [ChunkTaskScheduler] Chunk system is using 1 I/O threads, 3 worker threads, and gen parallelism of 3 threads
+[17:30:41] [Server thread/WARN]: [Pufferfish] SIMD operations are available for your server, but are not configured!
+[17:30:41] [Server thread/WARN]: [Pufferfish] To enable additional optimizations, add "--add-modules=jdk.incubator.vector" to your startup flags, BEFORE the "-jar".
+[17:30:41] [Server thread/WARN]: [Pufferfish] If you have already added this flag, then SIMD operations are not supported on your JVM or CPU.
+[17:30:41] [Server thread/WARN]: [Pufferfish] Debug: Java: 17.0.20, test run: true
+[17:30:41] [Server thread/INFO]: Default game type: SURVIVAL
+[17:30:41] [Server thread/INFO]: Generating keypair
+[17:30:41] [Server thread/INFO]: Starting Minecraft server on *:25565
+[17:30:41] [Server thread/INFO]: Using epoll channel type
+[17:30:41] [Server thread/INFO]: Paper: Using libdeflate (Linux aarch64) compression from Velocity.
+[17:30:41] [Server thread/INFO]: Paper: Using OpenSSL (Linux aarch64) cipher from Velocity.
+[17:30:41] [Server thread/INFO]: [spark] Loading server plugin spark v1.10.187
+[17:30:41] [Server thread/WARN]: **** SERVER IS RUNNING IN OFFLINE/INSECURE MODE!
+[17:30:41] [Server thread/WARN]: The server will make no attempt to authenticate usernames. Beware.
+[17:30:41] [Server thread/WARN]: While this makes the game possible to play without internet access, it also opens up the ability for hackers to connect with any username they choose.
+[17:30:41] [Server thread/WARN]: To change this, set "online-mode" to "true" in the server.properties file.
+[17:30:41] [Server thread/INFO]: Preparing level "world"
+[17:30:44] [Server thread/INFO]: Preparing start region for dimension minecraft:overworld
+[17:30:44] [Server thread/INFO]: Time elapsed: 23 ms
+[17:30:44] [Server thread/INFO]: Preparing start region for dimension minecraft:the_nether
+[17:30:44] [Server thread/INFO]: Time elapsed: 13 ms
+[17:30:44] [Server thread/INFO]: Preparing start region for dimension minecraft:the_end
+[17:30:44] [Server thread/INFO]: Time elapsed: 9 ms
+[17:30:44] [Server thread/INFO]: [spark] Enabling spark v1.10.187
+[17:30:44] [Server thread/INFO]: [spark] Using Paper ServerTickStartEvent for tick monitoring
+[17:30:44] [Server thread/INFO]: [spark] Starting background profiler...
+[17:30:44] [Server thread/INFO]: Running delayed init tasks
+[17:30:44] [Server thread/INFO]: Done (4.045s)! For help, type "help"
+[17:30:44] [Server thread/INFO]: *************************************************************************************
+[17:30:44] [Server thread/INFO]: This is the first time you're starting this server.
+[17:30:44] [Server thread/INFO]: It's recommended you read our 'Getting Started' documentation for guidance.
+[17:30:44] [Server thread/INFO]: View this and more helpful information here: https://docs.papermc.io/paper/next-steps
+[17:30:44] [Server thread/INFO]: *************************************************************************************
+[17:30:45] [Server thread/INFO]: Stopping the server
+[17:30:45] [Server thread/INFO]: Stopping server
+[17:30:45] [Server thread/INFO]: [spark] Disabling spark v1.10.187
+[17:30:45] [Tuinity Chunk System Worker #1/ERROR]: Thread Tuinity Chunk System Worker #1 failed main thread check: Accessing poi chunk off-main
+java.lang.Throwable: null
+	at io.papermc.paper.util.TickThread.ensureTickThread(TickThread.java:65) ~[purpur-1.20.4.jar:git-Purpur-2176]
+	at net.minecraft.world.entity.ai.village.poi.PoiManager.d(PoiManager.java:276) ~[?:?]
+	at net.minecraft.world.entity.ai.village.poi.PoiManager.exists(PoiManager.java:204) ~[?:?]
+	at net.minecraft.server.level.ServerLevel.lambda$onBlockStateChange$18(ServerLevel.java:2381) ~[?:?]
+	at net.minecraft.util.thread.BlockableEventLoop.execute(BlockableEventLoop.java:99) ~[?:?]
+	at net.minecraft.server.level.ServerLevel.lambda$onBlockStateChange$19(ServerLevel.java:2379) ~[?:?]
+	at java.util.Optional.ifPresent(Optional.java:178) ~[?:?]
+	at net.minecraft.server.level.ServerLevel.onBlockStateChange(ServerLevel.java:2378) ~[?:?]
+	at net.minecraft.server.level.WorldGenRegion.setBlock(WorldGenRegion.java:343) ~[?:?]
+	at net.minecraft.world.level.LevelWriter.setBlock(LevelWriter.java:13) ~[?:?]
+	at net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate.placeInWorld(StructureTemplate.java:304) ~[?:?]
+	at net.minecraft.world.level.levelgen.structure.pools.SinglePoolElement.place(SinglePoolElement.java:147) ~[?:?]
+	at net.minecraft.world.level.levelgen.structure.PoolElementStructurePiece.place(PoolElementStructurePiece.java:110) ~[?:?]
+	at net.minecraft.world.level.levelgen.structure.PoolElementStructurePiece.postProcess(PoolElementStructurePiece.java:98) ~[?:?]
+	at net.minecraft.world.level.levelgen.structure.StructureStart.placeInChunk(StructureStart.java:118) ~[purpur-1.20.4.jar:git-Purpur-2176]
+	at net.minecraft.world.level.chunk.ChunkGenerator.lambda$addVanillaDecorations$10(ChunkGenerator.java:389) ~[purpur-1.20.4.jar:git-Purpur-2176]
+	at com.google.common.collect.ImmutableList.forEach(ImmutableList.java:422) ~[guava-32.1.2-jre.jar:?]
+	at net.minecraft.world.level.chunk.ChunkGenerator.addVanillaDecorations(ChunkGenerator.java:388) ~[purpur-1.20.4.jar:git-Purpur-2176]
+	at net.minecraft.world.level.chunk.ChunkGenerator.applyBiomeDecoration(ChunkGenerator.java:478) ~[purpur-1.20.4.jar:git-Purpur-2176]
+	at net.minecraft.world.level.chunk.ChunkGenerator.applyBiomeDecoration(ChunkGenerator.java:473) ~[purpur-1.20.4.jar:git-Purpur-2176]
+	at net.minecraft.world.level.chunk.ChunkStatus.lambda$static$11(ChunkStatus.java:127) ~[purpur-1.20.4.jar:git-Purpur-2176]
+	at net.minecraft.world.level.chunk.ChunkStatus$SimpleGenerationTask.doWork(ChunkStatus.java:342) ~[?:?]
+	at net.minecraft.world.level.chunk.ChunkStatus.generate(ChunkStatus.java:259) ~[purpur-1.20.4.jar:git-Purpur-2176]
+	at io.papermc.paper.chunk.system.scheduling.ChunkUpgradeGenericStatusTask.run(ChunkUpgradeGenericStatusTask.java:86) ~[purpur-1.20.4.jar:git-Purpur-2176]
+	at io.papermc.paper.chunk.system.scheduling.queue.RadiusAwarePrioritisedExecutor$Task.run(RadiusAwarePrioritisedExecutor.java:467) ~[purpur-1.20.4.jar:git-Purpur-2176]
+	at ca.spottedleaf.concurrentutil.executor.standard.PrioritisedThreadedTaskQueue$PrioritisedTask.executeInternal(PrioritisedThreadedTaskQueue.java:351) ~[purpur-1.20.4.jar:git-Purpur-2176]
+	at ca.spottedleaf.concurrentutil.executor.standard.PrioritisedThreadedTaskQueue.executeTask(PrioritisedThreadedTaskQueue.java:118) ~[purpur-1.20.4.jar:git-Purpur-2176]
+	at ca.spottedleaf.concurrentutil.executor.standard.PrioritisedThreadPool$PrioritisedThread.pollTasks(PrioritisedThreadPool.java:274) ~[purpur-1.20.4.jar:git-Purpur-2176]
+	at ca.spottedleaf.concurrentutil.executor.standard.PrioritisedQueueExecutorThread.run(PrioritisedQueueExecutorThread.java:50) ~[purpur-1.20.4.jar:git-Purpur-2176]
+[17:30:45] [Server thread/INFO]: Saving players
+[17:30:45] [Tuinity Chunk System Worker #1/ERROR]: [ChunkTaskScheduler] Chunk system error at chunk (4,-25), holder: NewChunkHolder{world=world, chunkX=4, chunkZ=-25, entityChunkFromDisk=false, lastChunkCompletion={chunk_class=net.minecraft.world.level.chunk.ProtoChunk,status=minecraft:carvers}, currentGenStatus=minecraft:carvers, requestedGenStatus=minecraft:full, generationTask=ChunkProgressionTask{class: io.papermc.paper.chunk.system.scheduling.ChunkUpgradeGenericStatusTask, for world: world, chunk: (4,-25), hashcode: 266863231, priority: COMPLETING, status: minecraft:features, scheduled: true}, generationTaskStatus=minecraft:features, priority=NORMAL, priorityLocked=false, neighbourRequestedPriority=IDLE, effective_priority=NORMAL, oldTicketLevel=31, currentTicketLevel=31, totalNeighboursUsingThisChunk=53, fullNeighbourChunksLoadedBitset=0, chunkStatusRaw=0, currentChunkStatus=INACCESSIBLE, pendingChunkStatus=INACCESSIBLE, is_unload_safe=ticket_level, killed=false}, exception:
+java.lang.Throwable: net.minecraft.ReportedException: Feature placement
+	at io.papermc.paper.chunk.system.scheduling.ChunkTaskScheduler.unrecoverableChunkSystemFailure(ChunkTaskScheduler.java:279) ~[purpur-1.20.4.jar:git-Purpur-2176]
+	at io.papermc.paper.chunk.system.scheduling.NewChunkHolder.lambda$setGenerationTask$4(NewChunkHolder.java:1700) ~[purpur-1.20.4.jar:git-Purpur-2176]
+	at io.papermc.paper.chunk.system.scheduling.ChunkProgressionTask.complete0(ChunkProgressionTask.java:95) ~[purpur-1.20.4.jar:git-Purpur-2176]
+	at io.papermc.paper.chunk.system.scheduling.ChunkProgressionTask.complete(ChunkProgressionTask.java:75) ~[purpur-1.20.4.jar:git-Purpur-2176]
+	at io.papermc.paper.chunk.system.scheduling.ChunkUpgradeGenericStatusTask.run(ChunkUpgradeGenericStatusTask.java:105) ~[purpur-1.20.4.jar:git-Purpur-2176]
+	at io.papermc.paper.chunk.system.scheduling.queue.RadiusAwarePrioritisedExecutor$Task.run(RadiusAwarePrioritisedExecutor.java:467) ~[purpur-1.20.4.jar:git-Purpur-2176]
+	at ca.spottedleaf.concurrentutil.executor.standard.PrioritisedThreadedTaskQueue$PrioritisedTask.executeInternal(PrioritisedThreadedTaskQueue.java:351) ~[purpur-1.20.4.jar:git-Purpur-2176]
+	at ca.spottedleaf.concurrentutil.executor.standard.PrioritisedThreadedTaskQueue.executeTask(PrioritisedThreadedTaskQueue.java:118) ~[purpur-1.20.4.jar:git-Purpur-2176]
+	at ca.spottedleaf.concurrentutil.executor.standard.PrioritisedThreadPool$PrioritisedThread.pollTasks(PrioritisedThreadPool.java:274) ~[purpur-1.20.4.jar:git-Purpur-2176]
+	at ca.spottedleaf.concurrentutil.executor.standard.PrioritisedQueueExecutorThread.run(PrioritisedQueueExecutorThread.java:50) ~[purpur-1.20.4.jar:git-Purpur-2176]
+Caused by: net.minecraft.ReportedException: Feature placement
+	at net.minecraft.world.level.chunk.ChunkGenerator.addVanillaDecorations(ChunkGenerator.java:466) ~[purpur-1.20.4.jar:git-Purpur-2176]
+	at net.minecraft.world.level.chunk.ChunkGenerator.applyBiomeDecoration(ChunkGenerator.java:478) ~[purpur-1.20.4.jar:git-Purpur-2176]
+	at net.minecraft.world.level.chunk.ChunkGenerator.applyBiomeDecoration(ChunkGenerator.java:473) ~[purpur-1.20.4.jar:git-Purpur-2176]
+	at net.minecraft.world.level.chunk.ChunkStatus.lambda$static$11(ChunkStatus.java:127) ~[purpur-1.20.4.jar:git-Purpur-2176]
+	at net.minecraft.world.level.chunk.ChunkStatus$SimpleGenerationTask.doWork(ChunkStatus.java:342) ~[?:?]
+	at net.minecraft.world.level.chunk.ChunkStatus.generate(ChunkStatus.java:259) ~[purpur-1.20.4.jar:git-Purpur-2176]
+	at io.papermc.paper.chunk.system.scheduling.ChunkUpgradeGenericStatusTask.run(ChunkUpgradeGenericStatusTask.java:86) ~[purpur-1.20.4.jar:git-Purpur-2176]
+	... 5 more
+Caused by: java.lang.IllegalStateException: Accessing poi chunk off-main
+	at io.papermc.paper.util.TickThread.ensureTickThread(TickThread.java:66) ~[purpur-1.20.4.jar:git-Purpur-2176]
+	at net.minecraft.world.entity.ai.village.poi.PoiManager.d(PoiManager.java:276) ~[?:?]
+	at net.minecraft.world.entity.ai.village.poi.PoiManager.exists(PoiManager.java:204) ~[?:?]
+	at net.minecraft.server.level.ServerLevel.lambda$onBlockStateChange$18(ServerLevel.java:2381) ~[?:?]
+	at net.minecraft.util.thread.BlockableEventLoop.execute(BlockableEventLoop.java:99) ~[?:?]
+	at net.minecraft.server.level.ServerLevel.lambda$onBlockStateChange$19(ServerLevel.java:2379) ~[?:?]
+	at java.util.Optional.ifPresent(Optional.java:178) ~[?:?]
+	at net.minecraft.server.level.ServerLevel.onBlockStateChange(ServerLevel.java:2378) ~[?:?]
+	at net.minecraft.server.level.WorldGenRegion.setBlock(WorldGenRegion.java:343) ~[?:?]
+	at net.minecraft.world.level.LevelWriter.setBlock(LevelWriter.java:13) ~[?:?]
+	at net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate.placeInWorld(StructureTemplate.java:304) ~[?:?]
+	at net.minecraft.world.level.levelgen.structure.pools.SinglePoolElement.place(SinglePoolElement.java:147) ~[?:?]
+	at net.minecraft.world.level.levelgen.structure.PoolElementStructurePiece.place(PoolElementStructurePiece.java:110) ~[?:?]
+	at net.minecraft.world.level.levelgen.structure.PoolElementStructurePiece.postProcess(PoolElementStructurePiece.java:98) ~[?:?]
+	at net.minecraft.world.level.levelgen.structure.StructureStart.placeInChunk(StructureStart.java:118) ~[purpur-1.20.4.jar:git-Purpur-2176]
+	at net.minecraft.world.level.chunk.ChunkGenerator.lambda$addVanillaDecorations$10(ChunkGenerator.java:389) ~[purpur-1.20.4.jar:git-Purpur-2176]
+	at com.google.common.collect.ImmutableList.forEach(ImmutableList.java:422) ~[guava-32.1.2-jre.jar:?]
+	at net.minecraft.world.level.chunk.ChunkGenerator.addVanillaDecorations(ChunkGenerator.java:388) ~[purpur-1.20.4.jar:git-Purpur-2176]
+	at net.minecraft.world.level.chunk.ChunkGenerator.applyBiomeDecoration(ChunkGenerator.java:478) ~[purpur-1.20.4.jar:git-Purpur-2176]
+	at net.minecraft.world.level.chunk.ChunkGenerator.applyBiomeDecoration(ChunkGenerator.java:473) ~[purpur-1.20.4.jar:git-Purpur-2176]
+	at net.minecraft.world.level.chunk.ChunkStatus.lambda$static$11(ChunkStatus.java:127) ~[purpur-1.20.4.jar:git-Purpur-2176]
+	at net.minecraft.world.level.chunk.ChunkStatus$SimpleGenerationTask.doWork(ChunkStatus.java:342) ~[?:?]
+	at net.minecraft.world.level.chunk.ChunkStatus.generate(ChunkStatus.java:259) ~[purpur-1.20.4.jar:git-Purpur-2176]
+	at io.papermc.paper.chunk.system.scheduling.ChunkUpgradeGenericStatusTask.run(ChunkUpgradeGenericStatusTask.java:86) ~[purpur-1.20.4.jar:git-Purpur-2176]
+	... 5 more
+[17:30:45] [Server thread/INFO]: Saving worlds
+[17:30:45] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:overworld
+[17:30:45] [Tuinity Chunk System Worker #1/ERROR]: Thread Tuinity Chunk System Worker #1 failed main thread check: Accessing poi chunk off-main
+java.lang.Throwable: null
+	at io.papermc.paper.util.TickThread.ensureTickThread(TickThread.java:65) ~[purpur-1.20.4.jar:git-Purpur-2176]
+	at net.minecraft.world.entity.ai.village.poi.PoiManager.d(PoiManager.java:276) ~[?:?]
+	at net.minecraft.world.entity.ai.village.poi.PoiManager.exists(PoiManager.java:204) ~[?:?]
+	at net.minecraft.server.level.ServerLevel.lambda$onBlockStateChange$18(ServerLevel.java:2381) ~[?:?]
+	at net.minecraft.util.thread.BlockableEventLoop.execute(BlockableEventLoop.java:99) ~[?:?]
+	at net.minecraft.server.level.ServerLevel.lambda$onBlockStateChange$19(ServerLevel.java:2379) ~[?:?]
+	at java.util.Optional.ifPresent(Optional.java:178) ~[?:?]
+	at net.minecraft.server.level.ServerLevel.onBlockStateChange(ServerLevel.java:2378) ~[?:?]
+	at net.minecraft.server.level.WorldGenRegion.setBlock(WorldGenRegion.java:343) ~[?:?]
+	at net.minecraft.world.level.LevelWriter.setBlock(LevelWriter.java:13) ~[?:?]
+	at net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate.placeInWorld(StructureTemplate.java:304) ~[?:?]
+	at net.minecraft.world.level.levelgen.structure.pools.SinglePoolElement.place(SinglePoolElement.java:147) ~[?:?]
+	at net.minecraft.world.level.levelgen.structure.PoolElementStructurePiece.place(PoolElementStructurePiece.java:110) ~[?:?]
+	at net.minecraft.world.level.levelgen.structure.PoolElementStructurePiece.postProcess(PoolElementStructurePiece.java:98) ~[?:?]
+	at net.minecraft.world.level.levelgen.structure.StructureStart.placeInChunk(StructureStart.java:118) ~[purpur-1.20.4.jar:git-Purpur-2176]
+	at net.minecraft.world.level.chunk.ChunkGenerator.lambda$addVanillaDecorations$10(ChunkGenerator.java:389) ~[purpur-1.20.4.jar:git-Purpur-2176]
+	at com.google.common.collect.ImmutableList.forEach(ImmutableList.java:422) ~[guava-32.1.2-jre.jar:?]
+	at net.minecraft.world.level.chunk.ChunkGenerator.addVanillaDecorations(ChunkGenerator.java:388) ~[purpur-1.20.4.jar:git-Purpur-2176]
+	at net.minecraft.world.level.chunk.ChunkGenerator.applyBiomeDecoration(ChunkGenerator.java:478) ~[purpur-1.20.4.jar:git-Purpur-2176]
+	at net.minecraft.world.level.chunk.ChunkGenerator.applyBiomeDecoration(ChunkGenerator.java:473) ~[purpur-1.20.4.jar:git-Purpur-2176]
+	at net.minecraft.world.level.chunk.ChunkStatus.lambda$static$11(ChunkStatus.java:127) ~[purpur-1.20.4.jar:git-Purpur-2176]
+	at net.minecraft.world.level.chunk.ChunkStatus$SimpleGenerationTask.doWork(ChunkStatus.java:342) ~[?:?]
+	at net.minecraft.world.level.chunk.ChunkStatus.generate(ChunkStatus.java:259) ~[purpur-1.20.4.jar:git-Purpur-2176]
+	at io.papermc.paper.chunk.system.scheduling.ChunkUpgradeGenericStatusTask.run(ChunkUpgradeGenericStatusTask.java:86) ~[purpur-1.20.4.jar:git-Purpur-2176]
+	at io.papermc.paper.chunk.system.scheduling.queue.RadiusAwarePrioritisedExecutor$Task.run(RadiusAwarePrioritisedExecutor.java:467) ~[purpur-1.20.4.jar:git-Purpur-2176]
+	at ca.spottedleaf.concurrentutil.executor.standard.PrioritisedThreadedTaskQueue$PrioritisedTask.executeInternal(PrioritisedThreadedTaskQueue.java:351) ~[purpur-1.20.4.jar:git-Purpur-2176]
+	at ca.spottedleaf.concurrentutil.executor.standard.PrioritisedThreadedTaskQueue.executeTask(PrioritisedThreadedTaskQueue.java:118) ~[purpur-1.20.4.jar:git-Purpur-2176]
+	at ca.spottedleaf.concurrentutil.executor.standard.PrioritisedThreadPool$PrioritisedThread.pollTasks(PrioritisedThreadPool.java:274) ~[purpur-1.20.4.jar:git-Purpur-2176]
+	at ca.spottedleaf.concurrentutil.executor.standard.PrioritisedQueueExecutorThread.run(PrioritisedQueueExecutorThread.java:50) ~[purpur-1.20.4.jar:git-Purpur-2176]
+[17:30:45] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk system to halt for world 'world'
+[17:30:45] [Tuinity Chunk System Worker #1/ERROR]: [ChunkTaskScheduler] Chunk system error at chunk (5,-24), holder: NewChunkHolder{world=world, chunkX=5, chunkZ=-24, entityChunkFromDisk=false, lastChunkCompletion={chunk_class=net.minecraft.world.level.chunk.ProtoChunk,status=minecraft:carvers}, currentGenStatus=minecraft:carvers, requestedGenStatus=minecraft:full, generationTask=ChunkProgressionTask{class: io.papermc.paper.chunk.system.scheduling.ChunkUpgradeGenericStatusTask, for world: world, chunk: (5,-24), hashcode: 123458526, priority: COMPLETING, status: minecraft:features, scheduled: true}, generationTaskStatus=minecraft:features, priority=NORMAL, priorityLocked=false, neighbourRequestedPriority=IDLE, effective_priority=NORMAL, oldTicketLevel=31, currentTicketLevel=31, totalNeighboursUsingThisChunk=48, fullNeighbourChunksLoadedBitset=0, chunkStatusRaw=0, currentChunkStatus=INACCESSIBLE, pendingChunkStatus=INACCESSIBLE, is_unload_safe=ticket_level, killed=false}, exception:
+java.lang.Throwable: net.minecraft.ReportedException: Feature placement
+	at io.papermc.paper.chunk.system.scheduling.ChunkTaskScheduler.unrecoverableChunkSystemFailure(ChunkTaskScheduler.java:279) ~[purpur-1.20.4.jar:git-Purpur-2176]
+	at io.papermc.paper.chunk.system.scheduling.NewChunkHolder.lambda$setGenerationTask$4(NewChunkHolder.java:1700) ~[purpur-1.20.4.jar:git-Purpur-2176]
+	at io.papermc.paper.chunk.system.scheduling.ChunkProgressionTask.complete0(ChunkProgressionTask.java:95) ~[purpur-1.20.4.jar:git-Purpur-2176]
+	at io.papermc.paper.chunk.system.scheduling.ChunkProgressionTask.complete(ChunkProgressionTask.java:75) ~[purpur-1.20.4.jar:git-Purpur-2176]
+	at io.papermc.paper.chunk.system.scheduling.ChunkUpgradeGenericStatusTask.run(ChunkUpgradeGenericStatusTask.java:105) ~[purpur-1.20.4.jar:git-Purpur-2176]
+	at io.papermc.paper.chunk.system.scheduling.queue.RadiusAwarePrioritisedExecutor$Task.run(RadiusAwarePrioritisedExecutor.java:467) ~[purpur-1.20.4.jar:git-Purpur-2176]
+	at ca.spottedleaf.concurrentutil.executor.standard.PrioritisedThreadedTaskQueue$PrioritisedTask.executeInternal(PrioritisedThreadedTaskQueue.java:351) ~[purpur-1.20.4.jar:git-Purpur-2176]
+	at ca.spottedleaf.concurrentutil.executor.standard.PrioritisedThreadedTaskQueue.executeTask(PrioritisedThreadedTaskQueue.java:118) ~[purpur-1.20.4.jar:git-Purpur-2176]
+	at ca.spottedleaf.concurrentutil.executor.standard.PrioritisedThreadPool$PrioritisedThread.pollTasks(PrioritisedThreadPool.java:274) ~[purpur-1.20.4.jar:git-Purpur-2176]
+	at ca.spottedleaf.concurrentutil.executor.standard.PrioritisedQueueExecutorThread.run(PrioritisedQueueExecutorThread.java:50) ~[purpur-1.20.4.jar:git-Purpur-2176]
+Caused by: net.minecraft.ReportedException: Feature placement
+	at net.minecraft.world.level.chunk.ChunkGenerator.addVanillaDecorations(ChunkGenerator.java:466) ~[purpur-1.20.4.jar:git-Purpur-2176]
+	at net.minecraft.world.level.chunk.ChunkGenerator.applyBiomeDecoration(ChunkGenerator.java:478) ~[purpur-1.20.4.jar:git-Purpur-2176]
+	at net.minecraft.world.level.chunk.ChunkGenerator.applyBiomeDecoration(ChunkGenerator.java:473) ~[purpur-1.20.4.jar:git-Purpur-2176]
+	at net.minecraft.world.level.chunk.ChunkStatus.lambda$static$11(ChunkStatus.java:127) ~[purpur-1.20.4.jar:git-Purpur-2176]
+	at net.minecraft.world.level.chunk.ChunkStatus$SimpleGenerationTask.doWork(ChunkStatus.java:342) ~[?:?]
+	at net.minecraft.world.level.chunk.ChunkStatus.generate(ChunkStatus.java:259) ~[purpur-1.20.4.jar:git-Purpur-2176]
+	at io.papermc.paper.chunk.system.scheduling.ChunkUpgradeGenericStatusTask.run(ChunkUpgradeGenericStatusTask.java:86) ~[purpur-1.20.4.jar:git-Purpur-2176]
+	... 5 more
+Caused by: java.lang.IllegalStateException: Accessing poi chunk off-main
+	at io.papermc.paper.util.TickThread.ensureTickThread(TickThread.java:66) ~[purpur-1.20.4.jar:git-Purpur-2176]
+	at net.minecraft.world.entity.ai.village.poi.PoiManager.d(PoiManager.java:276) ~[?:?]
+	at net.minecraft.world.entity.ai.village.poi.PoiManager.exists(PoiManager.java:204) ~[?:?]
+	at net.minecraft.server.level.ServerLevel.lambda$onBlockStateChange$18(ServerLevel.java:2381) ~[?:?]
+	at net.minecraft.util.thread.BlockableEventLoop.execute(BlockableEventLoop.java:99) ~[?:?]
+	at net.minecraft.server.level.ServerLevel.lambda$onBlockStateChange$19(ServerLevel.java:2379) ~[?:?]
+	at java.util.Optional.ifPresent(Optional.java:178) ~[?:?]
+	at net.minecraft.server.level.ServerLevel.onBlockStateChange(ServerLevel.java:2378) ~[?:?]
+	at net.minecraft.server.level.WorldGenRegion.setBlock(WorldGenRegion.java:343) ~[?:?]
+	at net.minecraft.world.level.LevelWriter.setBlock(LevelWriter.java:13) ~[?:?]
+	at net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate.placeInWorld(StructureTemplate.java:304) ~[?:?]
+	at net.minecraft.world.level.levelgen.structure.pools.SinglePoolElement.place(SinglePoolElement.java:147) ~[?:?]
+	at net.minecraft.world.level.levelgen.structure.PoolElementStructurePiece.place(PoolElementStructurePiece.java:110) ~[?:?]
+	at net.minecraft.world.level.levelgen.structure.PoolElementStructurePiece.postProcess(PoolElementStructurePiece.java:98) ~[?:?]
+	at net.minecraft.world.level.levelgen.structure.StructureStart.placeInChunk(StructureStart.java:118) ~[purpur-1.20.4.jar:git-Purpur-2176]
+	at net.minecraft.world.level.chunk.ChunkGenerator.lambda$addVanillaDecorations$10(ChunkGenerator.java:389) ~[purpur-1.20.4.jar:git-Purpur-2176]
+	at com.google.common.collect.ImmutableList.forEach(ImmutableList.java:422) ~[guava-32.1.2-jre.jar:?]
+	at net.minecraft.world.level.chunk.ChunkGenerator.addVanillaDecorations(ChunkGenerator.java:388) ~[purpur-1.20.4.jar:git-Purpur-2176]
+	at net.minecraft.world.level.chunk.ChunkGenerator.applyBiomeDecoration(ChunkGenerator.java:478) ~[purpur-1.20.4.jar:git-Purpur-2176]
+	at net.minecraft.world.level.chunk.ChunkGenerator.applyBiomeDecoration(ChunkGenerator.java:473) ~[purpur-1.20.4.jar:git-Purpur-2176]
+	at net.minecraft.world.level.chunk.ChunkStatus.lambda$static$11(ChunkStatus.java:127) ~[purpur-1.20.4.jar:git-Purpur-2176]
+	at net.minecraft.world.level.chunk.ChunkStatus$SimpleGenerationTask.doWork(ChunkStatus.java:342) ~[?:?]
+	at net.minecraft.world.level.chunk.ChunkStatus.generate(ChunkStatus.java:259) ~[purpur-1.20.4.jar:git-Purpur-2176]
+	at io.papermc.paper.chunk.system.scheduling.ChunkUpgradeGenericStatusTask.run(ChunkUpgradeGenericStatusTask.java:86) ~[purpur-1.20.4.jar:git-Purpur-2176]
+	... 5 more
+[17:30:45] [Server thread/INFO]: [ChunkHolderManager] Halted chunk system for world 'world'
+[17:30:45] [Server thread/INFO]: [ChunkHolderManager] Saving all chunkholders for world 'world'
+[17:30:46] [Server thread/INFO]: [ChunkHolderManager] Saved 841 block chunks, 1 entity chunks, 7 poi chunks in world 'world' in 0.29s
+[17:30:46] [Server thread/INFO]: ThreadedAnvilChunkStorage (world): All chunks are saved
+[17:30:46] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world_nether]'/minecraft:the_nether
+[17:30:46] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk system to halt for world 'world_nether'
+[17:30:46] [Server thread/INFO]: [ChunkHolderManager] Halted chunk system for world 'world_nether'
+[17:30:46] [Server thread/INFO]: [ChunkHolderManager] Saving all chunkholders for world 'world_nether'
+[17:30:46] [Server thread/INFO]: [ChunkHolderManager] Saved 1089 block chunks, 69 entity chunks, 0 poi chunks in world 'world_nether' in 0.22s
+[17:30:46] [Server thread/INFO]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[17:30:46] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world_the_end]'/minecraft:the_end
+[17:30:46] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk system to halt for world 'world_the_end'
+[17:30:46] [Server thread/INFO]: [ChunkHolderManager] Halted chunk system for world 'world_the_end'
+[17:30:46] [Server thread/INFO]: [ChunkHolderManager] Saving all chunkholders for world 'world_the_end'
+[17:30:46] [Server thread/INFO]: [ChunkHolderManager] Saved 1089 block chunks, 121 entity chunks, 0 poi chunks in world 'world_the_end' in 0.15s
+[17:30:46] [Server thread/INFO]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[17:30:46] [Server thread/INFO]: ThreadedAnvilChunkStorage: All dimensions are saved
+[17:30:46] [Server thread/INFO]: Flushing Chunk IO
+[17:30:46] [Server thread/INFO]: Closing Thread Pool
+[17:30:46] [Server thread/INFO]: Closing Server

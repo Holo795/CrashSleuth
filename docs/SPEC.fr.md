@@ -1,8 +1,28 @@
 # CrashSleuth — Spécification
 
-**Version 13 — 22/09/2026** — v12 + application de bureau vérifiée à l'image sur Windows, recherche du coupable NeoForge depuis le bureau.
+**Version 14 — 22/09/2026** — v13 + toutes les versions de 1.19 à la dernière, toutes les plateformes, en conditions réelles.
 
-### Changements depuis la v12
+### Changements depuis la v13
+- **Matrice de versions** (`lab/matrix.py`) : chaque plateforme sur chaque ligne de versions de **1.19 à 26.3** (la dernière), avec un démarrage sain et une **vraie dépendance manquante** choisie automatiquement (le labo lit le jar téléchargé pour vérifier que la dépendance compte vraiment côté serveur). **186 scénarios serveur, tous réussis** (172 au premier passage, les 14 autres après correction du labo : mods de test et compilation de Spigot) ; **38 scénarios client, tous réussis** (31 au premier passage, 7 après les correctifs ci-dessous) ; proxys **7 sur 7**.
+  - serveurs : vanilla (les 29 versions), Paper, Purpur, Spigot (compilé par BuildTools), Folia, Fabric, Quilt, NeoForge (y compris la version 1.20.1, l'ancien artefact Forge) et Forge ;
+  - clients : vanilla, Fabric, NeoForge et **Forge** (installeurs officiels lancés sans interface dans le cache de l'outil), de 1.19.4 à 26.3, fenêtres masquées ;
+  - proxys : Velocity 3 et **4** (Java 25), **BungeeCord** et **Waterfall**.
+- **Java** choisi par version (17 jusqu'à 1.20.4, 21 jusqu'aux 1.21.x, 25 pour les 26.x).
+- **Correctifs trouvés grâce à ces versions** (tous en conditions réelles) :
+  - les traces des rapports de crash **Fabric étaient coupées au premier `knot//`** : toute la chaîne « Caused by » était perdue ;
+  - à partir de 1.21.11 le jeu ne nomme plus son jar dans les traces : ses classes obfusquées (`azu`, `gfj`) étaient accusées comme des mods ;
+  - le lanceur de Forge (`bootstrap`, `securemodules`) était accusé de même ;
+  - la **version de Forge** lue dans les journaux était celle de Minecraft (« Forge 1.21.1 » au lieu de 52.1.16) : tous les mods semblaient exiger un Forge plus récent ;
+  - les versions **NeoForge 26.x ont quatre nombres** (26.2.0.88) : elles étaient tronquées, d'où un faux « loader trop ancien » ;
+  - Spigot 26.3 écrit « Could not load 'plugins/x.jar' » sans le dossier, et « Unknown dependency X » au lieu de la liste : le plugin en cause n'était pas nommé, et la phrase entière devenait un coupable ;
+  - un mod qui utilise Fabric API **sans la déclarer** (Jade 8.7.3 sur 1.19.2) plantait sans explication : une bibliothèque connue manquante est désormais nommée (Fabric API, Architectury, Cloth Config, GeckoLib, Curios…) ;
+  - les journaux de **BungeeCord et Waterfall** (`proxy.log.0`) n'étaient pas lus du tout ;
+  - l'anonymisation prenait les **numéros de version pour des adresses IP** (NeoForge 26.1.2.109) ;
+  - **Waterfall**, arrêté par PaperMC en 2024, laisse un joueur attendre sans un mot quand son serveur est éteint : sa fin de vie est signalée depuis les fichiers.
+- **Intégration continue** : les tests tournent maintenant sur **Linux, Windows et macOS** à chaque envoi (actions GitHub mises à jour).
+- 52 signatures, 388 tests, 322 cas réels rejoués.
+
+### Changements de la v13 (rappel)
 - **Application de bureau sur Windows, vérifiée à l'image** (PC d'Holo795, une fois libre) : la vraie fenêtre « CrashSleuth » ouverte dans la session, rapport d'un dossier de jeu NeoForge affiché correctement ; capture de **la fenêtre seule** (PrintWindow), jamais de l'écran.
 - **Rendu des écrans sans fenêtre** (`RenderKt`) : l'accueil et le rapport sont dessinés dans des images, sans rien afficher ; sert à vérifier les écrans sur un ordinateur utilisé par quelqu'un, ou sans écran. Vérifié sous macOS et sous Windows (par SSH).
 - **Correctifs trouvés ainsi** :

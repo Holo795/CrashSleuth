@@ -1,0 +1,26 @@
+{
+ "platform": "QUILT",
+ "minecraftVersion": "26.3",
+ "loaderVersion": "0.30.1",
+ "side": "SERVER",
+ "jars": [],
+ "skipped": [],
+ "files": {
+  "worlds": [
+   {
+    "name": "world",
+    "versionName": "26.3",
+    "dataVersion": 5023,
+    "unreadable": null,
+    "hasBackup": true,
+    "locked": false,
+    "damagedChunks": [],
+    "chunksChecked": 529,
+    "chunksComplete": true,
+    "damagedPlayers": []
+   }
+  ],
+  "eulaAccepted": true,
+  "configErrors": []
+ }
+}

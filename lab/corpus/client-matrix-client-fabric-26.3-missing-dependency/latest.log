@@ -1,0 +1,17 @@
+[19:24:15] [main/INFO]: Loading Minecraft 26.3 with Fabric Loader 0.19.5
+[19:24:15] [main/INFO]: Mappings not present!
+[19:24:15] [main/WARN]: Mod resolution failed
+[19:24:15] [main/INFO]: Immediate reason: [HARD_DEP_NO_CANDIDATE jade 26.3.1+fabric {depends fabric-api @ [>=0.160.3]}, ROOT_FORCELOAD_SINGLE jade 26.3.1+fabric]
+[19:24:15] [main/INFO]: Reason: [HARD_DEP jade 26.3.1+fabric {depends fabric-api @ [>=0.160.3]}]
+[19:24:15] [main/INFO]: Fix: add [add:fabric-api 0.160.3 ([[0.160.3,∞)])], remove [], replace []
+[19:24:15] [main/ERROR]: Incompatible mods found!
+net.fabricmc.loader.impl.FormattedException: Some of your mods are incompatible with the game or each other!
+A potential solution has been determined, this may resolve your problem:
+	 - Install fabric-api, version 0.160.3 or later.
+More details:
+	 - Mod 'Jade' (jade) 26.3.1+fabric requires version 0.160.3 or later of fabric-api, which is missing!
+	at net.fabricmc.loader.impl.FormattedException.ofLocalized(FormattedException.java:51)
+	at net.fabricmc.loader.impl.FabricLoaderImpl.load(FabricLoaderImpl.java:202)
+	at net.fabricmc.loader.impl.launch.knot.Knot.init(Knot.java:142)
+	at net.fabricmc.loader.impl.launch.knot.Knot.launch(Knot.java:66)
+	at net.fabricmc.loader.impl.launch.knot.KnotClient.main(KnotClient.java:23)

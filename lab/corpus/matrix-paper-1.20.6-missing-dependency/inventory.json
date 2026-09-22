@@ -1,0 +1,90 @@
+{
+ "platform": "PAPER",
+ "minecraftVersion": "1.20.6",
+ "loaderVersion": null,
+ "side": "SERVER",
+ "jars": [
+  {
+   "file": "worldguard-bukkit-7.0.10-dist.jar",
+   "folder": "plugins",
+   "size": 1167650,
+   "mods": [
+    {
+     "format": "BUKKIT",
+     "id": "WorldGuard",
+     "name": null,
+     "version": "7.0.10+d9424b1",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "WorldEdit",
+       "versionRange": null,
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "CommandBook",
+       "versionRange": null,
+       "required": false,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": "1.20",
+     "entrypoints": [
+      "com.sk89q.worldguard.bukkit.WorldGuardPlugin"
+     ],
+     "addsContent": false,
+     "optionalOnClient": false
+    }
+   ],
+   "nested": [],
+   "error": null,
+   "javaVersion": 21
+  }
+ ],
+ "skipped": [],
+ "files": {
+  "worlds": [
+   {
+    "name": "world",
+    "versionName": "1.20.6",
+    "dataVersion": 3839,
+    "unreadable": null,
+    "hasBackup": false,
+    "locked": false,
+    "damagedChunks": [],
+    "chunksChecked": 845,
+    "chunksComplete": true,
+    "damagedPlayers": []
+   },
+   {
+    "name": "world_nether",
+    "versionName": "1.20.6",
+    "dataVersion": 3839,
+    "unreadable": null,
+    "hasBackup": false,
+    "locked": false,
+    "damagedChunks": [],
+    "chunksChecked": 841,
+    "chunksComplete": true,
+    "damagedPlayers": []
+   },
+   {
+    "name": "world_the_end",
+    "versionName": "1.20.6",
+    "dataVersion": 3839,
+    "unreadable": null,
+    "hasBackup": false,
+    "locked": false,
+    "damagedChunks": [],
+    "chunksChecked": 851,
+    "chunksComplete": true,
+    "damagedPlayers": []
+   }
+  ],
+  "eulaAccepted": true,
+  "configErrors": []
+ }
+}

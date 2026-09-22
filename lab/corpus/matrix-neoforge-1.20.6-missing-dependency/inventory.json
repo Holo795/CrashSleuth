@@ -1,0 +1,119 @@
+{
+ "platform": "NEOFORGE",
+ "minecraftVersion": "1.20.6",
+ "loaderVersion": "20.6.141",
+ "side": "SERVER",
+ "jars": [
+  {
+   "file": "fancymenu_neoforge_3.3.2_MC_1.20.6.jar",
+   "folder": "mods",
+   "size": 2712765,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "fancymenu",
+     "name": "FancyMenu",
+     "version": "3.3.2",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "konkrete",
+       "versionRange": "[1.9.4,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "melody",
+       "versionRange": "[1.0.6,)",
+       "required": true,
+       "side": "CLIENT"
+      },
+      {
+       "id": "findme",
+       "versionRange": "[1.0.0,)",
+       "required": false,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "drippyloadingscreen",
+       "versionRange": "[3.0.0,)",
+       "required": false,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "rrls",
+       "versionRange": "[4.0.1,)",
+       "required": false,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "neoforge",
+       "versionRange": "[20.6.5-beta,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.20.6,)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
+    }
+   ],
+   "nested": [],
+   "error": null,
+   "javaVersion": 21
+  },
+  {
+   "file": "melody_neoforge_1.0.6_MC_1.20.5.jar",
+   "folder": "mods",
+   "size": 36088,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "melody",
+     "name": "Melody",
+     "version": "1.0.6",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[20.5.3-beta,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.20.5,)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
+    }
+   ],
+   "nested": [],
+   "error": null,
+   "javaVersion": 21
+  }
+ ],
+ "skipped": [],
+ "files": {
+  "worlds": [],
+  "eulaAccepted": true,
+  "configErrors": [],
+  "rootJars": []
+ }
+}

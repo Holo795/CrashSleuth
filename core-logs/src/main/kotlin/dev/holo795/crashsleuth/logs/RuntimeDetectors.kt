@@ -156,3 +156,48 @@ object VersionedInternalsDetector : Detector {
             )
         }.distinctBy { it.culprits.first().id }
 }
+
+/**
+ * A mod uses a library without declaring it, so the loader lets it through and the game then fails on one of
+ * its classes: `NoClassDefFoundError: net/fabricmc/fabric/api/networking/v1/ServerPlayNetworking` means Fabric
+ * API is missing (seen with Jade 8.7.3 on Fabric 1.19.2). Only well-known libraries are recognised.
+ */
+object MissingLibraryDetector : Detector {
+    private val MISSING = Regex("""(?:NoClassDefFoundError|ClassNotFoundException):?\s*([\w/.$]+)""")
+    private val PROVIDER = Regex("""provided by '([\w-]+)'""")
+    private val LIBRARIES = listOf(
+        "net.fabricmc.fabric.api." to ("fabric-api" to "Fabric API"),
+        "org.quiltmc.qsl." to ("qsl" to "Quilt Standard Libraries"),
+        "dev.architectury." to ("architectury" to "Architectury API"),
+        "me.shedaniel.clothconfig2." to ("cloth-config" to "Cloth Config"),
+        "me.shedaniel.autoconfig." to ("cloth-config" to "Cloth Config"),
+        "dev.isxander.yacl3." to ("yet_another_config_lib_v3" to "YetAnotherConfigLib"),
+        "software.bernie.geckolib." to ("geckolib" to "GeckoLib"),
+        "top.theillusivec4.curios." to ("curios" to "Curios API"),
+        "dev.emi.trinkets." to ("trinkets" to "Trinkets"),
+        "com.terraformersmc.modmenu." to ("modmenu" to "Mod Menu"),
+        "net.blay09.mods.balm." to ("balm" to "Balm"),
+        "fuzs.puzzleslib." to ("puzzleslib" to "Puzzles Lib"),
+        "com.mojang.datafixers." to ("minecraft" to "Minecraft"),
+    )
+
+    override fun detect(document: LogDocument, environment: Environment): List<Finding> {
+        val missing = document.stackTraces.firstNotNullOfOrNull { trace ->
+            trace.chain().firstNotNullOfOrNull { MISSING.find(it.headline)?.groupValues?.get(1)?.replace('/', '.') }
+                ?.let { name -> LIBRARIES.firstOrNull { name.startsWith(it.first) }?.let { Triple(trace, name, it.second) } }
+        } ?: return emptyList()
+        val (trace, className, library) = missing
+        if (library.first == "minecraft") return emptyList()
+        val requester = document.find(PROVIDER)?.groupValues?.get(1)
+            ?: Attribution.culprits(trace, environment, 1).firstOrNull()?.id
+        return listOf(
+            Finding(
+                situation = Situation.DEP_MISSING,
+                confidence = if (requester != null) Confidence.CERTAIN else Confidence.HIGH,
+                culprits = listOfNotNull(requester?.let { Culprit(CulpritKind.MOD, it) }, Culprit(CulpritKind.MOD, library.first, library.second)),
+                evidence = listOfNotNull(document.lineContaining(className.replace('.', '/')) ?: document.lineContaining(className)),
+                details = mapOfNotNull("dependency" to library.second, "requester" to requester),
+            ),
+        )
+    }
+}

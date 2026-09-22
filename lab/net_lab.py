@@ -87,6 +87,26 @@ def velocity_proxy(directory: Path, secret: str, backend: str) -> None:
     )
 
 
+def bungee_proxy(directory: Path, project: str, backend: str) -> None:
+    """BungeeCord (md-5's own build server) or Waterfall (PaperMC), with one server behind it."""
+    directory.mkdir(parents=True)
+    jar = lab.download("https://ci.md-5.net/job/BungeeCord/lastSuccessfulBuild/artifact/bootstrap/target/BungeeCord.jar", "BungeeCord.jar") \
+        if project == "bungeecord" else lab.paper_server("1.20", "waterfall")
+    shutil.copy(jar, directory / f"{project}.jar")
+    (directory / "config.yml").write_text(
+        "online_mode: false\nip_forward: true\n"
+        "listeners:\n- host: 0.0.0.0:25577\n  motd: lab\n  max_players: 10\n  priorities:\n  - lobby\n  query_enabled: false\n"
+        f"servers:\n  lobby:\n    address: {backend}:{SERVER_PORT}\n    motd: lobby\n    restricted: false\n"
+    )
+
+
+def velocity4_proxy(directory: Path, secret: str, backend: str) -> None:
+    velocity_proxy(directory, secret, backend)
+    versions = lab.http_json("https://fill.papermc.io/v3/projects/velocity")["versions"]
+    latest = next(v for v in versions["4.0.0"])
+    shutil.copy(lab.paper_server(latest, "velocity"), directory / "velocity.jar")
+
+
 def fabric_server(directory: Path, mods: list[str]) -> None:
     directory.mkdir(parents=True)
     shutil.copy(lab.fabric_server("1.21.1"), directory / "server.jar")
@@ -125,6 +145,11 @@ SCENARIOS = {
     "proxy-backend-down": "Velocity points to a backend server that is not running",
     "mod-missing-on-client": "Fabric server with Farmer's Delight, the player only has Fabric API",
     "playerdata-corrupt": "Paper 1.21.1: the player joins, the server stops, the player's save is damaged, the player joins again",
+    "bungeecord-join-ok": "Vanilla client joins Paper 1.21.1 through BungeeCord",
+    "bungeecord-backend-down": "BungeeCord points to a server that is not running",
+    "waterfall-backend-down": "Waterfall points to a server that is not running",
+    "velocity4-join-ok": "Vanilla client joins Paper 1.21.1 through Velocity 4 (Java 25)",
+    "velocity4-backend-down": "Velocity 4 points to a server that is not running",
 }
 
 
@@ -173,6 +198,37 @@ def run_scenario(name: str, cli: str, java: str) -> tuple[bool, str]:
             found = any(f["situation"] == "MOD_MISMATCH" and any("farmers" in c["id"] for c in f["culprits"]) for f in compare)
             logged = any(f["situation"] in ("MOD_MISMATCH", "REGISTRY_MISMATCH") for f in reports["player"]["findings"])
             return outcome != "READY" and found and logged, text
+        if name.startswith(("bungeecord-", "waterfall-", "velocity4-")):
+            project = name.split("-")[0]
+            backend, proxy = base / "backend", base / "proxy"
+            if name.endswith("join-ok"):
+                paper_backend(backend, "right-secret" if project == "velocity4" else None, [])
+                if project != "velocity4":
+                    (backend / "spigot.yml").write_text("settings:\n  bungeecord: true\n")
+                start_container("cs-backend", backend, "java -Xmx1G -jar server.jar nogui", None)
+                if not wait_for(backend, "Done (", "cs-backend"):
+                    return False, "backend did not start"
+            if project == "velocity4":
+                velocity4_proxy(proxy, "right-secret", "cs-backend")
+                start_container("cs-proxy", proxy, "java -Xmx512M -jar velocity.jar", PROXY_PORT, java=25)
+            else:
+                bungee_proxy(proxy, project, "cs-backend")
+                start_container("cs-proxy", proxy, f"java -Xmx512M -jar {project}.jar", PROXY_PORT)
+            if not wait_for(proxy, "Listening on", "cs-proxy") and not wait_for(proxy, "Done (", "cs-proxy", 5):
+                return False, "proxy did not start: " + (proxy / "console.log").read_text(errors="replace")[-300:]
+            client_folder(player, [])
+            outcome = join(cli, java, player, "vanilla", PROXY_PORT)
+            time.sleep(3)
+            reports = {"player": analyse(cli, player), "proxy": analyse(cli, proxy)}
+            if backend.exists():
+                reports["backend"] = analyse(cli, backend)
+            text = f"join={outcome} | " + " | ".join(f"{side}: {summary(report)}" for side, report in reports.items())
+            situations = {f["situation"] for report in reports.values() for f in report["findings"]}
+            if name.endswith("join-ok"):
+                return outcome == "READY" and not situations, text
+            # Waterfall leaves the player waiting without a word: only its end of life can be said.
+            expected = "OUTDATED" if project == "waterfall" else "PROXY_BACKEND"
+            return outcome != "READY" and expected in situations, text
         if name == "playerdata-corrupt":
             server = base / "server"
             paper_backend(server, None, [])
@@ -212,6 +268,12 @@ EXPECTED = {
     "proxy-backend-down": {"player": "PROXY_BACKEND", "proxy": "PROXY_BACKEND"},
     "mod-missing-on-client": {"player": "REGISTRY_MISMATCH", "server": None},
     "playerdata-corrupt": {"server": "CORRUPT_PLAYERDATA"},
+    "bungeecord-join-ok": {"player": None, "proxy": None, "backend": None},
+    # Refused while logging in, the game writes nothing about it in its log.
+    "bungeecord-backend-down": {"player": None, "proxy": "PROXY_BACKEND"},
+    "waterfall-backend-down": {"player": None, "proxy": None},
+    "velocity4-join-ok": {"player": None, "proxy": None, "backend": None},
+    "velocity4-backend-down": {"player": "PROXY_BACKEND", "proxy": "PROXY_BACKEND"},
 }
 
 
@@ -221,8 +283,8 @@ def keep(name: str, base: Path) -> None:
     for side, situation in EXPECTED[name].items():
         target = lab.CORPUS / f"net-{name}-{side}"
         shutil.rmtree(target, ignore_errors=True)
-        log = base / side / "logs" / "latest.log"
-        if not log.exists():
+        log = next((p for p in (base / side / "logs" / "latest.log", base / side / "proxy.log.0") if p.exists()), None)
+        if log is None:
             continue
         target.mkdir(parents=True)
         (target / "latest.log").write_text(client_lab.private(lab.anonymise(log.read_text(errors="replace")).replace(str(base), "/lab")))

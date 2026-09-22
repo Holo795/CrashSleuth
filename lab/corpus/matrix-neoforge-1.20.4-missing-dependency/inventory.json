@@ -1,0 +1,45 @@
+{
+ "platform": "NEOFORGE",
+ "minecraftVersion": "1.20.4",
+ "loaderVersion": "20.4.251",
+ "side": "SERVER",
+ "jars": [
+  {
+   "file": "MekanismGenerators-1.20.4-10.5.20.41.jar",
+   "folder": "mods",
+   "size": 1066222,
+   "mods": [
+    {
+     "format": "FORGE",
+     "id": "mekanismgenerators",
+     "name": "Mekanism: Generators",
+     "version": "10.5.20",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "mekanism",
+       "versionRange": "[10.5.20]",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [],
+     "addsContent": true,
+     "optionalOnClient": false
+    }
+   ],
+   "nested": [],
+   "error": null,
+   "javaVersion": 17
+  }
+ ],
+ "skipped": [],
+ "files": {
+  "worlds": [],
+  "eulaAccepted": true,
+  "configErrors": []
+ }
+}

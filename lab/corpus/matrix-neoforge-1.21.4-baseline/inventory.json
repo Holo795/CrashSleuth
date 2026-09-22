@@ -1,0 +1,26 @@
+{
+ "platform": "NEOFORGE",
+ "minecraftVersion": "1.21.4",
+ "loaderVersion": "21.4.157",
+ "side": "SERVER",
+ "jars": [],
+ "skipped": [],
+ "files": {
+  "worlds": [
+   {
+    "name": "world",
+    "versionName": "1.21.4",
+    "dataVersion": 4189,
+    "unreadable": null,
+    "hasBackup": true,
+    "locked": false,
+    "damagedChunks": [],
+    "chunksChecked": 849,
+    "chunksComplete": true,
+    "damagedPlayers": []
+   }
+  ],
+  "eulaAccepted": true,
+  "configErrors": []
+ }
+}

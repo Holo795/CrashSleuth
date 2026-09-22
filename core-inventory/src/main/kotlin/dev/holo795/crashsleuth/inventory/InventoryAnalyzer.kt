@@ -217,6 +217,10 @@ object InventoryAnalyzer {
     }
 
     private fun serverFiles(files: ServerFiles, minecraft: String?): List<Finding> = buildList {
+        // PaperMC ended Waterfall in 2024; in the lab it left a player waiting without a word when its server was down.
+        files.rootJars.firstOrNull { it.lowercase().startsWith("waterfall") }?.let { jar ->
+            add(Finding(Situation.OUTDATED, Confidence.LOW, listOf(Culprit(CulpritKind.SYSTEM, "Waterfall", file = jar)), listOf(jar), mapOf("adviceKey" to "proxy.waterfall-eol")))
+        }
         if (files.eulaAccepted == false) {
             add(Finding(Situation.EULA, Confidence.CERTAIN, evidence = listOf("eula.txt: eula=false")))
         }

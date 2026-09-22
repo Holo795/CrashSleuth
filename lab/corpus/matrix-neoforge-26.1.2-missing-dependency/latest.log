@@ -1,0 +1,57 @@
+[22Sep2026 17:50:36.275] [main/INFO] [net.neoforged.fml.startup.Entrypoint/]: JVM Uptime at startup: 24ms
+[22Sep2026 17:50:36.280] [main/INFO] [net.neoforged.fml.loading.FMLLoader/]: Starting FancyModLoader version 11.0.15 (DEDICATED_SERVER in PROD)
+[22Sep2026 17:50:36.280] [main/INFO] [net.neoforged.fml.loading.FMLLoader/]: Game directory: /srv
+[22Sep2026 17:50:36.299] [main/INFO] [net.neoforged.fml.loading.EarlyServiceDiscovery/]: Found 2 early service jars (out of 68) in 9ms
+[22Sep2026 17:50:36.299] [main/INFO] [net.neoforged.fml.loading.FMLLoader/]: Loading FML Early Services:
+[22Sep2026 17:50:36.299] [main/INFO] [net.neoforged.fml.loading.FMLLoader/]:  - libraries/net/neoforged/fancymodloader/earlydisplay/11.0.15/earlydisplay-11.0.15.jar
+[22Sep2026 17:50:36.299] [main/INFO] [net.neoforged.fml.loading.FMLLoader/]:  - libraries/net/neoforged/fancymodloader/loader/11.0.15/loader-11.0.15.jar
+[22Sep2026 17:50:36.302] [main/INFO] [net.neoforged.fml.loading.ImmediateWindowHandler/]: Not loading early display in headless mode.
+[22Sep2026 17:50:36.308] [main/INFO] [net.neoforged.fml.loading.moddiscovery.locators.GameLocator/]: Failed to find common Minecraft classes and resources on the classpath. Assuming we're launching production.
+[22Sep2026 17:50:36.410] [main/INFO] [net.neoforged.fml.loading.moddiscovery.locators.JarInJarDependencyLocator/]: Found 2 dependencies adding them to mods collection
+[22Sep2026 17:50:36.411] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/]: 
+     Mod List:
+		Name Version (Mod Id)
+
+		Minecraft 26.1.2 (minecraft)
+		NeoForge 26.1.2.109 (neoforge)
+		Sophisticated Backpacks 3.26.2 (sophisticatedbackpacks)
+[22Sep2026 17:50:36.415] [main/ERROR] [net.neoforged.fml.loading.ModSorter/LOADING]: Missing or unsupported mandatory dependencies:
+	Mod ID: 'sophisticatedcore', Requested by: 'sophisticatedbackpacks', Expected range: '[1.5.0,)', Actual version: '[MISSING]'
+[22Sep2026 17:50:36.426] [main/ERROR] [net.neoforged.fml.loading.FMLLoader/]: Mod sophisticatedbackpacks requires sophisticatedcore 1.5.0 or above
+Currently, sophisticatedcore is not installed
+
+[22Sep2026 17:50:36.426] [main/INFO] [net.neoforged.fml.loading.FMLLoader/]: Closing FML Loader e84a8e1
+[22Sep2026 17:50:36.426] [main/ERROR] [net.neoforged.fml.loading.modscan.BackgroundScanHandler/SCAN]: An error occurred scanning file jar(~libraries/net/neoforged/minecraft-server-patched/0.0.0.0/minecraft-server-patched-26.1.2.109.jar)
+java.util.concurrent.CancellationException
+	at java.base/java.util.concurrent.CompletableFuture.cancel(CompletableFuture.java:2552) ~[?:?]
+	at net.neoforged.fml.loading.moddiscovery.ModFile.close(ModFile.java:246) ~[loader-11.0.15.jar:11.0]
+	at net.neoforged.fml.loading.FMLLoader.close(FMLLoader.java:239) [loader-11.0.15.jar:11.0]
+	at net.neoforged.fml.loading.FMLLoader.create(FMLLoader.java:415) [loader-11.0.15.jar:11.0]
+	at net.neoforged.fml.startup.Entrypoint.startup(Entrypoint.java:65) [loader-11.0.15.jar:11.0]
+	at net.neoforged.fml.startup.Server.main(Server.java:17) [loader-11.0.15.jar:11.0]
+[22Sep2026 17:50:36.429] [main/ERROR] [net.neoforged.fml.loading.modscan.BackgroundScanHandler/SCAN]: An error occurred scanning file jar(~libraries/net/neoforged/neoforge/0.0.0.0/neoforge-26.1.2.109-universal.jar)
+java.util.concurrent.CancellationException
+	at java.base/java.util.concurrent.CompletableFuture.cancel(CompletableFuture.java:2552) ~[?:?]
+	at net.neoforged.fml.loading.moddiscovery.ModFile.close(ModFile.java:246) ~[loader-11.0.15.jar:11.0]
+	at net.neoforged.fml.loading.FMLLoader.close(FMLLoader.java:239) [loader-11.0.15.jar:11.0]
+	at net.neoforged.fml.loading.FMLLoader.create(FMLLoader.java:415) [loader-11.0.15.jar:11.0]
+	at net.neoforged.fml.startup.Entrypoint.startup(Entrypoint.java:65) [loader-11.0.15.jar:11.0]
+	at net.neoforged.fml.startup.Server.main(Server.java:17) [loader-11.0.15.jar:11.0]
+[22Sep2026 17:50:36.430] [main/ERROR] [net.neoforged.fml.loading.modscan.BackgroundScanHandler/SCAN]: An error occurred scanning file jar(~libraries/net/neoforged/neoforge/0.0.0.0/neoforge-26.1.2.109-universal.jar) > jar(~libraries/net/neoforged/neoforge/0.0.0.0/neoforge-26.1.2.109-universal.jar > mixinextras-neoforge-0.5.4.jar)
+java.util.concurrent.CancellationException
+	at java.base/java.util.concurrent.CompletableFuture.cancel(CompletableFuture.java:2552) ~[?:?]
+	at net.neoforged.fml.loading.moddiscovery.ModFile.close(ModFile.java:246) ~[loader-11.0.15.jar:11.0]
+	at net.neoforged.fml.loading.FMLLoader.close(FMLLoader.java:245) [loader-11.0.15.jar:11.0]
+	at net.neoforged.fml.loading.FMLLoader.create(FMLLoader.java:415) [loader-11.0.15.jar:11.0]
+	at net.neoforged.fml.startup.Entrypoint.startup(Entrypoint.java:65) [loader-11.0.15.jar:11.0]
+	at net.neoforged.fml.startup.Server.main(Server.java:17) [loader-11.0.15.jar:11.0]
+[22Sep2026 17:50:36.432] [main/INFO] [net.neoforged.fml.ModLoader/]: Clearing ModLoader
+[22Sep2026 17:50:36.432] [main/ERROR] [net.neoforged.fml.startup.Entrypoint/]: Failed to start FML: net.neoforged.fml.ModLoadingException: Loading errors encountered:
+	- Mod sophisticatedbackpacks requires sophisticatedcore 1.5.0 or above
+	  Currently, sophisticatedcore is not installed
+	  
+
+	at net.neoforged.fml.loading.FMLLoader.create(FMLLoader.java:356)
+	at net.neoforged.fml.startup.Entrypoint.startup(Entrypoint.java:65)
+	at net.neoforged.fml.startup.Server.main(Server.java:17)
+

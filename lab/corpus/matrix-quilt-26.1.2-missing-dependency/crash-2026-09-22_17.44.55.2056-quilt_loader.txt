@@ -1,0 +1,97 @@
+---- Quilt Loader: Failed to load ----
+Date/Time: 2026/09/22 17:44:55.2059 [+0000]
+Quilt Loader Version: 0.30.1
+
+-- Error 1 --
+
+Jade requires version [0.144, ∞) of fabric-api, which is missing!
+
+Jade is loaded from <mods>/Jade-mc26.1-Fabric-26.1.9.jar
+
+
+-- Plugin State --
+
+Cycle number = 1
+Cycle Step = SOLVE
+
+Loaded Plugins (2):
+ - 'quilt_loader' (Builtin)
+ - 'quilted_fabric_loader' (Builtin)
+
+
+
+
+-- Mod Table --
+
+| Mod                      | ID           | Version       | Plugin                | Flags | File Hash (SHA-1)                        | File(s)                                                                  | Sub-File                                    |
+|--------------------------|--------------|---------------|-----------------------|-------|------------------------------------------|--------------------------------------------------------------------------|---------------------------------------------|
+| Jade                     | jade         | 26.1.9+fabric | quilted_fabric_loader | ..    | 03b4851616f37605de692772245b5b8ed6acf8e1 | <mods>/Jade-mc26.1-Fabric-26.1.9.jar                                     |                                             |
+| Minecraft                | minecraft    | 26.1.2        | quilt_loader          | ..    | 83eb1106f12f24c9127ce22070d71853157af127 | <game>/versions/26.1.2/server-26.1.2.jar                                 |                                             |
+| MixinExtras              | mixinextras  | 0.5.4         | quilted_fabric_loader | ..    | 2fa21d6438f63c8dd4f2e81290b0a09de1442b3  | <game>/libraries/org/quiltmc/quilt-loader/0.30.1/quilt-loader-0.30.1.jar | /META-INF/jars/mixinextras-fabric-0.5.4.jar |
+| MixinExtras              | mixinextras  | 0.5.4         | quilted_fabric_loader | ..    | 2fa21d6438f63c8dd4f2e81290b0a09de1442b3  | <game>/libraries/org/quiltmc/quilt-loader/0.30.1/quilt-loader-0.30.1.jar | /META-INF/jars/mixinextras-fabric-0.5.4.jar |
+| OpenJDK 64-Bit Server VM | java         | 25            | quilt_loader          | ..    |                                          | /opt/java/openjdk                                                        |                                             |
+| Quilt Loader             | quilt_loader | 0.30.1        | quilt_loader          | ..    | 2fa21d6438f63c8dd4f2e81290b0a09de1442b3  | <game>/libraries/org/quiltmc/quilt-loader/0.30.1/quilt-loader-0.30.1.jar |                                             |
+| Quilt Loader             | quilt_loader | 0.30.1        | quilt_loader          | ..    | 2fa21d6438f63c8dd4f2e81290b0a09de1442b3  | <game>/libraries/org/quiltmc/quilt-loader/0.30.1/quilt-loader-0.30.1.jar |                                             |
+|--------------------------|--------------|---------------|-----------------------|-------|------------------------------------------|--------------------------------------------------------------------------|---------------------------------------------|
+
+
+-- Mod Details --
+
+<mods>/Jade-mc26.1-Fabric-26.1.9.jar:
+########################################
+#  Loaded by  'quilted_fabric_loader'  #
+#  Name     = 'Jade'                   #
+#  ID       = 'jade'                   #
+#  Version  = '26.1.9+fabric'          #
+#  LoadType = IF_POSSIBLE              #
+#  Depends on 'fabric-api' [0.144, ∞)  #
+#  Depends on 'minecraft' [26.1, ∞)    #
+########################################
+
+/opt/java/openjdk:
+###########################################
+#  Loaded by  'quilt_loader'              #
+#  Name     = 'OpenJDK 64-Bit Server VM'  #
+#  ID       = 'java'                      #
+#  Version  = '25'                        #
+#  LoadType = IF_REQUIRED                 #
+###########################################
+
+<game>/libraries/org/quiltmc/quilt-loader/0.30.1/quilt-loader-0.30.1.jar:
+###############################################################
+#  Loaded by  'quilt_loader'                                  #
+#  Name     = 'Quilt Loader'                                  #
+#  ID       = 'quilt_loader'                                  #
+#  Version  = '0.30.1'                                        #
+#  LoadType = IF_REQUIRED                                     #
+#  Provides   'fabricloader' 0.19.3                           #
+#  Depends on 'mixinextras' (-∞, ∞)                           #
+#                                                             #
+#  Contained Jars (1):                                        #
+#                                                             #
+#  /META-INF/jars/mixinextras-fabric-0.5.4.jar:               #
+#  +-------------------------------------------------------+  #
+#  |  Loaded by  'quilted_fabric_loader'                   |  #
+#  |  Name     = 'MixinExtras'                             |  #
+#  |  ID       = 'mixinextras'                             |  #
+#  |  Version  = '0.5.4'                                   |  #
+#  |  LoadType = IF_POSSIBLE                               |  #
+#  |  Provides   'com_github_llamalad7_mixinextras' 0.5.4  |  #
+#  |  Depends on 'fabricloader' [0.14.25, ∞)               |  #
+#  +-------------------------------------------------------+  #
+#                                                             #
+###############################################################
+
+<game>/versions/26.1.2/server-26.1.2.jar:
+###############################
+#  Loaded by  'quilt_loader'  #
+#  Name     = 'Minecraft'     #
+#  ID       = 'minecraft'     #
+#  Version  = '26.1.2'        #
+#  LoadType = IF_REQUIRED     #
+#  Depends on 'java' [25, ∞)  #
+###############################
+
+
+
+---- end of report ----

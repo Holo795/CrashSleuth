@@ -1,0 +1,46 @@
+17:43:48 [INFO] Using mbed TLS based native cipher.
+17:43:48 [INFO] Using zlib based native compressor.
+17:43:48 [INFO] Enabled BungeeCord version git:BungeeCord-Bootstrap:26.1-R0.1-SNAPSHOT:502ca71:2096
+17:43:48 [INFO] Not on Windows, attempting to use enhanced EpollEventLoop
+17:43:48 [INFO] Epoll is working, utilising it!
+17:43:48 [INFO] Discovered module: ModuleSpec(name=cmd_alert, file=modules/cmd_alert.jar, provider=JenkinsModuleSource())
+17:43:48 [INFO] Discovered module: ModuleSpec(name=cmd_find, file=modules/cmd_find.jar, provider=JenkinsModuleSource())
+17:43:48 [INFO] Discovered module: ModuleSpec(name=cmd_list, file=modules/cmd_list.jar, provider=JenkinsModuleSource())
+17:43:48 [INFO] Discovered module: ModuleSpec(name=cmd_send, file=modules/cmd_send.jar, provider=JenkinsModuleSource())
+17:43:48 [INFO] Discovered module: ModuleSpec(name=cmd_server, file=modules/cmd_server.jar, provider=JenkinsModuleSource())
+17:43:48 [INFO] Discovered module: ModuleSpec(name=reconnect_yaml, file=modules/reconnect_yaml.jar, provider=JenkinsModuleSource())
+17:43:48 [INFO] Attempting to update plugin from null to ModuleVersion(build=2096, git=502ca71)
+17:43:48 [INFO] Attempting to Jenkins download module cmd_alert v2096
+17:43:48 [INFO] Download complete
+17:43:48 [INFO] Attempting to update plugin from null to ModuleVersion(build=2096, git=502ca71)
+17:43:48 [INFO] Attempting to Jenkins download module cmd_find v2096
+17:43:49 [INFO] Download complete
+17:43:49 [INFO] Attempting to update plugin from null to ModuleVersion(build=2096, git=502ca71)
+17:43:49 [INFO] Attempting to Jenkins download module cmd_list v2096
+17:43:49 [INFO] Download complete
+17:43:49 [INFO] Attempting to update plugin from null to ModuleVersion(build=2096, git=502ca71)
+17:43:49 [INFO] Attempting to Jenkins download module cmd_send v2096
+17:43:50 [INFO] Download complete
+17:43:50 [INFO] Attempting to update plugin from null to ModuleVersion(build=2096, git=502ca71)
+17:43:50 [INFO] Attempting to Jenkins download module cmd_server v2096
+17:43:50 [INFO] Download complete
+17:43:50 [INFO] Attempting to update plugin from null to ModuleVersion(build=2096, git=502ca71)
+17:43:50 [INFO] Attempting to Jenkins download module reconnect_yaml v2096
+17:43:50 [INFO] Download complete
+17:43:50 [INFO] Loaded plugin reconnect_yaml version git:reconnect_yaml:26.1-R0.1-SNAPSHOT:502ca71:2096 by SpigotMC
+17:43:50 [INFO] Loaded plugin cmd_find version git:cmd_find:26.1-R0.1-SNAPSHOT:502ca71:2096 by SpigotMC
+17:43:50 [INFO] Loaded plugin cmd_server version git:cmd_server:26.1-R0.1-SNAPSHOT:502ca71:2096 by SpigotMC
+17:43:50 [INFO] Loaded plugin cmd_alert version git:cmd_alert:26.1-R0.1-SNAPSHOT:502ca71:2096 by SpigotMC
+17:43:50 [INFO] Loaded plugin cmd_send version git:cmd_send:26.1-R0.1-SNAPSHOT:502ca71:2096 by SpigotMC
+17:43:50 [INFO] Loaded plugin cmd_list version git:cmd_list:26.1-R0.1-SNAPSHOT:502ca71:2096 by SpigotMC
+17:43:50 [WARNING] Forced host server pvp is not defined
+17:43:50 [INFO] Enabled plugin reconnect_yaml version git:reconnect_yaml:26.1-R0.1-SNAPSHOT:502ca71:2096 by SpigotMC
+17:43:50 [INFO] Enabled plugin cmd_find version git:cmd_find:26.1-R0.1-SNAPSHOT:502ca71:2096 by SpigotMC
+17:43:50 [INFO] Enabled plugin cmd_server version git:cmd_server:26.1-R0.1-SNAPSHOT:502ca71:2096 by SpigotMC
+17:43:50 [INFO] Enabled plugin cmd_alert version git:cmd_alert:26.1-R0.1-SNAPSHOT:502ca71:2096 by SpigotMC
+17:43:50 [INFO] Enabled plugin cmd_send version git:cmd_send:26.1-R0.1-SNAPSHOT:502ca71:2096 by SpigotMC
+17:43:50 [INFO] Enabled plugin cmd_list version git:cmd_list:26.1-R0.1-SNAPSHOT:502ca71:2096 by SpigotMC
+17:43:50 [INFO] Listening on /0.0.0.0:25577
+17:43:56 [INFO] [/0.0.0.0:43570] <-> InitialHandler has connected
+17:43:56 [INFO] [CrashSleuth] disconnected with: §f§cCould not connect to a default or fallback server. Incorrectly configured address/port/firewall? java.net.UnknownHostException
+17:43:56 [INFO] [CrashSleuth] -> UpstreamBridge has disconnected

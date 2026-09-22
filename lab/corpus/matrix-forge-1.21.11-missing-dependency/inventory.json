@@ -1,0 +1,91 @@
+{
+ "platform": "FORGE",
+ "minecraftVersion": "1.21.11",
+ "loaderVersion": "61.2.1",
+ "side": "SERVER",
+ "jars": [
+  {
+   "file": "BiomesOPlenty-forge-1.21.11-21.11.0.31.jar",
+   "folder": "mods",
+   "size": 22744936,
+   "mods": [
+    {
+     "format": "FORGE",
+     "id": "biomesoplenty",
+     "name": "Biomes O' Plenty",
+     "version": "21.11.0.31",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "forge",
+       "versionRange": "[61.0.2,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "glitchcore",
+       "versionRange": "[21.11.0.3,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "terrablender",
+       "versionRange": "[21.11.0.0,)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [],
+     "addsContent": true,
+     "optionalOnClient": false
+    }
+   ],
+   "nested": [],
+   "error": null,
+   "javaVersion": 21
+  },
+  {
+   "file": "GlitchCore-forge-1.21.11-21.11.0.4.jar",
+   "folder": "mods",
+   "size": 118010,
+   "mods": [
+    {
+     "format": "FORGE",
+     "id": "glitchcore",
+     "name": "GlitchCore",
+     "version": "21.11.0.4",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "forge",
+       "versionRange": "[61.0.2,)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
+    }
+   ],
+   "nested": [],
+   "error": null,
+   "javaVersion": 21
+  }
+ ],
+ "skipped": [],
+ "files": {
+  "worlds": [],
+  "eulaAccepted": true,
+  "configErrors": [],
+  "rootJars": [
+   "forge-1.21.11-61.2.1-shim.jar"
+  ]
+ }
+}

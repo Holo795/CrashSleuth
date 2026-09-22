@@ -1,0 +1,114 @@
+2026-09-22T17:50:01.244293278Z main WARN Advanced terminal features are not available in this environment
+[17:50:01] [main/INFO] [ne.ne.fm.st.Entrypoint/]: JVM Uptime at startup: 29ms
+[17:50:01] [main/INFO] [ne.ne.fm.lo.FMLLoader/]: Starting FancyModLoader version 10.0.36 (DEDICATED_SERVER in PROD)
+[17:50:01] [main/INFO] [ne.ne.fm.lo.FMLLoader/]: Game directory: /srv
+[17:50:01] [main/INFO] [ne.ne.fm.lo.EarlyServiceDiscovery/]: Found 2 early service jars (out of 67) in 13ms
+[17:50:01] [main/INFO] [ne.ne.fm.lo.FMLLoader/]: Loading FML Early Services:
+[17:50:01] [main/INFO] [ne.ne.fm.lo.FMLLoader/]:  - libraries/net/neoforged/fancymodloader/earlydisplay/10.0.36/earlydisplay-10.0.36.jar
+[17:50:01] [main/INFO] [ne.ne.fm.lo.FMLLoader/]:  - libraries/net/neoforged/fancymodloader/loader/10.0.36/loader-10.0.36.jar
+[17:50:01] [main/INFO] [ne.ne.fm.lo.ImmediateWindowHandler/]: Not loading early display in headless mode.
+[17:50:01] [main/INFO] [ne.ne.fm.lo.mo.lo.GameLocator/]: Failed to find common Minecraft classes and resources on the classpath. Assuming we're launching production.
+[17:50:01] [main/INFO] [ne.ne.fm.lo.mo.lo.JarInJarDependencyLocator/]: Found 2 dependencies adding them to mods collection
+[17:50:01] [main/INFO] [ne.ne.fm.lo.mo.ModDiscoverer/]: 
+     Mod List:
+		Name Version (Mod Id)
+
+		Minecraft 1.21.11 (minecraft)
+		NeoForge 21.11.45 (neoforge)
+[17:50:01] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=file:/srv/libraries/net/fabricmc/sponge-mixin/0.16.5+mixin.0.8.7/sponge-mixin-0.16.5+mixin.0.8.7.jar Service=FML Env=SERVER
+[17:50:01] [main/INFO] [ne.ne.fm.lo.FMLLoader/]: Loading FML Plugins:
+[17:50:01] [main/INFO] [ne.ne.fm.lo.FMLLoader/]:  - ~libraries/net/neoforged/neoforge/21.11.45/neoforge-21.11.45-universal.jar > net.neoforged.neoforge-coremods-21.11.45.jar
+[17:50:01] [main/INFO] [ne.ne.fm.lo.FMLLoader/]: Building game content classloader:
+ - minecraft (jar(~libraries/net/neoforged/minecraft-server-patched/21.11.45/minecraft-server-patched-21.11.45.jar))
+ - mixinextras.neoforge (jar(~libraries/net/neoforged/neoforge/21.11.45/neoforge-21.11.45-universal.jar > mixinextras-neoforge-0.5.3.jar))
+ - neoforge (jar(~libraries/net/neoforged/neoforge/21.11.45/neoforge-21.11.45-universal.jar))
+ - net.neoforged.fml.generated (empty(VirtualJar/net.neoforged.fml.generated))
+[17:50:01] [main/INFO] [ne.ne.fm.lo.FMLLoader/]: Built game content classloader in 12ms
+[17:50:01] [main/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.5.3).
+[17:50:03] [modloading-worker-0/INFO] [ne.ne.ne.co.NeoForgeMod/NEOFORGE-MOD]: NeoForge mod loading, version 21.11.45, for MC 1.21.11
+[17:50:03] [main/INFO] [mojang/YggdrasilAuthenticationService]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, profilesHost=https://api.mojang.com, name=PROD]
+[17:50:04] [main/INFO] [minecraft/Main]: No existing world data, creating new world
+[17:50:04] [main/INFO] [minecraft/RecipeManager]: Loaded 1470 recipes
+[17:50:04] [main/INFO] [minecraft/AdvancementTree]: Loaded 1584 advancements
+[17:50:04] [main/INFO] [ne.ne.ne.co.cr.RecipePriorityManager/]: Loaded 0 recipe priority overrides
+[17:50:04] [Server thread/INFO] [minecraft/DedicatedServer]: Starting minecraft server version 1.21.11
+[17:50:04] [Server thread/INFO] [minecraft/DedicatedServer]: Loading properties
+[17:50:04] [Server thread/INFO] [minecraft/DedicatedServer]: Default game type: SURVIVAL
+[17:50:04] [Server thread/INFO] [minecraft/MinecraftServer]: Generating keypair
+[17:50:04] [Server thread/INFO] [minecraft/DedicatedServer]: Starting Minecraft server on *:25565
+2026-09-22T17:50:04.688973978Z Server thread ERROR An exception occurred processing Appender DebugFile
+org.apache.logging.log4j.core.appender.AppenderLoggingException: java.lang.NoClassDefFoundError: Could not initialize class io.netty.channel.kqueue.Native
+	at org.apache.logging.log4j.core.config.AppenderControl.tryCallAppender(AppenderControl.java:164)
+	at org.apache.logging.log4j.core.config.AppenderControl.callAppender0(AppenderControl.java:133)
+	at org.apache.logging.log4j.core.config.AppenderControl.callAppenderPreventRecursion(AppenderControl.java:124)
+	at org.apache.logging.log4j.core.config.AppenderControl.callAppender(AppenderControl.java:88)
+	at org.apache.logging.log4j.core.config.LoggerConfig.callAppenders(LoggerConfig.java:711)
+	at org.apache.logging.log4j.core.config.LoggerConfig.processLogEvent(LoggerConfig.java:669)
+	at org.apache.logging.log4j.core.config.LoggerConfig.log(LoggerConfig.java:645)
+	at org.apache.logging.log4j.core.config.LoggerConfig.log(LoggerConfig.java:554)
+	at org.apache.logging.log4j.core.config.AwaitCompletionReliabilityStrategy.log(AwaitCompletionReliabilityStrategy.java:67)
+	at org.apache.logging.log4j.core.Logger.logMessage(Logger.java:173)
+	at org.apache.logging.slf4j.Log4jLogger.log(Log4jLogger.java:374)
+	at io.netty.util.internal.logging.LocationAwareSlf4JLogger.log(LocationAwareSlf4JLogger.java:46)
+	at io.netty.util.internal.logging.LocationAwareSlf4JLogger.debug(LocationAwareSlf4JLogger.java:129)
+	at io.netty.channel.kqueue.KQueue.<clinit>(KQueue.java:54)
+	at TRANSFORMER/minecraft@1.21.11/net.minecraft.server.network.EventLoopGroupHolder.remote(EventLoopGroupHolder.java:59)
+	at TRANSFORMER/minecraft@1.21.11/net.minecraft.server.network.ServerConnectionListener.startTcpServerListener(ServerConnectionListener.java:56)
+	at TRANSFORMER/minecraft@1.21.11/net.minecraft.server.dedicated.DedicatedServer.initServer(DedicatedServer.java:241)
+	at TRANSFORMER/minecraft@1.21.11/net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:743)
+	at TRANSFORMER/minecraft@1.21.11/net.minecraft.server.MinecraftServer.lambda$spin$2(MinecraftServer.java:287)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: java.lang.NoClassDefFoundError: Could not initialize class io.netty.channel.kqueue.Native
+	at java.base/java.lang.Class.forName0(Native Method)
+	at java.base/java.lang.Class.forName(Class.java:536)
+	at java.base/java.lang.Class.forName(Class.java:515)
+	at org.apache.logging.log4j.util.LoaderUtil.loadClass(LoaderUtil.java:212)
+	at org.apache.logging.log4j.core.pattern.ThrowableExtendedStackTraceRenderer.lambda$static$1(ThrowableExtendedStackTraceRenderer.java:196)
+	at org.apache.logging.log4j.core.pattern.ThrowableExtendedStackTraceRenderer$ExtendedContext.loadClass(ThrowableExtendedStackTraceRenderer.java:180)
+	at org.apache.logging.log4j.core.pattern.ThrowableExtendedStackTraceRenderer$ExtendedContext.createClassResourceInfoByName(ThrowableExtendedStackTraceRenderer.java:166)
+	at org.apache.logging.log4j.core.pattern.ThrowableExtendedStackTraceRenderer$ExtendedContext.ofThrowable(ThrowableExtendedStackTraceRenderer.java:96)
+	at org.apache.logging.log4j.core.pattern.ThrowableExtendedStackTraceRenderer$ExtendedContext.access$000(ThrowableExtendedStackTraceRenderer.java:81)
+	at org.apache.logging.log4j.core.pattern.ThrowableExtendedStackTraceRenderer.createContext(ThrowableExtendedStackTraceRenderer.java:43)
+	at org.apache.logging.log4j.core.pattern.ThrowableExtendedStackTraceRenderer.createContext(ThrowableExtendedStackTraceRenderer.java:34)
+	at org.apache.logging.log4j.core.pattern.ThrowableStackTraceRenderer.renderThrowable(ThrowableStackTraceRenderer.java:55)
+	at org.apache.logging.log4j.core.pattern.ThrowablePatternConverter.format(ThrowablePatternConverter.java:130)
+	at org.apache.logging.log4j.core.layout.PatternLayout$NoFormatPatternSerializer.toSerializable(PatternLayout.java:354)
+	at org.apache.logging.log4j.core.layout.PatternLayout.toText(PatternLayout.java:251)
+	at org.apache.logging.log4j.core.layout.PatternLayout.encode(PatternLayout.java:237)
+	at org.apache.logging.log4j.core.layout.PatternLayout.encode(PatternLayout.java:57)
+	at org.apache.logging.log4j.core.appender.AbstractOutputStreamAppender.directEncodeEvent(AbstractOutputStreamAppender.java:227)
+	at org.apache.logging.log4j.core.appender.AbstractOutputStreamAppender.tryAppend(AbstractOutputStreamAppender.java:220)
+	at org.apache.logging.log4j.core.appender.AbstractOutputStreamAppender.append(AbstractOutputStreamAppender.java:211)
+	at org.apache.logging.log4j.core.appender.RollingRandomAccessFileAppender.append(RollingRandomAccessFileAppender.java:275)
+	at org.apache.logging.log4j.core.config.AppenderControl.tryCallAppender(AppenderControl.java:160)
+	... 19 more
+Caused by: java.lang.ExceptionInInitializerError: Exception java.lang.IllegalStateException: Only supported on OSX/BSD [in thread "Server thread"]
+	at io.netty.channel.kqueue.Native.loadNativeLibrary(Native.java:159)
+	at io.netty.channel.kqueue.Native.<clinit>(Native.java:76)
+	at io.netty.channel.kqueue.KQueue.<clinit>(KQueue.java:38)
+	... 6 more
+
+[17:50:04] [Server thread/WARN] [minecraft/DedicatedServer]: **** SERVER IS RUNNING IN OFFLINE/INSECURE MODE!
+[17:50:04] [Server thread/WARN] [minecraft/DedicatedServer]: The server will make no attempt to authenticate usernames. Beware.
+[17:50:04] [Server thread/WARN] [minecraft/DedicatedServer]: While this makes the game possible to play without internet access, it also opens up the ability for hackers to connect with any username they choose.
+[17:50:04] [Server thread/WARN] [minecraft/DedicatedServer]: To change this, set "online-mode" to "true" in the server.properties file.
+[17:50:04] [Server thread/INFO] [minecraft/DedicatedServer]: Preparing level "world"
+[17:50:04] [Server thread/INFO] [minecraft/LoggingLevelLoadListener]: Selecting global world spawn...
+[17:50:06] [Server thread/INFO] [minecraft/LoggingLevelLoadListener]: Loading 0 persistent chunks...
+[17:50:06] [Server thread/INFO] [minecraft/LoggingLevelLoadListener]: Preparing spawn area: 100%
+[17:50:06] [Server thread/INFO] [minecraft/LoggingLevelLoadListener]: Time elapsed: 1826 ms
+[17:50:06] [Server thread/INFO] [minecraft/DedicatedServer]: Done (1.971s)! For help, type "help"
+[17:50:06] [Server thread/INFO] [ne.ne.ne.se.pe.PermissionAPI/]: Successfully initialized permission handler neoforge:default_handler
+[17:50:06] [Server thread/INFO] [minecraft/MinecraftServer]: Stopping the server
+[17:50:06] [Server thread/INFO] [minecraft/MinecraftServer]: Stopping server
+[17:50:06] [Server thread/INFO] [minecraft/MinecraftServer]: Saving players
+[17:50:06] [Server thread/INFO] [minecraft/MinecraftServer]: Saving worlds
+[17:50:07] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[world]'/minecraft:overworld
+[17:50:07] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[world]'/minecraft:the_nether
+[17:50:07] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[world]'/minecraft:the_end
+[17:50:07] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (world): All chunks are saved
+[17:50:07] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[17:50:07] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[17:50:07] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage: All dimensions are saved
+[17:50:07] [main/INFO] [ne.ne.fm.lo.FMLLoader/]: Closing FML Loader 7a0959ac
+[17:50:07] [main/INFO] [ne.ne.fm.ModLoader/]: Clearing ModLoader

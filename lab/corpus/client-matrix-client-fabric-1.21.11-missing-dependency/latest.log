@@ -1,0 +1,17 @@
+[19:23:36] [main/INFO]: Loading Minecraft 1.21.11 with Fabric Loader 0.19.5
+[19:23:36] [main/INFO]: Fabric is preparing JARs on first launch, this may take a few seconds...
+[19:23:36] [main/WARN]: Mod resolution failed
+[19:23:36] [main/INFO]: Immediate reason: [HARD_DEP_NO_CANDIDATE jade 21.1.6+fabric {depends fabric-api @ [>=0.139]}, ROOT_FORCELOAD_SINGLE jade 21.1.6+fabric]
+[19:23:36] [main/INFO]: Reason: [HARD_DEP jade 21.1.6+fabric {depends fabric-api @ [>=0.139]}]
+[19:23:36] [main/INFO]: Fix: add [add:fabric-api 0.139 ([[0.139,∞)])], remove [], replace []
+[19:23:36] [main/ERROR]: Incompatible mods found!
+net.fabricmc.loader.impl.FormattedException: Some of your mods are incompatible with the game or each other!
+A potential solution has been determined, this may resolve your problem:
+	 - Install fabric-api, version 0.139 or later.
+More details:
+	 - Mod 'Jade' (jade) 21.1.6+fabric requires version 0.139 or later of fabric-api, which is missing!
+	at net.fabricmc.loader.impl.FormattedException.ofLocalized(FormattedException.java:51)
+	at net.fabricmc.loader.impl.FabricLoaderImpl.load(FabricLoaderImpl.java:202)
+	at net.fabricmc.loader.impl.launch.knot.Knot.init(Knot.java:142)
+	at net.fabricmc.loader.impl.launch.knot.Knot.launch(Knot.java:66)
+	at net.fabricmc.loader.impl.launch.knot.KnotClient.main(KnotClient.java:23)

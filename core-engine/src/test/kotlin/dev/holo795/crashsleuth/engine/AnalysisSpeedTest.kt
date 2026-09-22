@@ -27,3 +27,14 @@ class AnalysisSpeedTest {
         assertTrue(slow.isEmpty(), "slow analyses: $slow")
     }
 }
+
+class ProxyLogTest {
+    @org.junit.jupiter.api.io.TempDir
+    lateinit var root: Path
+
+    @Test
+    fun `a BungeeCord folder is read from its proxy log`() {
+        Files.writeString(root.resolve("proxy.log.0"), "[INFO] Enabled BungeeCord version git:BungeeCord-Bootstrap:1.21\n")
+        kotlin.test.assertEquals(listOf(root.resolve("proxy.log.0")), Diagnoser.recentLogs(root))
+    }
+}

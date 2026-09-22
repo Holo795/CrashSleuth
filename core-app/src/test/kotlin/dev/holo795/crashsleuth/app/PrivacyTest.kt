@@ -11,5 +11,9 @@ class PrivacyTest {
         assertEquals("/home/<user>/server/logs", Privacy.clean("/home/carol/server/logs"))
         assertEquals("joined from <ip>:52011 as <uuid>, mail <email>", Privacy.clean("joined from 82.12.4.9:52011 as f261d4f8-3d63-3d50-bfb9-627e804e9cc5, mail a.b@example.org"))
         assertEquals("Minecraft 1.21.1 on 127.0.0.1:25565", Privacy.clean("Minecraft 1.21.1 on 127.0.0.1:25565"))
+        // Version numbers look like addresses and must be left alone.
+        assertEquals("NeoForge 26.1.2.109 and Java 21.0.12.1", Privacy.clean("NeoForge 26.1.2.109 and Java 21.0.12.1"))
+        assertEquals("[/<ip>:41196] <-> InitialHandler", Privacy.clean("[/192.168.117.1:41196] <-> InitialHandler"))
+        assertEquals("CrashSleuth (/<ip>) lost connection", Privacy.clean("CrashSleuth (/82.66.67.104) lost connection"))
     }
 }

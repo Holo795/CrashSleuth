@@ -1,0 +1,65 @@
+{
+ "platform": "FABRIC",
+ "minecraftVersion": "1.19.2",
+ "loaderVersion": "0.19.5",
+ "side": "SERVER",
+ "jars": [
+  {
+   "file": "Jade-1.19.1-fabric-8.7.3.jar",
+   "folder": "mods",
+   "size": 436662,
+   "mods": [
+    {
+     "format": "FABRIC",
+     "id": "jade",
+     "name": "Jade",
+     "version": "8.7.3",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "fabricloader",
+       "versionRange": ">=0.13",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": ">=1.19.1",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "java",
+       "versionRange": ">=17",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [
+      "snownee.jade.Jade",
+      "snownee.jade.JadeClient",
+      "snownee.jade.addon.core.CorePlugin",
+      "snownee.jade.addon.vanilla.VanillaPlugin",
+      "snownee.jade.addon.universal.UniversalPlugin",
+      "snownee.jade.compat.ModMenuCompat",
+      "snownee.jade.compat.JEICompat"
+     ],
+     "addsContent": false,
+     "optionalOnClient": false
+    }
+   ],
+   "nested": [],
+   "error": null,
+   "javaVersion": 17
+  }
+ ],
+ "skipped": [],
+ "files": {
+  "worlds": [],
+  "eulaAccepted": true,
+  "configErrors": []
+ }
+}

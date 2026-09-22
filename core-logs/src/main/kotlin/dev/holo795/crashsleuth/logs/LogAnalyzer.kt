@@ -80,6 +80,7 @@ class LogAnalyzer(
             WrongLoaderDetector,
             ClientOnlyDetector,
             VersionedInternalsDetector,
+            MissingLibraryDetector,
             PluginLoadDetector,
             PluginRuntimeDetector,
             NotAPluginDetector,

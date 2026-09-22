@@ -147,7 +147,8 @@ class LogDocument(rawText: String) {
     companion object {
         private val LOG_PREFIX = Regex("""^\s*(\[[^]]*]\s*)*(?:(?<=])\s*:)?\s*""")
         private val EXCEPTION_HEADER = Regex("""((?:[a-zA-Z_$][\w$]*\.)+[A-Z][\w$]*(?:Exception|Error|Throwable|Failure|Crash[\w$]*))(?::\s*(.*))?""")
-        private val FRAME = Regex("""^\s*at\s+((?:[\w .+@-]+/)*[\w$.<>\[\]-]+)\((.*?)\)""")
+        // "knot//net.minecraft..." in Fabric crash reports: a module prefix can end with several slashes.
+        private val FRAME = Regex("""^\s*at\s+((?:[\w .+@-]+/+)*[\w$.<>\[\]-]+)\((.*?)\)""")
         private val ANSI = Regex("""\u001B\[[0-9;]*m""")
         private val THREAD_PREFIX = Regex("""^Exception in thread "[^"]*"\s*""")
         private val JAR = Regex("""[~\[]\s*\[?([^\[\]:{}]+\.jar)""")

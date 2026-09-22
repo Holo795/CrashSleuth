@@ -1,0 +1,60 @@
+{
+ "platform": "PURPUR",
+ "minecraftVersion": "26.1.2",
+ "loaderVersion": null,
+ "side": "SERVER",
+ "jars": [
+  {
+   "file": "worldguard-bukkit-7.0.18.jar",
+   "folder": "plugins",
+   "size": 1198472,
+   "mods": [
+    {
+     "format": "BUKKIT",
+     "id": "WorldGuard",
+     "name": null,
+     "version": "7.0.18+2392-fa605e6",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "WorldEdit",
+       "versionRange": null,
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": "26.1",
+     "entrypoints": [
+      "com.sk89q.worldguard.bukkit.WorldGuardPlugin"
+     ],
+     "addsContent": false,
+     "optionalOnClient": false
+    }
+   ],
+   "nested": [],
+   "error": null,
+   "javaVersion": 25
+  }
+ ],
+ "skipped": [],
+ "files": {
+  "worlds": [
+   {
+    "name": "world",
+    "versionName": "26.1.2",
+    "dataVersion": 4790,
+    "unreadable": null,
+    "hasBackup": true,
+    "locked": false,
+    "damagedChunks": [],
+    "chunksChecked": 1588,
+    "chunksComplete": true,
+    "damagedPlayers": []
+   }
+  ],
+  "eulaAccepted": true,
+  "configErrors": []
+ }
+}

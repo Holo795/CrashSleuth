@@ -125,8 +125,14 @@ object FmlFailureMessageDetector : Detector {
 
 /** Paper, Spigot and Purpur: plugins that fail to load or to enable. */
 object PluginLoadDetector : Detector {
-    private val COULD_NOT_LOAD = Regex("""Could not load (?:plugin )?'(?:plugins/)?([^']+?\.jar)' in folder '[^']*'""")
-    private val UNKNOWN_DEPENDENCY = Regex("""UnknownDependencyException: (?:Unknown/missing dependency plugins: \[([^\]]+)]\. Please download and install these plugins to run '([^']+)'|(.+))""")
+    // Spigot 26.3 stops at the file name; Paper and older builds add " in folder 'plugins'".
+    private val COULD_NOT_LOAD = Regex("""Could not load (?:plugin )?'(?:plugins/)?([^']+?\.jar)'(?: in folder '[^']*')?""")
+    // Paper lists them ("dependency plugins: [WorldEdit]... to run 'WorldGuard'"), Spigot names one
+    // ("Unknown dependency Multiverse-Core. Please download and install..."), older builds print it plain.
+    private val UNKNOWN_DEPENDENCY = Regex(
+        """UnknownDependencyException: (?:Unknown/missing dependency plugins: \[([^\]]+)]\. Please download and install these plugins to run '([^']+)'""" +
+            """|Unknown dependency ([\w.-]+)\.[^\n]*|([\w.,\s-]+))""",
+    )
     private val UNSUPPORTED_API = Regex("""(?:Unsupported API version|compiled against a newer API version|newer API version)\s*([\w.]*)""", RegexOption.IGNORE_CASE)
     private val INVALID_DESCRIPTION = Regex("""InvalidDescriptionException: (.+)""")
     private val ENABLING = Regex("""Error occurred while enabling (\S+) v?(\S+) \(Is it up to date\?\)""")
@@ -134,8 +140,8 @@ object PluginLoadDetector : Detector {
     override fun detect(document: LogDocument, environment: Environment): List<Finding> {
         val findings = mutableListOf<Finding>()
         document.findAll(UNKNOWN_DEPENDENCY).forEach { match ->
-            val missing = (match.groupValues[1].ifEmpty { match.groupValues[3] })
-                .split(',').map { it.trim() }.filter { it.isNotEmpty() }
+            val missing = match.groupValues.drop(1).filterIndexed { index, _ -> index != 1 }.firstOrNull { it.isNotEmpty() }.orEmpty()
+                .split(',').map { it.trim() }.filter { it.isNotEmpty() && it.length < 60 }
             val requester = match.groupValues[2].ifEmpty { jarBefore(document, match.range.first)?.let(Attribution::idFromJar) ?: "?" }
             missing.forEach { dependency ->
                 findings += Finding(

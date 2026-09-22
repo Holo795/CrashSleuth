@@ -1,0 +1,26 @@
+{
+ "platform": "NEOFORGE",
+ "minecraftVersion": "26.2",
+ "loaderVersion": "26.2.0.88",
+ "side": "SERVER",
+ "jars": [],
+ "skipped": [],
+ "files": {
+  "worlds": [
+   {
+    "name": "world",
+    "versionName": "26.2",
+    "dataVersion": 4903,
+    "unreadable": null,
+    "hasBackup": true,
+    "locked": false,
+    "damagedChunks": [],
+    "chunksChecked": 529,
+    "chunksComplete": true,
+    "damagedPlayers": []
+   }
+  ],
+  "eulaAccepted": true,
+  "configErrors": []
+ }
+}

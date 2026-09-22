@@ -1,0 +1,99 @@
+{
+ "platform": "SPIGOT",
+ "minecraftVersion": null,
+ "loaderVersion": null,
+ "side": "SERVER",
+ "jars": [
+  {
+   "file": "multiverse-portals-5.3.0.jar",
+   "folder": "plugins",
+   "size": 189730,
+   "mods": [
+    {
+     "format": "BUKKIT",
+     "id": "Multiverse-Portals",
+     "name": null,
+     "version": "5.3.0",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "Multiverse-Core",
+       "versionRange": null,
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "WorldEdit",
+       "versionRange": null,
+       "required": false,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "PlaceholderAPI",
+       "versionRange": null,
+       "required": false,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": "1.13",
+     "entrypoints": [
+      "org.mvplugins.multiverse.portals.MultiversePortals"
+     ],
+     "addsContent": false,
+     "optionalOnClient": false
+    }
+   ],
+   "nested": [],
+   "error": null,
+   "javaVersion": 17
+  }
+ ],
+ "skipped": [],
+ "files": {
+  "worlds": [
+   {
+    "name": "world",
+    "versionName": "26.3",
+    "dataVersion": 5023,
+    "unreadable": null,
+    "hasBackup": true,
+    "locked": false,
+    "damagedChunks": [],
+    "chunksChecked": 529,
+    "chunksComplete": true,
+    "damagedPlayers": []
+   },
+   {
+    "name": "world_nether",
+    "versionName": "26.3",
+    "dataVersion": 5023,
+    "unreadable": null,
+    "hasBackup": true,
+    "locked": false,
+    "damagedChunks": [],
+    "chunksChecked": 529,
+    "chunksComplete": true,
+    "damagedPlayers": []
+   },
+   {
+    "name": "world_the_end",
+    "versionName": "26.3",
+    "dataVersion": 5023,
+    "unreadable": null,
+    "hasBackup": true,
+    "locked": false,
+    "damagedChunks": [],
+    "chunksChecked": 529,
+    "chunksComplete": true,
+    "damagedPlayers": []
+   }
+  ],
+  "eulaAccepted": true,
+  "configErrors": [],
+  "rootJars": [
+   "server.jar"
+  ]
+ }
+}

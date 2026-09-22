@@ -1,0 +1,13 @@
+{
+    "platform": "FABRIC",
+    "minecraftVersion": null,
+    "loaderVersion": null,
+    "side": "UNKNOWN",
+    "jars": [],
+    "skipped": [],
+    "files": {
+        "worlds": [],
+        "eulaAccepted": null,
+        "configErrors": []
+    }
+}

@@ -14,8 +14,15 @@ object EnvironmentDetector {
     private val MC_TAG = Regex("""\(MC: ([\w.-]+)\)|Implementing API version (\d[\w.]*?)-R""")
     private val VANILLA_SERVER = Regex("""Starting minecraft server version ([\w.-]+)""")
     // Not inside another jar's name ("sodium-neoforge-0.8.13+mc1.21.1.jar" is Sodium's version).
-    private val NEOFORGE = Regex("""(?<![\w-])(?:NeoForge|neoforge|net\.neoforged)[ :-]+(?:version\s+|net\.neoforged:)?(\d+\.\d+\.\d+(?:-beta[\w.]*)?)""")
-    private val FORGE = Regex("""(?:Forge|forge)[ :-]+(?:version\s+)?((?:\d+\.){2,3}\d+)""")
+    private val NEOFORGE = Regex("""(?<![\w-])(?:NeoForge|neoforge|net\.neoforged)[ :-]+(?:version\s+|net\.neoforged:)?(\d+\.\d+\.\d+(?:\.\d+)?(?:-beta[\w.]*)?)""")
+    // Forge's own version, never the Minecraft part of "forge-1.21.1-52.1.16": "Forge mod loading, version 47.4.23",
+    // "--fml.forgeVersion, 52.1.16", "net.minecraftforge.forge@52.1.16", "forge-1.21.1-52.1.16-universal.jar".
+    private val FORGE = Regex(
+        """Forge mod loading, version ((?:\d+\.){1,3}\d+)""" +
+            """|forgeVersion[,:=]?\s*((?:\d+\.){1,3}\d+)""" +
+            """|net\.minecraftforge\.forge@((?:\d+\.){1,3}\d+)""" +
+            """|forge-\d+\.\d+(?:\.\d+)?-((?:\d+\.){1,3}\d+)""",
+    )
     private val FABRIC_LOADER = Regex("""(?:Fabric Loader|fabricloader)[ :]+(?:version\s+)?(\d+\.\d+\.\d+)""")
     private val QUILT_LOADER = Regex("""(?:Quilt Loader|quilt_loader)[ :]+(?:version\s+)?(\d+\.\d+\.\d+[\w.-]*)""")
     private val LOADING_MINECRAFT = Regex("""Loading Minecraft ([\w.-]+) with (Fabric|Quilt) Loader ([\w.+-]+)""")
@@ -78,7 +85,7 @@ object EnvironmentDetector {
             }
             loader = when (platform) {
                 Platform.NEOFORGE -> NEOFORGE.find(text)?.groupValues?.get(1)
-                Platform.FORGE -> FORGE.find(text)?.groupValues?.get(1)
+                Platform.FORGE -> FORGE.find(text)?.groupValues?.drop(1)?.firstOrNull { it.isNotEmpty() }
                 Platform.FABRIC -> FABRIC_LOADER.find(text)?.groupValues?.get(1)
                 Platform.QUILT -> QUILT_LOADER.find(text)?.groupValues?.get(1)
                 else -> null
