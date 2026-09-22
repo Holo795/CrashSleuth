@@ -1,0 +1,8 @@
+{
+  "situation": "MOD_CONFLICT",
+  "culprit": null,
+  "logs": [
+    "crash-2026-09-22_18.11.26-fml.txt",
+    "latest.log"
+  ]
+}

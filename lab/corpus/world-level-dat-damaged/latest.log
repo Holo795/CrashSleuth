@@ -1,5 +1,5 @@
-[13:03:43] [ServerMain/INFO]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
-[13:03:43] [ServerMain/WARN]: Failed to load world data from ./world/level.dat
+[15:50:01] [ServerMain/INFO]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
+[15:50:01] [ServerMain/WARN]: Failed to load world data from ./world/level.dat
 java.io.EOFException: Unexpected end of ZLIB input stream
 	at java.base/java.util.zip.InflaterInputStream.fill(InflaterInputStream.java:266) ~[?:?]
 	at java.base/java.util.zip.InflaterInputStream.read(InflaterInputStream.java:175) ~[?:?]
@@ -19,8 +19,8 @@ java.io.EOFException: Unexpected end of ZLIB input stream
 	at net.minecraft.server.Main.main(SourceFile:143) ~[server-1.21.1.jar:?]
 	at net.minecraft.bundler.Main.lambda$run$0(Main.java:54) ~[?:?]
 	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
-[13:03:43] [ServerMain/INFO]: Attempting to use fallback
-[13:03:43] [ServerMain/ERROR]: Failed to load world data from ./world/level.dat_old
+[15:50:01] [ServerMain/INFO]: Attempting to use fallback
+[15:50:01] [ServerMain/ERROR]: Failed to load world data from ./world/level.dat_old
 java.nio.file.NoSuchFileException: ./world/level.dat_old
 	at java.base/sun.nio.fs.UnixException.translateToIOException(UnixException.java:92) ~[?:?]
 	at java.base/sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:106) ~[?:?]
@@ -38,4 +38,4 @@ java.nio.file.NoSuchFileException: ./world/level.dat_old
 	at net.minecraft.server.Main.main(SourceFile:150) ~[server-1.21.1.jar:?]
 	at net.minecraft.bundler.Main.lambda$run$0(Main.java:54) ~[?:?]
 	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
-[13:03:43] [ServerMain/ERROR]: Failed to load world data from ./world/level.dat and ./world/level.dat_old. World files may be corrupted. Shutting down.
+[15:50:01] [ServerMain/ERROR]: Failed to load world data from ./world/level.dat and ./world/level.dat_old. World files may be corrupted. Shutting down.

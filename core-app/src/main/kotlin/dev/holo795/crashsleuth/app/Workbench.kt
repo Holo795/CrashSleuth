@@ -50,6 +50,8 @@ data class Analysis(
     val comparedWith: String? = null,
     /** Modrinth was asked whether newer versions exist. */
     val updatesChecked: Boolean = false,
+    /** Game code names of the evidence were translated into Mojang's names. */
+    val readable: Boolean = false,
 )
 
 /** How to run a culprit search; everything has a sensible default. */
@@ -136,6 +138,17 @@ class Workbench(
         val differences = ModCompare.compare(player, theirs)
         val kept = analysis.report.findings.filterNot { it.details["adviceKey"]?.startsWith("compare.") == true }
         return analysis.copy(report = analysis.report.copy(findings = (differences + kept).sortedByDescending { it.confidence }), comparedWith = server.toString())
+    }
+
+    /** Translates the game code names of the evidence into Mojang's names (mappings downloaded once). */
+    fun readable(analysis: Analysis): Analysis {
+        val minecraft = analysis.report.environment.minecraftVersion ?: analysis.target.minecraft ?: error("unknown Minecraft version")
+        val mappings = Mappings.load(minecraft)
+        val report = analysis.report
+        return analysis.copy(
+            report = report.copy(findings = report.findings.map { it.copy(evidence = it.evidence.map(mappings::translate)) }, exceptions = report.exceptions.map(mappings::translate)),
+            readable = true,
+        )
     }
 
     /** Asks Modrinth, by file hash only, which installed mods have a newer version. */

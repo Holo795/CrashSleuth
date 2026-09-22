@@ -1,82 +1,85 @@
-[13:03:20] [ServerMain/INFO]: [bootstrap] Running Java 21 (OpenJDK 64-Bit Server VM 21.0.12+8-LTS; Eclipse Adoptium Temurin-21.0.12+8) on Linux 7.0.14-orbstack-00380-ga7e0a2dc9535 (aarch64)
-[13:03:20] [ServerMain/INFO]: [bootstrap] Loading Paper 1.21.1-133-ver/1.21.1@3cb8529 (2025-03-28T16:14:36Z) for Minecraft 1.21.1
-[13:03:20] [ServerMain/INFO]: [PluginInitializerManager] Initializing plugins...
-[13:03:20] [ServerMain/INFO]: [PluginInitializerManager] Initialized 0 plugins
-[13:03:20] [Paper Plugin Remapper Thread - 0/INFO]: [ReobfServer] Remapping server...
-[13:03:23] [ServerMain/INFO]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
-[13:03:23] [ServerMain/INFO]: Found new data pack file/bukkit, loading it automatically
-[13:03:23] [ServerMain/INFO]: Found new data pack paper, loading it automatically
-[13:03:23] [ServerMain/INFO]: Loaded 1290 recipes
-[13:03:23] [ServerMain/INFO]: Loaded 1399 advancements
-[13:03:24] [Server thread/INFO]: Starting minecraft server version 1.21.1
-[13:03:24] [Server thread/INFO]: Loading properties
-[13:03:24] [Server thread/INFO]: This server is running Paper version 1.21.1-133-ver/1.21.1@3cb8529 (2025-03-28T16:14:36Z) (Implementing API version 1.21.1-R0.1-SNAPSHOT)
-[13:03:24] [Server thread/INFO]: [spark] This server bundles the spark profiler. For more information please visit https://docs.papermc.io/paper/profiling
-[13:03:24] [Paper Plugin Remapper Thread - 0/INFO]: [ReobfServer] Done remapping server in 3449ms.
-[13:03:24] [Server thread/INFO]: Server Ping Player Sample Count: 12
-[13:03:24] [Server thread/INFO]: Using 4 threads for Netty based IO
-[13:03:24] [Server thread/INFO]: [ChunkTaskScheduler] Chunk system is using 1 I/O threads, 3 worker threads, and population gen parallelism of 3 threads
-[13:03:24] [Server thread/INFO]: Default game type: SURVIVAL
-[13:03:24] [Server thread/INFO]: Generating keypair
-[13:03:24] [Server thread/INFO]: Starting Minecraft server on *:25565
-[13:03:24] [Server thread/INFO]: Using epoll channel type
-[13:03:24] [Server thread/INFO]: Paper: Using libdeflate (Linux aarch64) compression from Velocity.
-[13:03:24] [Server thread/INFO]: Paper: Using OpenSSL 3.x.x (Linux aarch64) cipher from Velocity.
-[13:03:24] [Server thread/WARN]: **** SERVER IS RUNNING IN OFFLINE/INSECURE MODE!
-[13:03:24] [Server thread/WARN]: The server will make no attempt to authenticate usernames. Beware.
-[13:03:24] [Server thread/WARN]: While this makes the game possible to play without internet access, it also opens up the ability for hackers to connect with any username they choose.
-[13:03:24] [Server thread/WARN]: To change this, set "online-mode" to "true" in the server.properties file.
-[13:03:24] [Server thread/INFO]: Preparing level "world"
-[13:03:25] [Server thread/INFO]: ---- Migration of old nether folder required ----
-[13:03:25] [Server thread/INFO]: Unfortunately due to the way that Minecraft implemented multiworld support in 1.6, Bukkit requires that you move your nether folder to a new location in order to operate correctly.
-[13:03:25] [Server thread/INFO]: We will move this folder for you, but it will mean that you need to move it back should you wish to stop using Bukkit in the future.
-[13:03:25] [Server thread/INFO]: Attempting to move world/DIM-1 to world_nether/DIM-1...
-[13:03:25] [Server thread/INFO]: Success! To restore nether in the future, simply move world_nether/DIM-1 to world/DIM-1
-[13:03:25] [Server thread/INFO]: ---- Migration of old nether folder complete ----
-[13:03:25] [Server thread/INFO]: ---- Migration of old the_end folder required ----
-[13:03:25] [Server thread/INFO]: Unfortunately due to the way that Minecraft implemented multiworld support in 1.6, Bukkit requires that you move your the_end folder to a new location in order to operate correctly.
-[13:03:25] [Server thread/INFO]: We will move this folder for you, but it will mean that you need to move it back should you wish to stop using Bukkit in the future.
-[13:03:25] [Server thread/INFO]: Attempting to move world/DIM1 to world_the_end/DIM1...
-[13:03:25] [Server thread/INFO]: Success! To restore the_end in the future, simply move world_the_end/DIM1 to world/DIM1
-[13:03:25] [Server thread/INFO]: ---- Migration of old the_end folder complete ----
-[13:03:25] [Server thread/INFO]: Preparing start region for dimension minecraft:overworld
-[13:03:25] [Server thread/WARN]: Ignoring unknown attribute 'minecraft:follow_range'
-[13:03:25] [Server thread/WARN]: Ignoring unknown attribute 'minecraft:movement_speed'
-[13:03:25] [Server thread/INFO]: Time elapsed: 492 ms
-[13:03:25] [Server thread/INFO]: Preparing start region for dimension minecraft:the_nether
-[13:03:26] [Server thread/INFO]: Time elapsed: 1046 ms
-[13:03:26] [Server thread/INFO]: Preparing start region for dimension minecraft:the_end
-[13:03:27] [Server thread/INFO]: Time elapsed: 323 ms
-[13:03:27] [Server thread/INFO]: [spark] Starting background profiler...
-[13:03:27] [Server thread/INFO]: Done preparing level "world" (2.370s)
-[13:03:27] [Server thread/INFO]: Running delayed init tasks
-[13:03:27] [Server thread/INFO]: Done (7.254s)! For help, type "help"
-[13:03:27] [Server thread/INFO]: *************************************************************************************
-[13:03:27] [Server thread/INFO]: This is the first time you're starting this server.
-[13:03:27] [Server thread/INFO]: It's recommended you read our 'Getting Started' documentation for guidance.
-[13:03:27] [Server thread/INFO]: View this and more helpful information here: https://docs.papermc.io/paper/next-steps
-[13:03:27] [Server thread/INFO]: *************************************************************************************
-[13:03:27] [Server thread/INFO]: Timings Reset
-[13:03:29] [Server thread/INFO]: Stopping the server
-[13:03:29] [Server thread/INFO]: Stopping server
-[13:03:29] [Server thread/INFO]: Saving players
-[13:03:29] [Server thread/INFO]: Saving worlds
-[13:03:29] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:overworld
-[13:03:29] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk system to halt for world 'world'
-[13:03:29] [Server thread/INFO]: [ChunkHolderManager] Halted chunk system for world 'world'
-[13:03:29] [Server thread/INFO]: [ChunkHolderManager] Saving all chunkholders for world 'world'
-[13:03:29] [Server thread/INFO]: [ChunkHolderManager] Saved 49 block chunks, 49 entity chunks, 0 poi chunks in world 'world' in 0.11s
-[13:03:29] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world_nether]'/minecraft:the_nether
-[13:03:29] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk system to halt for world 'world_nether'
-[13:03:29] [Server thread/INFO]: [ChunkHolderManager] Halted chunk system for world 'world_nether'
-[13:03:29] [Server thread/INFO]: [ChunkHolderManager] Saving all chunkholders for world 'world_nether'
-[13:03:29] [Server thread/INFO]: [ChunkHolderManager] Saved 841 block chunks, 49 entity chunks, 0 poi chunks in world 'world_nether' in 0.20s
-[13:03:29] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world_the_end]'/minecraft:the_end
-[13:03:29] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk system to halt for world 'world_the_end'
-[13:03:29] [Server thread/INFO]: [ChunkHolderManager] Halted chunk system for world 'world_the_end'
-[13:03:29] [Server thread/INFO]: [ChunkHolderManager] Saving all chunkholders for world 'world_the_end'
-[13:03:29] [Server thread/INFO]: [ChunkHolderManager] Saved 841 block chunks, 49 entity chunks, 0 poi chunks in world 'world_the_end' in 0.13s
-[13:03:29] [Server thread/INFO]: ThreadedAnvilChunkStorage (world): All chunks are saved
-[13:03:29] [Server thread/INFO]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
-[13:03:29] [Server thread/INFO]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
-[13:03:29] [Server thread/INFO]: ThreadedAnvilChunkStorage: All dimensions are saved
+[15:49:39] [ServerMain/INFO]: [bootstrap] Running Java 21 (OpenJDK 64-Bit Server VM 21.0.12+8-LTS; Eclipse Adoptium Temurin-21.0.12+8) on Linux 7.0.14-orbstack-00380-ga7e0a2dc9535 (aarch64)
+[15:49:39] [ServerMain/INFO]: [bootstrap] Loading Paper 1.21.1-133-ver/1.21.1@3cb8529 (2025-03-28T16:14:36Z) for Minecraft 1.21.1
+[15:49:39] [ServerMain/INFO]: [PluginInitializerManager] Initializing plugins...
+[15:49:39] [ServerMain/INFO]: [PluginInitializerManager] Initialized 0 plugins
+[15:49:39] [Paper Plugin Remapper Thread - 0/INFO]: [ReobfServer] Remapping server...
+[15:49:41] [ServerMain/INFO]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
+[15:49:41] [ServerMain/INFO]: Found new data pack file/bukkit, loading it automatically
+[15:49:41] [ServerMain/INFO]: Found new data pack paper, loading it automatically
+[15:49:42] [ServerMain/INFO]: Loaded 1290 recipes
+[15:49:42] [ServerMain/INFO]: Loaded 1399 advancements
+[15:49:42] [Server thread/INFO]: Starting minecraft server version 1.21.1
+[15:49:42] [Server thread/INFO]: Loading properties
+[15:49:42] [Server thread/INFO]: This server is running Paper version 1.21.1-133-ver/1.21.1@3cb8529 (2025-03-28T16:14:36Z) (Implementing API version 1.21.1-R0.1-SNAPSHOT)
+[15:49:43] [Server thread/INFO]: [spark] This server bundles the spark profiler. For more information please visit https://docs.papermc.io/paper/profiling
+[15:49:43] [Server thread/INFO]: Server Ping Player Sample Count: 12
+[15:49:43] [Server thread/INFO]: Using 4 threads for Netty based IO
+[15:49:43] [Paper Plugin Remapper Thread - 0/INFO]: [ReobfServer] Done remapping server in 3517ms.
+[15:49:43] [Server thread/INFO]: [ChunkTaskScheduler] Chunk system is using 1 I/O threads, 3 worker threads, and population gen parallelism of 3 threads
+[15:49:43] [Server thread/INFO]: Default game type: SURVIVAL
+[15:49:43] [Server thread/INFO]: Generating keypair
+[15:49:43] [Server thread/INFO]: Starting Minecraft server on *:25565
+[15:49:43] [Server thread/INFO]: Using epoll channel type
+[15:49:43] [Server thread/INFO]: Paper: Using libdeflate (Linux aarch64) compression from Velocity.
+[15:49:43] [Server thread/INFO]: Paper: Using OpenSSL 3.x.x (Linux aarch64) cipher from Velocity.
+[15:49:43] [Server thread/WARN]: **** SERVER IS RUNNING IN OFFLINE/INSECURE MODE!
+[15:49:43] [Server thread/WARN]: The server will make no attempt to authenticate usernames. Beware.
+[15:49:43] [Server thread/WARN]: While this makes the game possible to play without internet access, it also opens up the ability for hackers to connect with any username they choose.
+[15:49:43] [Server thread/WARN]: To change this, set "online-mode" to "true" in the server.properties file.
+[15:49:43] [Server thread/INFO]: Preparing level "world"
+[15:49:44] [Server thread/INFO]: ---- Migration of old nether folder required ----
+[15:49:44] [Server thread/INFO]: Unfortunately due to the way that Minecraft implemented multiworld support in 1.6, Bukkit requires that you move your nether folder to a new location in order to operate correctly.
+[15:49:44] [Server thread/INFO]: We will move this folder for you, but it will mean that you need to move it back should you wish to stop using Bukkit in the future.
+[15:49:44] [Server thread/INFO]: Attempting to move world/DIM-1 to world_nether/DIM-1...
+[15:49:44] [Server thread/INFO]: Success! To restore nether in the future, simply move world_nether/DIM-1 to world/DIM-1
+[15:49:44] [Server thread/INFO]: ---- Migration of old nether folder complete ----
+[15:49:44] [Server thread/INFO]: ---- Migration of old the_end folder required ----
+[15:49:44] [Server thread/INFO]: Unfortunately due to the way that Minecraft implemented multiworld support in 1.6, Bukkit requires that you move your the_end folder to a new location in order to operate correctly.
+[15:49:44] [Server thread/INFO]: We will move this folder for you, but it will mean that you need to move it back should you wish to stop using Bukkit in the future.
+[15:49:44] [Server thread/INFO]: Attempting to move world/DIM1 to world_the_end/DIM1...
+[15:49:44] [Server thread/INFO]: Success! To restore the_end in the future, simply move world_the_end/DIM1 to world/DIM1
+[15:49:44] [Server thread/INFO]: ---- Migration of old the_end folder complete ----
+[15:49:44] [Server thread/INFO]: Preparing start region for dimension minecraft:overworld
+[15:49:44] [Server thread/WARN]: Ignoring unknown attribute 'minecraft:follow_range'
+[15:49:44] [Server thread/WARN]: Ignoring unknown attribute 'minecraft:follow_range'
+[15:49:44] [Server thread/WARN]: Ignoring unknown attribute 'minecraft:follow_range'
+[15:49:44] [Server thread/WARN]: Ignoring unknown attribute 'minecraft:follow_range'
+[15:49:44] [Server thread/WARN]: Ignoring unknown attribute 'minecraft:follow_range'
+[15:49:44] [Server thread/INFO]: Time elapsed: 423 ms
+[15:49:44] [Server thread/INFO]: Preparing start region for dimension minecraft:the_nether
+[15:49:45] [Server thread/INFO]: Time elapsed: 1032 ms
+[15:49:45] [Server thread/INFO]: Preparing start region for dimension minecraft:the_end
+[15:49:45] [Server thread/INFO]: Time elapsed: 283 ms
+[15:49:45] [Server thread/INFO]: [spark] Starting background profiler...
+[15:49:45] [Server thread/INFO]: Done preparing level "world" (2.087s)
+[15:49:45] [Server thread/INFO]: Running delayed init tasks
+[15:49:45] [Server thread/INFO]: Done (6.752s)! For help, type "help"
+[15:49:45] [Server thread/INFO]: *************************************************************************************
+[15:49:45] [Server thread/INFO]: This is the first time you're starting this server.
+[15:49:45] [Server thread/INFO]: It's recommended you read our 'Getting Started' documentation for guidance.
+[15:49:45] [Server thread/INFO]: View this and more helpful information here: https://docs.papermc.io/paper/next-steps
+[15:49:45] [Server thread/INFO]: *************************************************************************************
+[15:49:45] [Server thread/INFO]: Timings Reset
+[15:49:46] [Server thread/INFO]: Stopping the server
+[15:49:46] [Server thread/INFO]: Stopping server
+[15:49:46] [Server thread/INFO]: Saving players
+[15:49:46] [Server thread/INFO]: Saving worlds
+[15:49:46] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:overworld
+[15:49:46] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk system to halt for world 'world'
+[15:49:46] [Server thread/INFO]: [ChunkHolderManager] Halted chunk system for world 'world'
+[15:49:46] [Server thread/INFO]: [ChunkHolderManager] Saving all chunkholders for world 'world'
+[15:49:46] [Server thread/INFO]: [ChunkHolderManager] Saved 49 block chunks, 49 entity chunks, 0 poi chunks in world 'world' in 0.12s
+[15:49:46] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world_nether]'/minecraft:the_nether
+[15:49:46] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk system to halt for world 'world_nether'
+[15:49:46] [Server thread/INFO]: [ChunkHolderManager] Halted chunk system for world 'world_nether'
+[15:49:46] [Server thread/INFO]: [ChunkHolderManager] Saving all chunkholders for world 'world_nether'
+[15:49:47] [Server thread/INFO]: [ChunkHolderManager] Saved 841 block chunks, 49 entity chunks, 0 poi chunks in world 'world_nether' in 0.16s
+[15:49:47] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world_the_end]'/minecraft:the_end
+[15:49:47] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk system to halt for world 'world_the_end'
+[15:49:47] [Server thread/INFO]: [ChunkHolderManager] Halted chunk system for world 'world_the_end'
+[15:49:47] [Server thread/INFO]: [ChunkHolderManager] Saving all chunkholders for world 'world_the_end'
+[15:49:47] [Server thread/INFO]: [ChunkHolderManager] Saved 841 block chunks, 49 entity chunks, 0 poi chunks in world 'world_the_end' in 0.17s
+[15:49:47] [Server thread/INFO]: ThreadedAnvilChunkStorage (world): All chunks are saved
+[15:49:47] [Server thread/INFO]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[15:49:47] [Server thread/INFO]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[15:49:47] [Server thread/INFO]: ThreadedAnvilChunkStorage: All dimensions are saved

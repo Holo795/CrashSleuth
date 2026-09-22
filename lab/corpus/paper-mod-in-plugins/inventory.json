@@ -32,7 +32,9 @@
      "breaks": [],
      "provides": [],
      "apiVersion": null,
-     "entrypoints": []
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": true
     }
    ],
    "nested": [],
@@ -49,7 +51,35 @@
     "dataVersion": 3955,
     "unreadable": null,
     "hasBackup": false,
-    "locked": false
+    "locked": false,
+    "damagedChunks": [],
+    "chunksChecked": 842,
+    "chunksComplete": true,
+    "damagedPlayers": []
+   },
+   {
+    "name": "world_nether",
+    "versionName": "1.21.1",
+    "dataVersion": 3955,
+    "unreadable": null,
+    "hasBackup": false,
+    "locked": false,
+    "damagedChunks": [],
+    "chunksChecked": 841,
+    "chunksComplete": true,
+    "damagedPlayers": []
+   },
+   {
+    "name": "world_the_end",
+    "versionName": "1.21.1",
+    "dataVersion": 3955,
+    "unreadable": null,
+    "hasBackup": false,
+    "locked": false,
+    "damagedChunks": [],
+    "chunksChecked": 851,
+    "chunksComplete": true,
+    "damagedPlayers": []
    }
   ],
   "eulaAccepted": true,

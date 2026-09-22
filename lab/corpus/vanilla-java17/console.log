@@ -1,25 +1,2 @@
-Unable to find image 'eclipse-temurin:17-jdk' locally
-17-jdk: Pulling from library/eclipse-temurin
-7cb168fccdd2: Already exists
-70624a8d6970: Already exists
-858b4e215eb7: Pulling fs layer
-7634f5815136: Pulling fs layer
-7ddaee3f9049: Pulling fs layer
-b33edc6938a1: Pulling fs layer
-b33edc6938a1: Waiting
-7ddaee3f9049: Verifying Checksum
-7ddaee3f9049: Download complete
-858b4e215eb7: Verifying Checksum
-858b4e215eb7: Download complete
-b33edc6938a1: Verifying Checksum
-b33edc6938a1: Download complete
-858b4e215eb7: Pull complete
-7634f5815136: Verifying Checksum
-7634f5815136: Download complete
-7634f5815136: Pull complete
-7ddaee3f9049: Pull complete
-b33edc6938a1: Pull complete
-Digest: sha256:bc033b57e11b773c3043babfd664e7a5ef110805548b921cbfc3e8c67a0725d6
-Status: Downloaded newer image for eclipse-temurin:17-jdk
 Error: LinkageError occurred while loading main class net.minecraft.bundler.Main
 	java.lang.UnsupportedClassVersionError: net/minecraft/bundler/Main has been compiled by a more recent version of the Java Runtime (class file version 65.0), this version of the Java Runtime only recognizes class file versions up to 61.0

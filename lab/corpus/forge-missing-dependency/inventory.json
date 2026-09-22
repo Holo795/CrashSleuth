@@ -50,7 +50,9 @@
      "breaks": [],
      "provides": [],
      "apiVersion": null,
-     "entrypoints": []
+     "entrypoints": [],
+     "addsContent": true,
+     "optionalOnClient": false
     }
    ],
    "nested": [
@@ -64,7 +66,9 @@
      "breaks": [],
      "provides": [],
      "apiVersion": null,
-     "entrypoints": []
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": true
     },
     {
      "format": "FORGE",
@@ -76,7 +80,9 @@
      "breaks": [],
      "provides": [],
      "apiVersion": null,
-     "entrypoints": []
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
     }
    ],
    "error": null,

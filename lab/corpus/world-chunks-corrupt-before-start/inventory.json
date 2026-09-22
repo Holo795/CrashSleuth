@@ -251,7 +251,7 @@
       "file": "region/r.-1.0.mca",
       "x": -4,
       "z": 0,
-      "reason": "compressed data is damaged (invalid distance too far back)"
+      "reason": "compressed data is damaged (incorrect data check)"
      },
      {
       "folder": "region",
@@ -293,7 +293,7 @@
       "file": "region/r.-1.0.mca",
       "x": -2,
       "z": 3,
-      "reason": "compressed data is damaged (invalid distance too far back)"
+      "reason": "compressed data is damaged (incorrect data check)"
      },
      {
       "folder": "region",
@@ -367,7 +367,8 @@
      }
     ],
     "chunksChecked": 845,
-    "chunksComplete": true
+    "chunksComplete": true,
+    "damagedPlayers": []
    }
   ],
   "eulaAccepted": true,

@@ -34,6 +34,8 @@ data class Signature(
         val kind: CulpritKind,
         val group: Int? = null,
         val nameGroup: Int? = null,
+        /** Group holding the culprit's installed version. */
+        val versionGroup: Int? = null,
         val literal: String? = null,
         /** The group is a jar file name: turn it into an id. */
         val fromJar: Boolean = false,
@@ -51,7 +53,7 @@ class SignatureDetector(private val signatures: List<Signature>) : Detector {
         val culprits = signature.culprits.mapNotNull { rule ->
             val raw = rule.literal ?: group(rule.group) ?: return@mapNotNull null
             val id = if (rule.fromJar) Attribution.idFromJar(raw) else raw
-            Culprit(rule.kind, id, name = group(rule.nameGroup), file = if (rule.fromJar) raw else null)
+            Culprit(rule.kind, id, name = group(rule.nameGroup), version = group(rule.versionGroup), file = if (rule.fromJar) raw else null)
         }
         val details = signature.details.mapNotNull { (key, value) ->
             val text = if (value is Int) group(value) else value.toString()
@@ -88,6 +90,7 @@ class SignatureDetector(private val signatures: List<Signature>) : Detector {
                             kind = CulpritKind.valueOf(fields["kind"]?.jsonPrimitive?.content ?: "UNKNOWN"),
                             group = fields["group"]?.jsonPrimitive?.intOrNull,
                             nameGroup = fields["name"]?.jsonPrimitive?.intOrNull,
+                            versionGroup = fields["version"]?.jsonPrimitive?.intOrNull,
                             literal = fields["literal"]?.jsonPrimitive?.content,
                             fromJar = fields["fromJar"]?.jsonPrimitive?.booleanOrNull == true,
                         )

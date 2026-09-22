@@ -32,7 +32,9 @@
      "breaks": [],
      "provides": [],
      "apiVersion": null,
-     "entrypoints": []
+     "entrypoints": [],
+     "addsContent": true,
+     "optionalOnClient": false
     }
    ],
    "nested": [],
@@ -73,7 +75,9 @@
      "breaks": [],
      "provides": [],
      "apiVersion": null,
-     "entrypoints": []
+     "entrypoints": [],
+     "addsContent": true,
+     "optionalOnClient": false
     }
    ],
    "nested": [],
@@ -102,7 +106,9 @@
      "breaks": [],
      "provides": [],
      "apiVersion": null,
-     "entrypoints": []
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
     }
    ],
    "nested": [],
@@ -131,7 +137,9 @@
      "breaks": [],
      "provides": [],
      "apiVersion": null,
-     "entrypoints": []
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
     }
    ],
    "nested": [],
@@ -190,7 +198,9 @@
      "breaks": [],
      "provides": [],
      "apiVersion": null,
-     "entrypoints": []
+     "entrypoints": [],
+     "addsContent": true,
+     "optionalOnClient": false
     }
    ],
    "nested": [],
@@ -225,7 +235,9 @@
      "breaks": [],
      "provides": [],
      "apiVersion": null,
-     "entrypoints": []
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
     }
    ],
    "nested": [
@@ -252,7 +264,9 @@
      "breaks": [],
      "provides": [],
      "apiVersion": null,
-     "entrypoints": []
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
     }
    ],
    "error": null,
@@ -335,7 +349,9 @@
      ],
      "provides": [],
      "apiVersion": null,
-     "entrypoints": []
+     "entrypoints": [],
+     "addsContent": true,
+     "optionalOnClient": false
     }
    ],
    "nested": [
@@ -374,7 +390,9 @@
      "breaks": [],
      "provides": [],
      "apiVersion": null,
-     "entrypoints": []
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": true
     },
     {
      "format": "NEOFORGE",
@@ -405,7 +423,9 @@
      "breaks": [],
      "provides": [],
      "apiVersion": null,
-     "entrypoints": []
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
     }
    ],
    "error": null,
@@ -439,7 +459,9 @@
      "breaks": [],
      "provides": [],
      "apiVersion": null,
-     "entrypoints": []
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
     }
    ],
    "nested": [],
@@ -474,7 +496,9 @@
      "breaks": [],
      "provides": [],
      "apiVersion": null,
-     "entrypoints": []
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
     }
    ],
    "nested": [],
@@ -509,7 +533,9 @@
      "breaks": [],
      "provides": [],
      "apiVersion": null,
-     "entrypoints": []
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": true
     }
    ],
    "nested": [],
@@ -539,7 +565,9 @@
      "breaks": [],
      "provides": [],
      "apiVersion": null,
-     "entrypoints": []
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
     },
     {
      "format": "FORGE",
@@ -558,7 +586,9 @@
      "breaks": [],
      "provides": [],
      "apiVersion": null,
-     "entrypoints": []
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
     }
    ],
    "error": null,
@@ -598,7 +628,9 @@
      "breaks": [],
      "provides": [],
      "apiVersion": null,
-     "entrypoints": []
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
     }
    ],
    "nested": [],
@@ -627,7 +659,9 @@
      "breaks": [],
      "provides": [],
      "apiVersion": null,
-     "entrypoints": []
+     "entrypoints": [],
+     "addsContent": true,
+     "optionalOnClient": false
     }
    ],
    "nested": [
@@ -654,7 +688,9 @@
      "breaks": [],
      "provides": [],
      "apiVersion": null,
-     "entrypoints": []
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
     }
    ],
    "error": null,
@@ -694,7 +730,9 @@
      "breaks": [],
      "provides": [],
      "apiVersion": null,
-     "entrypoints": []
+     "entrypoints": [],
+     "addsContent": true,
+     "optionalOnClient": false
     }
    ],
    "nested": [],
@@ -735,7 +773,9 @@
      "breaks": [],
      "provides": [],
      "apiVersion": null,
-     "entrypoints": []
+     "entrypoints": [],
+     "addsContent": true,
+     "optionalOnClient": false
     }
    ],
    "nested": [],
@@ -801,7 +841,9 @@
      ],
      "provides": [],
      "apiVersion": null,
-     "entrypoints": []
+     "entrypoints": [],
+     "addsContent": true,
+     "optionalOnClient": false
     }
    ],
    "nested": [
@@ -815,7 +857,9 @@
      "breaks": [],
      "provides": [],
      "apiVersion": null,
-     "entrypoints": []
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
     },
     {
      "format": "NEOFORGE",
@@ -840,7 +884,9 @@
      "breaks": [],
      "provides": [],
      "apiVersion": null,
-     "entrypoints": []
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
     }
    ],
    "error": null,
@@ -880,7 +926,9 @@
      "breaks": [],
      "provides": [],
      "apiVersion": null,
-     "entrypoints": []
+     "entrypoints": [],
+     "addsContent": true,
+     "optionalOnClient": false
     }
    ],
    "nested": [],
@@ -897,7 +945,11 @@
     "dataVersion": 3955,
     "unreadable": null,
     "hasBackup": true,
-    "locked": false
+    "locked": false,
+    "damagedChunks": [],
+    "chunksChecked": 846,
+    "chunksComplete": true,
+    "damagedPlayers": []
    }
   ],
   "eulaAccepted": true,

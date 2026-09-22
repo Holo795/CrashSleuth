@@ -33,7 +33,7 @@
     "plugins/worldguard-bukkit-7.0.12-dist.jar"
    ],
    "outcome": "CRASHED",
-   "seconds": 18.279041386,
+   "seconds": 17.748765727,
    "sameFailure": true,
    "note": "reference"
   },
@@ -54,7 +54,7 @@
     "plugins/worldguard-bukkit-7.0.12-dist.jar"
    ],
    "outcome": "CRASHED",
-   "seconds": 16.901958497,
+   "seconds": 17.064748733,
    "sameFailure": true,
    "note": "without suspect DecentHolograms"
   },
@@ -70,7 +70,7 @@
     "plugins/TAB v6.2.0 - Paper 1.20.5 - 1.21.4.jar"
    ],
    "outcome": "CRASHED",
-   "seconds": 18.988776773,
+   "seconds": 16.671851489,
    "sameFailure": true,
    "note": null
   },
@@ -85,12 +85,24 @@
     "plugins/worldguard-bukkit-7.0.12-dist.jar"
    ],
    "outcome": "READY",
-   "seconds": 33.481769824,
+   "seconds": 30.518093887,
    "sameFailure": false,
    "note": null
   },
   {
    "index": 5,
+   "kept": [
+    "plugins/LuckPerms-Bukkit-5.5.71.jar",
+    "plugins/PlaceholderAPI-2.12.3.jar",
+    "plugins/TAB v6.2.0 - Paper 1.20.5 - 1.21.4.jar"
+   ],
+   "outcome": "READY",
+   "seconds": 29.114286861,
+   "sameFailure": false,
+   "note": null
+  },
+  {
+   "index": 6,
    "kept": [
     "plugins/Chunky-Bukkit-1.4.40.jar",
     "plugins/CoreProtect-CE-24.0.jar",
@@ -98,19 +110,7 @@
     "plugins/DecentHolograms-2.10.1.jar"
    ],
    "outcome": "READY",
-   "seconds": 28.911208379,
-   "sameFailure": false,
-   "note": null
-  },
-  {
-   "index": 6,
-   "kept": [
-    "plugins/LuckPerms-Bukkit-5.5.71.jar",
-    "plugins/PlaceholderAPI-2.12.3.jar",
-    "plugins/TAB v6.2.0 - Paper 1.20.5 - 1.21.4.jar"
-   ],
-   "outcome": "READY",
-   "seconds": 29.682423502,
+   "seconds": 29.119535064,
    "sameFailure": false,
    "note": null
   },
@@ -121,7 +121,7 @@
     "plugins/CoreProtect-CE-24.0.jar"
    ],
    "outcome": "READY",
-   "seconds": 26.717694092,
+   "seconds": 24.412862483,
    "sameFailure": false,
    "note": null
   },
@@ -132,7 +132,7 @@
     "plugins/DecentHolograms-2.10.1.jar"
    ],
    "outcome": "READY",
-   "seconds": 28.324233044,
+   "seconds": 25.74072024,
    "sameFailure": false,
    "note": null
   },
@@ -142,7 +142,7 @@
     "plugins/TAB v6.2.0 - Paper 1.20.5 - 1.21.4.jar"
    ],
    "outcome": "READY",
-   "seconds": 30.900895307,
+   "seconds": 27.726011027,
    "sameFailure": false,
    "note": null
   },
@@ -153,7 +153,7 @@
     "plugins/PlaceholderAPI-2.12.3.jar"
    ],
    "outcome": "READY",
-   "seconds": 30.992138521,
+   "seconds": 27.871628776,
    "sameFailure": false,
    "note": null
   },
@@ -167,7 +167,7 @@
     "plugins/TAB v6.2.0 - Paper 1.20.5 - 1.21.4.jar"
    ],
    "outcome": "CRASHED",
-   "seconds": 24.888602194,
+   "seconds": 16.73954734,
    "sameFailure": true,
    "note": null
   },
@@ -181,7 +181,7 @@
     "plugins/TAB v6.2.0 - Paper 1.20.5 - 1.21.4.jar"
    ],
    "outcome": "READY",
-   "seconds": 37.953133769,
+   "seconds": 29.444527882,
    "sameFailure": false,
    "note": null
   },
@@ -193,7 +193,7 @@
     "plugins/TAB v6.2.0 - Paper 1.20.5 - 1.21.4.jar"
    ],
    "outcome": "READY",
-   "seconds": 24.290589618,
+   "seconds": 22.413711853,
    "sameFailure": false,
    "note": null
   },
@@ -206,27 +206,27 @@
     "plugins/PlaceholderAPI-2.12.3.jar"
    ],
    "outcome": "CRASHED",
-   "seconds": 14.957869648,
+   "seconds": 11.909962271,
    "sameFailure": true,
    "note": null
   },
   {
    "index": 15,
    "kept": [
-    "plugins/DecentHolograms-2.10.1.jar"
+    "plugins/CrashSleuthFixture-1.0.0.jar"
    ],
    "outcome": "READY",
-   "seconds": 29.312809878,
+   "seconds": 25.358367376,
    "sameFailure": false,
    "note": null
   },
   {
    "index": 16,
    "kept": [
-    "plugins/CrashSleuthFixture-1.0.0.jar"
+    "plugins/DecentHolograms-2.10.1.jar"
    ],
    "outcome": "READY",
-   "seconds": 29.641675632,
+   "seconds": 25.354118264,
    "sameFailure": false,
    "note": null
   },
@@ -236,7 +236,7 @@
     "plugins/LuckPerms-Bukkit-5.5.71.jar"
    ],
    "outcome": "READY",
-   "seconds": 23.781946643,
+   "seconds": 24.736060906,
    "sameFailure": false,
    "note": null
   },
@@ -246,7 +246,7 @@
     "plugins/PlaceholderAPI-2.12.3.jar"
    ],
    "outcome": "READY",
-   "seconds": 26.029562771,
+   "seconds": 26.158359184,
    "sameFailure": false,
    "note": null
   },
@@ -258,7 +258,7 @@
     "plugins/PlaceholderAPI-2.12.3.jar"
    ],
    "outcome": "CRASHED",
-   "seconds": 14.348017093,
+   "seconds": 15.500276278,
    "sameFailure": true,
    "note": null
   },
@@ -270,7 +270,7 @@
     "plugins/PlaceholderAPI-2.12.3.jar"
    ],
    "outcome": "READY",
-   "seconds": 25.43623038,
+   "seconds": 26.647859489,
    "sameFailure": false,
    "note": null
   },
@@ -281,7 +281,7 @@
     "plugins/PlaceholderAPI-2.12.3.jar"
    ],
    "outcome": "READY",
-   "seconds": 27.092160641,
+   "seconds": 22.613394134,
    "sameFailure": false,
    "note": null
   },
@@ -292,7 +292,7 @@
     "plugins/LuckPerms-Bukkit-5.5.71.jar"
    ],
    "outcome": "CRASHED",
-   "seconds": 14.279103489,
+   "seconds": 11.606727927,
    "sameFailure": true,
    "note": null
   }

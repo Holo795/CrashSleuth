@@ -41,7 +41,9 @@
      "apiVersion": null,
      "entrypoints": [
       "net.caffeinemc.mods.lithium.fabric.LithiumFabricMod"
-     ]
+     ],
+     "addsContent": false,
+     "optionalOnClient": false
     }
    ],
    "nested": [],
@@ -58,7 +60,11 @@
     "dataVersion": 3955,
     "unreadable": null,
     "hasBackup": true,
-    "locked": false
+    "locked": false,
+    "damagedChunks": [],
+    "chunksChecked": 850,
+    "chunksComplete": true,
+    "damagedPlayers": []
    }
   ],
   "eulaAccepted": true,

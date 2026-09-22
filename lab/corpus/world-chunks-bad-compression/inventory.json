@@ -15,8 +15,9 @@
     "hasBackup": true,
     "locked": false,
     "damagedChunks": [],
-    "chunksChecked": 842,
-    "chunksComplete": true
+    "chunksChecked": 843,
+    "chunksComplete": true,
+    "damagedPlayers": []
    }
   ],
   "eulaAccepted": true,

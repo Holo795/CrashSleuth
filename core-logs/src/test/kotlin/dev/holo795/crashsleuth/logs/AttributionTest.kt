@@ -11,3 +11,12 @@ class AttributionTest {
         listOf("sodium-fabric-0.6.13+mc1.21.1.jar", "create-1.21.1-6.0.4.jar").forEach { assertFalse(Attribution.isPlatformJar(it), it) }
     }
 }
+
+class NeoForgeVersionTest {
+    @Test
+    fun `the NeoForge version is not taken from another jar's name`() {
+        val crash = "\t\tsodium-neoforge-0.8.13+mc1.21.1.jar |Sodium |sodium |0.8.13+mc1.21.1 |ERROR\n" +
+            "\t\tneoforge-21.1.251-universal.jar |NeoForge |neoforge |21.1.251 |ERROR\n"
+        kotlin.test.assertEquals("21.1.251", EnvironmentDetector.detect(LogDocument(crash)).loaderVersion)
+    }
+}

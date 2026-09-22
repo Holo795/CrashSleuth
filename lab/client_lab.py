@@ -122,6 +122,7 @@ def prepare(scenario: dict, directory: Path, java_home: Path) -> None:
 
 
 def run(names: list[str], cli: str, java_home: Path) -> int:
+    os.environ["CRASHSLEUTH_CLI_FOR_KEEP"] = cli
     scenarios = json.loads((LAB_DIR / "client-scenarios.json").read_text())
     selected = scenarios if names == ["all"] else [s for s in scenarios if s["name"] in names]
     java = str(java_home / "bin" / "java")
@@ -193,6 +194,10 @@ def keep(scenario: dict, directory: Path) -> None:
     for extra in ("bisect.json",):
         if (directory / extra).exists():
             shutil.copy(directory / extra, target / extra)
+    # The installed mods, as the server lab keeps them: the replay sees what the analysis saw.
+    inventory = subprocess.run([os.environ.get("CRASHSLEUTH_CLI_FOR_KEEP", "crashsleuth"), "inventory", str(directory)], capture_output=True, text=True)
+    if inventory.returncode == 0 and inventory.stdout.strip().startswith("{"):
+        (target / "inventory.json").write_text(private(lab.anonymise(inventory.stdout)).replace(str(directory), "/game"))
     expect = scenario.get("expect") or {}
     (target / "expected.json").write_text(json.dumps(
         {"situation": expect.get("situation"), "culprit": expect.get("culprit"), "logs": [p.name for p in logs],

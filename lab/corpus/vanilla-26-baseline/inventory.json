@@ -13,7 +13,11 @@
     "dataVersion": 5023,
     "unreadable": null,
     "hasBackup": true,
-    "locked": false
+    "locked": false,
+    "damagedChunks": [],
+    "chunksChecked": 529,
+    "chunksComplete": true,
+    "damagedPlayers": []
    }
   ],
   "eulaAccepted": true,

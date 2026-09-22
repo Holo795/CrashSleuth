@@ -46,7 +46,9 @@
      "apiVersion": null,
      "entrypoints": [
       "org.popcraft.chunky.ChunkyFabric"
-     ]
+     ],
+     "addsContent": false,
+     "optionalOnClient": false
     }
    ],
    "nested": [],

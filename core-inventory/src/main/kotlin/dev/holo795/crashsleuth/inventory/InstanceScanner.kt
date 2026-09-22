@@ -42,8 +42,10 @@ object InstanceScanner {
         if (root.resolve(".fabric").isDirectory() || root.resolve("fabric-server-launch.jar").exists()) return Platform.FABRIC to null
         // Paper and its forks unpack the server into versions/<minecraft>/<software>-<minecraft>.jar
         val unpacked = children(root.resolve("versions")).flatMap(::children).map { it.name.lowercase() }
+        // Never started: the Paperclip jar lists the server it holds in META-INF/versions.list.
+        val bundled = unpacked + runCatching { root.listDirectoryEntries("*.jar") }.getOrDefault(emptyList()).flatMap(::paperclipContent)
         for ((prefix, platform) in listOf("folia" to Platform.FOLIA, "purpur" to Platform.PURPUR, "paper" to Platform.PAPER)) {
-            if (unpacked.any { it.startsWith(prefix) }) return platform to null
+            if (bundled.any { it.startsWith(prefix) }) return platform to null
         }
         if (root.resolve("plugins").isDirectory() || root.resolve("bukkit.yml").exists()) {
             return (if (root.resolve("config/paper-global.yml").exists()) Platform.PAPER else Platform.SPIGOT) to null
@@ -51,6 +53,15 @@ object InstanceScanner {
         if (unpacked.any { it.startsWith("server-") }) return Platform.VANILLA to null
         return Platform.UNKNOWN to null
     }
+
+    /** "hash\t1.21.1\t1.21.1/paper-1.21.1.jar" lines of a Paperclip jar: the file names, lower case. */
+    private fun paperclipContent(jar: Path): List<String> = runCatching {
+        java.util.zip.ZipFile(jar.toFile()).use { zip ->
+            val entry = zip.getEntry("META-INF/versions.list") ?: return emptyList()
+            zip.getInputStream(entry).use { it.readBytes().decodeToString() }.lines()
+                .mapNotNull { line -> line.split('\t').getOrNull(2)?.substringAfterLast('/')?.lowercase() }
+        }
+    }.getOrDefault(emptyList())
 
     private val RELEASE = Regex("""^\d+(\.\d+)+$""")
 

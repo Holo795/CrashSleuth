@@ -13,7 +13,11 @@
     "dataVersion": null,
     "unreadable": "Unexpected end of ZLIB input stream",
     "hasBackup": false,
-    "locked": false
+    "locked": false,
+    "damagedChunks": [],
+    "chunksChecked": 842,
+    "chunksComplete": true,
+    "damagedPlayers": []
    }
   ],
   "eulaAccepted": true,

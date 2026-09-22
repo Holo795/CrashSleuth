@@ -32,7 +32,9 @@
      "breaks": [],
      "provides": [],
      "apiVersion": null,
-     "entrypoints": []
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": true
     }
    ],
    "nested": [],
@@ -67,7 +69,9 @@
      "breaks": [],
      "provides": [],
      "apiVersion": null,
-     "entrypoints": []
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": true
     }
    ],
    "nested": [],
@@ -84,7 +88,11 @@
     "dataVersion": 3955,
     "unreadable": null,
     "hasBackup": true,
-    "locked": false
+    "locked": false,
+    "damagedChunks": [],
+    "chunksChecked": 845,
+    "chunksComplete": true,
+    "damagedPlayers": []
    }
   ],
   "eulaAccepted": true,

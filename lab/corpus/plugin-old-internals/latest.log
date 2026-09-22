@@ -1,49 +1,49 @@
-[13:05:52] [ServerMain/INFO]: [bootstrap] Running Java 21 (OpenJDK 64-Bit Server VM 21.0.12+8-LTS; Eclipse Adoptium Temurin-21.0.12+8) on Linux 7.0.14-orbstack-00380-ga7e0a2dc9535 (aarch64)
-[13:05:52] [ServerMain/INFO]: [bootstrap] Loading Paper 1.21.1-133-ver/1.21.1@3cb8529 (2025-03-28T16:14:36Z) for Minecraft 1.21.1
-[13:05:52] [ServerMain/INFO]: [PluginInitializerManager] Initializing plugins...
-[13:05:52] [Paper Plugin Remapper Thread - 0/INFO]: [ReobfServer] Remapping server...
-[13:05:55] [Paper Plugin Remapper Thread - 0/INFO]: [ReobfServer] Done remapping server in 2757ms.
-[13:05:55] [Paper Plugin Remapper Thread - 0/INFO]: [PluginRemapper] Remapping plugin 'plugins/CrashSleuthFixture-1.0.0.jar'...
-[13:05:55] [Paper Plugin Remapper Thread - 0/INFO]: [PluginRemapper] Done remapping plugin 'plugins/CrashSleuthFixture-1.0.0.jar' in 52ms.
-[13:05:55] [ServerMain/INFO]: [PluginInitializerManager] Initialized 1 plugin
-[13:05:55] [ServerMain/INFO]: [PluginInitializerManager] Bukkit plugins (1):
+[15:52:09] [ServerMain/INFO]: [bootstrap] Running Java 21 (OpenJDK 64-Bit Server VM 21.0.12+8-LTS; Eclipse Adoptium Temurin-21.0.12+8) on Linux 7.0.14-orbstack-00380-ga7e0a2dc9535 (aarch64)
+[15:52:09] [ServerMain/INFO]: [bootstrap] Loading Paper 1.21.1-133-ver/1.21.1@3cb8529 (2025-03-28T16:14:36Z) for Minecraft 1.21.1
+[15:52:10] [ServerMain/INFO]: [PluginInitializerManager] Initializing plugins...
+[15:52:10] [Paper Plugin Remapper Thread - 0/INFO]: [ReobfServer] Remapping server...
+[15:52:13] [Paper Plugin Remapper Thread - 0/INFO]: [ReobfServer] Done remapping server in 2770ms.
+[15:52:13] [Paper Plugin Remapper Thread - 0/INFO]: [PluginRemapper] Remapping plugin 'plugins/CrashSleuthFixture-1.0.0.jar'...
+[15:52:13] [Paper Plugin Remapper Thread - 0/INFO]: [PluginRemapper] Done remapping plugin 'plugins/CrashSleuthFixture-1.0.0.jar' in 57ms.
+[15:52:13] [ServerMain/INFO]: [PluginInitializerManager] Initialized 1 plugin
+[15:52:13] [ServerMain/INFO]: [PluginInitializerManager] Bukkit plugins (1):
  - CrashSleuthFixture (1.0.0)
-[13:05:56] [ServerMain/INFO]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
-[13:05:57] [ServerMain/INFO]: Found new data pack file/bukkit, loading it automatically
-[13:05:57] [ServerMain/INFO]: Found new data pack paper, loading it automatically
-[13:05:57] [ServerMain/INFO]: No existing world data, creating new world
-[13:05:58] [ServerMain/INFO]: Loaded 1290 recipes
-[13:05:58] [ServerMain/INFO]: Loaded 1399 advancements
-[13:05:58] [Server thread/INFO]: Starting minecraft server version 1.21.1
-[13:05:58] [Server thread/INFO]: Loading properties
-[13:05:58] [Server thread/INFO]: This server is running Paper version 1.21.1-133-ver/1.21.1@3cb8529 (2025-03-28T16:14:36Z) (Implementing API version 1.21.1-R0.1-SNAPSHOT)
-[13:05:58] [Server thread/INFO]: [spark] This server bundles the spark profiler. For more information please visit https://docs.papermc.io/paper/profiling
-[13:05:58] [Server thread/INFO]: Server Ping Player Sample Count: 12
-[13:05:58] [Server thread/INFO]: Using 4 threads for Netty based IO
-[13:05:59] [Server thread/INFO]: [ChunkTaskScheduler] Chunk system is using 1 I/O threads, 3 worker threads, and population gen parallelism of 3 threads
-[13:05:59] [Server thread/INFO]: Default game type: SURVIVAL
-[13:05:59] [Server thread/INFO]: Generating keypair
-[13:05:59] [Server thread/INFO]: Starting Minecraft server on *:25565
-[13:05:59] [Server thread/INFO]: Using epoll channel type
-[13:05:59] [Server thread/INFO]: Paper: Using libdeflate (Linux aarch64) compression from Velocity.
-[13:05:59] [Server thread/INFO]: Paper: Using OpenSSL 3.x.x (Linux aarch64) cipher from Velocity.
-[13:05:59] [Server thread/INFO]: [CrashSleuthFixture] Loading server plugin CrashSleuthFixture v1.0.0
-[13:05:59] [Server thread/WARN]: **** SERVER IS RUNNING IN OFFLINE/INSECURE MODE!
-[13:05:59] [Server thread/WARN]: The server will make no attempt to authenticate usernames. Beware.
-[13:05:59] [Server thread/WARN]: While this makes the game possible to play without internet access, it also opens up the ability for hackers to connect with any username they choose.
-[13:05:59] [Server thread/WARN]: To change this, set "online-mode" to "true" in the server.properties file.
-[13:05:59] [Server thread/INFO]: Preparing level "world"
-[13:06:02] [Server thread/INFO]: Preparing start region for dimension minecraft:overworld
-[13:06:03] [Server thread/INFO]: Time elapsed: 1308 ms
-[13:06:03] [Server thread/INFO]: Preparing start region for dimension minecraft:the_nether
-[13:06:03] [Server thread/INFO]: Time elapsed: 423 ms
-[13:06:03] [Server thread/INFO]: Preparing start region for dimension minecraft:the_end
-[13:06:03] [Server thread/INFO]: Time elapsed: 122 ms
-[13:06:03] [Server thread/INFO]: [CrashSleuthFixture] Enabling CrashSleuthFixture v1.0.0
-[13:06:03] [Server thread/INFO]: [CrashSleuthFixture] CrashSleuth fixture mode: nms-old
-[13:06:03] [Server thread/ERROR]: Error occurred while enabling CrashSleuthFixture v1.0.0 (Is it up to date?)
+[15:52:14] [ServerMain/INFO]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
+[15:52:14] [ServerMain/INFO]: Found new data pack file/bukkit, loading it automatically
+[15:52:14] [ServerMain/INFO]: Found new data pack paper, loading it automatically
+[15:52:15] [ServerMain/INFO]: No existing world data, creating new world
+[15:52:15] [ServerMain/INFO]: Loaded 1290 recipes
+[15:52:15] [ServerMain/INFO]: Loaded 1399 advancements
+[15:52:15] [Server thread/INFO]: Starting minecraft server version 1.21.1
+[15:52:15] [Server thread/INFO]: Loading properties
+[15:52:15] [Server thread/INFO]: This server is running Paper version 1.21.1-133-ver/1.21.1@3cb8529 (2025-03-28T16:14:36Z) (Implementing API version 1.21.1-R0.1-SNAPSHOT)
+[15:52:15] [Server thread/INFO]: [spark] This server bundles the spark profiler. For more information please visit https://docs.papermc.io/paper/profiling
+[15:52:15] [Server thread/INFO]: Server Ping Player Sample Count: 12
+[15:52:15] [Server thread/INFO]: Using 4 threads for Netty based IO
+[15:52:16] [Server thread/INFO]: [ChunkTaskScheduler] Chunk system is using 1 I/O threads, 3 worker threads, and population gen parallelism of 3 threads
+[15:52:16] [Server thread/INFO]: Default game type: SURVIVAL
+[15:52:16] [Server thread/INFO]: Generating keypair
+[15:52:16] [Server thread/INFO]: Starting Minecraft server on *:25565
+[15:52:16] [Server thread/INFO]: Using epoll channel type
+[15:52:16] [Server thread/INFO]: Paper: Using libdeflate (Linux aarch64) compression from Velocity.
+[15:52:16] [Server thread/INFO]: Paper: Using OpenSSL 3.x.x (Linux aarch64) cipher from Velocity.
+[15:52:16] [Server thread/INFO]: [CrashSleuthFixture] Loading server plugin CrashSleuthFixture v1.0.0
+[15:52:16] [Server thread/WARN]: **** SERVER IS RUNNING IN OFFLINE/INSECURE MODE!
+[15:52:16] [Server thread/WARN]: The server will make no attempt to authenticate usernames. Beware.
+[15:52:16] [Server thread/WARN]: While this makes the game possible to play without internet access, it also opens up the ability for hackers to connect with any username they choose.
+[15:52:16] [Server thread/WARN]: To change this, set "online-mode" to "true" in the server.properties file.
+[15:52:16] [Server thread/INFO]: Preparing level "world"
+[15:52:18] [Server thread/INFO]: Preparing start region for dimension minecraft:overworld
+[15:52:19] [Server thread/INFO]: Time elapsed: 1178 ms
+[15:52:19] [Server thread/INFO]: Preparing start region for dimension minecraft:the_nether
+[15:52:20] [Server thread/INFO]: Time elapsed: 343 ms
+[15:52:20] [Server thread/INFO]: Preparing start region for dimension minecraft:the_end
+[15:52:20] [Server thread/INFO]: Time elapsed: 106 ms
+[15:52:20] [Server thread/INFO]: [CrashSleuthFixture] Enabling CrashSleuthFixture v1.0.0
+[15:52:20] [Server thread/INFO]: [CrashSleuthFixture] CrashSleuth fixture mode: nms-old
+[15:52:20] [Server thread/ERROR]: Error occurred while enabling CrashSleuthFixture v1.0.0 (Is it up to date?)
 java.lang.NoClassDefFoundError: org/bukkit/craftbukkit/v1_20_R3/CraftServer
-	at CrashSleuthFixture-1.0.0.jar/dev.holo795.crashsleuth.fixture.FixturePlugin.onEnable(FixturePlugin.java:26) ~[CrashSleuthFixture-1.0.0.jar:?]
+	at CrashSleuthFixture-1.0.0.jar/dev.holo795.crashsleuth.fixture.FixturePlugin.onEnable(FixturePlugin.java:32) ~[CrashSleuthFixture-1.0.0.jar:?]
 	at org.bukkit.plugin.java.JavaPlugin.setEnabled(JavaPlugin.java:288) ~[paper-mojangapi-1.21.1-R0.1-SNAPSHOT.jar:?]
 	at io.papermc.paper.plugin.manager.PaperPluginInstanceManager.enablePlugin(PaperPluginInstanceManager.java:202) ~[paper-1.21.1.jar:1.21.1-133-3cb8529]
 	at io.papermc.paper.plugin.manager.PaperPluginManagerImpl.enablePlugin(PaperPluginManagerImpl.java:109) ~[paper-1.21.1.jar:1.21.1-133-3cb8529]
@@ -61,37 +61,37 @@ Caused by: java.lang.ClassNotFoundException: org.bukkit.craftbukkit.v1_20_R3.Cra
 	at org.bukkit.plugin.java.PluginClassLoader.loadClass(PluginClassLoader.java:164) ~[paper-mojangapi-1.21.1-R0.1-SNAPSHOT.jar:?]
 	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:526) ~[?:?]
 	... 13 more
-[13:06:04] [Server thread/INFO]: [CrashSleuthFixture] Disabling CrashSleuthFixture v1.0.0
-[13:06:04] [Server thread/INFO]: [spark] Starting background profiler...
-[13:06:04] [Server thread/INFO]: Done preparing level "world" (4.433s)
-[13:06:04] [Server thread/INFO]: Running delayed init tasks
-[13:06:04] [Server thread/INFO]: Done (12.495s)! For help, type "help"
-[13:06:04] [Server thread/INFO]: *************************************************************************************
-[13:06:04] [Server thread/INFO]: This is the first time you're starting this server.
-[13:06:04] [Server thread/INFO]: It's recommended you read our 'Getting Started' documentation for guidance.
-[13:06:04] [Server thread/INFO]: View this and more helpful information here: https://docs.papermc.io/paper/next-steps
-[13:06:04] [Server thread/INFO]: *************************************************************************************
-[13:06:04] [Server thread/INFO]: Timings Reset
-[13:06:04] [Server thread/INFO]: Stopping the server
-[13:06:04] [Server thread/INFO]: Stopping server
-[13:06:04] [Server thread/INFO]: Saving players
-[13:06:04] [Server thread/INFO]: Saving worlds
-[13:06:04] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:overworld
-[13:06:04] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk system to halt for world 'world'
-[13:06:04] [Server thread/INFO]: [ChunkHolderManager] Halted chunk system for world 'world'
-[13:06:04] [Server thread/INFO]: [ChunkHolderManager] Saving all chunkholders for world 'world'
-[13:06:05] [Server thread/INFO]: [ChunkHolderManager] Saved 841 block chunks, 49 entity chunks, 0 poi chunks in world 'world' in 0.53s
-[13:06:05] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world_nether]'/minecraft:the_nether
-[13:06:05] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk system to halt for world 'world_nether'
-[13:06:05] [Server thread/INFO]: [ChunkHolderManager] Halted chunk system for world 'world_nether'
-[13:06:05] [Server thread/INFO]: [ChunkHolderManager] Saving all chunkholders for world 'world_nether'
-[13:06:05] [Server thread/INFO]: [ChunkHolderManager] Saved 841 block chunks, 49 entity chunks, 0 poi chunks in world 'world_nether' in 0.18s
-[13:06:05] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world_the_end]'/minecraft:the_end
-[13:06:05] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk system to halt for world 'world_the_end'
-[13:06:05] [Server thread/INFO]: [ChunkHolderManager] Halted chunk system for world 'world_the_end'
-[13:06:05] [Server thread/INFO]: [ChunkHolderManager] Saving all chunkholders for world 'world_the_end'
-[13:06:05] [Server thread/INFO]: [ChunkHolderManager] Saved 841 block chunks, 49 entity chunks, 0 poi chunks in world 'world_the_end' in 0.15s
-[13:06:05] [Server thread/INFO]: ThreadedAnvilChunkStorage (world): All chunks are saved
-[13:06:05] [Server thread/INFO]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
-[13:06:05] [Server thread/INFO]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
-[13:06:05] [Server thread/INFO]: ThreadedAnvilChunkStorage: All dimensions are saved
+[15:52:20] [Server thread/INFO]: [CrashSleuthFixture] Disabling CrashSleuthFixture v1.0.0
+[15:52:20] [Server thread/INFO]: [spark] Starting background profiler...
+[15:52:20] [Server thread/INFO]: Done preparing level "world" (3.998s)
+[15:52:20] [Server thread/INFO]: Running delayed init tasks
+[15:52:20] [Server thread/INFO]: Done (10.953s)! For help, type "help"
+[15:52:20] [Server thread/INFO]: *************************************************************************************
+[15:52:20] [Server thread/INFO]: This is the first time you're starting this server.
+[15:52:20] [Server thread/INFO]: It's recommended you read our 'Getting Started' documentation for guidance.
+[15:52:20] [Server thread/INFO]: View this and more helpful information here: https://docs.papermc.io/paper/next-steps
+[15:52:20] [Server thread/INFO]: *************************************************************************************
+[15:52:20] [Server thread/INFO]: Timings Reset
+[15:52:20] [Server thread/INFO]: Stopping the server
+[15:52:20] [Server thread/INFO]: Stopping server
+[15:52:20] [Server thread/INFO]: Saving players
+[15:52:20] [Server thread/INFO]: Saving worlds
+[15:52:20] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:overworld
+[15:52:20] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk system to halt for world 'world'
+[15:52:20] [Server thread/INFO]: [ChunkHolderManager] Halted chunk system for world 'world'
+[15:52:20] [Server thread/INFO]: [ChunkHolderManager] Saving all chunkholders for world 'world'
+[15:52:21] [Server thread/INFO]: [ChunkHolderManager] Saved 841 block chunks, 49 entity chunks, 0 poi chunks in world 'world' in 0.38s
+[15:52:21] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world_nether]'/minecraft:the_nether
+[15:52:21] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk system to halt for world 'world_nether'
+[15:52:21] [Server thread/INFO]: [ChunkHolderManager] Halted chunk system for world 'world_nether'
+[15:52:21] [Server thread/INFO]: [ChunkHolderManager] Saving all chunkholders for world 'world_nether'
+[15:52:21] [Server thread/INFO]: [ChunkHolderManager] Saved 841 block chunks, 49 entity chunks, 0 poi chunks in world 'world_nether' in 0.20s
+[15:52:21] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world_the_end]'/minecraft:the_end
+[15:52:21] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk system to halt for world 'world_the_end'
+[15:52:21] [Server thread/INFO]: [ChunkHolderManager] Halted chunk system for world 'world_the_end'
+[15:52:21] [Server thread/INFO]: [ChunkHolderManager] Saving all chunkholders for world 'world_the_end'
+[15:52:21] [Server thread/INFO]: [ChunkHolderManager] Saved 841 block chunks, 49 entity chunks, 0 poi chunks in world 'world_the_end' in 0.13s
+[15:52:21] [Server thread/INFO]: ThreadedAnvilChunkStorage (world): All chunks are saved
+[15:52:21] [Server thread/INFO]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[15:52:21] [Server thread/INFO]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[15:52:21] [Server thread/INFO]: ThreadedAnvilChunkStorage: All dimensions are saved

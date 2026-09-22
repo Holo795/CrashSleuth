@@ -46,7 +46,9 @@
      "apiVersion": "1.13",
      "entrypoints": [
       "org.popcraft.chunky.ChunkyBukkit"
-     ]
+     ],
+     "addsContent": false,
+     "optionalOnClient": false
     }
    ],
    "nested": [],
@@ -83,7 +85,9 @@
      "apiVersion": "1.13",
      "entrypoints": [
       "me.lucko.luckperms.bukkit.loader.BukkitLoaderPlugin"
-     ]
+     ],
+     "addsContent": false,
+     "optionalOnClient": false
     }
    ],
    "nested": [],
@@ -112,7 +116,9 @@
      "breaks": [],
      "provides": [],
      "apiVersion": null,
-     "entrypoints": []
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
     },
     {
      "format": "BUKKIT",
@@ -126,7 +132,9 @@
      "apiVersion": "1.13",
      "entrypoints": [
       "com.viaversion.viaversion.ViaVersionPlugin"
-     ]
+     ],
+     "addsContent": false,
+     "optionalOnClient": false
     },
     {
      "format": "VELOCITY",
@@ -138,7 +146,9 @@
      "breaks": [],
      "provides": [],
      "apiVersion": null,
-     "entrypoints": []
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
     }
    ],
    "nested": [],
@@ -155,7 +165,11 @@
     "dataVersion": 5023,
     "unreadable": null,
     "hasBackup": true,
-    "locked": false
+    "locked": false,
+    "damagedChunks": [],
+    "chunksChecked": 1587,
+    "chunksComplete": true,
+    "damagedPlayers": []
    }
   ],
   "eulaAccepted": true,

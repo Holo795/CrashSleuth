@@ -225,7 +225,7 @@ object OutOfMemoryDetector : Detector {
     // A damaged chunk can announce a huge size and exhaust memory in the threads that read chunks from disk:
     // there the error is a consequence, the damaged chunk is the cause.
     override fun detect(document: LogDocument, environment: Environment): List<Finding> {
-        val match = document.findAll(LINE).firstOrNull { !whileReadingChunks(document, it.range.first) } ?: return emptyList()
+        val match = document.findAll(LINE).firstOrNull { !whileReadingChunks(document.text, it.range.first) } ?: return emptyList()
         return listOf(
             Finding(
                 situation = Situation.OUT_OF_MEMORY,
@@ -238,11 +238,23 @@ object OutOfMemoryDetector : Detector {
     }
 }
 
-/** The log entry an error belongs to (its line with the time and thread) was written while reading chunks. */
-private fun whileReadingChunks(document: LogDocument, offset: Int): Boolean {
-    val owner = document.text.substring(0, offset).split('\n').takeLast(80).lastOrNull { it.startsWith("[") } ?: return false
-    return Regex("""IO-Worker-\d+|RegionFile I/O Thread|Failed to (?:read|load) (?:entity )?chunk""").containsMatchIn(owner)
+/**
+ * The log entry an error belongs to (its line with the time and thread) was written while reading chunks. Only
+ * the lines just before the error are read: a log with thousands of errors must not be split again for each.
+ */
+private fun whileReadingChunks(text: String, offset: Int): Boolean {
+    var end = offset
+    repeat(80) {
+        val start = text.lastIndexOf('\n', end - 1).let { if (it < 0) 0 else it + 1 }
+        val line = text.substring(start, maxOf(start, end))
+        if (line.startsWith("[")) return CHUNK_IO.containsMatchIn(line)
+        if (start == 0) return false
+        end = start - 1
+    }
+    return false
 }
+
+private val CHUNK_IO = Regex("""IO-Worker-\d+|RegionFile I/O Thread|Failed to (?:read|load) (?:entity )?chunk""")
 
 /** `java.lang.StackOverflowError`: the repeating frames tell who loops. */
 object StackOverflowDetector : Detector {

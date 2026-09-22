@@ -41,7 +41,9 @@
      "apiVersion": null,
      "entrypoints": [
       "me.jellysquid.mods.lithium.common.LithiumMod"
-     ]
+     ],
+     "addsContent": false,
+     "optionalOnClient": false
     }
    ],
    "nested": [],

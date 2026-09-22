@@ -398,7 +398,7 @@
       "id": "world-session-locked",
       "situation": "WORLD_LOCKED",
       "confidence": "CERTAIN",
-      "pattern": "([^\\s/]+)/session\\.lock: already locked",
+      "pattern": "(?<![^\\s/])([^\\s/]++)/session\\.lock: already locked",
       "culprits": [
         {
           "group": 1,
@@ -658,6 +658,24 @@
       "details": {},
       "advice": "signature.killed.advice",
       "source": "lab: paper-container-killed (Paper 1.21.1 with -Xmx3G in a 1.5 GB container: the kernel kills Java, exit code 137, the start script prints Killed)"
+    },
+    {
+      "id": "fml-mod-incompatible",
+      "situation": "MOD_CONFLICT",
+      "confidence": "CERTAIN",
+      "pattern": "Mod '([\\w-]+)' is incompatible with '([\\w-]+)', versions: '[^']*'; Version found: '([^']*)'",
+      "culprits": [
+        {
+          "group": 1,
+          "kind": "MOD"
+        },
+        {
+          "group": 2,
+          "kind": "MOD",
+          "version": 3
+        }
+      ],
+      "source": "lab: neoforge-client-sodium-embeddium (NeoForge 1.21.1 refuses two forks of the same renderer)"
     }
   ]
 }

@@ -74,8 +74,8 @@ object ShareLink {
                     title = text.title(finding),
                     confidence = finding.confidence.name,
                     culprits = text.culprits(finding).map { Culprit(it.label, it.id.takeIf { id -> id != it.label }, it.version) },
-                    advice = text.advice(finding),
-                    evidence = finding.evidence.take(MAX_EVIDENCE).map { it.take(MAX_LINE) },
+                    advice = Privacy.clean(text.advice(finding)),
+                    evidence = finding.evidence.take(MAX_EVIDENCE).map { Privacy.clean(it).take(MAX_LINE) },
                 )
             },
             installed = analysis.inventory?.jars.orEmpty().take(MAX_INSTALLED).map { jar ->

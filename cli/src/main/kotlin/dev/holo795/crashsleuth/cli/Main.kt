@@ -12,6 +12,8 @@ import com.github.ajalt.clikt.parameters.options.option
 import com.github.ajalt.clikt.parameters.types.choice
 import com.github.ajalt.clikt.parameters.types.path
 import dev.holo795.crashsleuth.app.Analysis
+import dev.holo795.crashsleuth.app.LocalAi
+import dev.holo795.crashsleuth.app.Mappings
 import dev.holo795.crashsleuth.app.ModrinthCheck
 import dev.holo795.crashsleuth.app.ShareLink
 import dev.holo795.crashsleuth.app.Target
@@ -47,6 +49,8 @@ class Analyze : CliktCommand(name = "analyze") {
     private val online by option("--online", help = "ask Modrinth (by file hash only) whether newer versions of the installed mods exist").flag()
     private val share by option("--share", help = "print a link that opens this report in a browser (the report is inside the link; nothing is uploaded)").flag()
     private val side by option("--side", help = "side a modpack is checked for (server, client)").choice("server", "client").default("server")
+    private val explain by option("--explain", help = "ask a model running on this computer (Ollama, or CRASHSLEUTH_AI_URL) to explain the report; only an anonymised summary is sent").flag()
+    private val readable by option("--readable", help = "translate game code names in the evidence into Mojang's names (downloads the mappings once)").flag()
     private val server by option("--server", help = "server folder or modpack the player joins: the mods of both sides are compared")
         .path(mustExist = true, mustBeReadable = true)
 
@@ -74,13 +78,27 @@ class Analyze : CliktCommand(name = "analyze") {
         } else {
             diagnosed
         }
+        val shown = if (!readable) report else report.environment.minecraftVersion?.let { minecraft ->
+            val mappings = Mappings.load(minecraft)
+            report.copy(
+                findings = report.findings.map { it.copy(evidence = it.evidence.map(mappings::translate)) },
+                exceptions = report.exceptions.map(mappings::translate),
+            )
+        } ?: report
         inventory?.skipped?.takeIf { it.isNotEmpty() }?.let { skipped ->
             System.err.println(Messages.forLanguage(language).get("report.skipped", skipped.size, skipped.take(5).joinToString()))
         }
         if (json) {
-            echo(JSON.encodeToString(Report.serializer(), report))
+            echo(JSON.encodeToString(Report.serializer(), shown))
         } else {
-            echo(ReportPrinter(Messages.forLanguage(language)).render(report))
+            echo(ReportPrinter(Messages.forLanguage(language)).render(shown))
+        }
+        if (explain) {
+            val ai = LocalAi()
+            val messages = Messages.forLanguage(language)
+            echo("")
+            echo(messages.get("report.explanation"))
+            echo(runCatching { ai.explain(Analysis(Target.of(targets.first()), shown, inventory), messages) }.getOrElse { messages.get("report.explanation.none", ai.url) })
         }
         if (share) {
             val target = targets.first()
@@ -88,6 +106,20 @@ class Analyze : CliktCommand(name = "analyze") {
             echo("")
             echo(ShareLink.link(ShareLink.build(analysis, Messages.forLanguage(language))))
         }
+    }
+}
+
+class ReadableCommand : CliktCommand(name = "readable") {
+    override fun help(context: Context) = "Print a log or crash report with the names of game code translated into Mojang's names."
+
+    private val file by argument(help = "latest.log, debug.log or a crash report").path(mustExist = true, mustBeReadable = true)
+    private val minecraft by option("--minecraft", help = "Minecraft version (read from the log when it says it)")
+
+    override fun run() {
+        val text = file.readText(Charsets.UTF_8)
+        val version = minecraft ?: dev.holo795.crashsleuth.logs.LogAnalyzer().analyze(text).environment.minecraftVersion
+            ?: throw com.github.ajalt.clikt.core.UsageError("The log does not say its Minecraft version: give it with --minecraft")
+        echo(Mappings.load(version).translate(text))
     }
 }
 
@@ -99,4 +131,4 @@ class InventoryCommand : CliktCommand(name = "inventory") {
     override fun run() = echo(JSON.encodeToString(Inventory.serializer(), if (folder.isDirectory()) InstanceScanner.scan(folder) else PackScanner().scan(folder)))
 }
 
-fun main(args: Array<String>) = CrashSleuth().subcommands(Analyze(), InventoryCommand(), BisectCommand(), MixinsCommand(), RunClientCommand()).main(args)
+fun main(args: Array<String>) = CrashSleuth().subcommands(Analyze(), ReadableCommand(), InventoryCommand(), BisectCommand(), MixinsCommand(), RunClientCommand()).main(args)

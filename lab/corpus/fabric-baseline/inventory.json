@@ -46,7 +46,9 @@
      "apiVersion": null,
      "entrypoints": [
       "org.popcraft.chunky.ChunkyFabric"
-     ]
+     ],
+     "addsContent": false,
+     "optionalOnClient": false
     }
    ],
    "nested": [],
@@ -89,7 +91,9 @@
       "fabric"
      ],
      "apiVersion": null,
-     "entrypoints": []
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
     }
    ],
    "nested": [
@@ -110,7 +114,9 @@
      "breaks": [],
      "provides": [],
      "apiVersion": null,
-     "entrypoints": []
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
     },
     {
      "format": "FABRIC",
@@ -143,7 +149,9 @@
      "apiVersion": null,
      "entrypoints": [
       "net.fabricmc.fabric.impl.lookup.ApiLookupImpl"
-     ]
+     ],
+     "addsContent": false,
+     "optionalOnClient": false
     },
     {
      "format": "FABRIC",
@@ -168,7 +176,9 @@
      "breaks": [],
      "provides": [],
      "apiVersion": null,
-     "entrypoints": []
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
     },
     {
      "format": "FABRIC",
@@ -187,7 +197,9 @@
      "breaks": [],
      "provides": [],
      "apiVersion": null,
-     "entrypoints": []
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
     },
     {
      "format": "FABRIC",
@@ -206,7 +218,9 @@
      "breaks": [],
      "provides": [],
      "apiVersion": null,
-     "entrypoints": []
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
     },
     {
      "format": "FABRIC",
@@ -237,7 +251,9 @@
      "breaks": [],
      "provides": [],
      "apiVersion": null,
-     "entrypoints": []
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
     },
     {
      "format": "FABRIC",
@@ -256,7 +272,9 @@
      "breaks": [],
      "provides": [],
      "apiVersion": null,
-     "entrypoints": []
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
     },
     {
      "format": "FABRIC",
@@ -289,7 +307,9 @@
      "apiVersion": null,
      "entrypoints": [
       "net.fabricmc.fabric.impl.command.v1.LegacyHandler"
-     ]
+     ],
+     "addsContent": false,
+     "optionalOnClient": false
     },
     {
      "format": "FABRIC",
@@ -320,7 +340,9 @@
      "breaks": [],
      "provides": [],
      "apiVersion": null,
-     "entrypoints": []
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
     },
     {
      "format": "FABRIC",
@@ -351,7 +373,9 @@
      "breaks": [],
      "provides": [],
      "apiVersion": null,
-     "entrypoints": []
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
     },
     {
      "format": "FABRIC",
@@ -388,7 +412,9 @@
      "breaks": [],
      "provides": [],
      "apiVersion": null,
-     "entrypoints": []
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
     },
     {
      "format": "FABRIC",
@@ -415,7 +441,9 @@
      "apiVersion": null,
      "entrypoints": [
       "net.fabricmc.fabric.impl.tag.convention.ConventionLogWarnings"
-     ]
+     ],
+     "addsContent": false,
+     "optionalOnClient": false
     },
     {
      "format": "FABRIC",
@@ -448,7 +476,9 @@
      "apiVersion": null,
      "entrypoints": [
       "net.fabricmc.fabric.impl.tag.convention.v2.TranslationConventionLogWarnings"
-     ]
+     ],
+     "addsContent": false,
+     "optionalOnClient": false
     },
     {
      "format": "FABRIC",
@@ -467,7 +497,9 @@
      "breaks": [],
      "provides": [],
      "apiVersion": null,
-     "entrypoints": []
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
     },
     {
      "format": "FABRIC",
@@ -508,7 +540,9 @@
       "net.fabricmc.fabric.impl.attachment.AttachmentEntrypoint",
       "net.fabricmc.fabric.impl.attachment.sync.AttachmentSync",
       "net.fabricmc.fabric.impl.attachment.client.AttachmentSyncClient"
-     ]
+     ],
+     "addsContent": false,
+     "optionalOnClient": false
     },
     {
      "format": "FABRIC",
@@ -527,7 +561,9 @@
      "breaks": [],
      "provides": [],
      "apiVersion": null,
-     "entrypoints": []
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
     },
     {
      "format": "FABRIC",
@@ -558,7 +594,9 @@
      "breaks": [],
      "provides": [],
      "apiVersion": null,
-     "entrypoints": []
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
     },
     {
      "format": "FABRIC",
@@ -577,7 +615,9 @@
      "breaks": [],
      "provides": [],
      "apiVersion": null,
-     "entrypoints": []
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
     },
     {
      "format": "FABRIC",
@@ -617,7 +657,9 @@
      "entrypoints": [
       "net.fabricmc.fabric.impl.event.interaction.InteractionEventsRouter",
       "net.fabricmc.fabric.impl.event.interaction.client.InteractionEventsRouterClient"
-     ]
+     ],
+     "addsContent": false,
+     "optionalOnClient": false
     },
     {
      "format": "FABRIC",
@@ -636,7 +678,9 @@
      "breaks": [],
      "provides": [],
      "apiVersion": null,
-     "entrypoints": []
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
     },
     {
      "format": "FABRIC",
@@ -661,7 +705,9 @@
      "breaks": [],
      "provides": [],
      "apiVersion": null,
-     "entrypoints": []
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
     },
     {
      "format": "FABRIC",
@@ -692,7 +738,9 @@
      "breaks": [],
      "provides": [],
      "apiVersion": null,
-     "entrypoints": []
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
     },
     {
      "format": "FABRIC",
@@ -711,7 +759,9 @@
      "breaks": [],
      "provides": [],
      "apiVersion": null,
-     "entrypoints": []
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
     },
     {
      "format": "FABRIC",
@@ -736,7 +786,9 @@
      "breaks": [],
      "provides": [],
      "apiVersion": null,
-     "entrypoints": []
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
     },
     {
      "format": "FABRIC",
@@ -764,7 +816,9 @@
      "entrypoints": [
       "net.fabricmc.fabric.impl.event.lifecycle.LifecycleEventsImpl",
       "net.fabricmc.fabric.impl.client.event.lifecycle.ClientLifecycleEventsImpl"
-     ]
+     ],
+     "addsContent": false,
+     "optionalOnClient": false
     },
     {
      "format": "FABRIC",
@@ -797,7 +851,9 @@
      "apiVersion": null,
      "entrypoints": [
       "net.fabricmc.fabric.impl.loot.v2.LootInitializer"
-     ]
+     ],
+     "addsContent": false,
+     "optionalOnClient": false
     },
     {
      "format": "FABRIC",
@@ -828,7 +884,9 @@
      "breaks": [],
      "provides": [],
      "apiVersion": null,
-     "entrypoints": []
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
     },
     {
      "format": "FABRIC",
@@ -853,7 +911,9 @@
      "breaks": [],
      "provides": [],
      "apiVersion": null,
-     "entrypoints": []
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
     },
     {
      "format": "FABRIC",
@@ -878,7 +938,9 @@
      "breaks": [],
      "provides": [],
      "apiVersion": null,
-     "entrypoints": []
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
     },
     {
      "format": "FABRIC",
@@ -907,7 +969,9 @@
       "net.fabricmc.fabric.impl.networking.CommonPacketsImpl",
       "net.fabricmc.fabric.impl.networking.NetworkingImpl",
       "net.fabricmc.fabric.impl.networking.client.ClientNetworkingImpl"
-     ]
+     ],
+     "addsContent": false,
+     "optionalOnClient": false
     },
     {
      "format": "FABRIC",
@@ -932,7 +996,9 @@
      "breaks": [],
      "provides": [],
      "apiVersion": null,
-     "entrypoints": []
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
     },
     {
      "format": "FABRIC",
@@ -951,7 +1017,9 @@
      "breaks": [],
      "provides": [],
      "apiVersion": null,
-     "entrypoints": []
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
     },
     {
      "format": "FABRIC",
@@ -980,7 +1048,9 @@
       "net.fabricmc.fabric.impl.recipe.ingredient.CustomIngredientInit",
       "net.fabricmc.fabric.impl.recipe.ingredient.CustomIngredientSync",
       "net.fabricmc.fabric.impl.recipe.ingredient.client.CustomIngredientSyncClient"
-     ]
+     ],
+     "addsContent": false,
+     "optionalOnClient": false
     },
     {
      "format": "FABRIC",
@@ -1014,7 +1084,9 @@
      "entrypoints": [
       "net.fabricmc.fabric.impl.registry.sync.FabricRegistryInit",
       "net.fabricmc.fabric.impl.client.registry.sync.FabricRegistryClientInit"
-     ]
+     ],
+     "addsContent": false,
+     "optionalOnClient": false
     },
     {
      "format": "FABRIC",
@@ -1045,7 +1117,9 @@
      "breaks": [],
      "provides": [],
      "apiVersion": null,
-     "entrypoints": []
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
     },
     {
      "format": "FABRIC",
@@ -1084,7 +1158,9 @@
      "apiVersion": null,
      "entrypoints": [
       "net.fabricmc.fabric.impl.client.indigo.Indigo"
-     ]
+     ],
+     "addsContent": false,
+     "optionalOnClient": false
     },
     {
      "format": "FABRIC",
@@ -1121,7 +1197,9 @@
      "breaks": [],
      "provides": [],
      "apiVersion": null,
-     "entrypoints": []
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
     },
     {
      "format": "FABRIC",
@@ -1146,7 +1224,9 @@
      "breaks": [],
      "provides": [],
      "apiVersion": null,
-     "entrypoints": []
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
     },
     {
      "format": "FABRIC",
@@ -1171,7 +1251,9 @@
      "breaks": [],
      "provides": [],
      "apiVersion": null,
-     "entrypoints": []
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
     },
     {
      "format": "FABRIC",
@@ -1210,7 +1292,9 @@
      "apiVersion": null,
      "entrypoints": [
       "net.fabricmc.fabric.impl.client.rendering.v0.RenderingCallbackInvoker"
-     ]
+     ],
+     "addsContent": false,
+     "optionalOnClient": false
     },
     {
      "format": "FABRIC",
@@ -1235,7 +1319,9 @@
      "breaks": [],
      "provides": [],
      "apiVersion": null,
-     "entrypoints": []
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
     },
     {
      "format": "FABRIC",
@@ -1256,7 +1342,9 @@
      "apiVersion": null,
      "entrypoints": [
       "net.fabricmc.fabric.impl.resource.conditions.ResourceConditionsImpl"
-     ]
+     ],
+     "addsContent": false,
+     "optionalOnClient": false
     },
     {
      "format": "FABRIC",
@@ -1275,7 +1363,9 @@
      "breaks": [],
      "provides": [],
      "apiVersion": null,
-     "entrypoints": []
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
     },
     {
      "format": "FABRIC",
@@ -1300,7 +1390,9 @@
      "breaks": [],
      "provides": [],
      "apiVersion": null,
-     "entrypoints": []
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
     },
     {
      "format": "FABRIC",
@@ -1334,7 +1426,9 @@
      "entrypoints": [
       "net.fabricmc.fabric.impl.screenhandler.Networking",
       "net.fabricmc.fabric.impl.screenhandler.client.ClientNetworking"
-     ]
+     ],
+     "addsContent": false,
+     "optionalOnClient": false
     },
     {
      "format": "FABRIC",
@@ -1359,7 +1453,9 @@
      "breaks": [],
      "provides": [],
      "apiVersion": null,
-     "entrypoints": []
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
     },
     {
      "format": "FABRIC",
@@ -1390,7 +1486,9 @@
      "breaks": [],
      "provides": [],
      "apiVersion": null,
-     "entrypoints": []
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
     },
     {
      "format": "FABRIC",
@@ -1421,7 +1519,9 @@
      "breaks": [],
      "provides": [],
      "apiVersion": null,
-     "entrypoints": []
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
     },
     {
      "format": "FABRIC",
@@ -1440,7 +1540,9 @@
      "breaks": [],
      "provides": [],
      "apiVersion": null,
-     "entrypoints": []
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
     }
    ],
    "error": null,
@@ -1483,7 +1585,9 @@
      "apiVersion": null,
      "entrypoints": [
       "net.caffeinemc.mods.lithium.fabric.LithiumFabricMod"
-     ]
+     ],
+     "addsContent": false,
+     "optionalOnClient": false
     }
    ],
    "nested": [],
@@ -1521,7 +1625,9 @@
      "entrypoints": [
       "eu.pb4.styledchat.StyledChatMod",
       "eu.pb4.styledchat.CardboardWarning"
-     ]
+     ],
+     "addsContent": false,
+     "optionalOnClient": false
     }
    ],
    "nested": [
@@ -1548,7 +1654,9 @@
      "breaks": [],
      "provides": [],
      "apiVersion": null,
-     "entrypoints": []
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
     },
     {
      "format": "FABRIC",
@@ -1573,7 +1681,9 @@
      "breaks": [],
      "provides": [],
      "apiVersion": null,
-     "entrypoints": []
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
     },
     {
      "format": "FABRIC",
@@ -1598,7 +1708,9 @@
      "breaks": [],
      "provides": [],
      "apiVersion": null,
-     "entrypoints": []
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
     },
     {
      "format": "FABRIC",
@@ -1623,7 +1735,9 @@
      "breaks": [],
      "provides": [],
      "apiVersion": null,
-     "entrypoints": []
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
     }
    ],
    "error": null,
@@ -1639,7 +1753,11 @@
     "dataVersion": 3955,
     "unreadable": null,
     "hasBackup": true,
-    "locked": false
+    "locked": false,
+    "damagedChunks": [],
+    "chunksChecked": 845,
+    "chunksComplete": true,
+    "damagedPlayers": []
    }
   ],
   "eulaAccepted": true,

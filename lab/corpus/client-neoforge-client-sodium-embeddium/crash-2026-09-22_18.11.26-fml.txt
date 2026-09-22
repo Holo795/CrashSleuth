@@ -1,7 +1,7 @@
 ---- Minecraft Crash Report ----
-// There are four lights!
+// Hi. I'm Minecraft, and I'm a crashaholic.
 
-Time: 2026-09-22 16:14:44
+Time: 2026-09-22 18:11:26
 Description: Mod loading failures have occurred; consult the issue messages for more details
 
 net.neoforged.neoforge.logging.CrashReportExtender$ModLoadingCrashException: Mod loading has failed
@@ -10,14 +10,24 @@ net.neoforged.neoforge.logging.CrashReportExtender$ModLoadingCrashException: Mod
 A detailed walkthrough of the error, its code path and all known details is as follows:
 ---------------------------------------------------------------------------------------
 
--- Mod loading issue for: sophisticatedbackpacks --
+-- Mod loading issue for: embeddium --
 Details:
-	Mod file: /srv/client/neoforge-client-missing-dependency/mods/sophisticatedbackpacks-1.21.1-3.26.3.2158.jar
-	Failure message: Mod sophisticatedbackpacks requires sophisticatedcore 1.5.1 or above
-		Currently, sophisticatedcore is not installed
-		
-	Mod version: 3.26.3
-	Mod issues URL: https://github.com/P3pp3rF1y/SophisticatedBackpacks/issues
+	Mod file: /srv/client/neoforge-client-sodium-embeddium/mods/embeddium-1.0.15+mc1.21.1.jar
+	Failure message: Mod embeddium is incompatible with sodium 0 or above
+		Currently, sodium is 0.8.13+mc1.21.1
+		The reason is: Embeddium cannot be used if Sodium is present. If you want to use Embeddium you will have to remove Sodium.
+	Mod version: 1.0.15+mc1.21.1
+	Mod issues URL: <No issues URL found>
+	Exception message: <No associated exception found>
+
+-- Mod loading issue for: sodium --
+Details:
+	Mod file: /srv/client/neoforge-client-sodium-embeddium/mods/sodium-neoforge-0.8.13+mc1.21.1.jar#185!/META-INF/jarjar/net.caffeinemc.sodium-neoforge-0.8.13+mc1.21.1-mod.jar
+	Failure message: Mod sodium is incompatible with embeddium 0.0.1 or above
+		Currently, embeddium is 1.0.15+mc1.21.1
+		The reason is: Sodium and Embeddium cannot be used together. Please remove Embeddium.
+	Mod version: 0.8.13+mc1.21.1
+	Mod issues URL: <No issues URL found>
 	Exception message: <No associated exception found>
 
 -- System Details --
@@ -27,7 +37,7 @@ Details:
 	Operating System: Mac OS X (aarch64) version 27.0
 	Java Version: 21.0.12.1, Homebrew
 	Java VM Version: OpenJDK 64-Bit Server VM (mixed mode, sharing), Homebrew
-	Memory: 48101568 bytes (45 MiB) / 515899392 bytes (492 MiB) up to 4294967296 bytes (4096 MiB)
+	Memory: 295816296 bytes (282 MiB) / 792723456 bytes (756 MiB) up to 4294967296 bytes (4096 MiB)
 	CPUs: 12
 	Processor Vendor: Apple Inc.
 	Processor Name: Apple M4 Pro
@@ -46,14 +56,14 @@ Details:
 	Memory slot #0 clockSpeed (GHz): 0.00
 	Memory slot #0 type: unknown
 	Virtual memory max (MiB): 43008.00
-	Virtual memory used (MiB): 37524.77
+	Virtual memory used (MiB): 38167.94
 	Swap memory total (MiB): 18432.00
-	Swap memory used (MiB): 16940.50
-	Space in storage for jna.tmpdir (MiB): available: 141284.22, total: 471482.09
-	Space in storage for org.lwjgl.system.SharedLibraryExtractPath (MiB): available: 141284.22, total: 471482.09
-	Space in storage for io.netty.native.workdir (MiB): available: 141284.22, total: 471482.09
-	Space in storage for java.io.tmpdir (MiB): available: 141284.22, total: 471482.09
-	Space in storage for workdir (MiB): available: 141284.22, total: 471482.09
+	Swap memory used (MiB): 17487.69
+	Space in storage for jna.tmpdir (MiB): available: 140252.73, total: 471482.09
+	Space in storage for org.lwjgl.system.SharedLibraryExtractPath (MiB): available: 140252.73, total: 471482.09
+	Space in storage for io.netty.native.workdir (MiB): available: 140252.73, total: 471482.09
+	Space in storage for java.io.tmpdir (MiB): available: 140252.73, total: 471482.09
+	Space in storage for workdir (MiB): available: 140252.73, total: 471482.09
 	JVM Flags: 1 total; -Xmx4G
 	ModLauncher: 11.0.5+main.901c6ea8
 	ModLauncher launch target: forgeclient

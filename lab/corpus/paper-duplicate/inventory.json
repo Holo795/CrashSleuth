@@ -46,7 +46,9 @@
      "apiVersion": "1.13",
      "entrypoints": [
       "org.popcraft.chunky.ChunkyBukkit"
-     ]
+     ],
+     "addsContent": false,
+     "optionalOnClient": false
     }
    ],
    "nested": [],
@@ -95,7 +97,9 @@
      "apiVersion": "1.13",
      "entrypoints": [
       "org.popcraft.chunky.ChunkyBukkit"
-     ]
+     ],
+     "addsContent": false,
+     "optionalOnClient": false
     }
    ],
    "nested": [],
@@ -112,7 +116,35 @@
     "dataVersion": 3955,
     "unreadable": null,
     "hasBackup": false,
-    "locked": false
+    "locked": false,
+    "damagedChunks": [],
+    "chunksChecked": 846,
+    "chunksComplete": true,
+    "damagedPlayers": []
+   },
+   {
+    "name": "world_nether",
+    "versionName": "1.21.1",
+    "dataVersion": 3955,
+    "unreadable": null,
+    "hasBackup": false,
+    "locked": false,
+    "damagedChunks": [],
+    "chunksChecked": 842,
+    "chunksComplete": true,
+    "damagedPlayers": []
+   },
+   {
+    "name": "world_the_end",
+    "versionName": "1.21.1",
+    "dataVersion": 3955,
+    "unreadable": null,
+    "hasBackup": false,
+    "locked": false,
+    "damagedChunks": [],
+    "chunksChecked": 851,
+    "chunksComplete": true,
+    "damagedPlayers": []
    }
   ],
   "eulaAccepted": true,

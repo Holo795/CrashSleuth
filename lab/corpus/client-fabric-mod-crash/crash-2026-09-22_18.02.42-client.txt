@@ -1,7 +1,7 @@
 ---- Minecraft Crash Report ----
-// Shall we play a game?
+// You should try our sister game, Minceraft!
 
-Time: 2026-09-22 11:25:03
+Time: 2026-09-22 18:02:42
 Description: Initializing game
 
 java.lang.RuntimeException: Could not execute entrypoint stage 'client' due to errors, provided by 'crashsleuth_fixture' at 'dev.holo795.crashsleuth.fixture.FixtureMod'!
@@ -48,7 +48,7 @@ Details:
 	Operating System: Mac OS X (aarch64) version 27.0
 	Java Version: 21.0.12.1, Homebrew
 	Java VM Version: OpenJDK 64-Bit Server VM (mixed mode, sharing), Homebrew
-	Memory: 69384568 bytes (66 MiB) / 566231040 bytes (540 MiB) up to 4294967296 bytes (4096 MiB)
+	Memory: 78351144 bytes (74 MiB) / 570425344 bytes (544 MiB) up to 4294967296 bytes (4096 MiB)
 	CPUs: 12
 	Processor Vendor: Apple Inc.
 	Processor Name: Apple M4 Pro
@@ -66,15 +66,15 @@ Details:
 	Memory slot #0 capacity (MiB): 0.00
 	Memory slot #0 clockSpeed (GHz): 0.00
 	Memory slot #0 type: unknown
-	Virtual memory max (MiB): 40960.00
-	Virtual memory used (MiB): 36100.88
-	Swap memory total (MiB): 16384.00
-	Swap memory used (MiB): 15613.00
-	Space in storage for jna.tmpdir (MiB): available: 149911.44, total: 471482.09
-	Space in storage for org.lwjgl.system.SharedLibraryExtractPath (MiB): available: 149911.44, total: 471482.09
-	Space in storage for io.netty.native.workdir (MiB): available: 149911.44, total: 471482.09
-	Space in storage for java.io.tmpdir (MiB): available: 149911.44, total: 471482.09
-	Space in storage for workdir (MiB): available: 149911.44, total: 471482.09
+	Virtual memory max (MiB): 43008.00
+	Virtual memory used (MiB): 37791.81
+	Swap memory total (MiB): 18432.00
+	Swap memory used (MiB): 17225.44
+	Space in storage for jna.tmpdir (MiB): available: 140552.84, total: 471482.09
+	Space in storage for org.lwjgl.system.SharedLibraryExtractPath (MiB): available: 140552.84, total: 471482.09
+	Space in storage for io.netty.native.workdir (MiB): available: 140552.84, total: 471482.09
+	Space in storage for java.io.tmpdir (MiB): available: 140552.84, total: 471482.09
+	Space in storage for workdir (MiB): available: 140552.84, total: 471482.09
 	JVM Flags: 1 total; -Xmx4G
 	Fabric Mods: 
 		appleskin: AppleSkin 3.0.6+mc1.21

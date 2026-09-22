@@ -1,0 +1,2091 @@
+{
+    "platform": "FABRIC",
+    "minecraftVersion": null,
+    "loaderVersion": null,
+    "side": "UNKNOWN",
+    "jars": [
+        {
+            "file": "fabric-api-0.116.17+1.21.1.jar",
+            "folder": "mods",
+            "size": 2452735,
+            "mods": [
+                {
+                    "format": "FABRIC",
+                    "id": "fabric-api",
+                    "name": "Fabric API",
+                    "version": "0.116.17+1.21.1",
+                    "environment": "UNKNOWN",
+                    "dependencies": [
+                        {
+                            "id": "fabricloader",
+                            "versionRange": ">=0.15.11",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        },
+                        {
+                            "id": "java",
+                            "versionRange": ">=21",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        },
+                        {
+                            "id": "minecraft",
+                            "versionRange": ">=1.21- <1.21.2-",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        }
+                    ],
+                    "breaks": [],
+                    "provides": [
+                        "fabric"
+                    ],
+                    "apiVersion": null,
+                    "entrypoints": [],
+                    "addsContent": false,
+                    "optionalOnClient": false
+                }
+            ],
+            "nested": [
+                {
+                    "format": "FABRIC",
+                    "id": "fabric-api-base",
+                    "name": "Fabric API Base",
+                    "version": "0.4.42+6573ed8c19",
+                    "environment": "UNKNOWN",
+                    "dependencies": [
+                        {
+                            "id": "fabricloader",
+                            "versionRange": ">=0.15.11",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        }
+                    ],
+                    "breaks": [],
+                    "provides": [],
+                    "apiVersion": null,
+                    "entrypoints": [],
+                    "addsContent": false,
+                    "optionalOnClient": false
+                },
+                {
+                    "format": "FABRIC",
+                    "id": "fabric-api-lookup-api-v1",
+                    "name": "Fabric API Lookup API (v1)",
+                    "version": "1.6.72+7b3d111d19",
+                    "environment": "UNKNOWN",
+                    "dependencies": [
+                        {
+                            "id": "fabricloader",
+                            "versionRange": ">=0.15.11",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        },
+                        {
+                            "id": "fabric-api-base",
+                            "versionRange": "*",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        },
+                        {
+                            "id": "fabric-lifecycle-events-v1",
+                            "versionRange": "*",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        }
+                    ],
+                    "breaks": [],
+                    "provides": [],
+                    "apiVersion": null,
+                    "entrypoints": [
+                        "net.fabricmc.fabric.impl.lookup.ApiLookupImpl"
+                    ],
+                    "addsContent": false,
+                    "optionalOnClient": false
+                },
+                {
+                    "format": "FABRIC",
+                    "id": "fabric-biome-api-v1",
+                    "name": "Fabric Biome API (v1)",
+                    "version": "13.0.31+d527f9fd19",
+                    "environment": "UNKNOWN",
+                    "dependencies": [
+                        {
+                            "id": "fabricloader",
+                            "versionRange": ">=0.15.11",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        },
+                        {
+                            "id": "minecraft",
+                            "versionRange": ">=1.16.2",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        }
+                    ],
+                    "breaks": [],
+                    "provides": [],
+                    "apiVersion": null,
+                    "entrypoints": [],
+                    "addsContent": false,
+                    "optionalOnClient": false
+                },
+                {
+                    "format": "FABRIC",
+                    "id": "fabric-block-api-v1",
+                    "name": "Fabric Block API (v1)",
+                    "version": "1.1.0+0bc3503219",
+                    "environment": "UNKNOWN",
+                    "dependencies": [
+                        {
+                            "id": "fabricloader",
+                            "versionRange": ">=0.15.11",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        }
+                    ],
+                    "breaks": [],
+                    "provides": [],
+                    "apiVersion": null,
+                    "entrypoints": [],
+                    "addsContent": false,
+                    "optionalOnClient": false
+                },
+                {
+                    "format": "FABRIC",
+                    "id": "fabric-block-view-api-v2",
+                    "name": "Fabric BlockView API (v2)",
+                    "version": "1.0.11+ebb2264e19",
+                    "environment": "UNKNOWN",
+                    "dependencies": [
+                        {
+                            "id": "fabricloader",
+                            "versionRange": ">=0.15.11",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        }
+                    ],
+                    "breaks": [],
+                    "provides": [],
+                    "apiVersion": null,
+                    "entrypoints": [],
+                    "addsContent": false,
+                    "optionalOnClient": false
+                },
+                {
+                    "format": "FABRIC",
+                    "id": "fabric-blockrenderlayer-v1",
+                    "name": "Fabric BlockRenderLayer Registration (v1)",
+                    "version": "1.1.52+0af3f5a719",
+                    "environment": "CLIENT",
+                    "dependencies": [
+                        {
+                            "id": "fabricloader",
+                            "versionRange": ">=0.15.11",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        },
+                        {
+                            "id": "minecraft",
+                            "versionRange": ">=1.15-alpha.19.38.b",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        },
+                        {
+                            "id": "fabric-api-base",
+                            "versionRange": "*",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        }
+                    ],
+                    "breaks": [],
+                    "provides": [],
+                    "apiVersion": null,
+                    "entrypoints": [],
+                    "addsContent": false,
+                    "optionalOnClient": false
+                },
+                {
+                    "format": "FABRIC",
+                    "id": "fabric-client-tags-api-v1",
+                    "name": "Fabric Client Tags",
+                    "version": "1.2.0+1eb36c0719",
+                    "environment": "CLIENT",
+                    "dependencies": [
+                        {
+                            "id": "fabricloader",
+                            "versionRange": ">=0.15.11",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        }
+                    ],
+                    "breaks": [],
+                    "provides": [],
+                    "apiVersion": null,
+                    "entrypoints": [],
+                    "addsContent": false,
+                    "optionalOnClient": false
+                },
+                {
+                    "format": "FABRIC",
+                    "id": "fabric-command-api-v1",
+                    "name": "Fabric Command API (v1)",
+                    "version": "1.2.49+f71b366f19",
+                    "environment": "UNKNOWN",
+                    "dependencies": [
+                        {
+                            "id": "fabricloader",
+                            "versionRange": ">=0.15.11",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        },
+                        {
+                            "id": "fabric-api-base",
+                            "versionRange": "*",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        },
+                        {
+                            "id": "fabric-command-api-v2",
+                            "versionRange": "*",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        }
+                    ],
+                    "breaks": [],
+                    "provides": [],
+                    "apiVersion": null,
+                    "entrypoints": [
+                        "net.fabricmc.fabric.impl.command.v1.LegacyHandler"
+                    ],
+                    "addsContent": false,
+                    "optionalOnClient": false
+                },
+                {
+                    "format": "FABRIC",
+                    "id": "fabric-command-api-v2",
+                    "name": "Fabric Command API (v2)",
+                    "version": "2.2.28+6ced4dd919",
+                    "environment": "UNKNOWN",
+                    "dependencies": [
+                        {
+                            "id": "fabricloader",
+                            "versionRange": ">=0.15.11",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        },
+                        {
+                            "id": "fabric-api-base",
+                            "versionRange": "*",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        },
+                        {
+                            "id": "minecraft",
+                            "versionRange": ">1.19-alpha.22.11.a",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        }
+                    ],
+                    "breaks": [],
+                    "provides": [],
+                    "apiVersion": null,
+                    "entrypoints": [],
+                    "addsContent": false,
+                    "optionalOnClient": false
+                },
+                {
+                    "format": "FABRIC",
+                    "id": "fabric-commands-v0",
+                    "name": "Fabric Commands (v0)",
+                    "version": "0.2.66+df3654b319",
+                    "environment": "UNKNOWN",
+                    "dependencies": [
+                        {
+                            "id": "fabricloader",
+                            "versionRange": ">=0.15.11",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        },
+                        {
+                            "id": "fabric-api-base",
+                            "versionRange": "*",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        },
+                        {
+                            "id": "fabric-command-api-v2",
+                            "versionRange": "*",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        }
+                    ],
+                    "breaks": [],
+                    "provides": [],
+                    "apiVersion": null,
+                    "entrypoints": [],
+                    "addsContent": false,
+                    "optionalOnClient": false
+                },
+                {
+                    "format": "FABRIC",
+                    "id": "fabric-content-registries-v0",
+                    "name": "Fabric Content Registries (v0)",
+                    "version": "8.0.19+b559734419",
+                    "environment": "UNKNOWN",
+                    "dependencies": [
+                        {
+                            "id": "fabricloader",
+                            "versionRange": ">=0.15.11",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        },
+                        {
+                            "id": "fabric-api-base",
+                            "versionRange": "*",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        },
+                        {
+                            "id": "fabric-lifecycle-events-v1",
+                            "versionRange": "*",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        },
+                        {
+                            "id": "fabric-resource-loader-v0",
+                            "versionRange": "*",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        }
+                    ],
+                    "breaks": [],
+                    "provides": [],
+                    "apiVersion": null,
+                    "entrypoints": [],
+                    "addsContent": false,
+                    "optionalOnClient": false
+                },
+                {
+                    "format": "FABRIC",
+                    "id": "fabric-convention-tags-v1",
+                    "name": "Fabric Convention Tags",
+                    "version": "2.1.7+7f945d5b19",
+                    "environment": "UNKNOWN",
+                    "dependencies": [
+                        {
+                            "id": "fabricloader",
+                            "versionRange": ">=0.15.11",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        },
+                        {
+                            "id": "minecraft",
+                            "versionRange": ">=1.18.2",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        }
+                    ],
+                    "breaks": [],
+                    "provides": [],
+                    "apiVersion": null,
+                    "entrypoints": [
+                        "net.fabricmc.fabric.impl.tag.convention.ConventionLogWarnings"
+                    ],
+                    "addsContent": false,
+                    "optionalOnClient": false
+                },
+                {
+                    "format": "FABRIC",
+                    "id": "fabric-convention-tags-v2",
+                    "name": "Fabric Convention Tags (v2)",
+                    "version": "2.12.0+c3656daa19",
+                    "environment": "UNKNOWN",
+                    "dependencies": [
+                        {
+                            "id": "fabricloader",
+                            "versionRange": ">=0.15.11",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        },
+                        {
+                            "id": "minecraft",
+                            "versionRange": ">=1.20.5-beta.1",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        },
+                        {
+                            "id": "fabric-lifecycle-events-v1",
+                            "versionRange": "*",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        }
+                    ],
+                    "breaks": [],
+                    "provides": [],
+                    "apiVersion": null,
+                    "entrypoints": [
+                        "net.fabricmc.fabric.impl.tag.convention.v2.TranslationConventionLogWarnings"
+                    ],
+                    "addsContent": false,
+                    "optionalOnClient": false
+                },
+                {
+                    "format": "FABRIC",
+                    "id": "fabric-crash-report-info-v1",
+                    "name": "Fabric Crash Report Info (v1)",
+                    "version": "0.2.29+0af3f5a719",
+                    "environment": "UNKNOWN",
+                    "dependencies": [
+                        {
+                            "id": "fabricloader",
+                            "versionRange": ">=0.15.11",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        }
+                    ],
+                    "breaks": [],
+                    "provides": [],
+                    "apiVersion": null,
+                    "entrypoints": [],
+                    "addsContent": false,
+                    "optionalOnClient": false
+                },
+                {
+                    "format": "FABRIC",
+                    "id": "fabric-data-attachment-api-v1",
+                    "name": "Fabric Data Attachment API (v1)",
+                    "version": "1.4.7+5b36e0f719",
+                    "environment": "UNKNOWN",
+                    "dependencies": [
+                        {
+                            "id": "fabricloader",
+                            "versionRange": ">=0.15.11",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        },
+                        {
+                            "id": "fabric-entity-events-v1",
+                            "versionRange": "*",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        },
+                        {
+                            "id": "fabric-object-builder-api-v1",
+                            "versionRange": "*",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        },
+                        {
+                            "id": "fabric-networking-api-v1",
+                            "versionRange": "*",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        }
+                    ],
+                    "breaks": [],
+                    "provides": [],
+                    "apiVersion": null,
+                    "entrypoints": [
+                        "net.fabricmc.fabric.impl.attachment.AttachmentEntrypoint",
+                        "net.fabricmc.fabric.impl.attachment.sync.AttachmentSync",
+                        "net.fabricmc.fabric.impl.attachment.client.AttachmentSyncClient"
+                    ],
+                    "addsContent": false,
+                    "optionalOnClient": false
+                },
+                {
+                    "format": "FABRIC",
+                    "id": "fabric-data-generation-api-v1",
+                    "name": "Fabric Data Generation API (v1)",
+                    "version": "20.3.0+1eb36c0719",
+                    "environment": "UNKNOWN",
+                    "dependencies": [
+                        {
+                            "id": "fabricloader",
+                            "versionRange": ">=0.15.11",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        }
+                    ],
+                    "breaks": [],
+                    "provides": [],
+                    "apiVersion": null,
+                    "entrypoints": [],
+                    "addsContent": false,
+                    "optionalOnClient": false
+                },
+                {
+                    "format": "FABRIC",
+                    "id": "fabric-dimensions-v1",
+                    "name": "Fabric Dimensions API (v1)",
+                    "version": "4.0.1+65213ef819",
+                    "environment": "UNKNOWN",
+                    "dependencies": [
+                        {
+                            "id": "fabricloader",
+                            "versionRange": ">=0.15.11",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        },
+                        {
+                            "id": "minecraft",
+                            "versionRange": ">=1.16-rc.3",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        },
+                        {
+                            "id": "fabric-api-base",
+                            "versionRange": "*",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        }
+                    ],
+                    "breaks": [],
+                    "provides": [],
+                    "apiVersion": null,
+                    "entrypoints": [],
+                    "addsContent": false,
+                    "optionalOnClient": false
+                },
+                {
+                    "format": "FABRIC",
+                    "id": "fabric-entity-events-v1",
+                    "name": "Fabric Entity Events (v1)",
+                    "version": "1.8.0+2b27e0a419",
+                    "environment": "UNKNOWN",
+                    "dependencies": [
+                        {
+                            "id": "fabricloader",
+                            "versionRange": ">=0.15.11",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        }
+                    ],
+                    "breaks": [],
+                    "provides": [],
+                    "apiVersion": null,
+                    "entrypoints": [],
+                    "addsContent": false,
+                    "optionalOnClient": false
+                },
+                {
+                    "format": "FABRIC",
+                    "id": "fabric-events-interaction-v0",
+                    "name": "Fabric Events Interaction (v0)",
+                    "version": "0.7.14+ba9dae0619",
+                    "environment": "UNKNOWN",
+                    "dependencies": [
+                        {
+                            "id": "fabricloader",
+                            "versionRange": ">=0.15.11",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        },
+                        {
+                            "id": "fabric-api-base",
+                            "versionRange": "*",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        },
+                        {
+                            "id": "fabric-networking-api-v1",
+                            "versionRange": "*",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        },
+                        {
+                            "id": "minecraft",
+                            "versionRange": ">=1.15-alpha.19.37.a",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        }
+                    ],
+                    "breaks": [],
+                    "provides": [],
+                    "apiVersion": null,
+                    "entrypoints": [
+                        "net.fabricmc.fabric.impl.event.interaction.InteractionEventsRouter",
+                        "net.fabricmc.fabric.impl.event.interaction.client.InteractionEventsRouterClient"
+                    ],
+                    "addsContent": false,
+                    "optionalOnClient": false
+                },
+                {
+                    "format": "FABRIC",
+                    "id": "fabric-game-rule-api-v1",
+                    "name": "Fabric Game Rule API (v1)",
+                    "version": "1.0.53+6ced4dd919",
+                    "environment": "UNKNOWN",
+                    "dependencies": [
+                        {
+                            "id": "fabricloader",
+                            "versionRange": ">=0.15.11",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        }
+                    ],
+                    "breaks": [],
+                    "provides": [],
+                    "apiVersion": null,
+                    "entrypoints": [],
+                    "addsContent": false,
+                    "optionalOnClient": false
+                },
+                {
+                    "format": "FABRIC",
+                    "id": "fabric-item-api-v1",
+                    "name": "Fabric Item API (v1)",
+                    "version": "11.3.0+467044f319",
+                    "environment": "UNKNOWN",
+                    "dependencies": [
+                        {
+                            "id": "fabricloader",
+                            "versionRange": ">=0.15.11",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        },
+                        {
+                            "id": "fabric-api-base",
+                            "versionRange": "*",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        }
+                    ],
+                    "breaks": [],
+                    "provides": [],
+                    "apiVersion": null,
+                    "entrypoints": [],
+                    "addsContent": false,
+                    "optionalOnClient": false
+                },
+                {
+                    "format": "FABRIC",
+                    "id": "fabric-item-group-api-v1",
+                    "name": "Fabric Item Group API (v1)",
+                    "version": "4.1.7+def88e3a19",
+                    "environment": "UNKNOWN",
+                    "dependencies": [
+                        {
+                            "id": "fabricloader",
+                            "versionRange": ">=0.15.11",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        },
+                        {
+                            "id": "fabric-api-base",
+                            "versionRange": "*",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        },
+                        {
+                            "id": "fabric-resource-loader-v0",
+                            "versionRange": "*",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        }
+                    ],
+                    "breaks": [],
+                    "provides": [],
+                    "apiVersion": null,
+                    "entrypoints": [],
+                    "addsContent": false,
+                    "optionalOnClient": false
+                },
+                {
+                    "format": "FABRIC",
+                    "id": "fabric-key-binding-api-v1",
+                    "name": "Fabric Key Binding API (v1)",
+                    "version": "1.0.47+0af3f5a719",
+                    "environment": "CLIENT",
+                    "dependencies": [
+                        {
+                            "id": "fabricloader",
+                            "versionRange": ">=0.15.11",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        }
+                    ],
+                    "breaks": [],
+                    "provides": [],
+                    "apiVersion": null,
+                    "entrypoints": [],
+                    "addsContent": false,
+                    "optionalOnClient": false
+                },
+                {
+                    "format": "FABRIC",
+                    "id": "fabric-keybindings-v0",
+                    "name": "Fabric Key Bindings (v0)",
+                    "version": "0.2.45+df3654b319",
+                    "environment": "CLIENT",
+                    "dependencies": [
+                        {
+                            "id": "fabricloader",
+                            "versionRange": ">=0.15.11",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        },
+                        {
+                            "id": "fabric-key-binding-api-v1",
+                            "versionRange": "*",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        }
+                    ],
+                    "breaks": [],
+                    "provides": [],
+                    "apiVersion": null,
+                    "entrypoints": [],
+                    "addsContent": false,
+                    "optionalOnClient": false
+                },
+                {
+                    "format": "FABRIC",
+                    "id": "fabric-lifecycle-events-v1",
+                    "name": "Fabric Lifecycle Events (v1)",
+                    "version": "2.6.0+0865547519",
+                    "environment": "UNKNOWN",
+                    "dependencies": [
+                        {
+                            "id": "fabricloader",
+                            "versionRange": ">=0.15.11",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        },
+                        {
+                            "id": "fabric-api-base",
+                            "versionRange": "*",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        }
+                    ],
+                    "breaks": [],
+                    "provides": [],
+                    "apiVersion": null,
+                    "entrypoints": [
+                        "net.fabricmc.fabric.impl.event.lifecycle.LifecycleEventsImpl",
+                        "net.fabricmc.fabric.impl.client.event.lifecycle.ClientLifecycleEventsImpl"
+                    ],
+                    "addsContent": false,
+                    "optionalOnClient": false
+                },
+                {
+                    "format": "FABRIC",
+                    "id": "fabric-loot-api-v2",
+                    "name": "Fabric Loot API (v2)",
+                    "version": "3.0.15+3f89f5a519",
+                    "environment": "UNKNOWN",
+                    "dependencies": [
+                        {
+                            "id": "fabricloader",
+                            "versionRange": ">=0.15.11",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        },
+                        {
+                            "id": "fabric-api-base",
+                            "versionRange": "*",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        },
+                        {
+                            "id": "fabric-resource-loader-v0",
+                            "versionRange": "*",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        }
+                    ],
+                    "breaks": [],
+                    "provides": [],
+                    "apiVersion": null,
+                    "entrypoints": [
+                        "net.fabricmc.fabric.impl.loot.v2.LootInitializer"
+                    ],
+                    "addsContent": false,
+                    "optionalOnClient": false
+                },
+                {
+                    "format": "FABRIC",
+                    "id": "fabric-loot-api-v3",
+                    "name": "Fabric Loot API (v3)",
+                    "version": "1.0.3+3f89f5a519",
+                    "environment": "UNKNOWN",
+                    "dependencies": [
+                        {
+                            "id": "fabricloader",
+                            "versionRange": ">=0.15.11",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        },
+                        {
+                            "id": "fabric-api-base",
+                            "versionRange": "*",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        },
+                        {
+                            "id": "fabric-resource-loader-v0",
+                            "versionRange": "*",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        }
+                    ],
+                    "breaks": [],
+                    "provides": [],
+                    "apiVersion": null,
+                    "entrypoints": [],
+                    "addsContent": false,
+                    "optionalOnClient": false
+                },
+                {
+                    "format": "FABRIC",
+                    "id": "fabric-message-api-v1",
+                    "name": "Fabric Message API (v1)",
+                    "version": "6.0.14+8aaf3aca19",
+                    "environment": "UNKNOWN",
+                    "dependencies": [
+                        {
+                            "id": "fabricloader",
+                            "versionRange": ">=0.15.11",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        },
+                        {
+                            "id": "fabric-api-base",
+                            "versionRange": "*",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        }
+                    ],
+                    "breaks": [],
+                    "provides": [],
+                    "apiVersion": null,
+                    "entrypoints": [],
+                    "addsContent": false,
+                    "optionalOnClient": false
+                },
+                {
+                    "format": "FABRIC",
+                    "id": "fabric-model-loading-api-v1",
+                    "name": "Fabric Model Loading API (v1)",
+                    "version": "2.1.0+b4d813fc19",
+                    "environment": "CLIENT",
+                    "dependencies": [
+                        {
+                            "id": "fabricloader",
+                            "versionRange": ">=0.15.11",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        },
+                        {
+                            "id": "fabric-api-base",
+                            "versionRange": "*",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        }
+                    ],
+                    "breaks": [],
+                    "provides": [],
+                    "apiVersion": null,
+                    "entrypoints": [],
+                    "addsContent": false,
+                    "optionalOnClient": false
+                },
+                {
+                    "format": "FABRIC",
+                    "id": "fabric-networking-api-v1",
+                    "name": "Fabric Networking API (v1)",
+                    "version": "4.3.1+d30f6a7919",
+                    "environment": "UNKNOWN",
+                    "dependencies": [
+                        {
+                            "id": "fabricloader",
+                            "versionRange": ">=0.15.11",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        },
+                        {
+                            "id": "fabric-api-base",
+                            "versionRange": "*",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        }
+                    ],
+                    "breaks": [],
+                    "provides": [],
+                    "apiVersion": null,
+                    "entrypoints": [
+                        "net.fabricmc.fabric.impl.networking.CommonPacketsImpl",
+                        "net.fabricmc.fabric.impl.networking.NetworkingImpl",
+                        "net.fabricmc.fabric.impl.networking.client.ClientNetworkingImpl"
+                    ],
+                    "addsContent": false,
+                    "optionalOnClient": false
+                },
+                {
+                    "format": "FABRIC",
+                    "id": "fabric-object-builder-api-v1",
+                    "name": "Fabric Object Builder API (v1)",
+                    "version": "15.2.1+40875a9319",
+                    "environment": "UNKNOWN",
+                    "dependencies": [
+                        {
+                            "id": "fabricloader",
+                            "versionRange": ">=0.15.11",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        },
+                        {
+                            "id": "fabric-api-base",
+                            "versionRange": "*",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        }
+                    ],
+                    "breaks": [],
+                    "provides": [],
+                    "apiVersion": null,
+                    "entrypoints": [],
+                    "addsContent": false,
+                    "optionalOnClient": false
+                },
+                {
+                    "format": "FABRIC",
+                    "id": "fabric-particles-v1",
+                    "name": "Fabric Particles (v1)",
+                    "version": "4.0.2+6573ed8c19",
+                    "environment": "UNKNOWN",
+                    "dependencies": [
+                        {
+                            "id": "fabricloader",
+                            "versionRange": ">=0.15.11",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        }
+                    ],
+                    "breaks": [],
+                    "provides": [],
+                    "apiVersion": null,
+                    "entrypoints": [],
+                    "addsContent": false,
+                    "optionalOnClient": false
+                },
+                {
+                    "format": "FABRIC",
+                    "id": "fabric-recipe-api-v1",
+                    "name": "Fabric Recipe API (v1)",
+                    "version": "5.0.16+2475392c19",
+                    "environment": "UNKNOWN",
+                    "dependencies": [
+                        {
+                            "id": "fabricloader",
+                            "versionRange": ">=0.15.11",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        },
+                        {
+                            "id": "fabric-networking-api-v1",
+                            "versionRange": "*",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        }
+                    ],
+                    "breaks": [],
+                    "provides": [],
+                    "apiVersion": null,
+                    "entrypoints": [
+                        "net.fabricmc.fabric.impl.recipe.ingredient.CustomIngredientInit",
+                        "net.fabricmc.fabric.impl.recipe.ingredient.CustomIngredientSync",
+                        "net.fabricmc.fabric.impl.recipe.ingredient.client.CustomIngredientSyncClient"
+                    ],
+                    "addsContent": false,
+                    "optionalOnClient": false
+                },
+                {
+                    "format": "FABRIC",
+                    "id": "fabric-registry-sync-v0",
+                    "name": "Fabric Registry Sync (v0)",
+                    "version": "5.3.2+e3eddc2119",
+                    "environment": "UNKNOWN",
+                    "dependencies": [
+                        {
+                            "id": "fabricloader",
+                            "versionRange": ">=0.15.11",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        },
+                        {
+                            "id": "fabric-api-base",
+                            "versionRange": "*",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        },
+                        {
+                            "id": "fabric-networking-api-v1",
+                            "versionRange": "*",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        }
+                    ],
+                    "breaks": [],
+                    "provides": [],
+                    "apiVersion": null,
+                    "entrypoints": [
+                        "net.fabricmc.fabric.impl.registry.sync.FabricRegistryInit",
+                        "net.fabricmc.fabric.impl.client.registry.sync.FabricRegistryClientInit"
+                    ],
+                    "addsContent": false,
+                    "optionalOnClient": false
+                },
+                {
+                    "format": "FABRIC",
+                    "id": "fabric-renderer-api-v1",
+                    "name": "Fabric Renderer API (v1)",
+                    "version": "3.4.1+b4d813fc19",
+                    "environment": "CLIENT",
+                    "dependencies": [
+                        {
+                            "id": "fabricloader",
+                            "versionRange": ">=0.15.11",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        },
+                        {
+                            "id": "minecraft",
+                            "versionRange": ">=1.15-alpha.19.39.a",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        },
+                        {
+                            "id": "fabric-api-base",
+                            "versionRange": "*",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        }
+                    ],
+                    "breaks": [],
+                    "provides": [],
+                    "apiVersion": null,
+                    "entrypoints": [],
+                    "addsContent": false,
+                    "optionalOnClient": false
+                },
+                {
+                    "format": "FABRIC",
+                    "id": "fabric-renderer-indigo",
+                    "name": "Fabric Renderer - Indigo",
+                    "version": "1.7.1+c705a49c19",
+                    "environment": "CLIENT",
+                    "dependencies": [
+                        {
+                            "id": "fabricloader",
+                            "versionRange": ">=0.15.11",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        },
+                        {
+                            "id": "minecraft",
+                            "versionRange": ">=1.15-alpha.19.39.a",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        },
+                        {
+                            "id": "fabric-api-base",
+                            "versionRange": "*",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        },
+                        {
+                            "id": "fabric-renderer-api-v1",
+                            "versionRange": "*",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        }
+                    ],
+                    "breaks": [],
+                    "provides": [],
+                    "apiVersion": null,
+                    "entrypoints": [
+                        "net.fabricmc.fabric.impl.client.indigo.Indigo"
+                    ],
+                    "addsContent": false,
+                    "optionalOnClient": false
+                },
+                {
+                    "format": "FABRIC",
+                    "id": "fabric-renderer-registries-v1",
+                    "name": "Fabric Renderer Registries (v1)",
+                    "version": "3.2.71+df3654b319",
+                    "environment": "CLIENT",
+                    "dependencies": [
+                        {
+                            "id": "fabricloader",
+                            "versionRange": ">=0.15.11",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        },
+                        {
+                            "id": "minecraft",
+                            "versionRange": ">=1.15-alpha.19.39.a",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        },
+                        {
+                            "id": "fabric-api-base",
+                            "versionRange": "*",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        },
+                        {
+                            "id": "fabric-rendering-v1",
+                            "versionRange": "*",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        }
+                    ],
+                    "breaks": [],
+                    "provides": [],
+                    "apiVersion": null,
+                    "entrypoints": [],
+                    "addsContent": false,
+                    "optionalOnClient": false
+                },
+                {
+                    "format": "FABRIC",
+                    "id": "fabric-rendering-data-attachment-v1",
+                    "name": "Fabric Rendering Data Attachment (v1)",
+                    "version": "0.3.49+73761d2e19",
+                    "environment": "UNKNOWN",
+                    "dependencies": [
+                        {
+                            "id": "fabricloader",
+                            "versionRange": ">=0.15.11",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        },
+                        {
+                            "id": "fabric-block-view-api-v2",
+                            "versionRange": "*",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        }
+                    ],
+                    "breaks": [],
+                    "provides": [],
+                    "apiVersion": null,
+                    "entrypoints": [],
+                    "addsContent": false,
+                    "optionalOnClient": false
+                },
+                {
+                    "format": "FABRIC",
+                    "id": "fabric-rendering-fluids-v1",
+                    "name": "Fabric Rendering Fluids (v1)",
+                    "version": "3.1.6+1daea21519",
+                    "environment": "UNKNOWN",
+                    "dependencies": [
+                        {
+                            "id": "fabricloader",
+                            "versionRange": ">=0.15.11",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        },
+                        {
+                            "id": "fabric-api-base",
+                            "versionRange": "*",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        }
+                    ],
+                    "breaks": [],
+                    "provides": [],
+                    "apiVersion": null,
+                    "entrypoints": [],
+                    "addsContent": false,
+                    "optionalOnClient": false
+                },
+                {
+                    "format": "FABRIC",
+                    "id": "fabric-rendering-v0",
+                    "name": "Fabric Rendering (v0)",
+                    "version": "1.1.74+df3654b319",
+                    "environment": "CLIENT",
+                    "dependencies": [
+                        {
+                            "id": "fabricloader",
+                            "versionRange": ">=0.15.11",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        },
+                        {
+                            "id": "minecraft",
+                            "versionRange": ">=1.15-alpha.19.39.a",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        },
+                        {
+                            "id": "fabric-api-base",
+                            "versionRange": "*",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        },
+                        {
+                            "id": "fabric-rendering-v1",
+                            "versionRange": "*",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        }
+                    ],
+                    "breaks": [],
+                    "provides": [],
+                    "apiVersion": null,
+                    "entrypoints": [
+                        "net.fabricmc.fabric.impl.client.rendering.v0.RenderingCallbackInvoker"
+                    ],
+                    "addsContent": false,
+                    "optionalOnClient": false
+                },
+                {
+                    "format": "FABRIC",
+                    "id": "fabric-rendering-v1",
+                    "name": "Fabric Rendering (v1)",
+                    "version": "5.2.1+f44c2eea19",
+                    "environment": "CLIENT",
+                    "dependencies": [
+                        {
+                            "id": "fabricloader",
+                            "versionRange": ">=0.15.11",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        },
+                        {
+                            "id": "fabric-api-base",
+                            "versionRange": "*",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        }
+                    ],
+                    "breaks": [],
+                    "provides": [],
+                    "apiVersion": null,
+                    "entrypoints": [],
+                    "addsContent": false,
+                    "optionalOnClient": false
+                },
+                {
+                    "format": "FABRIC",
+                    "id": "fabric-resource-conditions-api-v1",
+                    "name": "Fabric Resource Conditions API (v1)",
+                    "version": "4.3.0+8dc279b119",
+                    "environment": "UNKNOWN",
+                    "dependencies": [
+                        {
+                            "id": "fabricloader",
+                            "versionRange": ">=0.15.11",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        }
+                    ],
+                    "breaks": [],
+                    "provides": [],
+                    "apiVersion": null,
+                    "entrypoints": [
+                        "net.fabricmc.fabric.impl.resource.conditions.ResourceConditionsImpl"
+                    ],
+                    "addsContent": false,
+                    "optionalOnClient": false
+                },
+                {
+                    "format": "FABRIC",
+                    "id": "fabric-resource-loader-v0",
+                    "name": "Fabric Resource Loader (v0)",
+                    "version": "1.3.1+5b5275af19",
+                    "environment": "UNKNOWN",
+                    "dependencies": [
+                        {
+                            "id": "fabricloader",
+                            "versionRange": ">=0.15.11",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        }
+                    ],
+                    "breaks": [],
+                    "provides": [],
+                    "apiVersion": null,
+                    "entrypoints": [],
+                    "addsContent": false,
+                    "optionalOnClient": false
+                },
+                {
+                    "format": "FABRIC",
+                    "id": "fabric-screen-api-v1",
+                    "name": "Fabric Screen API (v1)",
+                    "version": "2.0.26+639b4c0719",
+                    "environment": "CLIENT",
+                    "dependencies": [
+                        {
+                            "id": "fabricloader",
+                            "versionRange": ">=0.15.11",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        },
+                        {
+                            "id": "fabric-api-base",
+                            "versionRange": "*",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        }
+                    ],
+                    "breaks": [],
+                    "provides": [],
+                    "apiVersion": null,
+                    "entrypoints": [],
+                    "addsContent": false,
+                    "optionalOnClient": false
+                },
+                {
+                    "format": "FABRIC",
+                    "id": "fabric-screen-handler-api-v1",
+                    "name": "Fabric Screen Handler API (v1)",
+                    "version": "1.3.91+b559734419",
+                    "environment": "UNKNOWN",
+                    "dependencies": [
+                        {
+                            "id": "fabricloader",
+                            "versionRange": ">=0.15.11",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        },
+                        {
+                            "id": "fabric-api-base",
+                            "versionRange": "*",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        },
+                        {
+                            "id": "fabric-networking-api-v1",
+                            "versionRange": "*",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        }
+                    ],
+                    "breaks": [],
+                    "provides": [],
+                    "apiVersion": null,
+                    "entrypoints": [
+                        "net.fabricmc.fabric.impl.screenhandler.Networking",
+                        "net.fabricmc.fabric.impl.screenhandler.client.ClientNetworking"
+                    ],
+                    "addsContent": false,
+                    "optionalOnClient": false
+                },
+                {
+                    "format": "FABRIC",
+                    "id": "fabric-sound-api-v1",
+                    "name": "Fabric Sound API (v1)",
+                    "version": "1.0.23+6573ed8c19",
+                    "environment": "CLIENT",
+                    "dependencies": [
+                        {
+                            "id": "fabricloader",
+                            "versionRange": ">=0.15.11",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        },
+                        {
+                            "id": "minecraft",
+                            "versionRange": ">=1.19.2",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        }
+                    ],
+                    "breaks": [],
+                    "provides": [],
+                    "apiVersion": null,
+                    "entrypoints": [],
+                    "addsContent": false,
+                    "optionalOnClient": false
+                },
+                {
+                    "format": "FABRIC",
+                    "id": "fabric-tag-api-v1",
+                    "name": "Fabric Tag API (v1)",
+                    "version": "1.3.0+1eb36c0719",
+                    "environment": "UNKNOWN",
+                    "dependencies": [
+                        {
+                            "id": "fabricloader",
+                            "versionRange": ">=0.15.11",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        },
+                        {
+                            "id": "fabric-api-base",
+                            "versionRange": "*",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        },
+                        {
+                            "id": "fabric-resource-loader-v0",
+                            "versionRange": "*",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        }
+                    ],
+                    "breaks": [],
+                    "provides": [],
+                    "apiVersion": null,
+                    "entrypoints": [],
+                    "addsContent": false,
+                    "optionalOnClient": false
+                },
+                {
+                    "format": "FABRIC",
+                    "id": "fabric-transfer-api-v1",
+                    "name": "Fabric Transfer API (v1)",
+                    "version": "5.4.4+7b3d111d19",
+                    "environment": "UNKNOWN",
+                    "dependencies": [
+                        {
+                            "id": "fabricloader",
+                            "versionRange": ">=0.15.11",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        },
+                        {
+                            "id": "fabric-api-lookup-api-v1",
+                            "versionRange": "*",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        },
+                        {
+                            "id": "fabric-rendering-fluids-v1",
+                            "versionRange": "*",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        }
+                    ],
+                    "breaks": [],
+                    "provides": [],
+                    "apiVersion": null,
+                    "entrypoints": [],
+                    "addsContent": false,
+                    "optionalOnClient": false
+                },
+                {
+                    "format": "FABRIC",
+                    "id": "fabric-transitive-access-wideners-v1",
+                    "name": "Fabric Transitive Access Wideners (v1)",
+                    "version": "6.2.0+45b9699719",
+                    "environment": "UNKNOWN",
+                    "dependencies": [
+                        {
+                            "id": "fabricloader",
+                            "versionRange": ">=0.15.11",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        }
+                    ],
+                    "breaks": [],
+                    "provides": [],
+                    "apiVersion": null,
+                    "entrypoints": [],
+                    "addsContent": false,
+                    "optionalOnClient": false
+                }
+            ],
+            "error": null,
+            "javaVersion": null
+        },
+        {
+            "file": "iris-fabric-1.8.8+mc1.21.1.jar",
+            "folder": "mods",
+            "size": 2690177,
+            "mods": [
+                {
+                    "format": "FABRIC",
+                    "id": "iris",
+                    "name": "Iris",
+                    "version": "1.8.8+mc1.21.1",
+                    "environment": "CLIENT",
+                    "dependencies": [
+                        {
+                            "id": "fabricloader",
+                            "versionRange": ">=0.12.3",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        },
+                        {
+                            "id": "minecraft",
+                            "versionRange": "1.21.x",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        },
+                        {
+                            "id": "sodium",
+                            "versionRange": "0.6.x",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        }
+                    ],
+                    "breaks": [
+                        {
+                            "id": "embeddium",
+                            "versionRange": "*",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        },
+                        {
+                            "id": "iris-explorer",
+                            "versionRange": "*",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        },
+                        {
+                            "id": "originsenhanced",
+                            "versionRange": "<=1.3.2",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        },
+                        {
+                            "id": "colormatic",
+                            "versionRange": "<=3.0.0",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        },
+                        {
+                            "id": "bedrockwaters",
+                            "versionRange": "<=1.6.0",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        },
+                        {
+                            "id": "batchedentityrendering",
+                            "versionRange": "*",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        },
+                        {
+                            "id": "canvas",
+                            "versionRange": "*",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        },
+                        {
+                            "id": "optifabric",
+                            "versionRange": "*",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        },
+                        {
+                            "id": "worldeditcui",
+                            "versionRange": "<1.18.1",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        },
+                        {
+                            "id": "physicsmod",
+                            "versionRange": "<=3.0.13",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        },
+                        {
+                            "id": "distanthorizons",
+                            "versionRange": "<=2.1.99",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        },
+                        {
+                            "id": "immersive_portals",
+                            "versionRange": "<=1.4.2",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        }
+                    ],
+                    "provides": [],
+                    "apiVersion": null,
+                    "entrypoints": [
+                        "net.irisshaders.iris.compat.modmenu.ModMenuIntegration"
+                    ],
+                    "addsContent": false,
+                    "optionalOnClient": false
+                }
+            ],
+            "nested": [
+                {
+                    "format": "FABRIC",
+                    "id": "org_antlr_antlr4-runtime",
+                    "name": "antlr4-runtime",
+                    "version": "4.13.1",
+                    "environment": "UNKNOWN",
+                    "dependencies": [],
+                    "breaks": [],
+                    "provides": [],
+                    "apiVersion": null,
+                    "entrypoints": [],
+                    "addsContent": false,
+                    "optionalOnClient": false
+                },
+                {
+                    "format": "FABRIC",
+                    "id": "fabric-api-base",
+                    "name": "Fabric API Base",
+                    "version": "0.4.42+6573ed8c19",
+                    "environment": "UNKNOWN",
+                    "dependencies": [
+                        {
+                            "id": "fabricloader",
+                            "versionRange": ">=0.15.11",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        }
+                    ],
+                    "breaks": [],
+                    "provides": [],
+                    "apiVersion": null,
+                    "entrypoints": [],
+                    "addsContent": false,
+                    "optionalOnClient": false
+                },
+                {
+                    "format": "FABRIC",
+                    "id": "fabric-key-binding-api-v1",
+                    "name": "Fabric Key Binding API (v1)",
+                    "version": "1.0.47+0af3f5a719",
+                    "environment": "CLIENT",
+                    "dependencies": [
+                        {
+                            "id": "fabricloader",
+                            "versionRange": ">=0.15.11",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        }
+                    ],
+                    "breaks": [],
+                    "provides": [],
+                    "apiVersion": null,
+                    "entrypoints": [],
+                    "addsContent": false,
+                    "optionalOnClient": false
+                },
+                {
+                    "format": "FABRIC",
+                    "id": "io_github_douira_glsl-transformer",
+                    "name": "glsl-transformer",
+                    "version": "2.0.1",
+                    "environment": "UNKNOWN",
+                    "dependencies": [],
+                    "breaks": [],
+                    "provides": [],
+                    "apiVersion": null,
+                    "entrypoints": [],
+                    "addsContent": false,
+                    "optionalOnClient": false
+                },
+                {
+                    "format": "FABRIC",
+                    "id": "org_anarres_jcpp",
+                    "name": "jcpp",
+                    "version": "1.4.14",
+                    "environment": "UNKNOWN",
+                    "dependencies": [],
+                    "breaks": [],
+                    "provides": [],
+                    "apiVersion": null,
+                    "entrypoints": [],
+                    "addsContent": false,
+                    "optionalOnClient": false
+                }
+            ],
+            "error": null,
+            "javaVersion": 21
+        },
+        {
+            "file": "sodium-fabric-0.6.13+mc1.21.1.jar",
+            "folder": "mods",
+            "size": 1297761,
+            "mods": [
+                {
+                    "format": "FABRIC",
+                    "id": "sodium",
+                    "name": "Sodium",
+                    "version": "0.6.13+mc1.21.1",
+                    "environment": "CLIENT",
+                    "dependencies": [
+                        {
+                            "id": "minecraft",
+                            "versionRange": "1.21 || 1.21.1",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        },
+                        {
+                            "id": "fabricloader",
+                            "versionRange": ">=0.16.0",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        },
+                        {
+                            "id": "fabric-block-view-api-v2",
+                            "versionRange": "*",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        },
+                        {
+                            "id": "fabric-renderer-api-v1",
+                            "versionRange": "*",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        },
+                        {
+                            "id": "fabric-rendering-data-attachment-v1",
+                            "versionRange": "*",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        },
+                        {
+                            "id": "fabric-rendering-fluids-v1",
+                            "versionRange": ">=2.0.0",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        },
+                        {
+                            "id": "fabric-resource-loader-v0",
+                            "versionRange": "*",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        }
+                    ],
+                    "breaks": [
+                        {
+                            "id": "embeddium",
+                            "versionRange": "*",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        },
+                        {
+                            "id": "optifabric",
+                            "versionRange": "*",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        },
+                        {
+                            "id": "canvas",
+                            "versionRange": "*",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        },
+                        {
+                            "id": "vulkanmod",
+                            "versionRange": "*",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        },
+                        {
+                            "id": "sodium-blendingregistry",
+                            "versionRange": "*",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        },
+                        {
+                            "id": "ocrenderfix_sodium",
+                            "versionRange": "*",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        },
+                        {
+                            "id": "betterfpsdist",
+                            "versionRange": "<=1.21-4.5",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        },
+                        {
+                            "id": "bobby",
+                            "versionRange": "<5.2.4",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        },
+                        {
+                            "id": "chunksfadein",
+                            "versionRange": "<2.0.2-1.21.2",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        },
+                        {
+                            "id": "cull-less-leaves",
+                            "versionRange": "<=1.3.0",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        },
+                        {
+                            "id": "cullleaves",
+                            "versionRange": "<=3.4.0-fabric",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        },
+                        {
+                            "id": "custom_hud",
+                            "versionRange": "<3.4.2",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        },
+                        {
+                            "id": "farsight",
+                            "versionRange": "<=1.21-4.3",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        },
+                        {
+                            "id": "iceberg",
+                            "versionRange": "<1.2.7",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        },
+                        {
+                            "id": "iris",
+                            "versionRange": "<1.8.7",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        },
+                        {
+                            "id": "movingelevators",
+                            "versionRange": "<=1.4.7",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        },
+                        {
+                            "id": "notenoughcrashes",
+                            "versionRange": "<4.4.8",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        },
+                        {
+                            "id": "noxesium",
+                            "versionRange": "<2.3.3",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        },
+                        {
+                            "id": "reeses-sodium-options",
+                            "versionRange": "<1.8.0",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        },
+                        {
+                            "id": "sodium-extra",
+                            "versionRange": "<0.6.0",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        },
+                        {
+                            "id": "sspb",
+                            "versionRange": "<4.0.0",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        },
+                        {
+                            "id": "moreculling",
+                            "versionRange": "<1.0.4",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        },
+                        {
+                            "id": "simply-no-shading",
+                            "versionRange": "<7.6.2",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        },
+                        {
+                            "id": "betterend",
+                            "versionRange": "<=21.0.11",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        }
+                    ],
+                    "provides": [
+                        "indium"
+                    ],
+                    "apiVersion": null,
+                    "entrypoints": [
+                        "net.caffeinemc.mods.sodium.fabric.SodiumFabricMod",
+                        "net.caffeinemc.mods.sodium.fabric.SodiumPreLaunch"
+                    ],
+                    "addsContent": false,
+                    "optionalOnClient": false
+                }
+            ],
+            "nested": [
+                {
+                    "format": "FABRIC",
+                    "id": "fabric-api-base",
+                    "name": "Fabric API Base",
+                    "version": "0.4.42+6573ed8c19",
+                    "environment": "UNKNOWN",
+                    "dependencies": [
+                        {
+                            "id": "fabricloader",
+                            "versionRange": ">=0.15.11",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        }
+                    ],
+                    "breaks": [],
+                    "provides": [],
+                    "apiVersion": null,
+                    "entrypoints": [],
+                    "addsContent": false,
+                    "optionalOnClient": false
+                },
+                {
+                    "format": "FABRIC",
+                    "id": "fabric-block-view-api-v2",
+                    "name": "Fabric BlockView API (v2)",
+                    "version": "1.0.10+6573ed8c19",
+                    "environment": "UNKNOWN",
+                    "dependencies": [
+                        {
+                            "id": "fabricloader",
+                            "versionRange": ">=0.15.11",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        }
+                    ],
+                    "breaks": [],
+                    "provides": [],
+                    "apiVersion": null,
+                    "entrypoints": [],
+                    "addsContent": false,
+                    "optionalOnClient": false
+                },
+                {
+                    "format": "FABRIC",
+                    "id": "fabric-renderer-api-v1",
+                    "name": "Fabric Renderer API (v1)",
+                    "version": "3.4.0+c705a49c19",
+                    "environment": "CLIENT",
+                    "dependencies": [
+                        {
+                            "id": "fabricloader",
+                            "versionRange": ">=0.15.11",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        },
+                        {
+                            "id": "minecraft",
+                            "versionRange": ">=1.15-alpha.19.39.a",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        },
+                        {
+                            "id": "fabric-api-base",
+                            "versionRange": "*",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        }
+                    ],
+                    "breaks": [],
+                    "provides": [],
+                    "apiVersion": null,
+                    "entrypoints": [],
+                    "addsContent": false,
+                    "optionalOnClient": false
+                },
+                {
+                    "format": "FABRIC",
+                    "id": "fabric-rendering-data-attachment-v1",
+                    "name": "Fabric Rendering Data Attachment (v1)",
+                    "version": "0.3.48+73761d2e19",
+                    "environment": "UNKNOWN",
+                    "dependencies": [
+                        {
+                            "id": "fabricloader",
+                            "versionRange": ">=0.15.11",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        },
+                        {
+                            "id": "fabric-block-view-api-v2",
+                            "versionRange": "*",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        }
+                    ],
+                    "breaks": [],
+                    "provides": [],
+                    "apiVersion": null,
+                    "entrypoints": [],
+                    "addsContent": false,
+                    "optionalOnClient": false
+                },
+                {
+                    "format": "FABRIC",
+                    "id": "fabric-rendering-fluids-v1",
+                    "name": "Fabric Rendering Fluids (v1)",
+                    "version": "3.1.6+1daea21519",
+                    "environment": "UNKNOWN",
+                    "dependencies": [
+                        {
+                            "id": "fabricloader",
+                            "versionRange": ">=0.15.11",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        },
+                        {
+                            "id": "fabric-api-base",
+                            "versionRange": "*",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        }
+                    ],
+                    "breaks": [],
+                    "provides": [],
+                    "apiVersion": null,
+                    "entrypoints": [],
+                    "addsContent": false,
+                    "optionalOnClient": false
+                },
+                {
+                    "format": "FABRIC",
+                    "id": "fabric-resource-loader-v0",
+                    "name": "Fabric Resource Loader (v0)",
+                    "version": "1.3.1+5b5275af19",
+                    "environment": "UNKNOWN",
+                    "dependencies": [
+                        {
+                            "id": "fabricloader",
+                            "versionRange": ">=0.15.11",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        }
+                    ],
+                    "breaks": [],
+                    "provides": [],
+                    "apiVersion": null,
+                    "entrypoints": [],
+                    "addsContent": false,
+                    "optionalOnClient": false
+                }
+            ],
+            "error": null,
+            "javaVersion": 21
+        }
+    ],
+    "skipped": [],
+    "files": {
+        "worlds": [
+            {
+                "name": "lab",
+                "versionName": "1.21.1",
+                "dataVersion": 3955,
+                "unreadable": null,
+                "hasBackup": true,
+                "locked": false,
+                "damagedChunks": [],
+                "chunksChecked": 847,
+                "chunksComplete": true,
+                "damagedPlayers": []
+            }
+        ],
+        "eulaAccepted": null,
+        "configErrors": []
+    }
+}

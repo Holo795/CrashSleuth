@@ -13,7 +13,8 @@ object EnvironmentDetector {
     private val CRAFTBUKKIT = Regex("""This server is running CraftBukkit version (\S+)""")
     private val MC_TAG = Regex("""\(MC: ([\w.-]+)\)|Implementing API version (\d[\w.]*?)-R""")
     private val VANILLA_SERVER = Regex("""Starting minecraft server version ([\w.-]+)""")
-    private val NEOFORGE = Regex("""(?:NeoForge|neoforge|net\.neoforged)[ :-]+(?:version\s+|net\.neoforged:)?(\d+\.\d+\.\d+[\w.-]*)""")
+    // Not inside another jar's name ("sodium-neoforge-0.8.13+mc1.21.1.jar" is Sodium's version).
+    private val NEOFORGE = Regex("""(?<![\w-])(?:NeoForge|neoforge|net\.neoforged)[ :-]+(?:version\s+|net\.neoforged:)?(\d+\.\d+\.\d+(?:-beta[\w.]*)?)""")
     private val FORGE = Regex("""(?:Forge|forge)[ :-]+(?:version\s+)?((?:\d+\.){2,3}\d+)""")
     private val FABRIC_LOADER = Regex("""(?:Fabric Loader|fabricloader)[ :]+(?:version\s+)?(\d+\.\d+\.\d+)""")
     private val QUILT_LOADER = Regex("""(?:Quilt Loader|quilt_loader)[ :]+(?:version\s+)?(\d+\.\d+\.\d+[\w.-]*)""")

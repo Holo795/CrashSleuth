@@ -256,5 +256,18 @@
     "crashsleuth-fixture"
    ]
   }
+ },
+ {
+  "name": "neoforge-client-sodium-embeddium",
+  "description": "NeoForge 1.21.1 client with Sodium and Embeddium, two forks of the same renderer",
+  "minecraft": "1.21.1",
+  "loader": "neoforge",
+  "mods": [
+   "sodium",
+   "embeddium"
+  ],
+  "expect": {
+   "situation": "MOD_CONFLICT"
+  }
  }
 ]

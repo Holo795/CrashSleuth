@@ -85,6 +85,17 @@ fun ReportScreen(state: AppState, analysis: Analysis) {
                 Spacer(Modifier.height(16.dp))
                 val primary = report.primary
                 if (primary == null) NoFinding(ui) else Verdict(ui, primary)
+                androidx.compose.runtime.LaunchedEffect(Unit) { if (state.localAi == null) state.lookForLocalAi() }
+                val explained = state.explanation?.takeIf { it.first == analysis.target.path }?.second
+                if (explained != null) {
+                    Spacer(Modifier.height(28.dp))
+                    Overline(ui["ai.title"])
+                    Spacer(Modifier.height(8.dp))
+                    Text(explained, style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.onSurfaceVariant)
+                } else if (state.localAi != null) {
+                    Spacer(Modifier.height(20.dp))
+                    TextButton(if (state.working(analysis, "explain")) ui["ai.working"] else ui["ai.button"], { if (!state.working(analysis)) state.explain(analysis) }, icon = Icons.Search)
+                }
                 val others = report.findings.drop(1)
                 if (others.isNotEmpty()) {
                     Spacer(Modifier.height(48.dp))
@@ -204,13 +215,13 @@ private fun SearchSection(state: AppState, analysis: Analysis) {
 @Composable
 private fun ToolsSection(state: AppState, analysis: Analysis) {
     val ui = state.ui
-    val working = state.busy == analysis.target.path
+    val working = state.working(analysis)
     Text(ui["tools.title"], style = MaterialTheme.typography.titleSmall)
     Spacer(Modifier.height(8.dp))
     if (analysis.target.kind != TargetKind.SERVER) {
         Text(analysis.comparedWith?.let { ui["tools.compare.done", shortPath(it)] } ?: ui["tools.compare.body"], style = MaterialTheme.typography.bodySmall, color = Theme.tones.muted)
         Spacer(Modifier.height(10.dp))
-        TextButton(ui["tools.compare.button"], { if (!working) state.compareWithServer(analysis) }, icon = Icons.Folder)
+        TextButton(if (state.working(analysis, "compare")) ui["tools.working"] else ui["tools.compare.button"], { if (!working) state.compareWithServer(analysis) }, icon = Icons.Folder)
         Spacer(Modifier.height(16.dp))
     }
     val outdated = analysis.report.findings.count { it.situation == Situation.OUTDATED }
@@ -220,7 +231,15 @@ private fun ToolsSection(state: AppState, analysis: Analysis) {
         else -> ui["tools.updates.found", outdated]
     }, style = MaterialTheme.typography.bodySmall, color = Theme.tones.muted)
     Spacer(Modifier.height(10.dp))
-    TextButton(if (working) ui["tools.working"] else ui["tools.updates.button"], { if (!working) state.checkUpdates(analysis) }, icon = Icons.Search)
+    TextButton(if (state.working(analysis, "updates")) ui["tools.working"] else ui["tools.updates.button"], { if (!working) state.checkUpdates(analysis) }, icon = Icons.Search)
+    if ((analysis.report.environment.minecraftVersion ?: analysis.target.minecraft) != null && analysis.report.findings.any { it.evidence.isNotEmpty() }) {
+        Spacer(Modifier.height(16.dp))
+        Text(if (analysis.readable) ui["tools.readable.done"] else ui["tools.readable.body"], style = MaterialTheme.typography.bodySmall, color = Theme.tones.muted)
+        if (!analysis.readable) {
+            Spacer(Modifier.height(10.dp))
+            TextButton(if (state.working(analysis, "readable")) ui["tools.working"] else ui["tools.readable.button"], { if (!working) state.makeReadable(analysis) }, icon = Icons.Search)
+        }
+    }
     state.notice?.let {
         Spacer(Modifier.height(10.dp))
         Text(it, style = MaterialTheme.typography.bodySmall, color = Theme.tones.critical)

@@ -137,19 +137,44 @@ class AppState {
     /** Compares the mods of this game with those of a server folder or modpack the person picks. */
     fun compareWithServer(analysis: Analysis) {
         val server = pickFolder() ?: return
-        refine(analysis) { workbench.compare(it, server) }
+        refine(analysis, "compare") { workbench.compare(it, server) }
     }
 
-    fun checkUpdates(analysis: Analysis) = refine(analysis) { workbench.checkUpdates(it) }
+    fun checkUpdates(analysis: Analysis) = refine(analysis, "updates") { workbench.checkUpdates(it) }
 
-    /** Work that adds to a report already on screen: the report stays, and a failure is shown on it. */
+    fun makeReadable(analysis: Analysis) = refine(analysis, "readable") { workbench.readable(it) }
+
+    /** A model running on this computer, found when a report opens; null while unknown or absent. */
+    var localAi by mutableStateOf<dev.holo795.crashsleuth.app.LocalAi?>(null)
+    var explanation by mutableStateOf<Pair<String, String>?>(null)
+
+    fun lookForLocalAi() {
+        scope.launch {
+            localAi = withContext(Dispatchers.IO) { runCatching { dev.holo795.crashsleuth.app.LocalAi().takeIf { it.available() } }.getOrNull() }
+        }
+    }
+
+    fun explain(analysis: Analysis) {
+        val ai = localAi ?: return
+        busy = "${analysis.target.path} explain"
+        notice = null
+        scope.launch {
+            val result = withContext(Dispatchers.IO) { runCatching { ai.explain(analysis, ui.messages) } }
+            busy = null
+            result.onSuccess { explanation = analysis.target.path to it }.onFailure { notice = it.message ?: it.javaClass.simpleName }
+        }
+    }
+
+    /** Work that adds to a report already on screen ("<path> <action>"): the report stays, and a failure is shown on it. */
     var busy by mutableStateOf<String?>(null)
+
+    fun working(analysis: Analysis, action: String? = null) = busy?.let { it.startsWith(analysis.target.path + " ") && (action == null || it.endsWith(" $action")) } == true
     var notice by mutableStateOf<String?>(null)
 
-    private fun refine(analysis: Analysis, work: (Analysis) -> Analysis) {
+    private fun refine(analysis: Analysis, action: String, work: (Analysis) -> Analysis) {
         job?.cancel()
         notice = null
-        busy = analysis.target.path
+        busy = "${analysis.target.path} $action"
         job = scope.launch {
             val result = withContext(Dispatchers.IO) { runCatching { work(analysis) } }
             busy = null

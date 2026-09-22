@@ -1,22 +1,22 @@
-[13:39:55] [ServerMain/INFO]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
-[13:39:56] [ServerMain/INFO]: Loaded 1290 recipes
-[13:39:56] [ServerMain/INFO]: Loaded 1399 advancements
-[13:39:56] [Server thread/INFO]: Starting minecraft server version 1.21.1
-[13:39:56] [Server thread/INFO]: Loading properties
-[13:39:56] [Server thread/INFO]: Default game type: SURVIVAL
-[13:39:56] [Server thread/INFO]: Generating keypair
-[13:39:56] [Server thread/INFO]: Starting Minecraft server on *:25565
-[13:39:56] [Server thread/INFO]: Using epoll channel type
-[13:39:56] [Server thread/WARN]: **** SERVER IS RUNNING IN OFFLINE/INSECURE MODE!
-[13:39:56] [Server thread/WARN]: The server will make no attempt to authenticate usernames. Beware.
-[13:39:56] [Server thread/WARN]: While this makes the game possible to play without internet access, it also opens up the ability for hackers to connect with any username they choose.
-[13:39:56] [Server thread/WARN]: To change this, set "online-mode" to "true" in the server.properties file.
-[13:39:56] [Server thread/INFO]: Preparing level "world"
-[13:39:57] [Server thread/INFO]: Preparing start region for dimension minecraft:overworld
-[13:39:57] [Worker-Main-4/INFO]: Preparing spawn area: 0%
-[13:39:57] [Server thread/INFO]: Time elapsed: 195 ms
-[13:39:57] [Server thread/INFO]: Done (0.631s)! For help, type "help"
-[13:39:57] [IO-Worker-4/WARN]: Failed to read chunk [-2, 0]
+[15:54:50] [ServerMain/INFO]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
+[15:54:51] [ServerMain/INFO]: Loaded 1290 recipes
+[15:54:51] [ServerMain/INFO]: Loaded 1399 advancements
+[15:54:51] [Server thread/INFO]: Starting minecraft server version 1.21.1
+[15:54:51] [Server thread/INFO]: Loading properties
+[15:54:51] [Server thread/INFO]: Default game type: SURVIVAL
+[15:54:51] [Server thread/INFO]: Generating keypair
+[15:54:51] [Server thread/INFO]: Starting Minecraft server on *:25565
+[15:54:51] [Server thread/INFO]: Using epoll channel type
+[15:54:51] [Server thread/WARN]: **** SERVER IS RUNNING IN OFFLINE/INSECURE MODE!
+[15:54:51] [Server thread/WARN]: The server will make no attempt to authenticate usernames. Beware.
+[15:54:51] [Server thread/WARN]: While this makes the game possible to play without internet access, it also opens up the ability for hackers to connect with any username they choose.
+[15:54:51] [Server thread/WARN]: To change this, set "online-mode" to "true" in the server.properties file.
+[15:54:51] [Server thread/INFO]: Preparing level "world"
+[15:54:52] [Server thread/INFO]: Preparing start region for dimension minecraft:overworld
+[15:54:52] [Worker-Main-6/INFO]: Preparing spawn area: 0%
+[15:54:52] [Server thread/INFO]: Time elapsed: 189 ms
+[15:54:52] [Server thread/INFO]: Done (0.627s)! For help, type "help"
+[15:54:52] [IO-Worker-1/WARN]: Failed to read chunk [-2, -3]
 java.util.zip.ZipException: invalid distance too far back
 	at java.base/java.util.zip.InflaterInputStream.read(InflaterInputStream.java:181) ~[?:?]
 	at axx.b(SourceFile:94) ~[server-1.21.1.jar:?]
@@ -36,7 +36,7 @@ java.util.zip.ZipException: invalid distance too far back
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144) ~[?:?]
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642) ~[?:?]
 	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
-[13:39:57] [IO-Worker-4/ERROR]: Failed to read chunk [-2, 0]
+[15:54:52] [IO-Worker-1/ERROR]: Failed to read chunk [-2, -3]
 java.util.concurrent.CompletionException: java.util.zip.ZipException: invalid distance too far back
 	at java.base/java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:332) ~[?:?]
 	at java.base/java.util.concurrent.CompletableFuture.completeThrowable(CompletableFuture.java:347) ~[?:?]
@@ -66,7 +66,7 @@ Caused by: java.util.zip.ZipException: invalid distance too far back
 	at dwq.a(SourceFile:60) ~[server-1.21.1.jar:?]
 	at dwl.b(SourceFile:192) ~[server-1.21.1.jar:?]
 	... 8 more
-[13:39:57] [IO-Worker-4/ERROR]: Failed to load entity chunk [-2, 0]
+[15:54:52] [IO-Worker-1/ERROR]: Failed to load entity chunk [-2, -3]
 java.util.zip.ZipException: invalid distance too far back
 	at java.base/java.util.zip.InflaterInputStream.read(InflaterInputStream.java:181) ~[?:?]
 	at axx.b(SourceFile:94) ~[server-1.21.1.jar:?]
@@ -86,7 +86,7 @@ java.util.zip.ZipException: invalid distance too far back
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144) ~[?:?]
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642) ~[?:?]
 	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
-[13:39:57] [IO-Worker-4/ERROR]: Failed to load chunk -2,0
+[15:54:52] [IO-Worker-1/ERROR]: Failed to load chunk -2,-3
 java.util.zip.ZipException: invalid distance too far back
 	at java.base/java.util.zip.InflaterInputStream.read(InflaterInputStream.java:181) ~[?:?]
 	at axx.b(SourceFile:94) ~[server-1.21.1.jar:?]
@@ -106,7 +106,7 @@ java.util.zip.ZipException: invalid distance too far back
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144) ~[?:?]
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642) ~[?:?]
 	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
-[13:39:57] [IO-Worker-4/WARN]: Failed to read chunk [-2, -3]
+[15:54:52] [IO-Worker-1/WARN]: Failed to read chunk [-2, 0]
 java.util.zip.ZipException: invalid distance too far back
 	at java.base/java.util.zip.InflaterInputStream.read(InflaterInputStream.java:181) ~[?:?]
 	at axx.b(SourceFile:94) ~[server-1.21.1.jar:?]
@@ -126,8 +126,8 @@ java.util.zip.ZipException: invalid distance too far back
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144) ~[?:?]
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642) ~[?:?]
 	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
-[13:39:57] [IO-Worker-2/INFO]: Saved details to debug/chunk-world-2026-09-22_13.39.57-server.txt
-[13:39:57] [IO-Worker-4/ERROR]: Failed to read chunk [-2, -3]
+[15:54:52] [IO-Worker-4/INFO]: Saved details to debug/chunk-world-2026-09-22_15.54.52-server.txt
+[15:54:52] [IO-Worker-1/ERROR]: Failed to read chunk [-2, 0]
 java.util.concurrent.CompletionException: java.util.zip.ZipException: invalid distance too far back
 	at java.base/java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:332) ~[?:?]
 	at java.base/java.util.concurrent.CompletableFuture.completeThrowable(CompletableFuture.java:347) ~[?:?]
@@ -157,7 +157,7 @@ Caused by: java.util.zip.ZipException: invalid distance too far back
 	at dwq.a(SourceFile:60) ~[server-1.21.1.jar:?]
 	at dwl.b(SourceFile:192) ~[server-1.21.1.jar:?]
 	... 8 more
-[13:39:57] [IO-Worker-4/ERROR]: Failed to load entity chunk [-2, -3]
+[15:54:52] [IO-Worker-1/ERROR]: Failed to load entity chunk [-2, 0]
 java.util.zip.ZipException: invalid distance too far back
 	at java.base/java.util.zip.InflaterInputStream.read(InflaterInputStream.java:181) ~[?:?]
 	at axx.b(SourceFile:94) ~[server-1.21.1.jar:?]
@@ -177,7 +177,7 @@ java.util.zip.ZipException: invalid distance too far back
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144) ~[?:?]
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642) ~[?:?]
 	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
-[13:39:57] [IO-Worker-4/ERROR]: Failed to load chunk -2,-3
+[15:54:52] [IO-Worker-1/ERROR]: Failed to load chunk -2,0
 java.util.zip.ZipException: invalid distance too far back
 	at java.base/java.util.zip.InflaterInputStream.read(InflaterInputStream.java:181) ~[?:?]
 	at axx.b(SourceFile:94) ~[server-1.21.1.jar:?]
@@ -197,7 +197,123 @@ java.util.zip.ZipException: invalid distance too far back
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144) ~[?:?]
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642) ~[?:?]
 	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
-[13:39:57] [IO-Worker-4/WARN]: Failed to read chunk [-3, 0]
+[15:54:52] [IO-Worker-5/INFO]: Saved details to debug/chunk-world-2026-09-22_15.54.52-server.txt
+[15:54:52] [IO-Worker-1/WARN]: Failed to read chunk [-3, 0]
+us: Loading NBT data
+	at uo.a(SourceFile:196) ~[server-1.21.1.jar:?]
+	at uo.c(SourceFile:186) ~[server-1.21.1.jar:?]
+	at uo.a(SourceFile:111) ~[server-1.21.1.jar:?]
+	at uo.a(SourceFile:107) ~[server-1.21.1.jar:?]
+	at dwq.a(SourceFile:60) ~[server-1.21.1.jar:?]
+	at dwl.b(SourceFile:192) ~[server-1.21.1.jar:?]
+	at dwl.a(SourceFile:242) ~[server-1.21.1.jar:?]
+	at bpm$b.run(SourceFile:60) ~[server-1.21.1.jar:?]
+	at bpk.h(SourceFile:91) ~[server-1.21.1.jar:?]
+	at bpk.a(SourceFile:146) ~[server-1.21.1.jar:?]
+	at bpk.run(SourceFile:102) ~[server-1.21.1.jar:?]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144) ~[?:?]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642) ~[?:?]
+	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
+Caused by: java.io.UTFDataFormatException: malformed input around byte 4
+	at java.base/java.io.DataInputStream.readUTF(DataInputStream.java:641) ~[?:?]
+	at java.base/java.io.DataInputStream.readUTF(DataInputStream.java:550) ~[?:?]
+	at ub$1.e(SourceFile:148) ~[server-1.21.1.jar:?]
+	at ub$1.d(SourceFile:75) ~[server-1.21.1.jar:?]
+	at ub$1.a(SourceFile:63) ~[server-1.21.1.jar:?]
+	at ub$1.c(SourceFile:58) ~[server-1.21.1.jar:?]
+	at uo.a(SourceFile:191) ~[server-1.21.1.jar:?]
+	... 13 more
+[15:54:52] [IO-Worker-1/ERROR]: Failed to read chunk [-3, 0]
+java.util.concurrent.CompletionException: us: Loading NBT data
+	at java.base/java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:332) ~[?:?]
+	at java.base/java.util.concurrent.CompletableFuture.completeThrowable(CompletableFuture.java:347) ~[?:?]
+	at java.base/java.util.concurrent.CompletableFuture$UniApply.tryFire(CompletableFuture.java:636) ~[?:?]
+	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510) ~[?:?]
+	at java.base/java.util.concurrent.CompletableFuture.completeExceptionally(CompletableFuture.java:2194) ~[?:?]
+	at com.mojang.datafixers.util.Either$Right.ifRight(Either.java:109) ~[datafixerupper-8.0.16.jar:?]
+	at bpj.a(SourceFile:29) ~[server-1.21.1.jar:?]
+	at bpj$1.a(SourceFile:44) ~[server-1.21.1.jar:?]
+	at dwl.a(SourceFile:242) ~[server-1.21.1.jar:?]
+	at bpm$b.run(SourceFile:60) ~[server-1.21.1.jar:?]
+	at bpk.h(SourceFile:91) ~[server-1.21.1.jar:?]
+	at bpk.a(SourceFile:146) ~[server-1.21.1.jar:?]
+	at bpk.run(SourceFile:102) ~[server-1.21.1.jar:?]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144) ~[?:?]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642) ~[?:?]
+	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
+Caused by: us: Loading NBT data
+	at uo.a(SourceFile:196) ~[server-1.21.1.jar:?]
+	at uo.c(SourceFile:186) ~[server-1.21.1.jar:?]
+	at uo.a(SourceFile:111) ~[server-1.21.1.jar:?]
+	at uo.a(SourceFile:107) ~[server-1.21.1.jar:?]
+	at dwq.a(SourceFile:60) ~[server-1.21.1.jar:?]
+	at dwl.b(SourceFile:192) ~[server-1.21.1.jar:?]
+	... 8 more
+Caused by: java.io.UTFDataFormatException: malformed input around byte 4
+	at java.base/java.io.DataInputStream.readUTF(DataInputStream.java:641) ~[?:?]
+	at java.base/java.io.DataInputStream.readUTF(DataInputStream.java:550) ~[?:?]
+	at ub$1.e(SourceFile:148) ~[server-1.21.1.jar:?]
+	at ub$1.d(SourceFile:75) ~[server-1.21.1.jar:?]
+	at ub$1.a(SourceFile:63) ~[server-1.21.1.jar:?]
+	at ub$1.c(SourceFile:58) ~[server-1.21.1.jar:?]
+	at uo.a(SourceFile:191) ~[server-1.21.1.jar:?]
+	at uo.c(SourceFile:186) ~[server-1.21.1.jar:?]
+	at uo.a(SourceFile:111) ~[server-1.21.1.jar:?]
+	at uo.a(SourceFile:107) ~[server-1.21.1.jar:?]
+	at dwq.a(SourceFile:60) ~[server-1.21.1.jar:?]
+	at dwl.b(SourceFile:192) ~[server-1.21.1.jar:?]
+	... 8 more
+[15:54:52] [IO-Worker-1/ERROR]: Failed to load entity chunk [-3, 0]
+us: Loading NBT data
+	at uo.a(SourceFile:196) ~[server-1.21.1.jar:?]
+	at uo.c(SourceFile:186) ~[server-1.21.1.jar:?]
+	at uo.a(SourceFile:111) ~[server-1.21.1.jar:?]
+	at uo.a(SourceFile:107) ~[server-1.21.1.jar:?]
+	at dwq.a(SourceFile:60) ~[server-1.21.1.jar:?]
+	at dwl.b(SourceFile:192) ~[server-1.21.1.jar:?]
+	at dwl.a(SourceFile:242) ~[server-1.21.1.jar:?]
+	at bpm$b.run(SourceFile:60) ~[server-1.21.1.jar:?]
+	at bpk.h(SourceFile:91) ~[server-1.21.1.jar:?]
+	at bpk.a(SourceFile:146) ~[server-1.21.1.jar:?]
+	at bpk.run(SourceFile:102) ~[server-1.21.1.jar:?]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144) ~[?:?]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642) ~[?:?]
+	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
+Caused by: java.io.UTFDataFormatException: malformed input around byte 4
+	at java.base/java.io.DataInputStream.readUTF(DataInputStream.java:641) ~[?:?]
+	at java.base/java.io.DataInputStream.readUTF(DataInputStream.java:550) ~[?:?]
+	at ub$1.e(SourceFile:148) ~[server-1.21.1.jar:?]
+	at ub$1.d(SourceFile:75) ~[server-1.21.1.jar:?]
+	at ub$1.a(SourceFile:63) ~[server-1.21.1.jar:?]
+	at ub$1.c(SourceFile:58) ~[server-1.21.1.jar:?]
+	at uo.a(SourceFile:191) ~[server-1.21.1.jar:?]
+	... 13 more
+[15:54:52] [IO-Worker-1/ERROR]: Failed to load chunk -3,0
+us: Loading NBT data
+	at uo.a(SourceFile:196) ~[server-1.21.1.jar:?]
+	at uo.c(SourceFile:186) ~[server-1.21.1.jar:?]
+	at uo.a(SourceFile:111) ~[server-1.21.1.jar:?]
+	at uo.a(SourceFile:107) ~[server-1.21.1.jar:?]
+	at dwq.a(SourceFile:60) ~[server-1.21.1.jar:?]
+	at dwl.b(SourceFile:192) ~[server-1.21.1.jar:?]
+	at dwl.a(SourceFile:242) ~[server-1.21.1.jar:?]
+	at bpm$b.run(SourceFile:60) ~[server-1.21.1.jar:?]
+	at bpk.h(SourceFile:91) ~[server-1.21.1.jar:?]
+	at bpk.a(SourceFile:146) ~[server-1.21.1.jar:?]
+	at bpk.run(SourceFile:102) ~[server-1.21.1.jar:?]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144) ~[?:?]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642) ~[?:?]
+	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
+Caused by: java.io.UTFDataFormatException: malformed input around byte 4
+	at java.base/java.io.DataInputStream.readUTF(DataInputStream.java:641) ~[?:?]
+	at java.base/java.io.DataInputStream.readUTF(DataInputStream.java:550) ~[?:?]
+	at ub$1.e(SourceFile:148) ~[server-1.21.1.jar:?]
+	at ub$1.d(SourceFile:75) ~[server-1.21.1.jar:?]
+	at ub$1.a(SourceFile:63) ~[server-1.21.1.jar:?]
+	at ub$1.c(SourceFile:58) ~[server-1.21.1.jar:?]
+	at uo.a(SourceFile:191) ~[server-1.21.1.jar:?]
+	... 13 more
+[15:54:52] [IO-Worker-1/WARN]: Failed to read chunk [3, -3]
 java.util.zip.ZipException: invalid distance too far back
 	at java.base/java.util.zip.InflaterInputStream.read(InflaterInputStream.java:181) ~[?:?]
 	at axx.b(SourceFile:94) ~[server-1.21.1.jar:?]
@@ -217,7 +333,7 @@ java.util.zip.ZipException: invalid distance too far back
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144) ~[?:?]
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642) ~[?:?]
 	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
-[13:39:57] [IO-Worker-4/ERROR]: Failed to read chunk [-3, 0]
+[15:54:52] [IO-Worker-1/ERROR]: Failed to read chunk [3, -3]
 java.util.concurrent.CompletionException: java.util.zip.ZipException: invalid distance too far back
 	at java.base/java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:332) ~[?:?]
 	at java.base/java.util.concurrent.CompletableFuture.completeThrowable(CompletableFuture.java:347) ~[?:?]
@@ -247,7 +363,8 @@ Caused by: java.util.zip.ZipException: invalid distance too far back
 	at dwq.a(SourceFile:60) ~[server-1.21.1.jar:?]
 	at dwl.b(SourceFile:192) ~[server-1.21.1.jar:?]
 	... 8 more
-[13:39:57] [IO-Worker-4/ERROR]: Failed to load entity chunk [-3, 0]
+[15:54:52] [IO-Worker-5/INFO]: Saved details to debug/chunk-world-2026-09-22_15.54.52-server.txt
+[15:54:52] [IO-Worker-1/ERROR]: Failed to load entity chunk [3, -3]
 java.util.zip.ZipException: invalid distance too far back
 	at java.base/java.util.zip.InflaterInputStream.read(InflaterInputStream.java:181) ~[?:?]
 	at axx.b(SourceFile:94) ~[server-1.21.1.jar:?]
@@ -267,7 +384,7 @@ java.util.zip.ZipException: invalid distance too far back
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144) ~[?:?]
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642) ~[?:?]
 	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
-[13:39:57] [IO-Worker-4/ERROR]: Failed to load chunk -3,0
+[15:54:52] [IO-Worker-1/ERROR]: Failed to load chunk 3,-3
 java.util.zip.ZipException: invalid distance too far back
 	at java.base/java.util.zip.InflaterInputStream.read(InflaterInputStream.java:181) ~[?:?]
 	at axx.b(SourceFile:94) ~[server-1.21.1.jar:?]
@@ -287,107 +404,15 @@ java.util.zip.ZipException: invalid distance too far back
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144) ~[?:?]
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642) ~[?:?]
 	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
-[13:39:57] [IO-Worker-2/INFO]: Saved details to debug/chunk-world-2026-09-22_13.39.57-server.txt
-[13:39:57] [IO-Worker-2/INFO]: Saved details to debug/chunk-world-2026-09-22_13.39.57-server.txt
-[13:39:57] [IO-Worker-4/WARN]: Failed to read chunk [3, -3]
-java.util.zip.ZipException: invalid distance too far back
-	at java.base/java.util.zip.InflaterInputStream.read(InflaterInputStream.java:181) ~[?:?]
-	at axx.b(SourceFile:94) ~[server-1.21.1.jar:?]
-	at axx.read(SourceFile:32) ~[server-1.21.1.jar:?]
-	at java.base/java.io.DataInputStream.readUnsignedByte(DataInputStream.java:295) ~[?:?]
-	at java.base/java.io.DataInputStream.readByte(DataInputStream.java:275) ~[?:?]
-	at uo.c(SourceFile:178) ~[server-1.21.1.jar:?]
-	at uo.a(SourceFile:111) ~[server-1.21.1.jar:?]
-	at uo.a(SourceFile:107) ~[server-1.21.1.jar:?]
-	at dwq.a(SourceFile:60) ~[server-1.21.1.jar:?]
-	at dwl.b(SourceFile:192) ~[server-1.21.1.jar:?]
-	at dwl.a(SourceFile:242) ~[server-1.21.1.jar:?]
-	at bpm$b.run(SourceFile:60) ~[server-1.21.1.jar:?]
-	at bpk.h(SourceFile:91) ~[server-1.21.1.jar:?]
-	at bpk.a(SourceFile:146) ~[server-1.21.1.jar:?]
-	at bpk.run(SourceFile:102) ~[server-1.21.1.jar:?]
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144) ~[?:?]
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642) ~[?:?]
-	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
-[13:39:57] [IO-Worker-4/ERROR]: Failed to read chunk [3, -3]
-java.util.concurrent.CompletionException: java.util.zip.ZipException: invalid distance too far back
-	at java.base/java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:332) ~[?:?]
-	at java.base/java.util.concurrent.CompletableFuture.completeThrowable(CompletableFuture.java:347) ~[?:?]
-	at java.base/java.util.concurrent.CompletableFuture$UniApply.tryFire(CompletableFuture.java:636) ~[?:?]
-	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510) ~[?:?]
-	at java.base/java.util.concurrent.CompletableFuture.completeExceptionally(CompletableFuture.java:2194) ~[?:?]
-	at com.mojang.datafixers.util.Either$Right.ifRight(Either.java:109) ~[datafixerupper-8.0.16.jar:?]
-	at bpj.a(SourceFile:29) ~[server-1.21.1.jar:?]
-	at bpj$1.a(SourceFile:44) ~[server-1.21.1.jar:?]
-	at dwl.a(SourceFile:242) ~[server-1.21.1.jar:?]
-	at bpm$b.run(SourceFile:60) ~[server-1.21.1.jar:?]
-	at bpk.h(SourceFile:91) ~[server-1.21.1.jar:?]
-	at bpk.a(SourceFile:146) ~[server-1.21.1.jar:?]
-	at bpk.run(SourceFile:102) ~[server-1.21.1.jar:?]
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144) ~[?:?]
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642) ~[?:?]
-	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
-Caused by: java.util.zip.ZipException: invalid distance too far back
-	at java.base/java.util.zip.InflaterInputStream.read(InflaterInputStream.java:181) ~[?:?]
-	at axx.b(SourceFile:94) ~[server-1.21.1.jar:?]
-	at axx.read(SourceFile:32) ~[server-1.21.1.jar:?]
-	at java.base/java.io.DataInputStream.readUnsignedByte(DataInputStream.java:295) ~[?:?]
-	at java.base/java.io.DataInputStream.readByte(DataInputStream.java:275) ~[?:?]
-	at uo.c(SourceFile:178) ~[server-1.21.1.jar:?]
-	at uo.a(SourceFile:111) ~[server-1.21.1.jar:?]
-	at uo.a(SourceFile:107) ~[server-1.21.1.jar:?]
-	at dwq.a(SourceFile:60) ~[server-1.21.1.jar:?]
-	at dwl.b(SourceFile:192) ~[server-1.21.1.jar:?]
-	... 8 more
-[13:39:57] [IO-Worker-4/ERROR]: Failed to load entity chunk [3, -3]
-java.util.zip.ZipException: invalid distance too far back
-	at java.base/java.util.zip.InflaterInputStream.read(InflaterInputStream.java:181) ~[?:?]
-	at axx.b(SourceFile:94) ~[server-1.21.1.jar:?]
-	at axx.read(SourceFile:32) ~[server-1.21.1.jar:?]
-	at java.base/java.io.DataInputStream.readUnsignedByte(DataInputStream.java:295) ~[?:?]
-	at java.base/java.io.DataInputStream.readByte(DataInputStream.java:275) ~[?:?]
-	at uo.c(SourceFile:178) ~[server-1.21.1.jar:?]
-	at uo.a(SourceFile:111) ~[server-1.21.1.jar:?]
-	at uo.a(SourceFile:107) ~[server-1.21.1.jar:?]
-	at dwq.a(SourceFile:60) ~[server-1.21.1.jar:?]
-	at dwl.b(SourceFile:192) ~[server-1.21.1.jar:?]
-	at dwl.a(SourceFile:242) ~[server-1.21.1.jar:?]
-	at bpm$b.run(SourceFile:60) ~[server-1.21.1.jar:?]
-	at bpk.h(SourceFile:91) ~[server-1.21.1.jar:?]
-	at bpk.a(SourceFile:146) ~[server-1.21.1.jar:?]
-	at bpk.run(SourceFile:102) ~[server-1.21.1.jar:?]
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144) ~[?:?]
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642) ~[?:?]
-	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
-[13:39:57] [IO-Worker-4/ERROR]: Failed to load chunk 3,-3
-java.util.zip.ZipException: invalid distance too far back
-	at java.base/java.util.zip.InflaterInputStream.read(InflaterInputStream.java:181) ~[?:?]
-	at axx.b(SourceFile:94) ~[server-1.21.1.jar:?]
-	at axx.read(SourceFile:32) ~[server-1.21.1.jar:?]
-	at java.base/java.io.DataInputStream.readUnsignedByte(DataInputStream.java:295) ~[?:?]
-	at java.base/java.io.DataInputStream.readByte(DataInputStream.java:275) ~[?:?]
-	at uo.c(SourceFile:178) ~[server-1.21.1.jar:?]
-	at uo.a(SourceFile:111) ~[server-1.21.1.jar:?]
-	at uo.a(SourceFile:107) ~[server-1.21.1.jar:?]
-	at dwq.a(SourceFile:60) ~[server-1.21.1.jar:?]
-	at dwl.b(SourceFile:192) ~[server-1.21.1.jar:?]
-	at dwl.a(SourceFile:242) ~[server-1.21.1.jar:?]
-	at bpm$b.run(SourceFile:60) ~[server-1.21.1.jar:?]
-	at bpk.h(SourceFile:91) ~[server-1.21.1.jar:?]
-	at bpk.a(SourceFile:146) ~[server-1.21.1.jar:?]
-	at bpk.run(SourceFile:102) ~[server-1.21.1.jar:?]
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144) ~[?:?]
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642) ~[?:?]
-	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
-[13:39:57] [IO-Worker-3/INFO]: Saved details to debug/chunk-world-2026-09-22_13.39.57-server.txt
-[13:39:57] [Server thread/INFO]: Stopping the server
-[13:39:57] [Server thread/INFO]: Stopping server
-[13:39:57] [Server thread/INFO]: Saving players
-[13:39:57] [Server thread/INFO]: Saving worlds
-[13:39:57] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:overworld
-[13:39:57] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:the_end
-[13:39:57] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:the_nether
-[13:39:57] [Server thread/INFO]: ThreadedAnvilChunkStorage (world): All chunks are saved
-[13:39:57] [Server thread/INFO]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
-[13:39:57] [Server thread/INFO]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
-[13:39:57] [Server thread/INFO]: ThreadedAnvilChunkStorage: All dimensions are saved
+[15:54:52] [IO-Worker-3/INFO]: Saved details to debug/chunk-world-2026-09-22_15.54.52-server.txt
+[15:54:52] [Server thread/INFO]: Stopping the server
+[15:54:52] [Server thread/INFO]: Stopping server
+[15:54:52] [Server thread/INFO]: Saving players
+[15:54:52] [Server thread/INFO]: Saving worlds
+[15:54:52] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:overworld
+[15:54:52] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:the_end
+[15:54:52] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:the_nether
+[15:54:52] [Server thread/INFO]: ThreadedAnvilChunkStorage (world): All chunks are saved
+[15:54:52] [Server thread/INFO]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[15:54:52] [Server thread/INFO]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[15:54:52] [Server thread/INFO]: ThreadedAnvilChunkStorage: All dimensions are saved

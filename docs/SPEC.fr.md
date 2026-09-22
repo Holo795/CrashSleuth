@@ -1,8 +1,25 @@
 # CrashSleuth — Spécification
 
-**Version 11 — 22/09/2026** — v10 + côté client complet (NeoForge, packs de ressources, shaders), fenêtres du jeu jamais au premier plan, **tests réels sur Linux, Windows et macOS**.
+**Version 12 — 22/09/2026** — v11 + traces lisibles, IA locale, anonymisation des liens, application de bureau testée sur les trois systèmes.
 
-### Changements depuis la v10
+### Changements depuis la v11
+- **Traces lisibles** (§6.2) : les noms du code du jeu deviennent ceux de Mojang, `class_310.method_22681` (Fabric) et `ub.a` (vanilla) donnant `Minecraft.tick` et `CompoundTag.readNamedTagData`. Correspondances officielles de Mojang et intermédiaires de Fabric, téléchargées une fois ; parmi les méthodes qui partagent un nom obfusqué, la **ligne de la trace** désigne la bonne. `crashsleuth readable <journal>`, `analyze --readable`, bouton « Rendre les traces lisibles » du bureau.
+- **IA locale** (§8, étape 2 faite) : explication en termes simples par un modèle qui tourne **sur l'ordinateur** (Ollama, ou tout serveur local au format OpenAI) ; seules les adresses locales sont acceptées ; seul un **résumé anonymisé** du rapport est envoyé, jamais les journaux ; la réponse est marquée « peut se tromper, le diagnostic fait foi ». `analyze --explain` et bouton du bureau, qui n'apparaît que si un modèle local répond.
+- **Choix du modèle, mesuré sur 5 vrais cas du corpus** (Mac, français) : `gemma3:4b` (3,3 Go) répond en 3 à 6 s sans inventer, `ministral-3:8b` (6 Go) en 5 à 11 s, `qwen3:4b` écrit son raisonnement en anglais et met jusqu'à 2 min. Ordre de préférence : gemma3, puis ministral, mistral, llama3.2, phi4-mini ; les modèles « à raisonnement » sont évités. Premier essai : le modèle avait inventé un réglage (« mode BASIC ») ; consignes resserrées (uniquement les faits, réglages et fichiers du diagnostic, texte brut).
+- **Anonymisation** : avant ce qui quitte l'ordinateur (lien de partage, IA locale), les dossiers personnels dans les chemins (macOS, Linux, Windows), adresses e-mail, adresses IP et UUID sont retirés. Les liens de partage n'étaient pas nettoyés jusqu'ici.
+- **Correctifs trouvés en conditions réelles** :
+  - la version de NeoForge était lue dans le nom d'un autre jar (`sodium-neoforge-0.8.13…` donnait « NeoForge 0.8.13 ») ;
+  - une signature (monde verrouillé) revenait en arrière sur les longues lignes : **65 s pour un journal de 4 Mo, 1,5 s maintenant** ; un test vérifie que chaque journal du corpus s'analyse en moins de 10 s (tout le corpus : 3 s) ;
+  - un serveur Paper ou Purpur jamais démarré était pris pour Spigot : le contenu du jar (`versions.list`) le dit ;
+  - les signatures peuvent donner la version d'un coupable (mods incompatibles de NeoForge : chacun avec sa version).
+- **Application de bureau** : `-Pdesktop.target=windows_x64|linux_x64|…` et la tâche `portable` construisent l'application pour un autre système depuis n'importe quelle machine.
+- **Tests réels par système** :
+  - **Windows 11** (PC d'Holo795) : **recherche du coupable sur un vrai serveur Paper** avec 12 plugins, trouvé en 6 lancements (3 min) ; **application de bureau** lancée dans la session, fenêtre « CrashSleuth » créée sans erreur. Incident : la capture prévue de la fenêtre a pris l'écran entier, où un jeu était en cours ; elle a été effacée aussitôt, sans être gardée. Désormais : jamais de capture d'écran de ce PC, seulement le rendu de la fenêtre de test, et seulement quand le PC n'est pas utilisé. Dossier de test supprimé ;
+  - **Linux** (conteneur x86-64, écran virtuel) : application de bureau affichée avec le rapport d'un vrai serveur ;
+  - **macOS** : labo serveur complet **59/59**, labo client complet **14/14** (fenêtres du jeu masquées), IA locale avec trois modèles.
+- 52 signatures, 146 tests, 86 cas réels rejoués.
+
+### Changements de la v11 (rappel)
 - **Règle du projet** : toute fonctionnalité doit marcher et être testée sur **Linux, Windows et macOS** (§13).
 - **Fenêtres du jeu hors du chemin** : pendant les lancements de test (surtout la recherche du coupable), le jeu ne prend plus le premier plan, le verdict venant des journaux :
   - **macOS** : l'application du jeu est masquée dès qu'elle apparaît (comme Cmd-H) et le premier plan est rendu à l'application qui l'avait (script JavaScript for Automation, aucune autorisation demandée) ;
@@ -280,7 +297,7 @@ Chaque situation a un identifiant stable (utilisé par les signatures et les rap
 Ordre de passage, du gratuit au payant :
 
 1. **Moteur et signatures** (toujours, hors ligne, instantané).
-2. **IA locale optionnelle** : petit modèle téléchargé à la demande, tourne sur la machine de l'utilisateur, explique en langage simple.
+2. **IA locale optionnelle** : un modèle qui tourne sur la machine de l'utilisateur (Ollama ou serveur local compatible OpenAI) explique en langage simple, à partir d'un résumé anonymisé du rapport. **Fait (v12)**.
 3. **Clé personnelle** : l'utilisateur branche sa propre clé d'API pour une analyse poussée.
 4. **IA hébergée** (plus tard) : seulement si 1 à 3 échouent ; on envoie un **résumé anonymisé**, jamais le log brut ; **cache par signature** (un même crash vu par mille personnes = un seul appel) ; chaque réponse validée devient une signature gratuite. Financement : dons, partenariats avec des hébergeurs de serveurs.
 

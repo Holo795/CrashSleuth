@@ -53,7 +53,35 @@
     "dataVersion": 3955,
     "unreadable": null,
     "hasBackup": true,
-    "locked": false
+    "locked": false,
+    "damagedChunks": [],
+    "chunksChecked": 849,
+    "chunksComplete": true,
+    "damagedPlayers": []
+   },
+   {
+    "name": "world_nether",
+    "versionName": "1.21.1",
+    "dataVersion": 3955,
+    "unreadable": null,
+    "hasBackup": true,
+    "locked": false,
+    "damagedChunks": [],
+    "chunksChecked": 841,
+    "chunksComplete": true,
+    "damagedPlayers": []
+   },
+   {
+    "name": "world_the_end",
+    "versionName": "1.21.1",
+    "dataVersion": 3955,
+    "unreadable": null,
+    "hasBackup": true,
+    "locked": false,
+    "damagedChunks": [],
+    "chunksChecked": 851,
+    "chunksComplete": true,
+    "damagedPlayers": []
    }
   ],
   "eulaAccepted": true,

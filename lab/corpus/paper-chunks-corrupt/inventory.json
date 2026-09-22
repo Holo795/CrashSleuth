@@ -15,8 +15,9 @@
     "hasBackup": true,
     "locked": false,
     "damagedChunks": [],
-    "chunksChecked": 847,
-    "chunksComplete": true
+    "chunksChecked": 843,
+    "chunksComplete": true,
+    "damagedPlayers": []
    },
    {
     "name": "world_nether",
@@ -26,8 +27,9 @@
     "hasBackup": true,
     "locked": false,
     "damagedChunks": [],
-    "chunksChecked": 843,
-    "chunksComplete": true
+    "chunksChecked": 842,
+    "chunksComplete": true,
+    "damagedPlayers": []
    },
    {
     "name": "world_the_end",
@@ -38,7 +40,8 @@
     "locked": false,
     "damagedChunks": [],
     "chunksChecked": 851,
-    "chunksComplete": true
+    "chunksComplete": true,
+    "damagedPlayers": []
    }
   ],
   "eulaAccepted": true,

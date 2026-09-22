@@ -1,24 +1,24 @@
-[12:48:03] [ServerMain/INFO]: [bootstrap] Running Java 21 (OpenJDK 64-Bit Server VM 21.0.12+8-LTS; Eclipse Adoptium Temurin-21.0.12+8) on Linux 7.0.14-orbstack-00380-ga7e0a2dc9535 (aarch64)
-[12:48:03] [ServerMain/INFO]: [bootstrap] Loading Paper 1.21.1-133-ver/1.21.1@3cb8529 (2025-03-28T16:14:36Z) for Minecraft 1.21.1
-[12:48:03] [ServerMain/INFO]: [PluginInitializerManager] Initializing plugins...
-[12:48:04] [Paper Plugin Remapper Thread - 0/INFO]: [ReobfServer] Remapping server...
-[12:48:06] [Paper Plugin Remapper Thread - 0/INFO]: [ReobfServer] Done remapping server in 2560ms.
-[12:48:06] [Paper Plugin Remapper Thread - 1/INFO]: [PluginRemapper] Remapping plugin 'plugins/TAB v6.2.0 - Paper 1.20.5 - 1.21.4.jar'...
-[12:48:06] [Paper Plugin Remapper Thread - 2/INFO]: [PluginRemapper] Remapping plugin 'plugins/PlaceholderAPI-2.12.3.jar'...
-[12:48:06] [Paper Plugin Remapper Thread - 0/INFO]: [PluginRemapper] Remapping plugin 'plugins/DecentHolograms-2.10.1.jar'...
-[12:48:06] [Paper Plugin Remapper Thread - 3/INFO]: [PluginRemapper] Remapping plugin 'plugins/multiverse-core-5.8.1.jar'...
-[12:48:06] [Paper Plugin Remapper Thread - 0/INFO]: [PluginRemapper] Remapping plugin 'plugins/CrashSleuthFixture-1.0.0.jar'...
-[12:48:06] [Paper Plugin Remapper Thread - 0/INFO]: [PluginRemapper] Done remapping plugin 'plugins/CrashSleuthFixture-1.0.0.jar' in 27ms.
-[12:48:06] [Paper Plugin Remapper Thread - 0/INFO]: [PluginRemapper] Remapping plugin 'plugins/worldedit-bukkit-7.3.9.jar'...
-[12:48:06] [Paper Plugin Remapper Thread - 2/INFO]: [PluginRemapper] Done remapping plugin 'plugins/PlaceholderAPI-2.12.3.jar' in 338ms.
-[12:48:06] [Paper Plugin Remapper Thread - 2/INFO]: [PluginRemapper] Remapping plugin 'plugins/worldguard-bukkit-7.0.12-dist.jar'...
-[12:48:07] [Paper Plugin Remapper Thread - 2/INFO]: [PluginRemapper] Done remapping plugin 'plugins/worldguard-bukkit-7.0.12-dist.jar' in 258ms.
-[12:48:07] [Paper Plugin Remapper Thread - 2/INFO]: [PluginRemapper] Remapping plugin 'plugins/voicechat-bukkit-2.6.24.jar'...
-[12:48:07] [Paper Plugin Remapper Thread - 2/INFO]: [PluginRemapper] Done remapping plugin 'plugins/voicechat-bukkit-2.6.24.jar' in 185ms.
-[12:48:07] [Paper Plugin Remapper Thread - 3/INFO]: [PluginRemapper] Done remapping plugin 'plugins/multiverse-core-5.8.1.jar' in 946ms.
-[12:48:07] [Paper Plugin Remapper Thread - 0/INFO]: [PluginRemapper] Done remapping plugin 'plugins/worldedit-bukkit-7.3.9.jar' in 910ms.
-[12:48:07] [Paper Plugin Remapper Thread - 1/INFO]: [PluginRemapper] Done remapping plugin 'plugins/TAB v6.2.0 - Paper 1.20.5 - 1.21.4.jar' in 1248ms.
-[12:48:07] [ServerMain/ERROR]: [PluginRemapper] Encountered exception remapping plugins
+[15:33:16] [ServerMain/INFO]: [bootstrap] Running Java 21 (OpenJDK 64-Bit Server VM 21.0.12+8-LTS; Eclipse Adoptium Temurin-21.0.12+8) on Linux 7.0.14-orbstack-00380-ga7e0a2dc9535 (aarch64)
+[15:33:16] [ServerMain/INFO]: [bootstrap] Loading Paper 1.21.1-133-ver/1.21.1@3cb8529 (2025-03-28T16:14:36Z) for Minecraft 1.21.1
+[15:33:16] [ServerMain/INFO]: [PluginInitializerManager] Initializing plugins...
+[15:33:16] [Paper Plugin Remapper Thread - 0/INFO]: [ReobfServer] Remapping server...
+[15:33:19] [Paper Plugin Remapper Thread - 0/INFO]: [ReobfServer] Done remapping server in 2483ms.
+[15:33:19] [Paper Plugin Remapper Thread - 1/INFO]: [PluginRemapper] Remapping plugin 'plugins/DecentHolograms-2.10.1.jar'...
+[15:33:19] [Paper Plugin Remapper Thread - 0/INFO]: [PluginRemapper] Remapping plugin 'plugins/TAB v6.2.0 - Paper 1.20.5 - 1.21.4.jar'...
+[15:33:19] [Paper Plugin Remapper Thread - 1/INFO]: [PluginRemapper] Remapping plugin 'plugins/CrashSleuthFixture-1.0.0.jar'...
+[15:33:19] [Paper Plugin Remapper Thread - 1/INFO]: [PluginRemapper] Done remapping plugin 'plugins/CrashSleuthFixture-1.0.0.jar' in 21ms.
+[15:33:19] [Paper Plugin Remapper Thread - 1/INFO]: [PluginRemapper] Remapping plugin 'plugins/worldedit-bukkit-7.3.9.jar'...
+[15:33:19] [Paper Plugin Remapper Thread - 1/INFO]: [PluginRemapper] Done remapping plugin 'plugins/worldedit-bukkit-7.3.9.jar' in 651ms.
+[15:33:19] [Paper Plugin Remapper Thread - 1/INFO]: [PluginRemapper] Remapping plugin 'plugins/worldguard-bukkit-7.0.12-dist.jar'...
+[15:33:20] [Paper Plugin Remapper Thread - 0/INFO]: [PluginRemapper] Done remapping plugin 'plugins/TAB v6.2.0 - Paper 1.20.5 - 1.21.4.jar' in 923ms.
+[15:33:20] [Paper Plugin Remapper Thread - 0/INFO]: [PluginRemapper] Remapping plugin 'plugins/PlaceholderAPI-2.12.3.jar'...
+[15:33:20] [Paper Plugin Remapper Thread - 1/INFO]: [PluginRemapper] Done remapping plugin 'plugins/worldguard-bukkit-7.0.12-dist.jar' in 143ms.
+[15:33:20] [Paper Plugin Remapper Thread - 1/INFO]: [PluginRemapper] Remapping plugin 'plugins/multiverse-core-5.8.1.jar'...
+[15:33:20] [Paper Plugin Remapper Thread - 0/INFO]: [PluginRemapper] Done remapping plugin 'plugins/PlaceholderAPI-2.12.3.jar' in 131ms.
+[15:33:20] [Paper Plugin Remapper Thread - 0/INFO]: [PluginRemapper] Remapping plugin 'plugins/voicechat-bukkit-2.6.24.jar'...
+[15:33:20] [Paper Plugin Remapper Thread - 0/INFO]: [PluginRemapper] Done remapping plugin 'plugins/voicechat-bukkit-2.6.24.jar' in 93ms.
+[15:33:20] [Paper Plugin Remapper Thread - 1/INFO]: [PluginRemapper] Done remapping plugin 'plugins/multiverse-core-5.8.1.jar' in 427ms.
+[15:33:20] [ServerMain/ERROR]: [PluginRemapper] Encountered exception remapping plugins
 java.util.concurrent.CompletionException: java.lang.RuntimeException: Failed to remap plugin jar 'plugins/DecentHolograms-2.10.1.jar'
 	at java.base/java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:315) ~[?:?]
 	at java.base/java.util.concurrent.CompletableFuture.completeThrowable(CompletableFuture.java:320) ~[?:?]
@@ -61,203 +61,203 @@ Caused by: java.lang.IllegalArgumentException: Unsupported class file major vers
 	at net.neoforged.art.internal.AsyncHelper.lambda$null$0(AsyncHelper.java:33) ~[AutoRenamingTool-2.0.3.jar:?]
 	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317) ~[?:?]
 	... 3 more
-[12:48:07] [ServerMain/INFO]: [PluginInitializerManager] Initialized 12 plugins
-[12:48:07] [ServerMain/INFO]: [PluginInitializerManager] Bukkit plugins (12):
+[15:33:20] [ServerMain/INFO]: [PluginInitializerManager] Initialized 12 plugins
+[15:33:20] [ServerMain/INFO]: [PluginInitializerManager] Bukkit plugins (12):
  - Chunky (1.4.40), CoreProtect (24.0), CrashSleuthFixture (1.0.0), LuckPerms (5.5.71), Multiverse-Core (5.8.1), PlaceholderAPI (2.12.3), TAB (6.2.0), ViaVersion (5.12.0), WorldEdit (7.3.9+6959-7adf70b), WorldGuard (7.0.12+829a4a4), squaremap (1.3.2), voicechat (2.6.24)
-[12:48:09] [ServerMain/INFO]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
-[12:48:10] [ServerMain/INFO]: Found new data pack file/bukkit, loading it automatically
-[12:48:10] [ServerMain/INFO]: Found new data pack paper, loading it automatically
-[12:48:10] [ServerMain/INFO]: No existing world data, creating new world
-[12:48:10] [ServerMain/INFO]: Loaded 1290 recipes
-[12:48:10] [ServerMain/INFO]: Loaded 1399 advancements
-[12:48:10] [Server thread/INFO]: Starting minecraft server version 1.21.1
-[12:48:10] [Server thread/INFO]: Loading properties
-[12:48:10] [Server thread/INFO]: This server is running Paper version 1.21.1-133-ver/1.21.1@3cb8529 (2025-03-28T16:14:36Z) (Implementing API version 1.21.1-R0.1-SNAPSHOT)
-[12:48:11] [Server thread/INFO]: [spark] This server bundles the spark profiler. For more information please visit https://docs.papermc.io/paper/profiling
-[12:48:11] [Server thread/INFO]: Server Ping Player Sample Count: 12
-[12:48:11] [Server thread/INFO]: Using 4 threads for Netty based IO
-[12:48:11] [Server thread/INFO]: [ChunkTaskScheduler] Chunk system is using 1 I/O threads, 3 worker threads, and population gen parallelism of 3 threads
-[12:48:11] [Server thread/INFO]: Default game type: SURVIVAL
-[12:48:11] [Server thread/INFO]: Generating keypair
-[12:48:11] [Server thread/INFO]: Starting Minecraft server on *:25565
-[12:48:11] [Server thread/INFO]: Using epoll channel type
-[12:48:11] [Server thread/INFO]: Paper: Using libdeflate (Linux aarch64) compression from Velocity.
-[12:48:11] [Server thread/INFO]: Paper: Using OpenSSL 3.x.x (Linux aarch64) cipher from Velocity.
-[12:48:12] [Server thread/INFO]: [ViaVersion] Loading server plugin ViaVersion v5.12.0
-[12:48:12] [Server thread/INFO]: [ViaVersion] ViaVersion 5.12.0 is now loaded. Registering protocol transformers and injecting...
-[12:48:12] [Server thread/INFO]: [LuckPerms] Loading server plugin LuckPerms v5.5.71
-[12:48:14] [Server thread/INFO]: [LuckPerms] Loading configuration...
-[12:48:14] [Server thread/INFO]: [PlaceholderAPI] Loading server plugin PlaceholderAPI v2.12.3
-[12:48:14] [Server thread/INFO]: [WorldEdit] Loading server plugin WorldEdit v7.3.9+6959-7adf70b
-[12:48:14] [Server thread/INFO]: Got request to register class com.sk89q.worldedit.bukkit.BukkitServerInterface with WorldEdit [com.sk89q.worldedit.extension.platform.PlatformManager@2f6c11be]
-[12:48:14] [Server thread/INFO]: [WorldEdit] Default configuration file written: config.yml
-[12:48:14] [Server thread/INFO]: [squaremap] Loading server plugin squaremap v1.3.2
-[12:48:14] [Server thread/INFO]: [TAB] Loading server plugin TAB v6.2.0
-[12:48:14] [Server thread/INFO]: [CrashSleuthFixture] Loading server plugin CrashSleuthFixture v1.0.0
-[12:48:14] [Server thread/INFO]: [WorldGuard] Loading server plugin WorldGuard v7.0.12+829a4a4
-[12:48:14] [Server thread/INFO]: [CoreProtect] Loading server plugin CoreProtect v24.0
-[12:48:14] [Server thread/INFO]: [Chunky] Loading server plugin Chunky v1.4.40
-[12:48:14] [Server thread/INFO]: [CoreLogging] Loading server plugin Multiverse-Core v5.8.1
-[12:48:14] [Server thread/INFO]: [voicechat] Loading server plugin voicechat v2.6.24
-[12:48:14] [Server thread/INFO]: [LuckPerms] Enabling LuckPerms v5.5.71
-[12:48:14] [Server thread/INFO]:         __    
-[12:48:14] [Server thread/INFO]:   |    |__)   LuckPerms v5.5.71
-[12:48:14] [Server thread/INFO]:   |___ |      Running on Bukkit - Paper
-[12:48:14] [Server thread/INFO]: 
-[12:48:15] [Server thread/INFO]: [LuckPerms] Loading storage provider... [H2]
-[12:48:15] [Server thread/INFO]: [LuckPerms] Loading internal permission managers...
-[12:48:15] [Server thread/INFO]: [LuckPerms] Performing initial data load...
-[12:48:15] [Server thread/INFO]: [LuckPerms] Successfully enabled. (took 743ms)
-[12:48:15] [Server thread/INFO]: [WorldEdit] Enabling WorldEdit v7.3.9+6959-7adf70b
-[12:48:15] [Server thread/INFO]: Registering commands with com.sk89q.worldedit.bukkit.BukkitServerInterface
-[12:48:15] [Server thread/INFO]: WEPIF: Updated config file
-[12:48:15] [Server thread/INFO]: WEPIF: Using the Bukkit Permissions API.
-[12:48:15] [Server thread/INFO]: Using com.sk89q.worldedit.bukkit.adapter.impl.v1_21.PaperweightAdapter as the Bukkit adapter
-[12:48:16] [Server thread/INFO]: [squaremap] Enabling squaremap v1.3.2
-[12:48:16] [Server thread/INFO]: [io.undertow] starting server: Undertow - 2.3.17.Final
-[12:48:16] [Server thread/INFO]: [org.xnio] XNIO version 3.8.16.Final
-[12:48:16] [Server thread/INFO]: [org.xnio.nio] XNIO NIO Implementation Version 3.8.16.Final
-[12:48:16] [Server thread/INFO]: [org.jboss.threads] JBoss Threads version 3.5.0.Final
-[12:48:16] [Server thread/INFO]: [squaremap] Internal webserver running on 0.0.0.0:8080
-[12:48:16] [Server thread/WARN]: **** SERVER IS RUNNING IN OFFLINE/INSECURE MODE!
-[12:48:16] [Server thread/WARN]: The server will make no attempt to authenticate usernames. Beware.
-[12:48:16] [Server thread/WARN]: While this makes the game possible to play without internet access, it also opens up the ability for hackers to connect with any username they choose.
-[12:48:16] [Server thread/WARN]: To change this, set "online-mode" to "true" in the server.properties file.
-[12:48:16] [Server thread/INFO]: Preparing level "world"
-[12:48:19] [Server thread/INFO]: Preparing start region for dimension minecraft:overworld
-[12:48:20] [Server thread/INFO]: Time elapsed: 1285 ms
-[12:48:20] [Server thread/INFO]: Preparing start region for dimension minecraft:the_nether
-[12:48:21] [Server thread/INFO]: Time elapsed: 383 ms
-[12:48:21] [Server thread/INFO]: Preparing start region for dimension minecraft:the_end
-[12:48:21] [Server thread/INFO]: Time elapsed: 95 ms
-[12:48:21] [Server thread/INFO]: [ViaVersion] Enabling ViaVersion v5.12.0
-[12:48:21] [Server thread/INFO]: [ViaVersion] ViaVersion detected server version: 1.21-1.21.1 (767)
-[12:48:21] [Server thread/INFO]: [PlaceholderAPI] Enabling PlaceholderAPI v2.12.3
-[12:48:21] [Server thread/INFO]: [PlaceholderAPI] Fetching available expansion information...
-[12:48:21] [Server thread/INFO]: [TAB] Enabling TAB v6.2.0
-[12:48:21] [Server thread/INFO]: [TAB] Found NMS implementation: me.neznamy.tab.platforms.bukkit.paper_1_20_5.NMSImplementationProvider
-[12:48:21] [Server thread/INFO]: [TAB] Enabled in 154ms
-[12:48:21] [Server thread/INFO]: [CrashSleuthFixture] Enabling CrashSleuthFixture v1.0.0
-[12:48:21] [Server thread/INFO]: [CrashSleuthFixture] CrashSleuth fixture mode: halt-random:60
-[12:48:21] [Server thread/INFO]: [CrashSleuthFixture] Nothing to do
-[12:48:21] [Server thread/INFO]: [WorldGuard] Enabling WorldGuard v7.0.12+829a4a4
-[12:48:21] [Server thread/INFO]: [WorldGuard] Default configuration file written: config.yml
-[12:48:21] [Server thread/INFO]: [WorldGuard] Default configuration file written: config_world.yml
-[12:48:21] [Server thread/INFO]: [WorldGuard] Default configuration file written: blacklist.txt
-[12:48:21] [Server thread/INFO]: [WorldGuard] (world) TNT ignition is PERMITTED.
-[12:48:21] [Server thread/INFO]: [WorldGuard] (world) Lighters are PERMITTED.
-[12:48:21] [Server thread/INFO]: [WorldGuard] (world) Lava fire is PERMITTED.
-[12:48:21] [Server thread/INFO]: [WorldGuard] (world) Fire spread is UNRESTRICTED.
-[12:48:21] [Server thread/INFO]: [WorldGuard] Loaded configuration for world 'world'
-[12:48:21] [Server thread/INFO]: [WorldGuard] Default configuration file written: config_world.yml
-[12:48:21] [Server thread/INFO]: [WorldGuard] Default configuration file written: blacklist.txt
-[12:48:21] [Server thread/INFO]: [WorldGuard] (world_nether) TNT ignition is PERMITTED.
-[12:48:21] [Server thread/INFO]: [WorldGuard] (world_nether) Lighters are PERMITTED.
-[12:48:21] [Server thread/INFO]: [WorldGuard] (world_nether) Lava fire is PERMITTED.
-[12:48:21] [Server thread/INFO]: [WorldGuard] (world_nether) Fire spread is UNRESTRICTED.
-[12:48:21] [Server thread/INFO]: [WorldGuard] Loaded configuration for world 'world_nether'
-[12:48:21] [Server thread/INFO]: [WorldGuard] Default configuration file written: config_world.yml
-[12:48:21] [Server thread/INFO]: [WorldGuard] Default configuration file written: blacklist.txt
-[12:48:21] [Server thread/INFO]: [WorldGuard] (world_the_end) TNT ignition is PERMITTED.
-[12:48:21] [Server thread/INFO]: [WorldGuard] (world_the_end) Lighters are PERMITTED.
-[12:48:21] [Server thread/INFO]: [WorldGuard] (world_the_end) Lava fire is PERMITTED.
-[12:48:21] [Server thread/INFO]: [WorldGuard] (world_the_end) Fire spread is UNRESTRICTED.
-[12:48:21] [Server thread/INFO]: [WorldGuard] Loaded configuration for world 'world_the_end'
-[12:48:21] [Server thread/INFO]: [WorldGuard] Loading region data...
-[12:48:21] [Server thread/INFO]: [WorldGuard] Unloading and saving region data that is currently loaded...
-[12:48:21] [Server thread/INFO]: [WorldGuard] Loading region data for loaded worlds...
-[12:48:21] [Server thread/INFO]: [WorldGuard] Loading region data...
-[12:48:21] [Server thread/INFO]: [WorldGuard] Regions saved after UUID migration! This won't happen again unless you change the relevant configuration option in WorldGuard's config.
-[12:48:22] [Server thread/INFO]: [CoreProtect] Enabling CoreProtect v24.0
-[12:48:22] [Server thread/INFO]: [CoreProtect] CoreProtect Community Edition has been successfully enabled! 
-[12:48:22] [Server thread/INFO]: [CoreProtect] Using SQLite for data storage.
-[12:48:22] [Server thread/INFO]: --------------------
-[12:48:22] [Server thread/INFO]: [CoreProtect] Enjoy CoreProtect? Join our Discord!
-[12:48:22] [Server thread/INFO]: [CoreProtect] Discord: www.coreprotect.net/discord/
-[12:48:22] [Server thread/INFO]: --------------------
-[12:48:22] [Server thread/INFO]: [Chunky] Enabling Chunky v1.4.40
-[12:48:22] [Server thread/INFO]: [Multiverse-Core] Enabling Multiverse-Core v5.8.1
-[12:48:22] [Server thread/WARN]: [Multiverse-Core] Spawn location from world.dat file was unsafe. Adjusting...
-[12:48:22] [Server thread/WARN]: [Multiverse-Core] Original Location: X: 0 Y: 66 Z: 0 P: 0 Y: 0 
-[12:48:22] [Server thread/INFO]: [Multiverse-Core] New Spawn for 'world_nether' is located at: world_nether:0.00,128.00,0.00:0.00:0.00
-[12:48:22] [Server thread/INFO]: [PlaceholderAPI] Successfully registered internal expansion: multiverse-core [5.8.1]
-[12:48:22] [Server thread/INFO]: [Multiverse-Core] API service loaded!
-[12:48:22] [Server thread/INFO]: [Multiverse-Core] Version 5.8.1 (API v5.8) Enabled - By dumptruckman, Rigby, fernferret, lithium3141, main--, benwoo1110 and Zax71
-[12:48:22] [Server thread/INFO]: [Multiverse-Core] Loving Multiverse-Core? Please consider supporting the project with a small donation: https://github.com/sponsors/Multiverse
-[12:48:22] [Server thread/INFO]: [voicechat] Enabling voicechat v2.6.24
-[12:48:22] [Server thread/INFO]: [voicechat] Initializing compatibility for version 1.21.1-R0.1
-[12:48:22] [Server thread/INFO]: [voicechat] Compatibility version 20
-[12:48:22] [Server thread/INFO]: [voicechat] Successfully initialized commodore command completion
-[12:48:22] [Server thread/INFO]: [PlaceholderAPI] Successfully registered internal expansion: voicechat [2.6.24]
-[12:48:22] [Server thread/INFO]: [voicechat] Successfully registered PlaceholderAPI expansion
-[12:48:22] [Server thread/INFO]: [voicechat] Successfully added ViaVersion mappings
-[12:48:22] [Server thread/INFO]: [spark] Starting background profiler...
-[12:48:22] [Server thread/INFO]: [PlaceholderAPI] Placeholder expansion registration initializing...
-[12:48:22] [Server thread/INFO]: 0 placeholder hook(s) registered!
-[12:48:22] [Server thread/INFO]: Done preparing level "world" (6.126s)
-[12:48:22] [Server thread/INFO]: Running delayed init tasks
-[12:48:22] [Server thread/INFO]: [CoreProtect] WorldEdit logging successfully initialized.
-[12:48:22] [Server thread/INFO]: Done (19.977s)! For help, type "help"
-[12:48:22] [Server thread/INFO]: *************************************************************************************
-[12:48:22] [Server thread/INFO]: This is the first time you're starting this server.
-[12:48:22] [Server thread/INFO]: It's recommended you read our 'Getting Started' documentation for guidance.
-[12:48:22] [Server thread/INFO]: View this and more helpful information here: https://docs.papermc.io/paper/next-steps
-[12:48:22] [Server thread/INFO]: *************************************************************************************
-[12:48:22] [Craft Scheduler Thread - 2 - ViaVersion/INFO]: [ViaVersion] Finished mapping loading, shutting down loader executor.
-[12:48:22] [ForkJoinPool.commonPool-worker-1/INFO]: [squaremap] Fetching version information...
-[12:48:22] [Server thread/INFO]: Timings Reset
-[12:48:22] [Server thread/INFO]: [voicechat] Loading plugins
-[12:48:22] [Server thread/INFO]: [voicechat] Loaded 0 plugin(s)
-[12:48:22] [Server thread/INFO]: [voicechat] Initializing plugins
-[12:48:22] [Server thread/INFO]: [voicechat] Initialized 0 plugin(s)
-[12:48:22] [Server thread/WARN]: [voicechat] Running in offline mode - Voice chat encryption is not secure!
-[12:48:22] [VoiceChatServerThread/INFO]: [voicechat] Voice chat server started at port 24454
-[12:48:23] [ForkJoinPool.commonPool-worker-1/INFO]: [squaremap] squaremap is 16 version(s) out of date.
-[12:48:23] [ForkJoinPool.commonPool-worker-1/INFO]: [squaremap] Download the latest release (v1.4.0) from https://github.com/jpenilla/squaremap/releases/tag/v1.4.0
-[12:48:24] [Server thread/INFO]: Stopping the server
-[12:48:24] [Server thread/INFO]: Stopping server
-[12:48:24] [Server thread/INFO]: [voicechat] Disabling voicechat v2.6.24
-[12:48:24] [Server thread/INFO]: [Multiverse-Core] Disabling Multiverse-Core v5.8.1
-[12:48:24] [Server thread/INFO]: [Multiverse-Core] - Disabled
-[12:48:24] [Server thread/INFO]: [Chunky] Disabling Chunky v1.4.40
-[12:48:24] [Server thread/INFO]: [CoreProtect] Disabling CoreProtect v24.0
-[12:48:24] [Server thread/INFO]: [CoreProtect] Finishing up data logging. Please wait...
-[12:48:24] [Server thread/INFO]: [CoreProtect] Success! Disabled CoreProtect v24.0
-[12:48:24] [Server thread/INFO]: [WorldGuard] Disabling WorldGuard v7.0.12+829a4a4
-[12:48:24] [Server thread/INFO]: [WorldGuard] Shutting down executor and cancelling any pending tasks...
-[12:48:24] [Server thread/INFO]: [CrashSleuthFixture] Disabling CrashSleuthFixture v1.0.0
-[12:48:24] [Server thread/INFO]: [TAB] Disabling TAB v6.2.0
-[12:48:24] [Server thread/INFO]: [TAB] Disabled in 2ms
-[12:48:24] [Server thread/INFO]: [squaremap] Disabling squaremap v1.3.2
-[12:48:24] [Server thread/INFO]: [io.undertow] stopping server: Undertow - 2.3.17.Final
-[12:48:24] [Server thread/INFO]: [squaremap] Internal webserver stopped
-[12:48:24] [Server thread/INFO]: [WorldEdit] Disabling WorldEdit v7.3.9+6959-7adf70b
-[12:48:24] [Server thread/INFO]: Unregistering com.sk89q.worldedit.bukkit.BukkitServerInterface from WorldEdit
-[12:48:24] [Server thread/INFO]: [PlaceholderAPI] Disabling PlaceholderAPI v2.12.3
-[12:48:24] [Server thread/INFO]: [LuckPerms] Disabling LuckPerms v5.5.71
-[12:48:24] [Server thread/INFO]: [LuckPerms] Starting shutdown process...
-[12:48:24] [Server thread/INFO]: [LuckPerms] Closing storage...
-[12:48:24] [Server thread/INFO]: [LuckPerms] Goodbye!
-[12:48:24] [Server thread/INFO]: [ViaVersion] Disabling ViaVersion v5.12.0
-[12:48:24] [Server thread/INFO]: [ViaVersion] ViaVersion has been disabled; uninjected the platform and shut down the scheduler.
-[12:48:24] [Server thread/INFO]: Saving players
-[12:48:25] [Server thread/INFO]: Saving worlds
-[12:48:25] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:overworld
-[12:48:25] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk system to halt for world 'world'
-[12:48:25] [Server thread/INFO]: [ChunkHolderManager] Halted chunk system for world 'world'
-[12:48:25] [Server thread/INFO]: [ChunkHolderManager] Saving all chunkholders for world 'world'
-[12:48:25] [Server thread/INFO]: [ChunkHolderManager] Saved 841 block chunks, 49 entity chunks, 1 poi chunks in world 'world' in 0.36s
-[12:48:25] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world_nether]'/minecraft:the_nether
-[12:48:25] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk system to halt for world 'world_nether'
-[12:48:25] [Server thread/INFO]: [ChunkHolderManager] Halted chunk system for world 'world_nether'
-[12:48:25] [Server thread/INFO]: [ChunkHolderManager] Saving all chunkholders for world 'world_nether'
-[12:48:25] [Server thread/INFO]: [ChunkHolderManager] Saved 841 block chunks, 49 entity chunks, 0 poi chunks in world 'world_nether' in 0.19s
-[12:48:25] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world_the_end]'/minecraft:the_end
-[12:48:25] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk system to halt for world 'world_the_end'
-[12:48:25] [Server thread/INFO]: [ChunkHolderManager] Halted chunk system for world 'world_the_end'
-[12:48:25] [Server thread/INFO]: [ChunkHolderManager] Saving all chunkholders for world 'world_the_end'
-[12:48:25] [Server thread/INFO]: [ChunkHolderManager] Saved 841 block chunks, 49 entity chunks, 0 poi chunks in world 'world_the_end' in 0.13s
-[12:48:25] [Server thread/INFO]: ThreadedAnvilChunkStorage (world): All chunks are saved
-[12:48:25] [Server thread/INFO]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
-[12:48:25] [Server thread/INFO]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
-[12:48:25] [Server thread/INFO]: ThreadedAnvilChunkStorage: All dimensions are saved
+[15:33:22] [ServerMain/INFO]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
+[15:33:22] [ServerMain/INFO]: Found new data pack file/bukkit, loading it automatically
+[15:33:22] [ServerMain/INFO]: Found new data pack paper, loading it automatically
+[15:33:22] [ServerMain/INFO]: No existing world data, creating new world
+[15:33:22] [ServerMain/INFO]: Loaded 1290 recipes
+[15:33:22] [ServerMain/INFO]: Loaded 1399 advancements
+[15:33:22] [Server thread/INFO]: Starting minecraft server version 1.21.1
+[15:33:22] [Server thread/INFO]: Loading properties
+[15:33:22] [Server thread/INFO]: This server is running Paper version 1.21.1-133-ver/1.21.1@3cb8529 (2025-03-28T16:14:36Z) (Implementing API version 1.21.1-R0.1-SNAPSHOT)
+[15:33:23] [Server thread/INFO]: [spark] This server bundles the spark profiler. For more information please visit https://docs.papermc.io/paper/profiling
+[15:33:23] [Server thread/INFO]: Server Ping Player Sample Count: 12
+[15:33:23] [Server thread/INFO]: Using 4 threads for Netty based IO
+[15:33:23] [Server thread/INFO]: [ChunkTaskScheduler] Chunk system is using 1 I/O threads, 3 worker threads, and population gen parallelism of 3 threads
+[15:33:23] [Server thread/INFO]: Default game type: SURVIVAL
+[15:33:23] [Server thread/INFO]: Generating keypair
+[15:33:23] [Server thread/INFO]: Starting Minecraft server on *:25565
+[15:33:23] [Server thread/INFO]: Using epoll channel type
+[15:33:23] [Server thread/INFO]: Paper: Using libdeflate (Linux aarch64) compression from Velocity.
+[15:33:23] [Server thread/INFO]: Paper: Using OpenSSL 3.x.x (Linux aarch64) cipher from Velocity.
+[15:33:23] [Server thread/INFO]: [ViaVersion] Loading server plugin ViaVersion v5.12.0
+[15:33:23] [Server thread/INFO]: [ViaVersion] ViaVersion 5.12.0 is now loaded. Registering protocol transformers and injecting...
+[15:33:24] [Server thread/INFO]: [LuckPerms] Loading server plugin LuckPerms v5.5.71
+[15:33:25] [Server thread/INFO]: [LuckPerms] Loading configuration...
+[15:33:25] [Server thread/INFO]: [PlaceholderAPI] Loading server plugin PlaceholderAPI v2.12.3
+[15:33:25] [Server thread/INFO]: [WorldEdit] Loading server plugin WorldEdit v7.3.9+6959-7adf70b
+[15:33:26] [Server thread/INFO]: Got request to register class com.sk89q.worldedit.bukkit.BukkitServerInterface with WorldEdit [com.sk89q.worldedit.extension.platform.PlatformManager@7d9c6d8a]
+[15:33:26] [Server thread/INFO]: [WorldEdit] Default configuration file written: config.yml
+[15:33:26] [Server thread/INFO]: [squaremap] Loading server plugin squaremap v1.3.2
+[15:33:26] [Server thread/INFO]: [TAB] Loading server plugin TAB v6.2.0
+[15:33:26] [Server thread/INFO]: [CrashSleuthFixture] Loading server plugin CrashSleuthFixture v1.0.0
+[15:33:26] [Server thread/INFO]: [WorldGuard] Loading server plugin WorldGuard v7.0.12+829a4a4
+[15:33:26] [Server thread/INFO]: [CoreProtect] Loading server plugin CoreProtect v24.0
+[15:33:26] [Server thread/INFO]: [Chunky] Loading server plugin Chunky v1.4.40
+[15:33:26] [Server thread/INFO]: [CoreLogging] Loading server plugin Multiverse-Core v5.8.1
+[15:33:26] [Server thread/INFO]: [voicechat] Loading server plugin voicechat v2.6.24
+[15:33:26] [Server thread/INFO]: [LuckPerms] Enabling LuckPerms v5.5.71
+[15:33:26] [Server thread/INFO]:         __    
+[15:33:26] [Server thread/INFO]:   |    |__)   LuckPerms v5.5.71
+[15:33:26] [Server thread/INFO]:   |___ |      Running on Bukkit - Paper
+[15:33:26] [Server thread/INFO]: 
+[15:33:26] [Server thread/INFO]: [LuckPerms] Loading storage provider... [H2]
+[15:33:26] [Server thread/INFO]: [LuckPerms] Loading internal permission managers...
+[15:33:26] [Server thread/INFO]: [LuckPerms] Performing initial data load...
+[15:33:26] [Server thread/INFO]: [LuckPerms] Successfully enabled. (took 442ms)
+[15:33:26] [Server thread/INFO]: [WorldEdit] Enabling WorldEdit v7.3.9+6959-7adf70b
+[15:33:26] [Server thread/INFO]: Registering commands with com.sk89q.worldedit.bukkit.BukkitServerInterface
+[15:33:26] [Server thread/INFO]: WEPIF: Updated config file
+[15:33:26] [Server thread/INFO]: WEPIF: Using the Bukkit Permissions API.
+[15:33:27] [Server thread/INFO]: Using com.sk89q.worldedit.bukkit.adapter.impl.v1_21.PaperweightAdapter as the Bukkit adapter
+[15:33:27] [Server thread/INFO]: [squaremap] Enabling squaremap v1.3.2
+[15:33:28] [Server thread/INFO]: [io.undertow] starting server: Undertow - 2.3.17.Final
+[15:33:28] [Server thread/INFO]: [org.xnio] XNIO version 3.8.16.Final
+[15:33:28] [Server thread/INFO]: [org.xnio.nio] XNIO NIO Implementation Version 3.8.16.Final
+[15:33:28] [Server thread/INFO]: [org.jboss.threads] JBoss Threads version 3.5.0.Final
+[15:33:28] [Server thread/INFO]: [squaremap] Internal webserver running on 0.0.0.0:8080
+[15:33:28] [Server thread/WARN]: **** SERVER IS RUNNING IN OFFLINE/INSECURE MODE!
+[15:33:28] [Server thread/WARN]: The server will make no attempt to authenticate usernames. Beware.
+[15:33:28] [Server thread/WARN]: While this makes the game possible to play without internet access, it also opens up the ability for hackers to connect with any username they choose.
+[15:33:28] [Server thread/WARN]: To change this, set "online-mode" to "true" in the server.properties file.
+[15:33:28] [Server thread/INFO]: Preparing level "world"
+[15:33:30] [Server thread/INFO]: Preparing start region for dimension minecraft:overworld
+[15:33:31] [Server thread/INFO]: Time elapsed: 1091 ms
+[15:33:31] [Server thread/INFO]: Preparing start region for dimension minecraft:the_nether
+[15:33:31] [Server thread/INFO]: Time elapsed: 371 ms
+[15:33:31] [Server thread/INFO]: Preparing start region for dimension minecraft:the_end
+[15:33:31] [Server thread/INFO]: Time elapsed: 171 ms
+[15:33:31] [Server thread/INFO]: [ViaVersion] Enabling ViaVersion v5.12.0
+[15:33:32] [Server thread/INFO]: [ViaVersion] ViaVersion detected server version: 1.21-1.21.1 (767)
+[15:33:32] [Server thread/INFO]: [PlaceholderAPI] Enabling PlaceholderAPI v2.12.3
+[15:33:32] [Server thread/INFO]: [PlaceholderAPI] Fetching available expansion information...
+[15:33:32] [Server thread/INFO]: [TAB] Enabling TAB v6.2.0
+[15:33:32] [Server thread/INFO]: [TAB] Found NMS implementation: me.neznamy.tab.platforms.bukkit.paper_1_20_5.NMSImplementationProvider
+[15:33:32] [Server thread/INFO]: [TAB] Enabled in 108ms
+[15:33:32] [Server thread/INFO]: [CrashSleuthFixture] Enabling CrashSleuthFixture v1.0.0
+[15:33:32] [Server thread/INFO]: [CrashSleuthFixture] CrashSleuth fixture mode: halt-random:60
+[15:33:32] [Server thread/INFO]: [CrashSleuthFixture] Nothing to do
+[15:33:32] [Server thread/INFO]: [WorldGuard] Enabling WorldGuard v7.0.12+829a4a4
+[15:33:32] [Server thread/INFO]: [WorldGuard] Default configuration file written: config.yml
+[15:33:32] [Server thread/INFO]: [WorldGuard] Default configuration file written: config_world.yml
+[15:33:32] [Server thread/INFO]: [WorldGuard] Default configuration file written: blacklist.txt
+[15:33:32] [Server thread/INFO]: [WorldGuard] (world) TNT ignition is PERMITTED.
+[15:33:32] [Server thread/INFO]: [WorldGuard] (world) Lighters are PERMITTED.
+[15:33:32] [Server thread/INFO]: [WorldGuard] (world) Lava fire is PERMITTED.
+[15:33:32] [Server thread/INFO]: [WorldGuard] (world) Fire spread is UNRESTRICTED.
+[15:33:32] [Server thread/INFO]: [WorldGuard] Loaded configuration for world 'world'
+[15:33:32] [Server thread/INFO]: [WorldGuard] Default configuration file written: config_world.yml
+[15:33:32] [Server thread/INFO]: [WorldGuard] Default configuration file written: blacklist.txt
+[15:33:32] [Server thread/INFO]: [WorldGuard] (world_nether) TNT ignition is PERMITTED.
+[15:33:32] [Server thread/INFO]: [WorldGuard] (world_nether) Lighters are PERMITTED.
+[15:33:32] [Server thread/INFO]: [WorldGuard] (world_nether) Lava fire is PERMITTED.
+[15:33:32] [Server thread/INFO]: [WorldGuard] (world_nether) Fire spread is UNRESTRICTED.
+[15:33:32] [Server thread/INFO]: [WorldGuard] Loaded configuration for world 'world_nether'
+[15:33:32] [Server thread/INFO]: [WorldGuard] Default configuration file written: config_world.yml
+[15:33:32] [Server thread/INFO]: [WorldGuard] Default configuration file written: blacklist.txt
+[15:33:32] [Server thread/INFO]: [WorldGuard] (world_the_end) TNT ignition is PERMITTED.
+[15:33:32] [Server thread/INFO]: [WorldGuard] (world_the_end) Lighters are PERMITTED.
+[15:33:32] [Server thread/INFO]: [WorldGuard] (world_the_end) Lava fire is PERMITTED.
+[15:33:32] [Server thread/INFO]: [WorldGuard] (world_the_end) Fire spread is UNRESTRICTED.
+[15:33:32] [Server thread/INFO]: [WorldGuard] Loaded configuration for world 'world_the_end'
+[15:33:32] [Server thread/INFO]: [WorldGuard] Loading region data...
+[15:33:32] [Server thread/INFO]: [WorldGuard] Unloading and saving region data that is currently loaded...
+[15:33:32] [Server thread/INFO]: [WorldGuard] Loading region data for loaded worlds...
+[15:33:32] [Server thread/INFO]: [WorldGuard] Loading region data...
+[15:33:32] [Server thread/INFO]: [WorldGuard] Regions saved after UUID migration! This won't happen again unless you change the relevant configuration option in WorldGuard's config.
+[15:33:32] [Server thread/INFO]: [CoreProtect] Enabling CoreProtect v24.0
+[15:33:32] [Server thread/INFO]: [CoreProtect] CoreProtect Community Edition has been successfully enabled! 
+[15:33:32] [Server thread/INFO]: [CoreProtect] Using SQLite for data storage.
+[15:33:32] [Server thread/INFO]: --------------------
+[15:33:32] [Server thread/INFO]: [CoreProtect] Enjoy CoreProtect? Join our Discord!
+[15:33:32] [Server thread/INFO]: [CoreProtect] Discord: www.coreprotect.net/discord/
+[15:33:32] [Server thread/INFO]: --------------------
+[15:33:32] [Server thread/INFO]: [Chunky] Enabling Chunky v1.4.40
+[15:33:32] [Server thread/INFO]: [Multiverse-Core] Enabling Multiverse-Core v5.8.1
+[15:33:32] [Server thread/WARN]: [Multiverse-Core] Spawn location from world.dat file was unsafe. Adjusting...
+[15:33:32] [Server thread/WARN]: [Multiverse-Core] Original Location: X: 0 Y: 66 Z: 0 P: 0 Y: 0 
+[15:33:32] [Server thread/INFO]: [Multiverse-Core] New Spawn for 'world_nether' is located at: world_nether:0.00,128.00,0.00:0.00:0.00
+[15:33:32] [Server thread/INFO]: [PlaceholderAPI] Successfully registered internal expansion: multiverse-core [5.8.1]
+[15:33:32] [Server thread/INFO]: [Multiverse-Core] API service loaded!
+[15:33:32] [Server thread/INFO]: [Multiverse-Core] Version 5.8.1 (API v5.8) Enabled - By dumptruckman, Rigby, fernferret, lithium3141, main--, benwoo1110 and Zax71
+[15:33:32] [Server thread/INFO]: [Multiverse-Core] Loving Multiverse-Core? Please consider supporting the project with a small donation: https://github.com/sponsors/Multiverse
+[15:33:32] [Server thread/INFO]: [voicechat] Enabling voicechat v2.6.24
+[15:33:32] [Server thread/INFO]: [voicechat] Initializing compatibility for version 1.21.1-R0.1
+[15:33:32] [Server thread/INFO]: [voicechat] Compatibility version 20
+[15:33:33] [Server thread/INFO]: [voicechat] Successfully initialized commodore command completion
+[15:33:33] [Server thread/INFO]: [PlaceholderAPI] Successfully registered internal expansion: voicechat [2.6.24]
+[15:33:33] [Server thread/INFO]: [voicechat] Successfully registered PlaceholderAPI expansion
+[15:33:33] [Server thread/INFO]: [voicechat] Successfully added ViaVersion mappings
+[15:33:33] [Server thread/INFO]: [spark] Starting background profiler...
+[15:33:33] [Server thread/INFO]: [PlaceholderAPI] Placeholder expansion registration initializing...
+[15:33:33] [Server thread/INFO]: 0 placeholder hook(s) registered!
+[15:33:33] [Server thread/INFO]: Done preparing level "world" (5.012s)
+[15:33:33] [Server thread/INFO]: Running delayed init tasks
+[15:33:33] [Server thread/INFO]: [CoreProtect] WorldEdit logging successfully initialized.
+[15:33:33] [ForkJoinPool.commonPool-worker-1/INFO]: [squaremap] Fetching version information...
+[15:33:33] [Server thread/INFO]: Done (17.340s)! For help, type "help"
+[15:33:33] [Server thread/INFO]: *************************************************************************************
+[15:33:33] [Server thread/INFO]: This is the first time you're starting this server.
+[15:33:33] [Server thread/INFO]: It's recommended you read our 'Getting Started' documentation for guidance.
+[15:33:33] [Server thread/INFO]: View this and more helpful information here: https://docs.papermc.io/paper/next-steps
+[15:33:33] [Server thread/INFO]: *************************************************************************************
+[15:33:33] [Craft Scheduler Thread - 2 - ViaVersion/INFO]: [ViaVersion] Finished mapping loading, shutting down loader executor.
+[15:33:33] [Server thread/INFO]: Timings Reset
+[15:33:33] [Server thread/INFO]: [voicechat] Loading plugins
+[15:33:33] [Server thread/INFO]: [voicechat] Loaded 0 plugin(s)
+[15:33:33] [Server thread/INFO]: [voicechat] Initializing plugins
+[15:33:33] [Server thread/INFO]: [voicechat] Initialized 0 plugin(s)
+[15:33:33] [Server thread/WARN]: [voicechat] Running in offline mode - Voice chat encryption is not secure!
+[15:33:33] [VoiceChatServerThread/INFO]: [voicechat] Voice chat server started at port 24454
+[15:33:33] [ForkJoinPool.commonPool-worker-1/INFO]: [squaremap] squaremap is 16 version(s) out of date.
+[15:33:33] [ForkJoinPool.commonPool-worker-1/INFO]: [squaremap] Download the latest release (v1.4.0) from https://github.com/jpenilla/squaremap/releases/tag/v1.4.0
+[15:33:35] [Server thread/INFO]: Stopping the server
+[15:33:35] [Server thread/INFO]: Stopping server
+[15:33:35] [Server thread/INFO]: [voicechat] Disabling voicechat v2.6.24
+[15:33:35] [Server thread/INFO]: [Multiverse-Core] Disabling Multiverse-Core v5.8.1
+[15:33:35] [Server thread/INFO]: [Multiverse-Core] - Disabled
+[15:33:35] [Server thread/INFO]: [Chunky] Disabling Chunky v1.4.40
+[15:33:35] [Server thread/INFO]: [CoreProtect] Disabling CoreProtect v24.0
+[15:33:35] [Server thread/INFO]: [CoreProtect] Finishing up data logging. Please wait...
+[15:33:35] [Server thread/INFO]: [CoreProtect] Success! Disabled CoreProtect v24.0
+[15:33:35] [Server thread/INFO]: [WorldGuard] Disabling WorldGuard v7.0.12+829a4a4
+[15:33:35] [Server thread/INFO]: [WorldGuard] Shutting down executor and cancelling any pending tasks...
+[15:33:35] [Server thread/INFO]: [CrashSleuthFixture] Disabling CrashSleuthFixture v1.0.0
+[15:33:35] [Server thread/INFO]: [TAB] Disabling TAB v6.2.0
+[15:33:35] [Server thread/INFO]: [TAB] Disabled in 1ms
+[15:33:35] [Server thread/INFO]: [squaremap] Disabling squaremap v1.3.2
+[15:33:35] [Server thread/INFO]: [io.undertow] stopping server: Undertow - 2.3.17.Final
+[15:33:35] [Server thread/INFO]: [squaremap] Internal webserver stopped
+[15:33:35] [Server thread/INFO]: [WorldEdit] Disabling WorldEdit v7.3.9+6959-7adf70b
+[15:33:35] [Server thread/INFO]: Unregistering com.sk89q.worldedit.bukkit.BukkitServerInterface from WorldEdit
+[15:33:35] [Server thread/INFO]: [PlaceholderAPI] Disabling PlaceholderAPI v2.12.3
+[15:33:35] [Server thread/INFO]: [LuckPerms] Disabling LuckPerms v5.5.71
+[15:33:35] [Server thread/INFO]: [LuckPerms] Starting shutdown process...
+[15:33:35] [Server thread/INFO]: [LuckPerms] Closing storage...
+[15:33:35] [Server thread/INFO]: [LuckPerms] Goodbye!
+[15:33:35] [Server thread/INFO]: [ViaVersion] Disabling ViaVersion v5.12.0
+[15:33:35] [Server thread/INFO]: [ViaVersion] ViaVersion has been disabled; uninjected the platform and shut down the scheduler.
+[15:33:35] [Server thread/INFO]: Saving players
+[15:33:36] [Server thread/INFO]: Saving worlds
+[15:33:36] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:overworld
+[15:33:36] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk system to halt for world 'world'
+[15:33:36] [Server thread/INFO]: [ChunkHolderManager] Halted chunk system for world 'world'
+[15:33:36] [Server thread/INFO]: [ChunkHolderManager] Saving all chunkholders for world 'world'
+[15:33:36] [Server thread/INFO]: [ChunkHolderManager] Saved 841 block chunks, 49 entity chunks, 0 poi chunks in world 'world' in 0.34s
+[15:33:36] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world_nether]'/minecraft:the_nether
+[15:33:36] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk system to halt for world 'world_nether'
+[15:33:36] [Server thread/INFO]: [ChunkHolderManager] Halted chunk system for world 'world_nether'
+[15:33:36] [Server thread/INFO]: [ChunkHolderManager] Saving all chunkholders for world 'world_nether'
+[15:33:36] [Server thread/INFO]: [ChunkHolderManager] Saved 841 block chunks, 49 entity chunks, 0 poi chunks in world 'world_nether' in 0.19s
+[15:33:36] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world_the_end]'/minecraft:the_end
+[15:33:36] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk system to halt for world 'world_the_end'
+[15:33:36] [Server thread/INFO]: [ChunkHolderManager] Halted chunk system for world 'world_the_end'
+[15:33:36] [Server thread/INFO]: [ChunkHolderManager] Saving all chunkholders for world 'world_the_end'
+[15:33:36] [Server thread/INFO]: [ChunkHolderManager] Saved 841 block chunks, 49 entity chunks, 0 poi chunks in world 'world_the_end' in 0.32s
+[15:33:36] [Server thread/INFO]: ThreadedAnvilChunkStorage (world): All chunks are saved
+[15:33:36] [Server thread/INFO]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[15:33:36] [Server thread/INFO]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[15:33:36] [Server thread/INFO]: ThreadedAnvilChunkStorage: All dimensions are saved
