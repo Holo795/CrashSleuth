@@ -126,4 +126,19 @@ class LogAnalyzerTest {
         assertTrue(Attribution.isPlatformJar("server-1.21.1-20240808.144430-srg.jar"))
         assertTrue(Attribution.isPlatformJar("paper-api-1.21.1-R0.1-SNAPSHOT.jar"))
     }
+
+    @Test
+    fun `code injected by a mixin is blamed on its mod`() {
+        val log = """
+            ---- Minecraft Crash Report ----
+            Description: Ticking entity
+
+            java.lang.NullPointerException: Cannot invoke "Object.hashCode()" because "key" is null
+            	at net.minecraft.world.entity.Entity.handler${'$'}zza000${'$'}examplemod${'$'}onTick(Entity.java:512)
+            	at net.minecraft.world.entity.Entity.tick(Entity.java:500)
+            	at net.minecraft.server.level.ServerLevel.tickNonPassenger(ServerLevel.java:800)
+        """.trimIndent()
+        val report = LogAnalyzer().analyze(log)
+        kotlin.test.assertEquals("examplemod", report.primary?.culprits?.firstOrNull()?.id)
+    }
 }

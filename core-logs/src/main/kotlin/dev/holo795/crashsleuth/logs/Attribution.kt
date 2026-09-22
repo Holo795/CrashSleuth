@@ -38,6 +38,12 @@ object Attribution {
             """io\.netty\..*|net\.neoforged\..*|net\.minecraftforge\..*|mixinextras.*|coremods|accesstransformers|eventbus)$""",
     )
 
+    /**
+     * Mixin names the methods it injects after the mod: `handler$zza000$lithium$onTick`,
+     * `redirect$bcd000$sodium$...`, `wrapOperation$abc000$create$...` (MixinExtras).
+     */
+    private val MIXIN_HANDLER = Regex("""^(?:handler|redirect|modify|localvar|constant|args|wrapOperation|wrapWithCondition|modifyExpressionValue|modifyReturnValue|wrapMethod)\$[0-9a-z]+\$([a-z][a-z0-9_]*)\$""")
+
     private val VERSION_SUFFIX = Regex("""[-_+](?:mc)?v?\d.*$""", RegexOption.IGNORE_CASE)
     private val LOADER_TAG = Regex("""[-_](?:fabric|neoforge|forge|quilt|paper|bukkit|spigot|mc)$""", RegexOption.IGNORE_CASE)
 
@@ -69,7 +75,12 @@ object Attribution {
             exception.frames.forEachIndexed { position, frame ->
                 val key: String
                 val file: String?
-                if (frame.module != null && !PLATFORM_MODULE.matches(frame.module) && !isPlatformClass(frame.className)) {
+                val injectedBy = MIXIN_HANDLER.find(frame.method)?.groupValues?.get(1)
+                if (injectedBy != null) {
+                    // Code a mod injected into a game method: the frame shows the game class, the name shows the mod.
+                    key = injectedBy
+                    file = null
+                } else if (frame.module != null && !PLATFORM_MODULE.matches(frame.module) && !isPlatformClass(frame.className)) {
                     key = frame.module.removeSuffix("_service")
                     file = null
                 } else if (frame.jar != null && !isPlatformJar(frame.jar)) {

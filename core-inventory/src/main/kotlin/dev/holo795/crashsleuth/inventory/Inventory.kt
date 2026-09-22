@@ -3,6 +3,7 @@ package dev.holo795.crashsleuth.inventory
 import dev.holo795.crashsleuth.model.Platform
 import dev.holo795.crashsleuth.model.Side
 import kotlinx.serialization.Serializable
+import kotlinx.serialization.Transient
 
 /** Kind of metadata file a jar declares itself with. */
 @Serializable
@@ -60,6 +61,8 @@ data class JarEntry(
     val error: String? = null,
     /** Java release its classes are compiled for (class file major version - 44); null without classes. */
     val javaVersion: Int? = null,
+    /** Where the jar was read, while it is available; never shared. */
+    @Transient val path: String? = null,
 ) {
     val formats: Set<MetadataFormat> get() = mods.map { it.format }.toSet()
 }

@@ -18,6 +18,7 @@ import dev.holo795.crashsleuth.runner.ServerLauncher
 import dev.holo795.crashsleuth.runner.Workspace
 import kotlinx.serialization.json.Json
 import java.nio.file.Files
+import java.util.concurrent.ArrayBlockingQueue
 import java.time.Duration
 
 class BisectCommand : CliktCommand(name = "bisect") {
@@ -31,6 +32,8 @@ class BisectCommand : CliktCommand(name = "bisect") {
     private val timeout by option("--timeout", help = "minutes a launch may take to be ready").int().default(10)
     private val settle by option("--settle", help = "seconds a ready server keeps running before being stopped").int().default(10)
     private val maxRuns by option("--max-runs", help = "maximum number of launches").int().default(40)
+    private val repeat by option("--repeat", help = "launches per tested set, for crashes that do not happen every time").int().default(1)
+    private val parallel by option("--parallel", help = "launches at the same time (each needs its own memory)").int().default(1)
     private val withWorld by option("--with-world", help = "copy the worlds into each launch (crashes that happen in a world)").flag()
     private val work by option("--work", help = "working folder (default: a temporary folder)").path()
     private val keep by option("--keep", help = "keep the working folder").flag()
@@ -47,10 +50,20 @@ class BisectCommand : CliktCommand(name = "bisect") {
             Duration.ofMinutes(timeout.toLong()),
             Duration.ofSeconds(settle.toLong()),
         )
+        val slots = ArrayBlockingQueue<Int>(parallel).apply { (0 until parallel).forEach(::add) }
         val search = CulpritSearch(
             inventory,
-            launch = { jars -> launcher.run(workspace.newRun(jars.groupBy { it.folder }.mapValues { (folder, entries) -> entries.map { server.resolve(folder).resolve(it.file) } })) },
+            launch = { jars ->
+                val slot = slots.take()
+                try {
+                    launcher.run(workspace.newRun(jars.groupBy { it.folder }.mapValues { (folder, entries) -> entries.map { server.resolve(folder).resolve(it.file) } }, slot))
+                } finally {
+                    slots.put(slot)
+                }
+            },
             maxRuns = maxRuns,
+            repeat = repeat,
+            parallel = parallel,
             progress = { System.err.println(it) },
         )
         val result = try {

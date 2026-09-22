@@ -9,3 +9,7 @@ tasks.test {
     systemProperty("crashsleuth.corpus", corpus.absolutePath)
     inputs.dir(corpus).withPropertyName("corpus")
 }
+
+dependencies {
+    testImplementation(libs.asm)
+}

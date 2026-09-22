@@ -71,4 +71,4 @@ class InventoryCommand : CliktCommand(name = "inventory") {
     override fun run() = echo(JSON.encodeToString(Inventory.serializer(), if (folder.isDirectory()) InstanceScanner.scan(folder) else PackScanner().scan(folder)))
 }
 
-fun main(args: Array<String>) = CrashSleuth().subcommands(Analyze(), InventoryCommand(), BisectCommand()).main(args)
+fun main(args: Array<String>) = CrashSleuth().subcommands(Analyze(), InventoryCommand(), BisectCommand(), MixinsCommand()).main(args)

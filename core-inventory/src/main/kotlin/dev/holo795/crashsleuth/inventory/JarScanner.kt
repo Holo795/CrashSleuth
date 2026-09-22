@@ -38,7 +38,7 @@ object JarScanner {
                 val files = zip.entries().asSequence().filterNot { it.isDirectory }
                     .associate { entry -> entry.name to { zip.getInputStream(entry).use(InputStream::readBytes) } }
                 val content = read(files, 0)
-                JarEntry(path.name, folder, size, content.mods, content.nested, javaVersion = javaVersion(zip, content.mods.flatMap { it.entrypoints }))
+                JarEntry(path.name, folder, size, content.mods, content.nested, javaVersion = javaVersion(zip, content.mods.flatMap { it.entrypoints }), path = path.toAbsolutePath().toString())
             }
         } catch (error: Exception) {
             JarEntry(path.name, folder, size, error = error.message ?: error.javaClass.simpleName)
