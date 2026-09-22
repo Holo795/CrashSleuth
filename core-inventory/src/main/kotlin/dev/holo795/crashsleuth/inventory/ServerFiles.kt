@@ -151,6 +151,11 @@ object ServerFilesScanner {
             }
         } catch (_: OverlappingFileLockException) {
             true
+        } catch (_: java.nio.file.AccessDeniedException) {
+            // Windows: the running server's lock keeps anyone else from even opening the file.
+            true
+        } catch (error: java.nio.file.FileSystemException) {
+            error.reason?.contains("another process", ignoreCase = true) == true
         } catch (_: Exception) {
             false
         }

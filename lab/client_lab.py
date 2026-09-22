@@ -20,6 +20,7 @@ import shutil
 import subprocess
 import sys
 import time
+import zipfile
 import urllib.request
 from pathlib import Path
 
@@ -51,17 +52,73 @@ def fabric_fixture(java_home: Path) -> Path:
     return output
 
 
+def neoforge_fixture(java_home: Path) -> Path:
+    """Compiles lab/fixtures/neoforge against the FML loader jar the client install downloaded."""
+    sources = sorted(p for p in (LAB_DIR / "fixtures" / "neoforge").rglob("*") if p.is_file())
+    digest = hashlib.sha1(b"".join(p.read_bytes() for p in sources)).hexdigest()[:10]
+    output = lab.CACHE / "fixtures" / f"crashsleuth-fixture-neoforge-{digest}.jar"
+    if output.exists():
+        return output
+    cache = Path(os.environ.get("CRASHSLEUTH_CACHE", Path.home() / ".cache" / "crashsleuth")) / "game"
+    loader = sorted((cache / "libraries" / "net" / "neoforged" / "fancymodloader" / "loader").rglob("loader-*.jar"))[-1]
+    work = lab.CACHE / "fixtures" / f"neoforge-build-{digest}"
+    shutil.rmtree(work, ignore_errors=True)
+    (work / "out" / "META-INF").mkdir(parents=True)
+    java_files = [str(p) for p in (LAB_DIR / "fixtures" / "neoforge" / "src").rglob("*.java")]
+    subprocess.run([str(java_home / "bin" / "javac"), "--release", "21", "-nowarn", "-proc:none", "-d", str(work / "out"), "-cp", str(loader), *java_files], check=True)
+    shutil.copy(LAB_DIR / "fixtures" / "neoforge" / "META-INF" / "neoforge.mods.toml", work / "out" / "META-INF" / "neoforge.mods.toml")
+    output.parent.mkdir(parents=True, exist_ok=True)
+    subprocess.run([str(java_home / "bin" / "jar"), "cf", str(output), "-C", str(work / "out"), "."], check=True)
+    return output
+
+
+def test_world(minecraft: str) -> Path:
+    """A world made once by the real server of that version, entered with Quick Play singleplayer."""
+    world = lab.CACHE / "worlds" / minecraft / "world"
+    if (world / "level.dat").exists():
+        return world
+    scenario = lab.Scenario(name=f"client-world-{minecraft}", description="world", platform="vanilla", minecraft=minecraft, java=21)
+    directory = lab.RUNS / scenario.name
+    shutil.rmtree(directory, ignore_errors=True)
+    outcome, _ = lab.run_server(scenario, directory, lab.prepare(scenario, directory))
+    if outcome != "ready":
+        raise RuntimeError(f"the server making the test world did not start ({outcome})")
+    world.parent.mkdir(parents=True, exist_ok=True)
+    shutil.copytree(directory / "world", world)
+    shutil.rmtree(directory, ignore_errors=True)
+    return world
+
+
 def prepare(scenario: dict, directory: Path, java_home: Path) -> None:
     (directory / "mods").mkdir(parents=True)
     skip = set(scenario.get("skip", []))
-    for slug, path in lab.resolve_mods(scenario.get("mods", []), "fabric", scenario["minecraft"], skip).items():
+    for slug, path in lab.resolve_mods(scenario.get("mods", []), scenario.get("loader", "fabric"), scenario["minecraft"], skip).items():
         if slug not in skip:
             shutil.copy(path, directory / "mods" / path.name)
     if scenario.get("fixture"):
-        shutil.copy(fabric_fixture(java_home), directory / "mods" / "crashsleuth-fixture-1.0.0.jar")
+        build = neoforge_fixture if scenario.get("loader") == "neoforge" else fabric_fixture
+        shutil.copy(build(java_home), directory / "mods" / "crashsleuth-fixture-1.0.0.jar")
         (directory / "fixture-mode.txt").write_text(scenario["fixture"] + "\n")
+    # Mods of another loader dropped in on purpose: {"slug", "loader"}.
+    for extra in scenario.get("extra", []):
+        path = lab.modrinth_file(lab.modrinth_version(extra["slug"], extra["loader"], scenario["minecraft"]))
+        shutil.copy(path, directory / "mods" / path.name)
+    # Files of the game folder: a text, a zip of texts, or bytes that are no zip at all.
+    for item in scenario.get("files", []):
+        target = directory / item["path"]
+        target.parent.mkdir(parents=True, exist_ok=True)
+        if "zip" in item:
+            with zipfile.ZipFile(target, "w") as archive:
+                for name, text in item["zip"].items():
+                    archive.writestr(name, text)
+        elif "garbage" in item:
+            target.write_bytes(bytes((i * 131 + 7) % 256 for i in range(item["garbage"])))
+        else:
+            target.write_text(item["text"])
+    if scenario.get("world"):
+        shutil.copytree(test_world(scenario["minecraft"]), directory / "saves" / "lab")
     # Small, quiet, no tutorial: nothing waits for the player.
-    (directory / "options.txt").write_text("onboardAccessibility:false\nsoundCategory_master:0.0\ntutorialStep:none\nskipMultiplayerWarning:true\n")
+    (directory / "options.txt").write_text("onboardAccessibility:false\nsoundCategory_master:0.0\ntutorialStep:none\nskipMultiplayerWarning:true\n" + scenario.get("options", ""))
 
 
 def run(names: list[str], cli: str, java_home: Path) -> int:
@@ -77,7 +134,8 @@ def run(names: list[str], cli: str, java_home: Path) -> int:
         try:
             prepare(scenario, directory, java_home)
             started = time.time()
-            launch = subprocess.run([cli, "run-client", str(directory), "--loader", "fabric", *common, "--settle", "8"], capture_output=True, text=True, timeout=900)
+            joining = ["--join", "world:lab"] if scenario.get("world") else []
+            launch = subprocess.run([cli, "run-client", str(directory), "--loader", scenario.get("loader", "fabric"), *common, "--settle", "8", *joining], capture_output=True, text=True, timeout=900)
             outcome = launch.stdout.split()[0] if launch.stdout else "ERROR"
             report = json.loads(subprocess.run([cli, "analyze", str(directory), "--json"], capture_output=True, text=True, timeout=300).stdout)
             findings = report["findings"]
@@ -95,7 +153,7 @@ def run(names: list[str], cli: str, java_home: Path) -> int:
             if scenario.get("bisect"):
                 print(f"   analysis {'PASS' if ok else 'FAIL'}: {detail}", flush=True)
                 started = time.time()
-                search = subprocess.run([cli, "bisect", str(directory), "--client", "--loader", "fabric", *common, "--json",
+                search = subprocess.run([cli, "bisect", str(directory), "--client", "--loader", scenario.get("loader", "fabric"), *common, "--json",
                                          "--work", str(RUNS / "work"), *scenario["bisect"].get("args", [])], capture_output=True, text=True, timeout=4 * 3600)
                 (directory / "bisect.log").write_text(search.stderr)
                 answer = json.loads(search.stdout)

@@ -1,0 +1,7 @@
+{
+  "situation": "WRONG_LOADER",
+  "culprit": "modmenu",
+  "logs": [
+    "latest.log"
+  ]
+}

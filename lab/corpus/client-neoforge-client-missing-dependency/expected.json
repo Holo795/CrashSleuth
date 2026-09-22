@@ -1,0 +1,8 @@
+{
+  "situation": "DEP_MISSING",
+  "culprit": "sophisticatedcore",
+  "logs": [
+    "crash-2026-09-22_16.14.44-fml.txt",
+    "latest.log"
+  ]
+}

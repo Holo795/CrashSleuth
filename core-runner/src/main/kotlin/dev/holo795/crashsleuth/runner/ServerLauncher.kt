@@ -47,14 +47,19 @@ class ServerLauncher(
     private val stopCommand: String? = "stop",
     /** Lines after which the launch cannot recover (a loader error screen waits forever). */
     private val fatal: Regex? = null,
+    /** Keeps the windows of a game client out of the way. */
+    private val windows: WindowKeeper = WindowKeeper.NONE,
 ) {
     /** The same launcher for another command (each client run has its own game folder in it). */
-    fun withCommand(command: List<String>) = ServerLauncher(command, timeout, settle, ready, stopCommand, fatal)
+    fun withCommand(command: List<String>) = ServerLauncher(command, timeout, settle, ready, stopCommand, fatal, windows)
 
     /** [abort] is checked while the launch runs: when it says yes, the game or server is closed at once. */
     fun run(directory: Path, abort: () -> Boolean = { false }): RunResult {
         val started = System.nanoTime()
-        val process = ProcessBuilder(command).directory(directory.toFile()).redirectErrorStream(true).start()
+        val builder = ProcessBuilder(command).directory(directory.toFile()).redirectErrorStream(true)
+        val screen = windows.prepare(builder)
+        val process = builder.start()
+        val watching = windows.watch(process)
         val failedAt = AtomicLong(0)
         val console = StringBuilder()
         val readyAt = AtomicLong(0)
@@ -101,6 +106,8 @@ class ServerLauncher(
             process.waitFor(200, TimeUnit.MILLISECONDS)
         }
         reader.join(5000)
+        watching.close()
+        screen.close()
         val exitCode = if (process.isAlive) null else process.exitValue()
         val crashReports = directory.resolve("crash-reports").takeIf { it.isDirectory() }?.listDirectoryEntries("*.txt").orEmpty() +
             directory.listDirectoryEntries("hs_err_pid*.log")

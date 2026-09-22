@@ -1,0 +1,7 @@
+{
+  "situation": "RENDER",
+  "culprit": "broken.zip",
+  "logs": [
+    "latest.log"
+  ]
+}

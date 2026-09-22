@@ -87,6 +87,8 @@ class LogAnalyzer(
             DeadlockDetector,
             HangDetector,
             LagDetector,
+            ResourcePackDetector,
+            ShaderPackDetector,
             SignatureDetector.BUILT_IN,
             JavaVersionDetector,
             OutOfMemoryDetector,

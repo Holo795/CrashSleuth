@@ -463,5 +463,5 @@ private fun wrongMinecraft(culprit: Culprit, expected: String, actual: String, e
 
 private fun lineOf(document: LogDocument, offset: Int): Int = document.text.substring(0, offset).count { it == '\n' }
 
-private fun mapOfNotNull(vararg pairs: Pair<String, String?>): Map<String, String> =
+internal fun mapOfNotNull(vararg pairs: Pair<String, String?>): Map<String, String> =
     pairs.mapNotNull { (key, value) -> value?.let { key to it } }.toMap()

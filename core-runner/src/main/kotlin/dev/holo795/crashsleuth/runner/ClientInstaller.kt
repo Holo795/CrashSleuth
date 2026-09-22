@@ -14,6 +14,7 @@ import java.net.URLEncoder
 import java.net.http.HttpClient
 import java.net.http.HttpRequest
 import java.net.http.HttpResponse
+import java.nio.file.Files
 import java.nio.file.Path
 import java.security.MessageDigest
 import java.time.Duration
@@ -21,6 +22,7 @@ import kotlin.io.path.createDirectories
 import kotlin.io.path.exists
 import kotlin.io.path.readText
 import kotlin.io.path.writeBytes
+import kotlin.io.path.writeText
 
 /** Everything needed to start a game client, resolved for this computer. */
 data class ClientProfile(
@@ -50,7 +52,8 @@ class ClientInstaller(
         val loaderJson = when (loader?.lowercase()) {
             null, "vanilla" -> null
             "fabric" -> fabricJson(minecraft, loaderVersion)
-            else -> error("Client launches support vanilla and Fabric for now, not $loader")
+            "neoforge" -> neoforgeJson(minecraft, loaderVersion, vanilla)
+            else -> error("Client launches support vanilla, Fabric and NeoForge for now, not $loader")
         }
         val libraries = merge(loaderJson?.get("libraries")?.jsonArray.orEmpty(), vanilla["libraries"]?.jsonArray.orEmpty())
         // listOf: a Path is itself Iterable, and "list + path" would add its name segments.
@@ -114,9 +117,48 @@ class ClientInstaller(
                 i++
             }
         }
-        // Quick Play (1.20+): the game connects to the server as soon as it has started.
-        val quickPlay = if (join != null) listOf("--quickPlayMultiplayer", join) else emptyList()
+        // Quick Play (1.20+): the game joins a server ("host:port") or opens a save ("world:<folder>") once started.
+        val quickPlay = when {
+            join == null -> emptyList()
+            join.startsWith("world:") -> listOf("--quickPlaySingleplayer", join.removePrefix("world:"))
+            else -> listOf("--quickPlayMultiplayer", join)
+        }
         return listOf(java, "-Xmx$memory", "-Dfabric.noGui=true") + extraJvm + jvm + profile.mainClass + cleanGame + quickPlay
+    }
+
+    /**
+     * NeoForge's own installer, run headless into this cache (laid out like a launcher folder, never the
+     * player's): it downloads its libraries and patches the game, then its profile is read like Fabric's.
+     */
+    private fun neoforgeJson(minecraft: String, loaderVersion: String?, vanilla: JsonObject): JsonObject {
+        val version = loaderVersion ?: latestNeoForge(minecraft)
+        val profile = cache.resolve("versions/neoforge-$version/neoforge-$version.json")
+        if (!profile.exists()) {
+            clientJar(minecraft, vanilla)
+            val launcherProfiles = cache.resolve("launcher_profiles.json")
+            if (!launcherProfiles.exists()) launcherProfiles.writeText("""{"profiles":{}}""")
+            val work = Files.createTempDirectory("crashsleuth-neoforge")
+            try {
+                val installer = work.resolve("installer.jar")
+                installer.writeBytes(get(URI("$NEOFORGE_MAVEN/$version/neoforge-$version-installer.jar")))
+                val java = Path.of(System.getProperty("java.home"), "bin", if (File.separatorChar == '\\') "java.exe" else "java").toString()
+                val process = ProcessBuilder(java, "-jar", installer.toString(), "--install-client", cache.toString())
+                    .directory(work.toFile()).redirectErrorStream(true).redirectOutput(work.resolve("install.log").toFile()).start()
+                check(process.waitFor() == 0 && profile.exists()) { "NeoForge $version installer failed: " + work.resolve("install.log").readText().lines().takeLast(5).joinToString(" ") }
+            } finally {
+                work.toFile().deleteRecursively()
+            }
+        }
+        return json.parseToJsonElement(profile.readText()).jsonObject
+    }
+
+    /** NeoForge versions start with the game's minor and patch numbers: 1.21.1 is 21.1.x. */
+    private fun latestNeoForge(minecraft: String): String {
+        val parts = minecraft.split('.')
+        val prefix = "${parts.getOrElse(1) { "0" }}.${parts.getOrElse(2) { "0" }}."
+        val metadata = get(URI("$NEOFORGE_MAVEN/maven-metadata.xml")).toString(Charsets.UTF_8)
+        return Regex("<version>([^<]+)</version>").findAll(metadata).map { it.groupValues[1] }
+            .filter { it.startsWith(prefix) && !it.contains("beta") }.lastOrNull() ?: error("No NeoForge release for Minecraft $minecraft")
     }
 
     private fun vanillaJson(minecraft: String): JsonObject {
@@ -188,7 +230,7 @@ class ClientInstaller(
     /**
      * The asset index is always installed; the objects (sounds, languages, about 700 MB) only when
      * asked: the game starts without them, which is all a crash test needs. The window icons and the
-     * built-in packs (1.4 MB) are always there: the game opens them at start and logs errors without them.
+     * built-in packs, fonts and title screen images (5.6 MB) are always there: the game opens them at start and logs errors without them.
      */
     private fun installAssets(assetIndex: JsonObject, id: String, full: Boolean) {
         val file = cache.resolve("assets/indexes/$id.json")
@@ -207,7 +249,7 @@ class ClientInstaller(
         }
     }
 
-    private val ALWAYS = listOf("icons/", "minecraft/resourcepacks/")
+    private val ALWAYS = listOf("icons/", "minecraft/resourcepacks/", "minecraft/font/", "minecraft/textures/gui/title/")
 
     private fun arguments(element: JsonElement?): List<String> = (element as? JsonArray).orEmpty().flatMap { argument ->
         when (argument) {
@@ -243,6 +285,7 @@ class ClientInstaller(
     }
 
     companion object {
+        private const val NEOFORGE_MAVEN = "https://maven.neoforged.net/releases/net/neoforged/neoforge"
         private const val MANIFEST = "https://piston-meta.mojang.com/mc/game/version_manifest_v2.json"
         private val PLACEHOLDER = Regex("""\$\{([A-Za-z_]+)}""")
         private val OS_NAME = System.getProperty("os.name").lowercase().let {

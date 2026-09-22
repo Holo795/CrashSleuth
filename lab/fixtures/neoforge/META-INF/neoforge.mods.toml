@@ -1,0 +1,9 @@
+modLoader = "javafml"
+loaderVersion = "[1,)"
+license = "MIT"
+
+[[mods]]
+modId = "crashsleuth_fixture"
+version = "1.0.0"
+displayName = "CrashSleuth Fixture"
+description = "Test mod of the CrashSleuth lab. Misbehaves on purpose, as set in fixture-mode.txt."

@@ -54,6 +54,14 @@ class RegionScannerTest {
     }
 
     @Test
+    fun `the last chunk of a file is not padded to a full sector, as the game writes it`() {
+        val full = region(mapOf(0 to (zlib(chunkNbt()) to 2)))
+        val used = 2 * 4096 + 5 + zlib(chunkNbt()).size
+        world.resolve("region").createDirectories().resolve("r.0.0.mca").writeBytes(full.copyOf(used))
+        assertEquals(emptyList(), RegionScanner.scan(world).damaged)
+    }
+
+    @Test
     fun `garbage, unknown compression and a location past the end are named with their chunk`() {
         val garbage = zlib(chunkNbt()).also { for (i in 4 until it.size - 4) it[i] = (i * 37).toByte() }
         world.resolve("region").createDirectories().resolve("r.-1.0.mca").writeBytes(region(mapOf(0 to (garbage to 2), 1 to (zlib(chunkNbt()) to 42))))

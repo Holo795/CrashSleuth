@@ -85,7 +85,8 @@ object RegionScanner {
                 checked++
                 when {
                     offset < 2 -> { damage(index, "its location points inside the header"); continue }
-                    (offset.toLong() + sectors) * SECTOR > size -> { damage(index, "its location points past the end of the file"); continue }
+                    // The game does not pad the last chunk of a file to a full sector: only its data must be there.
+                    offset.toLong() * SECTOR + 5 > size -> { damage(index, "its location points past the end of the file"); continue }
                 }
                 val overlap = (offset until offset + sectors).firstOrNull { it in used }
                 if (overlap != null) { damage(index, "it shares its sectors with another chunk"); continue }
@@ -96,6 +97,7 @@ object RegionScanner {
                 val length = head.getInt()
                 val compression = head.get().toInt() and 0xFF
                 if (length <= 1 || length > sectors * SECTOR) { damage(index, "its length ($length bytes) does not fit its ${sectors * 4} KB"); continue }
+                if (offset.toLong() * SECTOR + 4 + length > size) { damage(index, "its data is cut by the end of the file"); continue }
                 if (compression and 0x80 != 0) {
                     // Oversized chunk kept in its own c.<x>.<z>.mcc file next to the region.
                     val x = rx * 32 + (index and 31)

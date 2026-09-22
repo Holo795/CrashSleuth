@@ -2,6 +2,17 @@
   "about": "Log signatures: a regular expression (Java syntax) and what it means. Groups name the culprits and details. Rules marked codex-minecraft are adapted from https://github.com/aternosorg/codex-minecraft (MIT, Copyright (c) 2019-2025 Aternos GmbH).",
   "signatures": [
     {
+      "id": "lwjgl-natives-missing",
+      "situation": "NATIVE_CRASH",
+      "confidence": "CERTAIN",
+      "pattern": "UnsatisfiedLinkError: Failed to locate library: (lib)?(lwjgl[\\w]*)\\.(so|dylib|dll)",
+      "details": {
+        "library": 2
+      },
+      "advice": "signature.natives-missing.advice",
+      "source": "lab: Minecraft 1.21.1 client on Linux ARM64 (Mojang ships LWJGL natives for Linux x86-64 only)"
+    },
+    {
       "id": "paper-remap-unsupported-class-version",
       "situation": "PLUGIN_API",
       "confidence": "CERTAIN",

@@ -114,12 +114,18 @@ def forge_installer(minecraft: str) -> tuple[Path, str]:
 # ---------------------------------------------------------------------------------------- Modrinth
 
 def modrinth_version(slug: str, loader: str, minecraft: str, index: int = 0) -> dict:
-    """Latest release (or the index-th one) of a project for a loader and Minecraft version."""
+    """Latest release (or the index-th one) of a project for a loader and Minecraft version.
+    "sodium@mc1.21.1-0.6" pins the newest version whose number starts with what follows the @."""
+    slug, _, pin = slug.partition("@")
     query = urllib.parse.urlencode({"loaders": json.dumps([loader]), "game_versions": json.dumps([minecraft])})
     versions = http_json(f"https://api.modrinth.com/v2/project/{slug}/version?{query}")
     if not versions:
         raise LookupError(f"{slug} has no {loader} build for {minecraft}")
     stable = [v for v in versions if v["version_type"] == "release"] or versions
+    if pin:
+        stable = [v for v in versions if v["version_number"].startswith(pin)]
+        if not stable:
+            raise LookupError(f"{slug} has no {loader} version starting with {pin} for {minecraft}")
     return stable[min(index, len(stable) - 1)]
 
 
@@ -135,11 +141,11 @@ def resolve_mods(slugs: list[str], loader: str, minecraft: str, skip: set[str]) 
     seen: set[str] = set()
     while queue:
         slug = queue.pop(0)
-        if slug in seen:
+        if slug.partition("@")[0] in seen:
             continue
-        seen.add(slug)
+        seen.add(slug.partition("@")[0])
         version = modrinth_version(slug, loader, minecraft)
-        resolved[slug] = modrinth_file(version)
+        resolved[slug.partition("@")[0]] = modrinth_file(version)
         for dependency in version["dependencies"]:
             if dependency["dependency_type"] != "required" or not dependency.get("project_id"):
                 continue

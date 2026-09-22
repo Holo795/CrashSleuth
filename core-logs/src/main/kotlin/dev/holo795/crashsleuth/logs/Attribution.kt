@@ -12,7 +12,7 @@ import dev.holo795.crashsleuth.model.PlatformKind
 object Attribution {
     /** Jars that belong to the game, the loader or common libraries: never a culprit. */
     private val PLATFORM_JAR = Regex(
-        """^(minecraft|client|server|paper|purpur|folia|spigot|velocity|bungeecord|waterfall|craftbukkit|bukkit|patched|forge|neoforge|fmlloader|fmlcore|""" +
+        """^(minecraft|client|server|loader|earlydisplay|paper|purpur|folia|spigot|velocity|bungeecord|waterfall|craftbukkit|bukkit|patched|forge|neoforge|fmlloader|fmlcore|""" +
             """javafmllanguage|lowcodelanguage|mclanguage|modlauncher|bootstraplauncher|securejarhandler|eventbus|coremods|""" +
             """mixin|sponge-mixin|mixinextras|fabric-loader|quilt-loader|intermediary|datafixerupper|netty|log4j|guava|gson|""" +
             """jopt|lwjgl|authlib|brigadier|fastutil|commons|slf4j|asm|jna|oshi|icu4j|kotlin|java|jdk|srgutils|terminalconsoleappender|""" +

@@ -1,0 +1,89 @@
+{
+ "reproduced": true,
+ "culprits": [
+  "mods/crashsleuth-fixture-1.0.0.jar"
+ ],
+ "labels": [
+  "CrashSleuth Fixture"
+ ],
+ "complete": true,
+ "reference": {
+  "outcome": "CRASHED",
+  "situation": null,
+  "exception": null
+ },
+ "runs": [
+  {
+   "index": 1,
+   "kept": [
+    "mods/Jade-1.21.1-NeoForge-15.10.6.jar",
+    "mods/MouseTweaks-neoforge-mc1.21-2.26.1.jar",
+    "mods/appleskin-neoforge-mc1.21-3.0.9.jar",
+    "mods/crashsleuth-fixture-1.0.0.jar",
+    "mods/ferritecore-7.0.3-neoforge.jar",
+    "mods/jei-1.21.1-neoforge-19.51.0.418.jar",
+    "mods/sophisticatedbackpacks-1.21.1-3.26.3.2158.jar",
+    "mods/sophisticatedcore-1.21.1-1.5.1.2341.jar"
+   ],
+   "outcome": "CRASHED",
+   "seconds": 4.361160792,
+   "sameFailure": true,
+   "note": "reference"
+  },
+  {
+   "index": 2,
+   "kept": [
+    "mods/Jade-1.21.1-NeoForge-15.10.6.jar",
+    "mods/MouseTweaks-neoforge-mc1.21-2.26.1.jar",
+    "mods/appleskin-neoforge-mc1.21-3.0.9.jar",
+    "mods/crashsleuth-fixture-1.0.0.jar"
+   ],
+   "outcome": "CRASHED",
+   "seconds": 4.655187666,
+   "sameFailure": true,
+   "note": null
+  },
+  {
+   "index": 3,
+   "kept": [
+    "mods/Jade-1.21.1-NeoForge-15.10.6.jar",
+    "mods/MouseTweaks-neoforge-mc1.21-2.26.1.jar"
+   ],
+   "outcome": "READY",
+   "seconds": 16.40819125,
+   "sameFailure": false,
+   "note": null
+  },
+  {
+   "index": 4,
+   "kept": [
+    "mods/appleskin-neoforge-mc1.21-3.0.9.jar",
+    "mods/crashsleuth-fixture-1.0.0.jar"
+   ],
+   "outcome": "CRASHED",
+   "seconds": 4.30703725,
+   "sameFailure": true,
+   "note": null
+  },
+  {
+   "index": 5,
+   "kept": [
+    "mods/appleskin-neoforge-mc1.21-3.0.9.jar"
+   ],
+   "outcome": "READY",
+   "seconds": 16.1524415,
+   "sameFailure": false,
+   "note": null
+  },
+  {
+   "index": 6,
+   "kept": [
+    "mods/crashsleuth-fixture-1.0.0.jar"
+   ],
+   "outcome": "CRASHED",
+   "seconds": 4.205516625,
+   "sameFailure": true,
+   "note": null
+  }
+ ]
+}

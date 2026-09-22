@@ -1,0 +1,7 @@
+{
+  "situation": "NATIVE_CRASH",
+  "culprit": null,
+  "logs": [
+    "latest.log"
+  ]
+}

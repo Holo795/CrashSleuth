@@ -1,8 +1,28 @@
 # CrashSleuth — Spécification
 
-**Version 10 — 22/09/2026** — v9 + lag, profils spark, interblocages, mémoire du conteneur.
+**Version 11 — 22/09/2026** — v10 + côté client complet (NeoForge, packs de ressources, shaders), fenêtres du jeu jamais au premier plan, **tests réels sur Linux, Windows et macOS**.
 
-### Changements depuis la v9
+### Changements depuis la v10
+- **Règle du projet** : toute fonctionnalité doit marcher et être testée sur **Linux, Windows et macOS** (§13).
+- **Fenêtres du jeu hors du chemin** : pendant les lancements de test (surtout la recherche du coupable), le jeu ne prend plus le premier plan, le verdict venant des journaux :
+  - **macOS** : l'application du jeu est masquée dès qu'elle apparaît (comme Cmd-H) et le premier plan est rendu à l'application qui l'avait (script JavaScript for Automation, aucune autorisation demandée) ;
+  - **Windows** : chaque fenêtre du jeu est réduite sans être activée et le premier plan est rendu (PowerShell et user32) ;
+  - **Linux** : le jeu tourne sur un **écran virtuel** (Xvfb) quand il est installé, rien n'apparaît ; rendu logiciel par Mesa ;
+  - `--show` (ou `CRASHSLEUTH_SHOW_GAME=1`) laisse la fenêtre visible.
+- **NeoForge côté client** : l'installeur officiel de NeoForge est lancé sans interface dans le cache de l'outil (organisé comme un dossier de launcher, jamais celui du joueur), puis son profil est lu ; `run-client` et `bisect --client` acceptent `--loader neoforge`. Mod de test NeoForge dans `lab/fixtures/neoforge`.
+- **Quick Play solo** : `--join world:<sauvegarde>` ouvre une sauvegarde dès le démarrage (pour les problèmes qui n'arrivent qu'en jeu, comme les shaders).
+- **Packs de ressources** (`RENDER`) : pack qui n'est pas un zip lisible (le jeu le retire alors de ses options en silence), modèles ou états de blocs au JSON cassé, avec le pack du joueur en cause.
+- **Packs de shaders** (`RENDER`) : pack qui ne se compile pas sous Iris (le jeu continue sans shaders), avec le programme et la ligne du compilateur.
+- **Bibliothèques natives manquantes** : sous Linux ARM, Minecraft 1.21.1 ne fournit pas LWJGL (constat réel) : reconnu et expliqué.
+- **Windows** : un `session.lock` tenu par un serveur Windows empêche même d'ouvrir le fichier : c'est désormais compté comme « monde verrouillé ».
+- **Correctif** : la dernière région d'un fichier `.mca` n'est pas complétée à un secteur entier par le jeu ; la lecture des régions ne le prend plus pour un chunk coupé (faux positif trouvé sur un monde réel du labo client).
+- **Tests réels par système** :
+  - **macOS** (Mac d'Holo795) : 7 nouveaux scénarios client, 7 réussis (NeoForge sain, dépendance manquante, mod Fabric dans NeoForge, pack qui n'est pas un zip, modèle cassé, shaders qui ne compilent pas dans un vrai monde, recherche du coupable NeoForge en 6 lancements) ; jeu masqué, premier plan resté à l'application en cours pendant tout le lancement ;
+  - **Linux** (conteneur sur le Mac, x86-64) : vrai jeu Fabric démarré sur écran virtuel avec rendu logiciel en 29 s ; sous Linux ARM, bibliothèques natives absentes (cas ajouté au corpus) ;
+  - **Windows 11** (PC d'Holo795, RTX 5060 Ti) : les 85 cas du corpus rejoués, fins de ligne Windows (CRLF) comprises, **résultats identiques au Mac** ; vrais clients vanilla, Fabric et NeoForge prêts en 15 à 18 s ; recherche du coupable NeoForge réussie en 5 lancements ; sur 270 relevés (toutes les 0,5 s), le jeu n'a **jamais** eu le premier plan. Tout le dossier de test a été supprimé ensuite.
+- 51 signatures, 138 tests, 85 cas réels rejoués.
+
+### Changements de la v10 (rappel)
 - **Lag** (§6.4) : les avertissements « Can't keep up! … Running 2518ms or 50 ticks behind » répétés **après** le démarrage (un seul pendant le chargement du monde est normal) donnent un lag sans coupable, avec le pire retard, et le conseil exact pour enregistrer un profil.
 - **Profils spark** : un fichier `.sparkprofile` (enregistré avec `spark profiler start --save-to-file`, spark est intégré à Paper) est lu directement : arbre des appels du thread principal et table « classe → plugin ou mod ». Le rapport nomme **qui prend le temps du thread principal**, avec sa part et la méthode la plus lourde (au labo : CrashSleuthFixture, 97 %, `FixturePlugin.recalculatePrices`). Le profil le plus récent de `plugins/spark` ou `config/spark` est pris tout seul ; on peut aussi le déposer seul. Le reste du fichier (configuration du serveur, noms de joueurs) n'est jamais gardé ni partagé.
 - **Interblocages** (`DEADLOCK`) : le rapport de la JVM (`Found one Java-level deadlock`, jstack ou `kill -3`) nomme les threads et le code en cause ; le watchdog de Paper ne dit pas qui tient un verrou, mais son relevé montre le thread principal **BLOCKED** dans un plugin pendant qu'un autre thread du même plugin l'est aussi : c'est un interblocage, plus seulement un gel.
@@ -322,6 +342,7 @@ Ordre de passage, du gratuit au payant :
 
 - Commits en anglais, Conventional Commits, auteur Holo795, **aucune mention d'outil ou d'assistant** dans les commits, le code ou la documentation.
 - La spec est mise à jour à chaque changement de conception.
+- Toute fonctionnalité fonctionne et est testée sur **Linux, Windows et macOS** ; les fenêtres des lancements de test ne passent jamais au premier plan.
 
 ## 14. Décisions prises
 
