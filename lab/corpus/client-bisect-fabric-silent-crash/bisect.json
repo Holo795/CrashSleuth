@@ -1,0 +1,115 @@
+{
+ "reproduced": true,
+ "culprits": [
+  "mods/crashsleuth-fixture-1.0.0.jar"
+ ],
+ "labels": [
+  "CrashSleuth Fixture"
+ ],
+ "complete": true,
+ "reference": {
+  "outcome": "CRASHED",
+  "situation": null,
+  "exception": null
+ },
+ "runs": [
+  {
+   "index": 1,
+   "kept": [
+    "mods/ImmediatelyFast-Fabric-1.6.14+1.21.1.jar",
+    "mods/appleskin-fabric-mc1.21-3.0.6.jar",
+    "mods/continuity-3.0.0+1.21.jar",
+    "mods/crashsleuth-fixture-1.0.0.jar",
+    "mods/entityculling-fabric-1.11.2-mc1.21.1.jar",
+    "mods/fabric-api-0.116.17+1.21.1.jar",
+    "mods/fabric-language-kotlin-1.14.1+kotlin.2.4.20.jar",
+    "mods/ferritecore-7.0.3-fabric.jar",
+    "mods/lithium-fabric-0.15.4+mc1.21.1.jar",
+    "mods/modmenu-11.0.4.jar",
+    "mods/placeholder-api-2.4.2+1.21.jar",
+    "mods/sodium-fabric-0.8.13+mc1.21.1.jar",
+    "mods/yet_another_config_lib_v3-3.8.2+1.21.1-fabric.jar",
+    "mods/zoomify-2.15.2+1.21.1.jar"
+   ],
+   "outcome": "CRASHED",
+   "seconds": 3.555775791,
+   "sameFailure": true,
+   "note": "reference"
+  },
+  {
+   "index": 2,
+   "kept": [
+    "mods/ImmediatelyFast-Fabric-1.6.14+1.21.1.jar",
+    "mods/appleskin-fabric-mc1.21-3.0.6.jar",
+    "mods/continuity-3.0.0+1.21.jar",
+    "mods/crashsleuth-fixture-1.0.0.jar",
+    "mods/entityculling-fabric-1.11.2-mc1.21.1.jar",
+    "mods/fabric-api-0.116.17+1.21.1.jar",
+    "mods/fabric-language-kotlin-1.14.1+kotlin.2.4.20.jar"
+   ],
+   "outcome": "CRASHED",
+   "seconds": 3.483910416,
+   "sameFailure": true,
+   "note": null
+  },
+  {
+   "index": 3,
+   "kept": [
+    "mods/ImmediatelyFast-Fabric-1.6.14+1.21.1.jar",
+    "mods/appleskin-fabric-mc1.21-3.0.6.jar",
+    "mods/continuity-3.0.0+1.21.jar",
+    "mods/crashsleuth-fixture-1.0.0.jar",
+    "mods/fabric-api-0.116.17+1.21.1.jar"
+   ],
+   "outcome": "CRASHED",
+   "seconds": 3.351651,
+   "sameFailure": true,
+   "note": null
+  },
+  {
+   "index": 4,
+   "kept": [
+    "mods/ImmediatelyFast-Fabric-1.6.14+1.21.1.jar",
+    "mods/appleskin-fabric-mc1.21-3.0.6.jar",
+    "mods/fabric-api-0.116.17+1.21.1.jar"
+   ],
+   "outcome": "READY",
+   "seconds": 15.196725791,
+   "sameFailure": false,
+   "note": null
+  },
+  {
+   "index": 5,
+   "kept": [
+    "mods/continuity-3.0.0+1.21.jar",
+    "mods/crashsleuth-fixture-1.0.0.jar",
+    "mods/fabric-api-0.116.17+1.21.1.jar"
+   ],
+   "outcome": "CRASHED",
+   "seconds": 3.141435791,
+   "sameFailure": true,
+   "note": null
+  },
+  {
+   "index": 6,
+   "kept": [
+    "mods/continuity-3.0.0+1.21.jar",
+    "mods/fabric-api-0.116.17+1.21.1.jar"
+   ],
+   "outcome": "READY",
+   "seconds": 15.560472625,
+   "sameFailure": false,
+   "note": null
+  },
+  {
+   "index": 7,
+   "kept": [
+    "mods/crashsleuth-fixture-1.0.0.jar"
+   ],
+   "outcome": "CRASHED",
+   "seconds": 2.529201167,
+   "sameFailure": true,
+   "note": null
+  }
+ ]
+}

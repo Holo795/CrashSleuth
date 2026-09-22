@@ -1,8 +1,21 @@
 # CrashSleuth — Spécification
 
-**Version 6 — 22/09/2026** — v5 + analyse des mixins, crashs aléatoires, lancements en parallèle.
+**Version 7 — 22/09/2026** — v6 + recherche du coupable côté client (jeu lancé par l'outil).
 
-### Changements depuis la v5
+### Changements depuis la v6
+- **Côté client** (§6.3, jalon 4 commencé) : l'outil installe lui-même Minecraft et Fabric dans son propre cache à partir des manifestes officiels (Mojang, Fabric), fichiers vérifiés par SHA-1, bibliothèques et natives choisies pour la machine (macOS, Windows, Linux, x86 ou ARM) ; le launcher du joueur n'est jamais utilisé ni modifié. Le jeu s'ouvre dans une **petite fenêtre** (427 × 240), en joueur hors ligne, et se ferme tout seul.
+- **Verdict sans humain côté client** : prêt quand l'écran titre est construit (atlas des blocs et moteur de son, repérés dans les vrais journaux de 1.21.1 vanilla et Fabric) ; planté si le jeu s'arrête ou si le loader affiche son écran d'erreur (Fabric lancé avec `fabric.noGui`, sinon il attend le joueur).
+- **Commandes** : `crashsleuth run-client <dossier de jeu> --minecraft 1.21.1 --loader fabric` (un lancement de test) et `crashsleuth bisect <dossier de jeu> --client --minecraft 1.21.1` (la recherche, avec les mêmes options que côté serveur : `--repeat`, `--parallel`…).
+- **Labo client** (`lab/client_lab.py`), lancé sur l'ordinateur d'Holo795 (il faut un écran) : **6 scénarios réels, 6 réussis** avec de vrais mods de Modrinth et un mod de test Fabric qui ne dépend que de Fabric Loader :
+  - 10 mods populaires (Sodium, Lithium, ModMenu…) : démarrage en 19 s, aucun constat ;
+  - **cas réel trouvé** : la dernière version de Sodium (0.8.13) avec la dernière version d'Iris publiée pour 1.21.1 (1.8.8) ne démarre pas, Iris exige Sodium 0.6.x : diagnostic précis ;
+  - dépendance manquante (Zoomify sans YetAnotherConfigLib), mod qui plante à l'initialisation : coupables désignés ;
+  - arrêt net sans aucune trace : coupable trouvé en 7 lancements (moins d'une minute) ; conflit entre deux mods : les deux trouvés en 24 lancements (4,7 min).
+- **Messages Fabric** : toutes les formes de « requires … of mod » sont lues (« any 0.6.x version », « version 2.0 or later »…).
+- **Confidentialité du corpus** : les chemins qui nomment l'utilisateur de l'ordinateur (cache, dossier personnel) sont retirés des journaux client.
+- À venir côté client : NeoForge et Forge (leur installeur client), crashs en jeu (entrée dans un monde), application de bureau.
+
+### Changements de la v6 (rappel)
 - **Index des mixins** (§6.1) : lecture du bytecode (ASM) des classes mixin déclarées par chaque mod (Fabric, NeoForge, Forge, manifeste) : qui modifie quelle méthode du jeu, et comment (remplacement, injection, redirection, MixinExtras). Commande `crashsleuth mixins <dossier ou pack>`. Sur les vrais packs (Create Plus 2 780 injections de 73 mods, Cobbleverse 3 637 de 113 mods, en 2 secondes), il trouve le conflit Lithium / ModernFix sur `Biome.getTemperature` que les journaux des vrais serveurs confirment.
 - **Principe confirmé par le réel** : un conflit de mixins vu dans les fichiers n'est **pas** un diagnostic. Sur les 4 conflits statiques de Create Plus, un seul a lieu au démarrage : les mods désactivent eux-mêmes leurs mixins en double quand ils voient l'autre. Ces conflits sont affichés par `crashsleuth mixins`, jamais signalés comme cause.
 - **Attribution par les mixins** (§6.2) : un crash dont la trace ne montre que du code de Minecraft désigne comme premiers suspects les mods qui modifient ces méthodes (confiance faible, à confirmer par la recherche du coupable). Les méthodes injectées nommées d'après leur mod (`handler$…$lithium$…`) sont attribuées directement.
@@ -252,7 +265,7 @@ Ordre de passage, du gratuit au payant :
 | 1 | Analyse des journaux | Un crash report NeoForge, Fabric, Forge, Paper ou vanilla donne la cause et le coupable (CLI), signatures de base + import codex-minecraft — **en grande partie fait (v4)** |
 | 2 | Vérification avant lancement | Dossier ou pack → dépendances, versions, loader, doublons, Java, client/serveur, plugins, empreintes — **commencé (v4)** : dossier installé ; restent packs zip/mrpack, Java des `.class`, mixins, empreintes |
 | 3 | Recherche du coupable, serveur | Serveur NeoForge, Fabric, Forge ou Paper qui plante → coupable trouvé sans intervention, conflits à deux inclus — **fait (v6)** pour Paper et NeoForge, crashs aléatoires et parallèle compris ; reste : crashs en jeu (monde, joueurs) |
-| 4 | Application de bureau + recherche côté client | Un joueur glisse son pack, l'outil trouve seul le mod fautif |
+| 4 | Application de bureau + recherche côté client | Un joueur glisse son pack, l'outil trouve seul le mod fautif — **commencé (v7)** : recherche côté client pour vanilla et Fabric en ligne de commande |
 | 5 | Gels, lag, web, Discord, Pterodactyl | Dump de thread → coupable ; bot et version web en ligne |
 | 6 | IA | IA locale et clé personnelle ; IA hébergée si financement |
 

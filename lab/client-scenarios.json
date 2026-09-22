@@ -1,0 +1,128 @@
+[
+  {
+    "name": "fabric-baseline",
+    "description": "Fabric 1.21.1 client with 10 popular mods (Sodium, Lithium, ModMenu...), must start cleanly",
+    "minecraft": "1.21.1",
+    "mods": [
+      "fabric-api",
+      "sodium",
+      "lithium",
+      "modmenu",
+      "entityculling",
+      "ferrite-core",
+      "immediatelyfast",
+      "continuity",
+      "appleskin",
+      "zoomify"
+    ]
+  },
+  {
+    "name": "fabric-latest-sodium-iris",
+    "description": "Fabric 1.21.1 client with the latest Sodium and the latest Iris for 1.21.1, which do not work together",
+    "minecraft": "1.21.1",
+    "mods": [
+      "fabric-api",
+      "sodium",
+      "iris"
+    ],
+    "expect": {
+      "situation": "DEP_VERSION",
+      "culprit": "iris"
+    }
+  },
+  {
+    "name": "fabric-missing-dependency",
+    "description": "Fabric 1.21.1 client, Zoomify without YetAnotherConfigLib",
+    "minecraft": "1.21.1",
+    "mods": [
+      "fabric-api",
+      "sodium",
+      "lithium",
+      "modmenu",
+      "entityculling",
+      "ferrite-core",
+      "immediatelyfast",
+      "continuity",
+      "appleskin",
+      "zoomify"
+    ],
+    "skip": [
+      "yacl"
+    ],
+    "expect": {
+      "situation": "DEP_MISSING",
+      "culprit": "yet_another_config_lib"
+    }
+  },
+  {
+    "name": "fabric-mod-crash",
+    "description": "Fabric 1.21.1 client, a mod throws while initialising",
+    "minecraft": "1.21.1",
+    "mods": [
+      "fabric-api",
+      "sodium",
+      "lithium",
+      "modmenu",
+      "entityculling",
+      "ferrite-core",
+      "immediatelyfast",
+      "continuity",
+      "appleskin",
+      "zoomify"
+    ],
+    "fixture": "throw",
+    "expect": {
+      "situation": "UNCAUGHT_EXCEPTION",
+      "culprit": "crashsleuth_fixture"
+    }
+  },
+  {
+    "name": "bisect-fabric-silent-crash",
+    "description": "Fabric 1.21.1 client with 11 mods, one stops the game without a word",
+    "minecraft": "1.21.1",
+    "mods": [
+      "fabric-api",
+      "sodium",
+      "lithium",
+      "modmenu",
+      "entityculling",
+      "ferrite-core",
+      "immediatelyfast",
+      "continuity",
+      "appleskin",
+      "zoomify"
+    ],
+    "fixture": "halt",
+    "crashes": true,
+    "bisect": {
+      "culprits": [
+        "crashsleuth-fixture"
+      ]
+    }
+  },
+  {
+    "name": "bisect-fabric-conflict",
+    "description": "Fabric 1.21.1 client, two mods only crash together (fixture + Sodium)",
+    "minecraft": "1.21.1",
+    "mods": [
+      "fabric-api",
+      "sodium",
+      "lithium",
+      "modmenu",
+      "entityculling",
+      "ferrite-core",
+      "immediatelyfast",
+      "continuity",
+      "appleskin",
+      "zoomify"
+    ],
+    "fixture": "halt-with:sodium",
+    "crashes": true,
+    "bisect": {
+      "culprits": [
+        "crashsleuth-fixture",
+        "sodium"
+      ]
+    }
+  }
+]

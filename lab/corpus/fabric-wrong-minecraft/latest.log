@@ -1,10 +1,10 @@
-[01:21:58] [main/INFO]: Loading Minecraft 1.21.1 with Fabric Loader 0.19.5
-[01:21:58] [main/INFO]: Fabric is preparing JARs on first launch, this may take a few seconds...
-[01:21:58] [main/WARN]: Mod resolution failed
-[01:21:58] [main/INFO]: Immediate reason: [HARD_DEP_INCOMPATIBLE_PRESELECTED lithium 0.11.4 {depends minecraft @ [1.20.1]}, ROOT_FORCELOAD_SINGLE lithium 0.11.4]
-[01:21:58] [main/INFO]: Reason: [HARD_DEP lithium 0.11.4 {depends minecraft @ [1.20.1]}]
-[01:21:58] [main/INFO]: Fix: add [], remove [], replace [[minecraft 1.21.1] -> add:minecraft 1.20.1 ([[1.20.1,1.20.1]])]
-[01:21:58] [main/ERROR]: Incompatible mods found!
+[09:34:21] [main/INFO]: Loading Minecraft 1.21.1 with Fabric Loader 0.19.5
+[09:34:21] [main/INFO]: Fabric is preparing JARs on first launch, this may take a few seconds...
+[09:34:21] [main/WARN]: Mod resolution failed
+[09:34:21] [main/INFO]: Immediate reason: [HARD_DEP_INCOMPATIBLE_PRESELECTED lithium 0.11.4 {depends minecraft @ [1.20.1]}, ROOT_FORCELOAD_SINGLE lithium 0.11.4]
+[09:34:21] [main/INFO]: Reason: [HARD_DEP lithium 0.11.4 {depends minecraft @ [1.20.1]}]
+[09:34:21] [main/INFO]: Fix: add [], remove [], replace [[minecraft 1.21.1] -> add:minecraft 1.20.1 ([[1.20.1,1.20.1]])]
+[09:34:21] [main/ERROR]: Incompatible mods found!
 net.fabricmc.loader.impl.FormattedException: Some of your mods are incompatible with the game or each other!
 A potential solution has been determined, this may resolve your problem:
 	 - Replace 'Minecraft' (minecraft) 1.21.1 with version 1.20.1.

@@ -1,116 +1,116 @@
-[01:28:52] [ServerMain/INFO]: [bootstrap] Running Java 25 (OpenJDK 64-Bit Server VM 25.0.4+7-LTS; Eclipse Adoptium Temurin-25.0.4+7) on Linux 6.1.0-53-cloud-amd64 (amd64)
-[01:28:52] [ServerMain/INFO]: [bootstrap] Loading Paper 26.3-32-dev/26.3@0c803ba (2026-09-21T17:06:10Z) for Minecraft 26.3
-[01:28:52] [ServerMain/INFO]: [PluginInitializerManager] Initializing plugins...
-[01:28:53] [ServerMain/INFO]: [PluginInitializerManager] Initialized 3 plugins
-[01:28:53] [ServerMain/INFO]: [PluginInitializerManager] Bukkit plugins (3):
+[09:41:10] [ServerMain/INFO]: [bootstrap] Running Java 25 (OpenJDK 64-Bit Server VM 25.0.4+7-LTS; Eclipse Adoptium Temurin-25.0.4+7) on Linux 6.1.0-53-cloud-amd64 (amd64)
+[09:41:10] [ServerMain/INFO]: [bootstrap] Loading Paper 26.3-32-dev/26.3@0c803ba (2026-09-21T17:06:10Z) for Minecraft 26.3
+[09:41:10] [ServerMain/INFO]: [PluginInitializerManager] Initializing plugins...
+[09:41:10] [ServerMain/INFO]: [PluginInitializerManager] Initialized 3 plugins
+[09:41:10] [ServerMain/INFO]: [PluginInitializerManager] Bukkit plugins (3):
  - Chunky (1.5.3), LuckPerms (5.5.71), ViaVersion (5.12.0)
-[01:28:59] [DataConverter MCTypeRegistry init thread/INFO]: [ca.spottedleaf.dataconverter.minecraft.datatypes.MCTypeRegistry] Initialising converters for DataConverter...
-[01:29:00] [ServerMain/INFO]: [com.destroystokyo.paper.profile.PaperServicesDiscoveryService] Environment: Environment[discoveryUrl=https://discovery.minecraftservices.com/minecraft/client, name=PROD]
-[01:29:00] [DataConverter MCTypeRegistry init thread/INFO]: [ca.spottedleaf.dataconverter.minecraft.datatypes.MCTypeRegistry] Finished initialising converters for DataConverter in 994.4ms
-[01:29:01] [ServerMain/INFO]: Found new data pack paper, loading it automatically
-[01:29:02] [Worker-Main-1/INFO]: No existing world data, creating new world
-[01:29:04] [Worker-Main-1/INFO]: Loaded 1866 advancements
-[01:29:04] [Server thread/INFO]: Starting minecraft server version 26.3
-[01:29:04] [Server thread/WARN]: ****************************
-[01:29:04] [Server thread/WARN]: YOU ARE RUNNING THIS SERVER AS AN ADMINISTRATIVE OR ROOT USER. THIS IS NOT ADVISED.
-[01:29:04] [Server thread/WARN]: YOU ARE OPENING YOURSELF UP TO POTENTIAL RISKS WHEN DOING THIS.
-[01:29:04] [Server thread/WARN]: FOR MORE INFORMATION, SEE https://madelinemiller.dev/blog/root-minecraft-server/
-[01:29:04] [Server thread/WARN]: ****************************
-[01:29:04] [Server thread/INFO]: Loading properties
-[01:29:04] [Server thread/INFO]: This server is running Paper version 26.3-32-dev/26.3@0c803ba (2026-09-21T17:06:10Z) (Implementing API version 26.3.build.32-alpha)
-[01:29:04] [Server thread/INFO]: [spark] This server bundles the spark profiler. For more information please visit https://docs.papermc.io/paper/profiling
-[01:29:04] [Server thread/INFO]: Server Ping Player Sample Count: 12
-[01:29:04] [Server thread/INFO]: Using 4 threads for Netty based IO
-[01:29:05] [Server thread/INFO]: [MoonriseCommon] Paper is using 1 worker threads, 1 I/O threads
-[01:29:05] [Server thread/INFO]: Default game type: SURVIVAL
-[01:29:05] [Server thread/INFO]: Generating keypair
-[01:29:05] [Server thread/INFO]: Starting Minecraft server on *:25565
-[01:29:05] [Server thread/INFO]: Paper: Using libdeflate (Linux x86_64) compression from Velocity.
-[01:29:05] [Server thread/INFO]: Paper: Using OpenSSL 3.x.x (Linux x86_64) cipher from Velocity.
-[01:29:06] [Server thread/INFO]: [ViaVersion] Loading server plugin ViaVersion v5.12.0
-[01:29:06] [Server thread/INFO]: [ViaVersion] ViaVersion 5.12.0 is now loaded. Registering protocol transformers and injecting...
-[01:29:07] [Server thread/INFO]: [LuckPerms] Loading server plugin LuckPerms v5.5.71
-[01:29:12] [Server thread/INFO]: [LuckPerms] Loading configuration...
-[01:29:12] [Server thread/INFO]: [Chunky] Loading server plugin Chunky v1.5.3
-[01:29:12] [Server thread/INFO]: [LuckPerms] Enabling LuckPerms v5.5.71
-[01:29:12] [Server thread/INFO]:         __    
-[01:29:12] [Server thread/INFO]:   |    |__)   LuckPerms v5.5.71
-[01:29:12] [Server thread/INFO]:   |___ |      Running on Bukkit - Paper
-[01:29:12] [Server thread/INFO]: 
-[01:29:12] [Server thread/INFO]: [LuckPerms] Loading storage provider... [H2]
-[01:29:13] [Server thread/INFO]: [LuckPerms] Loading internal permission managers...
-[01:29:13] [Server thread/INFO]: [LuckPerms] Performing initial data load...
-[01:29:13] [Server thread/INFO]: [LuckPerms] Successfully enabled. (took 1457ms)
-[01:29:13] [Server thread/WARN]: **** SERVER IS RUNNING IN OFFLINE/INSECURE MODE!
-[01:29:13] [Server thread/WARN]: The server will make no attempt to authenticate usernames. Beware.
-[01:29:13] [Server thread/WARN]: While this makes the game possible to play without internet access, it also opens up the ability for hackers to connect with any username they choose.
-[01:29:13] [Server thread/WARN]: To change this, set "online-mode" to "true" in the server.properties file.
-[01:29:13] [Server thread/INFO]: Preparing level "world"
-[01:29:14] [Server thread/INFO]: Selecting spawn point for level 'minecraft:overworld'...
-[01:29:19] [Server thread/INFO]: Selecting spawn point for level 'minecraft:the_nether'...
-[01:29:20] [Server thread/INFO]: Selecting spawn point for level 'minecraft:the_end'...
-[01:29:21] [Server thread/INFO]: Loading 0 persistent chunks for level 'minecraft:overworld'...
-[01:29:21] [Server thread/INFO]: Preparing spawn area: 100%
-[01:29:21] [Server thread/INFO]: Prepared spawn area in 6725 ms
-[01:29:21] [Server thread/INFO]: Loading 0 persistent chunks for level 'minecraft:the_nether'...
-[01:29:21] [Server thread/INFO]: Preparing spawn area: 100%
-[01:29:21] [Server thread/INFO]: Prepared spawn area in 1549 ms
-[01:29:21] [Server thread/INFO]: Loading 0 persistent chunks for level 'minecraft:the_end'...
-[01:29:21] [Server thread/INFO]: Preparing spawn area: 100%
-[01:29:21] [Server thread/INFO]: Prepared spawn area in 256 ms
-[01:29:21] [Server thread/INFO]: Done preparing level "world" (7.513s)
-[01:29:21] [Server thread/INFO]: [ViaVersion] Enabling ViaVersion v5.12.0
-[01:29:21] [Server thread/INFO]: [ViaVersion] ViaVersion detected server version: 26.3 (777)
-[01:29:21] [Server thread/WARN]: [ViaVersion] ViaVersion does not have any compatible versions for this server version!
-[01:29:21] [Server thread/WARN]: [ViaVersion] ViaVersion only supports newer client versions. Use ViaBackwards to allow older versions (ViaRewind for 1.7/1.8) to join.
-[01:29:21] [Server thread/WARN]: [ViaVersion] Get setup help at https://viaversion.com/setup or download ViaBackwards/ViaRewind directly at https://ci.viaversion.com/
-[01:29:21] [Server thread/WARN]: [ViaVersion] Need more help? Join our Discord at https://viaversion.com/discord
-[01:29:21] [Server thread/INFO]: [Chunky] Enabling Chunky v1.5.3
-[01:29:22] [Server thread/INFO]: [spark] Starting background profiler...
-[01:29:22] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:overworld
-[01:29:22] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:the_nether
-[01:29:22] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:the_end
-[01:29:22] [Server thread/INFO]: Running delayed init tasks
-[01:29:22] [Server thread/INFO]: Done (31.366s)! For help, type "help"
-[01:29:22] [Server thread/INFO]: *************************************************************************************
-[01:29:22] [Server thread/INFO]: This is the first time you're starting this server.
-[01:29:22] [Server thread/INFO]: It's recommended you read our 'Getting Started' documentation for guidance.
-[01:29:22] [Server thread/INFO]: View this and more helpful information here: https://docs.papermc.io/paper/next-steps
-[01:29:22] [Server thread/INFO]: *************************************************************************************
-[01:29:22] [Craft Scheduler Thread - 2 - ViaVersion/INFO]: [ViaVersion] Finished mapping loading, shutting down loader executor.
-[01:29:24] [Server thread/INFO]: System chat: Stopping the server
-[01:29:24] [Server thread/INFO]: Stopping server
-[01:29:24] [Server thread/INFO]: [Chunky] Disabling Chunky v1.5.3
-[01:29:24] [Server thread/INFO]: [LuckPerms] Disabling LuckPerms v5.5.71
-[01:29:24] [Server thread/INFO]: [LuckPerms] Starting shutdown process...
-[01:29:24] [Server thread/INFO]: [LuckPerms] Closing storage...
-[01:29:24] [Server thread/INFO]: [LuckPerms] Goodbye!
-[01:29:24] [Server thread/INFO]: [ViaVersion] Disabling ViaVersion v5.12.0
-[01:29:24] [Server thread/INFO]: [ViaVersion] ViaVersion has been disabled; uninjected the platform and shut down the scheduler.
-[01:29:24] [Server thread/INFO]: Saving players
-[01:29:24] [Server thread/INFO]: Saving worlds
-[01:29:24] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:overworld
-[01:29:24] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk system to halt for world 'minecraft:overworld'
-[01:29:24] [Server thread/INFO]: [ChunkHolderManager] Halted chunk system for world 'minecraft:overworld'
-[01:29:24] [Server thread/INFO]: [ChunkHolderManager] Saving all chunkholders for world 'minecraft:overworld'
-[01:29:24] [Server thread/INFO]: [ChunkHolderManager] Saved 0 block chunks, 0 entity chunks, 0 poi chunks in world 'minecraft:overworld' in 0.00s
-[01:29:24] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk I/O to halt for world 'minecraft:overworld'
-[01:29:24] [Server thread/INFO]: [ChunkHolderManager] Halted I/O scheduler for world 'minecraft:overworld'
-[01:29:24] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:the_nether
-[01:29:24] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk system to halt for world 'minecraft:the_nether'
-[01:29:24] [Server thread/INFO]: [ChunkHolderManager] Halted chunk system for world 'minecraft:the_nether'
-[01:29:24] [Server thread/INFO]: [ChunkHolderManager] Saving all chunkholders for world 'minecraft:the_nether'
-[01:29:24] [Server thread/INFO]: [ChunkHolderManager] Saved 0 block chunks, 0 entity chunks, 0 poi chunks in world 'minecraft:the_nether' in 0.01s
-[01:29:24] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk I/O to halt for world 'minecraft:the_nether'
-[01:29:24] [Server thread/INFO]: [ChunkHolderManager] Halted I/O scheduler for world 'minecraft:the_nether'
-[01:29:24] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:the_end
-[01:29:24] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk system to halt for world 'minecraft:the_end'
-[01:29:24] [Server thread/INFO]: [ChunkHolderManager] Halted chunk system for world 'minecraft:the_end'
-[01:29:24] [Server thread/INFO]: [ChunkHolderManager] Saving all chunkholders for world 'minecraft:the_end'
-[01:29:24] [Server thread/INFO]: [ChunkHolderManager] Saved 0 block chunks, 0 entity chunks, 0 poi chunks in world 'minecraft:the_end' in 0.00s
-[01:29:24] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk I/O to halt for world 'minecraft:the_end'
-[01:29:24] [Server thread/INFO]: [ChunkHolderManager] Halted I/O scheduler for world 'minecraft:the_end'
-[01:29:24] [Server thread/INFO]: Waiting for all RegionFile I/O tasks to complete...
-[01:29:24] [Server thread/INFO]: All RegionFile I/O tasks to complete
-[01:29:24] [Server thread/INFO]: [MoonriseCommon] Awaiting termination of worker pool for up to 60s...
-[01:29:24] [Server thread/INFO]: [MoonriseCommon] Awaiting termination of I/O pool for up to 60s...
+[09:41:17] [DataConverter MCTypeRegistry init thread/INFO]: [ca.spottedleaf.dataconverter.minecraft.datatypes.MCTypeRegistry] Initialising converters for DataConverter...
+[09:41:17] [ServerMain/INFO]: [com.destroystokyo.paper.profile.PaperServicesDiscoveryService] Environment: Environment[discoveryUrl=https://discovery.minecraftservices.com/minecraft/client, name=PROD]
+[09:41:17] [DataConverter MCTypeRegistry init thread/INFO]: [ca.spottedleaf.dataconverter.minecraft.datatypes.MCTypeRegistry] Finished initialising converters for DataConverter in 849.8ms
+[09:41:18] [ServerMain/INFO]: Found new data pack paper, loading it automatically
+[09:41:19] [Worker-Main-1/INFO]: No existing world data, creating new world
+[09:41:21] [Worker-Main-1/INFO]: Loaded 1866 advancements
+[09:41:21] [Server thread/INFO]: Starting minecraft server version 26.3
+[09:41:21] [Server thread/WARN]: ****************************
+[09:41:21] [Server thread/WARN]: YOU ARE RUNNING THIS SERVER AS AN ADMINISTRATIVE OR ROOT USER. THIS IS NOT ADVISED.
+[09:41:21] [Server thread/WARN]: YOU ARE OPENING YOURSELF UP TO POTENTIAL RISKS WHEN DOING THIS.
+[09:41:21] [Server thread/WARN]: FOR MORE INFORMATION, SEE https://madelinemiller.dev/blog/root-minecraft-server/
+[09:41:21] [Server thread/WARN]: ****************************
+[09:41:21] [Server thread/INFO]: Loading properties
+[09:41:21] [Server thread/INFO]: This server is running Paper version 26.3-32-dev/26.3@0c803ba (2026-09-21T17:06:10Z) (Implementing API version 26.3.build.32-alpha)
+[09:41:21] [Server thread/INFO]: [spark] This server bundles the spark profiler. For more information please visit https://docs.papermc.io/paper/profiling
+[09:41:21] [Server thread/INFO]: Server Ping Player Sample Count: 12
+[09:41:21] [Server thread/INFO]: Using 4 threads for Netty based IO
+[09:41:22] [Server thread/INFO]: [MoonriseCommon] Paper is using 1 worker threads, 1 I/O threads
+[09:41:22] [Server thread/INFO]: Default game type: SURVIVAL
+[09:41:22] [Server thread/INFO]: Generating keypair
+[09:41:22] [Server thread/INFO]: Starting Minecraft server on *:25565
+[09:41:22] [Server thread/INFO]: Paper: Using libdeflate (Linux x86_64) compression from Velocity.
+[09:41:22] [Server thread/INFO]: Paper: Using OpenSSL 3.x.x (Linux x86_64) cipher from Velocity.
+[09:41:23] [Server thread/INFO]: [ViaVersion] Loading server plugin ViaVersion v5.12.0
+[09:41:23] [Server thread/INFO]: [ViaVersion] ViaVersion 5.12.0 is now loaded. Registering protocol transformers and injecting...
+[09:41:24] [Server thread/INFO]: [LuckPerms] Loading server plugin LuckPerms v5.5.71
+[09:41:29] [Server thread/INFO]: [LuckPerms] Loading configuration...
+[09:41:29] [Server thread/INFO]: [Chunky] Loading server plugin Chunky v1.5.3
+[09:41:29] [Server thread/INFO]: [LuckPerms] Enabling LuckPerms v5.5.71
+[09:41:29] [Server thread/INFO]:         __    
+[09:41:29] [Server thread/INFO]:   |    |__)   LuckPerms v5.5.71
+[09:41:29] [Server thread/INFO]:   |___ |      Running on Bukkit - Paper
+[09:41:29] [Server thread/INFO]: 
+[09:41:29] [Server thread/INFO]: [LuckPerms] Loading storage provider... [H2]
+[09:41:31] [Server thread/INFO]: [LuckPerms] Loading internal permission managers...
+[09:41:31] [Server thread/INFO]: [LuckPerms] Performing initial data load...
+[09:41:31] [Server thread/INFO]: [LuckPerms] Successfully enabled. (took 2378ms)
+[09:41:31] [Server thread/WARN]: **** SERVER IS RUNNING IN OFFLINE/INSECURE MODE!
+[09:41:31] [Server thread/WARN]: The server will make no attempt to authenticate usernames. Beware.
+[09:41:31] [Server thread/WARN]: While this makes the game possible to play without internet access, it also opens up the ability for hackers to connect with any username they choose.
+[09:41:31] [Server thread/WARN]: To change this, set "online-mode" to "true" in the server.properties file.
+[09:41:31] [Server thread/INFO]: Preparing level "world"
+[09:41:32] [Server thread/INFO]: Selecting spawn point for level 'minecraft:overworld'...
+[09:41:38] [Server thread/INFO]: Selecting spawn point for level 'minecraft:the_nether'...
+[09:41:39] [Server thread/INFO]: Selecting spawn point for level 'minecraft:the_end'...
+[09:41:39] [Server thread/INFO]: Loading 0 persistent chunks for level 'minecraft:overworld'...
+[09:41:39] [Server thread/INFO]: Preparing spawn area: 100%
+[09:41:39] [Server thread/INFO]: Prepared spawn area in 7609 ms
+[09:41:39] [Server thread/INFO]: Loading 0 persistent chunks for level 'minecraft:the_nether'...
+[09:41:39] [Server thread/INFO]: Preparing spawn area: 100%
+[09:41:39] [Server thread/INFO]: Prepared spawn area in 1675 ms
+[09:41:39] [Server thread/INFO]: Loading 0 persistent chunks for level 'minecraft:the_end'...
+[09:41:39] [Server thread/INFO]: Preparing spawn area: 100%
+[09:41:39] [Server thread/INFO]: Prepared spawn area in 341 ms
+[09:41:39] [Server thread/INFO]: Done preparing level "world" (8.356s)
+[09:41:39] [Server thread/INFO]: [ViaVersion] Enabling ViaVersion v5.12.0
+[09:41:39] [Server thread/INFO]: [ViaVersion] ViaVersion detected server version: 26.3 (777)
+[09:41:39] [Server thread/WARN]: [ViaVersion] ViaVersion does not have any compatible versions for this server version!
+[09:41:39] [Server thread/WARN]: [ViaVersion] ViaVersion only supports newer client versions. Use ViaBackwards to allow older versions (ViaRewind for 1.7/1.8) to join.
+[09:41:39] [Server thread/WARN]: [ViaVersion] Get setup help at https://viaversion.com/setup or download ViaBackwards/ViaRewind directly at https://ci.viaversion.com/
+[09:41:39] [Server thread/WARN]: [ViaVersion] Need more help? Join our Discord at https://viaversion.com/discord
+[09:41:39] [Server thread/INFO]: [Chunky] Enabling Chunky v1.5.3
+[09:41:40] [Server thread/INFO]: [spark] Starting background profiler...
+[09:41:41] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:overworld
+[09:41:41] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:the_nether
+[09:41:41] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:the_end
+[09:41:41] [Server thread/INFO]: Running delayed init tasks
+[09:41:41] [Server thread/INFO]: Done (32.438s)! For help, type "help"
+[09:41:41] [Server thread/INFO]: *************************************************************************************
+[09:41:41] [Server thread/INFO]: This is the first time you're starting this server.
+[09:41:41] [Server thread/INFO]: It's recommended you read our 'Getting Started' documentation for guidance.
+[09:41:41] [Server thread/INFO]: View this and more helpful information here: https://docs.papermc.io/paper/next-steps
+[09:41:41] [Server thread/INFO]: *************************************************************************************
+[09:41:41] [Craft Scheduler Thread - 3 - ViaVersion/INFO]: [ViaVersion] Finished mapping loading, shutting down loader executor.
+[09:41:42] [Server thread/INFO]: System chat: Stopping the server
+[09:41:42] [Server thread/INFO]: Stopping server
+[09:41:42] [Server thread/INFO]: [Chunky] Disabling Chunky v1.5.3
+[09:41:42] [Server thread/INFO]: [LuckPerms] Disabling LuckPerms v5.5.71
+[09:41:42] [Server thread/INFO]: [LuckPerms] Starting shutdown process...
+[09:41:42] [Server thread/INFO]: [LuckPerms] Closing storage...
+[09:41:42] [Server thread/INFO]: [LuckPerms] Goodbye!
+[09:41:42] [Server thread/INFO]: [ViaVersion] Disabling ViaVersion v5.12.0
+[09:41:42] [Server thread/INFO]: [ViaVersion] ViaVersion has been disabled; uninjected the platform and shut down the scheduler.
+[09:41:42] [Server thread/INFO]: Saving players
+[09:41:42] [Server thread/INFO]: Saving worlds
+[09:41:42] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:overworld
+[09:41:42] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk system to halt for world 'minecraft:overworld'
+[09:41:42] [Server thread/INFO]: [ChunkHolderManager] Halted chunk system for world 'minecraft:overworld'
+[09:41:42] [Server thread/INFO]: [ChunkHolderManager] Saving all chunkholders for world 'minecraft:overworld'
+[09:41:42] [Server thread/INFO]: [ChunkHolderManager] Saved 0 block chunks, 0 entity chunks, 0 poi chunks in world 'minecraft:overworld' in 0.01s
+[09:41:42] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk I/O to halt for world 'minecraft:overworld'
+[09:41:42] [Server thread/INFO]: [ChunkHolderManager] Halted I/O scheduler for world 'minecraft:overworld'
+[09:41:42] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:the_nether
+[09:41:42] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk system to halt for world 'minecraft:the_nether'
+[09:41:42] [Server thread/INFO]: [ChunkHolderManager] Halted chunk system for world 'minecraft:the_nether'
+[09:41:42] [Server thread/INFO]: [ChunkHolderManager] Saving all chunkholders for world 'minecraft:the_nether'
+[09:41:42] [Server thread/INFO]: [ChunkHolderManager] Saved 0 block chunks, 0 entity chunks, 0 poi chunks in world 'minecraft:the_nether' in 0.00s
+[09:41:42] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk I/O to halt for world 'minecraft:the_nether'
+[09:41:42] [Server thread/INFO]: [ChunkHolderManager] Halted I/O scheduler for world 'minecraft:the_nether'
+[09:41:42] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:the_end
+[09:41:42] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk system to halt for world 'minecraft:the_end'
+[09:41:42] [Server thread/INFO]: [ChunkHolderManager] Halted chunk system for world 'minecraft:the_end'
+[09:41:42] [Server thread/INFO]: [ChunkHolderManager] Saving all chunkholders for world 'minecraft:the_end'
+[09:41:42] [Server thread/INFO]: [ChunkHolderManager] Saved 0 block chunks, 0 entity chunks, 0 poi chunks in world 'minecraft:the_end' in 0.01s
+[09:41:42] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk I/O to halt for world 'minecraft:the_end'
+[09:41:42] [Server thread/INFO]: [ChunkHolderManager] Halted I/O scheduler for world 'minecraft:the_end'
+[09:41:42] [Server thread/INFO]: Waiting for all RegionFile I/O tasks to complete...
+[09:41:42] [Server thread/INFO]: All RegionFile I/O tasks to complete
+[09:41:42] [Server thread/INFO]: [MoonriseCommon] Awaiting termination of worker pool for up to 60s...
+[09:41:42] [Server thread/INFO]: [MoonriseCommon] Awaiting termination of I/O pool for up to 60s...

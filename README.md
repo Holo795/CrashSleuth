@@ -33,6 +33,8 @@ cli/build/install/crashsleuth/bin/crashsleuth analyze hs_err_pid1234.log --json
 cli/build/install/crashsleuth/bin/crashsleuth analyze pack.mrpack --side server
 # find the culprit by launching a copy of the server with fewer mods or plugins
 cli/build/install/crashsleuth/bin/crashsleuth bisect path/to/server --java /path/to/java
+# the same search on the game client: Minecraft is installed in the tool's own cache and opens in small windows
+cli/build/install/crashsleuth/bin/crashsleuth bisect path/to/game-folder --client --minecraft 1.21.1 --loader fabric
 # which mods change which game methods through mixins, and where they collide
 cli/build/install/crashsleuth/bin/crashsleuth mixins path/to/server
 # the list of installed mods and plugins with their metadata, as JSON

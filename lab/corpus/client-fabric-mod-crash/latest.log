@@ -1,0 +1,121 @@
+[11:25:00] [main/INFO]: Loading Minecraft 1.21.1 with Fabric Loader 0.19.5
+[11:25:00] [main/INFO]: Fabric is preparing JARs on first launch, this may take a few seconds...
+[11:25:00] [main/INFO]: Loading 94 mods:
+	- appleskin 3.0.6+mc1.21
+	   \-- cloth-config 15.0.127
+	        \-- cloth-basic-math 0.6.1
+	- continuity 3.0.0+1.21
+	- crashsleuth_fixture 1.0.0
+	- entityculling 1.11.2
+	   |-- transition 1.0.25
+	   \-- trender 1.0.17
+	- fabric-api 0.116.17+1.21.1
+	   |-- fabric-api-base 0.4.42+6573ed8c19
+	   |-- fabric-api-lookup-api-v1 1.6.72+7b3d111d19
+	   |-- fabric-biome-api-v1 13.0.31+d527f9fd19
+	   |-- fabric-block-api-v1 1.1.0+0bc3503219
+	   |-- fabric-block-view-api-v2 1.0.11+ebb2264e19
+	   |-- fabric-blockrenderlayer-v1 1.1.52+0af3f5a719
+	   |-- fabric-client-tags-api-v1 1.2.0+1eb36c0719
+	   |-- fabric-command-api-v1 1.2.49+f71b366f19
+	   |-- fabric-command-api-v2 2.2.28+6ced4dd919
+	   |-- fabric-commands-v0 0.2.66+df3654b319
+	   |-- fabric-content-registries-v0 8.0.19+b559734419
+	   |-- fabric-convention-tags-v1 2.1.7+7f945d5b19
+	   |-- fabric-convention-tags-v2 2.12.0+c3656daa19
+	   |-- fabric-crash-report-info-v1 0.2.29+0af3f5a719
+	   |-- fabric-data-attachment-api-v1 1.4.7+5b36e0f719
+	   |-- fabric-data-generation-api-v1 20.3.0+1eb36c0719
+	   |-- fabric-dimensions-v1 4.0.1+65213ef819
+	   |-- fabric-entity-events-v1 1.8.0+2b27e0a419
+	   |-- fabric-events-interaction-v0 0.7.14+ba9dae0619
+	   |-- fabric-game-rule-api-v1 1.0.53+6ced4dd919
+	   |-- fabric-item-api-v1 11.3.0+467044f319
+	   |-- fabric-item-group-api-v1 4.1.7+def88e3a19
+	   |-- fabric-key-binding-api-v1 1.0.47+0af3f5a719
+	   |-- fabric-keybindings-v0 0.2.45+df3654b319
+	   |-- fabric-lifecycle-events-v1 2.6.0+0865547519
+	   |-- fabric-loot-api-v2 3.0.15+3f89f5a519
+	   |-- fabric-loot-api-v3 1.0.3+3f89f5a519
+	   |-- fabric-message-api-v1 6.0.14+8aaf3aca19
+	   |-- fabric-model-loading-api-v1 2.1.0+b4d813fc19
+	   |-- fabric-networking-api-v1 4.3.1+d30f6a7919
+	   |-- fabric-object-builder-api-v1 15.2.1+40875a9319
+	   |-- fabric-particles-v1 4.0.2+6573ed8c19
+	   |-- fabric-recipe-api-v1 5.0.16+2475392c19
+	   |-- fabric-registry-sync-v0 5.3.2+e3eddc2119
+	   |-- fabric-renderer-api-v1 3.4.1+b4d813fc19
+	   |-- fabric-renderer-indigo 1.7.1+c705a49c19
+	   |-- fabric-renderer-registries-v1 3.2.71+df3654b319
+	   |-- fabric-rendering-data-attachment-v1 0.3.49+73761d2e19
+	   |-- fabric-rendering-fluids-v1 3.1.6+1daea21519
+	   |-- fabric-rendering-v0 1.1.74+df3654b319
+	   |-- fabric-rendering-v1 5.2.1+f44c2eea19
+	   |-- fabric-resource-conditions-api-v1 4.3.0+8dc279b119
+	   |-- fabric-resource-loader-v0 1.3.1+5b5275af19
+	   |-- fabric-screen-api-v1 2.0.26+639b4c0719
+	   |-- fabric-screen-handler-api-v1 1.3.91+b559734419
+	   |-- fabric-sound-api-v1 1.0.23+6573ed8c19
+	   |-- fabric-tag-api-v1 1.3.0+1eb36c0719
+	   |-- fabric-transfer-api-v1 5.4.4+7b3d111d19
+	   \-- fabric-transitive-access-wideners-v1 6.2.0+45b9699719
+	- fabric-language-kotlin 1.14.1+kotlin.2.4.20
+	   |-- org_jetbrains_kotlin_kotlin-reflect 2.4.20
+	   |-- org_jetbrains_kotlin_kotlin-stdlib 2.4.20
+	   |-- org_jetbrains_kotlin_kotlin-stdlib-jdk7 2.4.20
+	   |-- org_jetbrains_kotlin_kotlin-stdlib-jdk8 2.4.20
+	   |-- org_jetbrains_kotlinx_atomicfu-jvm 0.33.0
+	   |-- org_jetbrains_kotlinx_kotlinx-coroutines-core-jvm 1.11.0
+	   |-- org_jetbrains_kotlinx_kotlinx-coroutines-jdk8 1.11.0
+	   |-- org_jetbrains_kotlinx_kotlinx-datetime-jvm 0.8.0
+	   |-- org_jetbrains_kotlinx_kotlinx-io-bytestring-jvm 0.9.1
+	   |-- org_jetbrains_kotlinx_kotlinx-io-core-jvm 0.9.1
+	   |-- org_jetbrains_kotlinx_kotlinx-serialization-cbor-jvm 1.11.0
+	   |-- org_jetbrains_kotlinx_kotlinx-serialization-core-jvm 1.11.0
+	   \-- org_jetbrains_kotlinx_kotlinx-serialization-json-jvm 1.11.0
+	- fabricloader 0.19.5
+	   \-- mixinextras 0.5.5
+	- ferritecore 7.0.3
+	- immediatelyfast 1.6.14+1.21.1
+	   \-- net_lenni0451_reflect 1.6.2
+	- java 21
+	- lithium 0.15.4+mc1.21.1
+	- minecraft 1.21.1
+	- modmenu 11.0.4
+	- placeholder-api 2.4.2+1.21
+	- sodium 0.8.13+mc1.21.1
+	- yet_another_config_lib_v3 3.8.2+1.21.1-fabric
+	   |-- com_twelvemonkeys_common_common-image 3.12.0
+	   |-- com_twelvemonkeys_common_common-io 3.12.0
+	   |-- com_twelvemonkeys_common_common-lang 3.12.0
+	   |-- com_twelvemonkeys_imageio_imageio-core 3.12.0
+	   |-- com_twelvemonkeys_imageio_imageio-metadata 3.12.0
+	   |-- com_twelvemonkeys_imageio_imageio-webp 3.12.0
+	   |-- org_quiltmc_parsers_gson 0.2.1
+	   \-- org_quiltmc_parsers_json 0.2.1
+	- zoomify 2.15.2+1.21.1
+	   \-- com_akuleshov7_ktoml-core-jvm 0.7.1
+[11:25:00] [main/INFO]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=file:/cache/game/libraries/net/fabricmc/sponge-mixin/0.17.4+mixin.0.8.7/sponge-mixin-0.17.4+mixin.0.8.7.jar Service=Knot/Fabric Env=CLIENT
+[11:25:00] [main/INFO]: Option 'mixin.entity.collisions.fluid' requires 'mixin.util.block_tracking=true' but found 'false'. Setting 'mixin.entity.collisions.fluid=false'.
+[11:25:00] [main/INFO]: Option 'mixin.experimental.entity.block_caching.block_support' requires 'mixin.util.block_tracking=true' but found 'false'. Setting 'mixin.experimental.entity.block_caching.block_support=false'.
+[11:25:00] [main/INFO]: Option 'mixin.experimental.entity.block_caching.fluid_pushing' requires 'mixin.util.block_tracking=true' but found 'false'. Setting 'mixin.experimental.entity.block_caching.fluid_pushing=false'.
+[11:25:00] [main/INFO]: Option 'mixin.experimental.entity.block_caching.block_touching' requires 'mixin.util.block_tracking=true' but found 'false'. Setting 'mixin.experimental.entity.block_caching.block_touching=false'.
+[11:25:00] [main/INFO]: Option 'mixin.experimental.entity.block_caching.suffocation' requires 'mixin.util.block_tracking=true' but found 'false'. Setting 'mixin.experimental.entity.block_caching.suffocation=false'.
+[11:25:00] [main/INFO]: Option 'mixin.experimental.entity.block_caching' requires 'mixin.util.block_tracking=true' but found 'false'. Setting 'mixin.experimental.entity.block_caching=false'.
+[11:25:00] [main/INFO]: Loaded configuration file for Lithium: 150 options available, 0 override(s) found
+[11:25:00] [main/INFO]: Loaded configuration file for Sodium: 45 options available, 0 override(s) found
+[11:25:00] [main/WARN]: Reference map 'yet_another_config_lib_v3.refmap.json' for yacl.mixins.json could not be read. If this is a development environment you can ignore this message
+[11:25:00] [main/WARN]: Reference map 'yet_another_config_lib_v3.refmap.json' for yacl-fabric.mixins.json could not be read. If this is a development environment you can ignore this message
+[11:25:00] [main/WARN]: Error loading class: mezz/jei/fabric/platform/RenderHelper (java.lang.ClassNotFoundException: mezz/jei/fabric/platform/RenderHelper)
+[11:25:00] [main/WARN]: @Mixin target mezz.jei.fabric.platform.RenderHelper was not found appleskin.jei.mixins.json:JEIRenderHelperMixin from mod appleskin
+[11:25:00] [main/INFO]: Searching for graphics cards...
+[11:25:00] [main/INFO]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.5.5).
+[11:25:01] [Datafixer Bootstrap/INFO]: 226 Datafixer optimizations took 120 milliseconds
+[11:25:02] [Render thread/INFO]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
+[11:25:02] [Render thread/INFO]: Setting user: CrashSleuth
+[11:25:03] [Render thread/INFO]: [STDOUT]: [CrashSleuthFixture] mode: throw
+[11:25:03] [Render thread/INFO]: [Indigo] Different rendering plugin detected; not applying Indigo.
+[11:25:03] [Render thread/INFO]: Checking mod updates...
+[11:25:03] [Render thread/INFO]: [STDOUT]: [TRender] Initializing Client...
+[11:25:03] [Render thread/INFO]: Config file '/srv/client/fabric-mod-crash/config/yacl.json5' does not exist. Creating it with default values.
+[11:25:03] [Render thread/INFO]: Serializing class dev.isxander.yacl3.platform.YACLConfig to '/srv/client/fabric-mod-crash/config/yacl.json5'

@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "id": "crashsleuth_fixture",
+  "version": "1.0.0",
+  "name": "CrashSleuth Fixture",
+  "description": "Test mod of the CrashSleuth lab. Misbehaves on purpose, as set in fixture-mode.txt.",
+  "environment": "client",
+  "entrypoints": {"client": ["dev.holo795.crashsleuth.fixture.FixtureMod"]},
+  "depends": {"fabricloader": "*"}
+}
