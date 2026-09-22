@@ -2,7 +2,7 @@
   "situation": "CONFIG_BROKEN",
   "culprit": null,
   "logs": [
-    "crash-2026-09-23_01.46.08-client.txt",
+    "crash-2026-09-23_01.48.41-client.txt",
     "latest.log",
     "console.log"
   ],

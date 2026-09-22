@@ -1,7 +1,7 @@
 ---- Minecraft Crash Report ----
-// Don't be sad, have a hug! <3
+// There are four lights!
 
-Time: 2026-09-23 01:46:08
+Time: 2026-09-23 01:48:41
 Description: Initializing game
 
 java.lang.ExceptionInInitializerError: null
@@ -96,7 +96,7 @@ Details:
 	Operating System: Mac OS X (aarch64) version 27.0
 	Java Version: 21.0.12.1, Homebrew
 	Java VM Version: OpenJDK 64-Bit Server VM (mixed mode, sharing), Homebrew
-	Memory: 69707776 bytes (66 MiB) / 358612992 bytes (342 MiB) up to 4294967296 bytes (4096 MiB)
+	Memory: 170938448 bytes (163 MiB) / 346030080 bytes (330 MiB) up to 4294967296 bytes (4096 MiB)
 	CPUs: 12
 	Processor Vendor: Apple Inc.
 	Processor Name: Apple M4 Pro
@@ -115,7 +115,7 @@ Details:
 	Memory slot #0 clockSpeed (GHz): 0.00
 	Memory slot #0 type: unknown
 	Virtual memory max (MB): 29696.00
-	Virtual memory used (MB): 20919.02
+	Virtual memory used (MB): 20634.17
 	Swap memory total (MB): 5120.00
 	Swap memory used (MB): 3945.00
 	JVM Flags: 1 total; -Xmx4G
@@ -150,6 +150,6 @@ Details:
 	Mod List: 
 		client-1.19.2-20220805.130853-srg.jar             |Minecraft                     |minecraft                     |1.19.2              |COMMON_SET|Manifest: a1:d4:5e:04:4f:d3:d6:e0:7b:37:97:cf:77:b0:de:ad:4a:47:ce:8c:96:49:5f:0a:cf:8c:ae:b2:6d:4b:8a:3f
 		forge-1.19.2-43.5.2-universal.jar                 |Forge                         |forge                         |43.5.2              |COMMON_SET|Manifest: NOSIGNATURE
-	Crash Report UUID: a5a8f201-f726-4c62-9ed3-12e2f04496b7
+	Crash Report UUID: a759c72d-34b2-468e-8fc5-1953bb7ee4ae
 	FML: 43.5
 	Forge: net.minecraftforge:43.5.2

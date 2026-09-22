@@ -1,0 +1,8 @@
+{
+  "situation": "PROXY_FORWARDING",
+  "logs": [
+    "latest.log"
+  ],
+  "source": "https://github.com/PaperMC/Velocity/issues/1347",
+  "fix": "Set player-info-forwarding-mode to modern on the proxy, and save the file before restarting."
+}

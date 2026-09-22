@@ -592,6 +592,14 @@
       "source": "lab: net proxy-backend-down (Velocity 3.4.0 whose [servers] entry names a server that is not running)"
     },
     {
+      "id": "velocity-required-by-backend",
+      "situation": "PROXY_FORWARDING",
+      "confidence": "CERTAIN",
+      "pattern": "This server requires you to connect with Velocity",
+      "advice": "signature.velocity-required-by-backend.advice",
+      "source": "https://github.com/PaperMC/Velocity/issues/1347 (replayed in the lab: a proxy left in \"none\" mode in front of a server that waits for Velocity)"
+    },
+    {
       "id": "proxy-backend-player-message",
       "situation": "PROXY_BACKEND",
       "confidence": "HIGH",

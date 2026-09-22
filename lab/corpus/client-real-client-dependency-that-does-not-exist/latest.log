@@ -1,10 +1,10 @@
-[01:46:17] [main/INFO]: Loading Minecraft 1.21.1 with Fabric Loader 0.19.5
-[01:46:17] [main/INFO]: Fabric is preparing JARs on first launch, this may take a few seconds...
-[01:46:17] [main/WARN]: Mod resolution failed
-[01:46:17] [main/INFO]: Immediate reason: [HARD_DEP_NO_CANDIDATE big_shot_api 3.7.1 {depends intermap @ [*]}, ROOT_FORCELOAD_SINGLE big_shot_api 3.7.1]
-[01:46:17] [main/INFO]: Reason: [HARD_DEP big_shot_api 3.7.1 {depends intermap @ [*]}]
-[01:46:17] [main/INFO]: Fix: add [add:intermap 1 ([(-∞,∞)])], remove [], replace []
-[01:46:17] [main/ERROR]: Incompatible mods found!
+[01:48:50] [main/INFO]: Loading Minecraft 1.21.1 with Fabric Loader 0.19.5
+[01:48:50] [main/INFO]: Fabric is preparing JARs on first launch, this may take a few seconds...
+[01:48:50] [main/WARN]: Mod resolution failed
+[01:48:50] [main/INFO]: Immediate reason: [HARD_DEP_NO_CANDIDATE big_shot_api 3.7.1 {depends intermap @ [*]}, ROOT_FORCELOAD_SINGLE big_shot_api 3.7.1]
+[01:48:50] [main/INFO]: Reason: [HARD_DEP big_shot_api 3.7.1 {depends intermap @ [*]}]
+[01:48:50] [main/INFO]: Fix: add [add:intermap 1 ([(-∞,∞)])], remove [], replace []
+[01:48:50] [main/ERROR]: Incompatible mods found!
 net.fabricmc.loader.impl.FormattedException: Some of your mods are incompatible with the game or each other!
 A potential solution has been determined, this may resolve your problem:
 	 - Install intermap, any version.

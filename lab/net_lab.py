@@ -338,7 +338,8 @@ EXPECTED = {
     "velocity4-join-ok": {"player": None, "proxy": None, "backend": None},
     "velocity4-backend-down": {"player": "PROXY_BACKEND", "proxy": "PROXY_BACKEND"},
     "real-velocity-empty-secret": {"proxy": "PROXY_FORWARDING"},
-    "real-velocity-forwarding-off": {"backend": "PROXY_FORWARDING", "proxy": None, "player": None},
+    # All three sides say it, including the player's own log: that is what a player pastes.
+    "real-velocity-forwarding-off": {"backend": "PROXY_FORWARDING", "proxy": "PROXY_FORWARDING", "player": "PROXY_FORWARDING"},
     "real-bungee-forwarding-one-sided": {"backend": "PROXY_FORWARDING", "proxy": "PROXY_FORWARDING"},
     # The server behind the proxy is never told why the proxy gave up: only the proxy knows.
     "real-online-mode-behind-proxy": {"backend": None, "proxy": "PROXY_FORWARDING"},

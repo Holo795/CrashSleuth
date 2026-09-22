@@ -20,6 +20,9 @@ to lead to the same answer on its own.
 | `net-real-online-mode-behind-proxy-backend` | clean start |  | https://www.gameserverkings.com/knowledge-base/minecraft/error-failed-to-verify-username/ | A server behind a proxy runs with online-mode=false; the proxy does the checking. |
 | `net-real-online-mode-behind-proxy-proxy` | PROXY_FORWARDING |  | https://www.gameserverkings.com/knowledge-base/minecraft/error-failed-to-verify-username/ | A server behind a proxy runs with online-mode=false; the proxy does the checking. |
 | `net-real-velocity-empty-secret-proxy` | PROXY_FORWARDING |  | https://forums.papermc.io/threads/how-to-solve-unable-to-read-load-save-your-velocity-toml.339/ | Write the secret inside the file named by forwarding-secret-file; the setting is a path, not the secret. |
+| `net-real-velocity-forwarding-off-backend` | PROXY_FORWARDING |  | https://github.com/PaperMC/Velocity/issues/1347 | Set player-info-forwarding-mode to modern on the proxy, and save the file before restarting. |
+| `net-real-velocity-forwarding-off-player` | PROXY_FORWARDING |  | https://github.com/PaperMC/Velocity/issues/1347 | Set player-info-forwarding-mode to modern on the proxy, and save the file before restarting. |
+| `net-real-velocity-forwarding-off-proxy` | PROXY_FORWARDING |  | https://github.com/PaperMC/Velocity/issues/1347 | Set player-info-forwarding-mode to modern on the proxy, and save the file before restarting. |
 | `real-block-entity-tick-crash-mods` | TICK_BLOCK_ENTITY | toms_storage | https://github.com/tom5454/Toms-Storage/issues/753 | Update Tom's Storage to 2.8.1, or go back to the Sophisticated Core it was built against. |
 | `real-bluemap-eventbus7` | UNCAUGHT_EXCEPTION | bluemap | https://github.com/BlueMap-Minecraft/BlueMap/issues/743 | Update BlueMap past 5.12: Forge EventBus 7 refuses its old listener. |
 | `real-broken-version-range-in-metadata` | CORRUPT_JAR | tenshilib | https://github.com/Flemmli97/TenshiLib/issues/17 | Take the rebuilt jar (2.3.0.b): the range in its metadata was written wrong. |
@@ -53,4 +56,4 @@ to lead to the same answer on its own.
 | `real-world-not-writable` | WORLD_LOCKED |  | https://github.com/itzg/docker-minecraft-server/issues/1080 | Give the folder to the user the server runs as (chown), or set the container's UID and GID to the owner's. |
 | `real-worldgen-settings-deleted` | WORLD_CORRUPT |  | https://github.com/PaperMC/Paper/issues/14066 | Restore that file from a backup: the server cannot start without it, and --safeMode does not help. |
 
-46 cases.
+49 cases.
