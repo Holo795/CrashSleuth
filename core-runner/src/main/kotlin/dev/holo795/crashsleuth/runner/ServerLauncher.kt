@@ -34,36 +34,58 @@ data class RunResult(
     val logs: List<Diagnoser.Log>,
 )
 
-/** Starts a server folder, watches it, stops it, and says how it went. */
+/** Starts a server (or a game client) folder, watches it, stops it, and says how it went. */
 class ServerLauncher(
     private val command: List<String>,
     /** Longest time a launch may take to become ready. */
     private val timeout: Duration = Duration.ofMinutes(10),
     /** Time the server keeps running once ready, so crashes of the first ticks are caught. */
     private val settle: Duration = Duration.ofSeconds(10),
+    /** Line that says the launch is ready. */
+    private val ready: Regex = DONE,
+    /** Sent on the console to stop cleanly; null for a client, which is closed. */
+    private val stopCommand: String? = "stop",
+    /** Lines after which the launch cannot recover (a loader error screen waits forever). */
+    private val fatal: Regex? = null,
 ) {
+    /** The same launcher for another command (each client run has its own game folder in it). */
+    fun withCommand(command: List<String>) = ServerLauncher(command, timeout, settle, ready, stopCommand, fatal)
+
     fun run(directory: Path): RunResult {
         val started = System.nanoTime()
         val process = ProcessBuilder(command).directory(directory.toFile()).redirectErrorStream(true).start()
+        val failedAt = AtomicLong(0)
         val console = StringBuilder()
         val readyAt = AtomicLong(0)
         val reader = Thread {
             process.inputStream.bufferedReader().useLines { lines ->
                 lines.forEach { line ->
                     synchronized(console) { if (console.length < MAX_CONSOLE) console.appendLine(line) }
-                    if (readyAt.get() == 0L && DONE.containsMatchIn(line)) readyAt.set(System.nanoTime())
+                    if (readyAt.get() == 0L && ready.containsMatchIn(line)) readyAt.set(System.nanoTime())
+                    if (failedAt.get() == 0L && fatal?.containsMatchIn(line) == true) failedAt.set(System.nanoTime())
                 }
             }
         }.apply { isDaemon = true; start() }
 
         var stopRequested = false
         var timedOut = false
+        var failed = false
         while (process.isAlive) {
             val now = System.nanoTime()
+            // Give the crash report a few seconds to be written, then close.
+            if (failedAt.get() != 0L && now - failedAt.get() >= Duration.ofSeconds(5).toNanos()) {
+                failed = true
+                kill(process)
+                break
+            }
             if (readyAt.get() != 0L && !stopRequested && now - readyAt.get() >= settle.toNanos()) {
                 stopRequested = true
-                runCatching { process.outputStream.apply { write("stop\n".toByteArray()); flush() } }
-                if (!process.waitFor(90, TimeUnit.SECONDS)) kill(process)
+                if (stopCommand == null) {
+                    kill(process)
+                } else {
+                    runCatching { process.outputStream.apply { write("$stopCommand\n".toByteArray()); flush() } }
+                    if (!process.waitFor(90, TimeUnit.SECONDS)) kill(process)
+                }
                 break
             }
             if (readyAt.get() == 0L && now - started >= timeout.toNanos()) {
@@ -78,8 +100,9 @@ class ServerLauncher(
         val crashReports = directory.resolve("crash-reports").takeIf { it.isDirectory() }?.listDirectoryEntries("*.txt").orEmpty() +
             directory.listDirectoryEntries("hs_err_pid*.log")
         val outcome = when {
-            timedOut -> Outcome.TIMEOUT
+            timedOut && failedAt.get() == 0L -> Outcome.TIMEOUT
             // Stopped by us, and nothing crashed in between.
+            failed -> Outcome.CRASHED
             stopRequested && crashReports.isEmpty() -> Outcome.READY
             else -> Outcome.CRASHED
         }
@@ -99,7 +122,7 @@ class ServerLauncher(
     }
 
     companion object {
-        private val DONE = Regex("""Done \([\d.,]+s\)! For help, type""")
+        val DONE = Regex("""Done \([\d.,]+s\)! For help, type""")
         private const val MAX_CONSOLE = 8_000_000
     }
 }

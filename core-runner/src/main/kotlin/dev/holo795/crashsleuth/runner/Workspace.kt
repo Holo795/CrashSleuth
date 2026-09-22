@@ -49,7 +49,7 @@ class Workspace(
             when {
                 top in SKIPPED -> false
                 top.startsWith("hs_err_pid") -> false
-                !withWorld && top in worlds -> false
+                !withWorld && (top in worlds || top == "saves") -> false
                 top in jarFolders && parts.size == 2 && relative.name.endsWith(".jar", ignoreCase = true) -> false
                 top == "plugins" && parts.getOrNull(1) == ".paper-remapped" -> false
                 else -> true
@@ -100,7 +100,7 @@ class Workspace(
     companion object {
         /** Big folders the launches only read (or fill identically): linked, not copied. */
         private val SHARED = setOf("libraries", "versions", "cache", ".fabric", "bundler", ".mixin.out")
-        private val SKIPPED = setOf("logs", "crash-reports", "debug", ".crashsleuth-work")
+        private val SKIPPED = setOf("logs", "crash-reports", "debug", ".crashsleuth-work", "screenshots")
 
         fun properties(directory: Path): Properties = Properties().also { properties ->
             val file = directory.resolve("server.properties")

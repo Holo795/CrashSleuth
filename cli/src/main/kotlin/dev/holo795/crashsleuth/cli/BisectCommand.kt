@@ -13,6 +13,8 @@ import dev.holo795.crashsleuth.bisect.SearchResult
 import dev.holo795.crashsleuth.bisect.suspectsOf
 import dev.holo795.crashsleuth.engine.Diagnoser
 import dev.holo795.crashsleuth.model.Messages
+import dev.holo795.crashsleuth.runner.ClientInstaller
+import dev.holo795.crashsleuth.runner.ClientLaunch
 import dev.holo795.crashsleuth.runner.LaunchCommand
 import dev.holo795.crashsleuth.runner.ServerLauncher
 import dev.holo795.crashsleuth.runner.Workspace
@@ -25,7 +27,10 @@ class BisectCommand : CliktCommand(name = "bisect") {
     override fun help(context: Context) =
         "Find the mods or plugins that crash a server by launching a copy of it with fewer of them. Your files are never changed."
 
-    private val server by argument(help = "server folder").path(mustExist = true, canBeFile = false)
+    private val server by argument(help = "server folder, or game folder with --client").path(mustExist = true, canBeFile = false)
+    private val client by option("--client", help = "search on the game client: the tool installs Minecraft itself and opens small windows").flag()
+    private val minecraft by option("--minecraft", help = "Minecraft version of the game folder (--client)")
+    private val loader by option("--loader", help = "vanilla or fabric (--client)").default("fabric")
     private val java by option("--java", help = "Java executable used to start the server").default("java")
     private val command by option("--command", help = "start command, if it cannot be detected (run in the server folder)")
     private val memory by option("--memory", help = "maximum heap, for example 6G (default: the server's own setting, else 4G)")
@@ -45,18 +50,28 @@ class BisectCommand : CliktCommand(name = "bisect") {
         val (report, inventory) = Diagnoser().diagnoseFolder(server)
         val workspace = Workspace(server, work ?: Files.createTempDirectory("crashsleuth-bisect"), withWorld)
         workspace.prepare()
-        val launcher = ServerLauncher(
-            command?.split(' ')?.filter { it.isNotBlank() } ?: LaunchCommand.detect(server, java, memory),
-            Duration.ofMinutes(timeout.toLong()),
-            Duration.ofSeconds(settle.toLong()),
-        )
+        val installer = ClientInstaller()
+        val profile = if (client) installer.install(minecraft ?: error("--client needs --minecraft"), loader) else null
+        val launcher = if (profile != null) {
+            ClientLaunch.launcher(installer, profile, java, Duration.ofMinutes(timeout.toLong()), Duration.ofSeconds(settle.toLong()))
+        } else {
+            ServerLauncher(
+                command?.split(' ')?.filter { it.isNotBlank() } ?: LaunchCommand.detect(server, java, memory),
+                Duration.ofMinutes(timeout.toLong()),
+                Duration.ofSeconds(settle.toLong()),
+            )
+        }
+        // A client gets its game folder on its command line: one command per run folder.
+        fun launcherFor(directory: java.nio.file.Path) =
+            if (profile == null) launcher else launcher.withCommand(installer.command(profile, directory.toAbsolutePath(), java, memory ?: "4G"))
         val slots = ArrayBlockingQueue<Int>(parallel).apply { (0 until parallel).forEach(::add) }
         val search = CulpritSearch(
             inventory,
             launch = { jars ->
                 val slot = slots.take()
                 try {
-                    launcher.run(workspace.newRun(jars.groupBy { it.folder }.mapValues { (folder, entries) -> entries.map { server.resolve(folder).resolve(it.file) } }, slot))
+                    val directory = workspace.newRun(jars.groupBy { it.folder }.mapValues { (folder, entries) -> entries.map { server.resolve(folder).resolve(it.file) } }, slot)
+                    launcherFor(directory).run(directory)
                 } finally {
                     slots.put(slot)
                 }
