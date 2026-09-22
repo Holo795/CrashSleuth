@@ -3,7 +3,7 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":core-engine"))
+    implementation(project(":core-bisect"))
     implementation(libs.clikt)
 }
 
