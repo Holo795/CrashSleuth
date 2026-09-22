@@ -462,5 +462,26 @@
       "situation": "DEP_MISSING",
       "culprit": "intermap"
     }
+  },
+  {
+    "name": "real-client-pack-format-too-old",
+    "minecraft": "1.21.1",
+    "loader": "vanilla",
+    "description": "Vanilla 1.21.1 client with a resource pack made for a much older Minecraft",
+    "files": [
+      {
+        "path": "resourcepacks/old.zip",
+        "zip": {
+          "pack.mcmeta": "{\"pack\": {\"pack_format\": 4, \"description\": \"made for 1.13\"}}"
+        }
+      }
+    ],
+    "options": "resourcePacks:[\"vanilla\",\"file/old.zip\"]\n",
+    "source": "https://github.com/Godlander/objmc/issues/102",
+    "fix": "Take the pack built for the Minecraft version you play: its pack_format says which one it is for.",
+    "expect": {
+      "situation": "RENDER",
+      "culprit": "old.zip"
+    }
   }
 ]

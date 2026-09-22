@@ -1,0 +1,10 @@
+{
+  "situation": "RENDER",
+  "culprit": "old.zip",
+  "logs": [
+    "latest.log",
+    "console.log"
+  ],
+  "source": "https://github.com/Godlander/objmc/issues/102",
+  "fix": "Take the pack built for the Minecraft version you play: its pack_format says which one it is for."
+}

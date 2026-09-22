@@ -879,6 +879,23 @@
       },
       "advice": "signature.model-missing.advice",
       "source": "https://github.com/pexulsreal/glowrootissues/issues/8 and https://github.com/SashaKYotoz/Unusual-End/issues/21 (the mod's author states these warnings do not crash the game)"
+    },
+    {
+      "id": "resource-pack-dropped-as-incompatible",
+      "situation": "RENDER",
+      "confidence": "HIGH",
+      "pattern": "Removed resource pack (\\S+) from options because it is no longer compatible",
+      "culprits": [
+        {
+          "group": 1,
+          "kind": "SYSTEM"
+        }
+      ],
+      "details": {
+        "file": 1
+      },
+      "advice": "signature.resource-pack-dropped.advice",
+      "source": "https://github.com/Godlander/objmc/issues/102 (replayed in the lab: a pack whose pack_format is for 1.13, selected on 1.21.1)"
     }
   ]
 }
