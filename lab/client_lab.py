@@ -158,6 +158,10 @@ def run(names: list[str], cli: str, java_home: Path) -> int:
         shutil.rmtree(directory, ignore_errors=True)
         print(f"== {scenario['name']}: {scenario['description']}", flush=True)
         # 26.x needs Java 25: CRASHSLEUTH_JAVA25_HOME points at one.
+        # 26.x needs Java 25. Without one on this computer, those cases are skipped instead of stopping the run.
+        if scenario.get("java") == 25 and not os.environ.get("CRASHSLEUTH_JAVA25_HOME"):
+            print("   SKIP: no Java 25 here (set CRASHSLEUTH_JAVA25_HOME)", flush=True)
+            continue
         java = str(Path(os.environ["CRASHSLEUTH_JAVA25_HOME"]) / "bin" / "java") if scenario.get("java") == 25 else str(java_home / "bin" / "java")
         common = ["--minecraft", scenario["minecraft"], "--java", java]
         try:

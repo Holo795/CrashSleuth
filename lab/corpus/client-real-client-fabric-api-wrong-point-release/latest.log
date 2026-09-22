@@ -1,10 +1,10 @@
-[01:45:35] [main/INFO]: Loading Minecraft 1.21.1 with Fabric Loader 0.19.5
-[01:45:35] [main/INFO]: Fabric is preparing JARs on first launch, this may take a few seconds...
-[01:45:35] [main/WARN]: Mod resolution failed
-[01:45:35] [main/INFO]: Immediate reason: [HARD_DEP_INCOMPATIBLE_PRESELECTED fabric-api 0.102.0+1.21 {depends minecraft @ [>=1.21- <1.21.1-]}, ROOT_FORCELOAD_SINGLE fabric-api 0.102.0+1.21]
-[01:45:35] [main/INFO]: Reason: [HARD_DEP fabric-api 0.102.0+1.21 {depends minecraft @ [>=1.21- <1.21.1-]}]
-[01:45:35] [main/INFO]: Fix: add [], remove [], replace [[minecraft 1.21.1] -> add:minecraft 1.21- ([[1.21-,1.21.1-)])]
-[01:45:35] [main/ERROR]: Incompatible mods found!
+[01:48:06] [main/INFO]: Loading Minecraft 1.21.1 with Fabric Loader 0.19.5
+[01:48:06] [main/INFO]: Fabric is preparing JARs on first launch, this may take a few seconds...
+[01:48:06] [main/WARN]: Mod resolution failed
+[01:48:06] [main/INFO]: Immediate reason: [HARD_DEP_INCOMPATIBLE_PRESELECTED fabric-api 0.102.0+1.21 {depends minecraft @ [>=1.21- <1.21.1-]}, ROOT_FORCELOAD_SINGLE fabric-api 0.102.0+1.21]
+[01:48:06] [main/INFO]: Reason: [HARD_DEP fabric-api 0.102.0+1.21 {depends minecraft @ [>=1.21- <1.21.1-]}]
+[01:48:06] [main/INFO]: Fix: add [], remove [], replace [[minecraft 1.21.1] -> add:minecraft 1.21- ([[1.21-,1.21.1-)])]
+[01:48:06] [main/ERROR]: Incompatible mods found!
 net.fabricmc.loader.impl.FormattedException: Some of your mods are incompatible with the game or each other!
 A potential solution has been determined, this may resolve your problem:
 	 - Replace 'Minecraft' (minecraft) 1.21.1 with any version between 1.21- (inclusive) and 1.21.1- (exclusive).
