@@ -11,6 +11,9 @@ import com.github.ajalt.clikt.parameters.options.flag
 import com.github.ajalt.clikt.parameters.options.option
 import com.github.ajalt.clikt.parameters.types.choice
 import com.github.ajalt.clikt.parameters.types.path
+import dev.holo795.crashsleuth.app.Analysis
+import dev.holo795.crashsleuth.app.ShareLink
+import dev.holo795.crashsleuth.app.Target
 import dev.holo795.crashsleuth.engine.Diagnoser
 import dev.holo795.crashsleuth.inventory.InstanceScanner
 import dev.holo795.crashsleuth.inventory.Inventory
@@ -39,6 +42,7 @@ class Analyze : CliktCommand(name = "analyze") {
         .path(mustExist = true, mustBeReadable = true).multiple(required = true)
     private val json by option("--json", help = "print the report as JSON").flag()
     private val language by option("--lang", help = "language of the report (en, fr)")
+    private val share by option("--share", help = "print a link that opens this report in a browser (the report is inside the link; nothing is uploaded)").flag()
     private val side by option("--side", help = "side a modpack is checked for (server, client)").choice("server", "client").default("server")
 
     override fun run() {
@@ -59,6 +63,12 @@ class Analyze : CliktCommand(name = "analyze") {
             echo(JSON.encodeToString(Report.serializer(), report))
         } else {
             echo(ReportPrinter(Messages.forLanguage(language)).render(report))
+        }
+        if (share) {
+            val target = targets.first()
+            val analysis = Analysis(Target.of(target), report, inventory)
+            echo("")
+            echo(ShareLink.link(ShareLink.build(analysis, Messages.forLanguage(language))))
         }
     }
 }

@@ -8,6 +8,9 @@ import com.github.ajalt.clikt.parameters.options.flag
 import com.github.ajalt.clikt.parameters.options.option
 import com.github.ajalt.clikt.parameters.types.int
 import com.github.ajalt.clikt.parameters.types.path
+import dev.holo795.crashsleuth.app.Analysis
+import dev.holo795.crashsleuth.app.ShareLink
+import dev.holo795.crashsleuth.app.Target
 import dev.holo795.crashsleuth.bisect.CulpritSearch
 import dev.holo795.crashsleuth.bisect.SearchResult
 import dev.holo795.crashsleuth.bisect.suspectsOf
@@ -43,6 +46,7 @@ class BisectCommand : CliktCommand(name = "bisect") {
     private val work by option("--work", help = "working folder (default: a temporary folder)").path()
     private val keep by option("--keep", help = "keep the working folder").flag()
     private val json by option("--json", help = "print the result as JSON").flag()
+    private val share by option("--share", help = "print a link that opens the result in a browser (nothing is uploaded)").flag()
     private val language by option("--lang", help = "language of the report (en, fr)")
 
     override fun run() {
@@ -87,6 +91,10 @@ class BisectCommand : CliktCommand(name = "bisect") {
             if (!keep) workspace.cleanup()
         }
         echo(if (json) JSON.encodeToString(SearchResult.serializer(), result) else render(result, messages))
+        if (share) {
+            echo("")
+            echo(ShareLink.link(ShareLink.build(Analysis(Target.of(server), report, inventory), messages, result)))
+        }
     }
 
     private fun render(result: SearchResult, messages: Messages): String = buildString {

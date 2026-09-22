@@ -232,6 +232,8 @@ fun SearchScreen(state: AppState, analysis: Analysis, setup: SearchSetup) {
                 if (!finished) {
                     TextButton(if (progress.cancel.get()) ui["search.stopping"] else ui["search.stop"], state::stopSearch, icon = Icons.Stop, tint = Theme.tones.critical)
                 } else {
+                    progress.result?.let { ShareButton(state, analysis, it) }
+                    Spacer(Modifier.width(6.dp))
                     PrimaryButton(ui["search.done"], { state.back(analysis) }, icon = Icons.Back)
                 }
             }

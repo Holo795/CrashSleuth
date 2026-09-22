@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; script-src 'unsafe-inline'; img-src data:">
+<title>CrashSleuth report</title>
+<style>
+  :root {
+    --bg: #fcfcfd; --raised: #f3f3f5; --code: #f5f5f7; --line: #e9eaed;
+    --text: #1b1c20; --soft: #45474e; --muted: #6d7079;
+    --primary: #5b57e3; --critical: #d9443f; --warning: #b7831a; --success: #2e9463; --info: #3a74e0;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0c0d0f; --raised: #17181b; --code: #111214; --line: #1f2024;
+      --text: #ededef; --soft: #b9bcc3; --muted: #8b8f97;
+      --primary: #8f8cf2; --critical: #ef6461; --warning: #e8b84a; --success: #52b788; --info: #6e9eff;
+      color-scheme: dark;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text);
+    font: 15px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .bar { display: flex; align-items: center; gap: 10px; padding: 18px 24px; font-weight: 600; font-size: 14px; }
+  .bar svg { color: var(--primary); }
+  .bar .spacer { flex: 1; }
+  main { max-width: 760px; margin: 0 auto; padding: 32px 24px 80px; }
+  .overline { font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); font-weight: 500; margin: 0 0 10px; }
+  .facts { color: var(--muted); font-size: 13px; margin: 0 0 18px; }
+  .name { font-size: 15px; font-weight: 600; margin: 0; }
+  .status { display: inline-flex; align-items: center; gap: 8px; font-size: 12.5px; font-weight: 500; }
+  .dot { width: 7px; height: 7px; border-radius: 50%; background: currentColor; flex: none; }
+  h1 { font-size: clamp(24px, 4.2vw, 30px); line-height: 1.2; letter-spacing: -0.02em; margin: 14px 0 0; font-weight: 600; }
+  .culprit { display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px; margin: 6px 0; }
+  .culprit strong { font-size: 22px; letter-spacing: -0.01em; font-weight: 600; }
+  .muted { color: var(--muted); }
+  code, pre { font: 12px/1.55 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+  section { margin-top: 28px; }
+  .advice { margin: 0; font-size: 15.5px; }
+  pre { background: var(--code); color: var(--muted); border-radius: 8px; padding: 12px 14px; margin: 10px 0 0; white-space: pre-wrap; word-break: break-word; }
+  details summary { cursor: pointer; color: var(--soft); font-size: 13.5px; font-weight: 500; list-style: none; padding: 6px 0; }
+  details summary::-webkit-details-marker { display: none; }
+  details summary:hover { color: var(--text); }
+  .others { margin-top: 48px; }
+  .row { border-top: 1px solid var(--line); padding: 12px 0; }
+  .row:first-of-type { border-top: 0; }
+  .row .head { display: flex; align-items: center; gap: 12px; font-size: 14px; }
+  .row .head b { font-weight: 500; }
+  .row p { margin: 6px 0 0 19px; color: var(--soft); font-size: 13.5px; }
+  .search { margin-top: 40px; padding-top: 28px; border-top: 1px solid var(--line); }
+  .installed { margin-top: 40px; padding-top: 28px; border-top: 1px solid var(--line); }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 2px 24px; font-size: 13px; }
+  .grid div { display: flex; justify-content: space-between; gap: 10px; padding: 4px 0; min-width: 0; }
+  .grid span:first-child { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .grid code { color: var(--muted); white-space: nowrap; }
+  button {
+    font: inherit; font-size: 13px; font-weight: 500; color: var(--soft); background: transparent; border: 0;
+    border-radius: 6px; padding: 7px 10px; cursor: pointer; transition: background-color .12s ease, color .12s ease, transform .14s cubic-bezier(.23,1,.32,1);
+  }
+  button:hover { background: var(--raised); color: var(--text); }
+  button:active { transform: scale(.97); }
+  footer { margin-top: 56px; color: var(--muted); font-size: 12.5px; display: flex; gap: 8px; align-items: center; }
+  footer a { color: var(--soft); }
+  .empty { padding: 80px 0; }
+  /* No fill before the start: if the browser delays the animation (background tab), the report stays visible. */
+  .fade { animation: fade .28s cubic-bezier(.23,1,.32,1) forwards; }
+  @keyframes fade { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+  @media (prefers-reduced-motion: reduce) { .fade { animation: none; } }
+</style>
+</head>
+<body>
+<div class="bar">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.5 3.5a7 7 0 1 1 0 14a7 7 0 1 1 0-14z"/><path d="M15.6 15.6L20.5 20.5"/><path d="M6.5 10.5h2l1.2-2.2l1.6 4.4l1.2-2.2h1.5"/></svg>
+  <span>CrashSleuth</span>
+  <span class="spacer"></span>
+  <button id="copy" hidden></button>
+</div>
+<main id="app"></main>
+<script>
+(() => {
+  const TEXT = {
+    en: {
+      kind: { SERVER: "Server", CLIENT: "Game", PACK: "Modpack", LOG: "Log" },
+      confidence: { LOW: "Low confidence", MEDIUM: "Likely", HIGH: "Very likely", CERTAIN: "Certain" },
+      culprit: "Culprit", culprits: "Culprits", whatToDo: "What to do", evidence: "Show the evidence",
+      others: "Also found", none: "No known problem found", noneBody: "The logs and files do not match anything CrashSleuth knows.",
+      search: "Culprit search", found: "Found by launching it", combination: "Incompatible together", notReproduced: "It started normally with all its mods and plugins.",
+      incomplete: "Launch limit reached; the culprit is among these.", launches: (n, t) => `${n} launches in ${t}`,
+      installed: "Installed", copy: "Copy the link", copied: "Copied",
+      privacy: "This report lives in the link itself: it was not uploaded anywhere.",
+      invalid: "This link does not contain a readable report.", empty: "Open a link made by crashsleuth --share.",
+    },
+    fr: {
+      kind: { SERVER: "Serveur", CLIENT: "Jeu", PACK: "Modpack", LOG: "Journal" },
+      confidence: { LOW: "Confiance faible", MEDIUM: "Probable", HIGH: "Très probable", CERTAIN: "Certain" },
+      culprit: "Coupable", culprits: "Coupables", whatToDo: "Que faire", evidence: "Voir les preuves",
+      others: "Également trouvé", none: "Aucun problème connu trouvé", noneBody: "Les journaux et les fichiers ne correspondent à rien de ce que CrashSleuth connaît.",
+      search: "Recherche du coupable", found: "Trouvé en lançant", combination: "Incompatibles ensemble", notReproduced: "Ça a démarré normalement avec tous ses mods et plugins.",
+      incomplete: "Limite de lancements atteinte ; le coupable est parmi ceux-ci.", launches: (n, t) => `${n} lancements en ${t}`,
+      installed: "Installé", copy: "Copier le lien", copied: "Copié",
+      privacy: "Ce rapport est contenu dans le lien lui-même : il n'a été envoyé nulle part.",
+      invalid: "Ce lien ne contient pas de rapport lisible.", empty: "Ouvrez un lien créé par crashsleuth --share.",
+    },
+  };
+  const tone = { LOW: "var(--info)", MEDIUM: "var(--warning)", HIGH: "var(--critical)", CERTAIN: "var(--critical)" };
+  const app = document.getElementById("app");
+
+  // Every value comes from the link: it is only ever put in the page as text.
+  function el(tag, props = {}, ...children) {
+    const node = document.createElement(tag);
+    for (const [key, value] of Object.entries(props)) {
+      if (key === "style") node.style.cssText = value; else if (key === "text") node.textContent = value; else node.setAttribute(key, value);
+    }
+    for (const child of children) if (child != null) node.append(child);
+    return node;
+  }
+  const status = (label, color) => el("span", { class: "status", style: `color:${color}` }, el("span", { class: "dot" }), label);
+  const duration = (s) => s < 60 ? `${s} s` : `${Math.floor(s / 60)} min ${String(s % 60).padStart(2, "0")}`;
+
+  async function decode(data) {
+    const binary = atob(data.replace(/-/g, "+").replace(/_/g, "/"));
+    const bytes = Uint8Array.from(binary, (c) => c.charCodeAt(0));
+    const stream = new Blob([bytes]).stream().pipeThrough(new DecompressionStream("deflate-raw"));
+    return JSON.parse(await new Response(stream).text());
+  }
+
+  function message(text) {
+    app.replaceChildren(el("div", { class: "empty fade" }, el("h1", { text }), el("p", { class: "muted", text: "github.com/Holo795/CrashSleuth" })));
+  }
+
+  function render(r, t) {
+    document.documentElement.lang = r.lang === "fr" ? "fr" : "en";
+    document.title = `${r.name} · CrashSleuth`;
+    const root = el("div", { class: "fade" });
+    root.append(el("p", { class: "name", text: r.name }));
+    root.append(el("p", { class: "facts", text: [t.kind[r.kind] || r.kind, ...(r.facts || [])].join("   ·   ") }));
+
+    const [first, ...others] = r.findings || [];
+    if (!first) {
+      root.append(status("OK", "var(--success)"), el("h1", { text: t.none }), el("p", { class: "advice muted", style: "margin-top:14px", text: t.noneBody }));
+    } else {
+      root.append(status(t.confidence[first.confidence] || first.confidence, tone[first.confidence]));
+      root.append(el("h1", { text: first.title }));
+      if (first.culprits && first.culprits.length) {
+        const section = el("section", {}, el("p", { class: "overline", text: first.culprits.length > 1 ? t.culprits : t.culprit }));
+        for (const c of first.culprits) {
+          section.append(el("div", { class: "culprit" },
+            el("strong", { style: `color:${tone[first.confidence]}`, text: c.name }),
+            c.version ? el("span", { class: "muted", text: c.version }) : null,
+            c.id ? el("code", { class: "muted", text: c.id }) : null));
+        }
+        root.append(section);
+      }
+      root.append(el("section", {}, el("p", { class: "overline", text: t.whatToDo }), el("p", { class: "advice", text: first.advice })));
+      if (first.evidence && first.evidence.length) {
+        root.append(el("section", {}, el("details", {}, el("summary", { text: t.evidence }), el("pre", { text: first.evidence.join("\n") }))));
+      }
+    }
+    if (others.length) {
+      const list = el("div", { class: "others" }, el("p", { class: "overline", text: t.others }));
+      for (const f of others) {
+        list.append(el("details", { class: "row" },
+          el("summary", {}, el("span", { class: "head" }, el("span", { class: "dot", style: `color:${tone[f.confidence]}` }), el("b", { text: f.title }),
+            el("span", { class: "muted", text: (f.culprits || []).map((c) => c.name).join(", ") }))),
+          el("p", { text: f.advice }),
+          f.evidence && f.evidence.length ? el("pre", { text: f.evidence.join("\n") }) : null));
+      }
+      root.append(list);
+    }
+    if (r.search) {
+      const s = r.search;
+      const block = el("div", { class: "search" }, el("p", { class: "overline", text: t.search }));
+      if (!s.found) block.append(el("p", { class: "advice", text: t.notReproduced }));
+      else {
+        block.append(status(!s.complete ? t.incomplete : s.culprits.length > 1 ? t.combination : t.found, s.complete ? "var(--critical)" : "var(--warning)"));
+        for (const name of s.culprits) block.append(el("div", { class: "culprit", style: "margin-top:10px" }, el("strong", { text: name })));
+        block.append(el("p", { class: "muted", style: "font-size:13px", text: t.launches(s.launches, duration(s.seconds)) }));
+      }
+      root.append(block);
+    }
+    if (r.installed && r.installed.length) {
+      const grid = el("div", { class: "grid" });
+      for (const m of r.installed) grid.append(el("div", {}, el("span", { text: m.name }), m.version ? el("code", { text: m.version.slice(0, 20) }) : null));
+      root.append(el("div", { class: "installed" }, el("p", { class: "overline", text: `${t.installed} · ${r.installed.length}` }), grid));
+    }
+    root.append(el("footer", {},
+      el("span", { text: t.privacy }),
+      el("a", { href: "https://github.com/Holo795/CrashSleuth", rel: "noopener", text: "CrashSleuth" })));
+    app.replaceChildren(root);
+
+    const copy = document.getElementById("copy");
+    copy.hidden = false;
+    copy.textContent = t.copy;
+    copy.onclick = async () => {
+      await navigator.clipboard.writeText(location.href);
+      copy.textContent = t.copied;
+      setTimeout(() => (copy.textContent = t.copy), 1600);
+    };
+  }
+
+  async function start() {
+    const lang = navigator.language && navigator.language.startsWith("fr") ? "fr" : "en";
+    const data = new URLSearchParams(location.hash.slice(1)).get("r");
+    if (!data) return message(TEXT[lang].empty);
+    try {
+      const report = await decode(data);
+      render(report, TEXT[report.lang] || TEXT[lang]);
+    } catch (error) {
+      message(TEXT[lang].invalid);
+    }
+  }
+  window.addEventListener("hashchange", start);
+  start();
+})();
+</script>
+</body>
+</html>

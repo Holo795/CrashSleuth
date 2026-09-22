@@ -61,6 +61,7 @@ fun ReportScreen(state: AppState, analysis: Analysis) {
                     Text(analysis.target.name, style = MaterialTheme.typography.titleMedium, maxLines = 1, overflow = TextOverflow.Ellipsis)
                     Text(shortPath(analysis.target.path), style = MaterialTheme.typography.bodySmall, color = Theme.tones.muted, maxLines = 1, overflow = TextOverflow.Ellipsis)
                 }
+                ShareButton(state, analysis)
                 CopyButton(state, analysis)
             }
             Spacer(Modifier.height(40.dp))
@@ -229,6 +230,20 @@ private fun MixinSection(ui: Ui, analysis: Analysis) {
             Text(collision.mods.joinToString(" · "), style = MaterialTheme.typography.bodySmall, color = Theme.tones.muted)
         }
     }
+}
+
+/** Copies a link that opens the report in any browser, and opens it: the report travels inside the link. */
+@Composable
+fun ShareButton(state: AppState, analysis: Analysis, search: dev.holo795.crashsleuth.bisect.SearchResult? = null) {
+    val clipboard = LocalClipboardManager.current
+    var shared by remember { mutableStateOf(false) }
+    LaunchedEffect(shared) { if (shared) { delay(1600); shared = false } }
+    TextButton(if (shared) state.ui["report.copied"] else state.ui["report.share"], {
+        val link = dev.holo795.crashsleuth.app.ShareLink.link(dev.holo795.crashsleuth.app.ShareLink.build(analysis, state.ui.messages, search))
+        clipboard.setText(AnnotatedString(link))
+        runCatching { java.awt.Desktop.getDesktop().browse(java.net.URI(link)) }
+        shared = true
+    }, icon = if (shared) Icons.Check else Icons.Share)
 }
 
 @Composable
