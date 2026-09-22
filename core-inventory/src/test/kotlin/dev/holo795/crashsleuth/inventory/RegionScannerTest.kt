@@ -72,4 +72,22 @@ class RegionScannerTest {
         assertTrue(damaged.getValue("region" to (-31 to 0)).reason.contains("compression type 42"))
         assertTrue(damaged.getValue("entities" to (5 to 0)).reason.contains("past the end"))
     }
+
+    @Test
+    fun `a chunk too big for its region lives in its own file and is not damage`() {
+        // The region keeps only the compression byte, with the high bit set; the data is in c.<x>.<z>.mcc.
+        val file = java.nio.ByteBuffer.allocate(8192 + 4096)
+        file.putInt(0, (2 shl 8) or 1)
+        file.position(2 * 4096)
+        file.putInt(1)
+        file.put((2 or 0x80).toByte())
+        val region = world.resolve("entities").createDirectories()
+        region.resolve("r.0.0.mca").writeBytes(file.array())
+        region.resolve("c.0.0.mcc").writeBytes(zlib(chunkNbt()))
+        assertEquals(emptyList(), RegionScanner.scan(world).damaged)
+
+        // Without that file, it really is damage.
+        region.resolve("c.0.0.mcc").toFile().delete()
+        assertEquals(1, RegionScanner.scan(world).damaged.size)
+    }
 }

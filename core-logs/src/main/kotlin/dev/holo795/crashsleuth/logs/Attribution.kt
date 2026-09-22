@@ -61,6 +61,17 @@ object Attribution {
 
     private val OBFUSCATED_GAME = Regex("""[a-z]{1,4}(?:\$[\w$]+)?""")
 
+    /**
+     * The class behind a lambda frame. The JVM writes them as
+     * `net.minecraft.world.entity.Entity$$Lambda$7808/0x000000800222db68.accept`, where the part before
+     * the slash is the class that made the lambda and the part after is an address. Without this, a
+     * server held up by the game's own code was blamed on "0x000000800222db68" (lab, 22/09/2026).
+     */
+    private const val LAMBDA = "${'$'}${'$'}Lambda"
+
+    fun lambdaOwner(text: String?): String? =
+        text?.takeIf { it.contains(LAMBDA) }?.substringBefore(LAMBDA)?.trimEnd('.', '/')
+
     /** Readable identifier from a jar name: `create-1.21.1-6.0.4.jar` gives `create`. */
     fun idFromJar(jar: String): String {
         val base = jar.substringAfterLast('/').removeSuffix(".jar").substringBefore('%')
@@ -89,6 +100,12 @@ object Attribution {
                 if (injectedBy != null) {
                     // Code a mod injected into a game method: the frame shows the game class, the name shows the mod.
                     key = injectedBy
+                    file = null
+                } else if (lambdaOwner(frame.module) != null) {
+                    // A lambda of the game or of a mod: what counts is the class that made it.
+                    val owner = lambdaOwner(frame.module)!!
+                    if (isPlatformClass(owner)) return@forEachIndexed
+                    key = packageRoot(owner)
                     file = null
                 } else if (frame.module != null && !PLATFORM_MODULE.matches(frame.module) && !isPlatformClass(frame.className)) {
                     key = frame.module.removeSuffix("_service")

@@ -18,8 +18,10 @@ object LagDetector : Detector {
     override fun detect(document: LogDocument, environment: Environment): List<Finding> {
         val ready = document.find(READY)?.range?.last ?: return emptyList()
         val warnings = document.findAll(BEHIND).filter { it.range.first > ready }.toList()
-        if (warnings.size < 2) return emptyList()
-        val worst = warnings.maxBy { it.groupValues[1].toLong() }
+        val worst = warnings.maxByOrNull { it.groupValues[1].toLong() } ?: return emptyList()
+        // Two warnings, or a single big one: a server 16 000 chickens behind only wrote the line once
+        // (lab, 22/09/2026, after a report on the Paper forums).
+        if (warnings.size < 2 && worst.groupValues[1].toLong() < 2000) return emptyList()
         return listOf(
             Finding(
                 situation = Situation.LAG,

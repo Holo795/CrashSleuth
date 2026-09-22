@@ -32,7 +32,8 @@ object HangDetector : Detector {
         val blocker = frames.firstNotNullOfOrNull { frame ->
             val prefix = frame.groupValues[1].split('/').filter { it.isNotEmpty() }
             val jar = prefix.firstOrNull { it.endsWith(".jar") }
-            val className = frame.groupValues[2].substringBeforeLast('.')
+            // A lambda frame names the class that made it before the slash, and an address after it.
+            val className = Attribution.lambdaOwner(prefix.lastOrNull()) ?: frame.groupValues[2].substringBeforeLast('.')
             when {
                 jar != null && !Attribution.isPlatformJar(jar) -> Culprit(Attribution.kindFor(environment), Attribution.idFromJar(jar), file = jar)
                 jar == null && !Attribution.isPlatformClass(className) && prefix.none { it.startsWith("java.") } ->
@@ -46,6 +47,8 @@ object HangDetector : Detector {
                 confidence = if (blocker != null) Confidence.HIGH else Confidence.MEDIUM,
                 culprits = listOfNotNull(blocker),
                 evidence = listOfNotNull(document.lineContaining(anchor.value), frames.firstOrNull { blocker?.file?.let(it.value::contains) == true }?.value),
+                // Nobody's plugin or mod in the dump: the game itself is busy, and only a profile says why.
+                details = if (blocker == null) mapOf("adviceKey" to "hang.no-culprit") else emptyMap(),
             ),
         )
     }

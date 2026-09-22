@@ -1675,5 +1675,86 @@
       "situation": "TICK_BLOCK_ENTITY",
       "culprit": "toms_storage"
     }
+  },
+  {
+    "platform": "paper",
+    "minecraft": "1.20.4",
+    "java": 17,
+    "name": "real-entity-pileup-lag",
+    "description": "Paper 1.20.4 on one core with a crowd of chickens in one chunk, as in a forum report",
+    "console": [
+      {
+        "after": 5,
+        "command": "forceload add 0 0"
+      },
+      {
+        "after": 8,
+        "command": "summon minecraft:chicken 0 100 0"
+      },
+      {
+        "after": 10,
+        "command": "execute at @e[type=minecraft:chicken] run summon minecraft:chicken ~ ~ ~"
+      },
+      {
+        "after": 14,
+        "command": "execute at @e[type=minecraft:chicken] run summon minecraft:chicken ~ ~ ~"
+      },
+      {
+        "after": 18,
+        "command": "execute at @e[type=minecraft:chicken] run summon minecraft:chicken ~ ~ ~"
+      },
+      {
+        "after": 22,
+        "command": "execute at @e[type=minecraft:chicken] run summon minecraft:chicken ~ ~ ~"
+      },
+      {
+        "after": 26,
+        "command": "execute at @e[type=minecraft:chicken] run summon minecraft:chicken ~ ~ ~"
+      },
+      {
+        "after": 30,
+        "command": "execute at @e[type=minecraft:chicken] run summon minecraft:chicken ~ ~ ~"
+      },
+      {
+        "after": 34,
+        "command": "execute at @e[type=minecraft:chicken] run summon minecraft:chicken ~ ~ ~"
+      },
+      {
+        "after": 38,
+        "command": "execute at @e[type=minecraft:chicken] run summon minecraft:chicken ~ ~ ~"
+      },
+      {
+        "after": 42,
+        "command": "execute at @e[type=minecraft:chicken] run summon minecraft:chicken ~ ~ ~"
+      },
+      {
+        "after": 46,
+        "command": "execute at @e[type=minecraft:chicken] run summon minecraft:chicken ~ ~ ~"
+      },
+      {
+        "after": 50,
+        "command": "execute at @e[type=minecraft:chicken] run summon minecraft:chicken ~ ~ ~"
+      },
+      {
+        "after": 54,
+        "command": "execute at @e[type=minecraft:chicken] run summon minecraft:chicken ~ ~ ~"
+      },
+      {
+        "after": 58,
+        "command": "execute at @e[type=minecraft:chicken] run summon minecraft:chicken ~ ~ ~"
+      }
+    ],
+    "after_ready": 150,
+    "memory": "3G",
+    "timeout": 900,
+    "source": "https://forums.papermc.io/threads/server-lag-and-rollback-every-5-min.1041/",
+    "fix": "Remove the crowd of entities (or the world holding it): chunks keep ticking even with nobody there.",
+    "expect": {
+      "situation": "LAG"
+    },
+    "docker_args": [
+      "--cpus",
+      "1"
+    ]
   }
 ]

@@ -24,6 +24,7 @@ to lead to the same answer on its own.
 | `real-connector-transform-failure` | MOD_CONFLICT | Connector | https://github.com/Sinytra/Connector/issues/2002 | Move to a later Connector build: this one cannot read that mod's mixin settings. |
 | `real-corrupt-server-jar` | CORRUPT_JAR |  | https://github.com/itzg/docker-minecraft-server/discussions/2786 | Delete the jar and download it again: the file is incomplete. |
 | `real-densefuel-language-provider-pinned` | DEP_VERSION | densefuel | https://github.com/legoaggelos/densefuel/issues/1 | Stay below NeoForge 21.1.235, or the mod must widen the javafml range it asks for. |
+| `real-entity-pileup-lag` | LAG |  | https://forums.papermc.io/threads/server-lag-and-rollback-every-5-min.1041/ | Remove the crowd of entities (or the world holding it): chunks keep ticking even with nobody there. |
 | `real-fabric-api-missing-journeymap` | DEP_MISSING | fabric | https://github.com/itzg/docker-minecraft-server/discussions/2661 | Install the Fabric API jar: nothing pulls it in for you. |
 | `real-fabric-api-wrong-minecraft` | WRONG_MC | fabric-api | https://github.com/orgs/FabricMC/discussions/4403 | Download the Fabric API built for the Minecraft version you run. |
 | `real-folia-plugin-unsupported` | PLUGIN_API | InvSee | https://github.com/Jannyboy11/InvSee-plus-plus/issues/87 | Only plugins whose plugin.yml says folia-supported: true load on Folia; ask the author or run Paper. |
@@ -43,4 +44,4 @@ to lead to the same answer on its own.
 | `real-viaversion-warning-only` | clean start |  | https://github.com/ViaVersion/ViaVersion/issues/3917 | Nothing to fix: ViaVersion only lets newer clients in; older ones need ViaBackwards. |
 | `real-world-not-writable` | WORLD_LOCKED |  | https://github.com/itzg/docker-minecraft-server/issues/1080 | Give the folder to the user the server runs as (chown), or set the container's UID and GID to the owner's. |
 
-36 cases.
+37 cases.

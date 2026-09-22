@@ -97,15 +97,17 @@ object RegionScanner {
                 head.flip()
                 val length = head.getInt()
                 val compression = head.get().toInt() and 0xFF
-                if (length <= 1 || length > sectors * SECTOR) { damage(index, "its length ($length bytes) does not fit its ${sectors * 4} KB"); continue }
-                if (offset.toLong() * SECTOR + 4 + length > size) { damage(index, "its data is cut by the end of the file"); continue }
+                // An oversized chunk lives in its own c.<x>.<z>.mcc file, and the region keeps only the
+                // compression byte for it: its length is 1, which is not damage (seen for real on a world
+                // holding sixteen thousand chickens in one chunk, lab 22/09/2026).
                 if (compression and 0x80 != 0) {
-                    // Oversized chunk kept in its own c.<x>.<z>.mcc file next to the region.
                     val x = rx * 32 + (index and 31)
                     val z = rz * 32 + (index shr 5)
                     if (!file.resolveSibling("c.$x.$z.mcc").exists()) damage(index, "its data file c.$x.$z.mcc is missing")
                     continue
                 }
+                if (length <= 1 || length > sectors * SECTOR) { damage(index, "its length ($length bytes) does not fit its ${sectors * 4} KB"); continue }
+                if (offset.toLong() * SECTOR + 4 + length > size) { damage(index, "its data is cut by the end of the file"); continue }
                 if (compression !in 1..4) { damage(index, "unknown compression type $compression"); continue }
                 if (compression == 4 || System.currentTimeMillis() > deadline) continue
                 val data = ByteBuffer.allocate(length - 1)

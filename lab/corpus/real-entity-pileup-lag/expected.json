@@ -1,0 +1,9 @@
+{
+  "situation": "LAG",
+  "culprit": null,
+  "logs": [
+    "latest.log"
+  ],
+  "source": "https://forums.papermc.io/threads/server-lag-and-rollback-every-5-min.1041/",
+  "fix": "Remove the crowd of entities (or the world holding it): chunks keep ticking even with nobody there."
+}
