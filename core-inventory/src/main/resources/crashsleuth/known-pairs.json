@@ -1,5 +1,5 @@
 {
-  "about": "Mods that are known not to work together, and mods that need another mod without saying so in their metadata. Every entry names where it was established: a maintainer's answer, or a case replayed in the lab (lab/corpus).",
+  "about": "Mods that are known not to work together, and mods that need another mod without saying so in their metadata. Every entry names where it was established: a maintainer's answer, or a case replayed in the lab (lab/corpus). Mod ids were read from the published jars, not guessed.",
   "incompatible": [
     {
       "a": "jade",
@@ -17,6 +17,12 @@
     },
     {
       "id": "sodium_extra",
+      "needs": "sodium",
+      "why": "Sodium Extra loads Sodium's own classes as soon as it is read.",
+      "source": "https://github.com/AllTheMods/ATM-10/issues/402 (replayed in the lab: real-sodium-extra-on-server)"
+    },
+    {
+      "id": "sodium-extra",
       "needs": "sodium",
       "why": "Sodium Extra loads Sodium's own classes as soon as it is read.",
       "source": "https://github.com/AllTheMods/ATM-10/issues/402 (replayed in the lab: real-sodium-extra-on-server)"

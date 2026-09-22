@@ -70,7 +70,7 @@ def paper_backend(directory: Path, secret: str | None, mods: list[str]) -> None:
             shutil.copy(path, directory / "plugins" / path.name)
 
 
-def velocity_proxy(directory: Path, secret: str, backend: str) -> None:
+def velocity_proxy(directory: Path, secret: str, backend: str, mode: str = "modern") -> None:
     directory.mkdir(parents=True)
     shutil.copy(lab.paper_server("3.4.0", "velocity"), directory / "velocity.jar")
     (directory / "forwarding.secret").write_text(secret)
@@ -78,7 +78,7 @@ def velocity_proxy(directory: Path, secret: str, backend: str) -> None:
         'config-version = "2.7"\n'
         f'bind = "0.0.0.0:{PROXY_PORT}"\n'
         'online-mode = false\n'
-        'player-info-forwarding-mode = "modern"\n'
+        f'player-info-forwarding-mode = "{mode}"\n'
         'forwarding-secret-file = "forwarding.secret"\n'
         '[servers]\n'
         f'lobby = "{backend}:{SERVER_PORT}"\n'
@@ -151,6 +151,7 @@ SCENARIOS = {
     "velocity4-join-ok": "Vanilla client joins Paper 1.21.1 through Velocity 4 (Java 25)",
     "velocity4-backend-down": "Velocity 4 points to a server that is not running",
     "real-velocity-empty-secret": "Velocity with modern forwarding and an empty forwarding.secret (reported on the Paper forums)",
+    "real-velocity-forwarding-off": "Velocity forwarding nothing, in front of a server that waits for it",
     "real-bungee-forwarding-one-sided": "BungeeCord forwards, but the server behind it was never told to accept it",
     "real-online-mode-behind-proxy": "A server behind Velocity left at online-mode=true",
 }
@@ -232,6 +233,24 @@ def run_scenario(name: str, cli: str, java: str) -> tuple[bool, str]:
             # Waterfall leaves the player waiting without a word: only its end of life can be said.
             expected = "OUTDATED" if project == "waterfall" else "PROXY_BACKEND"
             return outcome != "READY" and expected in situations, text
+        if name == "real-velocity-forwarding-off":
+            # https://github.com/PaperMC/Velocity/issues/1347 : the proxy was left in "none" mode.
+            backend, proxy = base / "backend", base / "proxy"
+            paper_backend(backend, "right-secret", [])
+            start_container("cs-backend", backend, "java -Xmx1G -jar server.jar nogui", None)
+            if not wait_for(backend, "Done (", "cs-backend"):
+                return False, "backend did not start"
+            velocity_proxy(proxy, "right-secret", "cs-backend", mode="none")
+            start_container("cs-proxy", proxy, "java -Xmx512M -jar velocity.jar", PROXY_PORT)
+            if not wait_for(proxy, "Done (", "cs-proxy"):
+                return False, "proxy did not start"
+            client_folder(player, [])
+            outcome = join(cli, java, player, "vanilla", PROXY_PORT)
+            time.sleep(3)
+            reports = {"player": analyse(cli, player), "proxy": analyse(cli, proxy), "backend": analyse(cli, backend)}
+            text = f"join={outcome} | " + " | ".join(f"{side}: {summary(report)}" for side, report in reports.items())
+            situations = {f["situation"] for report in reports.values() for f in report["findings"]}
+            return outcome != "READY" and "PROXY_FORWARDING" in situations, text
         if name in ("real-bungee-forwarding-one-sided", "real-online-mode-behind-proxy"):
             backend, proxy = base / "backend", base / "proxy"
             if name == "real-online-mode-behind-proxy":
@@ -319,6 +338,7 @@ EXPECTED = {
     "velocity4-join-ok": {"player": None, "proxy": None, "backend": None},
     "velocity4-backend-down": {"player": "PROXY_BACKEND", "proxy": "PROXY_BACKEND"},
     "real-velocity-empty-secret": {"proxy": "PROXY_FORWARDING"},
+    "real-velocity-forwarding-off": {"backend": "PROXY_FORWARDING", "proxy": None, "player": None},
     "real-bungee-forwarding-one-sided": {"backend": "PROXY_FORWARDING", "proxy": "PROXY_FORWARDING"},
     # The server behind the proxy is never told why the proxy gave up: only the proxy knows.
     "real-online-mode-behind-proxy": {"backend": None, "proxy": "PROXY_FORWARDING"},
@@ -327,6 +347,8 @@ EXPECTED = {
 
 # Where a case was reported, and what fixed it for those people.
 SOURCES = {
+    "real-velocity-forwarding-off": ("https://github.com/PaperMC/Velocity/issues/1347",
+                                     "Set player-info-forwarding-mode to modern on the proxy, and save the file before restarting."),
     "real-bungee-forwarding-one-sided": ("https://docs.papermc.io/velocity/faq/",
                                          "Turn IP forwarding on on both sides, or on neither: the proxy and the server must agree."),
     "real-online-mode-behind-proxy": ("https://www.gameserverkings.com/knowledge-base/minecraft/error-failed-to-verify-username/",

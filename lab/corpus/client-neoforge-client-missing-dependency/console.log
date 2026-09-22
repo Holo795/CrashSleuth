@@ -1,0 +1,26 @@
+CRASHED in 11 s
+        Swap memory used (MiB): 3945.00
+        Space in storage for jna.tmpdir (MiB): available: 139921.22, total: 471482.09
+        Space in storage for org.lwjgl.system.SharedLibraryExtractPath (MiB): available: 139921.22, total: 471482.09
+        Space in storage for io.netty.native.workdir (MiB): available: 139921.22, total: 471482.09
+        Space in storage for java.io.tmpdir (MiB): available: 139921.22, total: 471482.09
+        Space in storage for workdir (MiB): available: 139921.22, total: 471482.09
+        JVM Flags: 1 total; -Xmx4G
+        ModLauncher: 11.0.5+main.901c6ea8
+        ModLauncher launch target: forgeclient
+        ModLauncher services: 
+                sponge-mixin-0.15.2+mixin.0.8.7.jar mixin PLUGINSERVICE 
+                loader-4.0.44.jar slf4jfixer PLUGINSERVICE 
+                loader-4.0.44.jar runtime_enum_extender PLUGINSERVICE 
+                at-modlauncher-10.0.1.jar accesstransformer PLUGINSERVICE 
+                loader-4.0.44.jar runtimedistcleaner PLUGINSERVICE 
+                modlauncher-11.0.5.jar mixin TRANSFORMATIONSERVICE 
+                modlauncher-11.0.5.jar fml TRANSFORMATIONSERVICE 
+        FML Language Providers: 
+                javafml@4.0
+                lowcodefml@4.0
+                minecraft@4.0
+        Mod List: 
+                client-1.21.1-20240808.144430-srg.jar             |Minecraft                     |minecraft                     |1.21.1              |Manifest: a1:d4:5e:04:4f:d3:d6:e0:7b:37:97:cf:77:b0:de:ad:4a:47:ce:8c:96:49:5f:0a:cf:8c:ae:b2:6d:4b:8a:3f
+                neoforge-21.1.251-universal.jar                   |NeoForge                      |neoforge                      |21.1.251            |Manifest: NOSIGNATURE
+

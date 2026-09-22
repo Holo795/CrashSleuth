@@ -1544,6 +1544,7 @@
                 "locked": false,
                 "damagedChunks": [],
                 "chunksChecked": 845,
+                "oversizedChunks": [],
                 "chunksComplete": true,
                 "damagedPlayers": []
             }

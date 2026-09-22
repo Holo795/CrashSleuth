@@ -1,4 +1,4 @@
-[20:50:51] [ServerMain/ERROR]: [DirectoryProviderSource] Error loading plugin: Directory 'plugins/InvSeePlusPlus-0.24.6.jar' failed to load!
+[23:42:24] [ServerMain/ERROR]: [DirectoryProviderSource] Error loading plugin: Directory 'plugins/InvSeePlusPlus-0.24.6.jar' failed to load!
 java.lang.RuntimeException: Directory 'plugins/InvSeePlusPlus-0.24.6.jar' failed to load!
 	at io.papermc.paper.plugin.provider.source.FileProviderSource.registerProviders(FileProviderSource.java:59) ~[folia-1.20.2.jar:git-Folia-20]
 	at io.papermc.paper.plugin.provider.source.DirectoryProviderSource.lambda$registerProviders$1(DirectoryProviderSource.java:34) ~[folia-1.20.2.jar:git-Folia-20]
@@ -27,61 +27,59 @@ Caused by: java.lang.RuntimeException: Could not load plugin 'InvSeePlusPlus v0.
 	at io.papermc.paper.plugin.provider.type.PluginFileType.register(PluginFileType.java:71) ~[folia-1.20.2.jar:git-Folia-20]
 	at io.papermc.paper.plugin.provider.source.FileProviderSource.registerProviders(FileProviderSource.java:57) ~[folia-1.20.2.jar:git-Folia-20]
 	... 20 more
-[20:50:52] [ServerMain/INFO]: Environment: Environment[accountsHost=https://api.mojang.com, sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
-[20:50:52] [ServerMain/INFO]: Found new data pack file/bukkit, loading it automatically
-[20:50:53] [ServerMain/INFO]: Loaded 7 recipes
-[20:50:53] [Server thread/INFO]: Starting minecraft server version 1.20.2
-[20:50:53] [Server thread/INFO]: Loading properties
-[20:50:53] [Server thread/INFO]: This server is running Folia version git-Folia-20 (MC: 1.20.2) (Implementing API version 1.20.2-R0.1-SNAPSHOT) (Git: 1e5e215)
-[20:50:53] [Server thread/INFO]: Server Ping Player Sample Count: 12
-[20:50:53] [Server thread/INFO]: Using 4 threads for Netty based IO
-[20:50:53] [Server thread/INFO]: [ChunkTaskScheduler] Chunk system is using 1 I/O threads, 3 worker threads, and gen parallelism of 3 threads
-[20:50:53] [Server thread/WARN]: [!] The timings system cannot be enabled on Folia, and has been scheduled for removal from Paper in the future.
+[23:42:25] [ServerMain/INFO]: Environment: Environment[accountsHost=https://api.mojang.com, sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
+[23:42:25] [ServerMain/INFO]: Found new data pack file/bukkit, loading it automatically
+[23:42:26] [ServerMain/INFO]: Loaded 7 recipes
+[23:42:26] [Server thread/INFO]: Starting minecraft server version 1.20.2
+[23:42:26] [Server thread/INFO]: Loading properties
+[23:42:26] [Server thread/INFO]: This server is running Folia version git-Folia-20 (MC: 1.20.2) (Implementing API version 1.20.2-R0.1-SNAPSHOT) (Git: 1e5e215)
+[23:42:26] [Server thread/INFO]: Server Ping Player Sample Count: 12
+[23:42:26] [Server thread/INFO]: Using 4 threads for Netty based IO
+[23:42:26] [Server thread/INFO]: [ChunkTaskScheduler] Chunk system is using 1 I/O threads, 3 worker threads, and gen parallelism of 3 threads
+[23:42:26] [Server thread/WARN]: [!] The timings system cannot be enabled on Folia, and has been scheduled for removal from Paper in the future.
     We recommend installing the spark profiler as a replacement: https://spark.lucko.me/
     For more information please visit: https://github.com/PaperMC/Paper/issues/8948
-[20:50:53] [Server thread/INFO]: [io.papermc.paper.threadedregions.TickRegions] Regionised ticking is enabled with 1 tick threads
-[20:50:53] [Server thread/INFO]: Default game type: SURVIVAL
-[20:50:53] [Server thread/INFO]: Generating keypair
-[20:50:53] [Server thread/INFO]: Starting Minecraft server on *:25565
-[20:50:53] [Server thread/INFO]: Using epoll channel type
-[20:50:53] [Server thread/INFO]: Paper: Using libdeflate (Linux aarch64) compression from Velocity.
-[20:50:53] [Server thread/INFO]: Paper: Using OpenSSL (Linux aarch64) cipher from Velocity.
-[20:50:53] [Server thread/WARN]: **** SERVER IS RUNNING IN OFFLINE/INSECURE MODE!
-[20:50:53] [Server thread/WARN]: The server will make no attempt to authenticate usernames. Beware.
-[20:50:53] [Server thread/WARN]: While this makes the game possible to play without internet access, it also opens up the ability for hackers to connect with any username they choose.
-[20:50:53] [Server thread/WARN]: To change this, set "online-mode" to "true" in the server.properties file.
-[20:50:53] [Server thread/INFO]: Preparing level "world"
-[20:50:54] [Server thread/INFO]: Preparing start region for dimension minecraft:overworld
-[20:50:54] [Server thread/INFO]: Time elapsed: 2 ms
-[20:50:54] [Server thread/INFO]: Preparing start region for dimension minecraft:the_nether
-[20:50:54] [Server thread/INFO]: Time elapsed: 0 ms
-[20:50:54] [Server thread/INFO]: Preparing start region for dimension minecraft:the_end
-[20:50:54] [Server thread/INFO]: Time elapsed: 0 ms
-[20:50:54] [Server thread/INFO]: Done (0.734s)! For help, type "help"
-[20:50:54] [Region Scheduler Thread #0/INFO]: Initialising world 'world' before it can be ticked...
-[20:50:55] [Region Scheduler Thread #0/INFO]: Initialised world 'world'
-[20:50:55] [Region Scheduler Thread #0/INFO]: Timings Reset
-[20:50:55] [Region Scheduler Thread #0/INFO]: Initialising world 'world_nether' before it can be ticked...
-[20:50:55] [Region Scheduler Thread #0/INFO]: Initialised world 'world_nether'
-[20:50:55] [Region Scheduler Thread #0/INFO]: Stopping the server
-[20:50:55] [Region shutdown thread/INFO]: [RegionShutdownThread] Awaiting scheduler termination for 60s
-[20:50:55] [Region shutdown thread/INFO]: [RegionShutdownThread] Scheduler halted
-[20:50:55] [Region shutdown thread/INFO]: Stopping server
-[20:50:55] [Region shutdown thread/INFO]: [RegionShutdownThread] Halting chunk systems
-[20:50:55] [Region shutdown thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk system to halt for world 'world'
-[20:50:55] [Region shutdown thread/INFO]: [ChunkHolderManager] Halted chunk system for world 'world'
-[20:50:55] [Region shutdown thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk system to halt for world 'world_nether'
-[20:50:55] [Region shutdown thread/INFO]: [ChunkHolderManager] Halted chunk system for world 'world_nether'
-[20:50:55] [Region shutdown thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk system to halt for world 'world_the_end'
-[20:50:55] [Region shutdown thread/INFO]: [ChunkHolderManager] Halted chunk system for world 'world_the_end'
-[20:50:55] [Region shutdown thread/INFO]: [RegionShutdownThread] Halted chunk systems
-[20:50:55] [Region shutdown thread/INFO]: [RegionShutdownThread] Saving chunks around region around chunk [-22, 6] in world 'world'
-[20:50:56] [Region shutdown thread/INFO]: [ChunkHolderManager] Saved 1103 block chunks, 1 entity chunks, 0 poi chunks in world 'world' in 0.27s
-[20:50:56] [Region shutdown thread/INFO]: [RegionShutdownThread] Saving chunks around region around chunk [0, 0] in world 'world_nether'
-[20:50:56] [Region shutdown thread/INFO]: [ChunkHolderManager] Saved 841 block chunks, 1 entity chunks, 0 poi chunks in world 'world_nether' in 0.13s
-[20:50:56] [Region shutdown thread/INFO]: [RegionShutdownThread] Saving chunks around region around chunk [0, 0] in world 'world_the_end'
-[20:50:56] [Region shutdown thread/INFO]: [ChunkHolderManager] Saved 954 block chunks, 0 entity chunks, 0 poi chunks in world 'world_the_end' in 0.13s
-[20:50:56] [Region shutdown thread/INFO]: [RegionShutdownThread] Saving players
-[20:50:56] [Region shutdown thread/INFO]: Flushing Chunk IO
-[20:50:56] [Region shutdown thread/INFO]: Closing Thread Pool
-[20:50:56] [Region shutdown thread/INFO]: Closing Server
+[23:42:26] [Server thread/INFO]: [io.papermc.paper.threadedregions.TickRegions] Regionised ticking is enabled with 1 tick threads
+[23:42:27] [Server thread/INFO]: Default game type: SURVIVAL
+[23:42:27] [Server thread/INFO]: Generating keypair
+[23:42:27] [Server thread/INFO]: Starting Minecraft server on *:25565
+[23:42:27] [Server thread/INFO]: Using epoll channel type
+[23:42:27] [Server thread/INFO]: Paper: Using libdeflate (Linux aarch64) compression from Velocity.
+[23:42:27] [Server thread/INFO]: Paper: Using OpenSSL (Linux aarch64) cipher from Velocity.
+[23:42:27] [Server thread/WARN]: **** SERVER IS RUNNING IN OFFLINE/INSECURE MODE!
+[23:42:27] [Server thread/WARN]: The server will make no attempt to authenticate usernames. Beware.
+[23:42:27] [Server thread/WARN]: While this makes the game possible to play without internet access, it also opens up the ability for hackers to connect with any username they choose.
+[23:42:27] [Server thread/WARN]: To change this, set "online-mode" to "true" in the server.properties file.
+[23:42:27] [Server thread/INFO]: Preparing level "world"
+[23:42:27] [Server thread/INFO]: Preparing start region for dimension minecraft:overworld
+[23:42:27] [Server thread/INFO]: Time elapsed: 1 ms
+[23:42:27] [Server thread/INFO]: Preparing start region for dimension minecraft:the_nether
+[23:42:27] [Server thread/INFO]: Time elapsed: 0 ms
+[23:42:27] [Server thread/INFO]: Preparing start region for dimension minecraft:the_end
+[23:42:27] [Server thread/INFO]: Time elapsed: 1 ms
+[23:42:27] [Server thread/INFO]: Done (0.735s)! For help, type "help"
+[23:42:27] [Region Scheduler Thread #0/INFO]: Initialising world 'world' before it can be ticked...
+[23:42:28] [Region Scheduler Thread #0/INFO]: Initialised world 'world'
+[23:42:28] [Region Scheduler Thread #0/INFO]: Timings Reset
+[23:42:29] [Region Scheduler Thread #0/INFO]: Stopping the server
+[23:42:29] [Region shutdown thread/INFO]: [RegionShutdownThread] Awaiting scheduler termination for 60s
+[23:42:29] [Region shutdown thread/INFO]: [RegionShutdownThread] Scheduler halted
+[23:42:29] [Region shutdown thread/INFO]: Stopping server
+[23:42:29] [Region shutdown thread/INFO]: [RegionShutdownThread] Halting chunk systems
+[23:42:29] [Region shutdown thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk system to halt for world 'world'
+[23:42:29] [Region shutdown thread/INFO]: [ChunkHolderManager] Halted chunk system for world 'world'
+[23:42:29] [Region shutdown thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk system to halt for world 'world_nether'
+[23:42:29] [Region shutdown thread/INFO]: [ChunkHolderManager] Halted chunk system for world 'world_nether'
+[23:42:29] [Region shutdown thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk system to halt for world 'world_the_end'
+[23:42:29] [Region shutdown thread/INFO]: [ChunkHolderManager] Halted chunk system for world 'world_the_end'
+[23:42:29] [Region shutdown thread/INFO]: [RegionShutdownThread] Halted chunk systems
+[23:42:29] [Region shutdown thread/INFO]: [RegionShutdownThread] Saving chunks around region around chunk [7, 0] in world 'world'
+[23:42:29] [Region shutdown thread/INFO]: [ChunkHolderManager] Saved 1093 block chunks, 1 entity chunks, 0 poi chunks in world 'world' in 0.23s
+[23:42:29] [Region shutdown thread/INFO]: [RegionShutdownThread] Saving chunks around region around chunk [0, 0] in world 'world_nether'
+[23:42:29] [Region shutdown thread/INFO]: [ChunkHolderManager] Saved 841 block chunks, 0 entity chunks, 0 poi chunks in world 'world_nether' in 0.11s
+[23:42:29] [Region shutdown thread/INFO]: [RegionShutdownThread] Saving chunks around region around chunk [0, 0] in world 'world_the_end'
+[23:42:29] [Region shutdown thread/INFO]: [ChunkHolderManager] Saved 841 block chunks, 0 entity chunks, 0 poi chunks in world 'world_the_end' in 0.10s
+[23:42:29] [Region shutdown thread/INFO]: [RegionShutdownThread] Saving players
+[23:42:29] [Region shutdown thread/INFO]: Flushing Chunk IO
+[23:42:29] [Region shutdown thread/INFO]: Closing Thread Pool
+[23:42:29] [Region shutdown thread/INFO]: Closing Server

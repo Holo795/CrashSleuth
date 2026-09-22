@@ -1,30 +1,30 @@
-[22sept.2026 21:40:30.757] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher running: args [--username, CrashSleuth, --version, 1.21.1, --gameDir, /srv/client/bisect-neoforge-client-silent-crash, --assetsDir, /cache/game/assets, --assetIndex, 17, --uuid, 00000000-0000-4000-8000-000000000000, --accessToken, ❄❄❄❄❄❄❄❄, --clientId, 0, --xuid, 0, --userType, legacy, --versionType, release, --width, 427, --height, 240, --fml.neoForgeVersion, 21.1.251, --fml.fmlVersion, 4.0.44, --fml.mcVersion, 1.21.1, --fml.neoFormVersion, 20240808.144430, --launchTarget, forgeclient]
-[22sept.2026 21:40:30.759] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: JVM identified as Homebrew OpenJDK 64-Bit Server VM 21.0.12.1
-[22sept.2026 21:40:30.759] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher 11.0.5+main.901c6ea8 starting: java version 21.0.12.1 by Homebrew; OS Mac OS X arch aarch64 version 27.0
-[22sept.2026 21:40:30.818] [main/INFO] [net.neoforged.fml.loading.ImmediateWindowHandler/]: Loading ImmediateWindowProvider fmlearlywindow
-[22sept.2026 21:40:30.941] [main/INFO] [EARLYDISPLAY/]: Trying GL version 4.6
-[22sept.2026 21:40:30.993] [main/INFO] [EARLYDISPLAY/]: Trying GL version 4.5
-[22sept.2026 21:40:31.008] [main/INFO] [EARLYDISPLAY/]: Trying GL version 4.4
-[22sept.2026 21:40:31.021] [main/INFO] [EARLYDISPLAY/]: Trying GL version 4.3
-[22sept.2026 21:40:31.040] [main/INFO] [EARLYDISPLAY/]: Trying GL version 4.2
-[22sept.2026 21:40:31.048] [main/INFO] [EARLYDISPLAY/]: Trying GL version 4.1
-[22sept.2026 21:40:31.064] [main/INFO] [EARLYDISPLAY/]: Requested GL version 4.1 got version 4.1
-[22sept.2026 21:40:31.105] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=union:/cache/game/libraries/net/fabricmc/sponge-mixin/0.15.2+mixin.0.8.7/sponge-mixin-0.15.2+mixin.0.8.7.jar%23114!/ Service=ModLauncher Env=CLIENT
-[22sept.2026 21:40:31.159] [pool-2-thread-1/INFO] [EARLYDISPLAY/]: GL info: Apple M4 Pro GL version 4.1 Metal - 91.7, Apple
-[22sept.2026 21:40:31.225] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "client-1.21.1-20240808.144430-srg.jar" [locator: production client provider +net.neoforged:neoforge:21.1.251:client]
-[22sept.2026 21:40:31.237] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "neoforge-21.1.251-universal.jar" [locator: PathBasedLocator[name=neoforge, paths=[/cache/game/libraries/net/neoforged/neoforge/21.1.251/neoforge-21.1.251-universal.jar]], reader: mod manifest]
-[22sept.2026 21:40:31.249] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "appleskin-neoforge-mc1.21-3.0.9.jar" [locator: {mods folder locator at /srv/client/bisect-neoforge-client-silent-crash/mods}, reader: mod manifest]
-[22sept.2026 21:40:31.250] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "crashsleuth-fixture-1.0.0.jar" [locator: {mods folder locator at /srv/client/bisect-neoforge-client-silent-crash/mods}, reader: mod manifest]
-[22sept.2026 21:40:31.256] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "ferritecore-7.0.3-neoforge.jar" [locator: {mods folder locator at /srv/client/bisect-neoforge-client-silent-crash/mods}, reader: mod manifest]
-[22sept.2026 21:40:31.257] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "Jade-1.21.1-NeoForge-15.10.6.jar" [locator: {mods folder locator at /srv/client/bisect-neoforge-client-silent-crash/mods}, reader: mod manifest]
-[22sept.2026 21:40:31.259] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "jei-1.21.1-neoforge-19.51.0.418.jar" [locator: {mods folder locator at /srv/client/bisect-neoforge-client-silent-crash/mods}, reader: mod manifest]
-[22sept.2026 21:40:31.260] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "MouseTweaks-neoforge-mc1.21-2.26.1.jar" [locator: {mods folder locator at /srv/client/bisect-neoforge-client-silent-crash/mods}, reader: mod manifest]
-[22sept.2026 21:40:31.262] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "sophisticatedbackpacks-1.21.1-3.26.3.2158.jar" [locator: {mods folder locator at /srv/client/bisect-neoforge-client-silent-crash/mods}, reader: mod manifest]
-[22sept.2026 21:40:31.264] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "sophisticatedcore-1.21.1-1.5.1.2341.jar" [locator: {mods folder locator at /srv/client/bisect-neoforge-client-silent-crash/mods}, reader: mod manifest]
-[22sept.2026 21:40:31.303] [main/INFO] [net.neoforged.fml.loading.moddiscovery.locators.JarInJarDependencyLocator/]: Found 2 dependencies adding them to mods collection
-[22sept.2026 21:40:31.303] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found gamelibrary file "mixinextras-neoforge-0.5.3.jar" [parent: neoforge-21.1.251-universal.jar, locator: jarinjar, reader: mod manifest]
-[22sept.2026 21:40:31.303] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found library file "net.neoforged.neoforge-coremods-21.1.251.jar" [parent: neoforge-21.1.251-universal.jar, locator: jarinjar, reader: mod manifest]
-[22sept.2026 21:40:31.303] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/]: 
+[23sept.2026 01:43:41.475] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher running: args [--username, CrashSleuth, --version, 1.21.1, --gameDir, /srv/client/bisect-neoforge-client-silent-crash, --assetsDir, /cache/game/assets, --assetIndex, 17, --uuid, 00000000-0000-4000-8000-000000000000, --accessToken, ❄❄❄❄❄❄❄❄, --clientId, 0, --xuid, 0, --userType, legacy, --versionType, release, --width, 427, --height, 240, --fml.neoForgeVersion, 21.1.251, --fml.fmlVersion, 4.0.44, --fml.mcVersion, 1.21.1, --fml.neoFormVersion, 20240808.144430, --launchTarget, forgeclient]
+[23sept.2026 01:43:41.476] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: JVM identified as Homebrew OpenJDK 64-Bit Server VM 21.0.12.1
+[23sept.2026 01:43:41.477] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher 11.0.5+main.901c6ea8 starting: java version 21.0.12.1 by Homebrew; OS Mac OS X arch aarch64 version 27.0
+[23sept.2026 01:43:41.534] [main/INFO] [net.neoforged.fml.loading.ImmediateWindowHandler/]: Loading ImmediateWindowProvider fmlearlywindow
+[23sept.2026 01:43:41.631] [main/INFO] [EARLYDISPLAY/]: Trying GL version 4.6
+[23sept.2026 01:43:41.682] [main/INFO] [EARLYDISPLAY/]: Trying GL version 4.5
+[23sept.2026 01:43:41.696] [main/INFO] [EARLYDISPLAY/]: Trying GL version 4.4
+[23sept.2026 01:43:41.706] [main/INFO] [EARLYDISPLAY/]: Trying GL version 4.3
+[23sept.2026 01:43:41.716] [main/INFO] [EARLYDISPLAY/]: Trying GL version 4.2
+[23sept.2026 01:43:41.726] [main/INFO] [EARLYDISPLAY/]: Trying GL version 4.1
+[23sept.2026 01:43:41.736] [main/INFO] [EARLYDISPLAY/]: Requested GL version 4.1 got version 4.1
+[23sept.2026 01:43:41.777] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=union:/cache/game/libraries/net/fabricmc/sponge-mixin/0.15.2+mixin.0.8.7/sponge-mixin-0.15.2+mixin.0.8.7.jar%23114!/ Service=ModLauncher Env=CLIENT
+[23sept.2026 01:43:41.835] [pool-2-thread-1/INFO] [EARLYDISPLAY/]: GL info: Apple M4 Pro GL version 4.1 Metal - 91.7, Apple
+[23sept.2026 01:43:41.890] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "client-1.21.1-20240808.144430-srg.jar" [locator: production client provider +net.neoforged:neoforge:21.1.251:client]
+[23sept.2026 01:43:41.900] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "neoforge-21.1.251-universal.jar" [locator: PathBasedLocator[name=neoforge, paths=[/cache/game/libraries/net/neoforged/neoforge/21.1.251/neoforge-21.1.251-universal.jar]], reader: mod manifest]
+[23sept.2026 01:43:41.904] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "appleskin-neoforge-mc1.21-3.0.9.jar" [locator: {mods folder locator at /srv/client/bisect-neoforge-client-silent-crash/mods}, reader: mod manifest]
+[23sept.2026 01:43:41.905] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "crashsleuth-fixture-1.0.0.jar" [locator: {mods folder locator at /srv/client/bisect-neoforge-client-silent-crash/mods}, reader: mod manifest]
+[23sept.2026 01:43:41.908] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "ferritecore-7.0.3-neoforge.jar" [locator: {mods folder locator at /srv/client/bisect-neoforge-client-silent-crash/mods}, reader: mod manifest]
+[23sept.2026 01:43:41.909] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "Jade-1.21.1-NeoForge-15.10.6.jar" [locator: {mods folder locator at /srv/client/bisect-neoforge-client-silent-crash/mods}, reader: mod manifest]
+[23sept.2026 01:43:41.911] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "jei-1.21.1-neoforge-19.51.0.418.jar" [locator: {mods folder locator at /srv/client/bisect-neoforge-client-silent-crash/mods}, reader: mod manifest]
+[23sept.2026 01:43:41.912] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "MouseTweaks-neoforge-mc1.21-2.26.1.jar" [locator: {mods folder locator at /srv/client/bisect-neoforge-client-silent-crash/mods}, reader: mod manifest]
+[23sept.2026 01:43:41.913] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "sophisticatedbackpacks-1.21.1-3.26.3.2158.jar" [locator: {mods folder locator at /srv/client/bisect-neoforge-client-silent-crash/mods}, reader: mod manifest]
+[23sept.2026 01:43:41.915] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "sophisticatedcore-1.21.1-1.5.1.2341.jar" [locator: {mods folder locator at /srv/client/bisect-neoforge-client-silent-crash/mods}, reader: mod manifest]
+[23sept.2026 01:43:41.964] [main/INFO] [net.neoforged.fml.loading.moddiscovery.locators.JarInJarDependencyLocator/]: Found 2 dependencies adding them to mods collection
+[23sept.2026 01:43:41.965] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found gamelibrary file "mixinextras-neoforge-0.5.3.jar" [parent: neoforge-21.1.251-universal.jar, locator: jarinjar, reader: mod manifest]
+[23sept.2026 01:43:41.965] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found library file "net.neoforged.neoforge-coremods-21.1.251.jar" [parent: neoforge-21.1.251-universal.jar, locator: jarinjar, reader: mod manifest]
+[23sept.2026 01:43:41.965] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/]: 
      Mod List:
 		Name Version (Mod Id)
 
@@ -38,22 +38,22 @@
 		NeoForge 21.1.251 (neoforge)
 		Sophisticated Backpacks 3.26.3 (sophisticatedbackpacks)
 		Sophisticated Core 1.5.1 (sophisticatedcore)
-[22sept.2026 21:40:31.548] [main/INFO] [mixin/]: Compatibility level set to JAVA_17
-[22sept.2026 21:40:31.556] [main/INFO] [cpw.mods.modlauncher.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgeclient' with arguments [--version, 1.21.1, --gameDir, /srv/client/bisect-neoforge-client-silent-crash, --assetsDir, /cache/game/assets, --uuid, 00000000-0000-4000-8000-000000000000, --username, CrashSleuth, --assetIndex, 17, --accessToken, ❄❄❄❄❄❄❄❄, --clientId, 0, --xuid, 0, --userType, legacy, --versionType, release, --width, 427, --height, 240]
-[22sept.2026 21:40:31.575] [main/WARN] [mixin/]: Reference map '${refmap_target}refmap.json' for ferritecore.predicates.mixin.json could not be read. If this is a development environment you can ignore this message
-[22sept.2026 21:40:31.576] [main/WARN] [mixin/]: Reference map '${refmap_target}refmap.json' for ferritecore.fastmap.mixin.json could not be read. If this is a development environment you can ignore this message
-[22sept.2026 21:40:31.576] [main/WARN] [mixin/]: Reference map '${refmap_target}refmap.json' for ferritecore.mrl.mixin.json could not be read. If this is a development environment you can ignore this message
-[22sept.2026 21:40:31.576] [main/WARN] [mixin/]: Reference map '${refmap_target}refmap.json' for ferritecore.dedupmultipart.mixin.json could not be read. If this is a development environment you can ignore this message
-[22sept.2026 21:40:31.577] [main/WARN] [mixin/]: Reference map '${refmap_target}refmap.json' for ferritecore.blockstatecache.mixin.json could not be read. If this is a development environment you can ignore this message
-[22sept.2026 21:40:31.577] [main/WARN] [mixin/]: Reference map '${refmap_target}refmap.json' for ferritecore.dedupbakedquad.mixin.json could not be read. If this is a development environment you can ignore this message
-[22sept.2026 21:40:31.577] [main/WARN] [mixin/]: Reference map '${refmap_target}refmap.json' for ferritecore.threaddetec.mixin.json could not be read. If this is a development environment you can ignore this message
-[22sept.2026 21:40:31.577] [main/WARN] [mixin/]: Reference map '${refmap_target}refmap.json' for ferritecore.modelsides.mixin.json could not be read. If this is a development environment you can ignore this message
-[22sept.2026 21:40:31.578] [main/WARN] [mixin/]: Reference map '${refmap_target}refmap.json' for ferritecore.datacomponents.mixin.json could not be read. If this is a development environment you can ignore this message
-[22sept.2026 21:40:31.578] [main/WARN] [mixin/]: Reference map '${refmap_target}refmap.json' for ferritecore.accessors.mixin.json could not be read. If this is a development environment you can ignore this message
-[22sept.2026 21:40:32.084] [Datafixer Bootstrap/INFO] [com.mojang.datafixers.DataFixerBuilder/]: 229 Datafixer optimizations took 77 milliseconds
-[22sept.2026 21:40:32.377] [pool-14-thread-1/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.5.3).
-[22sept.2026 21:40:33.880] [Render thread/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/cache/game/libraries/net/minecraft/client/1.21.1-20240808.144430/client-1.21.1-20240808.144430-srg.jar%23191!/assets/.mcassetsroot' uses unexpected schema
-[22sept.2026 21:40:33.880] [Render thread/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/cache/game/libraries/net/minecraft/client/1.21.1-20240808.144430/client-1.21.1-20240808.144430-srg.jar%23191!/data/.mcassetsroot' uses unexpected schema
-[22sept.2026 21:40:33.889] [Render thread/INFO] [com.mojang.authlib.yggdrasil.YggdrasilAuthenticationService/]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
-[22sept.2026 21:40:33.893] [Render thread/INFO] [net.minecraft.client.Minecraft/]: Setting user: CrashSleuth
-[22sept.2026 21:40:33.941] [Render thread/INFO] [net.minecraft.client.Minecraft/]: Backend library: LWJGL version 3.3.3+5
+[23sept.2026 01:43:42.143] [main/INFO] [mixin/]: Compatibility level set to JAVA_17
+[23sept.2026 01:43:42.150] [main/INFO] [cpw.mods.modlauncher.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgeclient' with arguments [--version, 1.21.1, --gameDir, /srv/client/bisect-neoforge-client-silent-crash, --assetsDir, /cache/game/assets, --uuid, 00000000-0000-4000-8000-000000000000, --username, CrashSleuth, --assetIndex, 17, --accessToken, ❄❄❄❄❄❄❄❄, --clientId, 0, --xuid, 0, --userType, legacy, --versionType, release, --width, 427, --height, 240]
+[23sept.2026 01:43:42.170] [main/WARN] [mixin/]: Reference map '${refmap_target}refmap.json' for ferritecore.predicates.mixin.json could not be read. If this is a development environment you can ignore this message
+[23sept.2026 01:43:42.170] [main/WARN] [mixin/]: Reference map '${refmap_target}refmap.json' for ferritecore.fastmap.mixin.json could not be read. If this is a development environment you can ignore this message
+[23sept.2026 01:43:42.170] [main/WARN] [mixin/]: Reference map '${refmap_target}refmap.json' for ferritecore.mrl.mixin.json could not be read. If this is a development environment you can ignore this message
+[23sept.2026 01:43:42.171] [main/WARN] [mixin/]: Reference map '${refmap_target}refmap.json' for ferritecore.dedupmultipart.mixin.json could not be read. If this is a development environment you can ignore this message
+[23sept.2026 01:43:42.171] [main/WARN] [mixin/]: Reference map '${refmap_target}refmap.json' for ferritecore.blockstatecache.mixin.json could not be read. If this is a development environment you can ignore this message
+[23sept.2026 01:43:42.171] [main/WARN] [mixin/]: Reference map '${refmap_target}refmap.json' for ferritecore.dedupbakedquad.mixin.json could not be read. If this is a development environment you can ignore this message
+[23sept.2026 01:43:42.171] [main/WARN] [mixin/]: Reference map '${refmap_target}refmap.json' for ferritecore.threaddetec.mixin.json could not be read. If this is a development environment you can ignore this message
+[23sept.2026 01:43:42.171] [main/WARN] [mixin/]: Reference map '${refmap_target}refmap.json' for ferritecore.modelsides.mixin.json could not be read. If this is a development environment you can ignore this message
+[23sept.2026 01:43:42.172] [main/WARN] [mixin/]: Reference map '${refmap_target}refmap.json' for ferritecore.datacomponents.mixin.json could not be read. If this is a development environment you can ignore this message
+[23sept.2026 01:43:42.172] [main/WARN] [mixin/]: Reference map '${refmap_target}refmap.json' for ferritecore.accessors.mixin.json could not be read. If this is a development environment you can ignore this message
+[23sept.2026 01:43:42.634] [Datafixer Bootstrap/INFO] [com.mojang.datafixers.DataFixerBuilder/]: 229 Datafixer optimizations took 70 milliseconds
+[23sept.2026 01:43:43.041] [pool-14-thread-1/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.5.3).
+[23sept.2026 01:43:44.477] [Render thread/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/cache/game/libraries/net/minecraft/client/1.21.1-20240808.144430/client-1.21.1-20240808.144430-srg.jar%23191!/assets/.mcassetsroot' uses unexpected schema
+[23sept.2026 01:43:44.477] [Render thread/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/cache/game/libraries/net/minecraft/client/1.21.1-20240808.144430/client-1.21.1-20240808.144430-srg.jar%23191!/data/.mcassetsroot' uses unexpected schema
+[23sept.2026 01:43:44.484] [Render thread/INFO] [com.mojang.authlib.yggdrasil.YggdrasilAuthenticationService/]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
+[23sept.2026 01:43:44.487] [Render thread/INFO] [net.minecraft.client.Minecraft/]: Setting user: CrashSleuth
+[23sept.2026 01:43:44.527] [Render thread/INFO] [net.minecraft.client.Minecraft/]: Backend library: LWJGL version 3.3.3+5

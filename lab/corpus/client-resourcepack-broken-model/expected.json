@@ -2,6 +2,7 @@
   "situation": "RENDER",
   "culprit": "stonepack.zip",
   "logs": [
-    "latest.log"
+    "latest.log",
+    "console.log"
   ]
 }

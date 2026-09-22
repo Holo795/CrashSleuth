@@ -1,0 +1,26 @@
+CRASHED in 4 s
+                Sophisticated Backpacks 3.26.3 (sophisticatedbackpacks)
+                Sophisticated Core 1.5.1 (sophisticatedcore) 
+[01:43:42.143] [main/INFO] [mixin/]: Compatibility level set to JAVA_17 
+[01:43:42.150] [main/INFO] [LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgeclient' with arguments [--version, 1.21.1, --gameDir, /srv/client/bisect-neoforge-client-silent-crash, --assetsDir, /cache/game/assets, --uuid, 00000000-0000-4000-8000-000000000000, --username, CrashSleuth, --assetIndex, 17, --accessToken, ❄❄❄❄❄❄❄❄, --clientId, 0, --xuid, 0, --userType, legacy, --versionType, release, --width, 427, --height, 240] 
+[01:43:42.170] [main/WARN] [mixin/]: Reference map '${refmap_target}refmap.json' for ferritecore.predicates.mixin.json could not be read. If this is a development environment you can ignore this message 
+[01:43:42.170] [main/WARN] [mixin/]: Reference map '${refmap_target}refmap.json' for ferritecore.fastmap.mixin.json could not be read. If this is a development environment you can ignore this message 
+[01:43:42.170] [main/WARN] [mixin/]: Reference map '${refmap_target}refmap.json' for ferritecore.mrl.mixin.json could not be read. If this is a development environment you can ignore this message 
+[01:43:42.171] [main/WARN] [mixin/]: Reference map '${refmap_target}refmap.json' for ferritecore.dedupmultipart.mixin.json could not be read. If this is a development environment you can ignore this message 
+[01:43:42.171] [main/WARN] [mixin/]: Reference map '${refmap_target}refmap.json' for ferritecore.blockstatecache.mixin.json could not be read. If this is a development environment you can ignore this message 
+[01:43:42.171] [main/WARN] [mixin/]: Reference map '${refmap_target}refmap.json' for ferritecore.dedupbakedquad.mixin.json could not be read. If this is a development environment you can ignore this message 
+[01:43:42.171] [main/WARN] [mixin/]: Reference map '${refmap_target}refmap.json' for ferritecore.threaddetec.mixin.json could not be read. If this is a development environment you can ignore this message 
+[01:43:42.171] [main/WARN] [mixin/]: Reference map '${refmap_target}refmap.json' for ferritecore.modelsides.mixin.json could not be read. If this is a development environment you can ignore this message 
+[01:43:42.172] [main/WARN] [mixin/]: Reference map '${refmap_target}refmap.json' for ferritecore.datacomponents.mixin.json could not be read. If this is a development environment you can ignore this message 
+[01:43:42.172] [main/WARN] [mixin/]: Reference map '${refmap_target}refmap.json' for ferritecore.accessors.mixin.json could not be read. If this is a development environment you can ignore this message 
+WARN StatusConsoleListener Advanced terminal features are not available in this environment
+[01:43:42] [Datafixer Bootstrap/INFO] [mojang/DataFixerBuilder]: 229 Datafixer optimizations took 70 milliseconds
+[01:43:43] [pool-14-thread-1/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.5.3).
+[01:43:44] [Render thread/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/cache/game/libraries/net/minecraft/client/1.21.1-20240808.144430/client-1.21.1-20240808.144430-srg.jar%23191!/assets/.mcassetsroot' uses unexpected schema
+[01:43:44] [Render thread/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/cache/game/libraries/net/minecraft/client/1.21.1-20240808.144430/client-1.21.1-20240808.144430-srg.jar%23191!/data/.mcassetsroot' uses unexpected schema
+[01:43:44] [Render thread/INFO] [mojang/YggdrasilAuthenticationService]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
+[01:43:44] [Render thread/INFO] [minecraft/Minecraft]: Setting user: CrashSleuth
+[01:43:44] [Render thread/INFO] [minecraft/Minecraft]: Backend library: LWJGL version 3.3.3+5
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 0 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+[Mouse Tweaks] Main.initialize()
+

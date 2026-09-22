@@ -1,0 +1,26 @@
+CRASHED in 8 s
+                        fabric-rendering-v1: Fabric Rendering (v1) 5.2.1+f44c2eea19
+                        fabric-resource-conditions-api-v1: Fabric Resource Conditions API (v1) 4.3.0+8dc279b119
+                        fabric-resource-loader-v0: Fabric Resource Loader (v0) 1.3.1+5b5275af19
+                        fabric-screen-api-v1: Fabric Screen API (v1) 2.0.26+639b4c0719
+                        fabric-screen-handler-api-v1: Fabric Screen Handler API (v1) 1.3.91+b559734419
+                        fabric-sound-api-v1: Fabric Sound API (v1) 1.0.23+6573ed8c19
+                        fabric-tag-api-v1: Fabric Tag API (v1) 1.3.0+1eb36c0719
+                        fabric-transfer-api-v1: Fabric Transfer API (v1) 5.4.4+7b3d111d19
+                        fabric-transitive-access-wideners-v1: Fabric Transitive Access Wideners (v1) 6.2.0+45b9699719
+                fabricloader: Fabric Loader 0.19.5
+                        mixinextras: MixinExtras 0.5.5
+                java: OpenJDK 64-Bit Server VM 21
+                minecraft: Minecraft 1.21.1
+        Server Running: true
+        Player Count: 0 / 8; []
+        Active Data Packs: vanilla, fabric, fabric-convention-tags-v2
+        Available Data Packs: bundle, fabric, fabric-convention-tags-v2, trade_rebalance, vanilla
+        Enabled Feature Flags: minecraft:vanilla
+        World Generation: Stable
+        World Seed: -4675461369262711340
+        Type: Integrated Server (map_client.txt)
+        Is Modded: Definitely; Client brand changed to 'fabric'; Server brand changed to 'fabric'
+        Launched Version: 1.21.1
+#@!@# Game crashed! Crash report saved to: #@!@# /srv/client/ingame-entity-crash/crash-reports/crash-2026-09-23_01.44.52-server.txt
+
