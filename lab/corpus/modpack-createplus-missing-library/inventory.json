@@ -43,7 +43,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [
@@ -75,10 +76,12 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "AxesAreWeapons-1.10.2-neoforge-1.21.jar",
@@ -113,11 +116,13 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "CarryOnAeroCompat-1.21.1-1.1.1.jar",
@@ -152,11 +157,13 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "Companion-1.21.1-NeoForge-6.2.1.jar",
@@ -179,11 +186,13 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "ConfiguredDefaults-v21.1.3-1.21.1-NeoForge.jar",
@@ -212,11 +221,13 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "ConnectorExtras-1.12.1+1.21.1.jar",
@@ -245,7 +256,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [
@@ -271,7 +283,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "NEOFORGE",
@@ -295,7 +308,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "NEOFORGE",
@@ -319,7 +333,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "NEOFORGE",
@@ -343,7 +358,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "NEOFORGE",
@@ -354,7 +370,8 @@
      "dependencies": [],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "NEOFORGE",
@@ -378,7 +395,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "NEOFORGE",
@@ -402,7 +420,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "NEOFORGE",
@@ -426,7 +445,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "NEOFORGE",
@@ -450,10 +470,12 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "Create Components and Additions 2.3.jar",
@@ -482,11 +504,13 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "CreateDragonsPlus-1.11.2b.jar",
@@ -521,7 +545,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [
@@ -541,10 +566,12 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "EasyAnvils-v21.1.0-1.21.1-NeoForge.jar",
@@ -579,11 +606,13 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "FarmersDelight-1.21.1-1.3.2.jar",
@@ -618,11 +647,13 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "Kiwi-1.21.1-NeoForge-15.8.4.jar",
@@ -638,7 +669,8 @@
      "dependencies": [],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [
@@ -664,10 +696,12 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "MyNethersDelight-1.21.1-1.10.2.jar",
@@ -708,11 +742,13 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "Not Enough Recipe Book-NEOFORGE-0.4.3+1.21.jar",
@@ -753,11 +789,13 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "OctoLib-NEOFORGE-0.6.2+1.21.jar",
@@ -792,11 +830,13 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "Quark-4.1-480.jar",
@@ -837,7 +877,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [
@@ -863,10 +904,12 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "Updating World Icon-neoforge-1.21.1-1.0.1.jar",
@@ -895,11 +938,13 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "YungsApi-1.21.1-NeoForge-5.1.6.jar",
@@ -928,11 +973,13 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "YungsBetterDesertTemples-1.21.1-NeoForge-4.1.5.jar",
@@ -967,11 +1014,13 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "YungsBetterDungeons-1.21.1-NeoForge-5.1.4.jar",
@@ -1006,11 +1055,13 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "YungsBetterNetherFortresses-1.21.1-NeoForge-3.1.5.jar",
@@ -1045,11 +1096,13 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "YungsBetterOceanMonuments-1.21.1-NeoForge-4.1.2.jar",
@@ -1084,11 +1137,13 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "YungsBetterStrongholds-1.21.1-NeoForge-5.1.3.jar",
@@ -1123,11 +1178,13 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "YungsExtras-1.21.1-NeoForge-5.1.1.jar",
@@ -1162,11 +1219,13 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "Zeta-1.1-40.jar",
@@ -1189,11 +1248,13 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "aeroencasedpipe-1.0.7.jar",
@@ -1234,11 +1295,13 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "aileron-1.21.1-neoforge-1.1.4.jar",
@@ -1267,7 +1330,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [
@@ -1293,10 +1357,12 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "alloyed-3.0.9+1.21.1-neoforge.jar",
@@ -1343,11 +1409,13 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "amendments-1.21-2.0.15-neoforge.jar",
@@ -1382,11 +1450,13 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "another_furniture-neoforge-4.0.2.jar",
@@ -1415,11 +1485,13 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "appleskin-neoforge-mc1.21-3.0.9.jar",
@@ -1442,11 +1514,13 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "architectury-13.0.8-neoforge.jar",
@@ -1475,11 +1549,13 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "ballastmod-0.1.0.jar",
@@ -1508,11 +1584,13 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "balm-neoforge-1.21.1-21.0.58.jar",
@@ -1541,7 +1619,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [
@@ -1567,10 +1646,12 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "bellsandwhistles-0.4.7-1.21.1.jar",
@@ -1605,11 +1686,13 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "bits_n_bobs-0.0.44.jar",
@@ -1638,11 +1721,13 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "bookshelf-neoforge-1.21.1-21.1.81.jar",
@@ -1671,11 +1756,13 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "brick_and_mortar-neoforge-1.21.1-1.1.0.jar",
@@ -1704,11 +1791,13 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "c2me-neoforge-mc1.21.1-0.3.0+alpha.0.93.jar",
@@ -1731,7 +1820,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [
@@ -1751,7 +1841,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "NEOFORGE",
@@ -1775,7 +1866,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "NEOFORGE",
@@ -1799,7 +1891,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "NEOFORGE",
@@ -1823,7 +1916,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "NEOFORGE",
@@ -1853,7 +1947,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "NEOFORGE",
@@ -1877,7 +1972,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "NEOFORGE",
@@ -1901,7 +1997,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "NEOFORGE",
@@ -1925,7 +2022,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "NEOFORGE",
@@ -1949,7 +2047,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "NEOFORGE",
@@ -1973,7 +2072,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "NEOFORGE",
@@ -1997,7 +2097,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "NEOFORGE",
@@ -2021,7 +2122,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "NEOFORGE",
@@ -2045,7 +2147,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "NEOFORGE",
@@ -2069,7 +2172,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "NEOFORGE",
@@ -2099,7 +2203,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "NEOFORGE",
@@ -2123,7 +2228,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "NEOFORGE",
@@ -2147,7 +2253,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "NEOFORGE",
@@ -2171,7 +2278,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "NEOFORGE",
@@ -2195,7 +2303,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -2231,7 +2340,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "NEOFORGE",
@@ -2255,10 +2365,12 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "carryon-neoforge-1.21.1-2.2.4.4.jar",
@@ -2287,11 +2399,13 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "cerulean-neoforge-1.0.0-1.21.1.jar",
@@ -2320,7 +2434,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FORGE",
@@ -2344,11 +2459,13 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "cloth-config-15.0.140-neoforge.jar",
@@ -2371,11 +2488,13 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "connectiblechains-neoforge-1.21.1-2.1.0.jar",
@@ -2410,11 +2529,13 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "connector-2.0.0-beta.14+1.21.1-full.jar",
@@ -2444,10 +2565,12 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
-   "error": null
+   "error": null,
+   "javaVersion": 7
   },
   {
    "file": "coroutil-neoforge-1.21.0-1.3.8.jar",
@@ -2476,11 +2599,13 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "create-1.21.1-6.0.10.jar",
@@ -2558,7 +2683,8 @@
       }
      ],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [
@@ -2596,7 +2722,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "NEOFORGE",
@@ -2626,10 +2753,12 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "create-aeronautics-bundled-1.21.1-1.3.0.jar",
@@ -2658,7 +2787,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [
@@ -2702,7 +2832,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "NEOFORGE",
@@ -2744,7 +2875,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "NEOFORGE",
@@ -2786,10 +2918,12 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
-   "error": null
+   "error": null,
+   "javaVersion": null
   },
   {
    "file": "create-cardboarded-conveynience-1.21.1-neoforge-1.0.0.jar",
@@ -2830,11 +2964,13 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "create-enchantment-industry-2.4.2.jar",
@@ -2905,7 +3041,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [
@@ -2925,10 +3062,12 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "create-extended-wrenches-1.21.1-2.0.2.jar",
@@ -2969,11 +3108,13 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "create-shufflefilter-2.1.0-neo.jar",
@@ -3008,11 +3149,13 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "create_factory-0.7a-1.21.1.jar",
@@ -3059,11 +3202,13 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "create_pattern_schematics-2.0.10.jar",
@@ -3098,11 +3243,13 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "createbigcannons-5.11.6+mc.1.21.1.jar",
@@ -3185,11 +3332,13 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "createframed-1.21.1-1.7.3.jar",
@@ -3224,11 +3373,13 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "createprism-1.2.2.jar",
@@ -3263,11 +3414,13 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "distractingtrims-neoforge-1.21.1-21.1.1.jar",
@@ -3308,11 +3461,13 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "e4mc-neoforge-6.1.2.jar",
@@ -3341,7 +3496,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FORGE",
@@ -3365,11 +3521,13 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 8
   },
   {
    "file": "ecologics-1.21.1-2.3.6.jar",
@@ -3398,11 +3556,13 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "emi-1.1.24+1.21.1+neoforge.jar",
@@ -3425,11 +3585,13 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "emi_loot-0.7.9+1.21+neoforge.jar",
@@ -3470,11 +3632,13 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "ends_delight-2.6+neoforge.1.21.1.jar",
@@ -3509,11 +3673,13 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "fastpaintings-1.21-1.3.0-neoforge.jar",
@@ -3548,11 +3714,13 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "ferritecore-7.0.3-neoforge.jar",
@@ -3581,11 +3749,13 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "forgified-fabric-api-0.116.7+2.2.4+1.21.1.jar",
@@ -3614,7 +3784,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "NEOFORGE",
@@ -3638,7 +3809,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [
@@ -3664,7 +3836,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "NEOFORGE",
@@ -3700,7 +3873,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "NEOFORGE",
@@ -3724,7 +3898,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "NEOFORGE",
@@ -3748,7 +3923,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "NEOFORGE",
@@ -3772,7 +3948,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "NEOFORGE",
@@ -3802,7 +3979,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "NEOFORGE",
@@ -3826,7 +4004,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "NEOFORGE",
@@ -3856,7 +4035,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "NEOFORGE",
@@ -3898,7 +4078,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "NEOFORGE",
@@ -3922,7 +4103,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "NEOFORGE",
@@ -3952,7 +4134,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "NEOFORGE",
@@ -3994,7 +4177,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "NEOFORGE",
@@ -4018,7 +4202,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "NEOFORGE",
@@ -4042,7 +4227,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "NEOFORGE",
@@ -4072,7 +4258,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "NEOFORGE",
@@ -4096,7 +4283,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "NEOFORGE",
@@ -4126,7 +4314,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "NEOFORGE",
@@ -4156,7 +4345,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "NEOFORGE",
@@ -4192,7 +4382,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "NEOFORGE",
@@ -4216,7 +4407,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "NEOFORGE",
@@ -4246,7 +4438,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "NEOFORGE",
@@ -4282,7 +4475,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "NEOFORGE",
@@ -4318,7 +4512,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "NEOFORGE",
@@ -4348,7 +4543,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "NEOFORGE",
@@ -4378,7 +4574,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "NEOFORGE",
@@ -4408,7 +4605,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "NEOFORGE",
@@ -4438,7 +4636,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "NEOFORGE",
@@ -4462,7 +4661,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "NEOFORGE",
@@ -4486,7 +4686,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "NEOFORGE",
@@ -4516,7 +4717,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "NEOFORGE",
@@ -4546,7 +4748,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "NEOFORGE",
@@ -4582,7 +4785,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "NEOFORGE",
@@ -4612,7 +4816,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "NEOFORGE",
@@ -4642,7 +4847,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "NEOFORGE",
@@ -4672,7 +4878,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "NEOFORGE",
@@ -4696,7 +4903,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "NEOFORGE",
@@ -4720,7 +4928,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "NEOFORGE",
@@ -4750,7 +4959,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "NEOFORGE",
@@ -4780,7 +4990,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "NEOFORGE",
@@ -4804,7 +5015,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "NEOFORGE",
@@ -4840,7 +5052,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "NEOFORGE",
@@ -4864,10 +5077,12 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
-   "error": null
+   "error": null,
+   "javaVersion": null
   },
   {
    "file": "fzzy_config-0.7.6+1.21+neoforge.jar",
@@ -4902,11 +5117,13 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "gml-6.0.2.jar",
@@ -4941,7 +5158,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [
@@ -4967,7 +5185,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -4978,7 +5197,8 @@
      "dependencies": [],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -4989,7 +5209,8 @@
      "dependencies": [],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -5000,7 +5221,8 @@
      "dependencies": [],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -5011,7 +5233,8 @@
      "dependencies": [],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -5022,7 +5245,8 @@
      "dependencies": [],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -5033,7 +5257,8 @@
      "dependencies": [],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -5044,7 +5269,8 @@
      "dependencies": [],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -5055,7 +5281,8 @@
      "dependencies": [],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -5066,7 +5293,8 @@
      "dependencies": [],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -5077,7 +5305,8 @@
      "dependencies": [],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -5088,7 +5317,8 @@
      "dependencies": [],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -5099,7 +5329,8 @@
      "dependencies": [],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -5110,7 +5341,8 @@
      "dependencies": [],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -5121,7 +5353,8 @@
      "dependencies": [],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -5132,7 +5365,8 @@
      "dependencies": [],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -5143,7 +5377,8 @@
      "dependencies": [],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -5154,7 +5389,8 @@
      "dependencies": [],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -5165,7 +5401,8 @@
      "dependencies": [],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -5176,7 +5413,8 @@
      "dependencies": [],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -5187,7 +5425,8 @@
      "dependencies": [],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -5198,10 +5437,12 @@
      "dependencies": [],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "iChunUtil-1.21-NeoForge-1.0.3.jar",
@@ -5230,11 +5471,13 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "konkrete_neoforge_1.9.9_MC_1.21.jar",
@@ -5263,11 +5506,13 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "kotlinforforge-5.11.0-all.jar",
@@ -5291,7 +5536,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FORGE",
@@ -5309,10 +5555,12 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
-   "error": null
+   "error": null,
+   "javaVersion": null
   },
   {
    "file": "lithium-neoforge-0.15.3+mc1.21.1.jar",
@@ -5335,11 +5583,13 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "lodestone-1.21.1-1.8.2.jar",
@@ -5368,11 +5618,13 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "lootr-neoforge-1.21.1-1.11.37.120.jar",
@@ -5401,11 +5653,13 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "map_atlases-neoforge-1.21-6.6.0.jar",
@@ -5440,11 +5694,13 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "minersdelight-1.21.1-1.4.5.jar",
@@ -5485,11 +5741,13 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "modernfix-neoforge-5.27.12+mc1.21.1.jar",
@@ -5524,11 +5782,13 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "moonlight-neoforge-1.21.1-3.0.17.jar",
@@ -5551,11 +5811,13 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "more_sounds-1.21.x-0.3.0-beta.jar",
@@ -5614,11 +5876,13 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "mru-1.0.19+LTS+1.21.1+neoforge.jar",
@@ -5647,11 +5911,13 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "neobeefix-1.21.1-2.0.1.jar",
@@ -5680,11 +5946,13 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "netherite_horse_armor-neoforge-1.21.1-2.0a.jar",
@@ -5713,11 +5981,13 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "netherportalfix-neoforge-1.21.1-21.1.1.jar",
@@ -5752,11 +6022,13 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "potionstacks-1.0.0.jar",
@@ -5785,11 +6057,13 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "prickle-neoforge-1.21.1-21.1.11.jar",
@@ -5818,11 +6092,13 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "quick-pack-neoforge-1.3.2+1.21.8.jar",
@@ -5838,11 +6114,13 @@
      "dependencies": [],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "railways-0.2.1+neoforge-mc1.21.1.jar",
@@ -5889,11 +6167,13 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "reliable_advancements-neoforge-1.21.1-4.0.0.jar",
@@ -5928,11 +6208,13 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "resourcefulconfig-neoforge-1.21-3.0.11.jar",
@@ -5961,11 +6243,13 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "ritchiesprojectilelib-2.1.2+mc.1.21.1-neoforge.jar",
@@ -5994,11 +6278,13 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "sable-neoforge-1.21.1-2.0.1.jar",
@@ -6064,7 +6350,8 @@
       }
      ],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [
@@ -6090,7 +6377,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "NEOFORGE",
@@ -6133,10 +6421,12 @@
       }
      ],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "sablebeyond-neoforge-1.21.1-v0.4.1.jar",
@@ -6177,7 +6467,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [
@@ -6197,10 +6488,12 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "sablephysicscompat-1.3.0.jar",
@@ -6235,11 +6528,13 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": null
   },
   {
    "file": "scholar-neoforge-1.21.1-1.1.16.jar",
@@ -6268,11 +6563,13 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "seamlesssleep-neoforge-1.21-2.5.3.jar",
@@ -6307,11 +6604,13 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "sliceanddice-forge-4.2.4.jar",
@@ -6358,11 +6657,13 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "smarterfarmers-1.21-2.2.4-neoforge.jar",
@@ -6397,11 +6698,13 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "sophisticatedbackpacks-1.21.1-3.25.63.1912.jar",
@@ -6436,11 +6739,13 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "sophisticatedcore-1.21.1-1.4.58.2026.jar",
@@ -6469,11 +6774,13 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "structure_layout_optimizer-neoforge-1.0.12.jar",
@@ -6508,11 +6815,13 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "supplementaries-neoforge-1.21.1-3.6.8.jar",
@@ -6559,7 +6868,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [
@@ -6572,7 +6882,8 @@
      "dependencies": [],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "NEOFORGE",
@@ -6596,10 +6907,12 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "trashslot-neoforge-1.21.1-21.1.11.jar",
@@ -6634,11 +6947,13 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "txnilib-neoforge-1.0.24-1.21.1.jar",
@@ -6661,7 +6976,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FORGE",
@@ -6679,7 +6995,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [
@@ -6705,7 +7022,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "NEOFORGE",
@@ -6729,7 +7047,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "NEOFORGE",
@@ -6765,7 +7084,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "NEOFORGE",
@@ -6789,7 +7109,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "NEOFORGE",
@@ -6813,7 +7134,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "NEOFORGE",
@@ -6837,7 +7159,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "NEOFORGE",
@@ -6867,7 +7190,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "NEOFORGE",
@@ -6891,7 +7215,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "NEOFORGE",
@@ -6921,7 +7246,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "NEOFORGE",
@@ -6963,7 +7289,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "NEOFORGE",
@@ -6987,7 +7314,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "NEOFORGE",
@@ -7017,7 +7345,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "NEOFORGE",
@@ -7059,7 +7388,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "NEOFORGE",
@@ -7083,7 +7413,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "NEOFORGE",
@@ -7107,7 +7438,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "NEOFORGE",
@@ -7137,7 +7469,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "NEOFORGE",
@@ -7161,7 +7494,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "NEOFORGE",
@@ -7191,7 +7525,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "NEOFORGE",
@@ -7221,7 +7556,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "NEOFORGE",
@@ -7257,7 +7593,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "NEOFORGE",
@@ -7281,7 +7618,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "NEOFORGE",
@@ -7311,7 +7649,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "NEOFORGE",
@@ -7347,7 +7686,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "NEOFORGE",
@@ -7383,7 +7723,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "NEOFORGE",
@@ -7413,7 +7754,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "NEOFORGE",
@@ -7443,7 +7785,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "NEOFORGE",
@@ -7473,7 +7816,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "NEOFORGE",
@@ -7503,7 +7847,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "NEOFORGE",
@@ -7527,7 +7872,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "NEOFORGE",
@@ -7551,7 +7897,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "NEOFORGE",
@@ -7581,7 +7928,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "NEOFORGE",
@@ -7611,7 +7959,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "NEOFORGE",
@@ -7647,7 +7996,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "NEOFORGE",
@@ -7677,7 +8027,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "NEOFORGE",
@@ -7707,7 +8058,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "NEOFORGE",
@@ -7737,7 +8089,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "NEOFORGE",
@@ -7761,7 +8114,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "NEOFORGE",
@@ -7785,7 +8139,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "NEOFORGE",
@@ -7815,7 +8170,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "NEOFORGE",
@@ -7845,7 +8201,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "NEOFORGE",
@@ -7869,7 +8226,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "NEOFORGE",
@@ -7905,7 +8263,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "NEOFORGE",
@@ -7929,10 +8288,12 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "voicechat-neoforge-1.21.1-2.6.18.jar",
@@ -7967,7 +8328,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "NEOFORGE",
@@ -7978,11 +8340,13 @@
      "dependencies": [],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "yet_another_config_lib_v3-3.8.2+1.21.1-neoforge.jar",
@@ -7998,11 +8362,13 @@
      "dependencies": [],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "zfastnoise-1.0.11+2+1.21.1+neoforge.jar",
@@ -8050,11 +8416,14 @@
       }
      ],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   }
- ]
+ ],
+ "skipped": []
 }

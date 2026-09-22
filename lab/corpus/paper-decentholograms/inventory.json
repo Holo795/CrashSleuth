@@ -5,43 +5,25 @@
  "side": "SERVER",
  "jars": [
   {
-   "file": "ChunkyBorder-Bukkit-1.2.23.jar",
+   "file": "DecentHolograms-2.10.1.jar",
    "folder": "plugins",
-   "size": 101396,
+   "size": 3938139,
    "mods": [
     {
      "format": "BUKKIT",
-     "id": "ChunkyBorder",
+     "id": "DecentHolograms",
      "name": null,
-     "version": "1.2.23",
+     "version": "2.10.1",
      "environment": "UNKNOWN",
      "dependencies": [
       {
-       "id": "Chunky",
-       "versionRange": null,
-       "required": true,
-       "side": "UNKNOWN"
-      },
-      {
-       "id": "dynmap",
+       "id": "PlaceholderAPI",
        "versionRange": null,
        "required": false,
        "side": "UNKNOWN"
       },
       {
-       "id": "BlueMap",
-       "versionRange": null,
-       "required": false,
-       "side": "UNKNOWN"
-      },
-      {
-       "id": "Pl3xMap",
-       "versionRange": null,
-       "required": false,
-       "side": "UNKNOWN"
-      },
-      {
-       "id": "squaremap",
+       "id": "HeadDatabase",
        "versionRange": null,
        "required": false,
        "side": "UNKNOWN"
@@ -51,13 +33,13 @@
      "provides": [],
      "apiVersion": "1.13",
      "entrypoints": [
-      "org.popcraft.chunkyborder.ChunkyBorderBukkit"
+      "eu.decentsoftware.holograms.plugin.DecentHologramsPlugin"
      ]
     }
    ],
    "nested": [],
    "error": null,
-   "javaVersion": 21
+   "javaVersion": 8
   }
  ],
  "skipped": []

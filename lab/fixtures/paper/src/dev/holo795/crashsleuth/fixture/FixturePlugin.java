@@ -20,7 +20,15 @@ public final class FixturePlugin extends JavaPlugin {
             case "enable-npe" -> missingService.toString();
             case "task-exception" -> Bukkit.getScheduler().runTaskTimer(this, this::brokenTask, 100L, 40L);
             case "main-thread-hang" -> Bukkit.getScheduler().runTaskLater(this, this::blockMainThread, 100L);
-            default -> getLogger().info("Nothing to do");
+            // Stops the JVM at once: no exception, no crash report, nothing in the logs to point at us.
+            case "halt" -> Runtime.getRuntime().halt(1);
+            default -> {
+                // "halt-with:OtherPlugin": only dies when another given plugin is installed (a conflict).
+                if (mode.startsWith("halt-with:") && Bukkit.getPluginManager().getPlugin(mode.substring("halt-with:".length())) != null) {
+                    Runtime.getRuntime().halt(1);
+                }
+                getLogger().info("Nothing to do");
+            }
         }
     }
 

@@ -38,11 +38,16 @@
       }
      ],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "net.caffeinemc.mods.lithium.fabric.LithiumFabricMod"
+     ]
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   }
- ]
+ ],
+ "skipped": []
 }

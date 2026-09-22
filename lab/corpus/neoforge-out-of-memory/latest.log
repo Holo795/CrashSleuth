@@ -1,43 +1,43 @@
-[21Sep2026 23:45:39.064] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgeserver, --fml.neoForgeVersion, 21.1.251, --fml.fmlVersion, 4.0.44, --fml.mcVersion, 1.21.1, --fml.neoFormVersion, 20240808.144430, nogui]
-[21Sep2026 23:45:39.069] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: JVM identified as Eclipse Adoptium OpenJDK 64-Bit Server VM 21.0.12+8-LTS
-[21Sep2026 23:45:39.072] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher 11.0.5+main.901c6ea8 starting: java version 21.0.12 by Eclipse Adoptium; OS Linux arch amd64 version 6.1.0-53-cloud-amd64
-[21Sep2026 23:45:39.327] [main/INFO] [net.neoforged.fml.loading.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forgeserver
-[21Sep2026 23:45:39.411] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=union:/srv/libraries/net/fabricmc/sponge-mixin/0.15.2+mixin.0.8.7/sponge-mixin-0.15.2+mixin.0.8.7.jar%2373!/ Service=ModLauncher Env=SERVER
-[21Sep2026 23:45:39.911] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "server-1.21.1-20240808.144430-srg.jar" [locator: production server provider +net.neoforged:neoforge:21.1.251:server]
-[21Sep2026 23:45:39.944] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "neoforge-21.1.251-universal.jar" [locator: PathBasedLocator[name=neoforge, paths=[libraries/net/neoforged/neoforge/21.1.251/neoforge-21.1.251-universal.jar]], reader: mod manifest]
-[21Sep2026 23:45:39.961] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "appliedenergistics2-19.2.17.jar" [locator: {mods folder locator at /srv/mods}, reader: mod manifest]
-[21Sep2026 23:45:40.019] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "Cobblemon-neoforge-1.8.1+1.21.1.jar" [locator: {mods folder locator at /srv/mods}, reader: mod manifest]
-[21Sep2026 23:45:40.034] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "create-1.21.1-6.0.10.jar" [locator: {mods folder locator at /srv/mods}, reader: mod manifest]
-[21Sep2026 23:45:40.041] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "guideme-21.1.19.jar" [locator: {mods folder locator at /srv/mods}, reader: mod manifest]
-[21Sep2026 23:45:40.045] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found library file "kotlinforforge-5.12.0-all.jar" [locator: {mods folder locator at /srv/mods}, reader: mod manifest]
-[21Sep2026 23:45:40.049] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "moonlight-1.21.1-3.6.8-neoforge.jar" [locator: {mods folder locator at /srv/mods}, reader: mod manifest]
-[21Sep2026 23:45:40.054] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "sophisticatedbackpacks-1.21.1-3.26.3.2158.jar" [locator: {mods folder locator at /srv/mods}, reader: mod manifest]
-[21Sep2026 23:45:40.059] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "sophisticatedcore-1.21.1-1.5.1.2341.jar" [locator: {mods folder locator at /srv/mods}, reader: mod manifest]
-[21Sep2026 23:45:40.070] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "supplementaries-1.21.1-3.9.9-neoforge.jar" [locator: {mods folder locator at /srv/mods}, reader: mod manifest]
-[21Sep2026 23:45:40.704] [main/INFO] [net.neoforged.fml.loading.moddiscovery.locators.JarInJarDependencyLocator/]: Found 22 dependencies adding them to mods collection
-[21Sep2026 23:45:40.704] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found gamelibrary file "mixinextras-neoforge-0.5.3.jar" [parent: neoforge-21.1.251-universal.jar, locator: jarinjar, reader: mod manifest]
-[21Sep2026 23:45:40.705] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found library file "kotlinx-coroutines-jdk8-1.11.0.jar" [parent: kotlinforforge-5.12.0-all.jar, locator: jarinjar]
-[21Sep2026 23:45:40.705] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found library file "MixinSquared-0.3.7-beta.3.jar" [parent: mixinsquared-forge-0.3.7-beta.3.jar, locator: jarinjar]
-[21Sep2026 23:45:40.705] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "codecui-neoforge-1.21.1-1.4.5.jar" [parent: moonlight-1.21.1-3.6.8-neoforge.jar, locator: jarinjar, reader: mod manifest]
-[21Sep2026 23:45:40.706] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found library file "mongodb-driver-sync-4.10.2.jar" [parent: Cobblemon-neoforge-1.8.1+1.21.1.jar, locator: jarinjar]
-[21Sep2026 23:45:40.706] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "ponder-neoforge-1.0.82+mc1.21.1.jar" [parent: create-1.21.1-6.0.10.jar, locator: jarinjar, reader: mod manifest]
-[21Sep2026 23:45:40.706] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found library file "net.neoforged.neoforge-coremods-21.1.251.jar" [parent: neoforge-21.1.251-universal.jar, locator: jarinjar, reader: mod manifest]
-[21Sep2026 23:45:40.706] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found library file "kotlin-stdlib-jdk7-2.4.0.jar" [parent: kotlinforforge-5.12.0-all.jar, locator: jarinjar]
-[21Sep2026 23:45:40.707] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found library file "kotlin-stdlib-jdk8-2.4.0.jar" [parent: kotlinforforge-5.12.0-all.jar, locator: jarinjar]
-[21Sep2026 23:45:40.707] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found library file "thedarkcolour.kfflang-5.12.0.jar" [parent: kotlinforforge-5.12.0-all.jar, locator: jarinjar, reader: mod manifest]
-[21Sep2026 23:45:40.707] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found gamelibrary file "thedarkcolour.kfflib-5.12.0.jar" [parent: kotlinforforge-5.12.0-all.jar, locator: jarinjar, reader: mod manifest]
-[21Sep2026 23:45:40.708] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found library file "kotlinx-serialization-core-jvm-1.11.0.jar" [parent: kotlinforforge-5.12.0-all.jar, locator: jarinjar]
-[21Sep2026 23:45:40.708] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found gamelibrary file "Registrate-MC1.21-1.3.0+67.jar" [parent: create-1.21.1-6.0.10.jar, locator: jarinjar, reader: mod manifest]
-[21Sep2026 23:45:40.708] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "thedarkcolour.kffmod-5.12.0.jar" [parent: kotlinforforge-5.12.0-all.jar, locator: jarinjar, reader: mod manifest]
-[21Sep2026 23:45:40.709] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found library file "kotlin-stdlib-2.4.0.jar" [parent: kotlinforforge-5.12.0-all.jar, locator: jarinjar]
-[21Sep2026 23:45:40.709] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found library file "kotlin-reflect-2.4.0.jar" [parent: kotlinforforge-5.12.0-all.jar, locator: jarinjar]
-[21Sep2026 23:45:40.709] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found library file "kotlinx-serialization-json-jvm-1.11.0.jar" [parent: kotlinforforge-5.12.0-all.jar, locator: jarinjar]
-[21Sep2026 23:45:40.710] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "sable-companion-common-1.21.1-1.6.0.jar" [parent: supplementaries-1.21.1-3.9.9-neoforge.jar, locator: jarinjar, reader: mod manifest]
-[21Sep2026 23:45:40.710] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "flywheel-neoforge-1.21.1-1.0.6.jar" [parent: create-1.21.1-6.0.10.jar, locator: jarinjar, reader: mod manifest]
-[21Sep2026 23:45:40.710] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found library file "kotlinx-coroutines-core-jvm-1.11.0.jar" [parent: kotlinforforge-5.12.0-all.jar, locator: jarinjar]
-[21Sep2026 23:45:40.711] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found library file "mongodb-driver-core-4.10.2.jar" [parent: Cobblemon-neoforge-1.8.1+1.21.1.jar, locator: jarinjar]
-[21Sep2026 23:45:40.711] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found gamelibrary file "mixinsquared-forge-0.3.7-beta.3.jar" [parent: supplementaries-1.21.1-3.9.9-neoforge.jar, locator: jarinjar, reader: mod manifest]
-[21Sep2026 23:45:40.715] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/]: 
+[22Sep2026 01:14:37.561] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgeserver, --fml.neoForgeVersion, 21.1.251, --fml.fmlVersion, 4.0.44, --fml.mcVersion, 1.21.1, --fml.neoFormVersion, 20240808.144430, nogui]
+[22Sep2026 01:14:37.565] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: JVM identified as Eclipse Adoptium OpenJDK 64-Bit Server VM 21.0.12+8-LTS
+[22Sep2026 01:14:37.568] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher 11.0.5+main.901c6ea8 starting: java version 21.0.12 by Eclipse Adoptium; OS Linux arch amd64 version 6.1.0-53-cloud-amd64
+[22Sep2026 01:14:37.796] [main/INFO] [net.neoforged.fml.loading.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forgeserver
+[22Sep2026 01:14:37.904] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=union:/srv/libraries/net/fabricmc/sponge-mixin/0.15.2+mixin.0.8.7/sponge-mixin-0.15.2+mixin.0.8.7.jar%2373!/ Service=ModLauncher Env=SERVER
+[22Sep2026 01:14:38.405] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "server-1.21.1-20240808.144430-srg.jar" [locator: production server provider +net.neoforged:neoforge:21.1.251:server]
+[22Sep2026 01:14:38.438] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "neoforge-21.1.251-universal.jar" [locator: PathBasedLocator[name=neoforge, paths=[libraries/net/neoforged/neoforge/21.1.251/neoforge-21.1.251-universal.jar]], reader: mod manifest]
+[22Sep2026 01:14:38.455] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "appliedenergistics2-19.2.17.jar" [locator: {mods folder locator at /srv/mods}, reader: mod manifest]
+[22Sep2026 01:14:38.496] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "Cobblemon-neoforge-1.8.1+1.21.1.jar" [locator: {mods folder locator at /srv/mods}, reader: mod manifest]
+[22Sep2026 01:14:38.513] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "create-1.21.1-6.0.10.jar" [locator: {mods folder locator at /srv/mods}, reader: mod manifest]
+[22Sep2026 01:14:38.520] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "guideme-21.1.19.jar" [locator: {mods folder locator at /srv/mods}, reader: mod manifest]
+[22Sep2026 01:14:38.523] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found library file "kotlinforforge-5.12.0-all.jar" [locator: {mods folder locator at /srv/mods}, reader: mod manifest]
+[22Sep2026 01:14:38.528] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "moonlight-1.21.1-3.6.8-neoforge.jar" [locator: {mods folder locator at /srv/mods}, reader: mod manifest]
+[22Sep2026 01:14:38.533] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "sophisticatedbackpacks-1.21.1-3.26.3.2158.jar" [locator: {mods folder locator at /srv/mods}, reader: mod manifest]
+[22Sep2026 01:14:38.538] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "sophisticatedcore-1.21.1-1.5.1.2341.jar" [locator: {mods folder locator at /srv/mods}, reader: mod manifest]
+[22Sep2026 01:14:38.548] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "supplementaries-1.21.1-3.9.9-neoforge.jar" [locator: {mods folder locator at /srv/mods}, reader: mod manifest]
+[22Sep2026 01:14:39.188] [main/INFO] [net.neoforged.fml.loading.moddiscovery.locators.JarInJarDependencyLocator/]: Found 22 dependencies adding them to mods collection
+[22Sep2026 01:14:39.188] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found gamelibrary file "mixinextras-neoforge-0.5.3.jar" [parent: neoforge-21.1.251-universal.jar, locator: jarinjar, reader: mod manifest]
+[22Sep2026 01:14:39.189] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found library file "kotlinx-coroutines-jdk8-1.11.0.jar" [parent: kotlinforforge-5.12.0-all.jar, locator: jarinjar]
+[22Sep2026 01:14:39.189] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found library file "MixinSquared-0.3.7-beta.3.jar" [parent: mixinsquared-forge-0.3.7-beta.3.jar, locator: jarinjar]
+[22Sep2026 01:14:39.189] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "codecui-neoforge-1.21.1-1.4.5.jar" [parent: moonlight-1.21.1-3.6.8-neoforge.jar, locator: jarinjar, reader: mod manifest]
+[22Sep2026 01:14:39.190] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found library file "mongodb-driver-sync-4.10.2.jar" [parent: Cobblemon-neoforge-1.8.1+1.21.1.jar, locator: jarinjar]
+[22Sep2026 01:14:39.190] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "ponder-neoforge-1.0.82+mc1.21.1.jar" [parent: create-1.21.1-6.0.10.jar, locator: jarinjar, reader: mod manifest]
+[22Sep2026 01:14:39.190] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found library file "net.neoforged.neoforge-coremods-21.1.251.jar" [parent: neoforge-21.1.251-universal.jar, locator: jarinjar, reader: mod manifest]
+[22Sep2026 01:14:39.190] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found library file "kotlin-stdlib-jdk7-2.4.0.jar" [parent: kotlinforforge-5.12.0-all.jar, locator: jarinjar]
+[22Sep2026 01:14:39.191] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found library file "kotlin-stdlib-jdk8-2.4.0.jar" [parent: kotlinforforge-5.12.0-all.jar, locator: jarinjar]
+[22Sep2026 01:14:39.191] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found library file "thedarkcolour.kfflang-5.12.0.jar" [parent: kotlinforforge-5.12.0-all.jar, locator: jarinjar, reader: mod manifest]
+[22Sep2026 01:14:39.191] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found gamelibrary file "thedarkcolour.kfflib-5.12.0.jar" [parent: kotlinforforge-5.12.0-all.jar, locator: jarinjar, reader: mod manifest]
+[22Sep2026 01:14:39.192] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found library file "kotlinx-serialization-core-jvm-1.11.0.jar" [parent: kotlinforforge-5.12.0-all.jar, locator: jarinjar]
+[22Sep2026 01:14:39.192] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found gamelibrary file "Registrate-MC1.21-1.3.0+67.jar" [parent: create-1.21.1-6.0.10.jar, locator: jarinjar, reader: mod manifest]
+[22Sep2026 01:14:39.192] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "thedarkcolour.kffmod-5.12.0.jar" [parent: kotlinforforge-5.12.0-all.jar, locator: jarinjar, reader: mod manifest]
+[22Sep2026 01:14:39.192] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found library file "kotlin-stdlib-2.4.0.jar" [parent: kotlinforforge-5.12.0-all.jar, locator: jarinjar]
+[22Sep2026 01:14:39.193] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found library file "kotlin-reflect-2.4.0.jar" [parent: kotlinforforge-5.12.0-all.jar, locator: jarinjar]
+[22Sep2026 01:14:39.193] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found library file "kotlinx-serialization-json-jvm-1.11.0.jar" [parent: kotlinforforge-5.12.0-all.jar, locator: jarinjar]
+[22Sep2026 01:14:39.193] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "sable-companion-common-1.21.1-1.6.0.jar" [parent: supplementaries-1.21.1-3.9.9-neoforge.jar, locator: jarinjar, reader: mod manifest]
+[22Sep2026 01:14:39.194] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "flywheel-neoforge-1.21.1-1.0.6.jar" [parent: create-1.21.1-6.0.10.jar, locator: jarinjar, reader: mod manifest]
+[22Sep2026 01:14:39.194] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found library file "kotlinx-coroutines-core-jvm-1.11.0.jar" [parent: kotlinforforge-5.12.0-all.jar, locator: jarinjar]
+[22Sep2026 01:14:39.194] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found library file "mongodb-driver-core-4.10.2.jar" [parent: Cobblemon-neoforge-1.8.1+1.21.1.jar, locator: jarinjar]
+[22Sep2026 01:14:39.195] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found gamelibrary file "mixinsquared-forge-0.3.7-beta.3.jar" [parent: supplementaries-1.21.1-3.9.9-neoforge.jar, locator: jarinjar, reader: mod manifest]
+[22Sep2026 01:14:39.197] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/]: 
      Mod List:
 		Name Version (Mod Id)
 
@@ -56,100 +56,100 @@
 		Sophisticated Backpacks 3.26.3 (sophisticatedbackpacks)
 		Sophisticated Core 1.5.1 (sophisticatedcore)
 		Supplementaries 1.21.1-3.9.9 (supplementaries)
-[21Sep2026 23:45:41.943] [main/INFO] [mixin/]: Compatibility level set to JAVA_17
-[21Sep2026 23:45:41.958] [main/INFO] [mixin/]: Compatibility level set to JAVA_21
-[21Sep2026 23:45:42.047] [main/INFO] [cpw.mods.modlauncher.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgeserver' with arguments [nogui]
-[21Sep2026 23:45:42.202] [main/WARN] [mixin/]: Reference map 'ponder.refmap.json' for ponder-common.mixins.json could not be read. If this is a development environment you can ignore this message
-[21Sep2026 23:45:44.192] [main/WARN] [mixin/]: Error loading class: vectorwing/farmersdelight/common/block/TomatoBlock (java.lang.ClassNotFoundException: vectorwing.farmersdelight.common.block.TomatoBlock)
-[21Sep2026 23:45:44.408] [main/WARN] [mixin/]: Error loading class: juuxel/adorn/block/variant/BlockVariantSets (java.lang.ClassNotFoundException: juuxel.adorn.block.variant.BlockVariantSets)
-[21Sep2026 23:45:44.409] [main/WARN] [mixin/]: @Mixin target juuxel.adorn.block.variant.BlockVariantSets was not found mixins.cobblemon-common.json:invoker.AdornRegisterInvoker from mod cobblemon
-[21Sep2026 23:45:44.638] [main/WARN] [mixin/]: Error loading class: org/jetbrains/annotations/ApiStatus$ScheduledForRemoval (java.lang.ClassNotFoundException: org.jetbrains.annotations.ApiStatus$ScheduledForRemoval)
-[21Sep2026 23:45:45.171] [main/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.5.3).
-[21Sep2026 23:45:56.251] [modloading-worker-0/INFO] [CodecUI/]: Codec construction mixins inactive (Codec, MapCodec, RecordCodecBuilder) - expected on NeoForge; using reflective schema inference (numeric ranges recovered, optional-field defaults not).
-[21Sep2026 23:45:56.415] [modloading-worker-0/INFO] [Moonlight/]: Sending changed configs to client
-[21Sep2026 23:45:56.765] [modloading-worker-0/INFO] [com.simibubi.create.Create/]: Create 6.0.10 initializing! Commit hash: ac0c444d9828da3453ae8cc65338e8de063286fb
-[21Sep2026 23:45:56.962] [modloading-worker-0/INFO] [thedarkcolour.kotlinforforge.neoforge.test.KotlinForForge/]: Kotlin For Forge Enabled!
-[21Sep2026 23:45:57.001] [modloading-worker-0/INFO] [net.neoforged.neoforge.common.NeoForgeMod/NEOFORGE-MOD]: NeoForge mod loading, version 21.1.251, for MC 1.21.1
-[21Sep2026 23:45:57.030] [modloading-worker-0/INFO] [Moonlight/]: Sending changed configs to client
-[21Sep2026 23:45:57.504] [modloading-worker-0/INFO] [com.cobblemon.mod.common.Cobblemon/]: Booting LaxPermissionValidator, permissions will be checked using Minecrafts permission level system, see https://minecraft.wiki/w/Permission_level
-[21Sep2026 23:45:57.520] [modloading-worker-0/INFO] [com.cobblemon.mod.common.Cobblemon/]: Launching Cobblemon 1.8.1 
-[21Sep2026 23:45:57.534] [modloading-worker-0/INFO] [com.cobblemon.mod.common.Cobblemon/]: Booting ForgePermissionApiPermissionValidator, player permissions will be checked using MinecraftForge' PermissionAPI, non player command sources will use Minecraft' permission level system, see https://docs.minecraftforge.net/en/latest/ and https://minecraft.fandom.com/wiki/Permission_level
-[21Sep2026 23:45:57.888] [modloading-worker-0/WARN] [Supplementaries/]: Dye color white produced diffuse color -1 (white), this should never happen
-[21Sep2026 23:45:58.753] [modloading-worker-0/INFO] [com.cobblemon.mod.common.Cobblemon/]: Starting the Best Spawner...
-[21Sep2026 23:45:58.760] [modloading-worker-0/INFO] [com.cobblemon.mod.common.Cobblemon/]: Loaded 7 spawning condition types.
-[21Sep2026 23:45:58.771] [modloading-worker-0/INFO] [com.cobblemon.mod.common.Cobblemon/]: Loaded 6 spawnable position types.
-[21Sep2026 23:45:58.786] [modloading-worker-0/INFO] [com.cobblemon.mod.common.Cobblemon/]: Loaded 4 spawn detail types.
-[21Sep2026 23:46:04.674] [modloading-sync-worker/INFO] [Moonlight/]: Initialized block sets in 20ms
-[21Sep2026 23:46:10.963] [modloading-sync-worker/INFO] [Moonlight/]: Sending changed configs to client
-[21Sep2026 23:46:10.989] [modloading-sync-worker/INFO] [Moonlight/]: Sending changed configs to client
-[21Sep2026 23:46:11.000] [modloading-worker-0/INFO] [com.cobblemon.mod.common.Cobblemon/]: Initializing...
-[21Sep2026 23:46:11.016] [Cobblemon Showdown/INFO] [com.cobblemon.mod.common.Cobblemon/]: Starting showdown service...
-[21Sep2026 23:46:12.099] [NeoForge Version Check/INFO] [net.neoforged.fml.VersionChecker/]: [create] Starting version check at https://api.modrinth.com/updates/create/forge_updates.json?neoforge=only
-[21Sep2026 23:46:13.162] [NeoForge Version Check/INFO] [net.neoforged.fml.VersionChecker/]: [create] Found status: OUTDATED Current: 6.0.10 Target: 6.0.10+mc1.21.1
-[21Sep2026 23:46:22.382] [Cobblemon Showdown/INFO] [com.cobblemon.mod.common.Cobblemon/]: Showdown has been started!
-[21Sep2026 23:46:22.385] [modloading-worker-0/INFO] [com.cobblemon.mod.common.Cobblemon/]: Note: Cobblemon data registries are only loaded once per server instance as Pokémon species are not safe to reload.
-[21Sep2026 23:46:22.385] [modloading-worker-0/INFO] [com.cobblemon.mod.common.Cobblemon/]: Registered the cobblemon:molang registry
-[21Sep2026 23:46:22.388] [modloading-worker-0/INFO] [com.cobblemon.mod.common.Cobblemon/]: Registered the cobblemon:species_features registry
-[21Sep2026 23:46:22.389] [modloading-worker-0/INFO] [com.cobblemon.mod.common.Cobblemon/]: Registered the cobblemon:global_species_features registry
-[21Sep2026 23:46:22.391] [modloading-worker-0/INFO] [com.cobblemon.mod.common.Cobblemon/]: Registered the cobblemon:species_feature_assignments registry
-[21Sep2026 23:46:22.406] [modloading-worker-0/INFO] [com.cobblemon.mod.common.Cobblemon/]: Registered the cobblemon:action_effects registry
-[21Sep2026 23:46:22.408] [modloading-worker-0/INFO] [com.cobblemon.mod.common.Cobblemon/]: Registered the cobblemon:moves registry
-[21Sep2026 23:46:22.415] [modloading-worker-0/INFO] [com.cobblemon.mod.common.Cobblemon/]: Registered the cobblemon:moveset_builders registry
-[21Sep2026 23:46:22.422] [modloading-worker-0/INFO] [com.cobblemon.mod.common.Cobblemon/]: Registered the cobblemon:abilities registry
-[21Sep2026 23:46:22.424] [modloading-worker-0/INFO] [com.cobblemon.mod.common.Cobblemon/]: Registered the cobblemon:behaviours registry
-[21Sep2026 23:46:22.427] [modloading-worker-0/INFO] [com.cobblemon.mod.common.Cobblemon/]: Registered the cobblemon:marks registry
-[21Sep2026 23:46:22.427] [modloading-worker-0/INFO] [com.cobblemon.mod.common.Cobblemon/]: Registered the cobblemon:species registry
-[21Sep2026 23:46:22.427] [modloading-worker-0/INFO] [com.cobblemon.mod.common.Cobblemon/]: Registered the cobblemon:species_additions registry
-[21Sep2026 23:46:22.428] [modloading-worker-0/INFO] [com.cobblemon.mod.common.Cobblemon/]: Registered the cobblemon:pokeballs registry
-[21Sep2026 23:46:22.429] [modloading-worker-0/INFO] [com.cobblemon.mod.common.Cobblemon/]: Registered the cobblemon:properties_tab_completion registry
-[21Sep2026 23:46:22.432] [modloading-worker-0/INFO] [com.cobblemon.mod.common.Cobblemon/]: Registered the cobblemon:party_pools registry
-[21Sep2026 23:46:22.433] [modloading-worker-0/INFO] [com.cobblemon.mod.common.Cobblemon/]: Registered the cobblemon:party_compositions registry
-[21Sep2026 23:46:22.433] [modloading-worker-0/INFO] [com.cobblemon.mod.common.Cobblemon/]: Registered the cobblemon:spawn_detail_presets registry
-[21Sep2026 23:46:22.440] [modloading-worker-0/INFO] [com.cobblemon.mod.common.Cobblemon/]: Registered the cobblemon:spawn_rules registry
-[21Sep2026 23:46:22.465] [modloading-worker-0/INFO] [com.cobblemon.mod.common.Cobblemon/]: Registered the cobblemon:mechanics registry
-[21Sep2026 23:46:22.466] [modloading-worker-0/INFO] [com.cobblemon.mod.common.Cobblemon/]: Registered the cobblemon:bag_items registry
-[21Sep2026 23:46:22.846] [modloading-worker-0/INFO] [com.cobblemon.mod.common.Cobblemon/]: Registered the cobblemon:held_items registry
-[21Sep2026 23:46:22.853] [modloading-worker-0/INFO] [com.cobblemon.mod.common.Cobblemon/]: Registered the cobblemon:dialogues registry
-[21Sep2026 23:46:22.855] [modloading-worker-0/INFO] [com.cobblemon.mod.common.Cobblemon/]: Registered the cobblemon:natural_materials registry
-[21Sep2026 23:46:22.856] [modloading-worker-0/INFO] [com.cobblemon.mod.common.Cobblemon/]: Registered the cobblemon:fossils registry
-[21Sep2026 23:46:22.863] [modloading-worker-0/INFO] [com.cobblemon.mod.common.Cobblemon/]: Registered the cobblemon:npc_preset registry
-[21Sep2026 23:46:22.865] [modloading-worker-0/INFO] [com.cobblemon.mod.common.Cobblemon/]: Registered the cobblemon:npc registry
-[21Sep2026 23:46:22.867] [modloading-worker-0/INFO] [com.cobblemon.mod.common.Cobblemon/]: Registered the cobblemon:dex_entries registry
-[21Sep2026 23:46:22.868] [modloading-worker-0/INFO] [com.cobblemon.mod.common.Cobblemon/]: Registered the cobblemon:dex_entry_additions registry
-[21Sep2026 23:46:22.874] [modloading-worker-0/INFO] [com.cobblemon.mod.common.Cobblemon/]: Registered the cobblemon:dexes registry
-[21Sep2026 23:46:22.875] [modloading-worker-0/INFO] [com.cobblemon.mod.common.Cobblemon/]: Registered the cobblemon:dex_additions registry
-[21Sep2026 23:46:22.877] [modloading-worker-0/INFO] [com.cobblemon.mod.common.Cobblemon/]: Registered the cobblemon:cosmetic_items registry
-[21Sep2026 23:46:22.879] [modloading-worker-0/INFO] [com.cobblemon.mod.common.Cobblemon/]: Registered the cobblemon:callbacks registry
-[21Sep2026 23:46:22.880] [modloading-worker-0/INFO] [com.cobblemon.mod.common.Cobblemon/]: Registered the cobblemon:unlockable_pc_box_wallpapers registry
-[21Sep2026 23:46:22.882] [modloading-worker-0/INFO] [com.cobblemon.mod.common.Cobblemon/]: Registered the cobblemon:starters registry
-[21Sep2026 23:46:22.891] [modloading-worker-0/INFO] [com.cobblemon.mod.common.Cobblemon/]: Registered the cobblemon:spawn_pool_world registry
-[21Sep2026 23:46:22.892] [modloading-worker-0/INFO] [com.cobblemon.mod.common.Cobblemon/]: Registered the cobblemon:pokerods registry
-[21Sep2026 23:46:22.903] [modloading-worker-0/INFO] [com.cobblemon.mod.common.Cobblemon/]: Registered the cobblemon:berries registry
-[21Sep2026 23:46:22.905] [modloading-worker-0/INFO] [com.cobblemon.mod.common.Cobblemon/]: Registered the cobblemon:habitat_pools registry
-[21Sep2026 23:46:22.907] [modloading-worker-0/INFO] [com.cobblemon.mod.common.Cobblemon/]: Registered the cobblemon:seasonings registry
-[21Sep2026 23:46:22.914] [modloading-worker-0/INFO] [com.cobblemon.mod.common.Cobblemon/]: Registered the cobblemon:pokemon_interactions registry
-[21Sep2026 23:46:22.916] [modloading-worker-0/INFO] [com.cobblemon.mod.common.Cobblemon/]: Registered the cobblemon:spawn_bait_effects registry
-[21Sep2026 23:46:22.919] [modloading-worker-0/INFO] [com.cobblemon.mod.common.Cobblemon/]: Registered the cobblemon:ride_settings registry
-[21Sep2026 23:46:22.925] [modloading-worker-0/INFO] [com.cobblemon.mod.common.Cobblemon/]: Registered the cobblemon:technical_machines registry
-[21Sep2026 23:46:23.773] [modloading-sync-worker/INFO] [Moonlight/]: Initialized color sets in 54ms
-[21Sep2026 23:46:23.800] [modloading-sync-worker/INFO] [Supplementaries/]: Finished mod setup in: [5, 0, 3, 0, 3, 0] ms
-[21Sep2026 23:46:27.513] [main/INFO] [com.mojang.authlib.yggdrasil.YggdrasilAuthenticationService/]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
-[21Sep2026 23:46:27.557] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/srv/libraries/net/minecraft/server/1.21.1-20240808.144430/server-1.21.1-20240808.144430-srg.jar%23126!/assets/.mcassetsroot' uses unexpected schema
-[21Sep2026 23:46:27.558] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/srv/libraries/net/minecraft/server/1.21.1-20240808.144430/server-1.21.1-20240808.144430-srg.jar%23126!/data/.mcassetsroot' uses unexpected schema
-[21Sep2026 23:46:28.027] [main/INFO] [com.simibubi.create.Create/]: Created 184 recipes which will be injected into the game
-[21Sep2026 23:46:28.039] [main/INFO] [com.simibubi.create.Create/]: Created 1 tags which will be injected into the game
-[21Sep2026 23:46:28.487] [main/INFO] [net.minecraft.server.MinecraftServer/]: Found new data pack supplementaries:generated_pack, loading it automatically
-[21Sep2026 23:46:28.487] [main/INFO] [net.minecraft.server.MinecraftServer/]: Found new data pack create:dynamic_data, loading it automatically
-[21Sep2026 23:46:28.848] [main/INFO] [Moonlight/]: Resource cache state for SERVER_DATA: needs regeneration
-[21Sep2026 23:46:28.850] [main/INFO] [Moonlight/]: Cleared cache pack resources at /srv/dynamic-data-pack-cache/supplementaries-generated_pack in 743.0 μs
-[21Sep2026 23:46:28.852] [main/INFO] [Moonlight/]: Starting runtime resource generation for pack type SERVER_DATA with generators [supplementaries:generated_pack]
-[21Sep2026 23:46:28.856] [main/INFO] [Moonlight/]: Regenerating Dynamic SERVER_DATA Resources Provider [supplementaries:generated_pack], requested by strategy CACHED_FOLDER
-[21Sep2026 23:46:28.900] [pool-5-thread-1/INFO] [Supplementaries/]: Generated 12 sign post recipes
-[21Sep2026 23:46:28.917] [main/INFO] [Moonlight/]: Generated runtime SERVER_DATA for pack supplementaries:generated_pack in 60.67 ms
-[21Sep2026 23:46:28.927] [main/INFO] [Moonlight/]: Populated search tree for pack at /srv/dynamic-data-pack-cache/supplementaries-generated_pack in 4.436 ms
-[21Sep2026 23:46:28.929] [main/INFO] [Moonlight/]: Finished runtime resources generation for 1 packs in a total of 76.21 ms 
-[21Sep2026 23:46:46.845] [main/INFO] [net.minecraft.server.Main/]: No existing world data, creating new world
-[21Sep2026 23:46:56.325] [main/WARN] [net.minecraft.server.Main/]: Failed to load datapacks, can't proceed with server load. You can either fix your datapacks or reset to vanilla with --safeMode
+[22Sep2026 01:14:40.262] [main/INFO] [mixin/]: Compatibility level set to JAVA_17
+[22Sep2026 01:14:40.277] [main/INFO] [mixin/]: Compatibility level set to JAVA_21
+[22Sep2026 01:14:40.393] [main/INFO] [cpw.mods.modlauncher.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgeserver' with arguments [nogui]
+[22Sep2026 01:14:40.547] [main/WARN] [mixin/]: Reference map 'ponder.refmap.json' for ponder-common.mixins.json could not be read. If this is a development environment you can ignore this message
+[22Sep2026 01:14:42.219] [main/WARN] [mixin/]: Error loading class: vectorwing/farmersdelight/common/block/TomatoBlock (java.lang.ClassNotFoundException: vectorwing.farmersdelight.common.block.TomatoBlock)
+[22Sep2026 01:14:42.566] [main/WARN] [mixin/]: Error loading class: juuxel/adorn/block/variant/BlockVariantSets (java.lang.ClassNotFoundException: juuxel.adorn.block.variant.BlockVariantSets)
+[22Sep2026 01:14:42.578] [main/WARN] [mixin/]: @Mixin target juuxel.adorn.block.variant.BlockVariantSets was not found mixins.cobblemon-common.json:invoker.AdornRegisterInvoker from mod cobblemon
+[22Sep2026 01:14:42.982] [main/WARN] [mixin/]: Error loading class: org/jetbrains/annotations/ApiStatus$ScheduledForRemoval (java.lang.ClassNotFoundException: org.jetbrains.annotations.ApiStatus$ScheduledForRemoval)
+[22Sep2026 01:14:43.571] [main/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.5.3).
+[22Sep2026 01:14:55.361] [modloading-worker-0/INFO] [CodecUI/]: Codec construction mixins inactive (Codec, MapCodec, RecordCodecBuilder) - expected on NeoForge; using reflective schema inference (numeric ranges recovered, optional-field defaults not).
+[22Sep2026 01:14:55.508] [modloading-worker-0/INFO] [Moonlight/]: Sending changed configs to client
+[22Sep2026 01:14:55.833] [modloading-worker-0/INFO] [com.simibubi.create.Create/]: Create 6.0.10 initializing! Commit hash: ac0c444d9828da3453ae8cc65338e8de063286fb
+[22Sep2026 01:14:56.151] [modloading-worker-0/INFO] [Moonlight/]: Sending changed configs to client
+[22Sep2026 01:14:56.163] [modloading-worker-0/INFO] [thedarkcolour.kotlinforforge.neoforge.test.KotlinForForge/]: Kotlin For Forge Enabled!
+[22Sep2026 01:14:56.214] [modloading-worker-0/INFO] [net.neoforged.neoforge.common.NeoForgeMod/NEOFORGE-MOD]: NeoForge mod loading, version 21.1.251, for MC 1.21.1
+[22Sep2026 01:14:56.495] [modloading-worker-0/INFO] [com.cobblemon.mod.common.Cobblemon/]: Booting LaxPermissionValidator, permissions will be checked using Minecrafts permission level system, see https://minecraft.wiki/w/Permission_level
+[22Sep2026 01:14:56.515] [modloading-worker-0/INFO] [com.cobblemon.mod.common.Cobblemon/]: Launching Cobblemon 1.8.1 
+[22Sep2026 01:14:56.524] [modloading-worker-0/INFO] [com.cobblemon.mod.common.Cobblemon/]: Booting ForgePermissionApiPermissionValidator, player permissions will be checked using MinecraftForge' PermissionAPI, non player command sources will use Minecraft' permission level system, see https://docs.minecraftforge.net/en/latest/ and https://minecraft.fandom.com/wiki/Permission_level
+[22Sep2026 01:14:57.001] [modloading-worker-0/WARN] [Supplementaries/]: Dye color white produced diffuse color -1 (white), this should never happen
+[22Sep2026 01:14:57.872] [modloading-worker-0/INFO] [com.cobblemon.mod.common.Cobblemon/]: Starting the Best Spawner...
+[22Sep2026 01:14:57.879] [modloading-worker-0/INFO] [com.cobblemon.mod.common.Cobblemon/]: Loaded 7 spawning condition types.
+[22Sep2026 01:14:57.895] [modloading-worker-0/INFO] [com.cobblemon.mod.common.Cobblemon/]: Loaded 6 spawnable position types.
+[22Sep2026 01:14:57.911] [modloading-worker-0/INFO] [com.cobblemon.mod.common.Cobblemon/]: Loaded 4 spawn detail types.
+[22Sep2026 01:15:03.847] [modloading-sync-worker/INFO] [Moonlight/]: Initialized block sets in 20ms
+[22Sep2026 01:15:09.806] [modloading-sync-worker/INFO] [Moonlight/]: Sending changed configs to client
+[22Sep2026 01:15:09.822] [modloading-sync-worker/INFO] [Moonlight/]: Sending changed configs to client
+[22Sep2026 01:15:09.833] [modloading-worker-0/INFO] [com.cobblemon.mod.common.Cobblemon/]: Initializing...
+[22Sep2026 01:15:09.850] [Cobblemon Showdown/INFO] [com.cobblemon.mod.common.Cobblemon/]: Starting showdown service...
+[22Sep2026 01:15:09.904] [NeoForge Version Check/INFO] [net.neoforged.fml.VersionChecker/]: [create] Starting version check at https://api.modrinth.com/updates/create/forge_updates.json?neoforge=only
+[22Sep2026 01:15:11.634] [NeoForge Version Check/INFO] [net.neoforged.fml.VersionChecker/]: [create] Found status: OUTDATED Current: 6.0.10 Target: 6.0.10+mc1.21.1
+[22Sep2026 01:15:20.920] [Cobblemon Showdown/INFO] [com.cobblemon.mod.common.Cobblemon/]: Showdown has been started!
+[22Sep2026 01:15:20.922] [modloading-worker-0/INFO] [com.cobblemon.mod.common.Cobblemon/]: Note: Cobblemon data registries are only loaded once per server instance as Pokémon species are not safe to reload.
+[22Sep2026 01:15:20.923] [modloading-worker-0/INFO] [com.cobblemon.mod.common.Cobblemon/]: Registered the cobblemon:molang registry
+[22Sep2026 01:15:20.926] [modloading-worker-0/INFO] [com.cobblemon.mod.common.Cobblemon/]: Registered the cobblemon:species_features registry
+[22Sep2026 01:15:20.927] [modloading-worker-0/INFO] [com.cobblemon.mod.common.Cobblemon/]: Registered the cobblemon:global_species_features registry
+[22Sep2026 01:15:20.929] [modloading-worker-0/INFO] [com.cobblemon.mod.common.Cobblemon/]: Registered the cobblemon:species_feature_assignments registry
+[22Sep2026 01:15:20.944] [modloading-worker-0/INFO] [com.cobblemon.mod.common.Cobblemon/]: Registered the cobblemon:action_effects registry
+[22Sep2026 01:15:20.946] [modloading-worker-0/INFO] [com.cobblemon.mod.common.Cobblemon/]: Registered the cobblemon:moves registry
+[22Sep2026 01:15:20.953] [modloading-worker-0/INFO] [com.cobblemon.mod.common.Cobblemon/]: Registered the cobblemon:moveset_builders registry
+[22Sep2026 01:15:20.958] [modloading-worker-0/INFO] [com.cobblemon.mod.common.Cobblemon/]: Registered the cobblemon:abilities registry
+[22Sep2026 01:15:20.960] [modloading-worker-0/INFO] [com.cobblemon.mod.common.Cobblemon/]: Registered the cobblemon:behaviours registry
+[22Sep2026 01:15:20.963] [modloading-worker-0/INFO] [com.cobblemon.mod.common.Cobblemon/]: Registered the cobblemon:marks registry
+[22Sep2026 01:15:20.964] [modloading-worker-0/INFO] [com.cobblemon.mod.common.Cobblemon/]: Registered the cobblemon:species registry
+[22Sep2026 01:15:20.964] [modloading-worker-0/INFO] [com.cobblemon.mod.common.Cobblemon/]: Registered the cobblemon:species_additions registry
+[22Sep2026 01:15:20.964] [modloading-worker-0/INFO] [com.cobblemon.mod.common.Cobblemon/]: Registered the cobblemon:pokeballs registry
+[22Sep2026 01:15:20.966] [modloading-worker-0/INFO] [com.cobblemon.mod.common.Cobblemon/]: Registered the cobblemon:properties_tab_completion registry
+[22Sep2026 01:15:20.968] [modloading-worker-0/INFO] [com.cobblemon.mod.common.Cobblemon/]: Registered the cobblemon:party_pools registry
+[22Sep2026 01:15:20.970] [modloading-worker-0/INFO] [com.cobblemon.mod.common.Cobblemon/]: Registered the cobblemon:party_compositions registry
+[22Sep2026 01:15:20.970] [modloading-worker-0/INFO] [com.cobblemon.mod.common.Cobblemon/]: Registered the cobblemon:spawn_detail_presets registry
+[22Sep2026 01:15:20.977] [modloading-worker-0/INFO] [com.cobblemon.mod.common.Cobblemon/]: Registered the cobblemon:spawn_rules registry
+[22Sep2026 01:15:21.362] [modloading-worker-0/INFO] [com.cobblemon.mod.common.Cobblemon/]: Registered the cobblemon:mechanics registry
+[22Sep2026 01:15:21.363] [modloading-worker-0/INFO] [com.cobblemon.mod.common.Cobblemon/]: Registered the cobblemon:bag_items registry
+[22Sep2026 01:15:21.366] [modloading-worker-0/INFO] [com.cobblemon.mod.common.Cobblemon/]: Registered the cobblemon:held_items registry
+[22Sep2026 01:15:21.371] [modloading-worker-0/INFO] [com.cobblemon.mod.common.Cobblemon/]: Registered the cobblemon:dialogues registry
+[22Sep2026 01:15:21.373] [modloading-worker-0/INFO] [com.cobblemon.mod.common.Cobblemon/]: Registered the cobblemon:natural_materials registry
+[22Sep2026 01:15:21.375] [modloading-worker-0/INFO] [com.cobblemon.mod.common.Cobblemon/]: Registered the cobblemon:fossils registry
+[22Sep2026 01:15:21.381] [modloading-worker-0/INFO] [com.cobblemon.mod.common.Cobblemon/]: Registered the cobblemon:npc_preset registry
+[22Sep2026 01:15:21.384] [modloading-worker-0/INFO] [com.cobblemon.mod.common.Cobblemon/]: Registered the cobblemon:npc registry
+[22Sep2026 01:15:21.386] [modloading-worker-0/INFO] [com.cobblemon.mod.common.Cobblemon/]: Registered the cobblemon:dex_entries registry
+[22Sep2026 01:15:21.387] [modloading-worker-0/INFO] [com.cobblemon.mod.common.Cobblemon/]: Registered the cobblemon:dex_entry_additions registry
+[22Sep2026 01:15:21.392] [modloading-worker-0/INFO] [com.cobblemon.mod.common.Cobblemon/]: Registered the cobblemon:dexes registry
+[22Sep2026 01:15:21.393] [modloading-worker-0/INFO] [com.cobblemon.mod.common.Cobblemon/]: Registered the cobblemon:dex_additions registry
+[22Sep2026 01:15:21.395] [modloading-worker-0/INFO] [com.cobblemon.mod.common.Cobblemon/]: Registered the cobblemon:cosmetic_items registry
+[22Sep2026 01:15:21.397] [modloading-worker-0/INFO] [com.cobblemon.mod.common.Cobblemon/]: Registered the cobblemon:callbacks registry
+[22Sep2026 01:15:21.399] [modloading-worker-0/INFO] [com.cobblemon.mod.common.Cobblemon/]: Registered the cobblemon:unlockable_pc_box_wallpapers registry
+[22Sep2026 01:15:21.401] [modloading-worker-0/INFO] [com.cobblemon.mod.common.Cobblemon/]: Registered the cobblemon:starters registry
+[22Sep2026 01:15:21.410] [modloading-worker-0/INFO] [com.cobblemon.mod.common.Cobblemon/]: Registered the cobblemon:spawn_pool_world registry
+[22Sep2026 01:15:21.411] [modloading-worker-0/INFO] [com.cobblemon.mod.common.Cobblemon/]: Registered the cobblemon:pokerods registry
+[22Sep2026 01:15:21.421] [modloading-worker-0/INFO] [com.cobblemon.mod.common.Cobblemon/]: Registered the cobblemon:berries registry
+[22Sep2026 01:15:21.423] [modloading-worker-0/INFO] [com.cobblemon.mod.common.Cobblemon/]: Registered the cobblemon:habitat_pools registry
+[22Sep2026 01:15:21.426] [modloading-worker-0/INFO] [com.cobblemon.mod.common.Cobblemon/]: Registered the cobblemon:seasonings registry
+[22Sep2026 01:15:21.762] [modloading-worker-0/INFO] [com.cobblemon.mod.common.Cobblemon/]: Registered the cobblemon:pokemon_interactions registry
+[22Sep2026 01:15:21.765] [modloading-worker-0/INFO] [com.cobblemon.mod.common.Cobblemon/]: Registered the cobblemon:spawn_bait_effects registry
+[22Sep2026 01:15:21.768] [modloading-worker-0/INFO] [com.cobblemon.mod.common.Cobblemon/]: Registered the cobblemon:ride_settings registry
+[22Sep2026 01:15:21.774] [modloading-worker-0/INFO] [com.cobblemon.mod.common.Cobblemon/]: Registered the cobblemon:technical_machines registry
+[22Sep2026 01:15:22.267] [modloading-sync-worker/INFO] [Moonlight/]: Initialized color sets in 52ms
+[22Sep2026 01:15:22.630] [modloading-sync-worker/INFO] [Supplementaries/]: Finished mod setup in: [5, 0, 0, 0, 3, 0] ms
+[22Sep2026 01:15:25.925] [main/INFO] [com.mojang.authlib.yggdrasil.YggdrasilAuthenticationService/]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
+[22Sep2026 01:15:25.969] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/srv/libraries/net/minecraft/server/1.21.1-20240808.144430/server-1.21.1-20240808.144430-srg.jar%23126!/assets/.mcassetsroot' uses unexpected schema
+[22Sep2026 01:15:25.969] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/srv/libraries/net/minecraft/server/1.21.1-20240808.144430/server-1.21.1-20240808.144430-srg.jar%23126!/data/.mcassetsroot' uses unexpected schema
+[22Sep2026 01:15:26.441] [main/INFO] [com.simibubi.create.Create/]: Created 184 recipes which will be injected into the game
+[22Sep2026 01:15:26.454] [main/INFO] [com.simibubi.create.Create/]: Created 1 tags which will be injected into the game
+[22Sep2026 01:15:26.878] [main/INFO] [net.minecraft.server.MinecraftServer/]: Found new data pack supplementaries:generated_pack, loading it automatically
+[22Sep2026 01:15:27.193] [main/INFO] [net.minecraft.server.MinecraftServer/]: Found new data pack create:dynamic_data, loading it automatically
+[22Sep2026 01:15:27.228] [main/INFO] [Moonlight/]: Resource cache state for SERVER_DATA: needs regeneration
+[22Sep2026 01:15:27.230] [main/INFO] [Moonlight/]: Cleared cache pack resources at /srv/dynamic-data-pack-cache/supplementaries-generated_pack in 775.8 μs
+[22Sep2026 01:15:27.231] [main/INFO] [Moonlight/]: Starting runtime resource generation for pack type SERVER_DATA with generators [supplementaries:generated_pack]
+[22Sep2026 01:15:27.235] [main/INFO] [Moonlight/]: Regenerating Dynamic SERVER_DATA Resources Provider [supplementaries:generated_pack], requested by strategy CACHED_FOLDER
+[22Sep2026 01:15:27.276] [pool-5-thread-1/INFO] [Supplementaries/]: Generated 12 sign post recipes
+[22Sep2026 01:15:27.292] [main/INFO] [Moonlight/]: Generated runtime SERVER_DATA for pack supplementaries:generated_pack in 56.34 ms
+[22Sep2026 01:15:27.300] [main/INFO] [Moonlight/]: Populated search tree for pack at /srv/dynamic-data-pack-cache/supplementaries-generated_pack in 4.219 ms
+[22Sep2026 01:15:27.304] [main/INFO] [Moonlight/]: Finished runtime resources generation for 1 packs in a total of 71.95 ms 
+[22Sep2026 01:15:44.092] [main/INFO] [net.minecraft.server.Main/]: No existing world data, creating new world
+[22Sep2026 01:15:57.724] [main/WARN] [net.minecraft.server.Main/]: Failed to load datapacks, can't proceed with server load. You can either fix your datapacks or reset to vanilla with --safeMode
 java.util.concurrent.ExecutionException: java.lang.OutOfMemoryError: Java heap space
 	at java.base/java.util.concurrent.CompletableFuture.reportGet(CompletableFuture.java:396) ~[?:?]
 	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2073) ~[?:?]
@@ -170,29 +170,12 @@ java.util.concurrent.ExecutionException: java.lang.OutOfMemoryError: Java heap s
 	at cpw.mods.bootstraplauncher@2.0.2/cpw.mods.bootstraplauncher.BootstrapLauncher.run(BootstrapLauncher.java:210) [bootstraplauncher-2.0.2.jar:?]
 	at cpw.mods.bootstraplauncher@2.0.2/cpw.mods.bootstraplauncher.BootstrapLauncher.main(BootstrapLauncher.java:69) [bootstraplauncher-2.0.2.jar:?]
 Caused by: java.lang.OutOfMemoryError: Java heap space
-	at java.base/java.io.InputStream.readNBytes(InputStream.java:408) ~[?:?]
-	at java.base/java.io.InputStream.readAllBytes(InputStream.java:349) ~[?:?]
-	at jdk.zipfs@21.0.12/jdk.nio.zipfs.ZipFileSystem.newByteChannel(ZipFileSystem.java:977) ~[jdk.zipfs:?]
-	at jdk.zipfs@21.0.12/jdk.nio.zipfs.ZipPath.newByteChannel(ZipPath.java:870) ~[jdk.zipfs:?]
-	at jdk.zipfs@21.0.12/jdk.nio.zipfs.ZipFileSystemProvider.newByteChannel(ZipFileSystemProvider.java:247) ~[jdk.zipfs:?]
-	at java.base/java.nio.file.Files.newByteChannel(Files.java:380) ~[?:?]
-	at java.base/java.nio.file.Files.newByteChannel(Files.java:432) ~[?:?]
-	at cpw.mods.securejarhandler/cpw.mods.niofs.union.UnionFileSystem.byteChannel(UnionFileSystem.java:393) ~[securejarhandler-3.0.8.jar:?]
-	at cpw.mods.securejarhandler/cpw.mods.niofs.union.UnionFileSystem$$Lambda/0x00007f6a0401e6a8.apply(Unknown Source) ~[?:?]
-	at java.base/java.util.Optional.map(Optional.java:260) ~[?:?]
-	at cpw.mods.securejarhandler/cpw.mods.niofs.union.UnionFileSystem.newReadByteChannel(UnionFileSystem.java:380) ~[securejarhandler-3.0.8.jar:?]
-	at cpw.mods.securejarhandler/cpw.mods.niofs.union.UnionFileSystemProvider.newByteChannel(UnionFileSystemProvider.java:169) ~[securejarhandler-3.0.8.jar:?]
-	at java.base/java.nio.file.Files.newByteChannel(Files.java:380) ~[?:?]
-	at java.base/java.nio.file.Files.newByteChannel(Files.java:432) ~[?:?]
-	at java.base/java.nio.file.spi.FileSystemProvider.newInputStream(FileSystemProvider.java:420) ~[?:?]
-	at java.base/java.nio.file.Files.newInputStream(Files.java:160) ~[?:?]
-	at TRANSFORMER/minecraft@1.21.1/net.minecraft.server.packs.resources.IoSupplier.lambda$create$0(IoSupplier.java:13) ~[server-1.21.1-20240808.144430-srg.jar%23126!/:?]
-	at TRANSFORMER/minecraft@1.21.1/net.minecraft.server.packs.resources.IoSupplier$$Lambda/0x00007f6a05b12080.get(Unknown Source) ~[?:?]
-	at TRANSFORMER/minecraft@1.21.1/net.minecraft.server.packs.resources.Resource.open(Resource.java:48) ~[server-1.21.1-20240808.144430-srg.jar%23126!/:?]
+	at java.base/java.io.BufferedReader.<init>(BufferedReader.java:104) ~[?:?]
+	at java.base/java.io.BufferedReader.<init>(BufferedReader.java:115) ~[?:?]
 	at TRANSFORMER/minecraft@1.21.1/net.minecraft.server.packs.resources.Resource.openAsReader(Resource.java:52) ~[server-1.21.1-20240808.144430-srg.jar%23126!/:?]
 	at TRANSFORMER/minecraft@1.21.1/net.minecraft.server.packs.resources.SimpleJsonResourceReloadListener.scanDirectory(SimpleJsonResourceReloadListener.java:41) ~[server-1.21.1-20240808.144430-srg.jar%23126!/:?]
 	at TRANSFORMER/minecraft@1.21.1/net.minecraft.server.ReloadableServerRegistries.lambda$scheduleElementParse$4(ReloadableServerRegistries.java:62) ~[server-1.21.1-20240808.144430-srg.jar%23126!/:?]
-	at TRANSFORMER/minecraft@1.21.1/net.minecraft.server.ReloadableServerRegistries$$Lambda/0x00007f6a05b95d88.get(Unknown Source) ~[?:?]
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.server.ReloadableServerRegistries$$Lambda/0x00007f8f09bac248.get(Unknown Source) ~[?:?]
 	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1768) ~[?:?]
 	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.exec(CompletableFuture.java:1760) ~[?:?]
 	at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:387) ~[?:?]

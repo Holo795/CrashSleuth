@@ -1,0 +1,8 @@
+{
+  "situation": null,
+  "culprit": null,
+  "logs": [
+    "latest.log"
+  ],
+  "crashes": true
+}

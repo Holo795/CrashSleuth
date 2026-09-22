@@ -3,5 +3,6 @@
  "minecraftVersion": "1.21.1",
  "loaderVersion": null,
  "side": "SERVER",
- "jars": []
+ "jars": [],
+ "skipped": []
 }

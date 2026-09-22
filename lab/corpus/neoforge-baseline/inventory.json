@@ -31,11 +31,13 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "FarmersDelight-1.21.1-1.3.4.jar",
@@ -70,11 +72,13 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "Jade-1.21.1-NeoForge-15.10.6.jar",
@@ -97,11 +101,13 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "appleskin-neoforge-mc1.21-3.0.9.jar",
@@ -124,11 +130,13 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "appliedenergistics2-19.2.17.jar",
@@ -181,11 +189,13 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "balm-neoforge-1.21.1-21.0.65.jar",
@@ -214,7 +224,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [
@@ -240,10 +251,12 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "create-1.21.1-6.0.10.jar",
@@ -321,7 +334,8 @@
       }
      ],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [
@@ -359,7 +373,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "NEOFORGE",
@@ -389,10 +404,12 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "ferritecore-7.0.3-neoforge.jar",
@@ -421,11 +438,13 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "guideme-21.1.19.jar",
@@ -454,11 +473,13 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "jei-1.21.1-neoforge-19.51.0.418.jar",
@@ -487,11 +508,13 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "kotlinforforge-5.12.0-all.jar",
@@ -515,7 +538,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FORGE",
@@ -533,10 +557,12 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
-   "error": null
+   "error": null,
+   "javaVersion": null
   },
   {
    "file": "modernfix-neoforge-5.27.24+mc1.21.1.jar",
@@ -571,11 +597,13 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "moonlight-1.21.1-3.6.8-neoforge.jar",
@@ -598,7 +626,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [
@@ -624,10 +653,12 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "sophisticatedbackpacks-1.21.1-3.26.3.2158.jar",
@@ -662,11 +693,13 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "sophisticatedcore-1.21.1-1.5.1.2341.jar",
@@ -701,11 +734,13 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "supplementaries-1.21.1-3.9.9-neoforge.jar",
@@ -765,7 +800,8 @@
       }
      ],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [
@@ -778,7 +814,8 @@
      "dependencies": [],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "NEOFORGE",
@@ -802,10 +839,12 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "waystones-neoforge-1.21.1-21.1.45.jar",
@@ -840,11 +879,14 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   }
- ]
+ ],
+ "skipped": []
 }

@@ -188,7 +188,9 @@ def paper_api(minecraft: str) -> Path:
 
 def build_paper_fixture(minecraft: str) -> Path:
     """Compiles lab/fixtures/paper into a plugin jar, in a Java container."""
-    output = CACHE / "fixtures" / f"CrashSleuthFixture-{minecraft}.jar"
+    sources = sorted(p for p in (LAB_DIR / "fixtures" / "paper").rglob("*") if p.is_file())
+    digest = hashlib.sha1(b"".join(p.read_bytes() for p in sources)).hexdigest()[:10]
+    output = CACHE / "fixtures" / f"CrashSleuthFixture-{minecraft}-{digest}.jar"
     if output.exists():
         return output
     work = CACHE / "fixtures" / f"build-{minecraft}"
@@ -229,7 +231,9 @@ class Scenario:
     after_ready: int = 0                                # seconds to keep the server running once it is ready
     memory: str = "2G"
     timeout: int = 420
-    expect: Expectation | None = None                   # None: must start cleanly with no finding
+    crashes: bool = False                               # expected to crash without any explanation in its logs
+    bisect: dict | None = None                          # {"culprits": [...], "max_runs"?}: culprit search expected result
+    expect: Expectation | None = None                   # None: must start cleanly with no finding (unless crashes)
 
 
 def load_scenarios() -> list[Scenario]:
@@ -363,6 +367,8 @@ def verdict(scenario: Scenario, outcome: str, report: dict) -> tuple[bool, str]:
     summary = ", ".join(
         f"{f['situation']}[{'/'.join(c['id'] for c in f.get('culprits', []))}]" for f in findings[:3]
     ) or "no finding"
+    if scenario.expect is None and scenario.crashes:
+        return outcome != "ready", f"started={outcome} (crash expected), {summary}"
     if scenario.expect is None:
         ok = outcome == "ready" and not findings
         return ok, f"started={outcome}, {summary}"
@@ -376,6 +382,27 @@ def verdict(scenario: Scenario, outcome: str, report: dict) -> tuple[bool, str]:
         if any(needle in (c.get("id") or "").lower() or needle in (c.get("name") or "").lower() for c in finding.get("culprits", [])):
             return True, summary
     return False, f"started={outcome}, expected {scenario.expect.situation}[{scenario.expect.culprit}], got {summary}"
+
+
+def bisect(cli_home: str, scenario: Scenario, directory: Path) -> tuple[bool, str, dict | None]:
+    """Runs the culprit search on the server folder, inside a Java container, and checks its answer."""
+    expected = [name.lower() for name in scenario.bisect["culprits"]]
+    command = [
+        "docker", "run", "--rm", "--memory", "6500m", "--user", f"{os.getuid()}:{os.getgid()}", "-e", "HOME=/tmp",
+        "-v", f"{cli_home}:/opt/crashsleuth:ro", "-v", f"{RUNS}:{RUNS}", f"eclipse-temurin:{scenario.java}-jdk",
+        "/opt/crashsleuth/bin/crashsleuth", "bisect", str(directory), "--json", "--work", "/tmp/bisect",
+        "--max-runs", str(scenario.bisect.get("max_runs", 30)), "--timeout", str(max(5, scenario.timeout // 60)),
+    ]
+    started = time.time()
+    result = subprocess.run(command, capture_output=True, text=True, timeout=4 * 3600)
+    (directory / "bisect.log").write_text(result.stderr)
+    if result.returncode != 0:
+        return False, f"bisect error: {result.stderr[-400:]}", None
+    answer = json.loads(result.stdout)
+    found = [c.lower() for c in answer["culprits"]]
+    ok = answer["complete"] and len(found) == len(expected) and all(any(e in f for f in found) for e in expected)
+    detail = f"bisect: {answer['labels']} in {len(answer['runs'])} launches, {(time.time() - started) / 60:.1f} min"
+    return ok, detail, answer
 
 
 def anonymise(text: str) -> str:
@@ -392,12 +419,17 @@ def run(names: list[str], cli: str, keep: bool) -> int:
         directory = RUNS / scenario.name
         shutil.rmtree(directory, ignore_errors=True)
         print(f"== {scenario.name}: {scenario.description}", flush=True)
+        answer = None
         try:
             command = prepare(scenario, directory)
             outcome, duration = run_server(scenario, directory, command)
             log = pick_log(directory)
             report, inventory = analyse(cli, directory, log)
             ok, detail = verdict(scenario, outcome, report)
+            if scenario.bisect:
+                print(f"   analysis {'PASS' if ok else 'FAIL'}: {detail}", flush=True)
+                found, detail, answer = bisect(os.environ.get("CRASHSLEUTH_HOME", "/tmp/crashsleuth-cli"), scenario, directory)
+                ok = ok and found
         except Exception as error:  # a broken scenario must not stop the others
             ok, detail, duration, log, inventory = False, f"lab error: {error}", 0.0, None, None
         failures += 0 if ok else 1
@@ -406,12 +438,14 @@ def run(names: list[str], cli: str, keep: bool) -> int:
             target = CORPUS / scenario.name
             target.mkdir(parents=True, exist_ok=True)
             (target / log.name).write_text(anonymise(log.read_text(errors="replace")))
+            if answer is not None:
+                (target / "bisect.json").write_text(json.dumps(answer, indent=1) + "\n")
             if inventory is not None:
                 (target / "inventory.json").write_text(anonymise(json.dumps(inventory, indent=1)) + "\n")
             (target / "expected.json").write_text(json.dumps(
                 {"situation": scenario.expect.situation if scenario.expect else None,
                  "culprit": scenario.expect.culprit if scenario.expect else None,
-                 "logs": [log.name]}, indent=2) + "\n")
+                 "logs": [log.name], **({"crashes": True} if scenario.crashes else {})}, indent=2) + "\n")
         if not keep:
             shutil.rmtree(directory, ignore_errors=True)
     print(f"\n{len(selected) - failures}/{len(selected)} scenarios passed")

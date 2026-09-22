@@ -43,11 +43,15 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": "1.13"
+     "apiVersion": "1.13",
+     "entrypoints": [
+      "org.popcraft.chunky.ChunkyBukkit"
+     ]
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 25
   },
   {
    "file": "LuckPerms-Bukkit-5.5.71.jar",
@@ -76,11 +80,15 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": "1.13"
+     "apiVersion": "1.13",
+     "entrypoints": [
+      "me.lucko.luckperms.bukkit.loader.BukkitLoaderPlugin"
+     ]
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 11
   },
   {
    "file": "ViaVersion-5.12.0.jar",
@@ -103,7 +111,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "BUKKIT",
@@ -114,7 +123,10 @@
      "dependencies": [],
      "breaks": [],
      "provides": [],
-     "apiVersion": "1.13"
+     "apiVersion": "1.13",
+     "entrypoints": [
+      "com.viaversion.viaversion.ViaVersionPlugin"
+     ]
     },
     {
      "format": "VELOCITY",
@@ -125,11 +137,14 @@
      "dependencies": [],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 17
   }
- ]
+ ],
+ "skipped": []
 }

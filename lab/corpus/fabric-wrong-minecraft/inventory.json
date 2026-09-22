@@ -38,11 +38,16 @@
       }
      ],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "me.jellysquid.mods.lithium.common.LithiumMod"
+     ]
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 17
   }
- ]
+ ],
+ "skipped": []
 }

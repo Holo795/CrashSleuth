@@ -49,11 +49,16 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": "1.13"
+     "apiVersion": "1.13",
+     "entrypoints": [
+      "org.popcraft.chunkyborder.ChunkyBorderBukkit"
+     ]
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   }
- ]
+ ],
+ "skipped": []
 }

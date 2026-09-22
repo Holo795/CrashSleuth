@@ -437,6 +437,12 @@
     "expect": {
       "situation": "CLIENT_ONLY_ON_SERVER",
       "culprit": "statuseffectbars"
+    },
+    "bisect": {
+      "culprits": [
+        "statuseffectbars"
+      ],
+      "max_runs": 12
     }
   },
   {
@@ -468,6 +474,80 @@
     "expect": {
       "situation": "DEP_MISSING",
       "culprit": "puzzleslib"
+    }
+  },
+  {
+    "name": "bisect-paper-silent-crash",
+    "description": "Paper 1.21.1 with 12 plugins, one stops the JVM without a word: found by launching",
+    "platform": "paper",
+    "minecraft": "1.21.1",
+    "java": 21,
+    "mods": [
+      "luckperms",
+      "chunky",
+      "worldedit",
+      "coreprotect",
+      "viaversion",
+      "squaremap",
+      "simple-voice-chat",
+      "placeholderapi",
+      "multiverse-core",
+      "tab-was-taken",
+      "worldguard",
+      "decentholograms"
+    ],
+    "fixture": "halt",
+    "crashes": true,
+    "bisect": {
+      "culprits": [
+        "CrashSleuthFixture"
+      ],
+      "max_runs": 20
+    }
+  },
+  {
+    "name": "bisect-paper-conflict",
+    "description": "Paper 1.21.1 with 12 plugins, two only crash together (fixture + LuckPerms)",
+    "platform": "paper",
+    "minecraft": "1.21.1",
+    "java": 21,
+    "mods": [
+      "luckperms",
+      "chunky",
+      "worldedit",
+      "coreprotect",
+      "viaversion",
+      "squaremap",
+      "simple-voice-chat",
+      "placeholderapi",
+      "multiverse-core",
+      "tab-was-taken",
+      "worldguard",
+      "decentholograms"
+    ],
+    "fixture": "halt-with:LuckPerms",
+    "crashes": true,
+    "bisect": {
+      "culprits": [
+        "CrashSleuthFixture",
+        "LuckPerms"
+      ],
+      "max_runs": 30
+    }
+  },
+  {
+    "name": "paper-decentholograms",
+    "description": "Paper 1.21.1 with DecentHolograms 2.10.1, whose Java 25 classes make Paper's remapper give up: the plugin is silently not loaded",
+    "platform": "paper",
+    "minecraft": "1.21.1",
+    "java": 21,
+    "mods": [
+      "decentholograms"
+    ],
+    "after_ready": 5,
+    "expect": {
+      "situation": "PLUGIN_API",
+      "culprit": "DecentHolograms"
     }
   }
 ]

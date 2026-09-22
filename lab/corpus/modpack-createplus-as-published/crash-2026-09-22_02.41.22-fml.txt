@@ -9,14 +9,14 @@ If you're unsure, file a report on Connector's issue tracker found at https://gi
 
 
 
-// What did you do
+// Lets see if this is repro or cosmic radiation
 Please make sure this issue is not caused by Sable before reporting it to other mod authors.
 If you cannot reproduce it without Sable, file a report on the issue tracker
 https://github.com/ryanhcode/sable/issues
 
-// Everything's going to plan. No, really, that was supposed to happen.
+// This doesn't make any sense!
 
-Time: 2026-09-21 23:35:31
+Time: 2026-09-22 02:41:22
 Description: Mod loading failures have occurred; consult the issue messages for more details
 
 net.neoforged.neoforge.logging.CrashReportExtender$ModLoadingCrashException: Mod loading has failed
@@ -89,7 +89,7 @@ Details:
 	Operating System: Linux (amd64) version 6.1.0-53-cloud-amd64
 	Java Version: 21.0.12, Eclipse Adoptium
 	Java VM Version: OpenJDK 64-Bit Server VM (mixed mode, sharing), Eclipse Adoptium
-	Memory: 471686632 bytes (449 MiB) / 1606418432 bytes (1532 MiB) up to 5368709120 bytes (5120 MiB)
+	Memory: 125878408 bytes (120 MiB) / 1811939328 bytes (1728 MiB) up to 5368709120 bytes (5120 MiB)
 	CPUs: 4
 	Processor Vendor: GenuineIntel
 	Processor Name: Intel(R) Xeon(R) CPU E5-2470 v2 @ 2.40GHz
@@ -104,15 +104,15 @@ Details:
 	Graphics card #0 VRAM (MiB): 0.00
 	Graphics card #0 deviceId: unknown
 	Graphics card #0 versionInfo: unknown
-	Virtual memory max (MiB): 3976.64
-	Virtual memory used (MiB): 2510.36
+	Virtual memory max (MiB): 3976.63
+	Virtual memory used (MiB): 2665.64
 	Swap memory total (MiB): 0.00
 	Swap memory used (MiB): 0.00
 	Space in storage for jna.tmpdir (MiB): <path not set>
 	Space in storage for org.lwjgl.system.SharedLibraryExtractPath (MiB): <path not set>
 	Space in storage for io.netty.native.workdir (MiB): <path not set>
-	Space in storage for java.io.tmpdir (MiB): available: 47682.20, total: 60267.50
-	Space in storage for workdir (MiB): available: 47682.20, total: 60267.50
+	Space in storage for java.io.tmpdir (MiB): available: 47664.01, total: 60267.50
+	Space in storage for workdir (MiB): available: 47664.01, total: 60267.50
 	JVM Flags: 2 total; -Xms256M -Xmx5G
 	Sinytra Connector: 2.0.0-beta.14+1.21.1
 		SINYTRA CONNECTOR IS PRESENT!
@@ -327,6 +327,6 @@ Details:
 		YungsBetterStrongholds-1.21.1-NeoForge-5.1.3.jar  |YUNG's Better Strongholds     |betterstrongholds             |1.21.1-NeoForge-5.1.|Manifest: NOSIGNATURE
 		YungsExtras-1.21.1-NeoForge-5.1.1.jar             |YUNG's Extras                 |yungsextras                   |1.21.1-NeoForge-5.1.|Manifest: NOSIGNATURE
 		Zeta-1.1-40.jar                                   |Zeta                          |zeta                          |1.1-40              |Manifest: NOSIGNATURE
-	Crash Report UUID: c106bef7-83e3-4b96-86d0-5c33b6741e24
+	Crash Report UUID: 7e036960-4ceb-44a0-842b-dbd8d25376a5
 	FML: 4.0.44
 	NeoForge: 21.1.251

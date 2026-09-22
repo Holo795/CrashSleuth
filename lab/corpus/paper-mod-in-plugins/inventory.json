@@ -31,11 +31,14 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   }
- ]
+ ],
+ "skipped": []
 }

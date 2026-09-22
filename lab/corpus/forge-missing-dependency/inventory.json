@@ -49,7 +49,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [
@@ -62,7 +63,8 @@
      "dependencies": [],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FORGE",
@@ -73,10 +75,13 @@
      "dependencies": [],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
-   "error": null
+   "error": null,
+   "javaVersion": 17
   }
- ]
+ ],
+ "skipped": []
 }

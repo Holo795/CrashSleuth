@@ -85,6 +85,67 @@
    "javaVersion": 11
   },
   {
+   "file": "CrashSleuthFixture-1.0.0.jar",
+   "folder": "plugins",
+   "size": 2961,
+   "mods": [
+    {
+     "format": "BUKKIT",
+     "id": "CrashSleuthFixture",
+     "name": null,
+     "version": "1.0.0",
+     "environment": "UNKNOWN",
+     "dependencies": [],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": "1.21",
+     "entrypoints": [
+      "dev.holo795.crashsleuth.fixture.FixturePlugin"
+     ]
+    }
+   ],
+   "nested": [],
+   "error": null,
+   "javaVersion": 21
+  },
+  {
+   "file": "DecentHolograms-2.10.1.jar",
+   "folder": "plugins",
+   "size": 3938139,
+   "mods": [
+    {
+     "format": "BUKKIT",
+     "id": "DecentHolograms",
+     "name": null,
+     "version": "2.10.1",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "PlaceholderAPI",
+       "versionRange": null,
+       "required": false,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "HeadDatabase",
+       "versionRange": null,
+       "required": false,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": "1.13",
+     "entrypoints": [
+      "eu.decentsoftware.holograms.plugin.DecentHologramsPlugin"
+     ]
+    }
+   ],
+   "nested": [],
+   "error": null,
+   "javaVersion": 8
+  },
+  {
    "file": "LuckPerms-Bukkit-5.5.71.jar",
    "folder": "plugins",
    "size": 1501521,
@@ -120,6 +181,97 @@
    "nested": [],
    "error": null,
    "javaVersion": 11
+  },
+  {
+   "file": "PlaceholderAPI-2.12.3.jar",
+   "folder": "plugins",
+   "size": 1160690,
+   "mods": [
+    {
+     "format": "BUKKIT",
+     "id": "PlaceholderAPI",
+     "name": null,
+     "version": "2.12.3",
+     "environment": "UNKNOWN",
+     "dependencies": [],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": "1.13",
+     "entrypoints": [
+      "me.clip.placeholderapi.PlaceholderAPIPlugin"
+     ]
+    }
+   ],
+   "nested": [],
+   "error": null,
+   "javaVersion": 8
+  },
+  {
+   "file": "TAB v6.2.0 - Paper 1.20.5 - 1.21.4.jar",
+   "folder": "plugins",
+   "size": 7872448,
+   "mods": [
+    {
+     "format": "BUKKIT",
+     "id": "TAB",
+     "name": null,
+     "version": "6.2.0",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "PlaceholderAPI",
+       "versionRange": null,
+       "required": false,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "LuckPerms",
+       "versionRange": null,
+       "required": false,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "LibsDisguises",
+       "versionRange": null,
+       "required": false,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "ViaVersion",
+       "versionRange": null,
+       "required": false,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "ViaRewind",
+       "versionRange": null,
+       "required": false,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "floodgate",
+       "versionRange": null,
+       "required": false,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "Vault",
+       "versionRange": null,
+       "required": false,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": "1.13",
+     "entrypoints": [
+      "me.neznamy.tab.platforms.bukkit.BukkitTAB"
+     ]
+    }
+   ],
+   "nested": [],
+   "error": null,
+   "javaVersion": 8
   },
   {
    "file": "ViaVersion-5.12.0.jar",
@@ -170,6 +322,43 @@
      "provides": [],
      "apiVersion": null,
      "entrypoints": []
+    }
+   ],
+   "nested": [],
+   "error": null,
+   "javaVersion": 17
+  },
+  {
+   "file": "multiverse-core-5.8.1.jar",
+   "folder": "plugins",
+   "size": 4627993,
+   "mods": [
+    {
+     "format": "BUKKIT",
+     "id": "Multiverse-Core",
+     "name": null,
+     "version": "5.8.1",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "Vault",
+       "versionRange": null,
+       "required": false,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "PlaceholderAPI",
+       "versionRange": null,
+       "required": false,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": "1.13",
+     "entrypoints": [
+      "org.mvplugins.multiverse.core.MultiverseCore"
+     ]
     }
    ],
    "nested": [],
@@ -261,6 +450,43 @@
      "apiVersion": "1.13",
      "entrypoints": [
       "com.sk89q.worldedit.bukkit.WorldEditPlugin"
+     ]
+    }
+   ],
+   "nested": [],
+   "error": null,
+   "javaVersion": 21
+  },
+  {
+   "file": "worldguard-bukkit-7.0.12-dist.jar",
+   "folder": "plugins",
+   "size": 1163769,
+   "mods": [
+    {
+     "format": "BUKKIT",
+     "id": "WorldGuard",
+     "name": null,
+     "version": "7.0.12+829a4a4",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "WorldEdit",
+       "versionRange": null,
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "CommandBook",
+       "versionRange": null,
+       "required": false,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": "1.21",
+     "entrypoints": [
+      "com.sk89q.worldguard.bukkit.WorldGuardPlugin"
      ]
     }
    ],

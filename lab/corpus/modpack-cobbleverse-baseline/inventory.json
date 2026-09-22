@@ -49,11 +49,16 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "com.anthonyhilyard.advancementplaques.fabric.AdvancementPlaquesFabric",
+      "com.anthonyhilyard.advancementplaques.fabric.client.AdvancementPlaquesFabricClient"
+     ]
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "BadOptimizations-2.4.1-1.21.1.jar",
@@ -82,7 +87,10 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "fabric.me.thosea.badoptimizations.fabric.modmenu.BadOptimizationsModMenu"
+     ]
     },
     {
      "format": "NEOFORGE",
@@ -100,7 +108,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [
@@ -120,10 +129,12 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "BetterF1-Fabric-1.1+1.21.7.jar",
@@ -152,11 +163,13 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "BetterF3-11.0.3-Fabric-1.21.1.jar",
@@ -191,7 +204,11 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "me.cominixo.betterf3.BetterF3Fabric",
+      "me.cominixo.betterf3.ModMenuIntegration"
+     ]
     }
    ],
    "nested": [
@@ -219,7 +236,11 @@
      "provides": [
       "cloth-config2"
      ],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "me.shedaniel.autoconfig.example.ExampleInits",
+      "me.shedaniel.clothconfig2.fabric.ClothConfigModMenuDemo"
+     ]
     },
     {
      "format": "FABRIC",
@@ -230,7 +251,8 @@
      "dependencies": [],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -248,10 +270,12 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "BetterThirdPerson-Fabric-1.21-1.9.0.jar",
@@ -286,11 +310,16 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "io.socol.betterthirdperson.BetterThirdPerson",
+      "io.socol.betterthirdperson.integration.modmenu.ModMenuIntegration"
+     ]
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "Carved Wood-fabric-1.21.1-1.9.7-B.jar",
@@ -331,7 +360,12 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "net.im_maker.carved_wood.CarvedWoodFabric",
+      "net.im_maker.carved_wood.CarvedWoodClient",
+      "net.im_maker.carved_wood.compatibility.jei.JEICompat"
+     ]
     }
    ],
    "nested": [
@@ -394,7 +428,10 @@
       }
      ],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "org.ladysnake.cca.internal.base.ComponentsInternals"
+     ]
     },
     {
      "format": "FABRIC",
@@ -436,7 +473,11 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "org.ladysnake.cca.internal.CardinalComponentsBlock",
+      "org.ladysnake.cca.internal.CcaBlockClient"
+     ]
     },
     {
      "format": "FABRIC",
@@ -472,10 +513,15 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "org.ladysnake.cca.internal.entity.CardinalComponentsEntity",
+      "org.ladysnake.cca.internal.entity.CcaEntityClient"
+     ]
     }
    ],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "CobbleDollars-fabric-2.0.0+Beta-5.1+1.21.1.jar",
@@ -516,11 +562,17 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "fr.harmex.cobbledollars.fabric.FabricBootstrap",
+      "fr.harmex.cobbledollars.fabric.client.CobbleDollarsFabricClient",
+      "fr.harmex.cobbledollars.fabric.client.ModMenuImpl"
+     ]
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "CobbleFurnies-fabric-1.2.jar",
@@ -579,11 +631,18 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "com.lunazstudios.cobblefurnies.fabric.CobbleFurniesFabric",
+      "com.lunazstudios.cobblefurnies.fabric.client.CobbleFurniesFabricClient",
+      "com.lunazstudios.cobblefurnies.fabric.compat.CobbleFurniesREIClient",
+      "com.lunazstudios.cobblefurnies.compat.JEICobbleFurniesPlugin"
+     ]
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "Cobblemon-fabric-1.7.3+1.21.1.jar",
@@ -624,7 +683,14 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "com.cobblemon.mod.fabric.FabricBootstrap",
+      "com.cobblemon.mod.fabric.client.CobblemonFabricClient",
+      "com.cobblemon.mod.common.integration.jei.CobblemonJeiPlugin",
+      "com.cobblemon.mod.common.compat.lambdynamiclights.LambDynamicLightsInitializer",
+      "com.cobblemon.mod.fabric.client.integration.modmenu.CobblemonModMenu"
+     ]
     }
    ],
    "nested": [
@@ -644,7 +710,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -655,7 +722,8 @@
      "dependencies": [],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -666,7 +734,8 @@
      "dependencies": [],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -677,7 +746,8 @@
      "dependencies": [],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -688,7 +758,8 @@
      "dependencies": [],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -699,7 +770,8 @@
      "dependencies": [],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -710,7 +782,8 @@
      "dependencies": [],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -721,7 +794,8 @@
      "dependencies": [],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -732,7 +806,8 @@
      "dependencies": [],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -743,7 +818,8 @@
      "dependencies": [],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -754,7 +830,8 @@
      "dependencies": [],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -765,7 +842,8 @@
      "dependencies": [],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -776,7 +854,8 @@
      "dependencies": [],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -787,10 +866,12 @@
      "dependencies": [],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "CobbleverseBadges-1.3.jar",
@@ -831,11 +912,17 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "com.lumyverse.cobbleversebadges.CobbleverseBadges",
+      "com.lumyverse.cobbleversebadges.CobbleverseBadgesClient",
+      "com.lumyverse.cobbleversebadges.CobbleverseBadgesDataGenerator"
+     ]
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "Cobbreeding-fabric-2.2.2.jar",
@@ -882,11 +969,17 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "ludichat.cobbreeding.fabric.Cobbreeding",
+      "ludichat.cobbreeding.fabric.CobbreedingClient",
+      "ludichat.cobbreeding.fabric.ConfigScreen"
+     ]
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "Controlling-fabric-1.21.1-19.0.5.jar",
@@ -933,11 +1026,13 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "Debugify-1.21.1+1.0.jar",
@@ -990,11 +1085,18 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "dev.isxander.debugify.Debugify",
+      "dev.isxander.debugify.client.DebugifyClient",
+      "com.llamalad7.mixinextras.MixinExtrasBootstrap",
+      "dev.isxander.debugify.client.integrations.ModMenuIntegration"
+     ]
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "EuphoriaPatcher-1.9.3-r5.8.1-fabric.jar",
@@ -1023,11 +1125,15 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "com.euphoriapatches.euphoria_patcher.fabric.ClientEuphoriaPatcher"
+     ]
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 8
   },
   {
    "file": "ForgeConfigAPIPort-v21.1.6-1.21.1-Fabric.jar",
@@ -1074,7 +1180,12 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "fuzs.forgeconfigapiport.fabric.impl.ForgeConfigAPIPortFabric",
+      "fuzs.forgeconfigapiport.fabric.impl.client.ForgeConfigAPIPortFabricClient",
+      "fuzs.forgeconfigapiport.fabric.impl.integration.modmenu.ModMenuApiImpl"
+     ]
     }
    ],
    "nested": [
@@ -1087,7 +1198,8 @@
      "dependencies": [],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -1098,10 +1210,12 @@
      "dependencies": [],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "Iceberg-1.21.1-fabric-1.3.2.jar",
@@ -1173,11 +1287,16 @@
       }
      ],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "com.anthonyhilyard.iceberg.fabric.client.IcebergFabricClient",
+      "com.anthonyhilyard.iceberg.fabric.server.IcebergFabricServer"
+     ]
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "ImmediatelyFast-Fabric-1.6.11+1.21.1.jar",
@@ -1219,7 +1338,8 @@
       }
      ],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [
@@ -1232,10 +1352,12 @@
      "dependencies": [],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "LegendaryMonuments-Cobbleverse.jar",
@@ -1288,11 +1410,17 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "github.jorgaomc.LegendaryMonuments",
+      "github.jorgaomc.LegendaryMonumentsClient",
+      "github.jorgaomc.LegendaryMonumentsDataGenerator"
+     ]
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "Luckys-Cozyhome-Refurnished-1.1.20.jar",
@@ -1333,11 +1461,17 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "net.luckystudio.cozyhome.CozyHome",
+      "net.luckystudio.cozyhome.CozyHomeDataGenerator",
+      "net.luckystudio.cozyhome.CozyHomeClient"
+     ]
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "LumyMon-0.6.6.jar",
@@ -1384,7 +1518,12 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "com.lumyverse.lumymon.LumyMon",
+      "com.lumyverse.lumymon.LumyMonClient",
+      "com.lumyverse.lumymon.LumyMonDataGenerator"
+     ]
     }
    ],
    "nested": [
@@ -1410,10 +1549,12 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "LumyREI-1.1.3.jar",
@@ -1466,11 +1607,15 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "com.lumyverse.lumyrei.LumyREI"
+     ]
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "MobsBeGone-0.0.7.jar",
@@ -1511,11 +1656,15 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "moe.okaeri.mobsbegone.MobsBeGone"
+     ]
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "MoreCobblemonTweaks-fabric-1.3.3.jar",
@@ -1568,11 +1717,16 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "me.justahuman.more_cobblemon_tweaks.MoreCobblemonTweaksFabric",
+      "me.justahuman.more_cobblemon_tweaks.ModMenuIntegration"
+     ]
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "MouseTweaks-fabric-mc1.21-2.26.jar",
@@ -1613,11 +1767,16 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "yalter.mousetweaks.fabric.MouseTweaksFabric",
+      "yalter.mousetweaks.ModMenuApiImpl"
+     ]
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "NoChatRestrictions-Fabric-MC1.21.11-v1.0.0.jar",
@@ -1658,11 +1817,15 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "com.aizistral.nochatrestrictions.NoChatRestrictions"
+     ]
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "Only Bottle Caps-1.3.0.jar",
@@ -1697,7 +1860,10 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "com.pcrgaming.obc.Obc"
+     ]
     }
    ],
    "nested": [
@@ -1735,7 +1901,11 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "com.supermartijn642.configlib.ConfigLib",
+      "com.supermartijn642.configlib.ConfigLibClient"
+     ]
     },
     {
      "format": "NEOFORGE",
@@ -1759,10 +1929,12 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "Ping-Wheel-1.12.2-fabric-1.21.1.jar",
@@ -1797,11 +1969,18 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "nx.pingwheel.fabric.FabricClient",
+      "nx.pingwheel.fabric.FabricMain",
+      "nx.pingwheel.fabric.integration.ModMenuIntegration",
+      "nx.pingwheel.common.integration.VoiceChatIntegration"
+     ]
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "Platform-fabric-1.21.1-1.3.3.jar",
@@ -1842,11 +2021,15 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "com.blackgear.platform.fabric.PlatformFabric"
+     ]
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "ResourcePackOverrides-v21.1.0-1.21.1-Fabric.jar",
@@ -1887,11 +2070,16 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "fuzs.resourcepackoverrides.fabric.ResourcePackOverridesFabric",
+      "fuzs.resourcepackoverrides.fabric.client.ResourcePackOverridesFabricClient"
+     ]
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "RoughlyEnoughItems-16.0.799-fabric.jar",
@@ -1921,7 +2109,17 @@
       }
      ],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "me.shedaniel.rei.impl.init.RoughlyEnoughItemsInitializer",
+      "me.shedaniel.rei.fabric.RoughlyEnoughItemsFabric",
+      "me.shedaniel.rei.impl.init.RoughlyEnoughItemsInitializer",
+      "me.shedaniel.rei.plugin.common.DefaultPlugin",
+      "me.shedaniel.rei.plugin.common.runtime.DefaultRuntimePlugin",
+      "me.shedaniel.rei.plugin.client.DefaultClientPlugin",
+      "me.shedaniel.rei.plugin.client.runtime.DefaultClientRuntimePlugin",
+      "me.shedaniel.rei.plugin.client.runtime.HideIngredientsFromTagsPlugin"
+     ]
     }
    ],
    "nested": [
@@ -1947,10 +2145,14 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "me.shedaniel.errornotifier.fabric.ErrorNotifierFabric"
+     ]
     }
    ],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "SafePastures-1.1.1+1.21.1.jar",
@@ -1991,11 +2193,15 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "chadlymasterson.safepastures.SafePastures"
+     ]
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "ScalableLux-0.1.0.1+fabric.d0d58ab-all.jar",
@@ -2033,11 +2239,15 @@
      "provides": [
       "starlight"
      ],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "ca.spottedleaf.starlight.common.ScalableLuxEntrypoint"
+     ]
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 17
   },
   {
    "file": "Searchables-fabric-1.21.1-1.0.2.jar",
@@ -2078,11 +2288,13 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "StackDeobfuscatorFabric-1.4.3+08e71cc.jar",
@@ -2117,7 +2329,10 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "dev.booky.stackdeobf.StackDeobfMod"
+     ]
     }
    ],
    "nested": [
@@ -2137,7 +2352,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -2148,10 +2364,12 @@
      "dependencies": [],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
-   "error": null
+   "error": null,
+   "javaVersion": 17
   },
   {
    "file": "VanillaBackport-fabric-1.21.1-1.1.7.10.jar",
@@ -2198,7 +2416,13 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "com.blackgear.vanillabackport.core.fabric.emissive.EmissiveModelHandler",
+      "com.blackgear.vanillabackport.core.fabric.VanillaBackportFabric",
+      "com.blackgear.vanillabackport.data.DataGenerator",
+      "com.blackgear.vanillabackport.core.fabric.VanillaBackportTerrablender"
+     ]
     }
    ],
    "nested": [
@@ -2218,10 +2442,12 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "accessories-fabric-1.1.0-beta.53+1.21.1.jar",
@@ -2263,7 +2489,14 @@
       }
      ],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "io.wispforest.accessories.fabric.AccessoriesFabric",
+      "io.wispforest.accessories.fabric.client.AccessoriesClientFabric",
+      "io.wispforest.accessories.compat.rei.AccessoriesClientREIPlugin",
+      "io.wispforest.accessories.compat.emi.AccessoriesClientEMIPlugin",
+      "io.wispforest.accessories.compat.jei.AccessoriesClientJEIPlugin"
+     ]
     }
    ],
    "nested": [
@@ -2292,10 +2525,12 @@
       "owo",
       "owo-lib"
      ],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "accessories_compat_layer-fabric-0.1.12+1.21.1.jar",
@@ -2358,7 +2593,10 @@
       "tclayer",
       "cclayer"
      ],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "io.wispforest.accessories_compat.curios.CuriosCompatMixinCanceller"
+     ]
     }
    ],
    "nested": [
@@ -2378,10 +2616,12 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "advancementdisable-fabric-1.0.1+1.21.jar",
@@ -2416,11 +2656,13 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 8
   },
   {
    "file": "architectury-13.0.8-fabric.jar",
@@ -2462,11 +2704,18 @@
       }
      ],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "dev.architectury.utils.fabric.GameInstanceImpl",
+      "dev.architectury.init.fabric.ArchitecturyServer",
+      "dev.architectury.init.fabric.ArchitecturyClient",
+      "dev.architectury.compat.fabric.ModMenuCompatibility"
+     ]
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "athena-fabric-1.21.1-4.0.6.jar",
@@ -2495,11 +2744,16 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "earth.terrarium.athena.impl.client.DefaultModels",
+      "earth.terrarium.athena.api.client.fabric.AthenaFabricClient"
+     ]
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "balm-fabric-1.21.1-21.0.63.jar",
@@ -2542,7 +2796,14 @@
      "provides": [
       "balm-fabric"
      ],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "net.blay09.mods.balm.fabric.FabricBalm",
+      "net.blay09.mods.balm.fabric.client.FabricBalmClient",
+      "net.blay09.mods.balm.fabric.compat.ModMenuIntegration",
+      "net.blay09.mods.balm.fabric.compat.hudinfo.FabricJadeModCompat",
+      "net.blay09.mods.balm.platform.compatibility.recipeviewer.internal.jei.CommonJeiPlugin"
+     ]
     }
    ],
    "nested": [
@@ -2580,10 +2841,14 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "net.blay09.mods.kuma.fabric.FabricKumaAPI"
+     ]
     }
    ],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "beautify-2.0.0+1.21.1.jar",
@@ -2630,11 +2895,18 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "io.github.suel_ki.beautify.Beautify",
+      "io.github.suel_ki.beautify.client.BeautifyClient",
+      "io.github.suel_ki.beautify.compat.jade.JadePlugin",
+      "io.github.suel_ki.beautify.util.ModMenuConfig"
+     ]
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 17
   },
   {
    "file": "better-pokedex-scanner-1.0.0.jar",
@@ -2669,11 +2941,16 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "com.joshiki.betterpokedexscanner.BetterPokedexScanner",
+      "com.joshiki.betterpokedexscanner.BetterPokedexScannerClient"
+     ]
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "betterbeds-fabric-1.4.0.jar",
@@ -2702,11 +2979,15 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "eu.midnightdust.fabric.betterbeds.BetterBedsFabric"
+     ]
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "biomereplacer-2.1-hippo-fabric.jar",
@@ -2735,7 +3016,10 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "net.werdei.biome_replacer.Platform"
+     ]
     }
    ],
    "nested": [
@@ -2755,10 +3039,12 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
-   "error": null
+   "error": null,
+   "javaVersion": 17
   },
   {
    "file": "brb-1.10.0-rc5+1.21.jar",
@@ -2793,7 +3079,11 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "marsh.town.brb.fabric.BetterRecipeBookFabric",
+      "marsh.town.brb.fabric.ModMenuFabric"
+     ]
     }
    ],
    "nested": [
@@ -2821,7 +3111,11 @@
      "provides": [
       "cloth-config2"
      ],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "me.shedaniel.autoconfig.example.ExampleInits",
+      "me.shedaniel.clothconfig2.fabric.ClothConfigModMenuDemo"
+     ]
     },
     {
      "format": "FABRIC",
@@ -2832,10 +3126,12 @@
      "dependencies": [],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "c2me-fabric-mc1.21.1-0.4.0-alpha.0.23.jar",
@@ -2889,7 +3185,11 @@
       }
      ],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "com.ishland.c2me.C2MEMod",
+      "com.ishland.c2me.PreLaunchHandler"
+     ]
     }
    ],
    "nested": [
@@ -2902,7 +3202,8 @@
      "dependencies": [],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -2926,7 +3227,10 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "com.ishland.c2me.base.C2MEBaseMod"
+     ]
     },
     {
      "format": "FABRIC",
@@ -2956,7 +3260,11 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "com.ishland.c2me.client.uncapvd.common.UncapVDInitializer",
+      "com.ishland.c2me.client.uncapvd.common.SodiumConfigBuilder"
+     ]
     },
     {
      "format": "FABRIC",
@@ -2986,7 +3294,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -3016,7 +3325,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -3052,7 +3362,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -3082,7 +3393,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -3118,7 +3430,10 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "com.ishland.c2me.notickvd.common.NoTickVDInitializer"
+     ]
     },
     {
      "format": "FABRIC",
@@ -3148,7 +3463,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -3178,7 +3494,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -3214,7 +3531,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -3244,7 +3562,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -3280,7 +3599,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -3310,7 +3630,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -3340,7 +3661,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -3376,7 +3698,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -3406,7 +3729,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -3436,7 +3760,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -3466,7 +3791,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -3502,7 +3828,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -3513,7 +3840,8 @@
      "dependencies": [],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -3524,7 +3852,8 @@
      "dependencies": [],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -3535,7 +3864,8 @@
      "dependencies": [],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -3546,7 +3876,8 @@
      "dependencies": [],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -3564,7 +3895,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -3575,7 +3907,8 @@
      "dependencies": [],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -3586,7 +3919,8 @@
      "dependencies": [],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -3597,10 +3931,12 @@
      "dependencies": [],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "capturexp-fabric-1.7.3-1.3.0.jar",
@@ -3647,11 +3983,15 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "us.timinc.mc.cobblemon.capturexp.fabric.CaptureXpFabric"
+     ]
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "catchindicator-fabric-1.7.0.jar",
@@ -3692,11 +4032,16 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "com.levelscraft7.catchindicator.fabric.client.CatchIndicatorFabricClient",
+      "com.levelscraft7.catchindicator.fabric.client.CatchIndicatorModMenu"
+     ]
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "catchrate-display-fabric-2.8.22.jar",
@@ -3750,11 +4095,16 @@
       }
      ],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "com.catchrate.fabric.CatchRateDisplayFabric",
+      "com.catchrate.fabric.CatchRateDisplayFabricClient"
+     ]
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "cloth-config-15.0.140-fabric.jar",
@@ -3785,7 +4135,11 @@
      "provides": [
       "cloth-config2"
      ],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "me.shedaniel.autoconfig.example.ExampleInits",
+      "me.shedaniel.clothconfig2.fabric.ClothConfigModMenuDemo"
+     ]
     }
    ],
    "nested": [
@@ -3798,10 +4152,12 @@
      "dependencies": [],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "cobblecuisine-2.0.1-1.7.rc1.jar",
@@ -3836,11 +4192,17 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "com.fyre.cobblecuisine.client.CobbleCuisineClient",
+      "com.fyre.cobblecuisine.CobbleCuisine",
+      "com.fyre.cobblecuisine.config.CobbleCuisineModMenuCompat"
+     ]
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "cobblemon-additions-4.1.6.jar",
@@ -3887,11 +4249,16 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "io.strikeknight57.bca.CobblemonAdditions",
+      "io.strikeknight57.bca.CobblemonAdditionsClient"
+     ]
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "cobblemon-battle-extras-fabric-1.13.45.jar",
@@ -3957,11 +4324,17 @@
       }
      ],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "name.modid.fabric.CobblemonBattleExtrasFabric",
+      "name.modid.fabric.client.CobblemonBattleExtrasFabricClient",
+      "name.modid.fabric.client.ModMenuIntegration"
+     ]
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "cobblemon-battle-positions-1.1.3.jar",
@@ -4014,11 +4387,15 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "com.pokemon.battlepositions.CobblemonBattlePositions"
+     ]
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "cobblemonraiddens-fabric-0.11.3+1.21.1.jar",
@@ -4053,7 +4430,16 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "com.necro.raid.dens.fabric.CobblemonRaidDensFabric",
+      "com.necro.raid.dens.fabric.CobblemonRaidDensFabricClient",
+      "com.necro.raid.dens.common.compat.jade.RaidDensJadePlugin",
+      "com.necro.raid.dens.fabric.compat.modmenu.RaidDensModMenuIntegration",
+      "com.necro.raid.dens.common.compat.jei.RaidDensJEIPlugin",
+      "com.necro.raid.dens.common.compat.rei.RaidDensREIPlugin",
+      "com.necro.raid.dens.common.compat.emi.RaidDensEMIPlugin"
+     ]
     }
    ],
    "nested": [
@@ -4081,7 +4467,11 @@
      "provides": [
       "cloth-config2"
      ],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "me.shedaniel.autoconfig.example.ExampleInits",
+      "me.shedaniel.clothconfig2.fabric.ClothConfigModMenuDemo"
+     ]
     },
     {
      "format": "FABRIC",
@@ -4092,10 +4482,12 @@
      "dependencies": [],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "cobblenav-fabric-2.3.3.jar",
@@ -4142,11 +4534,16 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "com.metacontent.cobblenav.CobblenavFabric",
+      "com.metacontent.cobblenav.client.CobblenavFabricClient"
+     ]
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "comforts-fabric-9.0.5+1.21.1.jar",
@@ -4187,7 +4584,14 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "com.illusivesoulworks.comforts.data.ComfortsDataGenerator",
+      "com.illusivesoulworks.comforts.ComfortsFabricMod",
+      "com.illusivesoulworks.comforts.ComfortsFabricClientMod",
+      "com.illusivesoulworks.comforts.ComfortsConfigInitializer",
+      "com.illusivesoulworks.comforts.common.ComfortsComponents"
+     ]
     }
    ],
    "nested": [
@@ -4250,7 +4654,10 @@
       }
      ],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "org.ladysnake.cca.internal.base.ComponentsInternals"
+     ]
     },
     {
      "format": "FABRIC",
@@ -4286,7 +4693,11 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "org.ladysnake.cca.internal.entity.CardinalComponentsEntity",
+      "org.ladysnake.cca.internal.entity.CcaEntityClient"
+     ]
     },
     {
      "format": "FABRIC",
@@ -4322,7 +4733,13 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "com.illusivesoulworks.spectrelib.SpectreFabricMod",
+      "com.illusivesoulworks.spectrelib.SpectreClientFabricMod",
+      "com.illusivesoulworks.spectrelib.SpectrePreLaunchFabricMod",
+      "com.illusivesoulworks.spectrelib.integration.ModMenuPlugin"
+     ]
     },
     {
      "format": "FABRIC",
@@ -4333,7 +4750,8 @@
      "dependencies": [],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -4344,10 +4762,12 @@
      "dependencies": [],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "configurable-3.5.2+1.21.1-fabric.jar",
@@ -4382,7 +4802,12 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "com.bawnorton.configurable.platform.ConfigurableEntrypoint",
+      "com.bawnorton.configurable.platform.ConfigurableClientEntrypoint",
+      "com.bawnorton.configurable.data.ConfigurableDataGen"
+     ]
     }
    ],
    "nested": [
@@ -4395,7 +4820,8 @@
      "dependencies": [],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -4406,7 +4832,8 @@
      "dependencies": [],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -4417,7 +4844,8 @@
      "dependencies": [],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -4428,7 +4856,8 @@
      "dependencies": [],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -4439,10 +4868,12 @@
      "dependencies": [],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "continuity-3.0.0+1.21.jar",
@@ -4477,11 +4908,16 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "me.pepperbell.continuity.client.ContinuityClient",
+      "me.pepperbell.continuity.client.config.ModMenuApiImpl"
+     ]
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "customsplashscreen-2.2.0.jar",
@@ -4517,7 +4953,10 @@
       }
      ],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "eu.midnightdust.customsplashscreen.CustomSplashScreenClient"
+     ]
     }
    ],
    "nested": [
@@ -4543,10 +4982,16 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "eu.midnightdust.fabric.core.MidnightLibFabric",
+      "eu.midnightdust.fabric.core.MidnightLibFabric",
+      "eu.midnightdust.lib.config.AutoModMenu"
+     ]
     }
    ],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "defaultoptions-fabric-1.21.1-21.1.7.jar",
@@ -4593,11 +5038,16 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "net.blay09.mods.defaultoptions.fabric.client.FabricDefaultOptionsClient",
+      "net.blay09.mods.defaultoptions.fabric.compat.ModMenuIntegration"
+     ]
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "entity_model_features-3.2.4-1.21-fabric.jar",
@@ -4657,11 +5107,17 @@
       }
      ],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "traben.entity_model_features.EMFInit",
+      "traben.entity_model_features.config.EMFModMenu",
+      "traben.entity_model_features.mod_compat.EBEConfigModifier"
+     ]
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "entity_texture_features_1.21-fabric-7.1.jar",
@@ -4709,11 +5165,16 @@
       }
      ],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "traben.entity_texture_features.ETFInit",
+      "traben.entity_texture_features.config.ETFModMenu"
+     ]
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "entityculling-fabric-1.10.5-mc1.21.1.jar",
@@ -4749,7 +5210,11 @@
       }
      ],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "dev.tr7zw.entityculling.EntityCullingMod",
+      "dev.tr7zw.entityculling.config.EntityCullingModMenu"
+     ]
     }
    ],
    "nested": [
@@ -4782,7 +5247,10 @@
       }
      ],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "dev.tr7zw.transition.ClientTRansitionMod"
+     ]
     },
     {
      "format": "FABRIC",
@@ -4813,10 +5281,15 @@
       }
      ],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "dev.tr7zw.trender.gui.impl.client.LibGuiClient",
+      "dev.tr7zw.trender.gui.impl.modmenu.ModMenuSupport"
+     ]
     }
    ],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "fabric-api-0.116.14+1.21.1.jar",
@@ -4853,7 +5326,8 @@
      "provides": [
       "fabric"
      ],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [
@@ -4873,7 +5347,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -4903,7 +5378,10 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "net.fabricmc.fabric.impl.lookup.ApiLookupImpl"
+     ]
     },
     {
      "format": "FABRIC",
@@ -4927,7 +5405,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -4945,7 +5424,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -4963,7 +5443,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -4993,7 +5474,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -5011,7 +5493,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -5041,7 +5524,10 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "net.fabricmc.fabric.impl.command.v1.LegacyHandler"
+     ]
     },
     {
      "format": "FABRIC",
@@ -5071,7 +5557,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -5101,7 +5588,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -5137,7 +5625,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -5161,7 +5650,10 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "net.fabricmc.fabric.impl.tag.convention.ConventionLogWarnings"
+     ]
     },
     {
      "format": "FABRIC",
@@ -5191,7 +5683,10 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "net.fabricmc.fabric.impl.tag.convention.v2.TranslationConventionLogWarnings"
+     ]
     },
     {
      "format": "FABRIC",
@@ -5209,7 +5704,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -5245,7 +5741,12 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "net.fabricmc.fabric.impl.attachment.AttachmentEntrypoint",
+      "net.fabricmc.fabric.impl.attachment.sync.AttachmentSync",
+      "net.fabricmc.fabric.impl.attachment.client.AttachmentSyncClient"
+     ]
     },
     {
      "format": "FABRIC",
@@ -5263,7 +5764,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -5293,7 +5795,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -5311,7 +5814,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -5347,7 +5851,11 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "net.fabricmc.fabric.impl.event.interaction.InteractionEventsRouter",
+      "net.fabricmc.fabric.impl.event.interaction.client.InteractionEventsRouterClient"
+     ]
     },
     {
      "format": "FABRIC",
@@ -5365,7 +5873,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -5389,7 +5898,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -5419,7 +5929,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -5437,7 +5948,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -5461,7 +5973,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -5485,7 +5998,11 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "net.fabricmc.fabric.impl.event.lifecycle.LifecycleEventsImpl",
+      "net.fabricmc.fabric.impl.client.event.lifecycle.ClientLifecycleEventsImpl"
+     ]
     },
     {
      "format": "FABRIC",
@@ -5515,7 +6032,10 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "net.fabricmc.fabric.impl.loot.v2.LootInitializer"
+     ]
     },
     {
      "format": "FABRIC",
@@ -5545,7 +6065,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -5569,7 +6090,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -5593,7 +6115,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -5617,7 +6140,12 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "net.fabricmc.fabric.impl.networking.CommonPacketsImpl",
+      "net.fabricmc.fabric.impl.networking.NetworkingImpl",
+      "net.fabricmc.fabric.impl.networking.client.ClientNetworkingImpl"
+     ]
     },
     {
      "format": "FABRIC",
@@ -5641,7 +6169,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -5659,7 +6188,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -5683,7 +6213,12 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "net.fabricmc.fabric.impl.recipe.ingredient.CustomIngredientInit",
+      "net.fabricmc.fabric.impl.recipe.ingredient.CustomIngredientSync",
+      "net.fabricmc.fabric.impl.recipe.ingredient.client.CustomIngredientSyncClient"
+     ]
     },
     {
      "format": "FABRIC",
@@ -5713,7 +6248,11 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "net.fabricmc.fabric.impl.registry.sync.FabricRegistryInit",
+      "net.fabricmc.fabric.impl.client.registry.sync.FabricRegistryClientInit"
+     ]
     },
     {
      "format": "FABRIC",
@@ -5743,7 +6282,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -5779,7 +6319,10 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "net.fabricmc.fabric.impl.client.indigo.Indigo"
+     ]
     },
     {
      "format": "FABRIC",
@@ -5815,7 +6358,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -5839,7 +6383,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -5863,7 +6408,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -5899,7 +6445,10 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "net.fabricmc.fabric.impl.client.rendering.v0.RenderingCallbackInvoker"
+     ]
     },
     {
      "format": "FABRIC",
@@ -5923,7 +6472,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -5941,7 +6491,10 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "net.fabricmc.fabric.impl.resource.conditions.ResourceConditionsImpl"
+     ]
     },
     {
      "format": "FABRIC",
@@ -5959,7 +6512,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -5983,7 +6537,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -6013,7 +6568,11 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "net.fabricmc.fabric.impl.screenhandler.Networking",
+      "net.fabricmc.fabric.impl.screenhandler.client.ClientNetworking"
+     ]
     },
     {
      "format": "FABRIC",
@@ -6037,7 +6596,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -6067,7 +6627,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -6097,7 +6658,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -6115,10 +6677,12 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
-   "error": null
+   "error": null,
+   "javaVersion": null
   },
   {
    "file": "fabric-language-kotlin-1.13.13+kotlin.2.4.10.jar",
@@ -6141,7 +6705,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [
@@ -6154,7 +6719,8 @@
      "dependencies": [],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -6165,7 +6731,8 @@
      "dependencies": [],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -6176,7 +6743,8 @@
      "dependencies": [],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -6187,7 +6755,8 @@
      "dependencies": [],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -6198,7 +6767,8 @@
      "dependencies": [],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -6209,7 +6779,8 @@
      "dependencies": [],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -6220,7 +6791,8 @@
      "dependencies": [],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -6231,7 +6803,8 @@
      "dependencies": [],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -6242,7 +6815,8 @@
      "dependencies": [],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -6253,7 +6827,8 @@
      "dependencies": [],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -6264,7 +6839,8 @@
      "dependencies": [],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -6275,7 +6851,8 @@
      "dependencies": [],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -6286,10 +6863,12 @@
      "dependencies": [],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
-   "error": null
+   "error": null,
+   "javaVersion": 8
   },
   {
    "file": "fancymenu_fabric_3.9.8_MC_1.21.1.jar",
@@ -6373,7 +6952,10 @@
       }
      ],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "de.keksuccino.fancymenu.FancyMenuFabric"
+     ]
     }
    ],
    "nested": [
@@ -6386,7 +6968,8 @@
      "dependencies": [],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -6397,7 +6980,8 @@
      "dependencies": [],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -6417,10 +7001,12 @@
      "provides": [
       "com_github_llamalad7_mixinextras"
      ],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "ferritecore-7.0.3-fabric.jar",
@@ -6456,11 +7042,13 @@
       }
      ],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "fightorflight-fabric-0.10.9.jar",
@@ -6519,7 +7107,11 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "me.rufia.fightorflight.CobblemonFightOrFlightFabric",
+      "me.rufia.fightorflight.FabricClient"
+     ]
     }
    ],
    "nested": [
@@ -6547,7 +7139,11 @@
      "provides": [
       "cloth-config2"
      ],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "me.shedaniel.autoconfig.example.ExampleInits",
+      "me.shedaniel.clothconfig2.fabric.ClothConfigModMenuDemo"
+     ]
     },
     {
      "format": "FABRIC",
@@ -6558,10 +7154,12 @@
      "dependencies": [],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "forgivingvoid-fabric-1.21.1-21.1.7.jar",
@@ -6608,11 +7206,16 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "net.blay09.mods.forgivingvoid.fabric.FabricForgivingVoid",
+      "net.blay09.mods.forgivingvoid.fabric.compat.ModMenuIntegration"
+     ]
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "fusion-1.2.12-fabric-mc1.21.jar",
@@ -6653,11 +7256,16 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "com.supermartijn642.fusion.Fusion",
+      "com.supermartijn642.fusion.FusionClient"
+     ]
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "fzzy_config-0.7.6+1.21.jar",
@@ -6704,7 +7312,12 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "me.fzzyhmstrs.fzzy_config.FC",
+      "me.fzzyhmstrs.fzzy_config.FCC",
+      "me.fzzyhmstrs.fzzy_config.impl.ConfigModMenuCompat"
+     ]
     }
    ],
    "nested": [
@@ -6730,7 +7343,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -6741,7 +7355,8 @@
      "dependencies": [],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -6752,10 +7367,12 @@
      "dependencies": [],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "geckolib-fabric-1.21.1-4.9.2.jar",
@@ -6803,11 +7420,16 @@
       }
      ],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "software.bernie.geckolib.GeckoLib",
+      "software.bernie.geckolib.GeckoLibClient"
+     ]
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "globalpacks-fabric-1.21.1-21.0.6.jar",
@@ -6836,7 +7458,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "NEOFORGE",
@@ -6854,7 +7477,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FORGE",
@@ -6872,7 +7496,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [
@@ -6885,7 +7510,8 @@
      "dependencies": [],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -6896,10 +7522,12 @@
      "dependencies": [],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "handcrafted-fabric-1.21.1-4.0.3.jar",
@@ -6934,11 +7562,16 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "earth.terrarium.handcrafted.fabric.HandcraftedFabric",
+      "earth.terrarium.handcrafted.client.fabric.HandcraftedClientFabric"
+     ]
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "highlight-fabric-1.21-3.0.0.jar",
@@ -6973,7 +7606,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [
@@ -6999,7 +7633,10 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "com.teamresourceful.resourcefullib.fabric.ResourcefulLibFabricClient"
+     ]
     },
     {
      "format": "FABRIC",
@@ -7010,7 +7647,8 @@
      "dependencies": [],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -7021,10 +7659,12 @@
      "dependencies": [],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
-   "error": null
+   "error": null,
+   "javaVersion": null
   },
   {
    "file": "huge-structure-blocks-fabric-1.1.6.jar",
@@ -7065,11 +7705,15 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "com.convallyria.hugestructureblocks.fabric.HSBFabric"
+     ]
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "infinite-music-0.4.6.jar",
@@ -7098,11 +7742,16 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "dev.plasticstraw.inf_music.InfiniteMusic",
+      "dev.plasticstraw.inf_music.ModMenuImpl"
+     ]
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "interactic-0.2.3+1.21.jar",
@@ -7143,7 +7792,11 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "interactic.InteracticInit",
+      "interactic.InteracticClientInit"
+     ]
     }
    ],
    "nested": [
@@ -7172,10 +7825,12 @@
       "owo",
       "owo-lib"
      ],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "iris-fabric-1.8.14-beta.1+mc1.21.1.jar",
@@ -7283,7 +7938,11 @@
       }
      ],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "net.irisshaders.iris.compat.modmenu.ModMenuIntegration",
+      "net.irisshaders.iris.compat.sodium.config.IrisConfig"
+     ]
     }
    ],
    "nested": [
@@ -7296,7 +7955,8 @@
      "dependencies": [],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -7314,7 +7974,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -7332,7 +7993,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -7343,7 +8005,8 @@
      "dependencies": [],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -7354,10 +8017,12 @@
      "dependencies": [],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "konkrete_fabric_1.9.9_MC_1.21.jar",
@@ -7411,7 +8076,10 @@
       }
      ],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "de.keksuccino.konkrete.KonkreteFabric"
+     ]
     }
    ],
    "nested": [
@@ -7433,10 +8101,12 @@
      "provides": [
       "com_github_llamalad7_mixinextras"
      ],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "krypton-0.2.8.jar",
@@ -7465,7 +8135,12 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "me.steinborn.krypton.mod.client.KryptonClientInitializer",
+      "me.steinborn.krypton.mod.server.KryptonServerInitializer",
+      "me.steinborn.krypton.mod.shared.KryptonSharedInitializer"
+     ]
     }
    ],
    "nested": [
@@ -7478,10 +8153,12 @@
      "dependencies": [],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "lenientdeath-1.2.5+1.21.1.jar",
@@ -7528,7 +8205,10 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "red.jackf.lenientdeath.LenientDeath"
+     ]
     }
    ],
    "nested": [
@@ -7554,7 +8234,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -7572,7 +8253,10 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "red.jackf.jackfredlib.impl.base.ServerTrackerImpl"
+     ]
     },
     {
      "format": "FABRIC",
@@ -7590,7 +8274,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -7608,7 +8293,10 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "red.jackf.jackfredlib.impl.config.FileWatcher"
+     ]
     },
     {
      "format": "FABRIC",
@@ -7619,7 +8307,8 @@
      "dependencies": [],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -7637,7 +8326,10 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "red.jackf.jackfredlib.impl.base.ServerTrackerImpl"
+     ]
     },
     {
      "format": "FABRIC",
@@ -7648,7 +8340,8 @@
      "dependencies": [],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -7690,7 +8383,10 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "red.jackf.jackfredlib.impl.lying.ModuleEntrypoint"
+     ]
     },
     {
      "format": "FABRIC",
@@ -7720,7 +8416,10 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "xyz.nucleoid.server.translations.impl.ServerTranslations"
+     ]
     },
     {
      "format": "FABRIC",
@@ -7750,10 +8449,12 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "libjf-3.17.5.jar",
@@ -7800,7 +8501,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [
@@ -7832,7 +8534,11 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "io.gitlab.jfronny.libjf.coprocess.CoProcessManager",
+      "io.gitlab.jfronny.libjf.LibJf"
+     ]
     },
     {
      "format": "FABRIC",
@@ -7856,7 +8562,11 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "net.fabricmc.fabric.impl.event.lifecycle.LifecycleEventsImpl",
+      "net.fabricmc.fabric.impl.client.event.lifecycle.ClientLifecycleEventsImpl"
+     ]
     },
     {
      "format": "FABRIC",
@@ -7898,7 +8608,11 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "io.gitlab.jfronny.libjf.config.impl.commands.server.ServerConfigCommand",
+      "io.gitlab.jfronny.libjf.config.impl.commands.client.ClientConfigCommand"
+     ]
     },
     {
      "format": "FABRIC",
@@ -7928,7 +8642,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -7960,7 +8675,13 @@
      "provides": [
       "libjf-config-core-v1"
      ],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "io.gitlab.jfronny.libjf.config.impl.entrypoint.JfConfigSafe",
+      "io.gitlab.jfronny.libjf.config.impl.watch.ToggleableConfigWatchService",
+      "io.gitlab.jfronny.libjf.config.impl.ui.PlaceholderScreenFactory",
+      "io.gitlab.jfronny.libjf.config.impl.ui.ModMenuAdapter"
+     ]
     },
     {
      "format": "FABRIC",
@@ -8008,7 +8729,12 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "io.gitlab.jfronny.libjf.config.impl.network.server.JfConfigNetworkServer",
+      "io.gitlab.jfronny.libjf.config.impl.network.client.JfConfigNetworkClient",
+      "io.gitlab.jfronny.libjf.config.impl.network.client.JfConfigNetworkModMenu"
+     ]
     },
     {
      "format": "FABRIC",
@@ -8032,7 +8758,12 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "net.fabricmc.fabric.impl.networking.CommonPacketsImpl",
+      "net.fabricmc.fabric.impl.networking.NetworkingImpl",
+      "net.fabricmc.fabric.impl.networking.client.ClientNetworkingImpl"
+     ]
     },
     {
      "format": "FABRIC",
@@ -8062,7 +8793,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -8104,7 +8836,10 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "io.gitlab.jfronny.libjf.config.impl.ui.tiny.TinyConfigScreenFactory"
+     ]
     },
     {
      "format": "FABRIC",
@@ -8122,7 +8857,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -8164,7 +8900,11 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "io.gitlab.jfronny.libjf.data.manipulation.impl.ResourcePackHookPatch",
+      "io.gitlab.jfronny.libjf.data.manipulation.impl.UserResourceEventsInterceptor"
+     ]
     },
     {
      "format": "FABRIC",
@@ -8200,7 +8940,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -8218,7 +8959,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -8242,7 +8984,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -8266,7 +9009,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -8296,7 +9040,10 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "io.gitlab.jfronny.libjf.translate.impl.TranslateConfig"
+     ]
     },
     {
      "format": "FABRIC",
@@ -8339,7 +9086,8 @@
       }
      ],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -8389,7 +9137,13 @@
      "provides": [
       "libjf-web-v0"
      ],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "io.gitlab.jfronny.libjf.web.impl.JfWeb",
+      "io.gitlab.jfronny.libjf.web.impl.JfWeb",
+      "io.gitlab.jfronny.libjf.web.impl.JFC_JfWebConfig",
+      "io.gitlab.jfronny.libjf.web.impl.variant.shared.MainHttpHandlerImpl"
+     ]
     },
     {
      "format": "FABRIC",
@@ -8419,10 +9173,12 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
-   "error": null
+   "error": null,
+   "javaVersion": null
   },
   {
    "file": "lithium-fabric-0.15.4+mc1.21.1.jar",
@@ -8458,11 +9214,15 @@
       }
      ],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "net.caffeinemc.mods.lithium.fabric.LithiumFabricMod"
+     ]
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "mega_showdown-fabric-1.8.4+1.7.3+1.21.1.jar",
@@ -8515,11 +9275,17 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "com.github.yajatkaul.mega_showdown.fabric.MegaShowdownFabric",
+      "com.github.yajatkaul.mega_showdown.fabric.MegaShowdownFabricClient",
+      "com.github.yajatkaul.mega_showdown.plugin.JadePlugin"
+     ]
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "melody_fabric_1.0.10_MC_1.21.jar",
@@ -8560,7 +9326,10 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "de.keksuccino.melody.MelodyFabric"
+     ]
     }
    ],
    "nested": [
@@ -8582,10 +9351,12 @@
      "provides": [
       "com_github_llamalad7_mixinextras"
      ],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "midnightlib-1.7.5-fabric+1.21.1.jar",
@@ -8614,11 +9385,17 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "eu.midnightdust.fabric.core.MidnightLibFabric",
+      "eu.midnightdust.fabric.core.MidnightLibFabric",
+      "eu.midnightdust.lib.config.AutoModMenu"
+     ]
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "moar-concrete-1.3.1.jar",
@@ -8659,11 +9436,17 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "net.mcjamweasel.moarconcrete.MoarConcrete",
+      "net.mcjamweasel.moarconcrete.MoarConcreteClient",
+      "net.mcjamweasel.moarconcrete.MoarConcreteDataGenerator"
+     ]
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "modernfix-fabric-5.25.1+mc1.21.1.jar",
@@ -8699,11 +9482,18 @@
       }
      ],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "org.embeddedt.modernfix.ModernFixFabric",
+      "org.embeddedt.modernfix.ModernFixClientFabric",
+      "org.embeddedt.modernfix.fabric.modmenu.ModernFixModMenuApiImpl",
+      "org.embeddedt.modernfix.ModernFixPreLaunchFabric"
+     ]
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "modmenu-11.0.4.jar",
@@ -8756,7 +9546,11 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "com.terraformersmc.modmenu.ModMenu",
+      "com.terraformersmc.modmenu.ModMenuModMenuCompat"
+     ]
     }
    ],
    "nested": [
@@ -8776,7 +9570,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -8794,7 +9589,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -8818,7 +9614,11 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "net.fabricmc.fabric.impl.event.lifecycle.LifecycleEventsImpl",
+      "net.fabricmc.fabric.impl.client.event.lifecycle.ClientLifecycleEventsImpl"
+     ]
     },
     {
      "format": "FABRIC",
@@ -8836,7 +9636,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -8860,7 +9661,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -8884,10 +9686,12 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "moreculling-fabric-1.21.1-1.0.8.jar",
@@ -8935,7 +9739,12 @@
       }
      ],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "ca.fxco.moreculling.MoreCullingFabric",
+      "ca.fxco.moreculling.config.ModMenuCompat",
+      "ca.fxco.moreculling.config.sodium.MoreCullingSodiumConfigBuilder"
+     ]
     }
    ],
    "nested": [
@@ -8957,7 +9766,10 @@
      "provides": [
       "conditional_mixin"
      ],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "me.fallenbreath.conditionalmixin.fabric.ConditionalMixinFabric"
+     ]
     },
     {
      "format": "FABRIC",
@@ -8975,10 +9787,12 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "musicnotification-fabric-3.0.0+mc1.21.1.jar",
@@ -9019,11 +9833,16 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "net.kosmo.music.fabric.MusicNotificationClientFabric",
+      "net.kosmo.music.fabric.compat.ModMenuCompatibility"
+     ]
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "neruina-3.3.3+1.21.1-fabric.jar",
@@ -9065,7 +9884,11 @@
       }
      ],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "com.bawnorton.neruina.platform.NeruinaWrapper",
+      "com.bawnorton.neruina.data.NeruinaDataGen"
+     ]
     },
     {
      "format": "NEOFORGE",
@@ -9095,7 +9918,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FORGE",
@@ -9113,7 +9937,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [
@@ -9126,10 +9951,12 @@
      "dependencies": [],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "nethermap-4.0.0-1.21.1.jar",
@@ -9176,11 +10003,16 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "com.jummit.nethermap.NetherMap",
+      "com.jummit.nethermap.config.NetherMapModMenuIntegration"
+     ]
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 17
   },
   {
    "file": "netherportalfix-fabric-1.21.1-21.1.3.jar",
@@ -9227,11 +10059,15 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "net.blay09.mods.netherportalfix.fabric.FabricNetherPortalFix"
+     ]
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "notenoughanimations-fabric-1.12.4-mc1.21.1.jar",
@@ -9267,7 +10103,11 @@
       }
      ],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "dev.tr7zw.notenoughanimations.NEAnimationsMod",
+      "dev.tr7zw.notenoughanimations.NEAModMenu"
+     ]
     }
    ],
    "nested": [
@@ -9300,7 +10140,10 @@
       }
      ],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "dev.tr7zw.transition.ClientTRansitionMod"
+     ]
     },
     {
      "format": "FABRIC",
@@ -9331,10 +10174,15 @@
       }
      ],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "dev.tr7zw.trender.gui.impl.client.LibGuiClient",
+      "dev.tr7zw.trender.gui.impl.modmenu.ModMenuSupport"
+     ]
     }
    ],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "notenoughcrashes-fabric-4.4.9+1.21.1.jar",
@@ -9363,7 +10211,11 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "fudge.notenoughcrashes.fabric.NotEnoughCrashesFabric",
+      "fudge.notenoughcrashes.fabric.config.ModMenuConfigIntegration"
+     ]
     },
     {
      "format": "QUILT",
@@ -9381,11 +10233,13 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "owo-lib-0.12.15.4+1.21.jar",
@@ -9423,7 +10277,14 @@
       "owo-impl",
       "owo-lib"
      ],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "io.wispforest.owo.client.OwoClient",
+      "io.wispforest.owo.Owo",
+      "io.wispforest.owo.compat.rei.OwoReiPlugin",
+      "io.wispforest.owo.compat.emi.OwoEmiPlugin",
+      "io.wispforest.owo.compat.modmenu.OwoModMenuPlugin"
+     ]
     }
    ],
    "nested": [
@@ -9436,7 +10297,8 @@
      "dependencies": [],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -9447,7 +10309,8 @@
      "dependencies": [],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -9458,7 +10321,8 @@
      "dependencies": [],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -9469,7 +10333,8 @@
      "dependencies": [],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -9480,10 +10345,12 @@
      "dependencies": [],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "packetfixer-3.3.1-1.20.5-1.21.X-merged.jar",
@@ -9512,7 +10379,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "NEOFORGE",
@@ -9536,11 +10404,13 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "paginatedadvancements-2.5.1.jar",
@@ -9594,11 +10464,16 @@
       }
      ],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "de.dafuqs.paginatedadvancements.PaginatedAdvancementsClient",
+      "de.dafuqs.paginatedadvancements.config.ModMenuConfig"
+     ]
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "particle_core-0.3.3+1.21.jar",
@@ -9645,7 +10520,10 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "me.fzzyhmstrs.particle_core.PcConfig"
+     ]
     }
    ],
    "nested": [
@@ -9665,10 +10543,14 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "me.fallenbreath.conditionalmixin.ConditionalMixinMod"
+     ]
     }
    ],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "particlerain-4.0.0-beta.10+1.21.1-fabric.jar",
@@ -9703,11 +10585,16 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "pigcart.particlerain.loaders.fabric.FabricEntrypoint",
+      "pigcart.particlerain.loaders.fabric.ModMenuEntrypoint"
+     ]
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "particular-1.21.1-Fabric-1.5.5.jar",
@@ -9766,11 +10653,16 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "com.leclowndu93150.particular.Main",
+      "com.leclowndu93150.particular.Main"
+     ]
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "pastureLoot-1.0.5+1.21.1.jar",
@@ -9811,11 +10703,16 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "com.dremixam.pastureLoot.client.PastureLootClient",
+      "com.dremixam.pastureLoot.PastureLoot"
+     ]
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "playerxp-fabric-1.0.9+1.21.1.jar",
@@ -9844,11 +10741,15 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "chadlymasterson.playerxp.PlayerXp"
+     ]
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "pokeblocks-1.4.0-1.21.1.jar",
@@ -9895,11 +10796,17 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "dev.mrshawn.pokeblocks.Pokeblocks",
+      "dev.mrshawn.pokeblocks.PokeblocksClient",
+      "dev.mrshawn.pokeblocks.PokeblocksDataGenerator"
+     ]
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "rctapi-fabric-1.21.1-0.15.2-beta.jar",
@@ -9952,11 +10859,16 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "com.gitlab.srcmc.rctapi.fabric.FabricCommon",
+      "com.gitlab.srcmc.rctapi.fabric.client.FabricClient"
+     ]
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "rctmod-fabric-1.21.1-0.18.1-beta.jar",
@@ -10009,7 +10921,12 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "com.gitlab.srcmc.rctmod.fabric.FabricCommon",
+      "com.gitlab.srcmc.rctmod.fabric.client.FabricClient",
+      "com.gitlab.srcmc.rctmod.fabric.server.FabricServer"
+     ]
     }
    ],
    "nested": [
@@ -10022,7 +10939,8 @@
      "dependencies": [],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -10033,7 +10951,8 @@
      "dependencies": [],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -10044,10 +10963,12 @@
      "dependencies": [],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "rechiseled-1.2.4-fabric-mc1.21.jar",
@@ -10106,11 +11027,18 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "com.supermartijn642.rechiseled.Rechiseled",
+      "com.supermartijn642.rechiseled.RechiseledClient",
+      "com.supermartijn642.rechiseled.compat.jei.ChiselingJEIPlugin",
+      "com.supermartijn642.rechiseled.compat.rei.ChiselingREIPlugin"
+     ]
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "reeses-sodium-options-fabric-2.2.3+mc1.21.1.jar",
@@ -10170,11 +11098,16 @@
       }
      ],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "me.flashyreese.mods.reeses_sodium_options.client.controlify.ReeseSodiumOptionsControlifyEntrypoint",
+      "me.flashyreese.mods.reeses_sodium_options.client.config.ReeseSodiumOptionsConfigEntryPoint"
+     ]
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "repurposed_structures-7.5.21+1.21.1-fabric.jar",
@@ -10215,11 +11148,16 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "com.telepathicgrunt.repurposedstructures.RepurposedStructuresFabric",
+      "com.telepathicgrunt.repurposedstructures.configs.ModMenuCompat"
+     ]
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "resourcefullib-fabric-1.21-3.0.12.jar",
@@ -10248,7 +11186,12 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "com.teamresourceful.resourcefullib.fabric.ResourcefulLibFabricClient",
+      "com.teamresourceful.resourcefullib.ResourcefulLib",
+      "com.teamresourceful.resourcefullib.fabric.ResourcefulLibFabricServer"
+     ]
     }
    ],
    "nested": [
@@ -10261,7 +11204,8 @@
      "dependencies": [],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -10272,10 +11216,12 @@
      "dependencies": [],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "respackopts-4.14.0+1.21.1.4.jar",
@@ -10328,7 +11274,22 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "io.gitlab.jfronny.respackopts.platform.fabric.RespackoptsFabric",
+      "io.gitlab.jfronny.respackopts.platform.fabric.RespackoptsClientFabric",
+      "io.gitlab.jfronny.respackopts.platform.fabric.integration.FrexCompat",
+      "io.gitlab.jfronny.respackopts.Respackopts",
+      "io.gitlab.jfronny.respackopts.integration.ShaderIntegration",
+      "io.gitlab.jfronny.respackopts.JFC_RespackoptsConfig",
+      "io.gitlab.jfronny.respackopts.RespackoptsPackWidget",
+      "io.gitlab.jfronny.respackopts.filters.ValidationLayer$Pre",
+      "io.gitlab.jfronny.respackopts.filters.DirFilterEvents",
+      "io.gitlab.jfronny.respackopts.filters.FileFilterEvents",
+      "io.gitlab.jfronny.respackopts.filters.IOLogEvents",
+      "io.gitlab.jfronny.respackopts.filters.ValidationLayer$Post",
+      "io.gitlab.jfronny.respackopts.platform.fabric.integration.ModMenuIntegration"
+     ]
     }
    ],
    "nested": [
@@ -10341,7 +11302,8 @@
      "dependencies": [],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -10352,10 +11314,12 @@
      "dependencies": [],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "sodium-fabric-0.8.12+mc1.21.1.jar",
@@ -10591,7 +11555,11 @@
      "provides": [
       "indium"
      ],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "net.caffeinemc.mods.sodium.fabric.SodiumFabricMod",
+      "net.caffeinemc.mods.sodium.fabric.SodiumPreLaunch"
+     ]
     }
    ],
    "nested": [
@@ -10611,7 +11579,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -10629,7 +11598,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -10659,7 +11629,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -10683,7 +11654,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -10707,7 +11679,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -10725,10 +11698,12 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "sophisticatedbackpacks-1.21.1-3.23.4.3.106.jar",
@@ -10769,11 +11744,21 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "net.p3pp3rf1y.sophisticatedbackpacks.SophisticatedBackpacks",
+      "net.p3pp3rf1y.sophisticatedbackpacks.client.SophisticatedBackpacksClient",
+      "net.p3pp3rf1y.sophisticatedbackpacks.data.DataGenerators",
+      "net.p3pp3rf1y.sophisticatedbackpacks.compat.emi.EmiCompat",
+      "net.p3pp3rf1y.sophisticatedbackpacks.compat.jei.SBPPlugin",
+      "net.p3pp3rf1y.sophisticatedbackpacks.compat.rei.REIServerCompat",
+      "net.p3pp3rf1y.sophisticatedbackpacks.compat.rei.REIClientCompat"
+     ]
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "sophisticatedcore-1.21.1-1.2.9.21.168.jar",
@@ -10827,7 +11812,16 @@
       }
      ],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "net.p3pp3rf1y.sophisticatedcore.SophisticatedCore",
+      "net.p3pp3rf1y.sophisticatedcore.client.ClientEventHandler",
+      "net.p3pp3rf1y.sophisticatedcore.data.DataGenerators",
+      "net.p3pp3rf1y.sophisticatedcore.compat.emi.EmiCompat",
+      "net.p3pp3rf1y.sophisticatedcore.compat.jei.CorePlugin",
+      "net.p3pp3rf1y.sophisticatedcore.compat.rei.REIServerCompat",
+      "net.p3pp3rf1y.sophisticatedcore.compat.rei.REIClientCompat"
+     ]
     }
    ],
    "nested": [
@@ -10859,7 +11853,10 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "team.reborn.energy.impl.EnergyImpl"
+     ]
     },
     {
      "format": "FABRIC",
@@ -10895,7 +11892,11 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "io.github.fabricators_of_create.porting_lib.tool.loot.CanItemPerformAbility",
+      "io.github.fabricators_of_create.porting_lib.tool.data.ItemAbilitiesData"
+     ]
     },
     {
      "format": "FABRIC",
@@ -10931,7 +11932,10 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "io.github.fabricators_of_create.porting_lib.loot.PortingLibLoot"
+     ]
     },
     {
      "format": "FABRIC",
@@ -10967,7 +11971,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -11003,7 +12008,10 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "io.github.fabricators_of_create.porting_lib.render_types.PortingLibRenderTypes"
+     ]
     },
     {
      "format": "FABRIC",
@@ -11039,7 +12047,10 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "io.github.fabricators_of_create.porting_lib.fluids.PortingLibFluids"
+     ]
     },
     {
      "format": "FABRIC",
@@ -11075,7 +12086,11 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "io.github.fabricators_of_create.porting_lib.core.util.ServerLifecycleHooks",
+      "io.github.fabricators_of_create.porting_lib.core.client.PortingLibClient"
+     ]
     },
     {
      "format": "FABRIC",
@@ -11111,7 +12126,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -11131,7 +12147,8 @@
      "provides": [
       "com_github_llamalad7_mixinextras"
      ],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -11167,7 +12184,8 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -11203,7 +12221,10 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "io.github.fabricators_of_create.porting_lib.PortingLibTransfer"
+     ]
     },
     {
      "format": "FABRIC",
@@ -11239,10 +12260,12 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "sophisticatedstorage-1.21.1-1.3.7.9.139.jar",
@@ -11283,11 +12306,22 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "net.p3pp3rf1y.sophisticatedstorage.SophisticatedStorage",
+      "net.p3pp3rf1y.sophisticatedstorage.client.SophisticatedStorageClient",
+      "net.p3pp3rf1y.sophisticatedstorage.data.DataGenerators",
+      "net.p3pp3rf1y.sophisticatedstorage.compat.jade.StorageJadePlugin",
+      "net.p3pp3rf1y.sophisticatedstorage.compat.emi.EmiCompat",
+      "net.p3pp3rf1y.sophisticatedstorage.compat.jei.StoragePlugin",
+      "net.p3pp3rf1y.sophisticatedstorage.compat.rei.REIServerCompat",
+      "net.p3pp3rf1y.sophisticatedstorage.compat.rei.REIClientCompat"
+     ]
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "sound-physics-remastered-fabric-1.21.1-1.5.1.jar",
@@ -11335,11 +12369,18 @@
       }
      ],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "com.sonicether.soundphysics.FabricSoundPhysicsMod",
+      "com.sonicether.soundphysics.FabricSoundPhysicsMod",
+      "com.sonicether.soundphysics.integration.ModMenuIntegration",
+      "com.sonicether.soundphysics.integration.voicechat.SimpleVoiceChatPlugin"
+     ]
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "soundsbegone-fabric-1.5.2+mc1.21.jar",
@@ -11386,7 +12427,11 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "gg.meza.soundsbegone.SoundsBeGone",
+      "gg.meza.soundsbegone.fabric.ModMenuIntegration"
+     ]
     }
    ],
    "nested": [
@@ -11424,7 +12469,10 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "gg.meza.supporters.SupportersCore"
+     ]
     },
     {
      "format": "FABRIC",
@@ -11435,7 +12483,8 @@
      "dependencies": [],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -11446,10 +12495,12 @@
      "dependencies": [],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "supermartijn642configlib-1.1.8-fabric-mc1.21.jar",
@@ -11490,7 +12541,11 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "com.supermartijn642.configlib.ConfigLib",
+      "com.supermartijn642.configlib.ConfigLibClient"
+     ]
     },
     {
      "format": "NEOFORGE",
@@ -11514,11 +12569,13 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "supermartijn642corelib-1.1.21-fabric-mc1.21.jar",
@@ -11559,11 +12616,16 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "com.supermartijn642.core.CoreLib",
+      "com.supermartijn642.core.CoreLibPreLaunch"
+     ]
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "timcore-fabric-1.7.3-1.32.0.jar",
@@ -11604,11 +12666,15 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "us.timinc.mc.cobblemon.timcore.fabric.FabricTimCore"
+     ]
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "tmcraft-1.4.18+1.7.3.jar",
@@ -11655,11 +12721,17 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "kiwiapollo.tmcraft.datagen.DataGenerator",
+      "kiwiapollo.tmcraft.TMCraft",
+      "kiwiapollo.tmcraft.TMCraftClient"
+     ]
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 17
   },
   {
    "file": "toms_storage_fabric-1.21-2.3.0.jar",
@@ -11694,7 +12766,17 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "com.tom.storagemod.StorageModClient",
+      "com.tom.storagemod.StorageMod",
+      "com.tom.storagemod.ModMenu",
+      "com.tom.storagemod.rei.REIPlugin",
+      "com.tom.storagemod.emi.EMIPlugin",
+      "com.tom.storagemod.jei.JEIHandler",
+      "com.tom.storagemod.StorageModComponents",
+      "com.tom.storagemod.jade.JadePlugin"
+     ]
     }
    ],
    "nested": [
@@ -11757,7 +12839,10 @@
       }
      ],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "org.ladysnake.cca.internal.base.ComponentsInternals"
+     ]
     },
     {
      "format": "FABRIC",
@@ -11799,7 +12884,11 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "org.ladysnake.cca.internal.CardinalComponentsBlock",
+      "org.ladysnake.cca.internal.CcaBlockClient"
+     ]
     },
     {
      "format": "FABRIC",
@@ -11825,7 +12914,11 @@
      "provides": [
       "cloth-config2"
      ],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "me.shedaniel.autoconfig.example.ExampleInits",
+      "me.shedaniel.clothconfig2.fabric.ClothConfigModMenuDemo"
+     ]
     },
     {
      "format": "FABRIC",
@@ -11836,10 +12929,12 @@
      "dependencies": [],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "tooltipfix-1.1.1-1.20.jar",
@@ -11868,11 +12963,13 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 17
   },
   {
    "file": "trinkets-3.10.0.jar",
@@ -11919,7 +13016,14 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "dev.emi.trinkets.TrinketsMain",
+      "dev.emi.trinkets.TrinketsClient",
+      "dev.emi.trinkets.TrinketsMain",
+      "dev.emi.trinkets.compat.TrinketsREIPlugin",
+      "dev.emi.trinkets.compat.TrinketsEmiPlugin"
+     ]
     }
    ],
    "nested": [
@@ -11982,7 +13086,10 @@
       }
      ],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "org.ladysnake.cca.internal.base.ComponentsInternals"
+     ]
     },
     {
      "format": "FABRIC",
@@ -12018,10 +13125,15 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "org.ladysnake.cca.internal.entity.CardinalComponentsEntity",
+      "org.ladysnake.cca.internal.entity.CcaEntityClient"
+     ]
     }
    ],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "villagerconfig-fabric-4.5.4+1.21.1.jar",
@@ -12068,7 +13180,14 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "me.drex.villagerconfig.fabric.VillagerConfigFabric",
+      "me.drex.villagerconfig.fabric.VillagerConfigFabricClient",
+      "me.drex.villagerconfig.fabric.config.modmenu.VillagerConfigModMenuEntry",
+      "com.llamalad7.mixinextras.MixinExtrasBootstrap",
+      "me.drex.villagerconfig.fabric.datagen.VanillaDataGenerator"
+     ]
     }
    ],
    "nested": [
@@ -12081,10 +13200,12 @@
      "dependencies": [],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "waystones-fabric-1.21.1-21.1.37.jar",
@@ -12131,11 +13252,21 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "net.blay09.mods.waystones.fabric.FabricWaystones",
+      "net.blay09.mods.waystones.fabric.client.FabricWaystonesClient",
+      "net.blay09.mods.waystones.compat.ModMenuIntegration",
+      "net.blay09.mods.waystones.datagen.ModDataGenerator",
+      "net.blay09.mods.waystones.compat.rei.RoughlyEnoughItemsIntegration",
+      "net.blay09.mods.waystones.compat.JourneyMapIntegration",
+      "net.blay09.mods.waystones.compat.JadeIntegration"
+     ]
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "xaerominimap-fabric-1.21.1-26.4.2.jar",
@@ -12189,7 +13320,12 @@
       }
      ],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "xaero.minimap.XaeroMinimapFabric",
+      "xaero.minimap.XaeroMinimapFabric",
+      "xaero.common.XaeroHudModMenu"
+     ]
     }
    ],
    "nested": [
@@ -12240,10 +13376,16 @@
       }
      ],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "xaero.lib.XaeroLibFabric",
+      "xaero.lib.XaeroLibFabric",
+      "xaero.lib.mods.XaeroLibModMenu"
+     ]
     }
    ],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "xaeroworldmap-fabric-1.21.1-1.44.2.jar",
@@ -12303,7 +13445,12 @@
       }
      ],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "xaero.map.WorldMapFabric",
+      "xaero.map.WorldMapFabric",
+      "xaero.map.mods.XaeroWorldMapModMenu"
+     ]
     }
    ],
    "nested": [
@@ -12354,10 +13501,16 @@
       }
      ],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "xaero.lib.XaeroLibFabric",
+      "xaero.lib.XaeroLibFabric",
+      "xaero.lib.mods.XaeroLibModMenu"
+     ]
     }
    ],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "yet_another_config_lib_v3-3.8.2+1.21.1-fabric.jar",
@@ -12398,7 +13551,10 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "dev.isxander.yacl3.platform.PlatformEntrypoint"
+     ]
     }
    ],
    "nested": [
@@ -12411,7 +13567,8 @@
      "dependencies": [],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -12422,7 +13579,8 @@
      "dependencies": [],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -12433,7 +13591,8 @@
      "dependencies": [],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -12444,7 +13603,8 @@
      "dependencies": [],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -12455,7 +13615,8 @@
      "dependencies": [],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -12466,7 +13627,8 @@
      "dependencies": [],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -12477,7 +13639,8 @@
      "dependencies": [],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     },
     {
      "format": "FABRIC",
@@ -12488,10 +13651,12 @@
      "dependencies": [],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "zamega-fabric-1.7.3.jar",
@@ -12556,11 +13721,16 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "org.zamega.zamega.fabric.ZamegaFabric",
+      "org.zamega.zamega.fabric.client.ZamegaFabricClient"
+     ]
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "zfastnoise-1.0.13+1.21.jar",
@@ -12626,11 +13796,15 @@
       }
      ],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "org.codeberg.zenxarch.fastnoise.FastNoiseMod"
+     ]
     }
    ],
    "nested": [],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   },
   {
    "file": "zoomify-2.15.2+1.21.1.jar",
@@ -12690,7 +13864,12 @@
       }
      ],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": [
+      "dev.isxander.zoomify.Zoomify",
+      "dev.isxander.zoomify.integrations.ModMenuIntegration",
+      "dev.isxander.zoomify.integrations.ControlifyIntegration"
+     ]
     }
    ],
    "nested": [
@@ -12703,10 +13882,13 @@
      "dependencies": [],
      "breaks": [],
      "provides": [],
-     "apiVersion": null
+     "apiVersion": null,
+     "entrypoints": []
     }
    ],
-   "error": null
+   "error": null,
+   "javaVersion": 21
   }
- ]
+ ],
+ "skipped": []
 }

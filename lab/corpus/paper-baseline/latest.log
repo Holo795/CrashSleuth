@@ -1,153 +1,153 @@
-[22:59:27] [ServerMain/INFO]: [bootstrap] Running Java 21 (OpenJDK 64-Bit Server VM 21.0.12+8-LTS; Eclipse Adoptium Temurin-21.0.12+8) on Linux 6.1.0-53-cloud-amd64 (amd64)
-[22:59:27] [ServerMain/INFO]: [bootstrap] Loading Paper 1.21.1-133-ver/1.21.1@3cb8529 (2025-03-28T16:14:36Z) for Minecraft 1.21.1
-[22:59:27] [ServerMain/INFO]: [PluginInitializerManager] Initializing plugins...
-[22:59:30] [Paper Plugin Remapper Thread - 0/INFO]: [ReobfServer] Remapping server...
-[22:59:41] [Paper Plugin Remapper Thread - 0/INFO]: [ReobfServer] Done remapping server in 10842ms.
-[22:59:41] [Paper Plugin Remapper Thread - 2/INFO]: [PluginRemapper] Remapping plugin 'plugins/worldedit-bukkit-7.3.9.jar'...
-[22:59:41] [Paper Plugin Remapper Thread - 3/INFO]: [PluginRemapper] Remapping plugin 'plugins/voicechat-bukkit-2.6.24.jar'...
-[22:59:41] [Paper Plugin Remapper Thread - 3/INFO]: [PluginRemapper] Done remapping plugin 'plugins/voicechat-bukkit-2.6.24.jar' in 512ms.
-[22:59:43] [Paper Plugin Remapper Thread - 2/INFO]: [PluginRemapper] Done remapping plugin 'plugins/worldedit-bukkit-7.3.9.jar' in 2066ms.
-[22:59:43] [ServerMain/INFO]: [PluginInitializerManager] Initialized 7 plugins
-[22:59:43] [ServerMain/INFO]: [PluginInitializerManager] Bukkit plugins (7):
+[01:04:49] [ServerMain/INFO]: [bootstrap] Running Java 21 (OpenJDK 64-Bit Server VM 21.0.12+8-LTS; Eclipse Adoptium Temurin-21.0.12+8) on Linux 6.1.0-53-cloud-amd64 (amd64)
+[01:04:49] [ServerMain/INFO]: [bootstrap] Loading Paper 1.21.1-133-ver/1.21.1@3cb8529 (2025-03-28T16:14:36Z) for Minecraft 1.21.1
+[01:04:49] [ServerMain/INFO]: [PluginInitializerManager] Initializing plugins...
+[01:04:50] [Paper Plugin Remapper Thread - 1/INFO]: [ReobfServer] Remapping server...
+[01:04:58] [Paper Plugin Remapper Thread - 1/INFO]: [ReobfServer] Done remapping server in 8556ms.
+[01:04:58] [Paper Plugin Remapper Thread - 3/INFO]: [PluginRemapper] Remapping plugin 'plugins/voicechat-bukkit-2.6.24.jar'...
+[01:04:58] [Paper Plugin Remapper Thread - 2/INFO]: [PluginRemapper] Remapping plugin 'plugins/worldedit-bukkit-7.3.9.jar'...
+[01:04:59] [Paper Plugin Remapper Thread - 3/INFO]: [PluginRemapper] Done remapping plugin 'plugins/voicechat-bukkit-2.6.24.jar' in 529ms.
+[01:05:00] [Paper Plugin Remapper Thread - 2/INFO]: [PluginRemapper] Done remapping plugin 'plugins/worldedit-bukkit-7.3.9.jar' in 2151ms.
+[01:05:01] [ServerMain/INFO]: [PluginInitializerManager] Initialized 7 plugins
+[01:05:01] [ServerMain/INFO]: [PluginInitializerManager] Bukkit plugins (7):
  - Chunky (1.4.40), CoreProtect (24.0), LuckPerms (5.5.71), ViaVersion (5.12.0), WorldEdit (7.3.9+6959-7adf70b), squaremap (1.3.2), voicechat (2.6.24)
-[22:59:49] [ServerMain/INFO]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
-[22:59:49] [ServerMain/INFO]: Found new data pack file/bukkit, loading it automatically
-[22:59:49] [ServerMain/INFO]: Found new data pack paper, loading it automatically
-[22:59:50] [ServerMain/INFO]: No existing world data, creating new world
-[22:59:51] [ServerMain/INFO]: Loaded 1290 recipes
-[22:59:51] [ServerMain/INFO]: Loaded 1399 advancements
-[22:59:52] [Server thread/INFO]: Starting minecraft server version 1.21.1
-[22:59:52] [Server thread/WARN]: ****************************
-[22:59:52] [Server thread/WARN]: YOU ARE RUNNING THIS SERVER AS AN ADMINISTRATIVE OR ROOT USER. THIS IS NOT ADVISED.
-[22:59:52] [Server thread/WARN]: YOU ARE OPENING YOURSELF UP TO POTENTIAL RISKS WHEN DOING THIS.
-[22:59:52] [Server thread/WARN]: FOR MORE INFORMATION, SEE https://madelinemiller.dev/blog/root-minecraft-server/
-[22:59:52] [Server thread/WARN]: ****************************
-[22:59:52] [Server thread/INFO]: Loading properties
-[22:59:52] [Server thread/INFO]: This server is running Paper version 1.21.1-133-ver/1.21.1@3cb8529 (2025-03-28T16:14:36Z) (Implementing API version 1.21.1-R0.1-SNAPSHOT)
-[22:59:53] [Server thread/INFO]: [spark] This server bundles the spark profiler. For more information please visit https://docs.papermc.io/paper/profiling
-[22:59:53] [Server thread/INFO]: Server Ping Player Sample Count: 12
-[22:59:53] [Server thread/INFO]: Using 4 threads for Netty based IO
-[22:59:54] [Server thread/INFO]: [ChunkTaskScheduler] Chunk system is using 1 I/O threads, 1 worker threads, and population gen parallelism of 1 threads
-[22:59:54] [Server thread/INFO]: Default game type: SURVIVAL
-[22:59:54] [Server thread/INFO]: Generating keypair
-[22:59:54] [Server thread/INFO]: Starting Minecraft server on *:25565
-[22:59:54] [Server thread/INFO]: Using epoll channel type
-[22:59:54] [Server thread/INFO]: Paper: Using libdeflate (Linux x86_64) compression from Velocity.
-[22:59:54] [Server thread/INFO]: Paper: Using OpenSSL 3.x.x (Linux x86_64) cipher from Velocity.
-[22:59:56] [Server thread/INFO]: [ViaVersion] Loading server plugin ViaVersion v5.12.0
-[22:59:56] [Server thread/INFO]: [ViaVersion] ViaVersion 5.12.0 is now loaded. Registering protocol transformers and injecting...
-[22:59:58] [Server thread/INFO]: [squaremap] Loading server plugin squaremap v1.3.2
-[22:59:58] [Server thread/INFO]: [WorldEdit] Loading server plugin WorldEdit v7.3.9+6959-7adf70b
-[22:59:59] [Server thread/INFO]: Got request to register class com.sk89q.worldedit.bukkit.BukkitServerInterface with WorldEdit [com.sk89q.worldedit.extension.platform.PlatformManager@7b6c0b21]
-[22:59:59] [Server thread/INFO]: [WorldEdit] Default configuration file written: config.yml
-[22:59:59] [Server thread/INFO]: [LuckPerms] Loading server plugin LuckPerms v5.5.71
-[23:00:04] [Server thread/INFO]: [LuckPerms] Loading configuration...
-[23:00:04] [Server thread/INFO]: [Chunky] Loading server plugin Chunky v1.4.40
-[23:00:04] [Server thread/INFO]: [voicechat] Loading server plugin voicechat v2.6.24
-[23:00:04] [Server thread/INFO]: [CoreProtect] Loading server plugin CoreProtect v24.0
-[23:00:04] [Server thread/INFO]: [squaremap] Enabling squaremap v1.3.2
-[23:00:06] [Server thread/INFO]: [io.undertow] starting server: Undertow - 2.3.17.Final
-[23:00:06] [Server thread/INFO]: [org.xnio] XNIO version 3.8.16.Final
-[23:00:06] [Server thread/INFO]: [org.xnio.nio] XNIO NIO Implementation Version 3.8.16.Final
-[23:00:06] [Server thread/INFO]: [org.jboss.threads] JBoss Threads version 3.5.0.Final
-[23:00:06] [Server thread/INFO]: [squaremap] Internal webserver running on 0.0.0.0:8080
-[23:00:06] [Server thread/INFO]: [WorldEdit] Enabling WorldEdit v7.3.9+6959-7adf70b
-[23:00:06] [Server thread/INFO]: Registering commands with com.sk89q.worldedit.bukkit.BukkitServerInterface
-[23:00:07] [Server thread/INFO]: WEPIF: Updated config file
-[23:00:07] [Server thread/INFO]: WEPIF: Using the Bukkit Permissions API.
-[23:00:07] [Server thread/INFO]: Using com.sk89q.worldedit.bukkit.adapter.impl.v1_21.PaperweightAdapter as the Bukkit adapter
-[23:00:10] [Server thread/INFO]: [LuckPerms] Enabling LuckPerms v5.5.71
-[23:00:10] [Server thread/INFO]:         __    
-[23:00:10] [Server thread/INFO]:   |    |__)   LuckPerms v5.5.71
-[23:00:10] [Server thread/INFO]:   |___ |      Running on Bukkit - Paper
-[23:00:10] [Server thread/INFO]: 
-[23:00:10] [Server thread/INFO]: [LuckPerms] Loading storage provider... [H2]
-[23:00:11] [Server thread/INFO]: [LuckPerms] Loading internal permission managers...
-[23:00:11] [Server thread/INFO]: [LuckPerms] Performing initial data load...
-[23:00:12] [Server thread/INFO]: [LuckPerms] Successfully enabled. (took 2027ms)
-[23:00:12] [Server thread/WARN]: **** SERVER IS RUNNING IN OFFLINE/INSECURE MODE!
-[23:00:12] [Server thread/WARN]: The server will make no attempt to authenticate usernames. Beware.
-[23:00:12] [Server thread/WARN]: While this makes the game possible to play without internet access, it also opens up the ability for hackers to connect with any username they choose.
-[23:00:12] [Server thread/WARN]: To change this, set "online-mode" to "true" in the server.properties file.
-[23:00:12] [Server thread/INFO]: Preparing level "world"
-[23:00:28] [Server thread/INFO]: Preparing start region for dimension minecraft:overworld
-[23:00:37] [Server thread/INFO]: Time elapsed: 8411 ms
-[23:00:37] [Server thread/INFO]: Preparing start region for dimension minecraft:the_nether
-[23:00:40] [Server thread/INFO]: Time elapsed: 3477 ms
-[23:00:40] [Server thread/INFO]: Preparing start region for dimension minecraft:the_end
-[23:00:41] [Server thread/INFO]: Time elapsed: 824 ms
-[23:00:41] [Server thread/INFO]: [ViaVersion] Enabling ViaVersion v5.12.0
-[23:00:41] [Server thread/INFO]: [ViaVersion] ViaVersion detected server version: 1.21-1.21.1 (767)
-[23:00:41] [Server thread/INFO]: [Chunky] Enabling Chunky v1.4.40
-[23:00:41] [Server thread/INFO]: [voicechat] Enabling voicechat v2.6.24
-[23:00:41] [Server thread/INFO]: [voicechat] Initializing compatibility for version 1.21.1-R0.1
-[23:00:41] [Server thread/INFO]: [voicechat] Compatibility version 20
-[23:00:41] [Server thread/INFO]: [voicechat] Successfully initialized commodore command completion
-[23:00:41] [Server thread/INFO]: [voicechat] Successfully added ViaVersion mappings
-[23:00:41] [Server thread/INFO]: [CoreProtect] Enabling CoreProtect v24.0
-[23:00:42] [Server thread/INFO]: [CoreProtect] CoreProtect Community Edition has been successfully enabled! 
-[23:00:42] [Server thread/INFO]: [CoreProtect] Using SQLite for data storage.
-[23:00:42] [Server thread/INFO]: --------------------
-[23:00:42] [Server thread/INFO]: [CoreProtect] Enjoy CoreProtect? Join our Discord!
-[23:00:42] [Server thread/INFO]: [CoreProtect] Discord: www.coreprotect.net/discord/
-[23:00:42] [Server thread/INFO]: --------------------
-[23:00:42] [Server thread/INFO]: [spark] Starting background profiler...
-[23:00:43] [Server thread/INFO]: Done preparing level "world" (30.966s)
-[23:00:43] [Server thread/INFO]: Running delayed init tasks
-[23:00:43] [Server thread/INFO]: [CoreProtect] WorldEdit logging successfully initialized.
-[23:00:43] [ForkJoinPool.commonPool-worker-1/INFO]: [squaremap] Fetching version information...
-[23:00:43] [Craft Scheduler Thread - 5 - ViaVersion/INFO]: [ViaVersion] Finished mapping loading, shutting down loader executor.
-[23:00:43] [Server thread/INFO]: Done (77.153s)! For help, type "help"
-[23:00:43] [Server thread/INFO]: *************************************************************************************
-[23:00:43] [Server thread/INFO]: This is the first time you're starting this server.
-[23:00:43] [Server thread/INFO]: It's recommended you read our 'Getting Started' documentation for guidance.
-[23:00:43] [Server thread/INFO]: View this and more helpful information here: https://docs.papermc.io/paper/next-steps
-[23:00:43] [Server thread/INFO]: *************************************************************************************
-[23:00:43] [Server thread/INFO]: Timings Reset
-[23:00:43] [Server thread/INFO]: [voicechat] Loading plugins
-[23:00:43] [Server thread/INFO]: [voicechat] Loaded 0 plugin(s)
-[23:00:43] [Server thread/INFO]: [voicechat] Initializing plugins
-[23:00:43] [Server thread/INFO]: [voicechat] Initialized 0 plugin(s)
-[23:00:43] [Server thread/WARN]: [voicechat] Running in offline mode - Voice chat encryption is not secure!
-[23:00:43] [VoiceChatServerThread/INFO]: [voicechat] Voice chat server started at port 24454
-[23:00:43] [ForkJoinPool.commonPool-worker-1/INFO]: [squaremap] squaremap is 16 version(s) out of date.
-[23:00:43] [ForkJoinPool.commonPool-worker-1/INFO]: [squaremap] Download the latest release (v1.4.0) from https://github.com/jpenilla/squaremap/releases/tag/v1.4.0
-[23:00:43] [Server thread/INFO]: Stopping the server
-[23:00:43] [Server thread/INFO]: Stopping server
-[23:00:43] [Server thread/INFO]: [CoreProtect] Disabling CoreProtect v24.0
-[23:00:43] [Server thread/INFO]: [CoreProtect] Finishing up data logging. Please wait...
-[23:00:44] [Server thread/INFO]: [CoreProtect] Success! Disabled CoreProtect v24.0
-[23:00:44] [Server thread/INFO]: [voicechat] Disabling voicechat v2.6.24
-[23:00:44] [Server thread/INFO]: [Chunky] Disabling Chunky v1.4.40
-[23:00:44] [Server thread/INFO]: [LuckPerms] Disabling LuckPerms v5.5.71
-[23:00:44] [Server thread/INFO]: [LuckPerms] Starting shutdown process...
-[23:00:44] [Server thread/INFO]: [LuckPerms] Closing storage...
-[23:00:44] [Server thread/INFO]: [LuckPerms] Goodbye!
-[23:00:44] [Server thread/INFO]: [WorldEdit] Disabling WorldEdit v7.3.9+6959-7adf70b
-[23:00:44] [Server thread/INFO]: Unregistering com.sk89q.worldedit.bukkit.BukkitServerInterface from WorldEdit
-[23:00:44] [Server thread/INFO]: [squaremap] Disabling squaremap v1.3.2
-[23:00:44] [Server thread/INFO]: [io.undertow] stopping server: Undertow - 2.3.17.Final
-[23:00:44] [Server thread/INFO]: [squaremap] Internal webserver stopped
-[23:00:44] [Server thread/INFO]: [ViaVersion] Disabling ViaVersion v5.12.0
-[23:00:44] [Server thread/INFO]: [ViaVersion] ViaVersion has been disabled; uninjected the platform and shut down the scheduler.
-[23:00:44] [Server thread/INFO]: Saving players
-[23:00:44] [Server thread/INFO]: Saving worlds
-[23:00:44] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:overworld
-[23:00:44] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk system to halt for world 'world'
-[23:00:44] [Server thread/INFO]: [ChunkHolderManager] Halted chunk system for world 'world'
-[23:00:44] [Server thread/INFO]: [ChunkHolderManager] Saving all chunkholders for world 'world'
-[23:00:45] [Server thread/INFO]: [ChunkHolderManager] Saved 841 block chunks, 49 entity chunks, 0 poi chunks in world 'world' in 1.13s
-[23:00:45] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world_nether]'/minecraft:the_nether
-[23:00:45] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk system to halt for world 'world_nether'
-[23:00:45] [Server thread/INFO]: [ChunkHolderManager] Halted chunk system for world 'world_nether'
-[23:00:45] [Server thread/INFO]: [ChunkHolderManager] Saving all chunkholders for world 'world_nether'
-[23:00:46] [Server thread/INFO]: [ChunkHolderManager] Saved 841 block chunks, 49 entity chunks, 0 poi chunks in world 'world_nether' in 0.49s
-[23:00:46] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world_the_end]'/minecraft:the_end
-[23:00:46] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk system to halt for world 'world_the_end'
-[23:00:46] [Server thread/INFO]: [ChunkHolderManager] Halted chunk system for world 'world_the_end'
-[23:00:46] [Server thread/INFO]: [ChunkHolderManager] Saving all chunkholders for world 'world_the_end'
-[23:00:46] [Server thread/INFO]: [ChunkHolderManager] Saved 841 block chunks, 49 entity chunks, 0 poi chunks in world 'world_the_end' in 0.32s
-[23:00:46] [Server thread/INFO]: ThreadedAnvilChunkStorage (world): All chunks are saved
-[23:00:46] [Server thread/INFO]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
-[23:00:46] [Server thread/INFO]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
-[23:00:46] [Server thread/INFO]: ThreadedAnvilChunkStorage: All dimensions are saved
+[01:05:07] [ServerMain/INFO]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
+[01:05:07] [ServerMain/INFO]: Found new data pack file/bukkit, loading it automatically
+[01:05:07] [ServerMain/INFO]: Found new data pack paper, loading it automatically
+[01:05:08] [ServerMain/INFO]: No existing world data, creating new world
+[01:05:09] [ServerMain/INFO]: Loaded 1290 recipes
+[01:05:09] [ServerMain/INFO]: Loaded 1399 advancements
+[01:05:09] [Server thread/INFO]: Starting minecraft server version 1.21.1
+[01:05:09] [Server thread/WARN]: ****************************
+[01:05:09] [Server thread/WARN]: YOU ARE RUNNING THIS SERVER AS AN ADMINISTRATIVE OR ROOT USER. THIS IS NOT ADVISED.
+[01:05:09] [Server thread/WARN]: YOU ARE OPENING YOURSELF UP TO POTENTIAL RISKS WHEN DOING THIS.
+[01:05:09] [Server thread/WARN]: FOR MORE INFORMATION, SEE https://madelinemiller.dev/blog/root-minecraft-server/
+[01:05:09] [Server thread/WARN]: ****************************
+[01:05:09] [Server thread/INFO]: Loading properties
+[01:05:10] [Server thread/INFO]: This server is running Paper version 1.21.1-133-ver/1.21.1@3cb8529 (2025-03-28T16:14:36Z) (Implementing API version 1.21.1-R0.1-SNAPSHOT)
+[01:05:11] [Server thread/INFO]: [spark] This server bundles the spark profiler. For more information please visit https://docs.papermc.io/paper/profiling
+[01:05:11] [Server thread/INFO]: Server Ping Player Sample Count: 12
+[01:05:11] [Server thread/INFO]: Using 4 threads for Netty based IO
+[01:05:11] [Server thread/INFO]: [ChunkTaskScheduler] Chunk system is using 1 I/O threads, 1 worker threads, and population gen parallelism of 1 threads
+[01:05:12] [Server thread/INFO]: Default game type: SURVIVAL
+[01:05:12] [Server thread/INFO]: Generating keypair
+[01:05:12] [Server thread/INFO]: Starting Minecraft server on *:25565
+[01:05:12] [Server thread/INFO]: Using epoll channel type
+[01:05:12] [Server thread/INFO]: Paper: Using libdeflate (Linux x86_64) compression from Velocity.
+[01:05:12] [Server thread/INFO]: Paper: Using OpenSSL 3.x.x (Linux x86_64) cipher from Velocity.
+[01:05:13] [Server thread/INFO]: [ViaVersion] Loading server plugin ViaVersion v5.12.0
+[01:05:13] [Server thread/INFO]: [ViaVersion] ViaVersion 5.12.0 is now loaded. Registering protocol transformers and injecting...
+[01:05:16] [Server thread/INFO]: [squaremap] Loading server plugin squaremap v1.3.2
+[01:05:16] [Server thread/INFO]: [WorldEdit] Loading server plugin WorldEdit v7.3.9+6959-7adf70b
+[01:05:17] [Server thread/INFO]: Got request to register class com.sk89q.worldedit.bukkit.BukkitServerInterface with WorldEdit [com.sk89q.worldedit.extension.platform.PlatformManager@35f11443]
+[01:05:17] [Server thread/INFO]: [WorldEdit] Default configuration file written: config.yml
+[01:05:17] [Server thread/INFO]: [LuckPerms] Loading server plugin LuckPerms v5.5.71
+[01:05:21] [Server thread/INFO]: [LuckPerms] Loading configuration...
+[01:05:21] [Server thread/INFO]: [Chunky] Loading server plugin Chunky v1.4.40
+[01:05:21] [Server thread/INFO]: [voicechat] Loading server plugin voicechat v2.6.24
+[01:05:21] [Server thread/INFO]: [CoreProtect] Loading server plugin CoreProtect v24.0
+[01:05:21] [Server thread/INFO]: [squaremap] Enabling squaremap v1.3.2
+[01:05:23] [Server thread/INFO]: [io.undertow] starting server: Undertow - 2.3.17.Final
+[01:05:23] [Server thread/INFO]: [org.xnio] XNIO version 3.8.16.Final
+[01:05:23] [Server thread/INFO]: [org.xnio.nio] XNIO NIO Implementation Version 3.8.16.Final
+[01:05:23] [Server thread/INFO]: [org.jboss.threads] JBoss Threads version 3.5.0.Final
+[01:05:23] [Server thread/INFO]: [squaremap] Internal webserver running on 0.0.0.0:8080
+[01:05:23] [Server thread/INFO]: [WorldEdit] Enabling WorldEdit v7.3.9+6959-7adf70b
+[01:05:23] [Server thread/INFO]: Registering commands with com.sk89q.worldedit.bukkit.BukkitServerInterface
+[01:05:23] [Server thread/INFO]: WEPIF: Updated config file
+[01:05:23] [Server thread/INFO]: WEPIF: Using the Bukkit Permissions API.
+[01:05:24] [Server thread/INFO]: Using com.sk89q.worldedit.bukkit.adapter.impl.v1_21.PaperweightAdapter as the Bukkit adapter
+[01:05:26] [Server thread/INFO]: [LuckPerms] Enabling LuckPerms v5.5.71
+[01:05:26] [Server thread/INFO]:         __    
+[01:05:26] [Server thread/INFO]:   |    |__)   LuckPerms v5.5.71
+[01:05:26] [Server thread/INFO]:   |___ |      Running on Bukkit - Paper
+[01:05:26] [Server thread/INFO]: 
+[01:05:26] [Server thread/INFO]: [LuckPerms] Loading storage provider... [H2]
+[01:05:27] [Server thread/INFO]: [LuckPerms] Loading internal permission managers...
+[01:05:27] [Server thread/INFO]: [LuckPerms] Performing initial data load...
+[01:05:27] [Server thread/INFO]: [LuckPerms] Successfully enabled. (took 1509ms)
+[01:05:27] [Server thread/WARN]: **** SERVER IS RUNNING IN OFFLINE/INSECURE MODE!
+[01:05:27] [Server thread/WARN]: The server will make no attempt to authenticate usernames. Beware.
+[01:05:27] [Server thread/WARN]: While this makes the game possible to play without internet access, it also opens up the ability for hackers to connect with any username they choose.
+[01:05:27] [Server thread/WARN]: To change this, set "online-mode" to "true" in the server.properties file.
+[01:05:27] [Server thread/INFO]: Preparing level "world"
+[01:05:46] [Server thread/INFO]: Preparing start region for dimension minecraft:overworld
+[01:05:58] [Server thread/INFO]: Time elapsed: 11985 ms
+[01:05:58] [Server thread/INFO]: Preparing start region for dimension minecraft:the_nether
+[01:06:02] [Server thread/INFO]: Time elapsed: 3939 ms
+[01:06:02] [Server thread/INFO]: Preparing start region for dimension minecraft:the_end
+[01:06:03] [Server thread/INFO]: Time elapsed: 826 ms
+[01:06:03] [Server thread/INFO]: [ViaVersion] Enabling ViaVersion v5.12.0
+[01:06:03] [Server thread/INFO]: [ViaVersion] ViaVersion detected server version: 1.21-1.21.1 (767)
+[01:06:03] [Server thread/INFO]: [Chunky] Enabling Chunky v1.4.40
+[01:06:03] [Server thread/INFO]: [voicechat] Enabling voicechat v2.6.24
+[01:06:03] [Server thread/INFO]: [voicechat] Initializing compatibility for version 1.21.1-R0.1
+[01:06:03] [Server thread/INFO]: [voicechat] Compatibility version 20
+[01:06:03] [Server thread/INFO]: [voicechat] Successfully initialized commodore command completion
+[01:06:03] [Server thread/INFO]: [voicechat] Successfully added ViaVersion mappings
+[01:06:03] [Server thread/INFO]: [CoreProtect] Enabling CoreProtect v24.0
+[01:06:04] [Server thread/INFO]: [CoreProtect] CoreProtect Community Edition has been successfully enabled! 
+[01:06:04] [Server thread/INFO]: [CoreProtect] Using SQLite for data storage.
+[01:06:04] [Server thread/INFO]: --------------------
+[01:06:04] [Server thread/INFO]: [CoreProtect] Enjoy CoreProtect? Join our Discord!
+[01:06:04] [Server thread/INFO]: [CoreProtect] Discord: www.coreprotect.net/discord/
+[01:06:04] [Server thread/INFO]: --------------------
+[01:06:04] [Server thread/INFO]: [spark] Starting background profiler...
+[01:06:04] [Server thread/INFO]: Done preparing level "world" (37.174s)
+[01:06:04] [Server thread/INFO]: Running delayed init tasks
+[01:06:04] [Server thread/INFO]: [CoreProtect] WorldEdit logging successfully initialized.
+[01:06:04] [ForkJoinPool.commonPool-worker-1/INFO]: [squaremap] Fetching version information...
+[01:06:04] [Server thread/INFO]: Done (76.696s)! For help, type "help"
+[01:06:04] [Server thread/INFO]: *************************************************************************************
+[01:06:04] [Server thread/INFO]: This is the first time you're starting this server.
+[01:06:04] [Server thread/INFO]: It's recommended you read our 'Getting Started' documentation for guidance.
+[01:06:04] [Server thread/INFO]: View this and more helpful information here: https://docs.papermc.io/paper/next-steps
+[01:06:04] [Server thread/INFO]: *************************************************************************************
+[01:06:04] [Server thread/INFO]: Timings Reset
+[01:06:05] [Server thread/INFO]: [voicechat] Loading plugins
+[01:06:05] [Server thread/INFO]: [voicechat] Loaded 0 plugin(s)
+[01:06:05] [Server thread/INFO]: [voicechat] Initializing plugins
+[01:06:05] [Server thread/INFO]: [voicechat] Initialized 0 plugin(s)
+[01:06:05] [Server thread/WARN]: [voicechat] Running in offline mode - Voice chat encryption is not secure!
+[01:06:05] [Craft Scheduler Thread - 5 - ViaVersion/INFO]: [ViaVersion] Finished mapping loading, shutting down loader executor.
+[01:06:05] [VoiceChatServerThread/INFO]: [voicechat] Voice chat server started at port 24454
+[01:06:05] [ForkJoinPool.commonPool-worker-1/INFO]: [squaremap] squaremap is 16 version(s) out of date.
+[01:06:05] [ForkJoinPool.commonPool-worker-1/INFO]: [squaremap] Download the latest release (v1.4.0) from https://github.com/jpenilla/squaremap/releases/tag/v1.4.0
+[01:06:06] [Server thread/INFO]: Stopping the server
+[01:06:06] [Server thread/INFO]: Stopping server
+[01:06:06] [Server thread/INFO]: [CoreProtect] Disabling CoreProtect v24.0
+[01:06:06] [Server thread/INFO]: [CoreProtect] Finishing up data logging. Please wait...
+[01:06:07] [Server thread/INFO]: [CoreProtect] Success! Disabled CoreProtect v24.0
+[01:06:07] [Server thread/INFO]: [voicechat] Disabling voicechat v2.6.24
+[01:06:07] [Server thread/INFO]: [Chunky] Disabling Chunky v1.4.40
+[01:06:07] [Server thread/INFO]: [LuckPerms] Disabling LuckPerms v5.5.71
+[01:06:07] [Server thread/INFO]: [LuckPerms] Starting shutdown process...
+[01:06:07] [Server thread/INFO]: [LuckPerms] Closing storage...
+[01:06:07] [Server thread/INFO]: [LuckPerms] Goodbye!
+[01:06:07] [Server thread/INFO]: [WorldEdit] Disabling WorldEdit v7.3.9+6959-7adf70b
+[01:06:07] [Server thread/INFO]: Unregistering com.sk89q.worldedit.bukkit.BukkitServerInterface from WorldEdit
+[01:06:07] [Server thread/INFO]: [squaremap] Disabling squaremap v1.3.2
+[01:06:07] [Server thread/INFO]: [io.undertow] stopping server: Undertow - 2.3.17.Final
+[01:06:07] [Server thread/INFO]: [squaremap] Internal webserver stopped
+[01:06:07] [Server thread/INFO]: [ViaVersion] Disabling ViaVersion v5.12.0
+[01:06:07] [Server thread/INFO]: [ViaVersion] ViaVersion has been disabled; uninjected the platform and shut down the scheduler.
+[01:06:07] [Server thread/INFO]: Saving players
+[01:06:07] [Server thread/INFO]: Saving worlds
+[01:06:07] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:overworld
+[01:06:07] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk system to halt for world 'world'
+[01:06:07] [Server thread/INFO]: [ChunkHolderManager] Halted chunk system for world 'world'
+[01:06:07] [Server thread/INFO]: [ChunkHolderManager] Saving all chunkholders for world 'world'
+[01:06:08] [Server thread/INFO]: [ChunkHolderManager] Saved 841 block chunks, 49 entity chunks, 0 poi chunks in world 'world' in 1.29s
+[01:06:08] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world_nether]'/minecraft:the_nether
+[01:06:08] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk system to halt for world 'world_nether'
+[01:06:08] [Server thread/INFO]: [ChunkHolderManager] Halted chunk system for world 'world_nether'
+[01:06:08] [Server thread/INFO]: [ChunkHolderManager] Saving all chunkholders for world 'world_nether'
+[01:06:09] [Server thread/INFO]: [ChunkHolderManager] Saved 841 block chunks, 49 entity chunks, 0 poi chunks in world 'world_nether' in 0.43s
+[01:06:09] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world_the_end]'/minecraft:the_end
+[01:06:09] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk system to halt for world 'world_the_end'
+[01:06:09] [Server thread/INFO]: [ChunkHolderManager] Halted chunk system for world 'world_the_end'
+[01:06:09] [Server thread/INFO]: [ChunkHolderManager] Saving all chunkholders for world 'world_the_end'
+[01:06:09] [Server thread/INFO]: [ChunkHolderManager] Saved 841 block chunks, 49 entity chunks, 0 poi chunks in world 'world_the_end' in 0.50s
+[01:06:09] [Server thread/INFO]: ThreadedAnvilChunkStorage (world): All chunks are saved
+[01:06:09] [Server thread/INFO]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[01:06:09] [Server thread/INFO]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[01:06:09] [Server thread/INFO]: ThreadedAnvilChunkStorage: All dimensions are saved
