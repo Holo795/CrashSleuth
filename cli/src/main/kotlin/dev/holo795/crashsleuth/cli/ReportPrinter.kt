@@ -35,13 +35,13 @@ class ReportPrinter(private val messages: Messages) {
             appendLine()
             appendLine("${messages.get("report.otherFindings")}:")
             others.forEach { finding ->
-                appendLine("  - ${messages.title(finding.situation)}${culpritList(finding).let { if (it.isEmpty()) "" else " ($it)" }}")
+                appendLine("  - ${text.title(finding)}${culpritList(finding).let { if (it.isEmpty()) "" else " ($it)" }}")
             }
         }
     }
 
     private fun StringBuilder.appendFinding(finding: Finding) {
-        appendLine(messages.title(finding.situation))
+        appendLine(text.title(finding))
         val culprits = culpritList(finding)
         if (culprits.isNotEmpty()) {
             val label = if (finding.culprits.size > 1) messages.get("report.culprits") else messages.get("report.culprit")

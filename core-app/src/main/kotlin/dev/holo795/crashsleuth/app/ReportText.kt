@@ -8,7 +8,9 @@ import dev.holo795.crashsleuth.model.Situation
 
 /** The words of a finding, the same in the command line, the desktop app and shared reports. */
 class ReportText(val messages: Messages) {
-    fun title(finding: Finding): String = messages.title(finding.situation)
+    /** The heading of a finding; a few cases say it better than their situation does. */
+    fun title(finding: Finding): String =
+        finding.details["titleKey"]?.let { messages.get(it) } ?: messages.title(finding.situation)
 
     fun describe(culprit: Culprit): String =
         buildString {

@@ -35,6 +35,7 @@ to lead to the same answer on its own.
 | `real-fabric-api-missing-journeymap` | DEP_MISSING | fabric | https://github.com/itzg/docker-minecraft-server/discussions/2661 | Install the Fabric API jar: nothing pulls it in for you. |
 | `real-fabric-api-wrong-minecraft` | WRONG_MC | fabric-api | https://github.com/orgs/FabricMC/discussions/4403 | Download the Fabric API built for the Minecraft version you run. |
 | `real-folia-plugin-unsupported` | PLUGIN_API | InvSee | https://github.com/Jannyboy11/InvSee-plus-plus/issues/87 | Only plugins whose plugin.yml says folia-supported: true load on Folia; ask the author or run Paper. |
+| `real-java-options-override` | JVM_OPTIONS |  | https://www.minecraftforum.net/forums/support/java-edition-support/2296914-cant-allocate-more-ram-with-razer | Remove the _JAVA_OPTIONS variable (Razer Synapse and other tools set it): it is applied after the command line and wins. |
 | `real-jei-loader-too-old` | DEP_VERSION | fabric | https://github.com/mezz/JustEnoughItems/issues/3748 | Upgrade Fabric Loader to 0.16.3 or later. |
 | `real-kotlin-language-provider-missing` | DEP_MISSING | kotlinforforge | https://github.com/thedarkcolour/KotlinForForge/issues/154 | Install the Kotlin for Forge language provider the mod asks for. |
 | `real-level-type-legacy` | clean start |  | https://github.com/itzg/docker-minecraft-server/issues/1445 | Nothing breaks: since 22w12a the value is minecraft:normal, and anything else falls back to it. |
@@ -57,4 +58,4 @@ to lead to the same answer on its own.
 | `real-world-not-writable` | WORLD_LOCKED |  | https://github.com/itzg/docker-minecraft-server/issues/1080 | Give the folder to the user the server runs as (chown), or set the container's UID and GID to the owner's. |
 | `real-worldgen-settings-deleted` | WORLD_CORRUPT |  | https://github.com/PaperMC/Paper/issues/14066 | Restore that file from a backup: the server cannot start without it, and --safeMode does not help. |
 
-50 cases.
+51 cases.

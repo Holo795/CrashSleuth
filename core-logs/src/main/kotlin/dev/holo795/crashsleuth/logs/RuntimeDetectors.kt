@@ -17,6 +17,8 @@ object HangDetector : Detector {
     private val SERVER_THREAD = Regex("""(?:Current Thread|Thread): Server thread|"Server thread"""")
     /** `MyPlugin-1.0.jar//com.foo.Bar.baz(Bar.java:3)`, `java.base@21/java.lang.Thread.sleep0(Native Method)` or `at com.foo...`. */
     private val DUMP_FRAME = Regex("""^(?:at\s+)?((?:[^\s/()]+/+)*)([\w$]+(?:\.[\w$<>]+)+)\((.*)\)$""")
+    /** What a server doing nothing looks like: waiting for the time of its next tick. */
+    private val IDLE = Regex("""waitUntilNextTick|BlockableEventLoop\.waitForTasks|LockSupport\.parkNanos""")
 
     override fun detect(document: LogDocument, environment: Environment): List<Finding> {
         val anchor = document.find(ANCHOR) ?: return emptyList()
@@ -47,8 +49,14 @@ object HangDetector : Detector {
                 confidence = if (blocker != null) Confidence.HIGH else Confidence.MEDIUM,
                 culprits = listOfNotNull(blocker),
                 evidence = listOfNotNull(document.lineContaining(anchor.value), frames.firstOrNull { blocker?.file?.let(it.value::contains) == true }?.value),
-                // Nobody's plugin or mod in the dump: the game itself is busy, and only a profile says why.
-                details = if (blocker == null) mapOf("adviceKey" to "hang.no-culprit") else emptyMap(),
+                // A parked server thread is a server waiting for its next tick: it is not stuck at all,
+                // and the watchdog fired because the clock jumped (a virtual machine, usually).
+                details = when {
+                    blocker != null -> emptyMap()
+                    frames.take(6).any { IDLE.containsMatchIn(it.value) } ->
+                        mapOf("adviceKey" to "hang.idle-thread", "titleKey" to "hang.idle-thread.title")
+                    else -> mapOf("adviceKey" to "hang.no-culprit")
+                },
             ),
         )
     }

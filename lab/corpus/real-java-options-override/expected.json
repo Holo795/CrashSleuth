@@ -1,0 +1,9 @@
+{
+  "situation": "JVM_OPTIONS",
+  "culprit": null,
+  "logs": [
+    "console.log"
+  ],
+  "source": "https://www.minecraftforum.net/forums/support/java-edition-support/2296914-cant-allocate-more-ram-with-razer",
+  "fix": "Remove the _JAVA_OPTIONS variable (Razer Synapse and other tools set it): it is applied after the command line and wins."
+}

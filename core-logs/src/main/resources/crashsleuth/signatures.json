@@ -869,22 +869,10 @@
       "source": "https://github.com/PrismLauncher/PrismLauncher/issues/954 and https://github.com/IrisShaders/Iris/issues/3292 (replayed in the lab: GLX: Failed to create context: GLXBadFBConfig)"
     },
     {
-      "id": "model-missing",
-      "situation": "RENDER",
-      "confidence": "LOW",
-      "pattern": "Unable to (?:load|bake) model: '([\\w.-]+:[\\w./-]+)'(?: referenced from: ([\\w.-]+:[\\w./#=,-]+))?",
-      "details": {
-        "model": 1,
-        "usedBy": 2
-      },
-      "advice": "signature.model-missing.advice",
-      "source": "https://github.com/pexulsreal/glowrootissues/issues/8 and https://github.com/SashaKYotoz/Unusual-End/issues/21 (the mod's author states these warnings do not crash the game)"
-    },
-    {
       "id": "resource-pack-dropped-as-incompatible",
       "situation": "RENDER",
       "confidence": "HIGH",
-      "pattern": "Removed resource pack (\\S+) from options because it is no longer compatible",
+      "pattern": "Removed resource pack (file/\\S+) from options because it is no longer compatible",
       "culprits": [
         {
           "group": 1,
@@ -896,6 +884,29 @@
       },
       "advice": "signature.resource-pack-dropped.advice",
       "source": "https://github.com/Godlander/objmc/issues/102 (replayed in the lab: a pack whose pack_format is for 1.13, selected on 1.21.1)"
+    },
+    {
+      "id": "java-options-environment-override",
+      "situation": "JVM_OPTIONS",
+      "confidence": "CERTAIN",
+      "pattern": "Picked up (_JAVA_OPTIONS|JAVA_TOOL_OPTIONS):\\s*([^\\n]*)",
+      "details": {
+        "variable": 1,
+        "options": 2
+      },
+      "advice": "signature.java-options-environment-override.advice",
+      "source": "https://www.minecraftforum.net/forums/support/java-edition-support/2296914-cant-allocate-more-ram-with-razer and OpenJDK arguments.cpp, where _JAVA_OPTIONS is applied after the command line (replayed in the lab)"
+    },
+    {
+      "id": "forge-removes-erroring-entities",
+      "situation": "CONFIG_BROKEN",
+      "confidence": "HIGH",
+      "pattern": "Enabling removal of erroring (Entities|Tile Entities) - USE AT YOUR OWN RISK",
+      "details": {
+        "what": 1
+      },
+      "advice": "signature.forge-removes-erroring-entities.advice",
+      "source": "Forge's own config text (\"BE WARNED THIS COULD SCREW UP EVERYTHING\") and the patch that calls discard() on the entity instead of reporting the crash"
     }
   ]
 }

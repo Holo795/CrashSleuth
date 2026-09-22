@@ -1892,5 +1892,23 @@
     "expect": {
       "situation": "CONFIG_BROKEN"
     }
+  },
+  {
+    "platform": "paper",
+    "minecraft": "1.21.1",
+    "java": 21,
+    "name": "real-java-options-override",
+    "description": "Paper 1.21.1 asked for 2 GB, while an environment variable quietly gives it 512 MB",
+    "docker_args": [
+      "-e",
+      "_JAVA_OPTIONS=-Xmx512M"
+    ],
+    "after_ready": 10,
+    "source": "https://www.minecraftforum.net/forums/support/java-edition-support/2296914-cant-allocate-more-ram-with-razer",
+    "fix": "Remove the _JAVA_OPTIONS variable (Razer Synapse and other tools set it): it is applied after the command line and wins.",
+    "log": "console.log",
+    "expect": {
+      "situation": "JVM_OPTIONS"
+    }
   }
 ]

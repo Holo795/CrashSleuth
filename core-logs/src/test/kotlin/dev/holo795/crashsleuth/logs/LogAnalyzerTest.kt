@@ -198,4 +198,17 @@ class LogAnalyzerTest {
         """.trimIndent()
         assertTrue(LogAnalyzer().analyze(log).findings.isEmpty(), "a port scanner is not a problem to report")
     }
+
+    @Test
+    fun `models a pack or a mod does not ship are not a problem to report`() {
+        // Perfectly healthy mods log these while the game starts: a mod author had to say so himself,
+        // https://github.com/SashaKYotoz/Unusual-End/issues/21 ("Unable to load model can't cause the
+        // game to crash"), and the lab's own clean baseline is full of them.
+        val log = """
+            [15:47:54] [Worker-Main-2/ERROR] [minecraft/Util]: Invalid path in pack: glowroot:textures/block/x - Shortcut.lnk, ignoring
+            [15:47:54] [Worker-Main-11/WARN] [minecraft/ModelBakery]: Unable to load model: 'minecraft:glowbulb' referenced from: glowroot:glow_bulb#: java.io.FileNotFoundException
+            [15:47:55] [Render thread/INFO]: Loaded 7 recipes
+        """.trimIndent()
+        assertTrue(LogAnalyzer().analyze(log).findings.isEmpty(), "a missing model is not what breaks a game")
+    }
 }
