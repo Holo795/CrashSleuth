@@ -1,8 +1,20 @@
 # CrashSleuth — Spécification
 
-**Version 12 — 22/09/2026** — v11 + traces lisibles, IA locale, anonymisation des liens, application de bureau testée sur les trois systèmes.
+**Version 13 — 22/09/2026** — v12 + application de bureau vérifiée à l'image sur Windows, recherche du coupable NeoForge depuis le bureau.
 
-### Changements depuis la v11
+### Changements depuis la v12
+- **Application de bureau sur Windows, vérifiée à l'image** (PC d'Holo795, une fois libre) : la vraie fenêtre « CrashSleuth » ouverte dans la session, rapport d'un dossier de jeu NeoForge affiché correctement ; capture de **la fenêtre seule** (PrintWindow), jamais de l'écran.
+- **Rendu des écrans sans fenêtre** (`RenderKt`) : l'accueil et le rapport sont dessinés dans des images, sans rien afficher ; sert à vérifier les écrans sur un ordinateur utilisé par quelqu'un, ou sans écran. Vérifié sous macOS et sous Windows (par SSH).
+- **Correctifs trouvés ainsi** :
+  - le bureau refusait la **recherche du coupable pour un jeu NeoForge** (seuls vanilla et Fabric étaient permis), alors qu'elle marche en ligne de commande ;
+  - un dossier de jeu sans fichiers de launcher n'affichait pas son loader (« NeoForge » manquait) ;
+  - « 1 mods » devient « 1 mod » ;
+  - la page d'accueil disait « rien n'est envoyé nulle part » : désormais « rien ne quitte cet ordinateur sans que vous le demandiez » (mises à jour, liens de partage) ;
+  - les réglages de l'application restés sur le PC après le test précédent (`.crashsleuth`) ont été supprimés avec le reste.
+- Reste cosmétique connu : sous Windows, la barre de titre système reste claire au-dessus de l'application sombre.
+- 52 signatures, 147 tests.
+
+### Changements de la v12 (rappel)
 - **Traces lisibles** (§6.2) : les noms du code du jeu deviennent ceux de Mojang, `class_310.method_22681` (Fabric) et `ub.a` (vanilla) donnant `Minecraft.tick` et `CompoundTag.readNamedTagData`. Correspondances officielles de Mojang et intermédiaires de Fabric, téléchargées une fois ; parmi les méthodes qui partagent un nom obfusqué, la **ligne de la trace** désigne la bonne. `crashsleuth readable <journal>`, `analyze --readable`, bouton « Rendre les traces lisibles » du bureau.
 - **IA locale** (§8, étape 2 faite) : explication en termes simples par un modèle qui tourne **sur l'ordinateur** (Ollama, ou tout serveur local au format OpenAI) ; seules les adresses locales sont acceptées ; seul un **résumé anonymisé** du rapport est envoyé, jamais les journaux ; la réponse est marquée « peut se tromper, le diagnostic fait foi ». `analyze --explain` et bouton du bureau, qui n'apparaît que si un modèle local répond.
 - **Choix du modèle, mesuré sur 5 vrais cas du corpus** (Mac, français) : `gemma3:4b` (3,3 Go) répond en 3 à 6 s sans inventer, `ministral-3:8b` (6 Go) en 5 à 11 s, `qwen3:4b` écrit son raisonnement en anglais et met jusqu'à 2 min. Ordre de préférence : gemma3, puis ministral, mistral, llama3.2, phi4-mini ; les modèles « à raisonnement » sont évités. Premier essai : le modèle avait inventé un réglage (« mode BASIC ») ; consignes resserrées (uniquement les faits, réglages et fichiers du diagnostic, texte brut).

@@ -4,7 +4,7 @@ import java.time.Duration
 
 /** How a game client launch is watched: which line means ready, which lines mean it cannot go on. */
 object ClientLaunch {
-    /** The title screen is up once the block atlas is built and the sound engine started (checked on 1.21 vanilla and Fabric). */
+    /** The title screen is up once the block atlas is built and the sound engine started (checked on 1.21 vanilla, Fabric and NeoForge). */
     val READY = Regex("""Sound engine started|Created: \d+x\d+x\d+ minecraft:textures/atlas/blocks\.png-atlas""")
 
     /** A loader that shows its error screen waits for the player: the launch is over. */

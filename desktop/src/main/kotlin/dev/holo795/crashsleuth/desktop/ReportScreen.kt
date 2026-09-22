@@ -77,7 +77,9 @@ fun ReportScreen(state: AppState, analysis: Analysis) {
                     listOfNotNull(
                         ui["kind.${analysis.target.kind}"],
                         analysis.side?.let { ui[if (it == Side.CLIENT) "side.forClient" else "side.forServer"] },
-                        environment.platform.takeIf { it != Platform.UNKNOWN }?.let { "${it.displayName} ${environment.loaderVersion ?: ""}".trim() },
+                        // A game folder without launcher files: the loader its mods are made for.
+                        environment.platform.takeIf { it != Platform.UNKNOWN }?.let { "${it.displayName} ${environment.loaderVersion ?: ""}".trim() }
+                            ?: analysis.target.loader?.takeIf { it != "vanilla" }?.let { loader -> Platform.entries.firstOrNull { it.name.equals(loader, true) }?.displayName ?: loader },
                         (environment.minecraftVersion ?: analysis.target.minecraft)?.let { "Minecraft $it" },
                         environment.javaVersion?.let { "Java $it" },
                     ),
@@ -252,7 +254,7 @@ private fun InstalledSection(ui: Ui, jars: List<JarEntry>) {
     val mods = jars.count { it.folder == "mods" }
     val plugins = jars.count { it.folder == "plugins" }
     SectionTitle(ui["report.content"]) {
-        Text(listOfNotNull(mods.takeIf { it > 0 }?.let { ui["report.mods", it] }, plugins.takeIf { it > 0 }?.let { ui["report.plugins", it] }).joinToString(" · "), style = MaterialTheme.typography.bodySmall, color = Theme.tones.muted)
+        Text(listOfNotNull(mods.takeIf { it > 0 }?.let { if (it == 1) ui["report.mod"] else ui["report.mods", it] }, plugins.takeIf { it > 0 }?.let { if (it == 1) ui["report.plugin"] else ui["report.plugins", it] }).joinToString(" · "), style = MaterialTheme.typography.bodySmall, color = Theme.tones.muted)
     }
     Row(Modifier.fillMaxWidth().clip(MaterialTheme.shapes.small).background(Theme.tones.raised).padding(horizontal = 10.dp, vertical = 8.dp), verticalAlignment = Alignment.CenterVertically) {
         Icon(Icons.Search, null, Modifier.size(14.dp), tint = Theme.tones.muted)

@@ -32,10 +32,10 @@ data class Target(
 ) {
     val name: String get() = Path.of(path).name
 
-    /** Only folders can be launched; the client search supports vanilla and Fabric for now. */
+    /** Only folders can be launched; the client search supports vanilla, Fabric and NeoForge. */
     val searchable: Boolean get() = when (kind) {
         TargetKind.SERVER -> true
-        TargetKind.CLIENT -> loader == null || loader == "fabric" || loader == "vanilla"
+        TargetKind.CLIENT -> loader == null || loader in setOf("fabric", "vanilla", "neoforge")
         else -> false
     }
 

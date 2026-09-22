@@ -24,7 +24,7 @@ Everything is **local by default**: nothing leaves the computer unless you ask (
 
 ## Systems
 
-Linux, Windows and macOS. Tested for real on the three so far: the analyses (the whole corpus gives the same answers on Windows as on macOS, Windows line endings included), the game client launches (vanilla, Fabric, NeoForge) and the client culprit search. Servers run on Linux in the lab. The desktop app is tested on macOS; Windows and Linux come next. The game windows of test launches never come to the front: hidden on macOS, minimised without focus on Windows, a virtual screen (Xvfb) on Linux.
+Linux, Windows and macOS. Tested for real on the three so far: the analyses (the whole corpus gives the same answers on Windows as on macOS, Windows line endings included), the game client launches (vanilla, Fabric, NeoForge) and the client culprit search. Servers run on Linux in the lab. The desktop app is tested on the three too (its screens can also be drawn without any window, `dev.holo795.crashsleuth.desktop.RenderKt <folder> <out>`). The game windows of test launches never come to the front: hidden on macOS, minimised without focus on Windows, a virtual screen (Xvfb) on Linux.
 
 ## Platforms
 
@@ -97,7 +97,7 @@ python3 lab/lab.py run all --cli cli/build/install/crashsleuth/bin/crashsleuth
 
 CrashSleuth diagnostique les crashs, les échecs de démarrage, les gels, le lag et les problèmes de connexion, pour les **joueurs comme pour les admins de serveurs**, en **vanilla, sur serveurs à plugins, proxys et modpacks**. Il lit vos journaux et vos fichiers (mods, plugins, configurations, mondes), vérifie tout avant le lancement et, si ça ne suffit pas, **relance lui-même le jeu ou le serveur** en retirant des mods ou des plugins jusqu'à désigner le coupable, sans vous demander « ça a planté ? » après chaque essai.
 
-- Application de bureau et ligne de commande (`--lang fr`), pour **Linux, Windows et macOS**. Déjà testés pour de vrai sur les trois : les analyses, les lancements du jeu (vanilla, Fabric, NeoForge) et la recherche du coupable côté client ; l'application de bureau l'est sur macOS, Windows et Linux sont à venir. Les fenêtres des lancements de test ne passent jamais au premier plan.
+- Application de bureau et ligne de commande (`--lang fr`), pour **Linux, Windows et macOS**. Déjà testés pour de vrai sur les trois : les analyses, les lancements du jeu (vanilla, Fabric, NeoForge) et la recherche du coupable côté client ; l'application de bureau aussi. Les fenêtres des lancements de test ne passent jamais au premier plan.
 - Tout reste **sur votre ordinateur** par défaut ; rien ne part sans que vous le demandiez (mises à jour Modrinth par empreinte seulement, lien de partage qui contient le rapport, correspondances de noms téléchargées une fois).
 - Explication en termes simples par une IA qui tourne sur votre ordinateur (Ollama), en option.
 
