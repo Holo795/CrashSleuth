@@ -1,8 +1,20 @@
 # CrashSleuth — Spécification
 
-**Version 5 — 22/09/2026** — v4 + modpacks sans installation, Java lue dans le bytecode, recherche automatique du coupable côté serveur.
+**Version 6 — 22/09/2026** — v5 + analyse des mixins, crashs aléatoires, lancements en parallèle.
 
-### Changements depuis la v4
+### Changements depuis la v5
+- **Index des mixins** (§6.1) : lecture du bytecode (ASM) des classes mixin déclarées par chaque mod (Fabric, NeoForge, Forge, manifeste) : qui modifie quelle méthode du jeu, et comment (remplacement, injection, redirection, MixinExtras). Commande `crashsleuth mixins <dossier ou pack>`. Sur les vrais packs (Create Plus 2 780 injections de 73 mods, Cobbleverse 3 637 de 113 mods, en 2 secondes), il trouve le conflit Lithium / ModernFix sur `Biome.getTemperature` que les journaux des vrais serveurs confirment.
+- **Principe confirmé par le réel** : un conflit de mixins vu dans les fichiers n'est **pas** un diagnostic. Sur les 4 conflits statiques de Create Plus, un seul a lieu au démarrage : les mods désactivent eux-mêmes leurs mixins en double quand ils voient l'autre. Ces conflits sont affichés par `crashsleuth mixins`, jamais signalés comme cause.
+- **Attribution par les mixins** (§6.2) : un crash dont la trace ne montre que du code de Minecraft désigne comme premiers suspects les mods qui modifient ces méthodes (confiance faible, à confirmer par la recherche du coupable). Les méthodes injectées nommées d'après leur mod (`handler$…$lithium$…`) sont attribuées directement.
+- **Crashs aléatoires** (§6.3) : `--repeat N` relance chaque ensemble testé jusqu'à N fois ; un ensemble n'est sain que s'il ne plante jamais. Le serveur complet est relancé jusqu'à N fois pour reproduire.
+- **Lancements en parallèle** : `--parallel N`, chaque essai dans son propre dossier et sur son propre port ; les ensembles d'une même étape sont testés ensemble et le résultat reste identique à la recherche séquentielle.
+- **Campagne réelle, 5 recherches sur 5 réussies** (lancée sur le Mac pendant une coupure du site du R320 : même labo, mêmes serveurs officiels et plugins de Modrinth) :
+  - crash qui n'arrive qu'à 60 % des démarrages, `--repeat 6` : coupable trouvé en 17 lancements (6 min) ;
+  - conflit entre deux plugins, `--parallel 2` : trouvé en 5,5 min contre 7 min un par un (22 lancements contre 20 : le parallélisme teste des ensembles d'avance) ;
+  - non-régression : arrêt silencieux en 7 lancements, Create Plus en 3.
+- **Labo** : un cas du corpus est remplacé en entier à chaque passage ; les scénarios « crash aléatoire » sont marqués pour le rejeu.
+
+### Changements de la v5 (rappel)
 - **Recherche du coupable côté serveur** (§6.3, jalon 3) : `crashsleuth bisect <dossier>`. Nouveaux modules `core-runner` (copie de travail, lancement, verdict) et `core-bisect` (recherche). L'outil lance une copie du serveur (port libre, sans console distante, fichiers de l'utilisateur jamais modifiés), décide seul si le lancement est sain, planté ou bloqué, teste d'abord les suspects de l'analyse puis réduit l'ensemble par delta debugging (ddmin), ce qui trouve aussi les conflits entre plusieurs mods ou plugins. Chaque essai est complété par les dépendances nécessaires. Un crash différent de celui cherché n'est jamais pris pour lui (empreinte : issue, situation, exception).
 - **Modpacks sans installation** (§4) : `.mrpack` Modrinth (fichiers téléchargés depuis les hôtes autorisés par le format, vérifiés par SHA-1, mis en cache), zip CurseForge (fichiers embarqués seulement : les autres passent par l'API CurseForge, qui demande une clé), zip d'un dossier de serveur. Côté serveur ou client (`--side`).
 - **Java requise lue dans le bytecode** : version des classes de chaque jar, comparée à la Java qui tourne (si le journal la donne) ou à celle que demande la version de Minecraft.
@@ -144,7 +156,7 @@ Chaque situation a un identifiant stable (utilisé par les signatures et les rap
 - Lecture des descripteurs : `neoforge.mods.toml`, `META-INF/mods.toml`, `fabric.mod.json`, `quilt.mod.json`, `plugin.yml`, `paper-plugin.yml`, `velocity-plugin.json`, `bungee.yml`.
 - Graphe des dépendances et vérification des plages de versions (syntaxes Maven, Fabric et semver).
 - **Index des classes** de tous les jars (y compris jar-in-jar) : toute ligne d'une trace se rattache à son mod ou plugin.
-- **Analyse des mixins** (bytecode via ASM) : qui modifie quelle méthode, détection des chevauchements incompatibles.
+- **Analyse des mixins** (bytecode via ASM) : qui modifie quelle méthode, détection des chevauchements incompatibles. **Fait (v6)** : index et commande `mixins` ; les chevauchements sont informatifs (voir changements v6).
 - Version de Java requise lue dans les fichiers `.class`.
 - Empreintes SHA-1/SHA-512 comparées à Modrinth et CurseForge (hors ligne possible, avec cache).
 - **Fait (v4)** : lecture des descripteurs Fabric, Quilt, NeoForge, Forge, Bukkit, Paper, BungeeCord et Velocity, jars embarqués compris ; détection de la plateforme et des versions depuis le dossier ; doublons, mauvais loader ou mauvais dossier, dépendances manquantes, mauvaise version de Minecraft, `api-version` trop récente, jars illisibles. L'inventaire (sans les jars) est exportable en JSON et partageable.
@@ -239,7 +251,7 @@ Ordre de passage, du gratuit au payant :
 | 0 | Fondations | Dépôt, licence MIT, build Gradle, CI GitHub, README anglais + français, spec |
 | 1 | Analyse des journaux | Un crash report NeoForge, Fabric, Forge, Paper ou vanilla donne la cause et le coupable (CLI), signatures de base + import codex-minecraft — **en grande partie fait (v4)** |
 | 2 | Vérification avant lancement | Dossier ou pack → dépendances, versions, loader, doublons, Java, client/serveur, plugins, empreintes — **commencé (v4)** : dossier installé ; restent packs zip/mrpack, Java des `.class`, mixins, empreintes |
-| 3 | Recherche du coupable, serveur | Serveur NeoForge, Fabric, Forge ou Paper qui plante → coupable trouvé sans intervention, conflits à deux inclus — **en cours (v5)** |
+| 3 | Recherche du coupable, serveur | Serveur NeoForge, Fabric, Forge ou Paper qui plante → coupable trouvé sans intervention, conflits à deux inclus — **fait (v6)** pour Paper et NeoForge, crashs aléatoires et parallèle compris ; reste : crashs en jeu (monde, joueurs) |
 | 4 | Application de bureau + recherche côté client | Un joueur glisse son pack, l'outil trouve seul le mod fautif |
 | 5 | Gels, lag, web, Discord, Pterodactyl | Dump de thread → coupable ; bot et version web en ligne |
 | 6 | IA | IA locale et clé personnelle ; IA hébergée si financement |

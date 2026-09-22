@@ -232,6 +232,7 @@ class Scenario:
     memory: str = "2G"
     timeout: int = 420
     crashes: bool = False                               # expected to crash without any explanation in its logs
+    flaky: bool = False                                 # crashes only sometimes: the first start may succeed
     bisect: dict | None = None                          # {"culprits": [...], "max_runs"?}: culprit search expected result
     expect: Expectation | None = None                   # None: must start cleanly with no finding (unless crashes)
 
@@ -367,6 +368,8 @@ def verdict(scenario: Scenario, outcome: str, report: dict) -> tuple[bool, str]:
     summary = ", ".join(
         f"{f['situation']}[{'/'.join(c['id'] for c in f.get('culprits', []))}]" for f in findings[:3]
     ) or "no finding"
+    if scenario.expect is None and scenario.flaky:
+        return True, f"started={outcome} (random crash), {summary}"
     if scenario.expect is None and scenario.crashes:
         return outcome != "ready", f"started={outcome} (crash expected), {summary}"
     if scenario.expect is None:
@@ -392,6 +395,7 @@ def bisect(cli_home: str, scenario: Scenario, directory: Path) -> tuple[bool, st
         "-v", f"{cli_home}:/opt/crashsleuth:ro", "-v", f"{RUNS}:{RUNS}", f"eclipse-temurin:{scenario.java}-jdk",
         "/opt/crashsleuth/bin/crashsleuth", "bisect", str(directory), "--json", "--work", "/tmp/bisect",
         "--max-runs", str(scenario.bisect.get("max_runs", 30)), "--timeout", str(max(5, scenario.timeout // 60)),
+        *scenario.bisect.get("args", []),
     ]
     started = time.time()
     result = subprocess.run(command, capture_output=True, text=True, timeout=4 * 3600)
@@ -436,6 +440,8 @@ def run(names: list[str], cli: str, keep: bool) -> int:
         print(f"   {'PASS' if ok else 'FAIL'} ({duration:.0f} s) {detail}", flush=True)
         if log is not None:
             target = CORPUS / scenario.name
+            # A case is replaced as a whole: files of an older run must not stay behind.
+            shutil.rmtree(target, ignore_errors=True)
             target.mkdir(parents=True, exist_ok=True)
             (target / log.name).write_text(anonymise(log.read_text(errors="replace")))
             if answer is not None:

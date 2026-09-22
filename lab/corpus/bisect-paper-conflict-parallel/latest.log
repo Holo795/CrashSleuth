@@ -1,0 +1,141 @@
+[08:47:08] [ServerMain/INFO]: [bootstrap] Running Java 21 (OpenJDK 64-Bit Server VM 21.0.12+8-LTS; Eclipse Adoptium Temurin-21.0.12+8) on Linux 7.0.14-orbstack-00380-ga7e0a2dc9535 (aarch64)
+[08:47:08] [ServerMain/INFO]: [bootstrap] Loading Paper 1.21.1-133-ver/1.21.1@3cb8529 (2025-03-28T16:14:36Z) for Minecraft 1.21.1
+[08:47:08] [ServerMain/INFO]: [PluginInitializerManager] Initializing plugins...
+[08:47:08] [Paper Plugin Remapper Thread - 0/INFO]: [ReobfServer] Remapping server...
+[08:47:11] [Paper Plugin Remapper Thread - 0/INFO]: [ReobfServer] Done remapping server in 2609ms.
+[08:47:11] [Paper Plugin Remapper Thread - 1/INFO]: [PluginRemapper] Remapping plugin 'plugins/TAB v6.2.0 - Paper 1.20.5 - 1.21.4.jar'...
+[08:47:11] [Paper Plugin Remapper Thread - 2/INFO]: [PluginRemapper] Remapping plugin 'plugins/PlaceholderAPI-2.12.3.jar'...
+[08:47:11] [Paper Plugin Remapper Thread - 0/INFO]: [PluginRemapper] Remapping plugin 'plugins/DecentHolograms-2.10.1.jar'...
+[08:47:11] [Paper Plugin Remapper Thread - 3/INFO]: [PluginRemapper] Remapping plugin 'plugins/multiverse-core-5.8.1.jar'...
+[08:47:11] [Paper Plugin Remapper Thread - 0/INFO]: [PluginRemapper] Remapping plugin 'plugins/CrashSleuthFixture-1.0.0.jar'...
+[08:47:11] [Paper Plugin Remapper Thread - 0/INFO]: [PluginRemapper] Done remapping plugin 'plugins/CrashSleuthFixture-1.0.0.jar' in 34ms.
+[08:47:11] [Paper Plugin Remapper Thread - 0/INFO]: [PluginRemapper] Remapping plugin 'plugins/worldedit-bukkit-7.3.9.jar'...
+[08:47:11] [Paper Plugin Remapper Thread - 2/INFO]: [PluginRemapper] Done remapping plugin 'plugins/PlaceholderAPI-2.12.3.jar' in 296ms.
+[08:47:11] [Paper Plugin Remapper Thread - 2/INFO]: [PluginRemapper] Remapping plugin 'plugins/worldguard-bukkit-7.0.12-dist.jar'...
+[08:47:11] [Paper Plugin Remapper Thread - 2/INFO]: [PluginRemapper] Done remapping plugin 'plugins/worldguard-bukkit-7.0.12-dist.jar' in 304ms.
+[08:47:11] [Paper Plugin Remapper Thread - 2/INFO]: [PluginRemapper] Remapping plugin 'plugins/voicechat-bukkit-2.6.24.jar'...
+[08:47:11] [Paper Plugin Remapper Thread - 2/INFO]: [PluginRemapper] Done remapping plugin 'plugins/voicechat-bukkit-2.6.24.jar' in 152ms.
+[08:47:12] [Paper Plugin Remapper Thread - 3/INFO]: [PluginRemapper] Done remapping plugin 'plugins/multiverse-core-5.8.1.jar' in 904ms.
+[08:47:12] [Paper Plugin Remapper Thread - 0/INFO]: [PluginRemapper] Done remapping plugin 'plugins/worldedit-bukkit-7.3.9.jar' in 969ms.
+[08:47:12] [Paper Plugin Remapper Thread - 1/INFO]: [PluginRemapper] Done remapping plugin 'plugins/TAB v6.2.0 - Paper 1.20.5 - 1.21.4.jar' in 1287ms.
+[08:47:12] [ServerMain/ERROR]: [PluginRemapper] Encountered exception remapping plugins
+java.util.concurrent.CompletionException: java.lang.RuntimeException: Failed to remap plugin jar 'plugins/DecentHolograms-2.10.1.jar'
+	at java.base/java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:315) ~[?:?]
+	at java.base/java.util.concurrent.CompletableFuture.completeThrowable(CompletableFuture.java:320) ~[?:?]
+	at java.base/java.util.concurrent.CompletableFuture$UniApply.tryFire(CompletableFuture.java:649) ~[?:?]
+	at java.base/java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:482) ~[?:?]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144) ~[?:?]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642) ~[?:?]
+	at java.base/java.lang.Thread.run(Thread.java:1583) ~[?:?]
+Caused by: java.lang.RuntimeException: Failed to remap plugin jar 'plugins/DecentHolograms-2.10.1.jar'
+	at io.papermc.paper.pluginremap.PluginRemapper.lambda$remap$7(PluginRemapper.java:358) ~[paper-1.21.1.jar:1.21.1-133-3cb8529]
+	at java.base/java.util.concurrent.CompletableFuture$UniApply.tryFire(CompletableFuture.java:646) ~[?:?]
+	... 4 more
+Caused by: java.lang.RuntimeException: Failed to execute task eu/decentsoftware/holograms/nms/v26_2/AbstractDisplayRenderer$1
+	at net.neoforged.art.internal.AsyncHelper.invokeAll(AsyncHelper.java:56) ~[AutoRenamingTool-2.0.3.jar:?]
+	at net.neoforged.art.internal.AsyncHelper.consumeAll(AsyncHelper.java:36) ~[AutoRenamingTool-2.0.3.jar:?]
+	at net.neoforged.art.internal.RenamerImpl.run(RenamerImpl.java:177) ~[paper-1.21.1.jar:?]
+	at net.neoforged.art.internal.RenamerImpl.run(RenamerImpl.java:95) ~[paper-1.21.1.jar:?]
+	at io.papermc.paper.pluginremap.PluginRemapper.lambda$remap$7(PluginRemapper.java:355) ~[paper-1.21.1.jar:1.21.1-133-3cb8529]
+	at java.base/java.util.concurrent.CompletableFuture$UniApply.tryFire(CompletableFuture.java:646) ~[?:?]
+	... 4 more
+Caused by: java.util.concurrent.ExecutionException: java.lang.IllegalArgumentException: Unsupported class file major version 69
+	at java.base/java.util.concurrent.FutureTask.report(FutureTask.java:122) ~[?:?]
+	at java.base/java.util.concurrent.FutureTask.get(FutureTask.java:191) ~[?:?]
+	at net.neoforged.art.internal.AsyncHelper.invokeAll(AsyncHelper.java:52) ~[AutoRenamingTool-2.0.3.jar:?]
+	at net.neoforged.art.internal.AsyncHelper.consumeAll(AsyncHelper.java:36) ~[AutoRenamingTool-2.0.3.jar:?]
+	at net.neoforged.art.internal.RenamerImpl.run(RenamerImpl.java:177) ~[paper-1.21.1.jar:?]
+	at net.neoforged.art.internal.RenamerImpl.run(RenamerImpl.java:95) ~[paper-1.21.1.jar:?]
+	at io.papermc.paper.pluginremap.PluginRemapper.lambda$remap$7(PluginRemapper.java:355) ~[paper-1.21.1.jar:1.21.1-133-3cb8529]
+	at java.base/java.util.concurrent.CompletableFuture$UniApply.tryFire(CompletableFuture.java:646) ~[?:?]
+	... 4 more
+Caused by: java.lang.IllegalArgumentException: Unsupported class file major version 69
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:200) ~[asm-9.7.1.jar:9.7.1]
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:180) ~[asm-9.7.1.jar:9.7.1]
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:166) ~[asm-9.7.1.jar:9.7.1]
+	at net.neoforged.art.internal.ClassProviderImpl$ClassInfo.<init>(ClassProviderImpl.java:104) ~[AutoRenamingTool-2.0.3.jar:?]
+	at net.neoforged.art.internal.ClassProviderBuilderImpl.lambda$addClass$1(ClassProviderBuilderImpl.java:64) ~[AutoRenamingTool-2.0.3.jar:?]
+	at java.base/java.util.concurrent.ConcurrentHashMap.computeIfAbsent(ConcurrentHashMap.java:1740) ~[?:?]
+	at net.neoforged.art.internal.ClassProviderBuilderImpl.addClass(ClassProviderBuilderImpl.java:64) ~[AutoRenamingTool-2.0.3.jar:?]
+	at net.neoforged.art.internal.RenamerImpl.lambda$run$2(RenamerImpl.java:178) ~[paper-1.21.1.jar:?]
+	at net.neoforged.art.internal.AsyncHelper.lambda$null$0(AsyncHelper.java:33) ~[AutoRenamingTool-2.0.3.jar:?]
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317) ~[?:?]
+	... 3 more
+[08:47:12] [ServerMain/INFO]: [PluginInitializerManager] Initialized 12 plugins
+[08:47:12] [ServerMain/INFO]: [PluginInitializerManager] Bukkit plugins (12):
+ - Chunky (1.4.40), CoreProtect (24.0), CrashSleuthFixture (1.0.0), LuckPerms (5.5.71), Multiverse-Core (5.8.1), PlaceholderAPI (2.12.3), TAB (6.2.0), ViaVersion (5.12.0), WorldEdit (7.3.9+6959-7adf70b), WorldGuard (7.0.12+829a4a4), squaremap (1.3.2), voicechat (2.6.24)
+[08:47:14] [ServerMain/INFO]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
+[08:47:14] [ServerMain/INFO]: Found new data pack file/bukkit, loading it automatically
+[08:47:14] [ServerMain/INFO]: Found new data pack paper, loading it automatically
+[08:47:14] [ServerMain/INFO]: No existing world data, creating new world
+[08:47:14] [ServerMain/INFO]: Loaded 1290 recipes
+[08:47:14] [ServerMain/INFO]: Loaded 1399 advancements
+[08:47:15] [Server thread/INFO]: Starting minecraft server version 1.21.1
+[08:47:15] [Server thread/INFO]: Loading properties
+[08:47:15] [Server thread/INFO]: This server is running Paper version 1.21.1-133-ver/1.21.1@3cb8529 (2025-03-28T16:14:36Z) (Implementing API version 1.21.1-R0.1-SNAPSHOT)
+[08:47:15] [Server thread/INFO]: [spark] This server bundles the spark profiler. For more information please visit https://docs.papermc.io/paper/profiling
+[08:47:15] [Server thread/INFO]: Server Ping Player Sample Count: 12
+[08:47:15] [Server thread/INFO]: Using 4 threads for Netty based IO
+[08:47:15] [Server thread/INFO]: [ChunkTaskScheduler] Chunk system is using 1 I/O threads, 3 worker threads, and population gen parallelism of 3 threads
+[08:47:15] [Server thread/INFO]: Default game type: SURVIVAL
+[08:47:15] [Server thread/INFO]: Generating keypair
+[08:47:15] [Server thread/INFO]: Starting Minecraft server on *:25565
+[08:47:15] [Server thread/INFO]: Using epoll channel type
+[08:47:15] [Server thread/INFO]: Paper: Using libdeflate (Linux aarch64) compression from Velocity.
+[08:47:15] [Server thread/INFO]: Paper: Using OpenSSL 3.x.x (Linux aarch64) cipher from Velocity.
+[08:47:16] [Server thread/INFO]: [ViaVersion] Loading server plugin ViaVersion v5.12.0
+[08:47:16] [Server thread/INFO]: [ViaVersion] ViaVersion 5.12.0 is now loaded. Registering protocol transformers and injecting...
+[08:47:16] [Server thread/INFO]: [LuckPerms] Loading server plugin LuckPerms v5.5.71
+[08:47:18] [Server thread/INFO]: [LuckPerms] Loading configuration...
+[08:47:18] [Server thread/INFO]: [PlaceholderAPI] Loading server plugin PlaceholderAPI v2.12.3
+[08:47:18] [Server thread/INFO]: [WorldEdit] Loading server plugin WorldEdit v7.3.9+6959-7adf70b
+[08:47:19] [Server thread/INFO]: Got request to register class com.sk89q.worldedit.bukkit.BukkitServerInterface with WorldEdit [com.sk89q.worldedit.extension.platform.PlatformManager@18f3f8c9]
+[08:47:19] [Server thread/INFO]: [WorldEdit] Default configuration file written: config.yml
+[08:47:19] [Server thread/INFO]: [squaremap] Loading server plugin squaremap v1.3.2
+[08:47:19] [Server thread/INFO]: [TAB] Loading server plugin TAB v6.2.0
+[08:47:19] [Server thread/INFO]: [CrashSleuthFixture] Loading server plugin CrashSleuthFixture v1.0.0
+[08:47:19] [Server thread/INFO]: [WorldGuard] Loading server plugin WorldGuard v7.0.12+829a4a4
+[08:47:19] [Server thread/INFO]: [CoreProtect] Loading server plugin CoreProtect v24.0
+[08:47:19] [Server thread/INFO]: [Chunky] Loading server plugin Chunky v1.4.40
+[08:47:19] [Server thread/INFO]: [CoreLogging] Loading server plugin Multiverse-Core v5.8.1
+[08:47:19] [Server thread/INFO]: [voicechat] Loading server plugin voicechat v2.6.24
+[08:47:19] [Server thread/INFO]: [LuckPerms] Enabling LuckPerms v5.5.71
+[08:47:19] [Server thread/INFO]:         __    
+[08:47:19] [Server thread/INFO]:   |    |__)   LuckPerms v5.5.71
+[08:47:19] [Server thread/INFO]:   |___ |      Running on Bukkit - Paper
+[08:47:19] [Server thread/INFO]: 
+[08:47:19] [Server thread/INFO]: [LuckPerms] Loading storage provider... [H2]
+[08:47:19] [Server thread/INFO]: [LuckPerms] Loading internal permission managers...
+[08:47:19] [Server thread/INFO]: [LuckPerms] Performing initial data load...
+[08:47:19] [Server thread/INFO]: [LuckPerms] Successfully enabled. (took 499ms)
+[08:47:19] [Server thread/INFO]: [WorldEdit] Enabling WorldEdit v7.3.9+6959-7adf70b
+[08:47:19] [Server thread/INFO]: Registering commands with com.sk89q.worldedit.bukkit.BukkitServerInterface
+[08:47:19] [Server thread/INFO]: WEPIF: Updated config file
+[08:47:19] [Server thread/INFO]: WEPIF: Using the Bukkit Permissions API.
+[08:47:19] [Server thread/INFO]: Using com.sk89q.worldedit.bukkit.adapter.impl.v1_21.PaperweightAdapter as the Bukkit adapter
+[08:47:20] [Server thread/INFO]: [squaremap] Enabling squaremap v1.3.2
+[08:47:20] [Server thread/INFO]: [io.undertow] starting server: Undertow - 2.3.17.Final
+[08:47:20] [Server thread/INFO]: [org.xnio] XNIO version 3.8.16.Final
+[08:47:20] [Server thread/INFO]: [org.xnio.nio] XNIO NIO Implementation Version 3.8.16.Final
+[08:47:20] [Server thread/INFO]: [org.jboss.threads] JBoss Threads version 3.5.0.Final
+[08:47:20] [Server thread/INFO]: [squaremap] Internal webserver running on 0.0.0.0:8080
+[08:47:21] [Server thread/WARN]: **** SERVER IS RUNNING IN OFFLINE/INSECURE MODE!
+[08:47:21] [Server thread/WARN]: The server will make no attempt to authenticate usernames. Beware.
+[08:47:21] [Server thread/WARN]: While this makes the game possible to play without internet access, it also opens up the ability for hackers to connect with any username they choose.
+[08:47:21] [Server thread/WARN]: To change this, set "online-mode" to "true" in the server.properties file.
+[08:47:21] [Server thread/INFO]: Preparing level "world"
+[08:47:23] [Server thread/INFO]: Preparing start region for dimension minecraft:overworld
+[08:47:24] [Server thread/INFO]: Time elapsed: 1224 ms
+[08:47:24] [Server thread/INFO]: Preparing start region for dimension minecraft:the_nether
+[08:47:25] [Server thread/INFO]: Time elapsed: 419 ms
+[08:47:25] [Server thread/INFO]: Preparing start region for dimension minecraft:the_end
+[08:47:25] [Server thread/INFO]: Time elapsed: 139 ms
+[08:47:25] [Server thread/INFO]: [ViaVersion] Enabling ViaVersion v5.12.0
+[08:47:25] [Server thread/INFO]: [ViaVersion] ViaVersion detected server version: 1.21-1.21.1 (767)
+[08:47:25] [Server thread/INFO]: [PlaceholderAPI] Enabling PlaceholderAPI v2.12.3
+[08:47:25] [Server thread/INFO]: [PlaceholderAPI] Fetching available expansion information...
+[08:47:25] [Server thread/INFO]: [TAB] Enabling TAB v6.2.0
+[08:47:25] [Server thread/INFO]: [TAB] Found NMS implementation: me.neznamy.tab.platforms.bukkit.paper_1_20_5.NMSImplementationProvider
+[08:47:25] [Server thread/INFO]: [TAB] Enabled in 108ms
+[08:47:25] [Server thread/INFO]: [CrashSleuthFixture] Enabling CrashSleuthFixture v1.0.0
+[08:47:25] [Server thread/INFO]: [CrashSleuthFixture] CrashSleuth fixture mode: halt-with:LuckPerms

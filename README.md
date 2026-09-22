@@ -33,11 +33,13 @@ cli/build/install/crashsleuth/bin/crashsleuth analyze hs_err_pid1234.log --json
 cli/build/install/crashsleuth/bin/crashsleuth analyze pack.mrpack --side server
 # find the culprit by launching a copy of the server with fewer mods or plugins
 cli/build/install/crashsleuth/bin/crashsleuth bisect path/to/server --java /path/to/java
+# which mods change which game methods through mixins, and where they collide
+cli/build/install/crashsleuth/bin/crashsleuth mixins path/to/server
 # the list of installed mods and plugins with their metadata, as JSON
 cli/build/install/crashsleuth/bin/crashsleuth inventory path/to/server
 ```
 
-`bisect` works on a copy: your server folder is never changed. It launches the server on a free port, decides by itself whether each launch started, crashed or froze, tests the mods named by the analysis first, then narrows the set down with delta debugging, which also finds crashes that only happen when two mods or plugins are installed together. Dependencies are always kept with the mods that need them.
+`bisect` works on a copy: your server folder is never changed. It launches the server on a free port, decides by itself whether each launch started, crashed or froze, tests the mods named by the analysis first, then narrows the set down with delta debugging, which also finds crashes that only happen when two mods or plugins are installed together. Dependencies are always kept with the mods that need them. `--repeat 5` handles crashes that do not happen every time, `--parallel 2` runs several launches at once.
 
 From the logs, it recognises missing and outdated dependencies (NeoForge, Forge, Fabric, Quilt, Paper, Spigot, Purpur), mods made for another Minecraft version or loader, incompatible mods, client-only mods on a server, duplicates, plugins that fail to load, to enable, or keep failing while the server runs, a main thread blocked by a plugin (Paper watchdog), wrong Java versions, mixin failures, crashes on a ticking entity or block (with its position), worlds opened with an older Minecraft or missing mods, out of memory errors, stack overflows and native Java crashes. Other errors are attributed to the mod or plugin found in the stack trace.
 

@@ -23,6 +23,10 @@ public final class FixturePlugin extends JavaPlugin {
             // Stops the JVM at once: no exception, no crash report, nothing in the logs to point at us.
             case "halt" -> Runtime.getRuntime().halt(1);
             default -> {
+                // "halt-random:60": dies on 60 % of the starts, like a crash that does not happen every time.
+                if (mode.startsWith("halt-random:") && new java.util.Random().nextInt(100) < Integer.parseInt(mode.substring("halt-random:".length()))) {
+                    Runtime.getRuntime().halt(1);
+                }
                 // "halt-with:OtherPlugin": only dies when another given plugin is installed (a conflict).
                 if (mode.startsWith("halt-with:") && Bukkit.getPluginManager().getPlugin(mode.substring("halt-with:".length())) != null) {
                     Runtime.getRuntime().halt(1);

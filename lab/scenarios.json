@@ -549,5 +549,75 @@
       "situation": "PLUGIN_API",
       "culprit": "DecentHolograms"
     }
+  },
+  {
+    "name": "bisect-paper-random-crash",
+    "description": "Paper 1.21.1 with 12 plugins, one stops the JVM on 60 % of the starts only",
+    "platform": "paper",
+    "minecraft": "1.21.1",
+    "java": 21,
+    "mods": [
+      "luckperms",
+      "chunky",
+      "worldedit",
+      "coreprotect",
+      "viaversion",
+      "squaremap",
+      "simple-voice-chat",
+      "placeholderapi",
+      "multiverse-core",
+      "tab-was-taken",
+      "worldguard",
+      "decentholograms"
+    ],
+    "fixture": "halt-random:60",
+    "crashes": true,
+    "bisect": {
+      "culprits": [
+        "CrashSleuthFixture"
+      ],
+      "max_runs": 60,
+      "args": [
+        "--repeat",
+        "6"
+      ]
+    },
+    "flaky": true
+  },
+  {
+    "name": "bisect-paper-conflict-parallel",
+    "description": "Same conflict as bisect-paper-conflict, two launches at a time",
+    "platform": "paper",
+    "minecraft": "1.21.1",
+    "java": 21,
+    "mods": [
+      "luckperms",
+      "chunky",
+      "worldedit",
+      "coreprotect",
+      "viaversion",
+      "squaremap",
+      "simple-voice-chat",
+      "placeholderapi",
+      "multiverse-core",
+      "tab-was-taken",
+      "worldguard",
+      "decentholograms"
+    ],
+    "fixture": "halt-with:LuckPerms",
+    "crashes": true,
+    "bisect": {
+      "culprits": [
+        "CrashSleuthFixture",
+        "LuckPerms"
+      ],
+      "max_runs": 40,
+      "args": [
+        "--parallel",
+        "2",
+        "--memory",
+        "2G"
+      ]
+    }
   }
 ]
