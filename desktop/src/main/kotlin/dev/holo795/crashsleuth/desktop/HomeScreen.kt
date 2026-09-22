@@ -30,6 +30,10 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.foundation.clickable
+import androidx.compose.ui.input.pointer.PointerIcon
+import androidx.compose.ui.input.pointer.pointerHoverIcon
+import dev.holo795.crashsleuth.model.Side
 import androidx.compose.ui.unit.dp
 
 @Composable
@@ -45,7 +49,9 @@ fun HomeScreen(state: AppState, dragging: Boolean, chooseFolder: () -> Unit, cho
             Text(ui["home.subtitle"], style = MaterialTheme.typography.bodyLarge, color = Theme.tones.muted, modifier = Modifier.widthIn(max = 560.dp))
             Spacer(Modifier.height(36.dp))
             DropArea(dragging, ui, chooseFolder, chooseFile)
-            Spacer(Modifier.height(48.dp))
+            Spacer(Modifier.height(14.dp))
+            SideChooser(state)
+            Spacer(Modifier.height(44.dp))
             Recents(state)
             Spacer(Modifier.height(48.dp))
             Row(verticalAlignment = Alignment.CenterVertically) {
@@ -79,6 +85,32 @@ private fun DropArea(dragging: Boolean, ui: Ui, chooseFolder: () -> Unit, choose
                 TextButton(ui["home.chooseFile"], chooseFile, icon = Icons.File)
             }
         }
+    }
+}
+
+/** Only modpacks and lists of mods need it: a folder or a log says its side itself. */
+@Composable
+private fun SideChooser(state: AppState) {
+    val ui = state.ui
+    Row(Modifier.padding(start = 4.dp), verticalAlignment = Alignment.CenterVertically) {
+        Text(ui["home.sideFor"], style = MaterialTheme.typography.bodySmall, color = Theme.tones.muted)
+        Spacer(Modifier.width(12.dp))
+        Row(Modifier.clip(MaterialTheme.shapes.small).background(Theme.tones.raised).padding(3.dp)) {
+            listOf(Side.SERVER to ui["side.server"], Side.CLIENT to ui["side.client"]).forEach { (value, label) ->
+                val on = value == state.side
+                Row(
+                    Modifier.clip(MaterialTheme.shapes.small).background(if (on) MaterialTheme.colorScheme.background else Color.Transparent)
+                        .pointerHoverIcon(PointerIcon.Hand).clickable { state.chooseSide(value) }.padding(horizontal = 12.dp, vertical = 5.dp),
+                    verticalAlignment = Alignment.CenterVertically,
+                ) {
+                    Icon(if (value == Side.SERVER) Icons.Server else Icons.Game, null, Modifier.size(13.dp), tint = if (on) MaterialTheme.colorScheme.onSurface else Theme.tones.muted)
+                    Spacer(Modifier.width(7.dp))
+                    Text(label, style = MaterialTheme.typography.labelMedium, color = if (on) MaterialTheme.colorScheme.onSurface else Theme.tones.muted)
+                }
+            }
+        }
+        Spacer(Modifier.width(12.dp))
+        Text(ui["home.sideAuto"], style = MaterialTheme.typography.bodySmall, color = Theme.tones.muted.copy(alpha = 0.7f))
     }
 }
 

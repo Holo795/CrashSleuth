@@ -12,12 +12,13 @@ import kotlinx.serialization.json.jsonPrimitive
 import java.nio.file.Path
 import kotlin.io.path.exists
 import kotlin.io.path.isDirectory
+import kotlin.io.path.listDirectoryEntries
 import kotlin.io.path.name
 import kotlin.io.path.readText
 
 /** What the user gave: a server, a game folder, a modpack file, or a single log. */
 @Serializable
-enum class TargetKind { SERVER, CLIENT, PACK, LOG }
+enum class TargetKind { SERVER, CLIENT, PACK, MODS, LOG }
 
 /** A target and what could be learned about it before any analysis. */
 @Serializable
@@ -49,6 +50,9 @@ data class Target(
             val server = path.resolve("server.properties").exists() || path.resolve("eula.txt").exists() ||
                 path.resolve("run.sh").exists() || path.resolve("run.bat").exists() || path.resolve("plugins").isDirectory()
             if (server) return Target(path.toString(), TargetKind.SERVER)
+            // Jars in the folder itself, and nothing else: a list of mods or plugins, for the side the user chose.
+            val looseJars = runCatching { path.listDirectoryEntries("*.jar").isNotEmpty() }.getOrDefault(false)
+            if (looseJars && !path.resolve("mods").isDirectory() && !path.resolve("config").isDirectory()) return Target(path.toString(), TargetKind.MODS)
             // A Prism or MultiMC instance keeps the game in .minecraft (or minecraft) next to mmc-pack.json.
             val game = listOf(".minecraft", "minecraft").map(path::resolve).firstOrNull { it.resolve("mods").isDirectory() } ?: path
             val (minecraft, loader) = prism(path) ?: curseForge(path) ?: (null to null)

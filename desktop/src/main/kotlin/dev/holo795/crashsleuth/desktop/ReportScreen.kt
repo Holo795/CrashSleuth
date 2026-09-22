@@ -46,6 +46,10 @@ import dev.holo795.crashsleuth.app.Analysis
 import dev.holo795.crashsleuth.inventory.JarEntry
 import dev.holo795.crashsleuth.model.Finding
 import dev.holo795.crashsleuth.model.Platform
+import dev.holo795.crashsleuth.model.Side
+import androidx.compose.foundation.clickable
+import androidx.compose.ui.input.pointer.PointerIcon
+import androidx.compose.ui.input.pointer.pointerHoverIcon
 import kotlinx.coroutines.delay
 
 @Composable
@@ -70,6 +74,7 @@ fun ReportScreen(state: AppState, analysis: Analysis) {
                 Facts(
                     listOfNotNull(
                         ui["kind.${analysis.target.kind}"],
+                        analysis.side?.let { ui[if (it == Side.CLIENT) "side.forClient" else "side.forServer"] },
                         environment.platform.takeIf { it != Platform.UNKNOWN }?.let { "${it.displayName} ${environment.loaderVersion ?: ""}".trim() },
                         (environment.minecraftVersion ?: analysis.target.minecraft)?.let { "Minecraft $it" },
                         environment.javaVersion?.let { "Java $it" },

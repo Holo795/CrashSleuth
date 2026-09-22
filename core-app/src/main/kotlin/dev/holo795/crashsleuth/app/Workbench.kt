@@ -7,6 +7,7 @@ import dev.holo795.crashsleuth.bisect.suspectsOf
 import dev.holo795.crashsleuth.engine.Diagnoser
 import dev.holo795.crashsleuth.inventory.InjectionKind
 import dev.holo795.crashsleuth.inventory.InstanceScanner
+import dev.holo795.crashsleuth.inventory.JarScanner
 import dev.holo795.crashsleuth.inventory.Inventory
 import dev.holo795.crashsleuth.inventory.InventoryAnalyzer
 import dev.holo795.crashsleuth.inventory.MixinIndex
@@ -40,6 +41,8 @@ data class Analysis(
     val mixinCollisions: List<MixinCollision> = emptyList(),
     /** Mods or plugins named by the analysis: the culprit search tests them first. */
     val suspects: List<String> = emptyList(),
+    /** For a modpack: the side it was read for (each file of a pack says which sides need it). */
+    val side: Side? = null,
 )
 
 /** How to run a culprit search; everything has a sensible default. */
@@ -82,7 +85,20 @@ class Workbench(
                 val inventory = packs.scan(path, side)
                 val index = MixinIndex.build(inventory.jars)
                 val report = diagnoser.diagnose(emptyList(), inventory) { index }
-                Analysis(initial.copy(minecraft = inventory.minecraftVersion, loader = Target.platformLoader(inventory.platform)), report, inventory, collisions(index))
+                Analysis(initial.copy(minecraft = inventory.minecraftVersion, loader = Target.platformLoader(inventory.platform)), report, inventory, collisions(index), side = side)
+            }
+            TargetKind.MODS -> {
+                val folder = Path.of(initial.path)
+                val jars = JarScanner.jarsIn(folder).map { JarScanner.scan(it, "mods") }
+                // Plugins dropped as a list are read as plugins.
+                val asPlugins = jars.isNotEmpty() && jars.all { jar -> jar.mods.isNotEmpty() && jar.formats.all { it.isPlugin } }
+                val scanned = if (asPlugins) jars.map { it.copy(folder = "plugins") } else jars
+                val platform = platformOf(scanned)
+                val inventory = Inventory(platform = platform, side = side, jars = scanned)
+                val index = MixinIndex.build(scanned)
+                val report = diagnoser.diagnose(emptyList(), inventory) { index }
+                val target = Target.refine(initial.copy(kind = TargetKind.CLIENT), inventory).copy(kind = TargetKind.MODS)
+                Analysis(target, report, inventory, collisions(index), side = side)
             }
             TargetKind.SERVER, TargetKind.CLIENT -> {
                 val folder = Path.of(initial.path)
@@ -100,6 +116,20 @@ class Workbench(
                 Analysis(target, report, inventory, collisions(index.value), suspectsOf(report))
             }
         }
+    }
+
+    /** The loader a list of jars is made for, from their metadata. */
+    private fun platformOf(jars: List<dev.holo795.crashsleuth.inventory.JarEntry>): dev.holo795.crashsleuth.model.Platform {
+        val formats = jars.flatMap { it.formats }
+        fun share(format: dev.holo795.crashsleuth.inventory.MetadataFormat) = formats.count { it == format }
+        return listOf(
+            dev.holo795.crashsleuth.inventory.MetadataFormat.NEOFORGE to dev.holo795.crashsleuth.model.Platform.NEOFORGE,
+            dev.holo795.crashsleuth.inventory.MetadataFormat.FABRIC to dev.holo795.crashsleuth.model.Platform.FABRIC,
+            dev.holo795.crashsleuth.inventory.MetadataFormat.FORGE to dev.holo795.crashsleuth.model.Platform.FORGE,
+            dev.holo795.crashsleuth.inventory.MetadataFormat.QUILT to dev.holo795.crashsleuth.model.Platform.QUILT,
+            dev.holo795.crashsleuth.inventory.MetadataFormat.PAPER to dev.holo795.crashsleuth.model.Platform.PAPER,
+            dev.holo795.crashsleuth.inventory.MetadataFormat.BUKKIT to dev.holo795.crashsleuth.model.Platform.PAPER,
+        ).maxByOrNull { share(it.first) }?.takeIf { share(it.first) > 0 }?.second ?: dev.holo795.crashsleuth.model.Platform.UNKNOWN
     }
 
     private fun collisions(index: MixinIndex): List<MixinCollision> =

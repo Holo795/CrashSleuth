@@ -16,6 +16,7 @@ import dev.holo795.crashsleuth.app.Workbench
 import dev.holo795.crashsleuth.bisect.RunRecord
 import dev.holo795.crashsleuth.bisect.SearchResult
 import dev.holo795.crashsleuth.model.Messages
+import dev.holo795.crashsleuth.model.Side
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
@@ -53,7 +54,7 @@ sealed interface Screen {
     data object Home : Screen
     data class Analyzing(val path: Path) : Screen
     data class Failed(val path: Path, val message: String) : Screen
-    data class Report(val analysis: Analysis) : Screen
+    data class Report(val analysis: Analysis, val other: Analysis? = null) : Screen
     data class Setup(val analysis: Analysis, val setup: SearchSetup, val javas: List<JavaInstall>) : Screen
     data class Searching(val analysis: Analysis, val setup: SearchSetup) : Screen
 }
@@ -79,6 +80,9 @@ class AppState {
         private set
     var screen by mutableStateOf<Screen>(Screen.Home)
         private set
+    /** Side a modpack or a list of mods is read for; folders and logs say it themselves. */
+    var side by mutableStateOf(if (settings.side == "CLIENT") Side.CLIENT else Side.SERVER)
+        private set
     val recents = mutableStateListOf<Recent>().apply { addAll(settings.recents) }
     var search by mutableStateOf<SearchProgress?>(null)
         private set
@@ -90,6 +94,12 @@ class AppState {
         Settings.save(settings)
     }
 
+    fun chooseSide(value: Side) {
+        side = value
+        settings = settings.copy(side = value.name)
+        Settings.save(settings)
+    }
+
     fun home() {
         screen = Screen.Home
     }
@@ -98,10 +108,14 @@ class AppState {
         screen = Screen.Analyzing(path)
         job?.cancel()
         job = scope.launch {
-            val result = withContext(Dispatchers.IO) { runCatching { workbench.analyze(path) } }
-            result.onSuccess { analysis ->
+            // A modpack is read for both sides: the server files and the player's files differ.
+            val result = withContext(Dispatchers.IO) {
+                // The side chosen on the home screen, for modpacks and lists of mods; folders and logs say it themselves.
+                runCatching { workbench.analyze(path, side) to null }
+            }
+            result.onSuccess { (analysis, other) ->
                 remember(analysis)
-                screen = Screen.Report(analysis)
+                screen = Screen.Report(analysis, other)
             }.onFailure { error ->
                 screen = Screen.Failed(path, error.message ?: error.javaClass.simpleName)
             }
@@ -158,7 +172,7 @@ class AppState {
 
 /** The few things remembered between two starts, in the user's own folder. */
 @Serializable
-data class Settings(val language: String? = null, val recents: List<Recent> = emptyList()) {
+data class Settings(val language: String? = null, val recents: List<Recent> = emptyList(), val side: String? = null) {
     companion object {
         private val file: Path = Path.of(System.getProperty("user.home"), ".crashsleuth", "desktop.json")
         private val json = Json { ignoreUnknownKeys = true; prettyPrint = true }

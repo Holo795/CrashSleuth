@@ -91,6 +91,7 @@ fun kindIcon(kind: TargetKind): ImageVector = when (kind) {
     TargetKind.SERVER -> Icons.Server
     TargetKind.CLIENT -> Icons.Game
     TargetKind.PACK -> Icons.Package
+    TargetKind.MODS -> Icons.Layers
     TargetKind.LOG -> Icons.File
 }
 
