@@ -2,7 +2,8 @@
   "situation": "WRONG_MC",
   "culprit": "fabric-api",
   "logs": [
-    "latest.log"
+    "latest.log",
+    "console.log"
   ],
   "source": "https://github.com/orgs/FabricMC/discussions/4034",
   "fix": "Take the Fabric API built for the exact point release you play."

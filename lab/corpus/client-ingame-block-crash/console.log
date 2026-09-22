@@ -1,0 +1,26 @@
+CRASHED in 32 s
+        Window size: 427x240
+        GFLW Platform: x11
+        GL Caps: Using framebuffer using OpenGL 3.2
+        GL debug messages: 
+        Is Modded: Definitely; Client brand changed to 'fabric'; Server brand changed to 'fabric'
+        Universe: 400921fb54442d18
+        Type: Integrated Server (map_client.txt)
+        Graphics mode: fancy
+        Render Distance: 12/12 chunks
+        Resource Packs: vanilla
+        Current Language: en_us
+        Locale: en_US
+        System encoding: UTF-8
+        File encoding: UTF-8
+        CPU: 12x VirtualApple @ 2.50GHz
+        Server Running: true
+        Player Count: 1 / 8; [class_3222['CrashSleuth'/8, l='ServerLevel[world]', x=10.50, y=127.00, z=9.50]]
+        Active Data Packs: vanilla
+        Available Data Packs: bundle, trade_rebalance, vanilla
+        Enabled Feature Flags: minecraft:vanilla
+        World Generation: Stable
+        World Seed: -4675461369262711340
+#@!@# Game crashed! Crash report saved to: #@!@# /game/crash-reports/crash-2026-09-22_23.45.27-client.txt
+WARN StatusConsoleListener Unable to register Log4j shutdown hook because JVM is shutting down. Using SimpleLogger
+

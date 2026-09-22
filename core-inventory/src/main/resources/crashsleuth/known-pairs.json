@@ -1,11 +1,83 @@
 {
-  "about": "Mods that are known not to work together, and mods that need another mod without saying so in their metadata. Every entry names where it was established: a maintainer's answer, or a case replayed in the lab (lab/corpus). Mod ids were read from the published jars, not guessed.",
+  "about": "Mods that are known not to work together, and mods that need another mod without saying so in their metadata. Every entry names where it was established: a maintainer's answer, or the project's own page. Pairs the loader itself refuses are left out, since it says so on its own. Mod ids were read from the published jars, not guessed. OptiFine carries no metadata, so it is recognised by its file name.",
   "incompatible": [
     {
       "a": "jade",
       "b": "notenoughcrashes",
       "why": "Jade's author says the two do not work together: Not Enough Crashes catches the loading entrypoints Jade registers into.",
       "source": "https://github.com/Snownee/Jade/issues/769"
+    },
+    {
+      "a": "create",
+      "b": "optifine",
+      "why": "Create's own maintainers: OptiFine is closed source and breaks Create's rendering; nothing can be done on Create's side.",
+      "source": "https://github.com/Creators-of-Create/Create/issues/5366"
+    },
+    {
+      "a": "jade",
+      "b": "optifine",
+      "why": "Jade's author asks people to remove OptiFine when Jade fails to apply its changes to the game.",
+      "source": "https://github.com/Snownee/Jade/issues/263"
+    },
+    {
+      "a": "connector",
+      "b": "optifine",
+      "why": "Sinytra Connector's own FAQ: OptiFine does not work with Connector or the Forgified Fabric API, on any loader.",
+      "source": "https://connector.sinytra.org/faq"
+    },
+    {
+      "a": "entity_model_features",
+      "b": "optifine",
+      "why": "Entity Model Features replaces OptiFine's custom entity models: its author says the two must not be installed together.",
+      "source": "https://modrinth.com/mod/entity-model-features"
+    },
+    {
+      "a": "xenon",
+      "b": "optifine",
+      "why": "Xenon is the Forge port of Sodium and replaces OptiFine: its page states OptiFine is not supported.",
+      "source": "https://modrinth.com/mod/xenon-forge"
+    },
+    {
+      "a": "customfov",
+      "b": "optifine",
+      "why": "OptiFine removes the field this mod reads, so the two cannot run together.",
+      "source": "https://modrinth.com/mod/custom-fov-illusive"
+    },
+    {
+      "a": "embeddium",
+      "b": "indium",
+      "why": "Embeddium carries the Fabric rendering API itself: its README says Indium is no longer required and will not work with it.",
+      "source": "https://github.com/embeddedt/embeddium"
+    },
+    {
+      "a": "dynamiccrosshair",
+      "b": "exordium",
+      "why": "Dynamic Crosshair's page: it does not work with Exordium's replacement interface; turn Exordium's enabledGui off to keep its other features.",
+      "source": "https://modrinth.com/mod/dynamiccrosshair"
+    },
+    {
+      "a": "xaerominimap",
+      "b": "xaeroplus",
+      "why": "Xaero, the minimap's author, asks people not to run XaeroPlus with it: he declines all support for the pair.",
+      "source": "https://modrinth.com/mod/xaeros-minimap"
+    },
+    {
+      "a": "easymagic",
+      "b": "apotheosis",
+      "why": "Easy Magic's page: it is not compatible with Apotheosis, which replaces the same enchanting screen.",
+      "source": "https://modrinth.com/mod/easy-magic"
+    },
+    {
+      "a": "easymagic",
+      "b": "quark",
+      "why": "Easy Magic's page: it is not compatible with Quark's matrix enchanter, which replaces the same screen.",
+      "source": "https://modrinth.com/mod/easy-magic"
+    },
+    {
+      "a": "Essentials",
+      "b": "GroupManager",
+      "why": "EssentialsX's own FAQ: GroupManager is not supported, and LuckPerms is the maintained replacement.",
+      "source": "https://essentialsx.net/wiki/faq"
     }
   ],
   "needs": [

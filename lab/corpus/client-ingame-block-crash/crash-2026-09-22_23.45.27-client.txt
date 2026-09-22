@@ -1,7 +1,7 @@
 ---- Minecraft Crash Report ----
-// I just don't know what went wrong :(
+// I feel sad now :(
 
-Time: 2026-09-22 20:22:32
+Time: 2026-09-22 23:45:27
 Description: Batching sections
 
 java.lang.IllegalStateException: Shop sign model is not loaded
@@ -32,10 +32,10 @@ Stacktrace:
 
 -- Uptime --
 Details:
-	JVM uptime: 29.734s
-	Wall uptime: 14.559s
-	High-res time: 14.032s
-	Client ticks: 70 ticks / 3.500s
+	JVM uptime: 30.280s
+	Wall uptime: 14.123s
+	High-res time: 13.585s
+	Client ticks: 71 ticks / 3.550s
 Stacktrace:
 	at knot//net.minecraft.class_310.method_1587(class_310.java:2501)
 	at knot//net.minecraft.class_310.method_43589(class_310.java:931)
@@ -48,14 +48,14 @@ Stacktrace:
 
 -- Affected level --
 Details:
-	All players: 1 total; [class_746['CrashSleuth'/8, l='ClientLevel', x=-6.50, y=142.00, z=-2.50]]
+	All players: 1 total; [class_746['CrashSleuth'/8, l='ClientLevel', x=10.50, y=127.00, z=9.50]]
 	Chunk stats: 961, 25
 	Level dimension: minecraft:overworld
 	Level spawn location: World: (0,138,0), Section: (at 0,10,0 in 0,8,0; chunk contains blocks 0,-64,0 to 15,319,15), Region: (0,0; contains chunks 0,0 to 31,31, blocks 0,-64,0 to 511,319,511)
-	Level time: 68 game time, 68 day time
+	Level time: 67 game time, 67 day time
 	Server brand: fabric
 	Server type: Integrated singleplayer server
-	Tracked entity count: 9
+	Tracked entity count: 8
 
 -- Last reload --
 Details:
@@ -71,7 +71,7 @@ Details:
 	Operating System: Linux (amd64) version 7.0.14-orbstack-00380-ga7e0a2dc9535
 	Java Version: 21.0.12, Eclipse Adoptium
 	Java VM Version: OpenJDK 64-Bit Server VM (mixed mode, sharing), Eclipse Adoptium
-	Memory: 110847832 bytes (105 MiB) / 612368384 bytes (584 MiB) up to 4294967296 bytes (4096 MiB)
+	Memory: 364755040 bytes (347 MiB) / 891289600 bytes (850 MiB) up to 4294967296 bytes (4096 MiB)
 	CPUs: 12
 	Processor Vendor: VirtualApple
 	Processor Name: VirtualApple @ 2.50GHz
@@ -87,14 +87,14 @@ Details:
 	Graphics card #0 deviceId: unknown
 	Graphics card #0 versionInfo: unknown
 	Virtual memory max (MiB): 19048.21
-	Virtual memory used (MiB): 3345.40
+	Virtual memory used (MiB): 3602.68
 	Swap memory total (MiB): 13040.14
 	Swap memory used (MiB): 0.00
-	Space in storage for jna.tmpdir (MiB): available: 145284.02, total: 471482.09
-	Space in storage for org.lwjgl.system.SharedLibraryExtractPath (MiB): available: 145284.02, total: 471482.09
-	Space in storage for io.netty.native.workdir (MiB): available: 145284.02, total: 471482.09
-	Space in storage for java.io.tmpdir (MiB): available: 136529.09, total: 150208.00
-	Space in storage for workdir (MiB): available: 145284.02, total: 471482.09
+	Space in storage for jna.tmpdir (MiB): available: 140013.03, total: 471482.09
+	Space in storage for org.lwjgl.system.SharedLibraryExtractPath (MiB): available: 140013.03, total: 471482.09
+	Space in storage for io.netty.native.workdir (MiB): available: 140013.03, total: 471482.09
+	Space in storage for java.io.tmpdir (MiB): available: 131603.25, total: 145280.00
+	Space in storage for workdir (MiB): available: 140013.03, total: 471482.09
 	JVM Flags: 1 total; -Xmx4G
 	Launched Version: 1.21.1
 	Launcher name: CrashSleuth
@@ -116,7 +116,7 @@ Details:
 	File encoding: UTF-8
 	CPU: 12x VirtualApple @ 2.50GHz
 	Server Running: true
-	Player Count: 1 / 8; [class_3222['CrashSleuth'/8, l='ServerLevel[world]', x=-6.50, y=142.00, z=-2.50]]
+	Player Count: 1 / 8; [class_3222['CrashSleuth'/8, l='ServerLevel[world]', x=10.50, y=127.00, z=9.50]]
 	Active Data Packs: vanilla
 	Available Data Packs: bundle, trade_rebalance, vanilla
 	Enabled Feature Flags: minecraft:vanilla

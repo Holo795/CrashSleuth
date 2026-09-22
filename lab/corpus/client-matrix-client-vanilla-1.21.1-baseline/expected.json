@@ -2,6 +2,7 @@
   "situation": null,
   "culprit": null,
   "logs": [
-    "latest.log"
+    "latest.log",
+    "console.log"
   ]
 }

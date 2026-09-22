@@ -1,7 +1,7 @@
 ---- Minecraft Crash Report ----
-// Would you like a cupcake?
+// Why did you do that?
 
-Time: 2026-09-22 23:22:37
+Time: 2026-09-23 01:45:52
 Description: Mod loading error has occurred
 
 java.lang.Exception: Mod Loading has failed
@@ -81,7 +81,7 @@ Details:
 	Operating System: Mac OS X (aarch64) version 27.0
 	Java Version: 21.0.12.1, Homebrew
 	Java VM Version: OpenJDK 64-Bit Server VM (mixed mode, sharing), Homebrew
-	Memory: 351425096 bytes (335 MiB) / 1008730112 bytes (962 MiB) up to 4294967296 bytes (4096 MiB)
+	Memory: 332855656 bytes (317 MiB) / 822083584 bytes (784 MiB) up to 4294967296 bytes (4096 MiB)
 	CPUs: 12
 	Processor Vendor: Apple Inc.
 	Processor Name: Apple M4 Pro
@@ -100,9 +100,9 @@ Details:
 	Memory slot #0 clockSpeed (GHz): 0.00
 	Memory slot #0 type: unknown
 	Virtual memory max (MB): 29696.00
-	Virtual memory used (MB): 21394.72
+	Virtual memory used (MB): 21273.86
 	Swap memory total (MB): 5120.00
-	Swap memory used (MB): 4185.00
+	Swap memory used (MB): 3945.00
 	JVM Flags: 1 total; -Xmx4G
 	ModLauncher: 10.0.9+10.0.9+main.dcd20f30
 	ModLauncher launch target: forgeclient

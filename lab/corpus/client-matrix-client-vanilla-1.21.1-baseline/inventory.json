@@ -8,6 +8,7 @@
     "files": {
         "worlds": [],
         "eulaAccepted": null,
-        "configErrors": []
+        "configErrors": [],
+        "rootJars": []
     }
 }

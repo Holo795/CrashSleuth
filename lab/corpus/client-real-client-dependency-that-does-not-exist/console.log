@@ -1,3 +1,4 @@
+CRASHED in 3 s
 [01:46:17] [main/INFO]: Loading Minecraft 1.21.1 with Fabric Loader 0.19.5
 [01:46:17] [main/INFO]: Fabric is preparing JARs on first launch, this may take a few seconds...
 [01:46:17] [main/WARN]: Mod resolution failed
@@ -7,11 +8,12 @@
 [01:46:17] [main/ERROR]: Incompatible mods found!
 net.fabricmc.loader.impl.FormattedException: Some of your mods are incompatible with the game or each other!
 A potential solution has been determined, this may resolve your problem:
-	 - Install intermap, any version.
+         - Install intermap, any version.
 More details:
-	 - Mod 'Big Shot Api' (big_shot_api) 3.7.1 requires any version of intermap, which is missing!
-	at net.fabricmc.loader.impl.FormattedException.ofLocalized(FormattedException.java:51) ~[fabric-loader-0.19.5.jar:?]
-	at net.fabricmc.loader.impl.FabricLoaderImpl.load(FabricLoaderImpl.java:202) ~[fabric-loader-0.19.5.jar:?]
-	at net.fabricmc.loader.impl.launch.knot.Knot.init(Knot.java:142) ~[fabric-loader-0.19.5.jar:?]
-	at net.fabricmc.loader.impl.launch.knot.Knot.launch(Knot.java:66) [fabric-loader-0.19.5.jar:?]
-	at net.fabricmc.loader.impl.launch.knot.KnotClient.main(KnotClient.java:23) [fabric-loader-0.19.5.jar:?]
+         - Mod 'Big Shot Api' (big_shot_api) 3.7.1 requires any version of intermap, which is missing!
+        at net.fabricmc.loader.impl.FormattedException.ofLocalized(FormattedException.java:51) ~[fabric-loader-0.19.5.jar:?]
+        at net.fabricmc.loader.impl.FabricLoaderImpl.load(FabricLoaderImpl.java:202) ~[fabric-loader-0.19.5.jar:?]
+        at net.fabricmc.loader.impl.launch.knot.Knot.init(Knot.java:142) ~[fabric-loader-0.19.5.jar:?]
+        at net.fabricmc.loader.impl.launch.knot.Knot.launch(Knot.java:66) [fabric-loader-0.19.5.jar:?]
+        at net.fabricmc.loader.impl.launch.knot.KnotClient.main(KnotClient.java:23) [fabric-loader-0.19.5.jar:?]
+

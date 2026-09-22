@@ -68,7 +68,7 @@ object InventoryAnalyzer {
             }
         }
         if (side == Side.SERVER && platform in setOf(Platform.NEOFORGE, Platform.FORGE)) findings += knownClientOnly(active)
-        findings += knownPairs(active)
+        findings += knownPairs(active, inventory.jars)
         findings += javaVersions(loaded.filter { (jar, mods) -> mods.isNotEmpty() || jar.mods.isEmpty() }.map { it.first }, known.javaVersion, minecraft)
         findings += dependencies(active, provided, minecraft, side)
         findings += loaderRequirements(active, platform, known.loaderVersion ?: inventory.loaderVersion)
@@ -219,8 +219,12 @@ object InventoryAnalyzer {
      * Two mods people found out the hard way cannot live together, and mods that need another mod
      * without saying so. Both are said before anything crashes, with where it was established.
      */
-    private fun knownPairs(active: List<Pair<JarEntry, ModMetadata>>): List<Finding> {
-        val byId = active.associateBy { (_, mod) -> mod.id.lowercase() }
+    private fun knownPairs(active: List<Pair<JarEntry, ModMetadata>>, inventoryJars: List<JarEntry> = emptyList()): List<Finding> {
+        val byId = active.associateBy { (_, mod) -> mod.id.lowercase() }.toMutableMap()
+        // OptiFine ships no metadata at all: its file name is the only thing that names it, and it is
+        // the other half of more known pairs than any other mod.
+        inventoryJars.firstOrNull { it.file.lowercase().removePrefix("preview_").startsWith("optifine") }
+            ?.let { jar -> byId["optifine"] = jar to ModMetadata(format = MetadataFormat.FORGE, id = "optifine", name = "OptiFine") }
         val findings = mutableListOf<Finding>()
         KNOWN_PAIRS["incompatible"]?.jsonArray?.forEach { entry ->
             val pair = entry.jsonObject

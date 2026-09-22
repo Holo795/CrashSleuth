@@ -2,8 +2,9 @@
   "situation": "CONFIG_BROKEN",
   "culprit": null,
   "logs": [
-    "crash-2026-09-22_23.27.28-client.txt",
-    "latest.log"
+    "crash-2026-09-23_01.46.08-client.txt",
+    "latest.log",
+    "console.log"
   ],
   "source": "https://forums.minecraftforge.net/topic/120264-the-game-crashed-whilst-initializing-game-error-javalangexceptionininitializererror-null-exit-code-1/",
   "fix": "Delete config/forge-resource-caching.toml: Forge writes a new one."

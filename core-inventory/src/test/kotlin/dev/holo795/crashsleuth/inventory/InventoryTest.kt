@@ -236,4 +236,14 @@ class InventoryTest {
         jar("mods", "litematica.jar", mapOf("fabric.mod.json" to fabricMod("litematica", "0.19.0")))
         assertFalse(Situation.DEP_MISSING to "litematicatool" in situations(InstanceScanner.scan(root)), "nothing to say once it is installed")
     }
+
+    @Test
+    fun `OptiFine is recognised by its file name and named with what it breaks`() {
+        fabricServer()
+        // OptiFine ships no metadata of any kind, so only its name gives it away.
+        jar("mods", "OptiFine_1.20.1_HD_U_I6.jar", mapOf("notch/Config.class" to "x"))
+        jar("mods", "create.jar", mapOf("fabric.mod.json" to fabricMod("create", "6.0.4")))
+        val found = situations(InstanceScanner.scan(root))
+        assertTrue(Situation.MOD_CONFLICT to "create" in found, "$found")
+    }
 }

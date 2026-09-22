@@ -1,0 +1,26 @@
+CRASHED in 4 s
+        at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+        at MC-BOOTSTRAP/fmlloader@1.18.2-40.3.12/net.minecraftforge.fml.loading.targets.CommonClientLaunchHandler.lambda$launchService$0(CommonClientLaunchHandler.java:31)
+        at MC-BOOTSTRAP/cpw.mods.modlauncher@9.1.3/cpw.mods.modlauncher.LaunchServiceHandlerDecorator.launch(LaunchServiceHandlerDecorator.java:37)
+        ... 7 more
+Caused by: java.lang.NoClassDefFoundError: Could not initialize class com.mojang.blaze3d.systems.RenderSystem
+        at TRANSFORMER/minecraft@1.18.2/net.minecraft.SystemReport.m_143522_(SystemReport.java:65)
+        at TRANSFORMER/minecraft@1.18.2/net.minecraft.client.Minecraft.m_167850_(Minecraft.java:2284)
+        at TRANSFORMER/minecraft@1.18.2/net.minecraft.client.Minecraft.m_167872_(Minecraft.java:2277)
+        at TRANSFORMER/minecraft@1.18.2/net.minecraft.client.main.Main.main(Main.java:178)
+        at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+        ... 10 more
+Caused by: java.lang.ExceptionInInitializerError: Exception java.lang.UnsatisfiedLinkError: Failed to locate library: liblwjgl.dylib [in thread "Render thread"]
+        at MC-BOOTSTRAP/org.lwjgl/org.lwjgl.system.Library.loadSystem(Library.java:147)
+        at MC-BOOTSTRAP/org.lwjgl/org.lwjgl.system.Library.loadSystem(Library.java:67)
+        at MC-BOOTSTRAP/org.lwjgl/org.lwjgl.system.Library.<clinit>(Library.java:50)
+        at MC-BOOTSTRAP/org.lwjgl/org.lwjgl.system.MemoryUtil.<clinit>(MemoryUtil.java:97)
+        at TRANSFORMER/minecraft@1.18.2/com.mojang.blaze3d.platform.MemoryTracker.<clinit>(MemoryTracker.java:8)
+        at TRANSFORMER/minecraft@1.18.2/com.mojang.blaze3d.vertex.BufferBuilder.<init>(BufferBuilder.java:48)
+        at TRANSFORMER/minecraft@1.18.2/com.mojang.blaze3d.vertex.Tesselator.<init>(Tesselator.java:19)
+        at TRANSFORMER/minecraft@1.18.2/com.mojang.blaze3d.vertex.Tesselator.<init>(Tesselator.java:23)
+        at TRANSFORMER/minecraft@1.18.2/com.mojang.blaze3d.vertex.Tesselator.<clinit>(Tesselator.java:11)
+        at TRANSFORMER/minecraft@1.18.2/com.mojang.blaze3d.systems.RenderSystem.<clinit>(RenderSystem.java:46)
+        at TRANSFORMER/minecraft@1.18.2/net.minecraft.client.main.Main.main(Main.java:167)
+        ... 11 more
+
