@@ -63,6 +63,13 @@ class CulpritSearch(
     /** Launches the server with exactly these jars and reports how it went. */
     private val launch: (List<JarEntry>) -> RunResult,
     private val maxRuns: Int = 40,
+    /**
+     * Launches per tested set, for crashes that do not happen every time: a set is healthy only if it
+     * never crashes in that many launches. The full set is launched that many times to reproduce.
+     */
+    private val repeat: Int = 1,
+    /** Sets tested at the same time (each on its own copy and port). */
+    private val parallel: Int = 1,
     private val progress: (String) -> kotlin.Unit = {},
     private val diagnoser: Diagnoser = Diagnoser(),
 ) {
@@ -132,26 +139,62 @@ class CulpritSearch(
 
     private class BudgetExhausted : RuntimeException()
 
-    /** True when the set crashes the same way as the full set. */
+    /** One launch, recorded; true when it crashed the same way as the reference. */
+    private fun launchOnce(full: Set<Candidate>, note: String?): Boolean {
+        synchronized(runs) {
+            if (runs.size + inFlight >= maxRuns) throw BudgetExhausted()
+            inFlight++
+        }
+        try {
+            val result = launch(full.map { it.jar })
+            val print = fingerprint(result)
+            val same = reference?.sameAs(print) ?: false
+            synchronized(runs) {
+                runs += RunRecord(runs.size + 1, full.map { it.key }, result.outcome, result.seconds, same, note)
+                progress("run ${runs.size}: ${full.size} jar(s), ${result.outcome.name.lowercase()}${if (same) ", same crash" else ""} (${"%.0f".format(result.seconds)} s)")
+            }
+            return same
+        } finally {
+            synchronized(runs) { inFlight-- }
+        }
+    }
+
+    private var inFlight = 0
+
+    /** True when the set crashes the same way as the full set, in at most [repeat] launches. */
     private fun fails(kept: Collection<Candidate>, note: String? = null): Boolean {
         val full = closure(kept)
         val key = full.map { it.key }.toSet()
-        cache[key]?.let { return it }
-        if (runs.size >= maxRuns) throw BudgetExhausted()
-        val result = launch(full.map { it.jar })
-        val print = fingerprint(result)
-        val same = reference?.let { it.sameAs(print) } ?: false
-        runs += RunRecord(runs.size + 1, full.map { it.key }, result.outcome, result.seconds, same, note)
-        progress("run ${runs.size}: ${full.size} jar(s), ${result.outcome.name.lowercase()}${if (same) ", same crash" else ""} (${"%.0f".format(result.seconds)} s)")
-        cache[key] = same
+        synchronized(cache) { cache[key] }?.let { return it }
+        val same = (1..repeat).any { attempt -> launchOnce(full, note?.let { if (repeat > 1) "$it, try $attempt" else it }) }
+        synchronized(cache) { cache[key] = same }
         return same
     }
 
+    /** Index of the first set that fails, testing up to [parallel] sets at once, in order. */
+    private fun firstFailing(sets: List<Collection<Candidate>>): Int? {
+        if (parallel <= 1) return sets.indexOfFirst { fails(it) }.takeIf { it >= 0 }
+        for (batch in sets.indices.chunked(parallel)) {
+            val results = pool.invokeAll(batch.map { index -> java.util.concurrent.Callable { fails(sets[index]) } })
+                .map { future -> runCatching { future.get() }.getOrElse { error -> throw (error.cause ?: error) } }
+            results.indexOfFirst { it }.takeIf { it >= 0 }?.let { return batch[it] }
+        }
+        return null
+    }
+
+    private val pool by lazy { java.util.concurrent.Executors.newFixedThreadPool(parallel) { runnable -> Thread(runnable).apply { isDaemon = true } } }
+
     fun search(suspects: List<String> = emptyList()): SearchResult {
-        progress("run 1: all ${units.size} jars, to record the crash")
-        val baseline = launch(units.map { it.jar })
-        val print = fingerprint(baseline)
-        runs += RunRecord(1, units.map { it.key }, baseline.outcome, baseline.seconds, baseline.outcome != Outcome.READY, "reference")
+        // A crash that does not happen every time is launched again before giving up.
+        var baseline: RunResult? = null
+        for (attempt in 1..repeat) {
+            progress("run ${runs.size + 1}: all ${units.size} jars, to record the crash")
+            val result = launch(units.map { it.jar })
+            runs += RunRecord(runs.size + 1, units.map { it.key }, result.outcome, result.seconds, result.outcome != Outcome.READY, "reference")
+            baseline = result
+            if (result.outcome != Outcome.READY) break
+        }
+        val print = fingerprint(baseline!!)
         if (baseline.outcome == Outcome.READY) {
             return SearchResult(false, emptyList(), emptyList(), true, print, runs.toList())
         }
@@ -164,6 +207,8 @@ class CulpritSearch(
             found = fromSuspects(suspects) ?: ddmin(units, forced = emptyList())
         } catch (_: BudgetExhausted) {
             complete = false
+        } finally {
+            if (parallel > 1) pool.shutdownNow()
         }
         return SearchResult(true, found.map { it.key }, found.map { it.label }, complete, reference, runs.toList())
     }
@@ -194,15 +239,16 @@ class CulpritSearch(
         var parts = 2
         while (current.size >= 2) {
             val chunks = current.chunked((current.size + parts - 1) / parts)
-            val subset = chunks.firstOrNull { fails(it + forced) }
+            val subset = firstFailing(chunks.map { it + forced })
             if (subset != null) {
-                current = subset
+                current = chunks[subset]
                 parts = 2
                 continue
             }
-            val complement = if (chunks.size > 2) chunks.map { chunk -> current - chunk.toSet() }.firstOrNull { fails(it + forced) } else null
+            val complements = chunks.map { chunk -> current - chunk.toSet() }
+            val complement = if (chunks.size > 2) firstFailing(complements.map { it + forced }) else null
             if (complement != null) {
-                current = complement
+                current = complements[complement]
                 parts = maxOf(parts - 1, 2)
                 continue
             }

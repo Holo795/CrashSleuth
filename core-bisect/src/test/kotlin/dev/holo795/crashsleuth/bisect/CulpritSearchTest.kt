@@ -96,6 +96,24 @@ class CulpritSearchTest {
     }
 
     @Test
+    fun `crash that happens one time out of three`() {
+        var launches = 0
+        // Deterministic "random": m6 crashes the server on every third launch it is part of.
+        val simulator = Simulator { ids -> if ("m6" in ids && launches++ % 3 == 0) crash else null }
+        val result = CulpritSearch(inventory, simulator::launch, maxRuns = 200, repeat = 4).search()
+        assertEquals(listOf("mods/m6.jar"), result.culprits)
+    }
+
+    @Test
+    fun `parallel launches give the same answer`() {
+        val simulator = Simulator { ids -> if ("m3" in ids && "m14" in ids) crash else null }
+        val synchronizedLaunch = { jars: List<JarEntry> -> synchronized(simulator) { simulator.launch(jars) } }
+        val result = CulpritSearch(inventory, synchronizedLaunch, parallel = 3).search()
+        assertEquals(setOf("mods/m3.jar", "mods/m14.jar"), result.culprits.toSet())
+        assertTrue(result.complete)
+    }
+
+    @Test
     fun `nothing to search when the server starts`() {
         val result = CulpritSearch(inventory, Simulator { null }::launch).search()
         assertFalse(result.reproduced)

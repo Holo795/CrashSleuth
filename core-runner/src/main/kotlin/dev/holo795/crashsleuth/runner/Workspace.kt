@@ -30,7 +30,6 @@ class Workspace(
     private val withWorld: Boolean = false,
 ) {
     private val base = work.resolve("base")
-    private val run = work.resolve("run")
 
     /** Jar folders whose content is chosen for each launch. */
     val jarFolders = listOf("mods", "plugins")
@@ -58,8 +57,12 @@ class Workspace(
         }
     }
 
-    /** A clean run folder containing [jars] (paths inside the source server, keyed by their folder). */
-    fun newRun(jars: Map<String, List<Path>>): Path {
+    /**
+     * A clean run folder containing [jars] (paths inside the source server, keyed by their folder).
+     * Launches running at the same time use different [slot]s.
+     */
+    fun newRun(jars: Map<String, List<Path>>, slot: Int = 0): Path {
+        val run = work.resolve("run-$slot")
         deleteRecursively(run)
         run.createDirectories()
         base.listDirectoryEntries().forEach { entry ->
