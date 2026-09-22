@@ -537,9 +537,13 @@ def prepare(scenario: Scenario, directory: Path) -> list[str]:
 def apply_mutations(scenario: Scenario, directory: Path) -> None:
     """Breaks files on purpose once a first clean start has created them."""
     for action in scenario.mutate:
-        kind = next(k for k in ("garble", "truncate", "delete", "write", "corrupt_chunks", "chmod") if k in action)
+        kind = next(k for k in ("garble", "truncate", "delete", "write", "corrupt_chunks", "chmod", "copy") if k in action)
         target = directory / action[kind]
-        if kind == "chmod":
+        if kind == "copy":
+            # The same file in two worlds: how a copied world ends up with the identity of another.
+            (directory / action["to"]).parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy(target, directory / action["to"])
+        elif kind == "chmod":
             # Files the server may no longer read or write: what a container with the wrong owner gives.
             target.chmod(int(action.get("mode", "000"), 8))
         elif kind == "corrupt_chunks":

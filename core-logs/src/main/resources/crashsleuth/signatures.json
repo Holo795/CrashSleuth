@@ -508,6 +508,34 @@
       "source": "codex-minecraft"
     },
     {
+      "id": "world-gen-settings-unreadable",
+      "situation": "WORLD_CORRUPT",
+      "confidence": "CERTAIN",
+      "pattern": "Unable to read or access the world gen settings file![^\\n]*?([\\w./-]*world_gen_settings\\.dat)",
+      "details": {
+        "file": 1
+      },
+      "advice": "signature.world-gen-settings-unreadable.advice",
+      "source": "https://github.com/PaperMC/Paper/issues/14066 (replayed in the lab: Paper 26.2 with that file deleted)"
+    },
+    {
+      "id": "recipe-old-item-stack-format",
+      "situation": "DATAPACK_BROKEN",
+      "confidence": "CERTAIN",
+      "pattern": "(?:Parsing error loading recipe|Error parsing recipe) ([\\w.-]+:[\\w./-]+)[\\s\\S]{0,200}?No key id in MapLike",
+      "culprits": [
+        {
+          "group": 1,
+          "kind": "SYSTEM"
+        }
+      ],
+      "details": {
+        "file": 1
+      },
+      "advice": "signature.recipe-old-item-stack-format.advice",
+      "source": "https://github.com/misode/misode.github.io/issues/822 and https://github.com/BaiTian6641/farmer-s-respite/issues/1 (replayed in the lab: a 1.20.4-style recipe on Paper 1.21.1)"
+    },
+    {
       "id": "datapack-failed",
       "situation": "DATAPACK_BROKEN",
       "confidence": "MEDIUM",

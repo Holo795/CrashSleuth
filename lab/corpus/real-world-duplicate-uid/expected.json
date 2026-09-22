@@ -1,0 +1,9 @@
+{
+  "situation": "WORLD_DUPLICATE",
+  "culprit": null,
+  "logs": [
+    "latest.log"
+  ],
+  "source": "https://github.com/Multiverse/Multiverse-Core/issues/1877",
+  "fix": "Delete uid.dat in the copied world: it is what says which world it is."
+}

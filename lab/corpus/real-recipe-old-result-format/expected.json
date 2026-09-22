@@ -1,0 +1,9 @@
+{
+  "situation": "DATAPACK_BROKEN",
+  "culprit": null,
+  "logs": [
+    "latest.log"
+  ],
+  "source": "https://github.com/misode/misode.github.io/issues/822",
+  "fix": "In the result, write id instead of item: the game changed how an item stack is written in 1.20.5."
+}

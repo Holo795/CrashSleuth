@@ -1,0 +1,46 @@
+Starting org.bukkit.craftbukkit.Main
+2026-09-22T22:41:42.936372843Z ServerMain WARN Advanced terminal features are not available in this environment
+[22:41:43 INFO]: [bootstrap] Running Java 25 (OpenJDK 64-Bit Server VM 25.0.4+7-LTS; Eclipse Adoptium Temurin-25.0.4+7) on Linux 7.0.14-orbstack-00380-ga7e0a2dc9535 (aarch64)
+[22:41:43 INFO]: [bootstrap] Loading Paper 26.2-128-ver/26.2@5749698 (2026-09-22T12:09:59Z) for Minecraft 26.2
+[22:41:43 INFO]: [PluginInitializerManager] Initializing plugins...
+[22:41:43 INFO]: [PluginInitializerManager] Initialized 0 plugins
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.joml.MemUtil$MemUtilUnsafe (file:/srv/libraries/org/joml/joml/1.10.8/joml-1.10.8.jar)
+WARNING: Please consider reporting this to the maintainers of class org.joml.MemUtil$MemUtilUnsafe
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+[22:41:44 INFO]: [ca.spottedleaf.dataconverter.minecraft.datatypes.MCTypeRegistry] Initialising converters for DataConverter...
+[22:41:44 INFO]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, profilesHost=https://api.mojang.com, name=PROD]
+[22:41:44 INFO]: [ca.spottedleaf.dataconverter.minecraft.datatypes.MCTypeRegistry] Finished initialising converters for DataConverter in 201.9ms
+[22:41:45 WARN]: [WorldFolderMigration] ===================== ! ALERT ! =====================
+[22:41:45 WARN]: [WorldFolderMigration] World storage migration is required during startup.
+[22:41:45 WARN]: [WorldFolderMigration] If you do not have a backup: interrupt the server now. Use Ctrl+C, your panel kill function, etc.
+[22:41:45 WARN]: [WorldFolderMigration] =====================================================
+[22:41:45 WARN]: [WorldFolderMigration] Continuing in 30 seconds...
+[22:42:15 INFO]: [WorldFolderMigration] Continuing with startup world migration.
+[22:42:15 INFO]: [VanillaWorldMigration] Starting Vanilla import for world 'world' (minecraft:overworld)
+[22:42:15 INFO]: [VanillaWorldMigration] Completed Vanilla import for world 'world' (minecraft:overworld)
+[22:42:15 ERROR]: Unable to read or access the world gen settings file! Falling back to the default settings with a random world seed. ./world/dimensions/minecraft/overworld/data/minecraft/world_gen_settings.dat
+[22:42:15 WARN]: Failed to load datapacks, can't proceed with server load. You can either fix your datapacks or reset to vanilla with --safeMode
+java.util.concurrent.ExecutionException: java.lang.IllegalStateException: Overworld settings missing
+	at java.base/java.util.concurrent.CompletableFuture.wrapInExecutionException(CompletableFuture.java:345) ~[?:?]
+	at java.base/java.util.concurrent.CompletableFuture.reportGet(CompletableFuture.java:440) ~[?:?]
+	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2094) ~[?:?]
+	at net.minecraft.server.Main.main(Main.java:278) ~[paper-26.2.jar:26.2-128-5749698]
+	at io.papermc.paper.PaperBootstrap.boot(PaperBootstrap.java:25) ~[paper-26.2.jar:26.2-128-5749698]
+	at org.bukkit.craftbukkit.Main.main(Main.java:204) ~[paper-26.2.jar:26.2-128-5749698]
+	at io.papermc.paperclip.Paperclip.lambda$main$0(Paperclip.java:42) ~[?:?]
+	at java.base/java.lang.Thread.run(Thread.java:1474) ~[?:?]
+Caused by: java.lang.IllegalStateException: Overworld settings missing
+	at net.minecraft.world.level.levelgen.WorldDimensions.<init>(WorldDimensions.java:47) ~[paper-26.2.jar:26.2-128-5749698]
+	at net.minecraft.world.level.levelgen.WorldDimensions.<init>(WorldDimensions.java:52) ~[paper-26.2.jar:26.2-128-5749698]
+	at net.minecraft.world.level.storage.LevelStorageSource.lambda$getLevelDataAndDimensions$0(LevelStorageSource.java:163) ~[paper-26.2.jar:26.2-128-5749698]
+	at com.mojang.serialization.DataResult$Error.mapOrElse(DataResult.java:309) ~[datafixerupper-10.0.21.jar:?]
+	at net.minecraft.world.level.storage.LevelStorageSource.getLevelDataAndDimensions(LevelStorageSource.java:156) ~[paper-26.2.jar:26.2-128-5749698]
+	at net.minecraft.server.Main.lambda$main$1(Main.java:262) ~[paper-26.2.jar:26.2-128-5749698]
+	at net.minecraft.server.WorldLoader.lambda$load$2(WorldLoader.java:56) ~[paper-26.2.jar:26.2-128-5749698]
+	at java.base/java.util.concurrent.CompletableFuture$UniCompose.tryFire(CompletableFuture.java:1171) ~[?:?]
+	at java.base/java.util.concurrent.CompletableFuture$Completion.exec(CompletableFuture.java:504) ~[?:?]
+	at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:511) ~[?:?]
+	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1450) ~[?:?]
+	at java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:2019) ~[?:?]
+	at java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:187) ~[?:?]

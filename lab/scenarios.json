@@ -1776,5 +1776,63 @@
       "situation": "CLIENT_ONLY_ON_SERVER",
       "culprit": "sodium"
     }
+  },
+  {
+    "platform": "paper",
+    "minecraft": "1.21.1",
+    "java": 21,
+    "name": "real-world-duplicate-uid",
+    "description": "Paper 1.21.1 where two worlds carry the same identity file",
+    "mutate": [
+      {
+        "copy": "world/uid.dat",
+        "to": "world_nether/uid.dat"
+      }
+    ],
+    "source": "https://github.com/Multiverse/Multiverse-Core/issues/1877",
+    "fix": "Delete uid.dat in the copied world: it is what says which world it is.",
+    "expect": {
+      "situation": "WORLD_DUPLICATE"
+    }
+  },
+  {
+    "platform": "paper",
+    "minecraft": "26.2",
+    "java": 25,
+    "name": "real-worldgen-settings-deleted",
+    "description": "Paper 26.2 whose world generation settings file was lost",
+    "mutate": [
+      {
+        "delete": "world/dimensions/minecraft/overworld/data/minecraft/world_gen_settings.dat"
+      }
+    ],
+    "source": "https://github.com/PaperMC/Paper/issues/14066",
+    "fix": "Restore that file from a backup: the server cannot start without it, and --safeMode does not help.",
+    "log": "console.log",
+    "expect": {
+      "situation": "WORLD_CORRUPT"
+    }
+  },
+  {
+    "platform": "paper",
+    "minecraft": "1.21.1",
+    "java": 21,
+    "name": "real-recipe-old-result-format",
+    "description": "Paper 1.21.1 with a recipe written the way it was before 1.20.5",
+    "mutate": [
+      {
+        "write": "world/datapacks/lab/pack.mcmeta",
+        "text": "{\"pack\": {\"pack_format\": 48, \"description\": \"lab\"}}"
+      },
+      {
+        "write": "world/datapacks/lab/data/lab/recipe/bad.json",
+        "text": "{\"type\": \"minecraft:crafting_shaped\", \"pattern\": [\"SSS\"], \"key\": {\"S\": {\"item\": \"minecraft:stick\"}}, \"result\": {\"item\": \"minecraft:cobblestone\"}}"
+      }
+    ],
+    "source": "https://github.com/misode/misode.github.io/issues/822",
+    "fix": "In the result, write id instead of item: the game changed how an item stack is written in 1.20.5.",
+    "expect": {
+      "situation": "DATAPACK_BROKEN"
+    }
   }
 ]

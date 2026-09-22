@@ -1,0 +1,9 @@
+{
+  "situation": "WORLD_CORRUPT",
+  "culprit": null,
+  "logs": [
+    "console.log"
+  ],
+  "source": "https://github.com/PaperMC/Paper/issues/14066",
+  "fix": "Restore that file from a backup: the server cannot start without it, and --safeMode does not help."
+}
