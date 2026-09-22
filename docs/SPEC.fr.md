@@ -1,8 +1,16 @@
 # CrashSleuth — Spécification
 
-**Version 9 — 22/09/2026** — v8 + lecture des mondes : chunks, entités et sauvegardes des joueurs.
+**Version 10 — 22/09/2026** — v9 + lag, profils spark, interblocages, mémoire du conteneur.
 
-### Changements depuis la v8
+### Changements depuis la v9
+- **Lag** (§6.4) : les avertissements « Can't keep up! … Running 2518ms or 50 ticks behind » répétés **après** le démarrage (un seul pendant le chargement du monde est normal) donnent un lag sans coupable, avec le pire retard, et le conseil exact pour enregistrer un profil.
+- **Profils spark** : un fichier `.sparkprofile` (enregistré avec `spark profiler start --save-to-file`, spark est intégré à Paper) est lu directement : arbre des appels du thread principal et table « classe → plugin ou mod ». Le rapport nomme **qui prend le temps du thread principal**, avec sa part et la méthode la plus lourde (au labo : CrashSleuthFixture, 97 %, `FixturePlugin.recalculatePrices`). Le profil le plus récent de `plugins/spark` ou `config/spark` est pris tout seul ; on peut aussi le déposer seul. Le reste du fichier (configuration du serveur, noms de joueurs) n'est jamais gardé ni partagé.
+- **Interblocages** (`DEADLOCK`) : le rapport de la JVM (`Found one Java-level deadlock`, jstack ou `kill -3`) nomme les threads et le code en cause ; le watchdog de Paper ne dit pas qui tient un verrou, mais son relevé montre le thread principal **BLOCKED** dans un plugin pendant qu'un autre thread du même plugin l'est aussi : c'est un interblocage, plus seulement un gel.
+- **Mémoire** : Java tué par le système parce que le conteneur a moins de mémoire que `-Xmx` (code de sortie 137, le script de démarrage affiche seulement « Killed ») est reconnu et expliqué ; un tas plein nomme en plus le plugin dont la tâche échoue.
+- **Labo** : 5 scénarios de charge sur le Mac avec un plugin de test (70 ms de calcul à chaque tick, deux verrous pris dans l'ordre inverse, mémoire gardée à chaque tick) : lag, lag avec profil spark, interblocage, tas plein, conteneur trop petit ; gel du thread principal relancé. **6 sur 6**. Un vrai rapport jstack d'interblocage (Java 21, macOS) rejoint le corpus.
+- 50 signatures, 129 tests, 77 cas réels rejoués.
+
+### Changements de la v9 (rappel)
 - **Lecture des fichiers de région** (§6.1) avant tout démarrage, comme le jeu les lit : en-tête, emplacement de chaque chunk (dans l'en-tête, après la fin du fichier, secteurs partagés), longueur, type de compression, fichier `.mcc` des gros chunks, décompression puis NBT. Blocs (`region/`) et entités (`entities/`) séparés, pour le monde principal, le Nether, l'End, les dimensions des datapacks et les dossiers `world_nether` / `world_the_end` de Paper. Budget de 8 secondes pour tous les mondes d'un dossier : un très gros monde est lu en partie et le rapport le dit.
 - Chaque chunk abîmé est **nommé par sa position** (comme le fait le jeu) et le rapport donne le **fichier à restaurer** (`region/r.-1.0.mca`, calculé depuis les coordonnées).
 - **Sauvegardes des joueurs** (`playerdata/*.dat`) : illisibles ou déjà mises de côté par le jeu (`<uuid>_corrupted_<date>.dat`), avec le **nom du joueur** lu dans `usercache.json`.

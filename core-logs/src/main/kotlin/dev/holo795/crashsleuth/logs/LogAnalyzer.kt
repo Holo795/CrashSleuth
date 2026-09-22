@@ -32,7 +32,10 @@ class LogAnalyzer(
         }
         // "Client disconnected with reason: ..." only repeats what a precise finding already explains.
         val explained = findings.any { it.situation in EXPLAINS_DISCONNECTION }
-        val kept = if (explained) findings.filterNot { it.situation == Situation.CONNECTION_LOST } else findings
+        val deadlocked = findings.any { it.situation == Situation.DEADLOCK }
+        val kept = findings.filterNot {
+            (explained && it.situation == Situation.CONNECTION_LOST) || (deadlocked && it.situation == Situation.HANG)
+        }
         return Report(
             environment = environment,
             findings = enrich(rank(deduplicate(kept))),
@@ -81,7 +84,9 @@ class LogAnalyzer(
             PluginRuntimeDetector,
             NotAPluginDetector,
             DuplicateDetector,
+            DeadlockDetector,
             HangDetector,
+            LagDetector,
             SignatureDetector.BUILT_IN,
             JavaVersionDetector,
             OutOfMemoryDetector,

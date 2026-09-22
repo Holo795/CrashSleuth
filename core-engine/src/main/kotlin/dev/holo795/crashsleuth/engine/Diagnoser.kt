@@ -6,6 +6,7 @@ import dev.holo795.crashsleuth.inventory.InventoryAnalyzer
 import dev.holo795.crashsleuth.inventory.MixinIndex
 import dev.holo795.crashsleuth.logs.LogAnalyzer
 import dev.holo795.crashsleuth.logs.LogDocument
+import dev.holo795.crashsleuth.logs.SparkProfile
 import dev.holo795.crashsleuth.logs.UncaughtExceptionDetector
 import dev.holo795.crashsleuth.model.Culprit
 import dev.holo795.crashsleuth.model.CulpritKind
@@ -27,11 +28,11 @@ class Diagnoser(private val logAnalyzer: LogAnalyzer = LogAnalyzer()) {
     /** A named log text, so reports can say where each piece of evidence comes from. */
     data class Log(val name: String, val text: String)
 
-    fun diagnose(logs: List<Log>, inventory: Inventory?, mixins: () -> MixinIndex? = { null }): Report {
+    fun diagnose(logs: List<Log>, inventory: Inventory?, profiles: List<Finding> = emptyList(), mixins: () -> MixinIndex? = { null }): Report {
         val reports = logs.map { logAnalyzer.analyze(it.text) }
         val environment = reports.map { it.environment }.fold(Environment(), ::merge)
             .let { if (inventory == null) it else merge(it, Environment(inventory.platform, inventory.minecraftVersion, inventory.loaderVersion, side = inventory.side)) }
-        val fromLogs = dedup(reports.flatMap { it.findings }).filterNot { ownRecipe(it, inventory) }
+        val fromLogs = preferNamed(dedup(profiles + reports.flatMap { it.findings })).filterNot { ownRecipe(it, inventory) }
         val fromFiles = inventory?.let { InventoryAnalyzer.analyze(it, environment) }.orEmpty()
             .filterNot { finding -> fromLogs.any { same(it, finding) } }
         val attributed = if (fromLogs.none(::needsMixinSuspects)) fromLogs else mixins()?.let { index -> fromLogs.map { suspectsByMixins(it, logs, index) } } ?: fromLogs
@@ -48,7 +49,7 @@ class Diagnoser(private val logAnalyzer: LogAnalyzer = LogAnalyzer()) {
     fun diagnoseFolder(root: Path): Pair<Report, Inventory> {
         val inventory = InstanceScanner.scan(root)
         val logs = recentLogs(root).map { Log(root.relativize(it).toString(), it.readText(Charsets.UTF_8)) }
-        return diagnose(logs, inventory) { MixinIndex.build(inventory.jars) } to inventory
+        return diagnose(logs, inventory, profileFindings(root)) { MixinIndex.build(inventory.jars) } to inventory
     }
 
     /**
@@ -95,10 +96,30 @@ class Diagnoser(private val logAnalyzer: LogAnalyzer = LogAnalyzer()) {
     private fun same(a: Finding, b: Finding) =
         a.situation == b.situation && (ids(a).intersect(ids(b)).isNotEmpty() || (ids(a).isEmpty() && ids(b).isEmpty()))
 
+    /** A lag or a broken file said without a culprit is dropped when another finding names who it is. */
+    private fun preferNamed(findings: List<Finding>): List<Finding> {
+        val named = findings.filter { it.culprits.isNotEmpty() }.map { it.situation }.toSet()
+        return findings.filterNot { it.culprits.isEmpty() && it.situation in named && it.situation in NAMED_WINS }
+    }
+
     private fun dedup(findings: List<Finding>): List<Finding> =
         findings.fold(mutableListOf()) { kept, finding -> kept.apply { if (none { same(it, finding) || it == finding }) add(finding) } }
 
     companion object {
+        private val NAMED_WINS = setOf(Situation.LAG, Situation.CONFIG_BROKEN, Situation.DEADLOCK)
+
+        /** The newest spark profile of a server or game folder, read into findings (nothing of it is kept). */
+        fun profileFindings(root: Path): List<Finding> {
+            val newest = listOf("plugins/spark", "config/spark").map(root::resolve).filter { it.isDirectory() }
+                .flatMap { folder -> folder.listDirectoryEntries("*.sparkprofile") }
+                .maxByOrNull { it.getLastModifiedTime().toMillis() } ?: return emptyList()
+            return profileFile(newest, root.relativize(newest).toString())
+        }
+
+        /** One spark profile file, read into findings. */
+        fun profileFile(file: Path, name: String = file.fileName.toString()): List<Finding> =
+            runCatching { SparkProfile.read(java.nio.file.Files.readAllBytes(file))?.let { SparkProfile.findings(it, name) } }.getOrNull().orEmpty()
+
         private val MIXIN_SITUATIONS = setOf(
             Situation.UNCAUGHT_EXCEPTION, Situation.TICK_ENTITY, Situation.TICK_BLOCK_ENTITY, Situation.STACK_OVERFLOW, Situation.HANG,
         )

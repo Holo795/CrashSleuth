@@ -912,5 +912,82 @@
     },
     "check_before": true,
     "properties": "level-seed=2151901553968352745\n"
+  },
+  {
+    "platform": "paper",
+    "minecraft": "1.21.1",
+    "java": 21,
+    "name": "paper-lag",
+    "description": "Paper 1.21.1, a plugin spends 70 ms of every tick: the server falls behind",
+    "fixture": "lag",
+    "after_ready": 50,
+    "expect": {
+      "situation": "LAG"
+    }
+  },
+  {
+    "platform": "paper",
+    "minecraft": "1.21.1",
+    "java": 21,
+    "name": "paper-lag-spark",
+    "description": "Paper 1.21.1 (spark built in), a plugin spends 70 ms of every tick, profile saved to a file",
+    "fixture": "lag",
+    "after_ready": 70,
+    "console": [
+      {
+        "after": 10,
+        "command": "spark profiler start --timeout 30 --save-to-file"
+      }
+    ],
+    "expect": {
+      "situation": "LAG",
+      "culprit": "CrashSleuthFixture"
+    }
+  },
+  {
+    "platform": "paper",
+    "minecraft": "1.21.1",
+    "java": 21,
+    "name": "paper-deadlock",
+    "description": "Paper 1.21.1, the main thread and a plugin thread wait for each other's lock",
+    "fixture": "deadlock",
+    "after_ready": 80,
+    "expect": {
+      "situation": "DEADLOCK",
+      "culprit": "CrashSleuthFixture"
+    }
+  },
+  {
+    "platform": "paper",
+    "minecraft": "1.21.1",
+    "java": 21,
+    "name": "paper-heap-leak",
+    "description": "Paper 1.21.1 with 1 GB of heap, a plugin keeps 16 MB more every tick",
+    "fixture": "leak",
+    "memory": "1G",
+    "after_ready": 60,
+    "expect": {
+      "situation": "OUT_OF_MEMORY"
+    }
+  },
+  {
+    "platform": "paper",
+    "minecraft": "1.21.1",
+    "java": 21,
+    "name": "paper-container-killed",
+    "description": "Paper 1.21.1 with -Xmx3G in a 1.5 GB container, a plugin keeps 16 MB more every tick: the system kills Java",
+    "fixture": "leak",
+    "memory": "3G",
+    "docker_args": [
+      "--memory",
+      "1500m",
+      "--memory-swap",
+      "1500m"
+    ],
+    "after_ready": 60,
+    "expect": {
+      "situation": "OUT_OF_MEMORY"
+    },
+    "log": "console.log"
   }
 ]

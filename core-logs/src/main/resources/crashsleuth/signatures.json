@@ -638,6 +638,15 @@
         }
       ],
       "source": "lab: net playerdata-corrupt (Paper 1.21.1, the player's save cut after a first join)"
+    },
+    {
+      "id": "killed-by-system",
+      "situation": "OUT_OF_MEMORY",
+      "confidence": "HIGH",
+      "pattern": "(?m)^(?:[^\\n]*: line \\d+: +\\d+ )?Killed(?: +[^\\n]*java[^\\n]*)?\\s*$",
+      "details": {},
+      "advice": "signature.killed.advice",
+      "source": "lab: paper-container-killed (Paper 1.21.1 with -Xmx3G in a 1.5 GB container: the kernel kills Java, exit code 137, the start script prints Killed)"
     }
   ]
 }

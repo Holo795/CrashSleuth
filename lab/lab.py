@@ -241,6 +241,8 @@ class Scenario:
     docker_args: list[str] = field(default_factory=list)  # extra docker run options (a tiny disk, for instance)
     seed: dict | None = None                            # {"platform", "minecraft"}: a server of another version creates the world first
     mutate: list[dict] = field(default_factory=list)    # after a first clean start: {"garble"|"truncate"|"delete"|"write": path, ...}
+    log: str | None = None                              # file to analyse instead of the usual pick (console.log: all a panel shows)
+    console: list[dict] = field(default_factory=list)   # once ready: {"after": seconds, "command": "spark profiler start"}
     properties: str = ""                                # extra server.properties lines (a fixed level-seed)
     check_before: bool = False                          # judge the analysis made before the start (the server rewrites what it finds)
     flaky: bool = False                                 # crashes only sometimes: the first start may succeed
@@ -392,9 +394,19 @@ def run_server(scenario: Scenario, directory: Path, command: list[str]) -> tuple
         if DONE.search(console):
             outcome = "ready"
             # Some problems only show up once the server runs (plugin tasks, main thread blocked).
-            deadline = time.time() + scenario.after_ready
+            ready_at = time.time()
+            deadline = ready_at + scenario.after_ready
+            pending = sorted(scenario.console, key=lambda c: c["after"])
             while time.time() < deadline and process.poll() is None:
-                time.sleep(2)
+                while pending and time.time() - ready_at >= pending[0]["after"]:
+                    try:
+                        process.stdin.write((pending.pop(0)["command"] + "\n").encode())
+                        process.stdin.flush()
+                    except Exception:
+                        pass
+                time.sleep(1)
+            if process.poll() is not None:
+                outcome = "exited"
             break
         time.sleep(2)
     if process.poll() is None:
@@ -407,6 +419,8 @@ def run_server(scenario: Scenario, directory: Path, command: list[str]) -> tuple
                 pass
         subprocess.run(["docker", "rm", "-f", name], capture_output=True)
         process.wait()
+    else:
+        (directory / "exit-code.txt").write_text(f"{process.returncode}\n")
     return outcome, time.time() - start
 
 
@@ -516,7 +530,7 @@ def run(names: list[str], cli: str, keep: bool) -> int:
             before = cli_json(cli, "analyze", str(directory), "--json") if scenario.check_before else None
             before_inventory = cli_json(cli, "inventory", str(directory)) if scenario.check_before else None
             outcome, duration = run_server(scenario, directory, command)
-            log = pick_log(directory)
+            log = directory / scenario.log if scenario.log else pick_log(directory)
             report, inventory = analyse(cli, directory, log)
             if before is not None:
                 # What the files said before the server touched them.
@@ -541,10 +555,15 @@ def run(names: list[str], cli: str, keep: bool) -> int:
                 (target / "bisect.json").write_text(json.dumps(answer, indent=1) + "\n")
             if inventory is not None:
                 (target / "inventory.json").write_text(anonymise(json.dumps(inventory, indent=1)) + "\n")
+            # A spark profile saved during the run is kept too: it is replayed with the log.
+            profiles = sorted((directory / "plugins" / "spark").glob("*.sparkprofile"))[-1:]
+            for profile in profiles:
+                shutil.copy(profile, target / profile.name)
             (target / "expected.json").write_text(json.dumps(
                 {"situation": scenario.expect.situation if scenario.expect else None,
                  "culprit": scenario.expect.culprit if scenario.expect else None,
-                 "logs": [log.name], **({"crashes": True} if scenario.crashes else {})}, indent=2) + "\n")
+                 "logs": [log.name], **({"profiles": [p.name for p in profiles]} if profiles else {}),
+                 **({"crashes": True} if scenario.crashes else {})}, indent=2) + "\n")
         if not keep:
             shutil.rmtree(directory, ignore_errors=True)
     print(f"\n{len(selected) - failures}/{len(selected)} scenarios passed")

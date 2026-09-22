@@ -1,0 +1,10 @@
+{
+  "situation": "LAG",
+  "culprit": "CrashSleuthFixture",
+  "logs": [
+    "latest.log"
+  ],
+  "profiles": [
+    "profile-2026-09-22_14.02.53.sparkprofile"
+  ]
+}

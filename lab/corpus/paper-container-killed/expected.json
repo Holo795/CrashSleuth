@@ -1,0 +1,7 @@
+{
+  "situation": "OUT_OF_MEMORY",
+  "culprit": null,
+  "logs": [
+    "console.log"
+  ]
+}

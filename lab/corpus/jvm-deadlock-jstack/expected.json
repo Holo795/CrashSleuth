@@ -1,0 +1,8 @@
+{
+  "situation": "DEADLOCK",
+  "culprit": "com.example.shop",
+  "logs": [
+    "jstack.txt"
+  ],
+  "source": "jstack of a two-thread deadlock (Java 21 on macOS), lab/fixtures/tools style program"
+}

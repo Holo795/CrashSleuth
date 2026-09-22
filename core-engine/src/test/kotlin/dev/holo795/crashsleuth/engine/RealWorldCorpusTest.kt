@@ -43,7 +43,8 @@ class RealWorldCorpusTest {
         val logs = (expected["logs"]?.jsonArray?.map { it.jsonPrimitive.content } ?: listOfNotNull(expected["log"]?.jsonPrimitive?.content))
             .map { Diagnoser.Log(it, case.resolve(it.substringAfterLast('/')).readText()) }
         val inventory = case.resolve("inventory.json").takeIf { it.exists() }?.let { json.decodeFromString(Inventory.serializer(), it.readText()) }
-        val report = diagnoser.diagnose(logs, inventory)
+        val profiles = expected["profiles"]?.jsonArray?.flatMap { Diagnoser.profileFile(case.resolve(it.jsonPrimitive.content)) }.orEmpty()
+        val report = diagnoser.diagnose(logs, inventory, profiles)
         // Crashes that leave no explanation in the logs: only the culprit search can find them (bisect.json).
         if (situation == null && expected["crashes"]?.jsonPrimitive?.content == "true") return
         if (situation == null) {

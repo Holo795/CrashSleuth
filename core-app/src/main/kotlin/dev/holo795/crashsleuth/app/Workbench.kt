@@ -87,7 +87,11 @@ class Workbench(
     fun analyze(path: Path, side: Side = Side.SERVER): Analysis {
         val initial = Target.of(path)
         return when (initial.kind) {
-            TargetKind.LOG -> Analysis(initial, diagnoser.diagnose(listOf(Diagnoser.Log(path.name, path.readText(Charsets.UTF_8))), inventory = null))
+            TargetKind.LOG -> if (path.name.endsWith(".sparkprofile")) {
+                Analysis(initial, diagnoser.diagnose(emptyList(), inventory = null, profiles = Diagnoser.profileFile(path)))
+            } else {
+                Analysis(initial, diagnoser.diagnose(listOf(Diagnoser.Log(path.name, path.readText(Charsets.UTF_8))), inventory = null))
+            }
             TargetKind.PACK -> {
                 val inventory = packs.scan(path, side)
                 val index = MixinIndex.build(inventory.jars)
@@ -112,7 +116,7 @@ class Workbench(
                 val inventory = InstanceScanner.scan(folder)
                 val index = lazy { MixinIndex.build(inventory.jars) }
                 val logs = Diagnoser.recentLogs(folder).map { Diagnoser.Log(folder.relativize(it).toString(), it.readText(Charsets.UTF_8)) }
-                val report = diagnoser.diagnose(logs, inventory) { index.value }
+                val report = diagnoser.diagnose(logs, inventory, Diagnoser.profileFindings(folder)) { index.value }
                 // The game's own log names its exact version; mods only give ranges (">=1.21").
                 val refined = Target.refine(initial.copy(minecraft = initial.minecraft ?: report.environment.minecraftVersion), inventory)
                 val target = if (refined.kind == TargetKind.SERVER) {

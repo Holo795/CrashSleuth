@@ -54,13 +54,15 @@ class Analyze : CliktCommand(name = "analyze") {
         val folder = targets.firstOrNull { it.isDirectory() }
         // A modpack (.mrpack, CurseForge zip, zipped server folder) is checked without being installed.
         val pack = targets.firstOrNull { !it.isDirectory() && PackScanner.isPack(it) }
-        val files = targets.filterNot { it.isDirectory() || it == pack }
+        val profiles = targets.filter { it.name.endsWith(".sparkprofile") }
+        val files = targets.filterNot { it.isDirectory() || it == pack || it in profiles }
         // Logs given explicitly win; with only a folder, its most recent logs are picked.
         val logs = (files.ifEmpty { folder?.let(Diagnoser::recentLogs).orEmpty() })
             .map { Diagnoser.Log(it.name, it.readText(Charsets.UTF_8)) }
         val inventory = folder?.let(InstanceScanner::scan)
             ?: pack?.let { PackScanner().scan(it, if (side == "client" || server != null) Side.CLIENT else Side.SERVER) }
-        val analysed = Diagnoser().diagnose(logs, inventory)
+        val sampled = profiles.flatMap { Diagnoser.profileFile(it) } + (if (profiles.isEmpty()) folder?.let(Diagnoser::profileFindings).orEmpty() else emptyList())
+        val analysed = Diagnoser().diagnose(logs, inventory, profiles = sampled)
         val serverInventory = server?.let { if (it.isDirectory()) InstanceScanner.scan(it) else PackScanner().scan(it, Side.SERVER) }
         val diagnosed = if (serverInventory == null || inventory == null) analysed else
             analysed.copy(findings = (ModCompare.compare(inventory, serverInventory) + analysed.findings).sortedByDescending { it.confidence })

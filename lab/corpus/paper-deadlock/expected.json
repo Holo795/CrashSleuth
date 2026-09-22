@@ -1,0 +1,7 @@
+{
+  "situation": "DEADLOCK",
+  "culprit": "CrashSleuthFixture",
+  "logs": [
+    "latest.log"
+  ]
+}
