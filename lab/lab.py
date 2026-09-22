@@ -326,6 +326,43 @@ def paper_api(minecraft: str) -> Path:
     return download(f"{base}/paper-api-{minecraft}-R0.1-{stamp}-{build}.jar")
 
 
+def build_fabric_fixture(java_home: Path | None = None) -> Path:
+    """Compiles lab/fixtures/fabric against Fabric Loader and the mixin library only (it needs no
+    Minecraft class): the same test mod for a real game and for a real server."""
+    source_dir = LAB_DIR / "fixtures" / "fabric"
+    sources = sorted(p for p in source_dir.rglob("*") if p.is_file())
+    digest = hashlib.sha1(b"".join(p.read_bytes() for p in sources)).hexdigest()[:10]
+    output = CACHE / "fixtures" / f"crashsleuth-fixture-fabric-{digest}.jar"
+    if output.exists():
+        return output
+    loader = json.load(urllib.request.urlopen(urllib.request.Request("https://meta.fabricmc.net/v2/versions/loader", headers={"User-Agent": USER_AGENT})))[0]["version"]
+    loader_jar = download(f"https://maven.fabricmc.net/net/fabricmc/fabric-loader/{loader}/fabric-loader-{loader}.jar")
+    mixin_version = maven_latest("https://maven.fabricmc.net/net/fabricmc/sponge-mixin/maven-metadata.xml", "")
+    mixin_jar = download(f"https://maven.fabricmc.net/net/fabricmc/sponge-mixin/{mixin_version}/sponge-mixin-{mixin_version}.jar")
+    work = CACHE / "fixtures" / f"fabric-build-{digest}"
+    shutil.rmtree(work, ignore_errors=True)
+    (work / "out").mkdir(parents=True)
+    shutil.copytree(source_dir / "src", work / "src")
+    shutil.copy(loader_jar, work / "loader.jar")
+    shutil.copy(mixin_jar, work / "mixin.jar")
+    if java_home:  # a computer with a JDK at hand (the game side of the lab)
+        java_files = [str(p) for p in (work / "src").rglob("*.java")]
+        subprocess.run([str(java_home / "bin" / "javac"), "--release", "17", "-nowarn", "-proc:none", "-d", str(work / "out"),
+                        "-cp", f"{work / 'loader.jar'}{os.pathsep}{work / 'mixin.jar'}", *java_files], check=True)
+    else:  # the server side builds everything in a container, like the plugin
+        script = ("javac -nowarn -proc:none --release 17 -d out -cp loader.jar:mixin.jar $(find src -name '*.java')")
+        subprocess.run(["docker", "run", "--rm", "-v", f"{work}:/w", "-w", "/w", "eclipse-temurin:21-jdk", "sh", "-c", script],
+                       check=True, capture_output=True)
+    for name in ("fabric.mod.json", "crashsleuth_fixture.mixins.json"):
+        shutil.copy(source_dir / name, work / "out" / name)
+    output.parent.mkdir(parents=True, exist_ok=True)
+    with zipfile.ZipFile(output, "w", zipfile.ZIP_DEFLATED) as jar:
+        for item in sorted((work / "out").rglob("*")):
+            if item.is_file():
+                jar.write(item, item.relative_to(work / "out").as_posix())
+    return output
+
+
 def build_paper_fixture(minecraft: str) -> Path:
     """Compiles lab/fixtures/paper into a plugin jar, in a Java container."""
     sources = sorted(p for folder in ("paper", "paper-stubs") for p in (LAB_DIR / "fixtures" / folder).rglob("*") if p.is_file())
@@ -370,7 +407,7 @@ class Scenario:
     extra: list[dict] = field(default_factory=list)     # {"slug", "loader", "minecraft"?, "index"?}: extra files as they are
     modpack: str | None = None                          # Modrinth modpack slug, server side installed
     remove: list[str] = field(default_factory=list)     # modpack files removed on purpose (name substrings)
-    fixture: str | None = None                          # fixture plugin mode (Paper): enable-npe, task-exception, main-thread-hang
+    fixture: str | None = None                          # fixture mode: Paper plugin (enable-npe, lag...) or Fabric mod (entity-tick...)
     after_ready: int = 0                                # seconds to keep the server running once it is ready
     memory: str = "2G"
     timeout: int = 420
@@ -459,7 +496,11 @@ def prepare(scenario: Scenario, directory: Path) -> list[str]:
         (directory / "removed-on-purpose.txt").write_text("\n".join(removed) + "\n")
     if scenario.fixture:
         mods_dir.mkdir(exist_ok=True)
-        shutil.copy(build_paper_fixture(scenario.minecraft), mods_dir / "CrashSleuthFixture-1.0.0.jar")
+        # A plugin on the Bukkit side, a Fabric mod on the loader side: the same modes, both real.
+        if scenario.platform in ("fabric", "quilt"):
+            shutil.copy(build_fabric_fixture(), mods_dir / "crashsleuth-fixture-1.0.0.jar")
+        else:
+            shutil.copy(build_paper_fixture(scenario.minecraft), mods_dir / "CrashSleuthFixture-1.0.0.jar")
         (directory / "fixture-mode.txt").write_text(scenario.fixture + "\n")
     if scenario.pre:
         shutil.copy(LAB_DIR / "fixtures" / "tools" / "Hold.java", directory / "Hold.java")

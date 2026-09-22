@@ -33,28 +33,8 @@ CORPUS = LAB_DIR / "corpus"
 
 
 def fabric_fixture(java_home: Path) -> Path:
-    """Compiles lab/fixtures/fabric against Fabric Loader only (it needs no Minecraft class)."""
-    sources = sorted(p for p in (LAB_DIR / "fixtures" / "fabric").rglob("*") if p.is_file())
-    digest = hashlib.sha1(b"".join(p.read_bytes() for p in sources)).hexdigest()[:10]
-    output = lab.CACHE / "fixtures" / f"crashsleuth-fixture-fabric-{digest}.jar"
-    if output.exists():
-        return output
-    loader = json.load(urllib.request.urlopen(urllib.request.Request("https://meta.fabricmc.net/v2/versions/loader", headers={"User-Agent": lab.USER_AGENT})))[0]["version"]
-    api = lab.download(f"https://maven.fabricmc.net/net/fabricmc/fabric-loader/{loader}/fabric-loader-{loader}.jar")
-    # The mixins of the fixture are compiled against the mixin library Fabric itself uses.
-    mixin_version = lab.maven_latest("https://maven.fabricmc.net/net/fabricmc/sponge-mixin/maven-metadata.xml", "")
-    mixin = lab.download(f"https://maven.fabricmc.net/net/fabricmc/sponge-mixin/{mixin_version}/sponge-mixin-{mixin_version}.jar")
-    api = f"{api}{os.pathsep}{mixin}"
-    work = lab.CACHE / "fixtures" / f"fabric-build-{digest}"
-    shutil.rmtree(work, ignore_errors=True)
-    (work / "out").mkdir(parents=True)
-    java_files = [str(p) for p in (LAB_DIR / "fixtures" / "fabric" / "src").rglob("*.java")]
-    subprocess.run([str(java_home / "bin" / "javac"), "--release", "21", "-nowarn", "-proc:none", "-d", str(work / "out"), "-cp", str(api), *java_files], check=True)
-    for name in ("fabric.mod.json", "crashsleuth_fixture.mixins.json"):
-        shutil.copy(LAB_DIR / "fixtures" / "fabric" / name, work / "out" / name)
-    output.parent.mkdir(parents=True, exist_ok=True)
-    subprocess.run([str(java_home / "bin" / "jar"), "cf", str(output), "-C", str(work / "out"), "."], check=True)
-    return output
+    """The test mod of the lab, built here with the JDK of this computer (lab.py builds the same jar)."""
+    return lab.build_fabric_fixture(java_home)
 
 
 def neoforge_fixture(java_home: Path) -> Path:
@@ -139,11 +119,14 @@ def run_in_container(directory: Path, cli: str, scenario: dict, joining: list[st
     cache = lab.CACHE / "linux-client"
     cache.mkdir(parents=True, exist_ok=True)
     result = subprocess.run(
+        # Docker only shares folders named in full, never a path relative to where the lab was started.
         ["docker", "run", "--rm", "--platform", "linux/amd64", "-e", "HOME=/tmp", "-e", "CRASHSLEUTH_CACHE=/cache", "-e", "LIBGL_ALWAYS_SOFTWARE=1",
-         "-v", f"{Path(cli).parent.parent}:/opt/crashsleuth:ro", "-v", f"{cache}:/cache", "-v", f"{directory}:/game", LINUX_IMAGE,
+         "-v", f"{Path(cli).resolve().parent.parent}:/opt/crashsleuth:ro", "-v", f"{cache}:/cache", "-v", f"{directory.resolve()}:/game", LINUX_IMAGE,
          "/opt/crashsleuth/bin/crashsleuth", "run-client", "/game", "--minecraft", scenario["minecraft"], "--loader", scenario.get("loader", "fabric"),
          "--java", "/opt/java/openjdk/bin/java", "--settle", str(scenario.get("settle", 45)), "--timeout", "10", *joining],
         capture_output=True, text=True, timeout=3600)
+    if not result.stdout:  # the container itself could not start: say why instead of blaming the game
+        print(f"   (container failed: {result.stderr.strip()[:200]})", flush=True)
     return result.stdout.split()[0] if result.stdout else "ERROR"
 
 

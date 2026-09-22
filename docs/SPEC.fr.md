@@ -1,8 +1,15 @@
 # CrashSleuth — Spécification
 
-**Version 15 — 22/09/2026** — v14 + crashs en jeu côté client, sept ajouts au bureau, CrashSleuth comme outil pour un assistant (MCP).
+**Version 16 — 22/09/2026** — v15 + crashs en jeu côté serveur (entités et blocs), plateforme reconnue dans un rapport de crash seul.
 
-### Changements depuis la v14
+### Changements depuis la v15
+- **Crashs pendant une partie, côté serveur** (§5, §6.2) : un mod qui lève une erreur pendant le tick d'une **entité** donne `TICK_ENTITY` (type de l'entité, position, mod nommé) ; pendant le tick d'un **bloc** (un four posé par commande) `TICK_BLOCK_ENTITY` (bloc, position, mod nommé). Vérifié sur de vrais serveurs Fabric en **1.19.4, 1.21.1 et 26.3** : six scénarios, tous réussis.
+- **Le mod de test du labo tourne des deux côtés** : il se charge aussi sur un serveur, ses mixins visent les noms internes **et** les vrais noms des versions récentes (26.x n'a plus de correspondances Fabric), et il est compilé pour Java 17 pour les serveurs anciens. Le labo serveur et le labo client construisent désormais le même mod.
+- **Plateforme reconnue dans un rapport de crash seul** : un rapport de serveur Fabric ne cite ni le loader ni ses classes, il dit seulement « Server brand changed to 'fabric' ». CrashSleuth lisait Vanilla ; il lit maintenant la marque (fabric, quilt, forge, neoforge, paper, purpur, folia, spigot).
+- **Labo client** : le conteneur d'écran virtuel recevait un chemin relatif, que Docker refuse ; il échouait en une seconde sans rien dire. Le chemin est désormais complet et l'échec du conteneur est affiché au lieu d'être pris pour un crash du jeu.
+- 6 scénarios serveur en jeu, 16 scénarios client, tous réussis ; 402 tests ; 330 cas réels rejoués.
+
+### Changements de la v15 (rappel)
 - **Crashs pendant une partie** (§5, §6.2) : un mod qui lève une erreur pendant le tick d'une entité donne `TICK_ENTITY` avec le mod nommé ; pendant le dessin des blocs d'un chunk, `RENDER` avec le mod nommé et ce que le jeu était en train de faire (« Batching sections », « Tesselating block model », entité, interface).
 - **Labo** : le mod de test Fabric a maintenant des mixins (entité, dessin des blocs) ; les scénarios qui ont besoin que le monde soit dessiné tournent **dans un conteneur, sur un écran virtuel**, et le labo bascule tout seul dessus quand l'ordinateur n'a aucun écran utilisable (verrouillé ou en veille). Constat réel : une fenêtre masquée arrête le dessin sous macOS, donc un crash de rendu ne peut pas s'y produire.
 - **Application de bureau**, sept ajouts : mondes abîmés listés avec leurs coordonnées et le dossier à ouvrir ; fichier du coupable (et de n'importe quel mod) montré dans le gestionnaire de fichiers ; mod avec une version plus récente relié à sa page Modrinth ; ouverture d'un rapport reçu par lien ; mention du profil spark sur l'accueil ; choix du modèle d'IA locale et extinction définitive ; journal de la recherche du coupable pendant qu'elle tourne.
@@ -271,7 +278,7 @@ Chaque situation a un identifiant stable (utilisé par les signatures et les rap
 - `PROXY_FORWARDING` proxy et serveur sans le même secret ou mode de transfert · `PROXY_BACKEND` serveur injoignable depuis le proxy · `CONNECTION_LOST` joueur déconnecté, avec la raison.
 
 **En jeu**
-- `TICK_ENTITY` / `TICK_BLOCK_ENTITY` crash sur une entité ou un bloc précis (position, mod d'origine).
+- `TICK_ENTITY` / `TICK_BLOCK_ENTITY` crash sur une entité ou un bloc précis (position, mod d'origine), côté client comme côté serveur.
 - `OUT_OF_MEMORY` avec recommandation de mémoire selon la taille du pack · `STACK_OVERFLOW`.
 - `RENDER` pilote graphique, OpenGL, shaders (Iris, Oculus), packs de ressources.
 - `NATIVE_CRASH` crash natif de la Java (pilotes, LWJGL, système).

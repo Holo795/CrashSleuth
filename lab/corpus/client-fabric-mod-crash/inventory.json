@@ -214,14 +214,14 @@
         {
             "file": "crashsleuth-fixture-1.0.0.jar",
             "folder": "mods",
-            "size": 5566,
+            "size": 5559,
             "mods": [
                 {
                     "format": "FABRIC",
                     "id": "crashsleuth_fixture",
                     "name": "CrashSleuth Fixture",
                     "version": "1.0.0",
-                    "environment": "CLIENT",
+                    "environment": "UNKNOWN",
                     "dependencies": [
                         {
                             "id": "fabricloader",
@@ -234,6 +234,7 @@
                     "provides": [],
                     "apiVersion": null,
                     "entrypoints": [
+                        "dev.holo795.crashsleuth.fixture.FixtureMod",
                         "dev.holo795.crashsleuth.fixture.FixtureMod"
                     ],
                     "addsContent": false,
@@ -242,7 +243,7 @@
             ],
             "nested": [],
             "error": null,
-            "javaVersion": 21
+            "javaVersion": 17
         },
         {
             "file": "entityculling-fabric-1.11.2-mc1.21.1.jar",

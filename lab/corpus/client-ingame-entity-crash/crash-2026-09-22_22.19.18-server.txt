@@ -1,11 +1,11 @@
 ---- Minecraft Crash Report ----
-// Why is it breaking :(
+// I feel sad now :(
 
-Time: 2026-09-22 21:41:44
+Time: 2026-09-22 22:19:18
 Description: Ticking entity
 
 java.lang.IllegalStateException: Shop hologram lost its anchor
-	at knot//net.minecraft.class_1297.handler$zza000$crashsleuth_fixture$crashSleuthFixture(class_1297.java:3921)
+	at knot//net.minecraft.class_1297.handler$zza000$crashsleuth_fixture$crashSleuthFixture(class_1297.java:3925)
 	at knot//net.minecraft.class_1297.method_5773(class_1297.java)
 	at knot//net.minecraft.class_1309.method_5773(class_1309.java:2468)
 	at knot//net.minecraft.class_1308.method_5773(class_1308.java:372)
@@ -28,7 +28,7 @@ A detailed walkthrough of the error, its code path and all known details is as f
 -- Head --
 Thread: Server thread
 Stacktrace:
-	at knot//net.minecraft.class_1297.handler$zza000$crashsleuth_fixture$crashSleuthFixture(class_1297.java:3921)
+	at knot//net.minecraft.class_1297.handler$zza000$crashsleuth_fixture$crashSleuthFixture(class_1297.java:3925)
 	at knot//net.minecraft.class_1297.method_5773(class_1297.java)
 	at knot//net.minecraft.class_1309.method_5773(class_1309.java:2468)
 	at knot//net.minecraft.class_1308.method_5773(class_1308.java:372)
@@ -40,10 +40,10 @@ Stacktrace:
 -- Entity being ticked --
 Details:
 	Entity Type: minecraft:goat (net.minecraft.class_6053)
-	Entity ID: 5
+	Entity ID: 4
 	Entity Name: Goat
-	Entity's Exact location: 16.77, 126.00, 15.18
-	Entity's Block location: World: (16,126,15), Section: (at 0,14,15 in 1,7,0; chunk contains blocks 16,-64,0 to 31,319,15), Region: (0,0; contains chunks 0,0 to 31,31, blocks 0,-64,0 to 511,319,511)
+	Entity's Exact location: 18.71, 126.00, 17.24
+	Entity's Block location: World: (18,126,17), Section: (at 2,14,1 in 1,7,1; chunk contains blocks 16,-64,16 to 31,319,31), Region: (0,0; contains chunks 0,0 to 31,31, blocks 0,-64,0 to 511,319,511)
 	Entity's Momentum: -0.03, -0.08, 0.03
 	Entity's Passengers: []
 	Entity's Vehicle: null
@@ -90,7 +90,7 @@ Details:
 	Operating System: Mac OS X (aarch64) version 27.0
 	Java Version: 21.0.12.1, Homebrew
 	Java VM Version: OpenJDK 64-Bit Server VM (mixed mode, sharing), Homebrew
-	Memory: 245236136 bytes (233 MiB) / 664797184 bytes (634 MiB) up to 4294967296 bytes (4096 MiB)
+	Memory: 241684712 bytes (230 MiB) / 641728512 bytes (612 MiB) up to 4294967296 bytes (4096 MiB)
 	CPUs: 12
 	Processor Vendor: Apple Inc.
 	Processor Name: Apple M4 Pro
@@ -109,14 +109,14 @@ Details:
 	Memory slot #0 clockSpeed (GHz): 0.00
 	Memory slot #0 type: unknown
 	Virtual memory max (MiB): 29696.00
-	Virtual memory used (MiB): 20023.36
+	Virtual memory used (MiB): 20298.69
 	Swap memory total (MiB): 5120.00
-	Swap memory used (MiB): 4329.00
-	Space in storage for jna.tmpdir (MiB): available: 146000.56, total: 471482.09
-	Space in storage for org.lwjgl.system.SharedLibraryExtractPath (MiB): available: 146000.56, total: 471482.09
-	Space in storage for io.netty.native.workdir (MiB): available: 146000.56, total: 471482.09
-	Space in storage for java.io.tmpdir (MiB): available: 146000.56, total: 471482.09
-	Space in storage for workdir (MiB): available: 146000.56, total: 471482.09
+	Swap memory used (MiB): 4289.00
+	Space in storage for jna.tmpdir (MiB): available: 145283.50, total: 471482.09
+	Space in storage for org.lwjgl.system.SharedLibraryExtractPath (MiB): available: 145283.50, total: 471482.09
+	Space in storage for io.netty.native.workdir (MiB): available: 145283.50, total: 471482.09
+	Space in storage for java.io.tmpdir (MiB): available: 145283.50, total: 471482.09
+	Space in storage for workdir (MiB): available: 145283.50, total: 471482.09
 	JVM Flags: 1 total; -Xmx4G
 	Fabric Mods: 
 		crashsleuth_fixture: CrashSleuth Fixture 1.0.0

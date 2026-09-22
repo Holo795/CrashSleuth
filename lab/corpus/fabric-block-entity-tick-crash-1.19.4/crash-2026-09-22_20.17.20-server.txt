@@ -1,0 +1,108 @@
+---- Minecraft Crash Report ----
+// This is a token for 1 free hug. Redeem at your nearest Mojangsta: [~~HUG~~]
+
+Time: 2026-09-22 20:17:20
+Description: Ticking block entity
+
+java.lang.IllegalStateException: Shop furnace lost its recipe
+	at knot//net.minecraft.class_2609.handler$zzb001$crashsleuth_fixture$crashSleuthFixture(class_2609.java:603)
+	at knot//net.minecraft.class_2609.method_31651(class_2609.java)
+	at knot//net.minecraft.class_2818$class_5563.method_31703(class_2818.java:665)
+	at knot//net.minecraft.class_2818$class_5564.method_31703(class_2818.java:719)
+	at knot//net.minecraft.class_1937.method_18471(class_1937.java:478)
+	at knot//net.minecraft.class_3218.method_18765(class_3218.java:376)
+	at knot//net.minecraft.server.MinecraftServer.method_3813(MinecraftServer.java:901)
+	at knot//net.minecraft.class_3176.method_3813(class_3176.java:283)
+	at knot//net.minecraft.server.MinecraftServer.method_3748(MinecraftServer.java:828)
+	at knot//net.minecraft.server.MinecraftServer.method_29741(MinecraftServer.java:675)
+	at knot//net.minecraft.server.MinecraftServer.method_29739(MinecraftServer.java:266)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Thread: Server thread
+Stacktrace:
+	at knot//net.minecraft.class_2609.handler$zzb001$crashsleuth_fixture$crashSleuthFixture(class_2609.java:603)
+	at knot//net.minecraft.class_2609.method_31651(class_2609.java)
+	at knot//net.minecraft.class_2818$class_5563.method_31703(class_2818.java:665)
+	at knot//net.minecraft.class_2818$class_5564.method_31703(class_2818.java:719)
+	at knot//net.minecraft.class_1937.method_18471(class_1937.java:478)
+	at knot//net.minecraft.class_3218.method_18765(class_3218.java:376)
+
+-- Block entity being ticked --
+Details:
+	Name: minecraft:furnace // net.minecraft.class_3866
+	Block: Block{minecraft:furnace}[facing=north,lit=false]
+	Block location: World: (0,100,0), Section: (at 0,4,0 in 0,6,0; chunk contains blocks 0,-64,0 to 15,319,15), Region: (0,0; contains chunks 0,0 to 31,31, blocks 0,-64,0 to 511,319,511)
+	Block: Block{minecraft:furnace}[facing=north,lit=false]
+	Block location: World: (0,100,0), Section: (at 0,4,0 in 0,6,0; chunk contains blocks 0,-64,0 to 15,319,15), Region: (0,0; contains chunks 0,0 to 31,31, blocks 0,-64,0 to 511,319,511)
+Stacktrace:
+	at knot//net.minecraft.class_2818$class_5563.method_31703(class_2818.java:665)
+	at knot//net.minecraft.class_2818$class_5564.method_31703(class_2818.java:719)
+	at knot//net.minecraft.class_1937.method_18471(class_1937.java:478)
+	at knot//net.minecraft.class_3218.method_18765(class_3218.java:376)
+	at knot//net.minecraft.server.MinecraftServer.method_3813(MinecraftServer.java:901)
+	at knot//net.minecraft.class_3176.method_3813(class_3176.java:283)
+	at knot//net.minecraft.server.MinecraftServer.method_3748(MinecraftServer.java:828)
+	at knot//net.minecraft.server.MinecraftServer.method_29741(MinecraftServer.java:675)
+	at knot//net.minecraft.server.MinecraftServer.method_29739(MinecraftServer.java:266)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+-- Affected level --
+Details:
+	All players: 0 total; []
+	Chunk stats: 2209
+	Level dimension: minecraft:overworld
+	Level spawn location: World: (32,66,-32), Section: (at 0,2,0 in 2,4,-2; chunk contains blocks 32,-64,-32 to 47,319,-17), Region: (0,-1; contains chunks 0,-32 to 31,-1, blocks 0,-64,-512 to 511,319,-1)
+	Level time: 174 game time, 174 day time
+	Level name: world
+	Level game mode: Game mode: survival (ID 0). Hardcore: false. Cheats: false
+	Level weather: Rain time: 140291 (now: false), thunder time: 146880 (now: false)
+	Known server brands: fabric
+	Level was modded: true
+	Level storage version: 0x04ABD - Anvil
+Stacktrace:
+	at knot//net.minecraft.server.MinecraftServer.method_3813(MinecraftServer.java:901)
+	at knot//net.minecraft.class_3176.method_3813(class_3176.java:283)
+	at knot//net.minecraft.server.MinecraftServer.method_3748(MinecraftServer.java:828)
+	at knot//net.minecraft.server.MinecraftServer.method_29741(MinecraftServer.java:675)
+	at knot//net.minecraft.server.MinecraftServer.method_29739(MinecraftServer.java:266)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+-- System Details --
+Details:
+	Minecraft Version: 1.19.4
+	Minecraft Version ID: 1.19.4
+	Operating System: Linux (aarch64) version 7.0.14-orbstack-00380-ga7e0a2dc9535
+	Java Version: 17.0.20, Eclipse Adoptium
+	Java VM Version: OpenJDK 64-Bit Server VM (mixed mode, sharing), Eclipse Adoptium
+	Memory: 144765216 bytes (138 MiB) / 1106247680 bytes (1055 MiB) up to 2147483648 bytes (2048 MiB)
+	CPUs: 12
+	Processor Vendor: aarch64
+	Processor Name: 
+	Identifier: aarch64 Family 8 Model 0x000 Stepping r0x0p0
+	Microarchitecture: unknown
+	Frequency (GHz): -0.00
+	Number of physical packages: 1
+	Number of physical CPUs: 12
+	Number of logical CPUs: 12
+	Graphics card #0 name: unknown
+	Graphics card #0 vendor: unknown
+	Graphics card #0 VRAM (MB): 0.00
+	Graphics card #0 deviceId: unknown
+	Graphics card #0 versionInfo: unknown
+	Virtual memory max (MB): 19048.21
+	Virtual memory used (MB): 2764.46
+	Swap memory total (MB): 13040.14
+	Swap memory used (MB): 0.00
+	JVM Flags: 2 total; -Xms256M -Xmx2G
+	Server Running: true
+	Player Count: 0 / 20; []
+	Data Packs: vanilla
+	Enabled Feature Flags: minecraft:vanilla
+	World Generation: Stable
+	Is Modded: Definitely; Server brand changed to 'fabric'
+	Type: Dedicated Server (map_server.txt)

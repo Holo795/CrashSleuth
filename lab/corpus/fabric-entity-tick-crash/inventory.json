@@ -1,0 +1,64 @@
+{
+ "platform": "FABRIC",
+ "minecraftVersion": "1.21.1",
+ "loaderVersion": "0.19.5",
+ "side": "SERVER",
+ "jars": [
+  {
+   "file": "crashsleuth-fixture-1.0.0.jar",
+   "folder": "mods",
+   "size": 5452,
+   "mods": [
+    {
+     "format": "FABRIC",
+     "id": "crashsleuth_fixture",
+     "name": "CrashSleuth Fixture",
+     "version": "1.0.0",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "fabricloader",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [
+      "dev.holo795.crashsleuth.fixture.FixtureMod",
+      "dev.holo795.crashsleuth.fixture.FixtureMod"
+     ],
+     "addsContent": false,
+     "optionalOnClient": false
+    }
+   ],
+   "nested": [],
+   "error": null,
+   "javaVersion": 21
+  }
+ ],
+ "skipped": [],
+ "files": {
+  "worlds": [
+   {
+    "name": "world",
+    "versionName": "1.21.1",
+    "dataVersion": 3955,
+    "unreadable": null,
+    "hasBackup": true,
+    "locked": false,
+    "damagedChunks": [],
+    "chunksChecked": 844,
+    "chunksComplete": true,
+    "damagedPlayers": []
+   }
+  ],
+  "eulaAccepted": true,
+  "configErrors": [],
+  "rootJars": [
+   "server.jar"
+  ]
+ }
+}

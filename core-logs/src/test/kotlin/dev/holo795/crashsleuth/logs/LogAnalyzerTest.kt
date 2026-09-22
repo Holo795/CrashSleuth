@@ -141,4 +141,34 @@ class LogAnalyzerTest {
         val report = LogAnalyzer().analyze(log)
         kotlin.test.assertEquals("examplemod", report.primary?.culprits?.firstOrNull()?.id)
     }
+
+    @Test
+    fun `a crash report names its loader only as the brand of the server`() {
+        val log = """
+            ---- Minecraft Crash Report ----
+            Description: Ticking block entity
+
+            java.lang.IllegalStateException: Shop furnace lost its recipe
+            	at knot//net.minecraft.class_2609.handler${'$'}zzb001${'$'}shopmod${'$'}onTick(class_2609.java:595)
+            	at knot//net.minecraft.class_2818${'$'}class_5563.method_31703(class_2818.java:691)
+
+            -- Block entity being ticked --
+            Details:
+            	Name: minecraft:furnace // net.minecraft.class_3866
+            	Block location: World: (0,100,0), Section: (at 0,4,0 in 0,6,0; chunk contains blocks 0,-64,0 to 15,319,15)
+
+            -- System Details --
+            Details:
+            	Minecraft Version: 1.21.1
+            	Is Modded: Definitely; Server brand changed to 'fabric'
+            	Type: Dedicated Server (map_server.txt)
+        """.trimIndent()
+        val report = LogAnalyzer().analyze(log)
+        assertEquals(Platform.FABRIC, report.environment.platform)
+        assertEquals(Side.SERVER, report.environment.side)
+        val finding = report.find(Situation.TICK_BLOCK_ENTITY)
+        assertEquals("minecraft:furnace", finding.details["object"])
+        assertEquals("0, 100, 0", finding.details["location"])
+        assertEquals("shopmod", finding.culprits.firstOrNull()?.id)
+    }
 }

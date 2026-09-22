@@ -3,8 +3,11 @@
   "minVersion": "0.8",
   "package": "dev.holo795.crashsleuth.fixture.mixin",
   "compatibilityLevel": "JAVA_17",
-  "client": [
+  "mixins": [
     "EntityTickMixin",
+    "FurnaceTickMixin"
+  ],
+  "client": [
     "BlockRenderMixin",
     "BlockModelMixin"
   ],

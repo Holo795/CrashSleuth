@@ -1,0 +1,136 @@
+---- Minecraft Crash Report ----
+// Sorry :(
+
+Time: 2026-09-22 20:17:39
+Description: Ticking entity
+
+java.lang.IllegalStateException: Shop hologram lost its anchor
+	at knot//net.minecraft.world.entity.Entity.handler$zza000$crashsleuth_fixture$crashSleuthFixture(Entity.java:4670)
+	at knot//net.minecraft.world.entity.Entity.tick(Entity.java)
+	at knot//net.minecraft.world.entity.LivingEntity.tick(LivingEntity.java:2847)
+	at knot//net.minecraft.server.level.ServerLevel.tickNonPassenger(ServerLevel.java:860)
+	at knot//net.minecraft.world.level.Level.guardEntityTick(Level.java:484)
+	at knot//net.minecraft.server.level.ServerLevel.lambda$tick$0(ServerLevel.java:457)
+	at knot//net.minecraft.world.level.entity.EntityTickList.forEach(EntityTickList.java:53)
+	at knot//net.minecraft.server.level.ServerLevel.tick(ServerLevel.java:427)
+	at knot//net.minecraft.server.MinecraftServer.tickChildren(MinecraftServer.java:1116)
+	at knot//net.minecraft.server.MinecraftServer.tickServer(MinecraftServer.java:980)
+	at knot//net.minecraft.server.dedicated.DedicatedServer.tickServer(DedicatedServer.java:278)
+	at knot//net.minecraft.server.MinecraftServer.processPacketsAndTick(MinecraftServer.java:1013)
+	at knot//net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:752)
+	at knot//net.minecraft.server.MinecraftServer.lambda$spin$0(MinecraftServer.java:310)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Thread: Server thread
+Stacktrace:
+	at knot//net.minecraft.world.entity.Entity.handler$zza000$crashsleuth_fixture$crashSleuthFixture(Entity.java:4670)
+	at knot//net.minecraft.world.entity.Entity.tick(Entity.java)
+	at knot//net.minecraft.world.entity.LivingEntity.tick(LivingEntity.java:2847)
+	at knot//net.minecraft.server.level.ServerLevel.tickNonPassenger(ServerLevel.java:860)
+	at knot//net.minecraft.world.level.Level.guardEntityTick(Level.java:484)
+	at knot//net.minecraft.server.level.ServerLevel.lambda$tick$0(ServerLevel.java:457)
+	at knot//net.minecraft.world.level.entity.EntityTickList.forEach(EntityTickList.java:53)
+
+-- Entity being ticked --
+Details:
+	Entity Type: minecraft:armor_stand (net.minecraft.world.entity.decoration.ArmorStand)
+	Entity ID: 32
+	Entity Name: Armor Stand
+	Entity's Exact location: 0.50, 100.00, 0.50
+	Entity's Block location: World: (0,100,0), Section: (at 0,4,0 in 0,6,0; chunk contains blocks 0,-64,0 to 15,319,15), Region: (0,0; contains chunks 0,0 to 31,31, blocks 0,-64,0 to 511,319,511)
+	Entity's Momentum: 0.00, 0.00, 0.00
+	Entity's Passengers: []
+	Entity's Vehicle: null
+Stacktrace:
+	at knot//net.minecraft.world.level.Level.guardEntityTick(Level.java:484)
+	at knot//net.minecraft.server.level.ServerLevel.lambda$tick$0(ServerLevel.java:457)
+	at knot//net.minecraft.world.level.entity.EntityTickList.forEach(EntityTickList.java:53)
+	at knot//net.minecraft.server.level.ServerLevel.tick(ServerLevel.java:427)
+	at knot//net.minecraft.server.MinecraftServer.tickChildren(MinecraftServer.java:1116)
+	at knot//net.minecraft.server.MinecraftServer.tickServer(MinecraftServer.java:980)
+	at knot//net.minecraft.server.dedicated.DedicatedServer.tickServer(DedicatedServer.java:278)
+	at knot//net.minecraft.server.MinecraftServer.processPacketsAndTick(MinecraftServer.java:1013)
+	at knot//net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:752)
+	at knot//net.minecraft.server.MinecraftServer.lambda$spin$0(MinecraftServer.java:310)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+
+-- Affected level --
+Details:
+	All players: 0 total; 
+	Chunk stats: 729
+	Level dimension: minecraft:overworld
+	Level time: 192 game time, 192 day time
+	Level spawn location: World: (0,80,0), Section: (at 0,0,0 in 0,5,0; chunk contains blocks 0,-64,0 to 15,319,15), Region: (0,0; contains chunks 0,0 to 31,31, blocks 0,-64,0 to 511,319,511)
+	Level name: world
+	Level game mode: Game mode: survival (ID 0). Hardcore: false. Commands: false
+	Known server brands: fabric
+	Removed feature flags: 
+	Level was modded: true
+	Level storage version: 0x04ABD - Anvil
+	Loaded entity count: 17
+	Server weather: Rain time: 152681 (now: false), thunder time: 152242 (now: false)
+Stacktrace:
+	at knot//net.minecraft.server.level.ServerLevel.fillReportDetails(ServerLevel.java:1892)
+	at knot//net.minecraft.server.MinecraftServer.tickChildren(MinecraftServer.java:1119)
+	at knot//net.minecraft.server.MinecraftServer.tickServer(MinecraftServer.java:980)
+	at knot//net.minecraft.server.dedicated.DedicatedServer.tickServer(DedicatedServer.java:278)
+	at knot//net.minecraft.server.MinecraftServer.processPacketsAndTick(MinecraftServer.java:1013)
+	at knot//net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:752)
+	at knot//net.minecraft.server.MinecraftServer.lambda$spin$0(MinecraftServer.java:310)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+
+-- System Details --
+Details:
+	Minecraft Version: 26.3
+	Minecraft Version ID: 26.3
+	Operating System: Linux (aarch64) version 7.0.14-orbstack-00380-ga7e0a2dc9535
+	Java Version: 25.0.4, Eclipse Adoptium
+	Java VM Version: OpenJDK 64-Bit Server VM (mixed mode, sharing), Eclipse Adoptium
+	Memory: 108847680 bytes (103 MiB) / 436207616 bytes (416 MiB) up to 2147483648 bytes (2048 MiB)
+	Memory (heap): init: 256MiB, used: 311MiB, committed: 416MiB, max: 2048MiB
+	Memory (non-heap): init: 007MiB, used: 141MiB, committed: 145MiB, max: 000MiB
+	CPUs: 12
+	Processor Vendor: Apple
+	Processor Name: -
+	Identifier: Apple Family 8 Model 0x000 Stepping r0p0
+	Microarchitecture: unknown
+	Frequency (GHz): -0.00
+	Number of physical packages: 1
+	Number of physical CPUs: 12
+	Number of logical CPUs: 12
+	Graphics card #0 name: unknown
+	Graphics card #0 vendor: unknown
+	Graphics card #0 VRAM (MiB): 0.00
+	Graphics card #0 deviceId: unknown
+	Graphics card #0 versionInfo: unknown
+	Virtual memory max (MiB): 19048.21
+	Virtual memory used (MiB): 2113.09
+	Swap memory total (MiB): 13040.14
+	Swap memory used (MiB): 0.00
+	Space in storage for jna.tmpdir (MiB): <path not set>
+	Space in storage for org.lwjgl.system.SharedLibraryExtractPath (MiB): <path not set>
+	Space in storage for io.netty.native.workdir (MiB): <path not set>
+	Space in storage for java.io.tmpdir (MiB): available: 136530.61, total: 150208.00
+	Space in storage for workdir (MiB): available: 145288.70, total: 471482.09
+	Operating System Version: GNU/Linux Ubuntu 26.04.1 LTS (Resolute Raccoon) build 7.0.14-orbstack-00380-ga7e0a2dc9535
+	Process Elevated: false
+	Process Loads: Uptime: 17s, user: 33s (197.54%), kernel: 1s (6.15%), total: 34s (203.69%)
+	Process Virtual Size (MiB): 7616.02
+	Process Resident Size (MiB): 837.42
+	JVM Flags: 2 total; -Xms256M -Xmx2G
+	Debug Flags: 0 total; 
+	Server Running: true
+	Player Count: 0 / 20; []
+	Active Data Packs: vanilla
+	Available Data Packs: minecart_improvements, redstone_experiments, trade_rebalance, vanilla
+	Enabled Feature Flags: minecraft:vanilla
+	World Generation: Stable
+	World Seed: -7313107541206167740
+	Suppressed Exceptions: ~~NONE~~
+	Is Modded: Definitely; Server brand changed to 'fabric'
+	Type: Dedicated Server

@@ -4,8 +4,11 @@
   "version": "1.0.0",
   "name": "CrashSleuth Fixture",
   "description": "Test mod of the CrashSleuth lab. Misbehaves on purpose, as set in fixture-mode.txt.",
-  "environment": "client",
+  "environment": "*",
   "entrypoints": {
+    "main": [
+      "dev.holo795.crashsleuth.fixture.FixtureMod"
+    ],
     "client": [
       "dev.holo795.crashsleuth.fixture.FixtureMod"
     ]

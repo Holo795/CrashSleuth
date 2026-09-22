@@ -26,6 +26,9 @@ object EnvironmentDetector {
     private val FABRIC_LOADER = Regex("""(?:Fabric Loader|fabricloader)[ :]+(?:version\s+)?(\d+\.\d+\.\d+)""")
     private val QUILT_LOADER = Regex("""(?:Quilt Loader|quilt_loader)[ :]+(?:version\s+)?(\d+\.\d+\.\d+[\w.-]*)""")
     private val LOADING_MINECRAFT = Regex("""Loading Minecraft ([\w.-]+) with (Fabric|Quilt) Loader ([\w.+-]+)""")
+    // A crash report of a modded game says nothing else about its loader: "Is Modded: Definitely;
+    // Server brand changed to 'fabric'".
+    private val BRAND = Regex("""(?:Server|Client) brand changed to '([\w.-]+)'""")
     private val JAVA_FIELD = Regex("""^\s*Java Version:\s*([\d._]+)""", RegexOption.MULTILINE)
     private val JAVA_RUNTIME = Regex("""(?:Java|JVM)[^\n]*?\b(\d{2})\.(\d+)\.(\d+)""")
 
@@ -34,6 +37,19 @@ object EnvironmentDetector {
         val rest = text.substring(line.range.first, minOf(text.length, line.range.last + 200)).substringBefore('\n')
         return MC_TAG.find(rest)?.let { it.groupValues[1].ifEmpty { it.groupValues[2] } }
             ?: Regex("""^(\d+\.\d+(?:\.\d+)?)-""").find(line.groupValues[2])?.groupValues?.get(1)
+    }
+
+    /** The platform a crash report names as the brand of the game or server, when it names one. */
+    private fun brand(text: String): Platform? = when (BRAND.find(text)?.groupValues?.get(1)?.lowercase()) {
+        "fabric" -> Platform.FABRIC
+        "quilt" -> Platform.QUILT
+        "forge" -> Platform.FORGE
+        "neoforge" -> Platform.NEOFORGE
+        "paper" -> Platform.PAPER
+        "purpur" -> Platform.PURPUR
+        "folia" -> Platform.FOLIA
+        "spigot", "craftbukkit", "bukkit" -> Platform.SPIGOT
+        else -> null
     }
 
     fun detect(document: LogDocument): Environment {
@@ -80,6 +96,7 @@ object EnvironmentDetector {
                 text.contains("net.minecraftforge") || text.contains("MinecraftForge") || text.contains("fml.loading") -> Platform.FORGE
                 text.contains("quilt_loader") || text.contains("org.quiltmc") -> Platform.QUILT
                 text.contains("fabricloader") || text.contains("net.fabricmc") -> Platform.FABRIC
+                brand(text) != null -> brand(text)!!
                 VANILLA_SERVER.containsMatchIn(text) || document.isCrashReport -> Platform.VANILLA
                 else -> Platform.UNKNOWN
             }

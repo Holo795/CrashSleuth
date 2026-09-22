@@ -3,13 +3,20 @@ package dev.holo795.crashsleuth.fixture;
 import java.nio.file.Files;
 import java.util.Random;
 import net.fabricmc.api.ClientModInitializer;
+import net.fabricmc.api.ModInitializer;
 import net.fabricmc.loader.api.FabricLoader;
 
 /**
- * Misbehaves on purpose so the lab can record what real game clients do. The mode is read from
- * fixture-mode.txt in the game folder. Needs nothing but Fabric Loader.
+ * Misbehaves on purpose so the lab can record what real games and real servers do. The mode is read
+ * from fixture-mode.txt in the game folder. Needs nothing but Fabric Loader.
  */
-public final class FixtureMod implements ClientModInitializer {
+public final class FixtureMod implements ClientModInitializer, ModInitializer {
+    /** On a server, nothing happens while it starts: the mixins wait for the world to tick. */
+    @Override
+    public void onInitialize() {
+        System.out.println("[CrashSleuthFixture] mode: " + mode());
+    }
+
     @Override
     public void onInitializeClient() {
         String mode = mode();

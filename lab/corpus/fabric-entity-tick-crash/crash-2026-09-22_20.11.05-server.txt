@@ -1,0 +1,126 @@
+---- Minecraft Crash Report ----
+// Oops.
+
+Time: 2026-09-22 20:11:05
+Description: Ticking entity
+
+java.lang.IllegalStateException: Shop hologram lost its anchor
+	at knot//net.minecraft.class_1297.handler$zza000$crashsleuth_fixture$crashSleuthFixture(class_1297.java:3921)
+	at knot//net.minecraft.class_1297.method_5773(class_1297.java)
+	at knot//net.minecraft.class_1309.method_5773(class_1309.java:2468)
+	at knot//net.minecraft.class_1308.method_5773(class_1308.java:372)
+	at knot//net.minecraft.class_3218.method_18762(class_3218.java:770)
+	at knot//net.minecraft.class_1937.method_18472(class_1937.java:498)
+	at knot//net.minecraft.class_3218.method_31420(class_3218.java:408)
+	at knot//net.minecraft.class_5574.method_31791(class_5574.java:54)
+	at knot//net.minecraft.class_3218.method_18765(class_3218.java:372)
+	at knot//net.minecraft.server.MinecraftServer.method_3813(MinecraftServer.java:1021)
+	at knot//net.minecraft.class_3176.method_3813(class_3176.java:299)
+	at knot//net.minecraft.server.MinecraftServer.method_3748(MinecraftServer.java:912)
+	at knot//net.minecraft.server.MinecraftServer.method_29741(MinecraftServer.java:697)
+	at knot//net.minecraft.server.MinecraftServer.method_29739(MinecraftServer.java:281)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Thread: Server thread
+Stacktrace:
+	at knot//net.minecraft.class_1297.handler$zza000$crashsleuth_fixture$crashSleuthFixture(class_1297.java:3921)
+	at knot//net.minecraft.class_1297.method_5773(class_1297.java)
+	at knot//net.minecraft.class_1309.method_5773(class_1309.java:2468)
+	at knot//net.minecraft.class_1308.method_5773(class_1308.java:372)
+	at knot//net.minecraft.class_3218.method_18762(class_3218.java:770)
+	at knot//net.minecraft.class_1937.method_18472(class_1937.java:498)
+	at knot//net.minecraft.class_3218.method_31420(class_3218.java:408)
+	at knot//net.minecraft.class_5574.method_31791(class_5574.java:54)
+
+-- Entity being ticked --
+Details:
+	Entity Type: minecraft:chicken (net.minecraft.class_1428)
+	Entity ID: 4
+	Entity Name: Chicken
+	Entity's Exact location: 75.00, 78.00, 42.00
+	Entity's Block location: World: (75,78,42), Section: (at 11,14,10 in 4,4,2; chunk contains blocks 64,-64,32 to 79,319,47), Region: (0,0; contains chunks 0,0 to 31,31, blocks 0,-64,0 to 511,319,511)
+	Entity's Momentum: 0.00, 0.00, 0.00
+	Entity's Passengers: []
+	Entity's Vehicle: null
+Stacktrace:
+	at knot//net.minecraft.class_1937.method_18472(class_1937.java:498)
+	at knot//net.minecraft.class_3218.method_31420(class_3218.java:408)
+	at knot//net.minecraft.class_5574.method_31791(class_5574.java:54)
+	at knot//net.minecraft.class_3218.method_18765(class_3218.java:372)
+	at knot//net.minecraft.server.MinecraftServer.method_3813(MinecraftServer.java:1021)
+	at knot//net.minecraft.class_3176.method_3813(class_3176.java:299)
+	at knot//net.minecraft.server.MinecraftServer.method_3748(MinecraftServer.java:912)
+	at knot//net.minecraft.server.MinecraftServer.method_29741(MinecraftServer.java:697)
+	at knot//net.minecraft.server.MinecraftServer.method_29739(MinecraftServer.java:281)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+
+-- Affected level --
+Details:
+	All players: 0 total; []
+	Chunk stats: 841
+	Level dimension: minecraft:overworld
+	Level spawn location: World: (80,78,48), Section: (at 0,14,0 in 5,4,3; chunk contains blocks 80,-64,48 to 95,319,63), Region: (0,0; contains chunks 0,0 to 31,31, blocks 0,-64,0 to 511,319,511)
+	Level time: 1 game time, 1 day time
+	Level name: world
+	Level game mode: Game mode: survival (ID 0). Hardcore: false. Commands: false
+	Level weather: Rain time: 12432 (now: false), thunder time: 26625 (now: false)
+	Known server brands: fabric
+	Removed feature flags: 
+	Level was modded: true
+	Level storage version: 0x04ABD - Anvil
+	Loaded entity count: 7
+Stacktrace:
+	at knot//net.minecraft.class_3218.method_8538(class_3218.java:1693)
+	at knot//net.minecraft.server.MinecraftServer.method_3813(MinecraftServer.java:1024)
+	at knot//net.minecraft.class_3176.method_3813(class_3176.java:299)
+	at knot//net.minecraft.server.MinecraftServer.method_3748(MinecraftServer.java:912)
+	at knot//net.minecraft.server.MinecraftServer.method_29741(MinecraftServer.java:697)
+	at knot//net.minecraft.server.MinecraftServer.method_29739(MinecraftServer.java:281)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+
+-- System Details --
+Details:
+	Minecraft Version: 1.21.1
+	Minecraft Version ID: 1.21.1
+	Operating System: Linux (aarch64) version 7.0.14-orbstack-00380-ga7e0a2dc9535
+	Java Version: 21.0.12, Eclipse Adoptium
+	Java VM Version: OpenJDK 64-Bit Server VM (mixed mode, sharing), Eclipse Adoptium
+	Memory: 252966648 bytes (241 MiB) / 531628032 bytes (507 MiB) up to 2147483648 bytes (2048 MiB)
+	CPUs: 12
+	Processor Vendor: Apple
+	Processor Name: 
+	Identifier: Apple Family 8 Model 0x000 Stepping r0p0
+	Microarchitecture: unknown
+	Frequency (GHz): -0.00
+	Number of physical packages: 1
+	Number of physical CPUs: 12
+	Number of logical CPUs: 12
+	Graphics card #0 name: unknown
+	Graphics card #0 vendor: unknown
+	Graphics card #0 VRAM (MiB): 0.00
+	Graphics card #0 deviceId: unknown
+	Graphics card #0 versionInfo: unknown
+	Virtual memory max (MiB): 19048.21
+	Virtual memory used (MiB): 2180.97
+	Swap memory total (MiB): 13040.14
+	Swap memory used (MiB): 0.00
+	Space in storage for jna.tmpdir (MiB): <path not set>
+	Space in storage for org.lwjgl.system.SharedLibraryExtractPath (MiB): <path not set>
+	Space in storage for io.netty.native.workdir (MiB): <path not set>
+	Space in storage for java.io.tmpdir (MiB): available: 137042.63, total: 150720.00
+	Space in storage for workdir (MiB): available: 145833.75, total: 471482.09
+	JVM Flags: 2 total; -Xms256M -Xmx2G
+	Server Running: true
+	Player Count: 0 / 20; []
+	Active Data Packs: vanilla
+	Available Data Packs: bundle, trade_rebalance, vanilla
+	Enabled Feature Flags: minecraft:vanilla
+	World Generation: Stable
+	World Seed: 5395870059926576047
+	Is Modded: Definitely; Server brand changed to 'fabric'
+	Type: Dedicated Server (map_server.txt)

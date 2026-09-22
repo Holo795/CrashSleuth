@@ -989,5 +989,143 @@
       "situation": "OUT_OF_MEMORY"
     },
     "log": "console.log"
+  },
+  {
+    "platform": "fabric",
+    "minecraft": "1.21.1",
+    "java": 21,
+    "name": "fabric-entity-tick-crash",
+    "description": "Fabric 1.21.1, a mod throws while the server ticks an entity",
+    "fixture": "entity-tick",
+    "after_ready": 30,
+    "expect": {
+      "situation": "TICK_ENTITY",
+      "culprit": "crashsleuth"
+    },
+    "console": [
+      {
+        "after": 5,
+        "command": "forceload add 0 0"
+      },
+      {
+        "after": 8,
+        "command": "summon minecraft:armor_stand 0 100 0"
+      }
+    ]
+  },
+  {
+    "platform": "fabric",
+    "minecraft": "1.21.1",
+    "java": 21,
+    "name": "fabric-block-entity-tick-crash",
+    "description": "Fabric 1.21.1, a mod throws while the server ticks a furnace placed by a command",
+    "fixture": "block-entity-tick",
+    "after_ready": 30,
+    "console": [
+      {
+        "after": 5,
+        "command": "forceload add 0 0"
+      },
+      {
+        "after": 8,
+        "command": "setblock 0 100 0 minecraft:furnace"
+      }
+    ],
+    "expect": {
+      "situation": "TICK_BLOCK_ENTITY",
+      "culprit": "crashsleuth"
+    }
+  },
+  {
+    "platform": "fabric",
+    "minecraft": "1.19.4",
+    "java": 17,
+    "name": "fabric-entity-tick-crash-1.19.4",
+    "description": "Fabric 1.19.4, a mod throws while the server ticks an entity",
+    "fixture": "entity-tick",
+    "after_ready": 30,
+    "expect": {
+      "situation": "TICK_ENTITY",
+      "culprit": "crashsleuth"
+    },
+    "console": [
+      {
+        "after": 5,
+        "command": "forceload add 0 0"
+      },
+      {
+        "after": 8,
+        "command": "summon minecraft:armor_stand 0 100 0"
+      }
+    ]
+  },
+  {
+    "platform": "fabric",
+    "minecraft": "26.3",
+    "java": 25,
+    "name": "fabric-entity-tick-crash-26.3",
+    "description": "Fabric 26.3, a mod throws while the server ticks an entity",
+    "fixture": "entity-tick",
+    "after_ready": 30,
+    "expect": {
+      "situation": "TICK_ENTITY",
+      "culprit": "crashsleuth"
+    },
+    "console": [
+      {
+        "after": 5,
+        "command": "forceload add 0 0"
+      },
+      {
+        "after": 8,
+        "command": "summon minecraft:armor_stand 0 100 0"
+      }
+    ]
+  },
+  {
+    "platform": "fabric",
+    "minecraft": "1.19.4",
+    "java": 17,
+    "name": "fabric-block-entity-tick-crash-1.19.4",
+    "description": "Fabric 1.19.4, a mod throws while the server ticks a furnace placed by a command",
+    "fixture": "block-entity-tick",
+    "after_ready": 30,
+    "console": [
+      {
+        "after": 5,
+        "command": "forceload add 0 0"
+      },
+      {
+        "after": 8,
+        "command": "setblock 0 100 0 minecraft:furnace"
+      }
+    ],
+    "expect": {
+      "situation": "TICK_BLOCK_ENTITY",
+      "culprit": "crashsleuth"
+    }
+  },
+  {
+    "platform": "fabric",
+    "minecraft": "26.3",
+    "java": 25,
+    "name": "fabric-block-entity-tick-crash-26.3",
+    "description": "Fabric 26.3, a mod throws while the server ticks a furnace placed by a command",
+    "fixture": "block-entity-tick",
+    "after_ready": 30,
+    "console": [
+      {
+        "after": 5,
+        "command": "forceload add 0 0"
+      },
+      {
+        "after": 8,
+        "command": "setblock 0 100 0 minecraft:furnace"
+      }
+    ],
+    "expect": {
+      "situation": "TICK_BLOCK_ENTITY",
+      "culprit": "crashsleuth"
+    }
   }
 ]
