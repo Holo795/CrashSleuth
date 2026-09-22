@@ -88,6 +88,7 @@ class McpServer(private val workbench: Workbench = Workbench()) {
                 Mappings.load(minecraft).translate(file.readText()).take(MAX_TEXT)
             }
             "config_read" -> configRead(path("folder"), arguments["file"]?.jsonPrimitive?.content ?: error("file is required"))
+            "known_pairs" -> dev.holo795.crashsleuth.inventory.InventoryAnalyzer.describePairs()
             "known_settings" -> {
                 val platform = arguments["platform"]?.jsonPrimitive?.content?.let { name ->
                     dev.holo795.crashsleuth.model.Platform.entries.firstOrNull { it.name.equals(name, ignoreCase = true) }
@@ -174,6 +175,8 @@ class McpServer(private val workbench: Workbench = Workbench()) {
                 buildJsonObject { put("path", string("log or crash report")); put("minecraft", string("Minecraft version, when the log does not say it")) }, listOf("path")))
             add(tool("config_read", "Read a configuration file of that folder, exactly as it is on disk; secrets are hidden.",
                 buildJsonObject { put("folder", string("server or game folder")); put("file", string("file inside it, such as config/paper-global.yml")) }, listOf("folder", "file")))
+            add(tool("known_pairs", "Mods known not to work together, and mods that need another one without declaring it, each with where it was established. Use it before telling someone a pair is fine.",
+                buildJsonObject {}, emptyList()))
             add(tool("known_settings", "The settings CrashSleuth knows for a platform, with the values each one accepts. Use it instead of guessing a setting name or a value.",
                 buildJsonObject { put("platform", string("paper, velocity, bungeecord, neoforge, fabric...")) }, emptyList()))
         }

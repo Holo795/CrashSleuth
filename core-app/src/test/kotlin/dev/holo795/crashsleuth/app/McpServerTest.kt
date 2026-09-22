@@ -33,7 +33,7 @@ class McpServerTest {
     fun `an assistant sees the tools and gets no answer to a notification`() {
         val tools = ask("""{"jsonrpc":"2.0","id":1,"method":"tools/list"}""")!!["result"]!!.jsonObject["tools"]!!.jsonArray
         assertEquals(
-            listOf("analyze", "inventory", "compare", "readable", "config_read", "known_settings"),
+            listOf("analyze", "inventory", "compare", "readable", "config_read", "known_pairs", "known_settings"),
             tools.map { it.jsonObject["name"]!!.jsonPrimitive.content },
         )
         assertNull(ask("""{"jsonrpc":"2.0","method":"notifications/initialized"}"""))
@@ -62,5 +62,12 @@ class McpServerTest {
     fun `an unknown method and an unknown tool answer an error, never a crash`() {
         assertTrue(ask("""{"jsonrpc":"2.0","id":3,"method":"nope"}""")!!.containsKey("error"))
         assertTrue(ask("""{"jsonrpc":"2.0","id":4,"method":"tools/call","params":{"name":"nope","arguments":{}}}""")!!.containsKey("error"))
+    }
+
+    @Test
+    fun `an assistant can ask which mods are known not to work together`() {
+        val answer = callText("known_pairs", "{}")
+        assertTrue(answer.contains("jade") && answer.contains("notenoughcrashes"), answer)
+        assertTrue(answer.contains("https://"), "each pair says where it was established")
     }
 }

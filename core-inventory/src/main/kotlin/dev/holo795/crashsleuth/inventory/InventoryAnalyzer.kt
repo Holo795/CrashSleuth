@@ -167,6 +167,20 @@ object InventoryAnalyzer {
      * The same knowledge, for a log that was pasted without its files: the loaders print the list of
      * mods they loaded, and that is enough to name a pair known not to work together.
      */
+    /** The pairs as plain lines, for someone (or an assistant) asking what is known. */
+    fun describePairs(): String = buildString {
+        KNOWN_PAIRS["incompatible"]?.jsonArray?.forEach { entry ->
+            val pair = entry.jsonObject
+            appendLine("${pair.getValue("a").jsonPrimitive.content} and ${pair.getValue("b").jsonPrimitive.content} do not work together: " +
+                "${pair.getValue("why").jsonPrimitive.content} (${pair.getValue("source").jsonPrimitive.content})")
+        }
+        KNOWN_PAIRS["needs"]?.jsonArray?.forEach { entry ->
+            val rule = entry.jsonObject
+            appendLine("${rule.getValue("id").jsonPrimitive.content} needs ${rule.getValue("needs").jsonPrimitive.content} without saying so: " +
+                "${rule.getValue("why").jsonPrimitive.content} (${rule.getValue("source").jsonPrimitive.content})")
+        }
+    }.trimEnd()
+
     fun knownPairsAmong(ids: Set<String>): List<Finding> {
         val present = ids.map { it.lowercase() }.toSet()
         val findings = mutableListOf<Finding>()
