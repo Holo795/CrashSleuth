@@ -1,8 +1,16 @@
 # CrashSleuth — Spécification
 
-**Version 14 — 22/09/2026** — v13 + toutes les versions de 1.19 à la dernière, toutes les plateformes, en conditions réelles.
+**Version 15 — 22/09/2026** — v14 + crashs en jeu côté client, sept ajouts au bureau, CrashSleuth comme outil pour un assistant (MCP).
 
-### Changements depuis la v13
+### Changements depuis la v14
+- **Crashs pendant une partie** (§5, §6.2) : un mod qui lève une erreur pendant le tick d'une entité donne `TICK_ENTITY` avec le mod nommé ; pendant le dessin des blocs d'un chunk, `RENDER` avec le mod nommé et ce que le jeu était en train de faire (« Batching sections », « Tesselating block model », entité, interface).
+- **Labo** : le mod de test Fabric a maintenant des mixins (entité, dessin des blocs) ; les scénarios qui ont besoin que le monde soit dessiné tournent **dans un conteneur, sur un écran virtuel**, et le labo bascule tout seul dessus quand l'ordinateur n'a aucun écran utilisable (verrouillé ou en veille). Constat réel : une fenêtre masquée arrête le dessin sous macOS, donc un crash de rendu ne peut pas s'y produire.
+- **Application de bureau**, sept ajouts : mondes abîmés listés avec leurs coordonnées et le dossier à ouvrir ; fichier du coupable (et de n'importe quel mod) montré dans le gestionnaire de fichiers ; mod avec une version plus récente relié à sa page Modrinth ; ouverture d'un rapport reçu par lien ; mention du profil spark sur l'accueil ; choix du modèle d'IA locale et extinction définitive ; journal de la recherche du coupable pendant qu'elle tourne.
+- **CrashSleuth comme outil d'assistant** (§8) : `crashsleuth mcp` parle le protocole MCP sur l'entrée et la sortie standard, avec six outils : `analyze`, `inventory`, `compare`, `readable`, `config_read` (fichier de configuration de la personne, secrets masqués, sortie du dossier interdite) et `known_settings` (les réglages que CrashSleuth connaît et les valeurs qu'ils acceptent).
+- **L'IA locale ne peut plus inventer de réglage** : on lui donne les réglages réellement cités par le diagnostic avec leurs valeurs possibles, et sa réponse est **vérifiée** contre ce catalogue ; tout nom de réglage inconnu est signalé à la personne. Avant : elle proposait un mode Velocity « BASIC » qui n'existe pas, puis, quand on lui donnait tout le catalogue, elle inventait des problèmes (« l'EULA est refusée »). Vérifié sur deux vrais cas.
+- 16 scénarios client, tous réussis ; 395 tests ; 324 cas réels rejoués.
+
+### Changements de la v14 (rappel)
 - **Matrice de versions** (`lab/matrix.py`) : chaque plateforme sur chaque ligne de versions de **1.19 à 26.3** (la dernière), avec un démarrage sain et une **vraie dépendance manquante** choisie automatiquement (le labo lit le jar téléchargé pour vérifier que la dépendance compte vraiment côté serveur). **186 scénarios serveur, tous réussis** (172 au premier passage, les 14 autres après correction du labo : mods de test et compilation de Spigot) ; **38 scénarios client, tous réussis** (31 au premier passage, 7 après les correctifs ci-dessous) ; proxys **7 sur 7**.
   - serveurs : vanilla (les 29 versions), Paper, Purpur, Spigot (compilé par BuildTools), Folia, Fabric, Quilt, NeoForge (y compris la version 1.20.1, l'ancien artefact Forge) et Forge ;
   - clients : vanilla, Fabric, NeoForge et **Forge** (installeurs officiels lancés sans interface dans le cache de l'outil), de 1.19.4 à 26.3, fenêtres masquées ;

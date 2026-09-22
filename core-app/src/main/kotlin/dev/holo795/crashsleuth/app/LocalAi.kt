@@ -57,6 +57,15 @@ class LocalAi(
                 item.evidence.take(3).forEach { appendLine("   Evidence: $it") }
             }
             if (shared.findings.isEmpty()) appendLine("No known problem was found.")
+            // Only the settings this diagnosis really talks about: the whole catalogue made small models
+            // invent problems ("the EULA is refused") out of settings nobody mentioned.
+            val mentioned = (shared.findings.flatMap { listOf(it.advice) + it.evidence }).joinToString(" ").lowercase()
+            val settings = KnownSettings.forPlatform(analysis.report.environment.platform)
+                .filter { it.file.lowercase() in mentioned || it.key.lowercase() in mentioned }
+            if (settings.isNotEmpty()) {
+                appendLine("The settings named above, with the values they accept (never write another value):")
+                appendLine(KnownSettings.describe(settings))
+            }
         }.let(Privacy::clean)
     }
 
@@ -68,8 +77,9 @@ class LocalAi(
         val language = if (messages.locale.language == "fr") "French" else "English"
         val system = "You help Minecraft players and server owners. Explain the diagnosis below in plain $language, " +
             "in at most 6 short sentences: what happened, why, and the steps to fix it. Use only the facts, names, files and " +
-            "settings written in the diagnosis: never add a setting, value, mode, version, mod or link that is not in it. " +
-            "Plain text only, no Markdown, no lists with symbols, no emoji."
+            "settings written below: never name a setting, value, mode, version, mod or link that is not in them, and never " +
+            "invent a value for a setting whose accepted values are listed. " +
+            "Name a setting only when changing it is part of the fix. Plain text only, no Markdown, no lists with symbols, no emoji."
         val body = buildJsonObject {
             put("model", chosen)
             put("stream", false)
@@ -80,17 +90,43 @@ class LocalAi(
                 add(buildJsonObject { put("role", "user"); put("content", summary(analysis, messages)) })
             }
         }.toString()
-        val answer = Json.parseToJsonElement(post(if (openAi) "/chat/completions" else "/api/chat", body)).jsonObject
+        val reply = Json.parseToJsonElement(post(if (openAi) "/chat/completions" else "/api/chat", body)).jsonObject
         val text = if (openAi) {
-            ((answer["choices"] as JsonArray)[0].jsonObject["message"] as JsonObject)["content"]
+            ((reply["choices"] as JsonArray)[0].jsonObject["message"] as JsonObject)["content"]
         } else {
-            (answer["message"] as JsonObject)["content"]
+            (reply["message"] as JsonObject)["content"]
         }
         // Small models keep some Markdown anyway: it is shown as plain text.
-        return (text as JsonPrimitive).content.replace(Regex("""(?s)<think>.*?</think>"""), "").trim().replace("**", "").replace(Regex("""(?m)^#+\s*"""), "").replace("`", "")
+        val answer = (text as JsonPrimitive).content.replace(Regex("""(?s)<think>.*?</think>"""), "").trim()
+            .replace("**", "").replace(Regex("""(?m)^#+\s*"""), "").replace("`", "")
+        val invented = invented(answer, analysis)
+        return if (invented.isEmpty()) answer else answer + "\n\n" + messages.get("ai.invented", invented.joinToString(", "))
+    }
+
+    /**
+     * Settings the answer names that neither the report nor the catalogue knows. Small models do invent them
+     * (one offered a Velocity forwarding mode that does not exist), and the person must not act on those.
+     */
+    fun invented(answer: String, analysis: Analysis): List<String> {
+        val known = (KnownSettings.all.map { it.key } + KnownSettings.all.map { it.file } + KNOWN_WORDS).map { it.lowercase() }
+        val fromReport = (analysis.report.findings.flatMap { it.evidence + it.details.values + it.culprits.mapNotNull { c -> c.id } } +
+            analysis.inventory?.jars.orEmpty().flatMap { jar -> listOf(jar.file) + jar.mods.map { it.id } }).joinToString(" ").lowercase()
+        return SETTING_LIKE.findAll(answer).map { it.value }.distinct()
+            .filterNot { candidate ->
+                val lower = candidate.lowercase()
+                known.any { lower == it || lower.endsWith(".$it") || it.endsWith(".$lower") || it.contains(lower) } || lower in fromReport
+            }
+            .take(5).toList()
     }
 
     companion object {
+        /** Words that look like settings but are ordinary file or folder names. */
+        private val KNOWN_WORDS = listOf("server.properties", "config.yml", "velocity.toml", "spigot.yml", "eula.txt", "forwarding.secret",
+            "paper-global.yml", "user_jvm_args.txt", "fabric.mod.json", "mods.toml", "latest.log", "level.dat", "session.lock", "crashsleuth.jar")
+
+        /** "proxies.velocity.secret", "settings.bungeecord", "player-info-forwarding-mode": a setting, not a sentence. */
+        private val SETTING_LIKE = Regex("""\b[a-z][\w-]*(?:[._][a-z][\w-]*){1,4}\b""")
+
         /**
          * Compared on real CrashSleuth reports (22/09/2026, French, a Mac): gemma3:4b answered in 3 to 6 s without inventing,
          * ministral-3:8b in 5 to 11 s; qwen3:4b wrote its reasoning in English and took up to 2 minutes.

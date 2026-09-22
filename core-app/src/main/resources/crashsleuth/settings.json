@@ -1,0 +1,21 @@
+[
+  {"file": "server.properties", "key": "online-mode", "values": ["true", "false"], "what": "checks players against Mojang; false only behind a proxy on a closed network"},
+  {"file": "server.properties", "key": "level-name", "what": "folder of the world the server opens"},
+  {"file": "server.properties", "key": "server-port", "what": "port the server listens on (25565 by default)"},
+  {"file": "server.properties", "key": "view-distance", "what": "chunks sent to players; lowering it saves memory and time"},
+  {"file": "server.properties", "key": "simulation-distance", "what": "chunks the server keeps ticking; lowering it is the first fix for lag"},
+  {"file": "eula.txt", "key": "eula", "values": ["true", "false"], "what": "accepting Mojang's licence; the server refuses to start while it is false"},
+  {"file": "config/paper-global.yml", "key": "proxies.velocity.enabled", "values": ["true", "false"], "platforms": ["paper", "purpur", "folia"], "what": "accept players sent by a Velocity proxy"},
+  {"file": "config/paper-global.yml", "key": "proxies.velocity.online-mode", "values": ["true", "false"], "platforms": ["paper", "purpur", "folia"], "what": "let the proxy say the players are checked"},
+  {"file": "config/paper-global.yml", "key": "proxies.velocity.secret", "platforms": ["paper", "purpur", "folia"], "what": "the same text as the proxy's forwarding.secret file; anything else refuses every player"},
+  {"file": "spigot.yml", "key": "settings.bungeecord", "values": ["true", "false"], "platforms": ["paper", "purpur", "spigot", "folia"], "what": "accept players sent by BungeeCord or Waterfall"},
+  {"file": "velocity.toml", "key": "player-info-forwarding-mode", "values": ["none", "legacy", "bungeeguard", "modern"], "platforms": ["velocity"], "what": "how the proxy passes players to the servers; modern needs the secret in the server's paper-global.yml"},
+  {"file": "velocity.toml", "key": "forwarding-secret-file", "platforms": ["velocity"], "what": "file holding the secret, forwarding.secret by default"},
+  {"file": "velocity.toml", "key": "online-mode", "values": ["true", "false"], "platforms": ["velocity"], "what": "the proxy checks players against Mojang"},
+  {"file": "velocity.toml", "key": "servers", "platforms": ["velocity"], "what": "name and address of each server behind the proxy"},
+  {"file": "config.yml", "key": "ip_forward", "values": ["true", "false"], "platforms": ["bungeecord"], "what": "pass the player's address and name to the servers; the servers need settings.bungeecord set"},
+  {"file": "config.yml", "key": "online_mode", "values": ["true", "false"], "platforms": ["bungeecord"], "what": "the proxy checks players against Mojang"},
+  {"file": "config.yml", "key": "servers", "platforms": ["bungeecord"], "what": "name and address of each server behind the proxy"},
+  {"file": "user_jvm_args.txt", "key": "-Xmx", "platforms": ["neoforge", "forge"], "what": "memory the server may take; it must stay below what the machine or container has"},
+  {"file": "start command", "key": "-Xmx", "what": "memory the server may take; Java is killed by the system when the container has less"}
+]

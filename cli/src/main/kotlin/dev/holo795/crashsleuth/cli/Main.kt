@@ -14,6 +14,7 @@ import com.github.ajalt.clikt.parameters.types.path
 import dev.holo795.crashsleuth.app.Analysis
 import dev.holo795.crashsleuth.app.LocalAi
 import dev.holo795.crashsleuth.app.Mappings
+import dev.holo795.crashsleuth.app.McpServer
 import dev.holo795.crashsleuth.app.ModrinthCheck
 import dev.holo795.crashsleuth.app.ShareLink
 import dev.holo795.crashsleuth.app.Target
@@ -123,6 +124,16 @@ class ReadableCommand : CliktCommand(name = "readable") {
     }
 }
 
+class McpCommand : CliktCommand(name = "mcp") {
+    override fun help(context: Context) =
+        "Serve CrashSleuth to an assistant over the standard input and output (MCP): analyse, inventory, compare, " +
+            "readable, read a configuration file, and the settings it knows with their values."
+
+    override fun run() {
+        McpServer().serve(System.`in`.bufferedReader(), System.out.writer())
+    }
+}
+
 class InventoryCommand : CliktCommand(name = "inventory") {
     override fun help(context: Context) = "List the mods and plugins of a folder with their metadata, as JSON."
 
@@ -131,4 +142,4 @@ class InventoryCommand : CliktCommand(name = "inventory") {
     override fun run() = echo(JSON.encodeToString(Inventory.serializer(), if (folder.isDirectory()) InstanceScanner.scan(folder) else PackScanner().scan(folder)))
 }
 
-fun main(args: Array<String>) = CrashSleuth().subcommands(Analyze(), ReadableCommand(), InventoryCommand(), BisectCommand(), MixinsCommand(), RunClientCommand()).main(args)
+fun main(args: Array<String>) = CrashSleuth().subcommands(Analyze(), ReadableCommand(), InventoryCommand(), McpCommand(), BisectCommand(), MixinsCommand(), RunClientCommand()).main(args)

@@ -18,7 +18,8 @@ CrashSleuth diagnoses crashes, startup failures, hangs, lag and connection probl
 - **Readable traces**: `class_310.method_22681` and `fgo.b` become Mojang's names (mappings downloaded once from Mojang and Fabric).
 - **Updates**: ask Modrinth, by file hash only, which mods have a newer version.
 - **Share** a report as a link: the report is inside the part of the link after the `#`, which browsers never send anywhere; nothing is uploaded and no port is opened.
-- **Plain-language explanation** by a model running on your own computer (Ollama, or any local OpenAI-compatible server), optional; only an anonymised summary is sent to it.
+- **Plain-language explanation** by a model running on your own computer (Ollama, or any local OpenAI-compatible server), optional; only an anonymised summary is sent to it, and it is only allowed to name settings CrashSleuth knows. Anything else it names is flagged.
+- **A tool for assistants** (MCP): `crashsleuth mcp` lets an assistant analyse a folder, list what is installed, compare a player with a server, read a configuration file (secrets hidden) and ask for the settings that exist with their accepted values, instead of guessing them.
 
 Everything is **local by default**: nothing leaves the computer unless you ask (update check, share link, mappings download).
 
@@ -61,6 +62,9 @@ $crashsleuth bisect path/to/server
 $crashsleuth bisect path/to/game --client --minecraft 1.21.1 --loader neoforge
 # start the game once, join a server or open a save, and say how it went
 $crashsleuth run-client path/to/game --minecraft 1.21.1 --loader fabric --join localhost:25565
+# serve CrashSleuth to an assistant that speaks MCP (analyze, inventory, compare, readable,
+# config_read, known_settings), over the standard input and output
+$crashsleuth mcp
 # a log with Mojang's names; mixins and where they collide; installed files as JSON
 $crashsleuth readable latest.log
 $crashsleuth mixins path/to/server
@@ -99,6 +103,7 @@ CrashSleuth diagnostique les crashs, les échecs de démarrage, les gels, le lag
 
 - Application de bureau et ligne de commande (`--lang fr`), pour **Linux, Windows et macOS**. Déjà testés pour de vrai sur les trois : les analyses, les lancements du jeu (vanilla, Fabric, NeoForge) et la recherche du coupable côté client ; l'application de bureau aussi. Les fenêtres des lancements de test ne passent jamais au premier plan.
 - Tout reste **sur votre ordinateur** par défaut ; rien ne part sans que vous le demandiez (mises à jour Modrinth par empreinte seulement, lien de partage qui contient le rapport, correspondances de noms téléchargées une fois).
-- Explication en termes simples par une IA qui tourne sur votre ordinateur (Ollama), en option.
+- Explication en termes simples par une IA qui tourne sur votre ordinateur (Ollama), en option : elle ne peut citer que des réglages connus de CrashSleuth, et tout le reste est signalé.
+- `crashsleuth mcp` : CrashSleuth comme outil pour un assistant (MCP), qui peut alors analyser un dossier, lire la configuration (secrets masqués) et demander les réglages qui existent au lieu de les deviner.
 
 Voir la [spécification](docs/SPEC.fr.md) et l'[état de l'existant](docs/PRIOR_ART.md). Licence [MIT](LICENSE).
