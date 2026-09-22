@@ -1,0 +1,11 @@
+{
+  "about": "Mods that only work on the client and crash a NeoForge or Forge server, which, unlike Fabric, has no way to declare it in the metadata. Each entry says how it was confirmed.",
+  "mods": [
+    {"id": "statuseffectbars", "confirmed": "lab: modpack-createplus-as-published, 'invalid dist DEDICATED_SERVER' at startup"},
+    {"id": "sodium", "confirmed": "lab: neoforge-client-only, NoClassDefFoundError org/lwjgl/Version at startup"},
+    {"id": "embeddium", "confirmed": "rendering engine replacement, loads client classes at startup"},
+    {"id": "rubidium", "confirmed": "rendering engine replacement, loads client classes at startup"},
+    {"id": "oculus", "confirmed": "shader loader, depends on the rendering engine"},
+    {"id": "iris", "confirmed": "shader loader, depends on the rendering engine"}
+  ]
+}

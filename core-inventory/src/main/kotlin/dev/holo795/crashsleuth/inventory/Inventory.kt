@@ -56,6 +56,8 @@ data class JarEntry(
     val nested: List<ModMetadata> = emptyList(),
     /** Set when the jar cannot be opened at all. */
     val error: String? = null,
+    /** Java release its classes are compiled for (class file major version - 44); null without classes. */
+    val javaVersion: Int? = null,
 ) {
     val formats: Set<MetadataFormat> get() = mods.map { it.format }.toSet()
 }
@@ -68,4 +70,6 @@ data class Inventory(
     val loaderVersion: String? = null,
     val side: Side = Side.UNKNOWN,
     val jars: List<JarEntry> = emptyList(),
+    /** Files of a pack that could not be read (CurseForge files, untrusted download hosts). */
+    val skipped: List<String> = emptyList(),
 )

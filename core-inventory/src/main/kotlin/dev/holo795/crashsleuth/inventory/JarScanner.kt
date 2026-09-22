@@ -38,12 +38,32 @@ object JarScanner {
                 val files = zip.entries().asSequence().filterNot { it.isDirectory }
                     .associate { entry -> entry.name to { zip.getInputStream(entry).use(InputStream::readBytes) } }
                 val content = read(files, 0)
-                JarEntry(path.name, folder, size, content.mods, content.nested)
+                JarEntry(path.name, folder, size, content.mods, content.nested, javaVersion = javaVersion(zip))
             }
         } catch (error: Exception) {
             JarEntry(path.name, folder, size, error = error.message ?: error.javaClass.simpleName)
         }
     }
+
+    private const val MAX_CLASSES = 4000
+
+    /**
+     * Highest Java release among the classes of the jar, from the class file header. Multi-release
+     * classes (META-INF/versions/N) are left out: they only load on that Java.
+     */
+    private fun javaVersion(zip: ZipFile): Int? =
+        zip.entries().asSequence()
+            .filter { it.name.endsWith(".class") && !it.name.startsWith("META-INF/") }
+            .take(MAX_CLASSES)
+            .mapNotNull { entry ->
+                zip.getInputStream(entry).use { input ->
+                    val header = input.readNBytes(8)
+                    val magic = header.size == 8 && header[0] == 0xCA.toByte() && header[1] == 0xFE.toByte() &&
+                        header[2] == 0xBA.toByte() && header[3] == 0xBE.toByte()
+                    if (magic) (((header[6].toInt() and 0xFF) shl 8) or (header[7].toInt() and 0xFF)) - 44 else null
+                }
+            }
+            .maxOrNull()
 
     private class Content(val mods: List<ModMetadata>, val nested: List<ModMetadata>)
 

@@ -1,5 +1,7 @@
 package dev.holo795.crashsleuth.inventory
 
+import dev.holo795.crashsleuth.model.Confidence
+import dev.holo795.crashsleuth.model.Environment
 import dev.holo795.crashsleuth.model.Platform
 import dev.holo795.crashsleuth.model.Side
 import dev.holo795.crashsleuth.model.Situation
@@ -153,6 +155,25 @@ class InventoryTest {
             ),
             found,
         )
+    }
+
+    private fun classFile(java: Int) = byteArrayOf(0xCA.toByte(), 0xFE.toByte(), 0xBA.toByte(), 0xBE.toByte(), 0, 0, 0, (java + 44).toByte())
+
+    @Test
+    fun `Java release read from the class files`() {
+        root.resolve("versions/1.21.1").createDirectories()
+        root.resolve("versions/1.21.1/paper-1.21.1.jar").writeText("")
+        jar("plugins", "Modern.jar", mapOf("plugin.yml" to "name: Modern\nversion: 1\nmain: a.B\n", "a/B.class" to classFile(25), "META-INF/versions/26/a/C.class" to classFile(26)))
+        jar("plugins", "Old.jar", mapOf("plugin.yml" to "name: Old\nversion: 1\nmain: a.B\n", "a/B.class" to classFile(17)))
+        val inventory = InstanceScanner.scan(root)
+        assertEquals(25, inventory.jars.single { it.file == "Modern.jar" }.javaVersion)
+        // Unknown runtime: compared with what Minecraft 1.21.1 needs (Java 21).
+        val guessed = InventoryAnalyzer.analyze(inventory).single()
+        assertEquals(Situation.JAVA_VERSION to "Modern", guessed.situation to guessed.culprits.single().id)
+        assertEquals(Confidence.MEDIUM, guessed.confidence)
+        // Known runtime from the log.
+        assertEquals(Confidence.CERTAIN, InventoryAnalyzer.analyze(inventory, Environment(javaVersion = "21.0.12")).single().confidence)
+        assertTrue(InventoryAnalyzer.analyze(inventory, Environment(javaVersion = "25.0.1")).isEmpty())
     }
 
     @Test

@@ -9,6 +9,10 @@ import dev.holo795.crashsleuth.model.Platform
 import dev.holo795.crashsleuth.model.PlatformKind
 import dev.holo795.crashsleuth.model.Side
 import dev.holo795.crashsleuth.model.Situation
+import kotlinx.serialization.json.Json
+import kotlinx.serialization.json.jsonArray
+import kotlinx.serialization.json.jsonObject
+import kotlinx.serialization.json.jsonPrimitive
 
 /**
  * Finds problems by reading what is installed, before (or without) any crash: duplicates, jars made for
@@ -62,6 +66,8 @@ object InventoryAnalyzer {
                 }
             }
         }
+        if (side == Side.SERVER && platform in setOf(Platform.NEOFORGE, Platform.FORGE)) findings += knownClientOnly(active)
+        findings += javaVersions(loaded.filter { (jar, mods) -> mods.isNotEmpty() || jar.mods.isEmpty() }.map { it.first }, known.javaVersion, minecraft)
         findings += dependencies(active, provided, minecraft, side)
         findings += pluginApi(active, minecraft)
         return findings
@@ -95,7 +101,8 @@ object InventoryAnalyzer {
 
     private fun wrongPlace(loaded: List<Pair<JarEntry, List<ModMetadata>>>, platform: Platform): List<Finding> {
         // Sinytra Connector lets NeoForge and Forge load Fabric mods.
-        val connector = loaded.any { (_, mods) -> mods.any { it.id == "connectormod" || it.id == "connector" } }
+        // Its "-full" jar has no metadata of its own: the mod id sits in a nested jar (seen in Create Plus).
+        val connector = loaded.any { (jar, mods) -> (mods + jar.nested).any { it.id == "connectormod" || it.id == "connector" } }
         return loaded.mapNotNull { (jar, usable) ->
             if (usable.isNotEmpty() || jar.mods.isEmpty()) return@mapNotNull null
             if (jar.folder == "mods" && platform.kind != PlatformKind.MODS) return@mapNotNull null
@@ -145,6 +152,57 @@ object InventoryAnalyzer {
                 listOf(culprit(jar, mod), Culprit(if (jar.folder == "plugins") CulpritKind.PLUGIN else CulpritKind.MOD, ALIASES[id] ?: dependency.id)),
                 evidence = listOf("${jar.folder}/${jar.file}: ${mod.id} requires ${dependency.id} ${dependency.versionRange ?: ""}".trimEnd()),
                 details = mapOf("requester" to (mod.name ?: mod.id), "dependency" to (ALIASES[id] ?: dependency.id)),
+            )
+        }
+    }
+
+    private val CLIENT_ONLY: Set<String> by lazy {
+        val text = InventoryAnalyzer::class.java.classLoader.getResourceAsStream("crashsleuth/client-only.json")!!.use { it.readBytes().toString(Charsets.UTF_8) }
+        Json.parseToJsonElement(text).jsonObject.getValue("mods").jsonArray.map { it.jsonObject.getValue("id").jsonPrimitive.content }.toSet()
+    }
+
+    /** NeoForge and Forge cannot mark a mod as client-only: a list confirmed by real crashes fills the gap. */
+    private fun knownClientOnly(active: List<Pair<JarEntry, ModMetadata>>): List<Finding> =
+        active.filter { (_, mod) -> mod.id.lowercase() in CLIENT_ONLY }.map { (jar, mod) ->
+            Finding(
+                Situation.CLIENT_ONLY_ON_SERVER, Confidence.HIGH, listOf(culprit(jar, mod)),
+                evidence = listOf("${jar.folder}/${jar.file}: ${mod.id} is a known client-only mod"),
+            )
+        }
+
+    /** Java release Minecraft itself needs, the one most servers and launchers run. */
+    fun javaFor(minecraft: String): Int? {
+        val version = minecraft.split('.').mapNotNull { it.toIntOrNull() }
+        val major = version.getOrNull(0) ?: return null
+        val minor = version.getOrNull(1) ?: 0
+        val patch = version.getOrNull(2) ?: 0
+        return when {
+            major >= 26 -> 25
+            major != 1 -> null
+            minor >= 21 || (minor == 20 && patch >= 5) -> 21
+            minor >= 18 -> 17
+            minor == 17 -> 16
+            else -> 8
+        }
+    }
+
+    private fun javaVersions(jars: List<JarEntry>, runtime: String?, minecraft: String?): List<Finding> {
+        // "21.0.12" or "1.8.0_392"
+        val current = runtime?.let { text -> text.split('.', '_', '+', '-').mapNotNull { it.toIntOrNull() }.let { if (it.firstOrNull() == 1) it.getOrNull(1) else it.firstOrNull() } }
+        val expected = minecraft?.let(::javaFor)
+        return jars.mapNotNull { jar ->
+            val needed = jar.javaVersion ?: return@mapNotNull null
+            val (limit, confidence) = when {
+                current != null -> current to Confidence.CERTAIN
+                expected != null -> expected to Confidence.MEDIUM
+                else -> return@mapNotNull null
+            }
+            if (needed <= limit) return@mapNotNull null
+            val mod = jar.mods.firstOrNull()
+            Finding(
+                Situation.JAVA_VERSION, confidence, listOf(culprit(jar, mod)),
+                evidence = listOf("${jar.folder}/${jar.file}: compiled for Java $needed"),
+                details = mapOf("required" to needed.toString(), "current" to (current?.toString() ?: "$limit ?")),
             )
         }
     }
