@@ -1,0 +1,9 @@
+{
+  "situation": "CORRUPT_JAR",
+  "culprit": "tenshilib",
+  "logs": [
+    "console.log"
+  ],
+  "source": "https://github.com/Flemmli97/TenshiLib/issues/17",
+  "fix": "Take the rebuilt jar (2.3.0.b): the range in its metadata was written wrong."
+}

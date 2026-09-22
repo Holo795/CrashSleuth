@@ -1,0 +1,9 @@
+{
+  "situation": "DEP_VERSION",
+  "culprit": "collective",
+  "logs": [
+    "console.log"
+  ],
+  "source": "https://github.com/Serilum/.issue-tracker/issues/3229",
+  "fix": "Install Collective 8.4, or go back to the bundle built for 8.3."
+}

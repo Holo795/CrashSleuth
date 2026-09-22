@@ -1,0 +1,101 @@
+{
+    "platform": "UNKNOWN",
+    "minecraftVersion": null,
+    "loaderVersion": null,
+    "side": "UNKNOWN",
+    "jars": [
+        {
+            "file": "oculus-flywheel-compat-1.1.4.jar",
+            "folder": "mods",
+            "size": 91538,
+            "mods": [
+                {
+                    "format": "FORGE",
+                    "id": "irisflw",
+                    "name": "Oculus Flywheel Compat",
+                    "version": "1.1.4",
+                    "environment": "UNKNOWN",
+                    "dependencies": [
+                        {
+                            "id": "forge",
+                            "versionRange": "[47,)",
+                            "required": true,
+                            "side": "CLIENT"
+                        },
+                        {
+                            "id": "minecraft",
+                            "versionRange": "[1.20,1.21)",
+                            "required": true,
+                            "side": "CLIENT"
+                        },
+                        {
+                            "id": "oculus",
+                            "versionRange": "[1.6.15,)",
+                            "required": true,
+                            "side": "CLIENT"
+                        },
+                        {
+                            "id": "flywheel",
+                            "versionRange": "[0.6.9,)",
+                            "required": true,
+                            "side": "CLIENT"
+                        }
+                    ],
+                    "breaks": [],
+                    "provides": [],
+                    "apiVersion": null,
+                    "entrypoints": [],
+                    "addsContent": false,
+                    "optionalOnClient": false
+                }
+            ],
+            "nested": [],
+            "error": null,
+            "javaVersion": 17
+        },
+        {
+            "file": "oculus-mc1.20.1-1.8.0.jar",
+            "folder": "mods",
+            "size": 2851119,
+            "mods": [
+                {
+                    "format": "FORGE",
+                    "id": "oculus",
+                    "name": "Oculus",
+                    "version": "1.8.0",
+                    "environment": "UNKNOWN",
+                    "dependencies": [
+                        {
+                            "id": "minecraft",
+                            "versionRange": "[1.20.1]",
+                            "required": true,
+                            "side": "UNKNOWN"
+                        },
+                        {
+                            "id": "embeddium",
+                            "versionRange": "[0.3.1,)",
+                            "required": false,
+                            "side": "CLIENT"
+                        }
+                    ],
+                    "breaks": [],
+                    "provides": [],
+                    "apiVersion": null,
+                    "entrypoints": [],
+                    "addsContent": false,
+                    "optionalOnClient": false
+                }
+            ],
+            "nested": [],
+            "error": null,
+            "javaVersion": 17
+        }
+    ],
+    "skipped": [],
+    "files": {
+        "worlds": [],
+        "eulaAccepted": null,
+        "configErrors": [],
+        "rootJars": []
+    }
+}

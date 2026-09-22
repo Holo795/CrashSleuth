@@ -340,5 +340,49 @@
       "situation": "DEP_VERSION",
       "culprit": "sodium"
     }
+  },
+  {
+    "name": "real-client-create-standalone-flywheel",
+    "minecraft": "1.18.2",
+    "loader": "forge",
+    "description": "Forge 1.18.2 client with Create 0.5.1.c and a Flywheel installed by hand, too old for it",
+    "extra": [
+      {
+        "url": "https://cdn.modrinth.com/data/LNytGWDc/versions/PTHAyfx7/create-1.18.2-0.5.1.c.jar",
+        "file": "create-1.18.2-0.5.1.c.jar"
+      },
+      {
+        "url": "https://cdn.modrinth.com/data/5lpsZoRi/versions/xp7zKZ1z/flywheel-forge-1.18.2-0.6.8.a.jar",
+        "file": "flywheel-forge-1.18.2-0.6.8.a.jar"
+      }
+    ],
+    "source": "https://github.com/Creators-of-Create/Create/issues/5215",
+    "fix": "Delete the Flywheel jar you added: Create carries its own inside.",
+    "expect": {
+      "situation": "DEP_VERSION",
+      "culprit": "flywheel"
+    }
+  },
+  {
+    "name": "real-client-dependency-never-published",
+    "minecraft": "1.20.1",
+    "loader": "forge",
+    "description": "Forge 1.20.1 client, the Oculus/Flywheel bridge asking for a Flywheel that is not there at all",
+    "extra": [
+      {
+        "url": "https://cdn.modrinth.com/data/GchcoXML/versions/iQ1SwGc3/oculus-mc1.20.1-1.8.0.jar",
+        "file": "oculus-mc1.20.1-1.8.0.jar"
+      },
+      {
+        "url": "https://cdn.modrinth.com/data/ndHYMY2K/versions/j26FjsSe/oculus-flywheel-compat-forge1.20.1%2B1.1.4.jar",
+        "file": "oculus-flywheel-compat-1.1.4.jar"
+      }
+    ],
+    "source": "https://github.com/Asek3/Oculus/issues/804",
+    "fix": "Install Flywheel, or remove the bridge mod that asks for it.",
+    "expect": {
+      "situation": "DEP_MISSING",
+      "culprit": "flywheel"
+    }
   }
 ]

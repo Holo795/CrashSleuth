@@ -1,0 +1,9 @@
+{
+  "situation": "DEP_VERSION",
+  "culprit": "flywheel",
+  "logs": [
+    "latest.log"
+  ],
+  "source": "https://github.com/Creators-of-Create/Create/issues/5215",
+  "fix": "Delete the Flywheel jar you added: Create carries its own inside."
+}

@@ -1,0 +1,9 @@
+{
+  "situation": "WRONG_LOADER",
+  "culprit": "collective",
+  "logs": [
+    "console.log"
+  ],
+  "source": "lab, 22/09/2026: NeoForge says the jar is for Forge or an older NeoForge and skips it, without stopping",
+  "fix": "Install the build made for this loader and this Minecraft version; the mod is simply not loaded."
+}

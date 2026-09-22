@@ -1,0 +1,102 @@
+{
+ "platform": "NEOFORGE",
+ "minecraftVersion": "1.21.1",
+ "loaderVersion": "21.1.251",
+ "side": "SERVER",
+ "jars": [
+  {
+   "file": "collective-1.20.1-8.40.jar",
+   "folder": "mods",
+   "size": 745947,
+   "mods": [
+    {
+     "format": "FABRIC",
+     "id": "collective",
+     "name": "Collective",
+     "version": "8.40",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "fabricloader",
+       "versionRange": ">=0.12.6",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": ">=1.20",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "java",
+       "versionRange": ">=17",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [
+      "com.natamus.collective.CollectiveFabric",
+      "com.natamus.collective.CollectiveFabricClient",
+      "com.natamus.collective.fabric.config.FabricCollectiveConfigScreen"
+     ],
+     "addsContent": false,
+     "optionalOnClient": false
+    },
+    {
+     "format": "FORGE",
+     "id": "collective",
+     "name": "Collective",
+     "version": "8.40",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "minecraft",
+       "versionRange": "[1.20.1]",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
+    }
+   ],
+   "nested": [],
+   "error": null,
+   "javaVersion": 17
+  }
+ ],
+ "skipped": [],
+ "files": {
+  "worlds": [
+   {
+    "name": "world",
+    "versionName": "1.21.1",
+    "dataVersion": 3955,
+    "unreadable": null,
+    "hasBackup": true,
+    "locked": false,
+    "damagedChunks": [],
+    "chunksChecked": 845,
+    "chunksComplete": true,
+    "damagedPlayers": []
+   }
+  ],
+  "eulaAccepted": true,
+  "configErrors": [],
+  "rootJars": []
+ }
+}

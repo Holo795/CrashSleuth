@@ -1,0 +1,1967 @@
+{
+ "platform": "NEOFORGE",
+ "minecraftVersion": "1.21.1",
+ "loaderVersion": "21.1.251",
+ "side": "SERVER",
+ "jars": [
+  {
+   "file": "collective-1.21.1-8.3.jar",
+   "folder": "mods",
+   "size": 934732,
+   "mods": [
+    {
+     "format": "FABRIC",
+     "id": "collective",
+     "name": "Collective",
+     "version": "8.3",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "fabricloader",
+       "versionRange": ">=0.15.0",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": ">=1.21",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "java",
+       "versionRange": ">=21",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [
+      "com.natamus.collective.CollectiveFabric",
+      "com.natamus.collective.CollectiveFabricClient",
+      "com.natamus.collective.fabric.config.FabricCollectiveConfigScreen"
+     ],
+     "addsContent": false,
+     "optionalOnClient": false
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "collective",
+     "name": "Collective",
+     "version": "8.3",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21,1.21.1]",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
+    },
+    {
+     "format": "FORGE",
+     "id": "collective",
+     "name": "Collective",
+     "version": "8.3",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21,1.21.1]",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
+    }
+   ],
+   "nested": [],
+   "error": null,
+   "javaVersion": 21
+  },
+  {
+   "file": "serilumscustomizationbundle-1.21.1-2.6.jar",
+   "folder": "mods",
+   "size": 947002,
+   "mods": [
+    {
+     "format": "FABRIC",
+     "id": "serilumscustomizationbundle",
+     "name": "Serilum's Customization Bundle",
+     "version": "2.6",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "fabricloader",
+       "versionRange": ">=0.15.0",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": ">=1.21",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "java",
+       "versionRange": ">=21",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "collective",
+       "versionRange": ">=8.4",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [
+      "com.natamus.serilumscustomizationbundle.ModFabric",
+      "com.natamus.serilumscustomizationbundle.fabric.config.IntegrateModMenu"
+     ],
+     "addsContent": false,
+     "optionalOnClient": false
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "serilumscustomizationbundle",
+     "name": "Serilum's Customization Bundle",
+     "version": "2.6",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "collective",
+       "versionRange": "[8.4,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1]",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
+    },
+    {
+     "format": "FORGE",
+     "id": "serilumscustomizationbundle",
+     "name": "Serilum's Customization Bundle",
+     "version": "2.6",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "collective",
+       "versionRange": "[8.4,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1]",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
+    }
+   ],
+   "nested": [
+    {
+     "format": "FABRIC",
+     "id": "altereddamage",
+     "name": "Altered Damage",
+     "version": "3.6",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "fabricloader",
+       "versionRange": ">=0.15.0",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": ">=1.21",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "java",
+       "versionRange": ">=21",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "collective",
+       "versionRange": ">=7.91",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [
+      "com.natamus.altereddamage.ModFabric",
+      "com.natamus.altereddamage.fabric.config.IntegrateModMenu"
+     ],
+     "addsContent": false,
+     "optionalOnClient": false
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "altereddamage",
+     "name": "Altered Damage",
+     "version": "3.6",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "collective",
+       "versionRange": "[7.91,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21,1.21.1]",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
+    },
+    {
+     "format": "FORGE",
+     "id": "altereddamage",
+     "name": "Altered Damage",
+     "version": "3.6",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "collective",
+       "versionRange": "[7.91,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21,1.21.1]",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
+    },
+    {
+     "format": "FABRIC",
+     "id": "alternativeworldsavelocation",
+     "name": "Alternative World Save Location",
+     "version": "3.6",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "fabricloader",
+       "versionRange": ">=0.15.0",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": ">=1.21",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "java",
+       "versionRange": ">=21",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "collective",
+       "versionRange": ">=7.80",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [
+      "com.natamus.alternativeworldsavelocation.ModFabric",
+      "com.natamus.alternativeworldsavelocation.fabric.config.IntegrateModMenu"
+     ],
+     "addsContent": false,
+     "optionalOnClient": false
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "alternativeworldsavelocation",
+     "name": "Alternative World Save Location",
+     "version": "3.6",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "collective",
+       "versionRange": "[7.80,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21,1.21.1]",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
+    },
+    {
+     "format": "FORGE",
+     "id": "alternativeworldsavelocation",
+     "name": "Alternative World Save Location",
+     "version": "3.6",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "collective",
+       "versionRange": "[7.80,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21,1.21.1]",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
+    },
+    {
+     "format": "FABRIC",
+     "id": "biomespawnpoint",
+     "name": "Biome Spawn Point",
+     "version": "2.4",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "fabricloader",
+       "versionRange": ">=0.15.0",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": ">=1.21",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "java",
+       "versionRange": ">=21",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "collective",
+       "versionRange": ">=7.91",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [
+      "com.natamus.biomespawnpoint.ModFabric"
+     ],
+     "addsContent": false,
+     "optionalOnClient": false
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "biomespawnpoint",
+     "name": "Biome Spawn Point",
+     "version": "2.4",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "collective",
+       "versionRange": "[7.91,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21,1.21.1]",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
+    },
+    {
+     "format": "FORGE",
+     "id": "biomespawnpoint",
+     "name": "Biome Spawn Point",
+     "version": "2.4",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "collective",
+       "versionRange": "[7.91,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21,1.21.1]",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
+    },
+    {
+     "format": "FABRIC",
+     "id": "configurabledespawntimer",
+     "name": "Configurable Despawn Timer",
+     "version": "4.3",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "fabricloader",
+       "versionRange": ">=0.15.0",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": ">=1.21",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "java",
+       "versionRange": ">=21",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "collective",
+       "versionRange": ">=7.91",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [
+      "com.natamus.configurabledespawntimer.ModFabric",
+      "com.natamus.configurabledespawntimer.fabric.config.IntegrateModMenu"
+     ],
+     "addsContent": false,
+     "optionalOnClient": false
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "configurabledespawntimer",
+     "name": "Configurable Despawn Timer",
+     "version": "4.3",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "collective",
+       "versionRange": "[7.91,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21,1.21.1]",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
+    },
+    {
+     "format": "FORGE",
+     "id": "configurabledespawntimer",
+     "name": "Configurable Despawn Timer",
+     "version": "4.3",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "collective",
+       "versionRange": "[7.91,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21,1.21.1]",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
+    },
+    {
+     "format": "FABRIC",
+     "id": "configurableextramobdrops",
+     "name": "Configurable Extra Mob Drops",
+     "version": "3.6",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "fabricloader",
+       "versionRange": ">=0.15.0",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": ">=1.21",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "java",
+       "versionRange": ">=21",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "collective",
+       "versionRange": ">=7.91",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [
+      "com.natamus.configurableextramobdrops.ModFabric"
+     ],
+     "addsContent": false,
+     "optionalOnClient": false
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "configurableextramobdrops",
+     "name": "Configurable Extra Mob Drops",
+     "version": "3.6",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "collective",
+       "versionRange": "[7.91,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21,1.21.1]",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
+    },
+    {
+     "format": "FORGE",
+     "id": "configurableextramobdrops",
+     "name": "Configurable Extra Mob Drops",
+     "version": "3.6",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "collective",
+       "versionRange": "[7.91,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21,1.21.1]",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
+    },
+    {
+     "format": "FABRIC",
+     "id": "configurablefurnaceburntime",
+     "name": "Configurable Furnace Burn Time",
+     "version": "2.5",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "fabricloader",
+       "versionRange": ">=0.15.0",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": ">=1.21",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "java",
+       "versionRange": ">=21",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "collective",
+       "versionRange": ">=7.91",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [
+      "com.natamus.configurablefurnaceburntime.ModFabric",
+      "com.natamus.configurablefurnaceburntime.fabric.config.IntegrateModMenu"
+     ],
+     "addsContent": false,
+     "optionalOnClient": false
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "configurablefurnaceburntime",
+     "name": "Configurable Furnace Burn Time",
+     "version": "2.5",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "collective",
+       "versionRange": "[7.91,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21,1.21.1]",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
+    },
+    {
+     "format": "FORGE",
+     "id": "configurablefurnaceburntime",
+     "name": "Configurable Furnace Burn Time",
+     "version": "2.5",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "collective",
+       "versionRange": "[7.91,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21,1.21.1]",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
+    },
+    {
+     "format": "FABRIC",
+     "id": "configurablemobpotioneffects",
+     "name": "Configurable Mob Potion Effects",
+     "version": "3.6",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "fabricloader",
+       "versionRange": ">=0.15.0",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": ">=1.21",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "java",
+       "versionRange": ">=21",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "collective",
+       "versionRange": ">=7.91",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [
+      "com.natamus.configurablemobpotioneffects.ModFabric"
+     ],
+     "addsContent": false,
+     "optionalOnClient": false
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "configurablemobpotioneffects",
+     "name": "Configurable Mob Potion Effects",
+     "version": "3.6",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "collective",
+       "versionRange": "[7.91,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21,1.21.1]",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "neoforge",
+       "versionRange": "[21.0.31,)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
+    },
+    {
+     "format": "FORGE",
+     "id": "configurablemobpotioneffects",
+     "name": "Configurable Mob Potion Effects",
+     "version": "3.6",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "collective",
+       "versionRange": "[7.91,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21,1.21.1]",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
+    },
+    {
+     "format": "FABRIC",
+     "id": "customcredits",
+     "name": "Custom Credits",
+     "version": "1.7",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "fabricloader",
+       "versionRange": ">=0.15.0",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": ">=1.21",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "java",
+       "versionRange": ">=21",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "collective",
+       "versionRange": ">=7.91",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [
+      "com.natamus.customcredits.ModFabric",
+      "com.natamus.customcredits.ModFabricClient",
+      "com.natamus.customcredits.fabric.config.IntegrateModMenu"
+     ],
+     "addsContent": false,
+     "optionalOnClient": false
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "customcredits",
+     "name": "Custom Credits",
+     "version": "1.7",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "collective",
+       "versionRange": "[7.91,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21,1.21.1]",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
+    },
+    {
+     "format": "FORGE",
+     "id": "customcredits",
+     "name": "Custom Credits",
+     "version": "1.7",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "collective",
+       "versionRange": "[7.91,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21,1.21.1]",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
+    },
+    {
+     "format": "FABRIC",
+     "id": "cycletitlescreensplash",
+     "name": "Cycle Title Screen Splash",
+     "version": "1.3",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "fabricloader",
+       "versionRange": ">=0.15.0",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": ">=1.21",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "java",
+       "versionRange": ">=21",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "collective",
+       "versionRange": ">=7.80",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [
+      "com.natamus.cycletitlescreensplash.ModFabric",
+      "com.natamus.cycletitlescreensplash.fabric.config.IntegrateModMenu"
+     ],
+     "addsContent": false,
+     "optionalOnClient": false
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "cycletitlescreensplash",
+     "name": "Cycle Title Screen Splash",
+     "version": "1.3",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "collective",
+       "versionRange": "[7.80,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21,1.21.1]",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
+    },
+    {
+     "format": "FORGE",
+     "id": "cycletitlescreensplash",
+     "name": "Cycle Title Screen Splash",
+     "version": "1.3",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "collective",
+       "versionRange": "[7.80,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21,1.21.1]",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
+    },
+    {
+     "format": "FABRIC",
+     "id": "difficultylock",
+     "name": "Difficulty Lock",
+     "version": "4.7",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "fabricloader",
+       "versionRange": ">=0.15.0",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": ">=1.21",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "java",
+       "versionRange": ">=21",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "collective",
+       "versionRange": ">=7.91",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [
+      "com.natamus.difficultylock.ModFabric",
+      "com.natamus.difficultylock.ModFabricClient",
+      "com.natamus.difficultylock.fabric.config.IntegrateModMenu"
+     ],
+     "addsContent": false,
+     "optionalOnClient": false
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "difficultylock",
+     "name": "Difficulty Lock",
+     "version": "4.7",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "collective",
+       "versionRange": "[7.91,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21,1.21.1]",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
+    },
+    {
+     "format": "FORGE",
+     "id": "difficultylock",
+     "name": "Difficulty Lock",
+     "version": "4.7",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "collective",
+       "versionRange": "[7.91,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21,1.21.1]",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
+    },
+    {
+     "format": "FABRIC",
+     "id": "firstjoinmessage",
+     "name": "First Join Message",
+     "version": "3.8",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "fabricloader",
+       "versionRange": ">=0.15.0",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": ">=1.21",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "java",
+       "versionRange": ">=21",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "collective",
+       "versionRange": ">=8.3",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [
+      "com.natamus.firstjoinmessage.ModFabric",
+      "com.natamus.firstjoinmessage.fabric.config.IntegrateModMenu"
+     ],
+     "addsContent": false,
+     "optionalOnClient": false
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "firstjoinmessage",
+     "name": "First Join Message",
+     "version": "3.8",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "collective",
+       "versionRange": "[8.3,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21,1.21.1]",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
+    },
+    {
+     "format": "FORGE",
+     "id": "firstjoinmessage",
+     "name": "First Join Message",
+     "version": "3.8",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "collective",
+       "versionRange": "[8.3,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21,1.21.1]",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
+    },
+    {
+     "format": "FABRIC",
+     "id": "hideexperimentalwarning",
+     "name": "Hide Experimental Warning",
+     "version": "1.2",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "fabricloader",
+       "versionRange": ">=0.15.0",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": ">=1.21",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "java",
+       "versionRange": ">=21",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "collective",
+       "versionRange": ">=7.80",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [
+      "com.natamus.hideexperimentalwarning.ModFabric"
+     ],
+     "addsContent": false,
+     "optionalOnClient": false
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "hideexperimentalwarning",
+     "name": "Hide Experimental Warning",
+     "version": "1.2",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "collective",
+       "versionRange": "[7.80,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21,1.21.1]",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
+    },
+    {
+     "format": "FORGE",
+     "id": "hideexperimentalwarning",
+     "name": "Hide Experimental Warning",
+     "version": "1.2",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "collective",
+       "versionRange": "[7.80,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21,1.21.1]",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
+    },
+    {
+     "format": "FABRIC",
+     "id": "saveandloadinventories",
+     "name": "Save and Load Inventories",
+     "version": "3.5",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "fabricloader",
+       "versionRange": ">=0.15.0",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": ">=1.21",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "java",
+       "versionRange": ">=21",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "collective",
+       "versionRange": ">=7.91",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [
+      "com.natamus.saveandloadinventories.ModFabric"
+     ],
+     "addsContent": false,
+     "optionalOnClient": false
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "saveandloadinventories",
+     "name": "Save and Load Inventories",
+     "version": "3.5",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "collective",
+       "versionRange": "[7.91,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21,1.21.1]",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
+    },
+    {
+     "format": "FORGE",
+     "id": "saveandloadinventories",
+     "name": "Save and Load Inventories",
+     "version": "3.5",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "collective",
+       "versionRange": "[7.91,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21,1.21.1]",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
+    },
+    {
+     "format": "FABRIC",
+     "id": "setworldspawnpoint",
+     "name": "Set World Spawn Point",
+     "version": "3.5",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "fabricloader",
+       "versionRange": ">=0.15.0",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": ">=1.21",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "java",
+       "versionRange": ">=21",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "collective",
+       "versionRange": ">=7.91",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [
+      "com.natamus.setworldspawnpoint.ModFabric",
+      "com.natamus.setworldspawnpoint.fabric.config.IntegrateModMenu"
+     ],
+     "addsContent": false,
+     "optionalOnClient": false
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "setworldspawnpoint",
+     "name": "Set World Spawn Point",
+     "version": "3.5",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "collective",
+       "versionRange": "[7.91,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21,1.21.1]",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
+    },
+    {
+     "format": "FORGE",
+     "id": "setworldspawnpoint",
+     "name": "Set World Spawn Point",
+     "version": "3.5",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "collective",
+       "versionRange": "[7.91,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21,1.21.1]",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
+    },
+    {
+     "format": "FABRIC",
+     "id": "simplemenu",
+     "name": "Simple Menu",
+     "version": "2.0",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "fabricloader",
+       "versionRange": ">=0.15.0",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": ">=1.21",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "java",
+       "versionRange": ">=21",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "collective",
+       "versionRange": ">=8.3",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [
+      "com.natamus.simplemenu.ModFabric",
+      "com.natamus.simplemenu.fabric.config.IntegrateModMenu"
+     ],
+     "addsContent": false,
+     "optionalOnClient": false
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "simplemenu",
+     "name": "Simple Menu",
+     "version": "2.0",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "collective",
+       "versionRange": "[8.3,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21,1.21.1]",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
+    },
+    {
+     "format": "FORGE",
+     "id": "simplemenu",
+     "name": "Simple Menu",
+     "version": "2.0",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "collective",
+       "versionRange": "[8.3,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21,1.21.1]",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
+    },
+    {
+     "format": "FABRIC",
+     "id": "starterkit",
+     "name": "Starter Kit",
+     "version": "7.4",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "fabricloader",
+       "versionRange": ">=0.15.0",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": ">=1.21",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "java",
+       "versionRange": ">=21",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "collective",
+       "versionRange": ">=8.3",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [
+      "com.natamus.starterkit.ModFabric",
+      "com.natamus.starterkit.ModFabricClient",
+      "com.natamus.starterkit.fabric.config.IntegrateModMenu"
+     ],
+     "addsContent": false,
+     "optionalOnClient": false
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "starterkit",
+     "name": "Starter Kit",
+     "version": "7.4",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "collective",
+       "versionRange": "[8.3,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21,1.21.1]",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
+    },
+    {
+     "format": "FORGE",
+     "id": "starterkit",
+     "name": "Starter Kit",
+     "version": "7.4",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "collective",
+       "versionRange": "[8.3,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21,1.21.1]",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
+    },
+    {
+     "format": "FABRIC",
+     "id": "starterstructure",
+     "name": "Starter Structure",
+     "version": "4.2",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "fabricloader",
+       "versionRange": ">=0.15.0",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabric",
+       "versionRange": "*",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": ">=1.21",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "java",
+       "versionRange": ">=21",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "collective",
+       "versionRange": ">=8.1",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [
+      "com.natamus.starterstructure.ModFabric",
+      "com.natamus.starterstructure.fabric.config.IntegrateModMenu"
+     ],
+     "addsContent": false,
+     "optionalOnClient": false
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "starterstructure",
+     "name": "Starter Structure",
+     "version": "4.2",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "collective",
+       "versionRange": "[8.1,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21,1.21.1]",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "neoforge",
+       "versionRange": "[21.0.31,)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
+    },
+    {
+     "format": "FORGE",
+     "id": "starterstructure",
+     "name": "Starter Structure",
+     "version": "4.2",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "collective",
+       "versionRange": "[8.1,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21,1.21.1]",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
+    }
+   ],
+   "error": null,
+   "javaVersion": 21
+  }
+ ],
+ "skipped": [],
+ "files": {
+  "worlds": [],
+  "eulaAccepted": true,
+  "configErrors": [],
+  "rootJars": []
+ }
+}

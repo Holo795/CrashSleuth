@@ -739,6 +739,24 @@
       },
       "advice": "signature.file-access-denied.advice",
       "source": "https://github.com/itzg/docker-minecraft-server/issues/1080 (replayed in the lab: the world folder made unreadable for the user the server runs as)"
+    },
+    {
+      "id": "mod-metadata-invalid",
+      "situation": "CORRUPT_JAR",
+      "confidence": "CERTAIN",
+      "pattern": "File (?:\\S*[/\\\\])?(\\S+\\.jar) is not a valid mod file",
+      "culprits": [
+        {
+          "group": 1,
+          "kind": "MOD",
+          "fromJar": true
+        }
+      ],
+      "details": {
+        "file": 1
+      },
+      "advice": "signature.mod-metadata-invalid.advice",
+      "source": "https://github.com/Flemmli97/TenshiLib/issues/17 and https://github.com/TeamMidnightDust/MidnightLib/issues/145 (replayed in the lab: TenshiLib 2.3.0 on NeoForge 1.21.1, whose version range is impossible)"
     }
   ]
 }

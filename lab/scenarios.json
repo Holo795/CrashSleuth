@@ -1452,5 +1452,70 @@
     "after_ready": 5,
     "source": "https://github.com/itzg/docker-minecraft-server/issues/1445",
     "fix": "Nothing breaks: since 22w12a the value is minecraft:normal, and anything else falls back to it."
+  },
+  {
+    "platform": "neoforge",
+    "minecraft": "1.21.1",
+    "java": 21,
+    "name": "real-broken-version-range-in-metadata",
+    "description": "NeoForge 1.21.1, TenshiLib 2.3.0 whose metadata holds an impossible version range",
+    "extra": [
+      {
+        "url": "https://cdn.modrinth.com/data/P2rffivS/versions/WDn9pwyC/tenshilib-1.21.1-2.3.0-neoforge.jar",
+        "file": "tenshilib-1.21.1-2.3.0-neoforge.jar"
+      }
+    ],
+    "source": "https://github.com/Flemmli97/TenshiLib/issues/17",
+    "fix": "Take the rebuilt jar (2.3.0.b): the range in its metadata was written wrong.",
+    "log": "console.log",
+    "expect": {
+      "situation": "CORRUPT_JAR",
+      "culprit": "tenshilib"
+    }
+  },
+  {
+    "platform": "neoforge",
+    "minecraft": "1.21.1",
+    "java": 21,
+    "name": "real-library-too-old-for-bundle",
+    "description": "NeoForge 1.21.1, Serilum bundles that want Collective 8.4 with 8.3 installed",
+    "extra": [
+      {
+        "url": "https://cdn.modrinth.com/data/e0M1UDsY/versions/ao7rZsss/collective-1.21.1-8.3.jar",
+        "file": "collective-1.21.1-8.3.jar"
+      },
+      {
+        "url": "https://cdn.modrinth.com/data/SU8cf42D/versions/B0IK01gk/serilumscustomizationbundle-1.21.1-2.6.jar",
+        "file": "serilumscustomizationbundle-1.21.1-2.6.jar"
+      }
+    ],
+    "source": "https://github.com/Serilum/.issue-tracker/issues/3229",
+    "fix": "Install Collective 8.4, or go back to the bundle built for 8.3.",
+    "log": "console.log",
+    "expect": {
+      "situation": "DEP_VERSION",
+      "culprit": "collective"
+    }
+  },
+  {
+    "platform": "neoforge",
+    "minecraft": "1.21.1",
+    "java": 21,
+    "name": "real-forge-jar-in-neoforge",
+    "description": "NeoForge 1.21.1 server with a Forge jar (Collective for 1.20.1), silently skipped",
+    "extra": [
+      {
+        "slug": "collective",
+        "loader": "neoforge",
+        "minecraft": "1.20.1"
+      }
+    ],
+    "source": "lab, 22/09/2026: NeoForge says the jar is for Forge or an older NeoForge and skips it, without stopping",
+    "fix": "Install the build made for this loader and this Minecraft version; the mod is simply not loaded.",
+    "log": "console.log",
+    "expect": {
+      "situation": "WRONG_LOADER",
+      "culprit": "collective"
+    }
   }
 ]
