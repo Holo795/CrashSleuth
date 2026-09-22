@@ -1,5 +1,6 @@
 package dev.holo795.crashsleuth.engine
 
+import dev.holo795.crashsleuth.model.insideOf
 import dev.holo795.crashsleuth.inventory.InstanceScanner
 import dev.holo795.crashsleuth.inventory.Inventory
 import dev.holo795.crashsleuth.inventory.InventoryAnalyzer
@@ -48,7 +49,7 @@ class Diagnoser(private val logAnalyzer: LogAnalyzer = LogAnalyzer()) {
     /** Scans a server or instance folder and analyses its most recent logs. */
     fun diagnoseFolder(root: Path): Pair<Report, Inventory> {
         val inventory = InstanceScanner.scan(root)
-        val logs = recentLogs(root).map { Log(root.relativize(it).toString(), it.readText(Charsets.UTF_8)) }
+        val logs = recentLogs(root).map { Log(it.insideOf(root), it.readText(Charsets.UTF_8)) }
         return diagnose(logs, inventory, profileFindings(root)) { MixinIndex.build(inventory.jars) } to inventory
     }
 
@@ -113,7 +114,7 @@ class Diagnoser(private val logAnalyzer: LogAnalyzer = LogAnalyzer()) {
             val newest = listOf("plugins/spark", "config/spark").map(root::resolve).filter { it.isDirectory() }
                 .flatMap { folder -> folder.listDirectoryEntries("*.sparkprofile") }
                 .maxByOrNull { it.getLastModifiedTime().toMillis() } ?: return emptyList()
-            return profileFile(newest, root.relativize(newest).toString())
+            return profileFile(newest, newest.insideOf(root))
         }
 
         /** One spark profile file, read into findings. */

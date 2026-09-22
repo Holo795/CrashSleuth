@@ -56,11 +56,12 @@ class ClientInstallerTest {
         assertTrue(profile.classpath.all { it.exists() })
         assertEquals("1.21.1.jar", profile.classpath.last().fileName.toString(), "the game jar itself, not the parts of its path")
 
-        val command = installer.command(profile, Path.of("/game"), java = "java")
+        val gameDirectory = Path.of("/game")
+        val command = installer.command(profile, gameDirectory, java = "java")
         val classpath = command[command.indexOf("-cp") + 1]
         assertEquals(2, classpath.split(java.io.File.pathSeparator).size)
         assertEquals("CrashSleuth", command[command.indexOf("--username") + 1])
-        assertEquals("/game", command[command.indexOf("--gameDir") + 1])
+        assertEquals(gameDirectory.toString(), command[command.indexOf("--gameDir") + 1])
         assertEquals("427", command[command.indexOf("--width") + 1], "small window")
         assertFalse("--demo" in command)
         assertFalse("--quickPlayPath" in command, "a flag whose value is unknown is dropped")

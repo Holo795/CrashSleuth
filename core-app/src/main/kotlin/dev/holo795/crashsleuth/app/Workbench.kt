@@ -1,5 +1,6 @@
 package dev.holo795.crashsleuth.app
 
+import dev.holo795.crashsleuth.model.insideOf
 import dev.holo795.crashsleuth.bisect.CulpritSearch
 import dev.holo795.crashsleuth.bisect.RunRecord
 import dev.holo795.crashsleuth.bisect.SearchResult
@@ -117,7 +118,7 @@ class Workbench(
                 val folder = Path.of(initial.path)
                 val inventory = InstanceScanner.scan(folder)
                 val index = lazy { MixinIndex.build(inventory.jars) }
-                val logs = Diagnoser.recentLogs(folder).map { Diagnoser.Log(folder.relativize(it).toString(), it.readText(Charsets.UTF_8)) }
+                val logs = Diagnoser.recentLogs(folder).map { Diagnoser.Log(it.insideOf(folder), it.readText(Charsets.UTF_8)) }
                 val report = diagnoser.diagnose(logs, inventory, Diagnoser.profileFindings(folder)) { index.value }
                 // The game's own log names its exact version; mods only give ranges (">=1.21").
                 val refined = Target.refine(initial.copy(minecraft = initial.minecraft ?: report.environment.minecraftVersion), inventory)

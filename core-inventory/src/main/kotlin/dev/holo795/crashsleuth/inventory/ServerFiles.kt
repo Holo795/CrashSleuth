@@ -1,5 +1,6 @@
 package dev.holo795.crashsleuth.inventory
 
+import dev.holo795.crashsleuth.model.insideOf
 import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.Json
@@ -184,7 +185,7 @@ object ServerFilesScanner {
         return files.mapNotNull { file ->
             if (runCatching { file.fileSize() }.getOrDefault(0) > MAX_CONFIG_SIZE) return@mapNotNull null
             val text = runCatching { file.readText() }.getOrNull() ?: return@mapNotNull null
-            check(file, text)?.let { (line, message) -> ConfigError(root.relativize(file).toString(), line, message) }
+            check(file, text)?.let { (line, message) -> ConfigError(file.insideOf(root), line, message) }
         }
     }
 

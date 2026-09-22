@@ -1,5 +1,6 @@
 package dev.holo795.crashsleuth.inventory
 
+import dev.holo795.crashsleuth.model.insideOf
 import kotlinx.serialization.Serializable
 import java.io.ByteArrayOutputStream
 import java.nio.ByteBuffer
@@ -49,7 +50,7 @@ object RegionScanner {
             for (file in files) {
                 if (System.currentTimeMillis() > deadline) { complete = false; break }
                 val (rx, rz) = REGION.matchEntire(file.name)!!.destructured
-                val relative = world.relativize(file).toString()
+                val relative = file.insideOf(world)
                 checked += check(file, relative, kind, rx.toInt(), rz.toInt(), deadline, damaged)
             }
         }
