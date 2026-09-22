@@ -1,0 +1,9 @@
+{
+  "situation": "WRONG_MC",
+  "culprit": "ProtocolLib",
+  "logs": [
+    "latest.log"
+  ],
+  "source": "https://github.com/dmulloy2/ProtocolLib/issues/3073",
+  "fix": "Update ProtocolLib: it reads the server's packet registry, which changes with every Minecraft version."
+}

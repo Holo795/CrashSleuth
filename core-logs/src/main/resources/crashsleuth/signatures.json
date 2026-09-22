@@ -676,6 +676,22 @@
         }
       ],
       "source": "lab: neoforge-client-sodium-embeddium (NeoForge 1.21.1 refuses two forks of the same renderer)"
+    },
+    {
+      "id": "velocity-secret-file-empty",
+      "situation": "PROXY_FORWARDING",
+      "confidence": "CERTAIN",
+      "pattern": "The forwarding-secret file must not be empty",
+      "advice": "signature.velocity-secret-file-empty.advice",
+      "source": "https://forums.papermc.io/threads/how-to-solve-unable-to-read-load-save-your-velocity-toml.339/ (replayed in the lab: Velocity 3.4.0, modern forwarding, empty forwarding.secret)"
+    },
+    {
+      "id": "velocity-config-unreadable",
+      "situation": "CONFIG_BROKEN",
+      "confidence": "CERTAIN",
+      "pattern": "Unable to read/load/save your velocity\\.toml(?![\\s\\S]{0,300}forwarding-secret file must not be empty)",
+      "advice": "signature.velocity-config-unreadable.advice",
+      "source": "https://forums.papermc.io/threads/how-to-solve-unable-to-read-load-save-your-velocity-toml.339/"
     }
   ]
 }

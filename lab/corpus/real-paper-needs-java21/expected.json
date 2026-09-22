@@ -1,0 +1,9 @@
+{
+  "situation": "JAVA_VERSION",
+  "culprit": "java",
+  "logs": [
+    "console.log"
+  ],
+  "source": "https://github.com/itzg/docker-minecraft-server/issues/2905",
+  "fix": "Run Minecraft 1.20.5 and later with Java 21."
+}

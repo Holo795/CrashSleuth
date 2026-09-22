@@ -1,0 +1,9 @@
+{
+  "situation": "DEP_MISSING",
+  "culprit": "Vault",
+  "logs": [
+    "latest.log"
+  ],
+  "source": "https://github.com/Lenni0451/SpigotPluginManager/issues/26",
+  "fix": "Install the plugin it names (Vault): a hard dependency must be there before it loads."
+}

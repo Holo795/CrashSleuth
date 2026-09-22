@@ -1,0 +1,17 @@
+[22:52:21] [main/INFO]: Loading Minecraft 1.21.1 with Fabric Loader 0.19.5
+[22:52:21] [main/INFO]: Fabric is preparing JARs on first launch, this may take a few seconds...
+[22:52:21] [main/WARN]: Mod resolution failed
+[22:52:21] [main/INFO]: Immediate reason: [HARD_DEP_NO_CANDIDATE iris 1.8.8+mc1.21.1 {depends sodium @ [0.6.x]}, ROOT_FORCELOAD_SINGLE iris 1.8.8+mc1.21.1]
+[22:52:21] [main/INFO]: Reason: [HARD_DEP iris 1.8.8+mc1.21.1 {depends sodium @ [0.6.x]}]
+[22:52:21] [main/INFO]: Fix: add [], remove [], replace [[sodium 0.8.12-alpha.4+mc1.21.1] -> add:sodium 0.6- ([[0.6-,0.7-)])]
+[22:52:21] [main/ERROR]: Incompatible mods found!
+net.fabricmc.loader.impl.FormattedException: Some of your mods are incompatible with the game or each other!
+A potential solution has been determined, this may resolve your problem:
+	 - Replace mod 'Sodium' (sodium) 0.8.12-alpha.4+mc1.21.1 with any 0.6.x version.
+More details:
+	 - Mod 'Iris' (iris) 1.8.8+mc1.21.1 requires any 0.6.x version of mod 'Sodium' (sodium), but only the wrong version is present: 0.8.12-alpha.4+mc1.21.1!
+	at net.fabricmc.loader.impl.FormattedException.ofLocalized(FormattedException.java:51) ~[fabric-loader-0.19.5.jar:?]
+	at net.fabricmc.loader.impl.FabricLoaderImpl.load(FabricLoaderImpl.java:202) ~[fabric-loader-0.19.5.jar:?]
+	at net.fabricmc.loader.impl.launch.knot.Knot.init(Knot.java:142) ~[fabric-loader-0.19.5.jar:?]
+	at net.fabricmc.loader.impl.launch.knot.Knot.launch(Knot.java:66) [fabric-loader-0.19.5.jar:?]
+	at net.fabricmc.loader.impl.launch.knot.KnotClient.main(KnotClient.java:23) [fabric-loader-0.19.5.jar:?]

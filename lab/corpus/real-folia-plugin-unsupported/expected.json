@@ -1,0 +1,9 @@
+{
+  "situation": "PLUGIN_API",
+  "culprit": "InvSee",
+  "logs": [
+    "latest.log"
+  ],
+  "source": "https://github.com/Jannyboy11/InvSee-plus-plus/issues/87",
+  "fix": "Only plugins whose plugin.yml says folia-supported: true load on Folia; ask the author or run Paper."
+}

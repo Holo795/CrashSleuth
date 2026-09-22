@@ -1127,5 +1127,229 @@
       "situation": "TICK_BLOCK_ENTITY",
       "culprit": "crashsleuth"
     }
+  },
+  {
+    "platform": "fabric",
+    "minecraft": "1.20.4",
+    "java": 17,
+    "name": "real-fabric-api-missing-journeymap",
+    "description": "Fabric 1.20.4 server, JourneyMap installed without Fabric API (reported on a Docker server)",
+    "mods": [
+      "journeymap"
+    ],
+    "skip": [
+      "fabric-api"
+    ],
+    "source": "https://github.com/itzg/docker-minecraft-server/discussions/2661",
+    "fix": "Install the Fabric API jar: nothing pulls it in for you.",
+    "expect": {
+      "situation": "DEP_MISSING",
+      "culprit": "fabric"
+    }
+  },
+  {
+    "platform": "fabric",
+    "minecraft": "1.21.4",
+    "java": 21,
+    "name": "real-fabric-api-wrong-minecraft",
+    "description": "Fabric 1.21.4 server with the Fabric API built for 1.21.5",
+    "extra": [
+      {
+        "slug": "fabric-api",
+        "loader": "fabric",
+        "minecraft": "1.21.5"
+      }
+    ],
+    "source": "https://github.com/orgs/FabricMC/discussions/4403",
+    "fix": "Download the Fabric API built for the Minecraft version you run.",
+    "expect": {
+      "situation": "WRONG_MC",
+      "culprit": "fabric-api"
+    }
+  },
+  {
+    "platform": "fabric",
+    "minecraft": "1.20.1",
+    "java": 17,
+    "name": "real-jei-loader-too-old",
+    "description": "Fabric 1.20.1 on Loader 0.15.11, JEI 15.17 needs 0.16.3",
+    "loader_version": "0.15.11",
+    "mods": [
+      "fabric-api"
+    ],
+    "extra": [
+      {
+        "slug": "jei@15.17.0",
+        "loader": "fabric"
+      }
+    ],
+    "source": "https://github.com/mezz/JustEnoughItems/issues/3748",
+    "fix": "Upgrade Fabric Loader to 0.16.3 or later.",
+    "expect": {
+      "situation": "DEP_VERSION",
+      "culprit": "fabric"
+    }
+  },
+  {
+    "platform": "fabric",
+    "minecraft": "1.21.4",
+    "java": 21,
+    "name": "real-modernfix-loader-too-old",
+    "description": "Fabric 1.21.4 on Loader 0.16.9, ModernFix needs 0.16.10",
+    "loader_version": "0.16.9",
+    "extra": [
+      {
+        "slug": "modernfix@5.20.2",
+        "loader": "fabric"
+      }
+    ],
+    "source": "https://github.com/orgs/FabricMC/discussions/4410",
+    "fix": "Run the Fabric installer again and pick loader 0.16.10 or later.",
+    "expect": {
+      "situation": "DEP_VERSION",
+      "culprit": "fabric"
+    }
+  },
+  {
+    "platform": "neoforge",
+    "minecraft": "1.21.1",
+    "java": 21,
+    "name": "real-sodium-extra-on-server",
+    "description": "NeoForge 1.21.1 server with Sodium Extra, a client mod, in its mods folder",
+    "extra": [
+      {
+        "slug": "sodium-extra",
+        "loader": "neoforge"
+      }
+    ],
+    "source": "https://github.com/AllTheMods/ATM-10/issues/402",
+    "fix": "Take the client-only rendering mods out of the server's mods folder.",
+    "expect": {
+      "situation": "CLIENT_ONLY_ON_SERVER",
+      "culprit": "sodium"
+    },
+    "log": "console.log"
+  },
+  {
+    "platform": "neoforge",
+    "minecraft": "1.21.1",
+    "java": 21,
+    "name": "real-kotlin-language-provider-missing",
+    "description": "NeoForge 1.21.1 server, a Kotlin mod without Kotlin for Forge",
+    "mods": [
+      "fzzy-config"
+    ],
+    "skip": [
+      "kotlin-for-forge"
+    ],
+    "source": "https://github.com/thedarkcolour/KotlinForForge/issues/154",
+    "fix": "Install the Kotlin for Forge language provider the mod asks for.",
+    "expect": {
+      "situation": "DEP_MISSING",
+      "culprit": "kotlinforforge"
+    }
+  },
+  {
+    "platform": "paper",
+    "minecraft": "1.19.3",
+    "java": 17,
+    "name": "real-plugin-missing-vault",
+    "description": "Paper 1.19.3, AnnouncerPlus 1.3.4 without Vault",
+    "extra": [
+      {
+        "url": "https://github.com/jpenilla/AnnouncerPlus/releases/download/v1.3.4/AnnouncerPlus-1.3.4.jar",
+        "file": "AnnouncerPlus-1.3.4.jar"
+      }
+    ],
+    "source": "https://github.com/Lenni0451/SpigotPluginManager/issues/26",
+    "fix": "Install the plugin it names (Vault): a hard dependency must be there before it loads.",
+    "expect": {
+      "situation": "DEP_MISSING",
+      "culprit": "Vault"
+    }
+  },
+  {
+    "platform": "paper",
+    "minecraft": "1.20.6",
+    "java": 21,
+    "name": "real-plugin-api-too-new",
+    "description": "Paper 1.20.6 with a plugin that declares a newer api-version",
+    "extra": [
+      {
+        "url": "https://github.com/Jannyboy11/InvSee-plus-plus/releases/download/v0.31.19/InvSee%2B%2B.jar",
+        "file": "InvSeePlusPlus-0.31.19.jar"
+      }
+    ],
+    "source": "https://github.com/Spottedleaf/OldGenerator/issues/9",
+    "fix": "Run a server at least as recent as the plugin's api-version, or take an older build of the plugin.",
+    "expect": {
+      "situation": "PLUGIN_API",
+      "culprit": "InvSee"
+    }
+  },
+  {
+    "platform": "paper",
+    "minecraft": "1.20.6",
+    "java": 17,
+    "name": "real-paper-needs-java21",
+    "description": "Paper 1.20.6 started with Java 17",
+    "source": "https://github.com/itzg/docker-minecraft-server/issues/2905",
+    "fix": "Run Minecraft 1.20.5 and later with Java 21.",
+    "log": "console.log",
+    "expect": {
+      "situation": "JAVA_VERSION",
+      "culprit": "java"
+    }
+  },
+  {
+    "platform": "folia",
+    "minecraft": "1.20.2",
+    "java": 17,
+    "name": "real-folia-plugin-unsupported",
+    "description": "Folia 1.20.2 with InvSee++ 0.24.6, which does not say it supports Folia",
+    "extra": [
+      {
+        "url": "https://github.com/Jannyboy11/InvSee-plus-plus/releases/download/v0.24.6/InvSee%2B%2B.jar",
+        "file": "InvSeePlusPlus-0.24.6.jar"
+      }
+    ],
+    "source": "https://github.com/Jannyboy11/InvSee-plus-plus/issues/87",
+    "fix": "Only plugins whose plugin.yml says folia-supported: true load on Folia; ask the author or run Paper.",
+    "expect": {
+      "situation": "PLUGIN_API",
+      "culprit": "InvSee"
+    }
+  },
+  {
+    "platform": "paper",
+    "minecraft": "1.21.5",
+    "java": 21,
+    "name": "real-protocollib-too-old",
+    "description": "Paper 1.21.5 with ProtocolLib 5.2.0, released before that Minecraft version",
+    "extra": [
+      {
+        "url": "https://github.com/dmulloy2/ProtocolLib/releases/download/5.2.0/ProtocolLib.jar",
+        "file": "ProtocolLib.jar"
+      }
+    ],
+    "source": "https://github.com/dmulloy2/ProtocolLib/issues/3073",
+    "fix": "Update ProtocolLib: it reads the server's packet registry, which changes with every Minecraft version.",
+    "expect": {
+      "situation": "WRONG_MC",
+      "culprit": "ProtocolLib"
+    }
+  },
+  {
+    "platform": "paper",
+    "minecraft": "1.21.1",
+    "java": 21,
+    "name": "real-viaversion-warning-only",
+    "description": "Paper 1.21.1 with ViaVersion, which warns loudly but breaks nothing",
+    "mods": [
+      "viaversion"
+    ],
+    "after_ready": 10,
+    "source": "https://github.com/ViaVersion/ViaVersion/issues/3917",
+    "fix": "Nothing to fix: ViaVersion only lets newer clients in; older ones need ViaBackwards."
   }
 ]

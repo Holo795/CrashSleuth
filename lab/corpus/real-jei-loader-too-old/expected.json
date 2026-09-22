@@ -1,0 +1,9 @@
+{
+  "situation": "DEP_VERSION",
+  "culprit": "fabric",
+  "logs": [
+    "latest.log"
+  ],
+  "source": "https://github.com/mezz/JustEnoughItems/issues/3748",
+  "fix": "Upgrade Fabric Loader to 0.16.3 or later."
+}

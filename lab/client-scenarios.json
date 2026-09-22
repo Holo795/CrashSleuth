@@ -1,302 +1,344 @@
 [
- {
-  "name": "fabric-baseline",
-  "description": "Fabric 1.21.1 client with 10 popular mods (Sodium, Lithium, ModMenu...), must start cleanly",
-  "minecraft": "1.21.1",
-  "mods": [
-   "fabric-api",
-   "sodium",
-   "lithium",
-   "modmenu",
-   "entityculling",
-   "ferrite-core",
-   "immediatelyfast",
-   "continuity",
-   "appleskin",
-   "zoomify"
-  ]
- },
- {
-  "name": "fabric-latest-sodium-iris",
-  "description": "Fabric 1.21.1 client with the latest Sodium and the latest Iris for 1.21.1, which do not work together",
-  "minecraft": "1.21.1",
-  "mods": [
-   "fabric-api",
-   "sodium",
-   "iris"
-  ],
-  "expect": {
-   "situation": "DEP_VERSION",
-   "culprit": "iris"
-  }
- },
- {
-  "name": "fabric-missing-dependency",
-  "description": "Fabric 1.21.1 client, Zoomify without YetAnotherConfigLib",
-  "minecraft": "1.21.1",
-  "mods": [
-   "fabric-api",
-   "sodium",
-   "lithium",
-   "modmenu",
-   "entityculling",
-   "ferrite-core",
-   "immediatelyfast",
-   "continuity",
-   "appleskin",
-   "zoomify"
-  ],
-  "skip": [
-   "yacl"
-  ],
-  "expect": {
-   "situation": "DEP_MISSING",
-   "culprit": "yet_another_config_lib"
-  }
- },
- {
-  "name": "fabric-mod-crash",
-  "description": "Fabric 1.21.1 client, a mod throws while initialising",
-  "minecraft": "1.21.1",
-  "mods": [
-   "fabric-api",
-   "sodium",
-   "lithium",
-   "modmenu",
-   "entityculling",
-   "ferrite-core",
-   "immediatelyfast",
-   "continuity",
-   "appleskin",
-   "zoomify"
-  ],
-  "fixture": "throw",
-  "expect": {
-   "situation": "UNCAUGHT_EXCEPTION",
-   "culprit": "crashsleuth_fixture"
-  }
- },
- {
-  "name": "bisect-fabric-silent-crash",
-  "description": "Fabric 1.21.1 client with 11 mods, one stops the game without a word",
-  "minecraft": "1.21.1",
-  "mods": [
-   "fabric-api",
-   "sodium",
-   "lithium",
-   "modmenu",
-   "entityculling",
-   "ferrite-core",
-   "immediatelyfast",
-   "continuity",
-   "appleskin",
-   "zoomify"
-  ],
-  "fixture": "halt",
-  "crashes": true,
-  "bisect": {
-   "culprits": [
-    "crashsleuth-fixture"
-   ]
-  }
- },
- {
-  "name": "bisect-fabric-conflict",
-  "description": "Fabric 1.21.1 client, two mods only crash together (fixture + Sodium)",
-  "minecraft": "1.21.1",
-  "mods": [
-   "fabric-api",
-   "sodium",
-   "lithium",
-   "modmenu",
-   "entityculling",
-   "ferrite-core",
-   "immediatelyfast",
-   "continuity",
-   "appleskin",
-   "zoomify"
-  ],
-  "fixture": "halt-with:sodium",
-  "crashes": true,
-  "bisect": {
-   "culprits": [
-    "crashsleuth-fixture",
-    "sodium"
-   ]
-  }
- },
- {
-  "name": "neoforge-client-baseline",
-  "description": "NeoForge 1.21.1 client with JEI, Jade and AppleSkin, must start cleanly",
-  "minecraft": "1.21.1",
-  "loader": "neoforge",
-  "mods": [
-   "jei",
-   "jade",
-   "appleskin"
-  ]
- },
- {
-  "name": "neoforge-client-missing-dependency",
-  "description": "NeoForge 1.21.1 client, Sophisticated Backpacks without Sophisticated Core",
-  "minecraft": "1.21.1",
-  "loader": "neoforge",
-  "mods": [
-   "sophisticated-backpacks"
-  ],
-  "skip": [
-   "sophisticated-core"
-  ],
-  "expect": {
-   "situation": "DEP_MISSING",
-   "culprit": "sophisticatedcore"
-  }
- },
- {
-  "name": "neoforge-client-fabric-mod",
-  "description": "NeoForge 1.21.1 client with a Fabric mod (Mod Menu) dropped in its mods folder",
-  "minecraft": "1.21.1",
-  "loader": "neoforge",
-  "mods": [
-   "jei"
-  ],
-  "extra": [
-   {
-    "slug": "modmenu",
-    "loader": "fabric"
-   }
-  ],
-  "expect": {
-   "situation": "WRONG_LOADER",
-   "culprit": "modmenu"
-  }
- },
- {
-  "name": "resourcepack-not-a-zip",
-  "description": "Vanilla 1.21.1 client with a selected resource pack that is not a zip",
-  "minecraft": "1.21.1",
-  "loader": "vanilla",
-  "files": [
-   {
-    "path": "resourcepacks/broken.zip",
-    "garbage": 4096
-   }
-  ],
-  "options": "resourcePacks:[\"vanilla\",\"file/broken.zip\"]\n",
-  "expect": {
-   "situation": "RENDER",
-   "culprit": "broken.zip"
-  }
- },
- {
-  "name": "resourcepack-broken-model",
-  "description": "Vanilla 1.21.1 client with a resource pack whose block model is not valid JSON",
-  "minecraft": "1.21.1",
-  "loader": "vanilla",
-  "files": [
-   {
-    "path": "resourcepacks/stonepack.zip",
-    "zip": {
-     "pack.mcmeta": "{\"pack\": {\"pack_format\": 34, \"description\": \"lab\"}}",
-     "assets/minecraft/models/block/stone.json": "{\"parent\": \"block/cube_all\", \"textures\": {\"all\": "
-    }
-   }
-  ],
-  "options": "resourcePacks:[\"vanilla\",\"file/stonepack.zip\"]\n",
-  "expect": {
-   "situation": "RENDER",
-   "culprit": "stonepack.zip"
-  }
- },
- {
-  "name": "shaderpack-broken",
-  "description": "Fabric 1.21.1 client with Sodium 0.6 and Iris, a shader pack that does not compile, in a world",
-  "minecraft": "1.21.1",
-  "mods": [
-   "fabric-api",
-   "sodium@mc1.21.1-0.6",
-   "iris"
-  ],
-  "files": [
-   {
-    "path": "shaderpacks/broken.zip",
-    "zip": {
-     "shaders/composite.fsh": "#version 150\nout vec4 color;\nvoid main() { color = this is not glsl; }\n",
-     "shaders/composite.vsh": "#version 150\nin vec3 vaPosition;\nvoid main() { gl_Position = vec4(vaPosition, 1.0); }\n"
-    }
-   },
-   {
-    "path": "config/iris.properties",
-    "text": "enableShaders=true\nshaderPack=broken.zip\n"
-   }
-  ],
-  "world": true,
-  "expect": {
-   "situation": "RENDER",
-   "culprit": "broken.zip"
-  }
- },
- {
-  "name": "bisect-neoforge-client-silent-crash",
-  "description": "NeoForge 1.21.1 client with 6 mods, one stops the game without a word",
-  "minecraft": "1.21.1",
-  "loader": "neoforge",
-  "mods": [
-   "jei",
-   "jade",
-   "appleskin",
-   "mouse-tweaks",
-   "ferrite-core",
-   "sophisticated-backpacks"
-  ],
-  "fixture": "halt",
-  "crashes": true,
-  "bisect": {
-   "culprits": [
-    "crashsleuth-fixture"
-   ]
-  }
- },
- {
-  "name": "neoforge-client-sodium-embeddium",
-  "description": "NeoForge 1.21.1 client with Sodium and Embeddium, two forks of the same renderer",
-  "minecraft": "1.21.1",
-  "loader": "neoforge",
-  "mods": [
-   "sodium",
-   "embeddium"
-  ],
-  "expect": {
-   "situation": "MOD_CONFLICT"
-  }
- },
- {
-  "name": "ingame-entity-crash",
-  "description": "Fabric 1.21.1 client in a world, a mod throws while an entity is ticked",
-  "minecraft": "1.21.1",
-  "mods": [
-   "fabric-api"
-  ],
-  "fixture": "entity-tick",
-  "world": true,
-  "crashes": true,
-  "expect": {
-   "situation": "TICK_ENTITY",
-   "culprit": "crashsleuth"
-  }
- },
- {
-  "name": "ingame-block-crash",
-  "description": "Fabric 1.21.1 client in a world (drawn on a virtual screen), a mod throws while the blocks of a chunk are drawn",
-  "minecraft": "1.21.1",
-  "mods": [],
-  "fixture": "block-render",
-  "world": true,
-  "crashes": true,
-  "expect": {
-   "situation": "RENDER",
-   "culprit": "crashsleuth"
+  {
+    "name": "fabric-baseline",
+    "description": "Fabric 1.21.1 client with 10 popular mods (Sodium, Lithium, ModMenu...), must start cleanly",
+    "minecraft": "1.21.1",
+    "mods": [
+      "fabric-api",
+      "sodium",
+      "lithium",
+      "modmenu",
+      "entityculling",
+      "ferrite-core",
+      "immediatelyfast",
+      "continuity",
+      "appleskin",
+      "zoomify"
+    ]
   },
-  "render": true
- }
+  {
+    "name": "fabric-latest-sodium-iris",
+    "description": "Fabric 1.21.1 client with the latest Sodium and the latest Iris for 1.21.1, which do not work together",
+    "minecraft": "1.21.1",
+    "mods": [
+      "fabric-api",
+      "sodium",
+      "iris"
+    ],
+    "expect": {
+      "situation": "DEP_VERSION",
+      "culprit": "iris"
+    }
+  },
+  {
+    "name": "fabric-missing-dependency",
+    "description": "Fabric 1.21.1 client, Zoomify without YetAnotherConfigLib",
+    "minecraft": "1.21.1",
+    "mods": [
+      "fabric-api",
+      "sodium",
+      "lithium",
+      "modmenu",
+      "entityculling",
+      "ferrite-core",
+      "immediatelyfast",
+      "continuity",
+      "appleskin",
+      "zoomify"
+    ],
+    "skip": [
+      "yacl"
+    ],
+    "expect": {
+      "situation": "DEP_MISSING",
+      "culprit": "yet_another_config_lib"
+    }
+  },
+  {
+    "name": "fabric-mod-crash",
+    "description": "Fabric 1.21.1 client, a mod throws while initialising",
+    "minecraft": "1.21.1",
+    "mods": [
+      "fabric-api",
+      "sodium",
+      "lithium",
+      "modmenu",
+      "entityculling",
+      "ferrite-core",
+      "immediatelyfast",
+      "continuity",
+      "appleskin",
+      "zoomify"
+    ],
+    "fixture": "throw",
+    "expect": {
+      "situation": "UNCAUGHT_EXCEPTION",
+      "culprit": "crashsleuth_fixture"
+    }
+  },
+  {
+    "name": "bisect-fabric-silent-crash",
+    "description": "Fabric 1.21.1 client with 11 mods, one stops the game without a word",
+    "minecraft": "1.21.1",
+    "mods": [
+      "fabric-api",
+      "sodium",
+      "lithium",
+      "modmenu",
+      "entityculling",
+      "ferrite-core",
+      "immediatelyfast",
+      "continuity",
+      "appleskin",
+      "zoomify"
+    ],
+    "fixture": "halt",
+    "crashes": true,
+    "bisect": {
+      "culprits": [
+        "crashsleuth-fixture"
+      ]
+    }
+  },
+  {
+    "name": "bisect-fabric-conflict",
+    "description": "Fabric 1.21.1 client, two mods only crash together (fixture + Sodium)",
+    "minecraft": "1.21.1",
+    "mods": [
+      "fabric-api",
+      "sodium",
+      "lithium",
+      "modmenu",
+      "entityculling",
+      "ferrite-core",
+      "immediatelyfast",
+      "continuity",
+      "appleskin",
+      "zoomify"
+    ],
+    "fixture": "halt-with:sodium",
+    "crashes": true,
+    "bisect": {
+      "culprits": [
+        "crashsleuth-fixture",
+        "sodium"
+      ]
+    }
+  },
+  {
+    "name": "neoforge-client-baseline",
+    "description": "NeoForge 1.21.1 client with JEI, Jade and AppleSkin, must start cleanly",
+    "minecraft": "1.21.1",
+    "loader": "neoforge",
+    "mods": [
+      "jei",
+      "jade",
+      "appleskin"
+    ]
+  },
+  {
+    "name": "neoforge-client-missing-dependency",
+    "description": "NeoForge 1.21.1 client, Sophisticated Backpacks without Sophisticated Core",
+    "minecraft": "1.21.1",
+    "loader": "neoforge",
+    "mods": [
+      "sophisticated-backpacks"
+    ],
+    "skip": [
+      "sophisticated-core"
+    ],
+    "expect": {
+      "situation": "DEP_MISSING",
+      "culprit": "sophisticatedcore"
+    }
+  },
+  {
+    "name": "neoforge-client-fabric-mod",
+    "description": "NeoForge 1.21.1 client with a Fabric mod (Mod Menu) dropped in its mods folder",
+    "minecraft": "1.21.1",
+    "loader": "neoforge",
+    "mods": [
+      "jei"
+    ],
+    "extra": [
+      {
+        "slug": "modmenu",
+        "loader": "fabric"
+      }
+    ],
+    "expect": {
+      "situation": "WRONG_LOADER",
+      "culprit": "modmenu"
+    }
+  },
+  {
+    "name": "resourcepack-not-a-zip",
+    "description": "Vanilla 1.21.1 client with a selected resource pack that is not a zip",
+    "minecraft": "1.21.1",
+    "loader": "vanilla",
+    "files": [
+      {
+        "path": "resourcepacks/broken.zip",
+        "garbage": 4096
+      }
+    ],
+    "options": "resourcePacks:[\"vanilla\",\"file/broken.zip\"]\n",
+    "expect": {
+      "situation": "RENDER",
+      "culprit": "broken.zip"
+    }
+  },
+  {
+    "name": "resourcepack-broken-model",
+    "description": "Vanilla 1.21.1 client with a resource pack whose block model is not valid JSON",
+    "minecraft": "1.21.1",
+    "loader": "vanilla",
+    "files": [
+      {
+        "path": "resourcepacks/stonepack.zip",
+        "zip": {
+          "pack.mcmeta": "{\"pack\": {\"pack_format\": 34, \"description\": \"lab\"}}",
+          "assets/minecraft/models/block/stone.json": "{\"parent\": \"block/cube_all\", \"textures\": {\"all\": "
+        }
+      }
+    ],
+    "options": "resourcePacks:[\"vanilla\",\"file/stonepack.zip\"]\n",
+    "expect": {
+      "situation": "RENDER",
+      "culprit": "stonepack.zip"
+    }
+  },
+  {
+    "name": "shaderpack-broken",
+    "description": "Fabric 1.21.1 client with Sodium 0.6 and Iris, a shader pack that does not compile, in a world",
+    "minecraft": "1.21.1",
+    "mods": [
+      "fabric-api",
+      "sodium@mc1.21.1-0.6",
+      "iris"
+    ],
+    "files": [
+      {
+        "path": "shaderpacks/broken.zip",
+        "zip": {
+          "shaders/composite.fsh": "#version 150\nout vec4 color;\nvoid main() { color = this is not glsl; }\n",
+          "shaders/composite.vsh": "#version 150\nin vec3 vaPosition;\nvoid main() { gl_Position = vec4(vaPosition, 1.0); }\n"
+        }
+      },
+      {
+        "path": "config/iris.properties",
+        "text": "enableShaders=true\nshaderPack=broken.zip\n"
+      }
+    ],
+    "world": true,
+    "expect": {
+      "situation": "RENDER",
+      "culprit": "broken.zip"
+    }
+  },
+  {
+    "name": "bisect-neoforge-client-silent-crash",
+    "description": "NeoForge 1.21.1 client with 6 mods, one stops the game without a word",
+    "minecraft": "1.21.1",
+    "loader": "neoforge",
+    "mods": [
+      "jei",
+      "jade",
+      "appleskin",
+      "mouse-tweaks",
+      "ferrite-core",
+      "sophisticated-backpacks"
+    ],
+    "fixture": "halt",
+    "crashes": true,
+    "bisect": {
+      "culprits": [
+        "crashsleuth-fixture"
+      ]
+    }
+  },
+  {
+    "name": "neoforge-client-sodium-embeddium",
+    "description": "NeoForge 1.21.1 client with Sodium and Embeddium, two forks of the same renderer",
+    "minecraft": "1.21.1",
+    "loader": "neoforge",
+    "mods": [
+      "sodium",
+      "embeddium"
+    ],
+    "expect": {
+      "situation": "MOD_CONFLICT"
+    }
+  },
+  {
+    "name": "ingame-entity-crash",
+    "description": "Fabric 1.21.1 client in a world, a mod throws while an entity is ticked",
+    "minecraft": "1.21.1",
+    "mods": [
+      "fabric-api"
+    ],
+    "fixture": "entity-tick",
+    "world": true,
+    "crashes": true,
+    "expect": {
+      "situation": "TICK_ENTITY",
+      "culprit": "crashsleuth"
+    }
+  },
+  {
+    "name": "ingame-block-crash",
+    "description": "Fabric 1.21.1 client in a world (drawn on a virtual screen), a mod throws while the blocks of a chunk are drawn",
+    "minecraft": "1.21.1",
+    "mods": [],
+    "fixture": "block-render",
+    "world": true,
+    "crashes": true,
+    "expect": {
+      "situation": "RENDER",
+      "culprit": "crashsleuth"
+    },
+    "render": true
+  },
+  {
+    "name": "real-client-fabric-api-wrong-point-release",
+    "minecraft": "1.21.1",
+    "description": "Fabric 1.21.1 client with the Fabric API built for 1.21",
+    "extra": [
+      {
+        "slug": "fabric-api@0.102.0",
+        "loader": "fabric",
+        "minecraft": "1.21"
+      }
+    ],
+    "source": "https://github.com/orgs/FabricMC/discussions/4034",
+    "fix": "Take the Fabric API built for the exact point release you play.",
+    "expect": {
+      "situation": "WRONG_MC",
+      "culprit": "fabric-api"
+    }
+  },
+  {
+    "name": "real-client-iris-needs-older-sodium",
+    "minecraft": "1.21.1",
+    "description": "Fabric 1.21.1 client, Iris 1.8.8 with Sodium 0.8.12-alpha.4",
+    "mods": [
+      "fabric-api"
+    ],
+    "extra": [
+      {
+        "slug": "iris@1.8.8",
+        "loader": "fabric"
+      },
+      {
+        "slug": "sodium@mc1.21.1-0.8.12-alpha.4",
+        "loader": "fabric"
+      }
+    ],
+    "source": "https://github.com/IrisShaders/Iris/issues/3136",
+    "fix": "Iris 1.8.8 only works with Sodium 0.6.x: install that branch, or a newer Iris.",
+    "expect": {
+      "situation": "DEP_VERSION",
+      "culprit": "sodium"
+    }
+  }
 ]

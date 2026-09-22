@@ -1,0 +1,58 @@
+{
+ "platform": "NEOFORGE",
+ "minecraftVersion": "1.21.1",
+ "loaderVersion": "21.1.251",
+ "side": "SERVER",
+ "jars": [
+  {
+   "file": "sodium-extra-neoforge-0.9.4+mc1.21.1.jar",
+   "folder": "mods",
+   "size": 472060,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "sodium_extra",
+     "name": "Sodium Extra",
+     "version": "0.9.4+mc1.21.1",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1]",
+       "required": true,
+       "side": "CLIENT"
+      },
+      {
+       "id": "sodium",
+       "versionRange": "[0.8.13+mc1.21.1,)",
+       "required": true,
+       "side": "CLIENT"
+      },
+      {
+       "id": "greenlight",
+       "versionRange": "[0.1.0,)",
+       "required": false,
+       "side": "CLIENT"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
+    }
+   ],
+   "nested": [],
+   "error": null,
+   "javaVersion": 21
+  }
+ ],
+ "skipped": [],
+ "files": {
+  "worlds": [],
+  "eulaAccepted": true,
+  "configErrors": [],
+  "rootJars": []
+ }
+}

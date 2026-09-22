@@ -1,0 +1,9 @@
+{
+  "situation": "DEP_VERSION",
+  "culprit": "sodium",
+  "logs": [
+    "latest.log"
+  ],
+  "source": "https://github.com/IrisShaders/Iris/issues/3136",
+  "fix": "Iris 1.8.8 only works with Sodium 0.6.x: install that branch, or a newer Iris."
+}

@@ -787,7 +787,7 @@ def write_sources() -> int:
         if not expected.is_file():
             continue
         data = json.loads(expected.read_text())
-        if not data.get("source"):
+        if not str(data.get("source", "")).startswith("http"):
             continue
         rows.append((case.name, data.get("situation") or "clean start", data.get("culprit") or "", data["source"], data.get("fix", "")))
     doc = LAB_DIR.parent / "docs" / "REAL_CASES.md"

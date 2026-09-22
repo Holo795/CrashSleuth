@@ -22,6 +22,8 @@ CrashSleuth diagnoses crashes, startup failures, hangs, lag and connection probl
 - **Plain-language explanation** by a model running on your own computer (Ollama, or any local OpenAI-compatible server), optional; only an anonymised summary is sent to it, and it is only allowed to name settings CrashSleuth knows. Anything else it names is flagged.
 - **A tool for assistants** (MCP): `crashsleuth mcp` lets an assistant analyse a folder, list what is installed, compare a player with a server, read a configuration file (secrets hidden) and ask for the settings that exist with their accepted values, instead of guessing them.
 
+**Checked against problems real people had**: [docs/REAL_CASES.md](docs/REAL_CASES.md) lists reports from GitHub issues and forums, rebuilt in the lab with the same versions and the same jars; CrashSleuth has to reach the answer those people ended up with.
+
 Everything is **local by default**: nothing leaves the computer unless you ask (update check, share link, mappings download).
 
 ## Systems

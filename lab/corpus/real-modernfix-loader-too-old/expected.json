@@ -1,0 +1,9 @@
+{
+  "situation": "DEP_VERSION",
+  "culprit": "fabric",
+  "logs": [
+    "latest.log"
+  ],
+  "source": "https://github.com/orgs/FabricMC/discussions/4410",
+  "fix": "Run the Fabric installer again and pick loader 0.16.10 or later."
+}

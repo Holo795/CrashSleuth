@@ -312,6 +312,9 @@ object MixinDetector : Detector {
  */
 object ClientOnlyDetector : Detector {
     private val CLIENT_CLASS = Regex("""(?:NoClassDefFoundError|ClassNotFoundException):\s*((?:org[/.]lwjgl|net[/.]minecraft[/.]client|com[/.]mojang[/.]blaze3d)[\w/.$]*)""")
+    // A mod asking for another mod's client half, on a server: "NoClassDefFoundError:
+    // net/caffeinemc/mods/sodium/client/services/PlatformRuntimeInformation" (Sodium Extra without Sodium).
+    private val CLIENT_PACKAGE = Regex("""(?:NoClassDefFoundError|ClassNotFoundException):\s*([\w/.$]+[/.]client[/.][\w/.$]+)""")
     private val INVALID_DIST = Regex("""Attempted to load class (\S+) for invalid dist DEDICATED_SERVER""")
     /** NeoForge/Forge crash report block: the mod is named, with its version and file. */
     private val FML_FAILURE = Regex(
@@ -338,11 +341,10 @@ object ClientOnlyDetector : Detector {
 
         // Loose "invalid dist" lines are often harmless (mixin probing optional client classes):
         // only an exception that actually stopped something counts.
-        val trace = document.stackTraces.firstOrNull { trace ->
-            trace.chain().any { CLIENT_CLASS.containsMatchIn(it.headline) || INVALID_DIST.containsMatchIn(it.headline) }
-        } ?: return emptyList()
-        val headline = trace.chain().map { it.headline }.first { CLIENT_CLASS.containsMatchIn(it) || INVALID_DIST.containsMatchIn(it) }
-        val match = CLIENT_CLASS.find(headline) ?: INVALID_DIST.find(headline)!!
+        fun names(line: String) = CLIENT_CLASS.containsMatchIn(line) || INVALID_DIST.containsMatchIn(line) || CLIENT_PACKAGE.containsMatchIn(line)
+        val trace = document.stackTraces.firstOrNull { trace -> trace.chain().any { names(it.headline) } } ?: return emptyList()
+        val headline = trace.chain().map { it.headline }.first { names(it) }
+        val match = CLIENT_CLASS.find(headline) ?: INVALID_DIST.find(headline) ?: CLIENT_PACKAGE.find(headline)!!
         val culprits = Attribution.culprits(trace, environment, 2)
         val version = trace.chain().flatMap { it.frames }.firstOrNull { it.module?.removeSuffix("_service") == culprits.firstOrNull()?.id }?.moduleVersion
         return listOf(

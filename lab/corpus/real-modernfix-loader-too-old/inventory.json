@@ -1,0 +1,66 @@
+{
+ "platform": "FABRIC",
+ "minecraftVersion": "1.21.4",
+ "loaderVersion": "0.16.9",
+ "side": "SERVER",
+ "jars": [
+  {
+   "file": "modernfix-fabric-5.20.2+mc1.21.4.jar",
+   "folder": "mods",
+   "size": 434120,
+   "mods": [
+    {
+     "format": "FABRIC",
+     "id": "modernfix",
+     "name": "ModernFix",
+     "version": "5.20.2+mc1.21.4",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "minecraft",
+       "versionRange": ">=1.16.2",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "fabricloader",
+       "versionRange": ">=0.16.10",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [
+      {
+       "id": "dashloader",
+       "versionRange": "<5.0.0-beta.1",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [
+      "org.embeddedt.modernfix.ModernFixFabric",
+      "org.embeddedt.modernfix.ModernFixClientFabric",
+      "org.embeddedt.modernfix.fabric.modmenu.ModernFixModMenuApiImpl",
+      "org.embeddedt.modernfix.ModernFixPreLaunchFabric"
+     ],
+     "addsContent": false,
+     "optionalOnClient": false
+    }
+   ],
+   "nested": [],
+   "error": null,
+   "javaVersion": 21
+  }
+ ],
+ "skipped": [],
+ "files": {
+  "worlds": [],
+  "eulaAccepted": true,
+  "configErrors": [],
+  "rootJars": [
+   "server.jar"
+  ]
+ }
+}

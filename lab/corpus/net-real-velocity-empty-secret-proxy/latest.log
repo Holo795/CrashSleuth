@@ -1,0 +1,9 @@
+[20:57:06] [main/INFO] [com.velocitypowered.proxy.VelocityServer]: Booting up Velocity 3.4.0...
+[20:57:06] [main/INFO] [com.velocitypowered.proxy.VelocityServer]: Loading localizations...
+[20:57:06] [main/INFO] [com.velocitypowered.proxy.network.ConnectionManager]: Connections will use epoll channels, libdeflate (Linux aarch64) compression, OpenSSL 3.x.x (Linux aarch64) ciphers
+[20:57:06] [main/ERROR] [com.velocitypowered.proxy.VelocityServer]: Unable to read/load/save your velocity.toml. The server will shut down.
+java.lang.RuntimeException: The forwarding-secret file must not be empty.
+	at com.velocitypowered.proxy.config.VelocityConfiguration.read(VelocityConfiguration.java:570) ~[velocity.jar:3.4.0]
+	at com.velocitypowered.proxy.VelocityServer.doStartupConfigLoad(VelocityServer.java:405) ~[velocity.jar:3.4.0]
+	at com.velocitypowered.proxy.VelocityServer.start(VelocityServer.java:293) ~[velocity.jar:3.4.0]
+	at com.velocitypowered.proxy.Velocity.main(Velocity.java:71) ~[velocity.jar:3.4.0]

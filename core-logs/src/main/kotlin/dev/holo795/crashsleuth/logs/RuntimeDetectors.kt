@@ -201,3 +201,45 @@ object MissingLibraryDetector : Detector {
         )
     }
 }
+
+/**
+ * Folia only loads plugins that say so: `Could not load plugin 'X v1.2' as it is not marked as
+ * supporting Folia!`. Seen on a real Folia server (InvSee++ 0.24.6, issue 87 of that plugin).
+ */
+object FoliaSupportDetector : Detector {
+    private val REFUSED = Regex("""Could not load plugin '([\w .'-]+?) v(\S+?)' as it is not marked as supporting Folia""")
+
+    override fun detect(document: LogDocument, environment: Environment): List<Finding> =
+        document.findAll(REFUSED).map { match ->
+            Finding(
+                situation = Situation.PLUGIN_API,
+                confidence = Confidence.CERTAIN,
+                culprits = listOf(Culprit(CulpritKind.PLUGIN, match.groupValues[1], match.groupValues[1], match.groupValues[2])),
+                evidence = listOf(match.value),
+                details = mapOf("adviceKey" to "advice.folia.unsupported"),
+            )
+        }.distinctBy { it.culprits.first().id }.toList()
+}
+
+/**
+ * A plugin that looks inside the server itself (reflection) and no longer finds what it expects: it was
+ * written for another Minecraft version. Seen for real with ProtocolLib 5.2.0 on Minecraft 1.21.5,
+ * "Unable to find a field that matches ..." from its own fuzzy reflection.
+ */
+object PluginInternalsDetector : Detector {
+    private val REFLECTION = Regex("""(?:IllegalArgumentException|IllegalStateException|NoSuchFieldException|NoSuchMethodException|RuntimeException):\s*(Unable to find (?:a )?(?:field|method|class|constructor)[^\n]*)""")
+
+    override fun detect(document: LogDocument, environment: Environment): List<Finding> =
+        document.stackTraces.mapNotNull { trace ->
+            val match = trace.chain().firstNotNullOfOrNull { REFLECTION.find(it.headline) } ?: return@mapNotNull null
+            // Only when the search happens inside someone's plugin or mod, never inside the server itself.
+            val culprits = Attribution.culprits(trace, environment, 1).ifEmpty { return@mapNotNull null }
+            Finding(
+                situation = Situation.WRONG_MC,
+                confidence = Confidence.HIGH,
+                culprits = culprits.map { it.copy(kind = Attribution.kindFor(environment)) },
+                evidence = listOf(match.groupValues[1].take(200)),
+                details = mapOfNotNull("adviceKey" to "advice.plugin.old-internals", "actual" to environment.minecraftVersion),
+            )
+        }.distinctBy { it.culprits.first().id }
+}

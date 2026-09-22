@@ -1,0 +1,9 @@
+{
+  "situation": "DEP_MISSING",
+  "culprit": "fabric",
+  "logs": [
+    "latest.log"
+  ],
+  "source": "https://github.com/itzg/docker-minecraft-server/discussions/2661",
+  "fix": "Install the Fabric API jar: nothing pulls it in for you."
+}

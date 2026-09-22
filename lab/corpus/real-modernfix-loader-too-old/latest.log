@@ -1,0 +1,19 @@
+[20:42:17] [main/INFO]: Loading Minecraft 1.21.4 with Fabric Loader 0.16.9
+[20:42:17] [main/INFO]: Fabric is preparing JARs on first launch, this may take a few seconds...
+[20:42:17] [main/WARN]: Mod resolution failed
+[20:42:17] [main/INFO]: Immediate reason: [HARD_DEP_NO_CANDIDATE modernfix 5.20.2+mc1.21.4 {depends fabricloader @ [>=0.16.10]}, ROOT_FORCELOAD_SINGLE modernfix 5.20.2+mc1.21.4]
+[20:42:17] [main/INFO]: Reason: [HARD_DEP modernfix 5.20.2+mc1.21.4 {depends fabricloader @ [>=0.16.10]}]
+[20:42:17] [main/INFO]: Fix: add [], remove [], replace [[fabricloader 0.16.9] -> add:fabricloader 0.16.10 ([[0.16.10,∞)])]
+[20:42:17] [main/ERROR]: Incompatible mods found!
+net.fabricmc.loader.impl.FormattedException: Some of your mods are incompatible with the game or each other!
+A potential solution has been determined, this may resolve your problem:
+	 - Replace mod 'Fabric Loader' (fabricloader) 0.16.9 with version 0.16.10 or later.
+More details:
+	 - Mod 'ModernFix' (modernfix) 5.20.2+mc1.21.4 requires version 0.16.10 or later of mod 'Fabric Loader' (fabricloader), but only the wrong version is present: 0.16.9!
+	at net.fabricmc.loader.impl.FormattedException.ofLocalized(FormattedException.java:51) ~[fabric-loader-0.16.9.jar:?]
+	at net.fabricmc.loader.impl.FabricLoaderImpl.load(FabricLoaderImpl.java:196) ~[fabric-loader-0.16.9.jar:?]
+	at net.fabricmc.loader.impl.launch.knot.Knot.init(Knot.java:146) ~[fabric-loader-0.16.9.jar:?]
+	at net.fabricmc.loader.impl.launch.knot.Knot.launch(Knot.java:68) [fabric-loader-0.16.9.jar:?]
+	at net.fabricmc.loader.impl.launch.knot.KnotServer.main(KnotServer.java:23) [fabric-loader-0.16.9.jar:?]
+	at net.fabricmc.loader.impl.launch.server.FabricServerLauncher.main(FabricServerLauncher.java:69) [fabric-loader-0.16.9.jar:?]
+	at net.fabricmc.installer.ServerLauncher.main(ServerLauncher.java:69) [server.jar:1.1.2]

@@ -1,8 +1,20 @@
 # CrashSleuth — Spécification
 
-**Version 16 — 22/09/2026** — v15 + crashs en jeu côté serveur (entités et blocs), plateforme reconnue dans un rapport de crash seul.
+**Version 17 — 22/09/2026** — v16 + des problèmes réellement vécus par des gens, rejoués tels quels et vérifiés contre la solution trouvée par la communauté.
 
-### Changements depuis la v15
+### Changements depuis la v16
+- **15 cas réels rejoués** (`docs/REAL_CASES.md`, engendré depuis le corpus) : chaque cas vient d'un signalement public (issue GitHub, forum PaperMC, discussion FabricMC), est reconstruit avec les mêmes versions et les mêmes jars, et CrashSleuth doit arriver à la même conclusion que la communauté. Le labo sait maintenant installer un jar depuis n'importe quelle adresse (pas seulement Modrinth), et garde dans le corpus **où le problème a été signalé** et **ce qui l'a réglé**.
+- **Cinq manques trouvés par ces cas réels, corrigés** :
+  - un mod client sur un serveur qui réclame la moitié client d'un **autre** mod (Sodium Extra sans Sodium) : c'était une « erreur non gérée », c'est maintenant « mod client installé sur un serveur » ;
+  - Folia qui refuse un plugin non marqué `folia-supported` : rien n'était détecté ;
+  - un plugin qui fouille les entrailles du serveur et n'y trouve plus ce qu'il cherche (ProtocolLib trop ancien) : c'était une « erreur non gérée », c'est maintenant « fait pour une autre version de Minecraft » ;
+  - Velocity qui s'arrête parce que le fichier `forwarding.secret` est vide : rien n'était détecté, deux signatures ajoutées ;
+  - quelques lignes collées d'un forum : `UnsupportedClassVersionError` nomme maintenant le plugin que le serveur chargeait (« Essentials 2.20.1 »), plus son paquet Java.
+- **Un cas non reproductible, écarté** : le crash Sodium 0.8.13 (`@Overwrite` impossible) ne se reproduit pas avec les jars cités ; il n'est pas gardé plutôt que d'être inventé.
+- **Un cas sans problème gardé exprès** : ViaVersion qui avertit bruyamment sans rien casser doit donner **aucun diagnostic** (garde-fou contre les faux positifs).
+- 345 cas réels rejoués ; 22 scénarios « cas réels » verts (serveur, client, proxy).
+
+### Changements de la v16 (rappel)
 - **Crashs pendant une partie, côté serveur** (§5, §6.2) : un mod qui lève une erreur pendant le tick d'une **entité** donne `TICK_ENTITY` (type de l'entité, position, mod nommé) ; pendant le tick d'un **bloc** (un four posé par commande) `TICK_BLOCK_ENTITY` (bloc, position, mod nommé). Vérifié sur de vrais serveurs Fabric en **1.19.4, 1.21.1 et 26.3** : six scénarios, tous réussis.
 - **Le mod de test du labo tourne des deux côtés** : il se charge aussi sur un serveur, ses mixins visent les noms internes **et** les vrais noms des versions récentes (26.x n'a plus de correspondances Fabric), et il est compilé pour Java 17 pour les serveurs anciens. Le labo serveur et le labo client construisent désormais le même mod.
 - **Plateforme reconnue dans un rapport de crash seul** : un rapport de serveur Fabric ne cite ni le loader ni ses classes, il dit seulement « Server brand changed to 'fabric' ». CrashSleuth lisait Vanilla ; il lit maintenant la marque (fabric, quilt, forge, neoforge, paper, purpur, folia, spigot).

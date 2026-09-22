@@ -1,0 +1,9 @@
+{
+  "situation": "PLUGIN_API",
+  "culprit": "InvSee",
+  "logs": [
+    "latest.log"
+  ],
+  "source": "https://github.com/Spottedleaf/OldGenerator/issues/9",
+  "fix": "Run a server at least as recent as the plugin's api-version, or take an older build of the plugin."
+}

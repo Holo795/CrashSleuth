@@ -1,0 +1,9 @@
+{
+  "situation": "DEP_MISSING",
+  "culprit": "kotlinforforge",
+  "logs": [
+    "crash-2026-09-22_20.45.41-fml.txt"
+  ],
+  "source": "https://github.com/thedarkcolour/KotlinForForge/issues/154",
+  "fix": "Install the Kotlin for Forge language provider the mod asks for."
+}

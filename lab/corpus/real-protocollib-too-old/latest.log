@@ -1,0 +1,157 @@
+[20:51:00] [ServerMain/INFO]: [bootstrap] Running Java 21 (OpenJDK 64-Bit Server VM 21.0.12+8-LTS; Eclipse Adoptium Temurin-21.0.12+8) on Linux 7.0.14-orbstack-00380-ga7e0a2dc9535 (aarch64)
+[20:51:00] [ServerMain/INFO]: [bootstrap] Loading Paper 1.21.5-114-ver/1.21.5@a1b3058 (2025-06-18T10:59:02Z) for Minecraft 1.21.5
+[20:51:01] [ServerMain/INFO]: [PluginInitializerManager] Initializing plugins...
+[20:51:01] [Paper Plugin Remapper Thread - 0/INFO]: [ReobfServer] Remapping server...
+[20:51:03] [Paper Plugin Remapper Thread - 0/INFO]: [ReobfServer] Done remapping server in 2232ms.
+[20:51:03] [Paper Plugin Remapper Thread - 0/INFO]: [PluginRemapper] Remapping plugin 'plugins/ProtocolLib.jar'...
+[20:51:04] [Paper Plugin Remapper Thread - 0/INFO]: [PluginRemapper] Done remapping plugin 'plugins/ProtocolLib.jar' in 481ms.
+[20:51:04] [ServerMain/INFO]: [PluginInitializerManager] Initialized 1 plugin
+[20:51:04] [ServerMain/INFO]: [PluginInitializerManager] Bukkit plugins (1):
+ - ProtocolLib (5.2.0-SNAPSHOT-679)
+[20:51:05] [ServerMain/INFO]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
+[20:51:05] [ServerMain/INFO]: Found new data pack file/bukkit, loading it automatically
+[20:51:05] [ServerMain/INFO]: Found new data pack paper, loading it automatically
+[20:51:05] [ServerMain/INFO]: No existing world data, creating new world
+[20:51:06] [ServerMain/INFO]: Loaded 1373 recipes
+[20:51:06] [ServerMain/INFO]: Loaded 1484 advancements
+[20:51:06] [Server thread/INFO]: Starting minecraft server version 1.21.5
+[20:51:06] [Server thread/INFO]: Loading properties
+[20:51:06] [Server thread/INFO]: This server is running Paper version 1.21.5-114-ver/1.21.5@a1b3058 (2025-06-18T10:59:02Z) (Implementing API version 1.21.5-R0.1-SNAPSHOT)
+[20:51:06] [Server thread/INFO]: [spark] This server bundles the spark profiler. For more information please visit https://docs.papermc.io/paper/profiling
+[20:51:06] [Server thread/INFO]: Server Ping Player Sample Count: 12
+[20:51:06] [Server thread/INFO]: Using 4 threads for Netty based IO
+[20:51:06] [Server thread/INFO]: [MoonriseCommon] Paper is using 3 worker threads, 1 I/O threads
+[20:51:06] [Server thread/INFO]: [ChunkTaskScheduler] Chunk system is using population gen parallelism: true
+[20:51:06] [Server thread/INFO]: Default game type: SURVIVAL
+[20:51:06] [Server thread/INFO]: Generating keypair
+[20:51:06] [Server thread/INFO]: Starting Minecraft server on *:25565
+[20:51:06] [Server thread/INFO]: Using epoll channel type
+[20:51:06] [Server thread/INFO]: Paper: Using libdeflate (Linux aarch64) compression from Velocity.
+[20:51:06] [Server thread/INFO]: Paper: Using OpenSSL 3.x.x (Linux aarch64) cipher from Velocity.
+[20:51:06] [Server thread/INFO]: [ProtocolLib] Loading server plugin ProtocolLib v5.2.0-SNAPSHOT-679
+[20:51:06] [Server thread/WARN]: [ProtocolLib] Version (MC: 1.21.5) has not yet been tested! Proceed with caution.
+[20:51:07] [Server thread/ERROR]: [ProtocolLib] Assuming package version: v1_21_R1
+[20:51:07] [Server thread/ERROR]:   [ProtocolLib] INTERNAL ERROR: Cannot load ProtocolLib.
+  If this problem hasn't already been reported, please open a ticket
+  at https://github.com/dmulloy2/ProtocolLib/issues with the following data:
+  Stack Trace:
+  java.lang.IllegalArgumentException: Unable to find a field that matches {modifiers=[required: 10000, banned: 1000], type={ type input instanceof interface java.util.Map }}
+  	at ProtocolLib.jar//com.comphenix.protocol.reflect.FuzzyReflection.getField(FuzzyReflection.java:352)
+  	at ProtocolLib.jar//com.comphenix.protocol.injector.packet.PacketRegistry.createNewRegister(PacketRegistry.java:183)
+  	at ProtocolLib.jar//com.comphenix.protocol.injector.packet.PacketRegistry.initialize(PacketRegistry.java:334)
+  	at ProtocolLib.jar//com.comphenix.protocol.injector.packet.PacketRegistry.getClientPacketTypes(PacketRegistry.java:369)
+  	at ProtocolLib.jar//com.comphenix.protocol.injector.PacketFilterManager.<init>(PacketFilterManager.java:120)
+  	at ProtocolLib.jar//com.comphenix.protocol.injector.PacketFilterBuilder.build(PacketFilterBuilder.java:121)
+  	at ProtocolLib.jar//com.comphenix.protocol.ProtocolLib.onLoad(ProtocolLib.java:183)
+  	at io.papermc.paper.plugin.storage.ServerPluginProviderStorage.processProvided(ServerPluginProviderStorage.java:59)
+  	at io.papermc.paper.plugin.storage.ServerPluginProviderStorage.processProvided(ServerPluginProviderStorage.java:18)
+  	at io.papermc.paper.plugin.storage.SimpleProviderStorage.enter(SimpleProviderStorage.java:39)
+  	at io.papermc.paper.plugin.entrypoint.LaunchEntryPointHandler.enter(LaunchEntryPointHandler.java:39)
+  	at org.bukkit.craftbukkit.CraftServer.loadPlugins(CraftServer.java:567)
+  	at net.minecraft.server.dedicated.DedicatedServer.initServer(DedicatedServer.java:235)
+  	at net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:1161)
+  	at net.minecraft.server.MinecraftServer.lambda$spin$2(MinecraftServer.java:308)
+  	at java.base/java.lang.Thread.run(Thread.java:1583)
+  Dump:
+  Parameters: 
+    [NULL]
+  Sender:
+    com.comphenix.protocol.ProtocolLib@75b0d00c[
+      statistics=<null>
+      packetTask=<null>
+      tickCounter=0
+      configExpectedMod=-1
+      updater=com.comphenix.protocol.updater.SpigotUpdater@7cecf6f9
+      redirectHandler=<null>
+      scheduler=com.comphenix.protocol.scheduler.DefaultScheduler@4880487a
+      commandProtocol=<null>
+      commandPacket=<null>
+      commandFilter=<null>
+      packetLogging=<null>
+      skipDisable=false
+      isEnabled=false
+      loader=io.papermc.paper.plugin.manager.DummyBukkitPluginLoader@5d9d6b19
+      server=CraftServer{serverName=Paper,serverVersion=1.21.5-114-a1b3058,minecraftVersion=1.21.5}
+      file=plugins/.paper-remapped/ProtocolLib.jar
+      description=org.bukkit.plugin.PluginDescriptionFile@3d7e88d
+      pluginMeta=org.bukkit.plugin.PluginDescriptionFile@3d7e88d
+      dataFolder=plugins/ProtocolLib
+      classLoader=PluginClassLoader{plugin=ProtocolLib v5.2.0-SNAPSHOT-679, pluginEnabled=false, url=plugins/.paper-remapped/ProtocolLib.jar}
+      naggable=true
+      newConfig=YamlConfiguration[path='', root='YamlConfiguration']
+      configFile=plugins/ProtocolLib/config.yml
+      logger=com.destroystokyo.paper.utils.PaperPluginLogger@56803af7
+      lifecycleEventManager=io.papermc.paper.plugin.lifecycle.event.PaperLifecycleEventManager@6a2f332a
+      allowsLifecycleRegistration=true
+      isBeingEnabled=false
+    ]
+  Version:
+    ProtocolLib v5.2.0-SNAPSHOT-679
+  Java Version:
+    21.0.12
+  Server:
+    1.21.5-114-a1b3058 (MC: 1.21.5)
+
+[20:51:07] [Server thread/INFO]: [ProtocolLib] Enabling ProtocolLib v5.2.0-SNAPSHOT-679
+[20:51:07] [Server thread/ERROR]: ******************************************************
+[20:51:07] [Server thread/ERROR]: *** ProtocolLib does not support plugin reloaders! ***
+[20:51:07] [Server thread/ERROR]: *** Please use the built-in reload command!        ***
+[20:51:07] [Server thread/ERROR]: ******************************************************
+[20:51:07] [Server thread/INFO]: [ProtocolLib] Disabling ProtocolLib v5.2.0-SNAPSHOT-679
+[20:51:07] [Server thread/WARN]: **** SERVER IS RUNNING IN OFFLINE/INSECURE MODE!
+[20:51:07] [Server thread/WARN]: The server will make no attempt to authenticate usernames. Beware.
+[20:51:07] [Server thread/WARN]: While this makes the game possible to play without internet access, it also opens up the ability for hackers to connect with any username they choose.
+[20:51:07] [Server thread/WARN]: To change this, set "online-mode" to "true" in the server.properties file.
+[20:51:07] [Server thread/INFO]: Preparing level "world"
+[20:51:09] [Server thread/INFO]: Preparing start region for dimension minecraft:overworld
+[20:51:09] [Server thread/INFO]: Preparing spawn area: 2%
+[20:51:09] [Server thread/INFO]: Preparing spawn area: 4%
+[20:51:10] [Server thread/INFO]: Time elapsed: 934 ms
+[20:51:10] [Server thread/INFO]: Preparing start region for dimension minecraft:the_nether
+[20:51:10] [Server thread/INFO]: Preparing spawn area: 2%
+[20:51:10] [Server thread/INFO]: Time elapsed: 347 ms
+[20:51:10] [Server thread/INFO]: Preparing start region for dimension minecraft:the_end
+[20:51:10] [Server thread/INFO]: Preparing spawn area: 2%
+[20:51:10] [Server thread/INFO]: Time elapsed: 95 ms
+[20:51:10] [Server thread/INFO]: [spark] Starting background profiler...
+[20:51:10] [Server thread/INFO]: Done preparing level "world" (3.345s)
+[20:51:10] [Server thread/INFO]: Running delayed init tasks
+[20:51:10] [Server thread/INFO]: Done (9.996s)! For help, type "help"
+[20:51:10] [Server thread/INFO]: *************************************************************************************
+[20:51:10] [Server thread/INFO]: This is the first time you're starting this server.
+[20:51:10] [Server thread/INFO]: It's recommended you read our 'Getting Started' documentation for guidance.
+[20:51:10] [Server thread/INFO]: View this and more helpful information here: https://docs.papermc.io/paper/next-steps
+[20:51:10] [Server thread/INFO]: *************************************************************************************
+[20:51:12] [Server thread/INFO]: Stopping the server
+[20:51:12] [Server thread/INFO]: Stopping server
+[20:51:12] [Server thread/INFO]: Saving players
+[20:51:12] [Server thread/INFO]: Saving worlds
+[20:51:12] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:overworld
+[20:51:12] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk system to halt for world 'world'
+[20:51:12] [Server thread/INFO]: [ChunkHolderManager] Halted chunk system for world 'world'
+[20:51:12] [Server thread/INFO]: [ChunkHolderManager] Saving all chunkholders for world 'world'
+[20:51:12] [Server thread/INFO]: [ChunkHolderManager] Saved 841 block chunks, 49 entity chunks, 0 poi chunks in world 'world' in 0.28s
+[20:51:12] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk I/O to halt for world 'world'
+[20:51:12] [Server thread/INFO]: [ChunkHolderManager] Halted I/O scheduler for world 'world'
+[20:51:12] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world_nether]'/minecraft:the_nether
+[20:51:12] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk system to halt for world 'world_nether'
+[20:51:12] [Server thread/INFO]: [ChunkHolderManager] Halted chunk system for world 'world_nether'
+[20:51:12] [Server thread/INFO]: [ChunkHolderManager] Saving all chunkholders for world 'world_nether'
+[20:51:12] [Server thread/INFO]: [ChunkHolderManager] Saved 841 block chunks, 49 entity chunks, 0 poi chunks in world 'world_nether' in 0.09s
+[20:51:12] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk I/O to halt for world 'world_nether'
+[20:51:12] [Server thread/INFO]: [ChunkHolderManager] Halted I/O scheduler for world 'world_nether'
+[20:51:12] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world_the_end]'/minecraft:the_end
+[20:51:12] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk system to halt for world 'world_the_end'
+[20:51:12] [Server thread/INFO]: [ChunkHolderManager] Halted chunk system for world 'world_the_end'
+[20:51:12] [Server thread/INFO]: [ChunkHolderManager] Saving all chunkholders for world 'world_the_end'
+[20:51:12] [Server thread/INFO]: [ChunkHolderManager] Saved 841 block chunks, 49 entity chunks, 0 poi chunks in world 'world_the_end' in 0.06s
+[20:51:12] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk I/O to halt for world 'world_the_end'
+[20:51:12] [Server thread/INFO]: [ChunkHolderManager] Halted I/O scheduler for world 'world_the_end'
+[20:51:12] [Server thread/INFO]: ThreadedAnvilChunkStorage (world): All chunks are saved
+[20:51:12] [Server thread/INFO]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[20:51:12] [Server thread/INFO]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[20:51:12] [Server thread/INFO]: ThreadedAnvilChunkStorage: All dimensions are saved
+[20:51:12] [Server thread/INFO]: Waiting for all RegionFile I/O tasks to complete...
+[20:51:12] [Server thread/INFO]: All RegionFile I/O tasks to complete
+[20:51:12] [Server thread/INFO]: [MoonriseCommon] Awaiting termination of worker pool for up to 60s...
+[20:51:12] [Server thread/INFO]: [MoonriseCommon] Awaiting termination of I/O pool for up to 60s...

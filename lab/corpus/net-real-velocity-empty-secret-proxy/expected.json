@@ -1,0 +1,8 @@
+{
+  "situation": "PROXY_FORWARDING",
+  "logs": [
+    "latest.log"
+  ],
+  "source": "https://forums.papermc.io/threads/how-to-solve-unable-to-read-load-save-your-velocity-toml.339/",
+  "fix": "Write the secret inside the file named by forwarding-secret-file; the setting is a path, not the secret."
+}

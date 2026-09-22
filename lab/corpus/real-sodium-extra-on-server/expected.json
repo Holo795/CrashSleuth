@@ -1,0 +1,9 @@
+{
+  "situation": "CLIENT_ONLY_ON_SERVER",
+  "culprit": "sodium",
+  "logs": [
+    "console.log"
+  ],
+  "source": "https://github.com/AllTheMods/ATM-10/issues/402",
+  "fix": "Take the client-only rendering mods out of the server's mods folder."
+}

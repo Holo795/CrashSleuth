@@ -150,6 +150,7 @@ SCENARIOS = {
     "waterfall-backend-down": "Waterfall points to a server that is not running",
     "velocity4-join-ok": "Vanilla client joins Paper 1.21.1 through Velocity 4 (Java 25)",
     "velocity4-backend-down": "Velocity 4 points to a server that is not running",
+    "real-velocity-empty-secret": "Velocity with modern forwarding and an empty forwarding.secret (reported on the Paper forums)",
 }
 
 
@@ -229,6 +230,16 @@ def run_scenario(name: str, cli: str, java: str) -> tuple[bool, str]:
             # Waterfall leaves the player waiting without a word: only its end of life can be said.
             expected = "OUTDATED" if project == "waterfall" else "PROXY_BACKEND"
             return outcome != "READY" and expected in situations, text
+        if name == "real-velocity-empty-secret":
+            # https://forums.papermc.io/threads/how-to-solve-unable-to-read-load-save-your-velocity-toml.339/
+            proxy = base / "proxy"
+            velocity_proxy(proxy, "", "cs-backend")
+            start_container("cs-proxy", proxy, "java -Xmx512M -jar velocity.jar", PROXY_PORT)
+            wait_for(proxy, "must not be empty", "cs-proxy", 60)
+            time.sleep(2)
+            report = analyse(cli, proxy)
+            text = f"proxy: {summary(report)}"
+            return any(f["situation"] == "PROXY_FORWARDING" for f in report["findings"]), text
         if name == "playerdata-corrupt":
             server = base / "server"
             paper_backend(server, None, [])
@@ -274,6 +285,14 @@ EXPECTED = {
     "waterfall-backend-down": {"player": None, "proxy": None},
     "velocity4-join-ok": {"player": None, "proxy": None, "backend": None},
     "velocity4-backend-down": {"player": "PROXY_BACKEND", "proxy": "PROXY_BACKEND"},
+    "real-velocity-empty-secret": {"proxy": "PROXY_FORWARDING"},
+}
+
+
+# Where a case was reported, and what fixed it for those people.
+SOURCES = {
+    "real-velocity-empty-secret": ("https://forums.papermc.io/threads/how-to-solve-unable-to-read-load-save-your-velocity-toml.339/",
+                                   "Write the secret inside the file named by forwarding-secret-file; the setting is a path, not the secret."),
 }
 
 
@@ -283,12 +302,16 @@ def keep(name: str, base: Path) -> None:
     for side, situation in EXPECTED[name].items():
         target = lab.CORPUS / f"net-{name}-{side}"
         shutil.rmtree(target, ignore_errors=True)
-        log = next((p for p in (base / side / "logs" / "latest.log", base / side / "proxy.log.0") if p.exists()), None)
+        # A proxy that dies while reading its own settings writes nothing but its console.
+        log = next((p for p in (base / side / "logs" / "latest.log", base / side / "proxy.log.0", base / side / "console.log") if p.exists()), None)
         if log is None:
             continue
         target.mkdir(parents=True)
         (target / "latest.log").write_text(client_lab.private(lab.anonymise(log.read_text(errors="replace")).replace(str(base), "/lab")))
-        (target / "expected.json").write_text(json.dumps({"situation": situation, "logs": ["latest.log"]}, indent=2) + "\n")
+        source, fix = SOURCES.get(name, (None, None))
+        (target / "expected.json").write_text(json.dumps(
+            {"situation": situation, "logs": ["latest.log"],
+             **({"source": source, "fix": fix} if source else {})}, indent=2) + "\n")
 
 
 def main() -> int:
