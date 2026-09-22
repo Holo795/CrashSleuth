@@ -1,0 +1,56 @@
+{
+ "platform": "PAPER",
+ "minecraftVersion": "26.1.2",
+ "loaderVersion": null,
+ "side": "SERVER",
+ "jars": [
+  {
+   "file": "namefilterhopper-26.2.0.1.jar",
+   "folder": "plugins",
+   "size": 4519,
+   "mods": [
+    {
+     "format": "BUKKIT",
+     "id": "NameFilterHopper",
+     "name": null,
+     "version": "26.1.1.1",
+     "environment": "UNKNOWN",
+     "dependencies": [],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": "26.2",
+     "entrypoints": [
+      "com.namefilterhopper.namefilterhopper.NameFilterHopper"
+     ],
+     "addsContent": false,
+     "optionalOnClient": false
+    }
+   ],
+   "nested": [],
+   "error": null,
+   "javaVersion": 25
+  }
+ ],
+ "skipped": [],
+ "files": {
+  "worlds": [
+   {
+    "name": "world",
+    "versionName": "26.1.2",
+    "dataVersion": 4790,
+    "unreadable": null,
+    "hasBackup": true,
+    "locked": false,
+    "damagedChunks": [],
+    "chunksChecked": 1610,
+    "chunksComplete": true,
+    "damagedPlayers": []
+   }
+  ],
+  "eulaAccepted": true,
+  "configErrors": [],
+  "rootJars": [
+   "server.jar"
+  ]
+ }
+}

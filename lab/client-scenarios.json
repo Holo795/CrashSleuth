@@ -424,5 +424,26 @@
     "expect": {
       "situation": "CONFIG_BROKEN"
     }
+  },
+  {
+    "name": "real-client-sodium-breaks-iris-recent",
+    "minecraft": "1.21.11",
+    "description": "Fabric 1.21.11 client, Sodium 0.8.14 saying it cannot live with Iris 1.10.7",
+    "extra": [
+      {
+        "url": "https://cdn.modrinth.com/data/AANobbMI/versions/rkdTcxoT/sodium-fabric-0.8.14%2Bmc1.21.11.jar",
+        "file": "sodium-fabric-0.8.14.jar"
+      },
+      {
+        "url": "https://cdn.modrinth.com/data/YL57xq9U/versions/fDpuVzVr/iris-fabric-1.10.7%2Bmc1.21.11.jar",
+        "file": "iris-fabric-1.10.7.jar"
+      }
+    ],
+    "source": "https://github.com/IrisShaders/Iris/issues/3349",
+    "fix": "Update Iris past 1.10.7, or drop Sodium to a build that accepts it.",
+    "expect": {
+      "situation": "MOD_CONFLICT",
+      "culprit": "sodium"
+    }
   }
 ]

@@ -1,0 +1,9 @@
+{
+  "situation": "MOD_CONFLICT",
+  "culprit": "sodium",
+  "logs": [
+    "latest.log"
+  ],
+  "source": "https://github.com/IrisShaders/Iris/issues/3349",
+  "fix": "Update Iris past 1.10.7, or drop Sodium to a build that accepts it."
+}

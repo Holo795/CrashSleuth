@@ -1,0 +1,9 @@
+{
+  "situation": "UNCAUGHT_EXCEPTION",
+  "culprit": "bluemap",
+  "logs": [
+    "console.log"
+  ],
+  "source": "https://github.com/BlueMap-Minecraft/BlueMap/issues/743",
+  "fix": "Update BlueMap past 5.12: Forge EventBus 7 refuses its old listener."
+}

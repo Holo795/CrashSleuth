@@ -1,0 +1,114 @@
+{
+ "platform": "NEOFORGE",
+ "minecraftVersion": "1.21.11",
+ "loaderVersion": "21.11.45",
+ "side": "SERVER",
+ "jars": [
+  {
+   "file": "sophisticatedcore-1.21.11-1.4.48.jar",
+   "folder": "mods",
+   "size": 1723381,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "sophisticatedcore",
+     "name": "Sophisticated Core",
+     "version": "1.4.48",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.11.0,21.12.0)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.11,1.21.12)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [],
+     "addsContent": true,
+     "optionalOnClient": false
+    }
+   ],
+   "nested": [],
+   "error": null,
+   "javaVersion": 21
+  },
+  {
+   "file": "toms_storage-1.21.11-2.8.0.jar",
+   "folder": "mods",
+   "size": 860761,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "toms_storage",
+     "name": "Tom's Simple Storage Mod",
+     "version": "2.8.0",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.9.7-beta,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.9,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "sophisticatedcore",
+       "versionRange": "[1.3.75,)",
+       "required": false,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "sophisticatedstorage",
+       "versionRange": "[1.5.7,)",
+       "required": false,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [],
+     "addsContent": true,
+     "optionalOnClient": false
+    }
+   ],
+   "nested": [],
+   "error": null,
+   "javaVersion": 21
+  }
+ ],
+ "skipped": [],
+ "files": {
+  "worlds": [
+   {
+    "name": "world",
+    "versionName": "1.21.11",
+    "dataVersion": 4671,
+    "unreadable": null,
+    "hasBackup": true,
+    "locked": false,
+    "damagedChunks": [],
+    "chunksChecked": 1187,
+    "chunksComplete": true,
+    "damagedPlayers": []
+   }
+  ],
+  "eulaAccepted": true,
+  "configErrors": [],
+  "rootJars": []
+ }
+}

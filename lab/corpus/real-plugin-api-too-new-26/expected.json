@@ -1,0 +1,9 @@
+{
+  "situation": "PLUGIN_API",
+  "culprit": "namefilterhopper",
+  "logs": [
+    "latest.log"
+  ],
+  "source": "https://github.com/kcbleeker/NameFilterHopper/issues/1",
+  "fix": "Run a server at least as recent as the plugin's api-version, or take the build made for yours."
+}

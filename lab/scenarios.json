@@ -1598,5 +1598,82 @@
       "situation": "LAG",
       "culprit": "CrashSleuthFixture"
     }
+  },
+  {
+    "platform": "forge",
+    "minecraft": "1.21.9",
+    "java": 21,
+    "name": "real-bluemap-eventbus7",
+    "description": "Forge 1.21.9 with BlueMap 5.12, whose listener EventBus 7 no longer accepts",
+    "extra": [
+      {
+        "url": "https://mediafilez.forgecdn.net/files/7051/204/bluemap-5.12-forge.jar",
+        "file": "bluemap-5.12-forge.jar"
+      }
+    ],
+    "source": "https://github.com/BlueMap-Minecraft/BlueMap/issues/743",
+    "fix": "Update BlueMap past 5.12: Forge EventBus 7 refuses its old listener.",
+    "log": "console.log",
+    "expect": {
+      "situation": "UNCAUGHT_EXCEPTION",
+      "culprit": "bluemap"
+    }
+  },
+  {
+    "platform": "paper",
+    "minecraft": "26.1.2",
+    "java": 25,
+    "name": "real-plugin-api-too-new-26",
+    "description": "Paper 26.1.2 with a plugin that declares api-version 26.2",
+    "extra": [
+      {
+        "url": "https://github.com/kcbleeker/NameFilterHopper/releases/download/v26.2.0.1/namefilterhopper-26.2.0.1.jar",
+        "file": "namefilterhopper-26.2.0.1.jar"
+      }
+    ],
+    "source": "https://github.com/kcbleeker/NameFilterHopper/issues/1",
+    "fix": "Run a server at least as recent as the plugin's api-version, or take the build made for yours.",
+    "expect": {
+      "situation": "PLUGIN_API",
+      "culprit": "namefilterhopper"
+    }
+  },
+  {
+    "platform": "neoforge",
+    "minecraft": "1.21.11",
+    "java": 21,
+    "name": "real-block-entity-tick-crash-mods",
+    "description": "NeoForge 1.21.11, Tom's Storage 2.8.0 with a Sophisticated Core that no longer has the class it calls",
+    "extra": [
+      {
+        "url": "https://cdn.modrinth.com/data/XZNI4Cpy/versions/J63C1Uex/toms_storage-1.21.11-2.8.0.jar",
+        "file": "toms_storage-1.21.11-2.8.0.jar"
+      },
+      {
+        "url": "https://cdn.modrinth.com/data/nmoqTijg/versions/tFsyzSze/sophisticatedcore-1.21.11-1.4.48.1948.jar",
+        "file": "sophisticatedcore-1.21.11-1.4.48.jar"
+      }
+    ],
+    "console": [
+      {
+        "after": 5,
+        "command": "forceload add 0 0"
+      },
+      {
+        "after": 8,
+        "command": "setblock 0 100 0 minecraft:chest"
+      },
+      {
+        "after": 10,
+        "command": "setblock 0 101 0 toms_storage:inventory_connector"
+      }
+    ],
+    "after_ready": 45,
+    "source": "https://github.com/tom5454/Toms-Storage/issues/753",
+    "fix": "Update Tom's Storage to 2.8.1, or go back to the Sophisticated Core it was built against.",
+    "expect": {
+      "situation": "TICK_BLOCK_ENTITY",
+      "culprit": "toms_storage"
+    }
   }
 ]

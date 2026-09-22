@@ -1,0 +1,54 @@
+{
+ "platform": "FORGE",
+ "minecraftVersion": "1.21.9",
+ "loaderVersion": "59.0.5",
+ "side": "SERVER",
+ "jars": [
+  {
+   "file": "bluemap-5.12-forge.jar",
+   "folder": "mods",
+   "size": 6366371,
+   "mods": [
+    {
+     "format": "FORGE",
+     "id": "bluemap",
+     "name": "BlueMap",
+     "version": "5.12",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "forge",
+       "versionRange": "[56.0.7,)",
+       "required": true,
+       "side": "SERVER"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.6,)",
+       "required": true,
+       "side": "SERVER"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
+    }
+   ],
+   "nested": [],
+   "error": null,
+   "javaVersion": 8
+  }
+ ],
+ "skipped": [],
+ "files": {
+  "worlds": [],
+  "eulaAccepted": true,
+  "configErrors": [],
+  "rootJars": [
+   "forge-1.21.9-59.0.5-shim.jar"
+  ]
+ }
+}
