@@ -1834,5 +1834,30 @@
     "expect": {
       "situation": "DATAPACK_BROKEN"
     }
+  },
+  {
+    "platform": "paper",
+    "minecraft": "1.21.1",
+    "java": 21,
+    "name": "real-chunks-in-wrong-file",
+    "description": "Paper 1.21.1 whose region file was copied under another name",
+    "mutate": [
+      {
+        "copy": "world/region/r.0.0.mca",
+        "to": "world/region/r.5.5.mca"
+      }
+    ],
+    "console": [
+      {
+        "after": 5,
+        "command": "forceload add 2560 2560"
+      }
+    ],
+    "after_ready": 25,
+    "source": "https://github.com/Amulet-Team/Amulet-Core/issues/235",
+    "fix": "Those chunks do not belong to that file: the server moves them, which loses what was there.",
+    "expect": {
+      "situation": "CORRUPT_CHUNK"
+    }
   }
 ]

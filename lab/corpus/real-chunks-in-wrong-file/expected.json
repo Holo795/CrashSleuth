@@ -1,0 +1,9 @@
+{
+  "situation": "CORRUPT_CHUNK",
+  "culprit": null,
+  "logs": [
+    "latest.log"
+  ],
+  "source": "https://github.com/Amulet-Team/Amulet-Core/issues/235",
+  "fix": "Those chunks do not belong to that file: the server moves them, which loses what was there."
+}
