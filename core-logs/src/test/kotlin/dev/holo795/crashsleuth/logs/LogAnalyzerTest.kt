@@ -184,4 +184,18 @@ class LogAnalyzerTest {
         assertEquals(listOf("java", "Essentials"), finding.culprits.map { it.id })
         assertEquals("21", finding.details["required"])
     }
+
+    @Test
+    fun `connections that never say hello are scanners, not a problem`() {
+        // Velocity logs every failed connection. A maintainer's own reading of these lines:
+        // "[initial connection]" with no player name is a scanner, "[connected player]" is a real session.
+        // https://github.com/PaperMC/Velocity/issues/1650
+        val log = """
+            [20:14:30 INFO]: Booting up Velocity 3.4.0-SNAPSHOT (git-81deb1ff-b521)...
+            [20:14:31 INFO]: Done (1.23s)!
+            [20:14:31 ERROR]: [initial connection] /176.65.148.127:61138: read timed out
+            [20:29:21 ERROR]: [initial connection] /176.65.148.103:65100: read timed out
+        """.trimIndent()
+        assertTrue(LogAnalyzer().analyze(log).findings.isEmpty(), "a port scanner is not a problem to report")
+    }
 }

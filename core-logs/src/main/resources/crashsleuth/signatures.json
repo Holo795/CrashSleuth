@@ -859,6 +859,18 @@
       },
       "advice": "signature.glfw-opengl-too-old.advice",
       "source": "https://github.com/PrismLauncher/PrismLauncher/issues/954 and https://github.com/IrisShaders/Iris/issues/3292 (replayed in the lab: GLX: Failed to create context: GLXBadFBConfig)"
+    },
+    {
+      "id": "model-missing",
+      "situation": "RENDER",
+      "confidence": "LOW",
+      "pattern": "Unable to (?:load|bake) model: '([\\w.-]+:[\\w./-]+)'(?: referenced from: ([\\w.-]+:[\\w./#=,-]+))?",
+      "details": {
+        "model": 1,
+        "usedBy": 2
+      },
+      "advice": "signature.model-missing.advice",
+      "source": "https://github.com/pexulsreal/glowrootissues/issues/8 and https://github.com/SashaKYotoz/Unusual-End/issues/21 (the mod's author states these warnings do not crash the game)"
     }
   ]
 }
