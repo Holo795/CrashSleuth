@@ -33,8 +33,12 @@ object FmlDependencyDetector : Detector {
 
 /** Fabric and Quilt: `Mod 'Iris' (iris) 1.6.4 requires version 0.5.0 or later of mod 'Sodium' (sodium), ...`. */
 object FabricDependencyDetector : Detector {
+    /**
+     * Every form Fabric prints: "requires version 1.2", "requires any version", "requires any 0.6.x version",
+     * "requires version 2.0 or later", "requires any version before 1.8.13", "requires any version between ...".
+     */
     private val LINE = Regex(
-        """Mod '([^']+)' \(([\w.-]+)\) (\S+) requires (?:version (.+?)|any version|any version between (.+?)) of (?:mod '([^']+)' \(([\w.-]+)\)|([\w.-]+))(?:,| ) ?(which is missing!|but only the wrong version is present: ([^!\n]+)!)""",
+        """Mod '([^']+)' \(([\w.-]+)\) (\S+) requires (.+?) of (?:mod '([^']+)' \(([\w.-]+)\)|([\w.-]+))(?:,| ) ?(which is missing!|but only the wrong version is present: ([^!\n]+)!)""",
     )
 
     override fun detect(document: LogDocument, environment: Environment): List<Finding> =
@@ -42,12 +46,14 @@ object FabricDependencyDetector : Detector {
             val g = match.groupValues
             val requesterName = g[1]
             val requesterId = g[2]
-            val expected = g[4].ifEmpty { g[5] }.ifEmpty { "any" }
-            val dependencyId = g[7].ifEmpty { g[8] }
-            val dependencyName = g[6].ifEmpty { KNOWN_NAMES[dependencyId] ?: g[8] }
-            val missing = g[9].startsWith("which is missing")
+            // "version 1.2" gives "1.2", "any 0.6.x version" gives "0.6.x", "any version" gives "any".
+            val expected = g[4].removePrefix("version ").removePrefix("any ").removeSuffix(" version").trim()
+                .let { if (it == "version" || it.isEmpty()) "any" else it }
+            val dependencyId = g[6].ifEmpty { g[7] }
+            val dependencyName = g[5].ifEmpty { KNOWN_NAMES[dependencyId] ?: g[7] }
+            val missing = g[8].startsWith("which is missing")
             if (dependencyId == "minecraft" && !missing) {
-                return@map wrongMinecraft(Culprit(CulpritKind.MOD, requesterId, requesterName, g[3]), expected, g[10], match.value.trim())
+                return@map wrongMinecraft(Culprit(CulpritKind.MOD, requesterId, requesterName, g[3]), expected, g[9], match.value.trim())
             }
             Finding(
                 situation = if (missing) Situation.DEP_MISSING else Situation.DEP_VERSION,
@@ -61,7 +67,7 @@ object FabricDependencyDetector : Detector {
                     "dependency" to dependencyId,
                     "requester" to requesterId,
                     "expected" to expected,
-                    "actual" to (g[10].ifEmpty { "[MISSING]" }),
+                    "actual" to (g[9].ifEmpty { "[MISSING]" }),
                 ),
             )
         }.toList()
