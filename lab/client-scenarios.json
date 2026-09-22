@@ -462,5 +462,21 @@
       "situation": "DEP_MISSING",
       "culprit": "intermap"
     }
+  },
+  {
+    "name": "real-client-opengl-too-old",
+    "minecraft": "1.21.1",
+    "loader": "vanilla",
+    "render": true,
+    "description": "Vanilla 1.21.1 client on a graphics driver that only offers OpenGL 2.1",
+    "env": {
+      "MESA_GL_VERSION_OVERRIDE": "2.1",
+      "MESA_GLSL_VERSION_OVERRIDE": "120"
+    },
+    "source": "https://github.com/PrismLauncher/PrismLauncher/issues/3264",
+    "fix": "Minecraft needs OpenGL 3.2 since 1.17: update the graphics driver, or play a version below 1.17.",
+    "expect": {
+      "situation": "RENDER"
+    }
   }
 ]

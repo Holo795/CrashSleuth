@@ -86,7 +86,7 @@ fun ReportScreen(state: AppState, analysis: Analysis) {
                 )
                 Spacer(Modifier.height(16.dp))
                 val primary = report.primary
-                if (primary == null) NoFinding(ui) else Verdict(ui, primary, analysis)
+                if (primary == null) NoFinding(ui, analysis) else Verdict(ui, primary, analysis)
                 androidx.compose.runtime.LaunchedEffect(Unit) { if (state.localAi == null) state.lookForLocalAi() }
                 val explained = state.explanation?.takeIf { it.first == analysis.target.path }?.second
                 if (explained != null) {
@@ -233,12 +233,17 @@ private fun Verdict(ui: Ui, finding: Finding, analysis: Analysis? = null) {
 }
 
 @Composable
-private fun NoFinding(ui: Ui) {
+private fun NoFinding(ui: Ui, analysis: dev.holo795.crashsleuth.app.Analysis) {
     Status(ui["report.ok"], Theme.tones.success)
     Spacer(Modifier.height(14.dp))
     Text(ui["report.none.title"], style = MaterialTheme.typography.headlineMedium)
     Spacer(Modifier.height(14.dp))
     Text(ui["report.none.body"], style = MaterialTheme.typography.bodyLarge, color = MaterialTheme.colorScheme.onSurfaceVariant)
+    // Some servers no longer write down what is wrong: say where to look instead.
+    dev.holo795.crashsleuth.app.ReportText(ui.messages).noFindingHints(analysis.report).forEach { hint ->
+        Spacer(Modifier.height(10.dp))
+        Text(hint, style = MaterialTheme.typography.bodyLarge, color = MaterialTheme.colorScheme.onSurfaceVariant)
+    }
 }
 
 @Composable

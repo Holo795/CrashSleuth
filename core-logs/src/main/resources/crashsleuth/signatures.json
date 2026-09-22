@@ -823,6 +823,42 @@
       "pattern": "IllegalStateException: Backend server is online-mode!",
       "advice": "signature.velocity-backend-online-mode.advice",
       "source": "https://www.gameserverkings.com/knowledge-base/minecraft/error-failed-to-verify-username/ (replayed in the lab: Velocity 3.4.0 in front of a Paper 1.21.1 left at online-mode=true)"
+    },
+    {
+      "id": "paper-velocity-no-secret",
+      "situation": "PROXY_FORWARDING",
+      "confidence": "CERTAIN",
+      "pattern": "Velocity (?:support )?is enabled, but no secret key was specified",
+      "advice": "signature.paper-velocity-no-secret.advice",
+      "source": "https://github.com/PaperMC/Velocity/issues/1043 (replayed in the lab: Paper 1.21.1 with proxies.velocity.enabled and an empty secret)"
+    },
+    {
+      "id": "rcon-without-password",
+      "situation": "CONFIG_BROKEN",
+      "confidence": "LOW",
+      "pattern": "No rcon password set in server\\.properties, rcon disabled!",
+      "advice": "signature.rcon-without-password.advice",
+      "source": "https://github.com/itzg/docker-minecraft-server/issues/518 (replayed in the lab: enable-rcon with an empty password)"
+    },
+    {
+      "id": "glfw-no-valid-profile",
+      "situation": "RENDER",
+      "confidence": "CERTAIN",
+      "pattern": "Failed to find a valid GLFW profile",
+      "advice": "signature.glfw-opengl-too-old.advice",
+      "source": "https://github.com/PrismLauncher/PrismLauncher/issues/3264 (replayed in the lab: a driver offering only OpenGL 2.1)"
+    },
+    {
+      "id": "glfw-window-failed",
+      "situation": "RENDER",
+      "confidence": "HIGH",
+      "pattern": "GLFW error (\\d+): ((?:WGL|GLX|EGL|X11|Wayland|Win32)[^\\n]*)",
+      "details": {
+        "code": 1,
+        "library": 2
+      },
+      "advice": "signature.glfw-opengl-too-old.advice",
+      "source": "https://github.com/PrismLauncher/PrismLauncher/issues/954 and https://github.com/IrisShaders/Iris/issues/3292 (replayed in the lab: GLX: Failed to create context: GLXBadFBConfig)"
     }
   ]
 }

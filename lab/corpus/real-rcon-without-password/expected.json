@@ -1,0 +1,9 @@
+{
+  "situation": "CONFIG_BROKEN",
+  "culprit": null,
+  "logs": [
+    "latest.log"
+  ],
+  "source": "https://github.com/itzg/docker-minecraft-server/issues/518",
+  "fix": "Set rcon.password: with an empty one, RCON does not start at all, which looks like a refused connection."
+}

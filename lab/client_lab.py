@@ -126,10 +126,14 @@ def run_in_container(directory: Path, cli: str, scenario: dict, joining: list[st
     result = subprocess.run(
         # Docker only shares folders named in full, never a path relative to where the lab was started.
         ["docker", "run", "--rm", "--platform", "linux/amd64", "-e", "HOME=/tmp", "-e", "CRASHSLEUTH_CACHE=/cache", "-e", "LIBGL_ALWAYS_SOFTWARE=1",
+         # A scenario can say what the graphics driver pretends to be, to play an old computer.
+         *[part for name, value in scenario.get("env", {}).items() for part in ("-e", f"{name}={value}")],
          "-v", f"{Path(cli).resolve().parent.parent}:/opt/crashsleuth:ro", "-v", f"{cache}:/cache", "-v", f"{directory.resolve()}:/game", LINUX_IMAGE,
          "/opt/crashsleuth/bin/crashsleuth", "run-client", "/game", "--minecraft", scenario["minecraft"], "--loader", scenario.get("loader", "fabric"),
          "--java", "/opt/java/openjdk/bin/java", "--settle", str(scenario.get("settle", 45)), "--timeout", "10", *joining],
         capture_output=True, text=True, timeout=3600)
+    # What the launcher printed: several failures never reach the game's own log.
+    (directory / "console.log").write_text((result.stdout or "") + (result.stderr or ""))
     if not result.stdout:  # the container itself could not start: say why instead of blaming the game
         print(f"   (container failed: {result.stderr.strip()[:200]})", flush=True)
     return result.stdout.split()[0] if result.stdout else "ERROR"
@@ -165,6 +169,7 @@ def run(names: list[str], cli: str, java_home: Path) -> int:
             else:
                 launch = subprocess.run([cli, "run-client", str(directory), "--loader", scenario.get("loader", "fabric"), *common, "--settle", "8", *joining], capture_output=True, text=True, timeout=900)
                 outcome = launch.stdout.split()[0] if launch.stdout else "ERROR"
+                (directory / "console.log").write_text(launch.stdout + launch.stderr)
                 # No screen at all (locked or asleep): the game cannot open a window, so it runs on a virtual one.
                 log = directory / "logs" / "latest.log"
                 if "primary monitor" in (launch.stdout + launch.stderr + (log.read_text(errors="replace") if log.exists() else "")):
@@ -219,7 +224,8 @@ def keep(scenario: dict, directory: Path) -> None:
     """Keeps the logs and the answer in the corpus, like the server lab."""
     target = CORPUS / f"client-{scenario['name']}"
     shutil.rmtree(target, ignore_errors=True)
-    logs = sorted((directory / "crash-reports").glob("*.txt"))[-1:] + [p for p in [directory / "logs" / "latest.log"] if p.exists()]
+    logs = sorted((directory / "crash-reports").glob("*.txt"))[-1:] + \
+        [p for p in (directory / "logs" / "latest.log", directory / "console.log") if p.exists() and p.stat().st_size > 0]
     if not logs:
         return
     target.mkdir(parents=True)

@@ -1859,5 +1859,38 @@
     "expect": {
       "situation": "CORRUPT_CHUNK"
     }
+  },
+  {
+    "platform": "paper",
+    "minecraft": "1.21.1",
+    "java": 21,
+    "name": "real-velocity-support-without-secret",
+    "description": "Paper 1.21.1 told to trust a Velocity proxy but given no secret",
+    "mutate": [
+      {
+        "write": "config/paper-global.yml",
+        "text": "proxies:\n  velocity:\n    enabled: true\n    online-mode: false\n    secret: ''\n"
+      }
+    ],
+    "source": "https://github.com/PaperMC/Velocity/issues/1043",
+    "fix": "Put the proxy's forwarding secret in proxies.velocity.secret, or turn Velocity support off.",
+    "log": "console.log",
+    "expect": {
+      "situation": "PROXY_FORWARDING"
+    }
+  },
+  {
+    "platform": "paper",
+    "minecraft": "1.21.1",
+    "java": 21,
+    "name": "real-rcon-without-password",
+    "description": "Paper 1.21.1 with RCON turned on and no password: it never starts",
+    "properties": "enable-rcon=true\nrcon.password=\n",
+    "after_ready": 10,
+    "source": "https://github.com/itzg/docker-minecraft-server/issues/518",
+    "fix": "Set rcon.password: with an empty one, RCON does not start at all, which looks like a refused connection.",
+    "expect": {
+      "situation": "CONFIG_BROKEN"
+    }
   }
 ]

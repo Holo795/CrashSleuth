@@ -135,7 +135,11 @@ class Diagnoser(private val logAnalyzer: LogAnalyzer = LogAnalyzer()) {
             val jvmErrors = root.listDirectoryEntries("hs_err_pid*.log")
             val recent = (crashReports + jvmErrors).filter { it.getLastModifiedTime().toMillis() >= since }
                 .sortedByDescending { it.getLastModifiedTime() }.take(2)
-            return listOfNotNull(latest) + recent
+            // What the launcher or the panel shows: some failures (a missing graphics library, a JVM
+            // that will not start) never reach the game's own log file.
+            val console = listOf("console.log", "logs/console.log").map(root::resolve).firstOrNull { it.exists() }
+                ?.takeIf { it.getLastModifiedTime().toMillis() >= since }
+            return listOfNotNull(latest, console) + recent
         }
     }
 }

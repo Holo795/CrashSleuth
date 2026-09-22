@@ -13,6 +13,7 @@ to lead to the same answer on its own.
 | `client-real-client-fabric-api-wrong-point-release` | WRONG_MC | fabric-api | https://github.com/orgs/FabricMC/discussions/4034 | Take the Fabric API built for the exact point release you play. |
 | `client-real-client-forge-config-truncated` | CONFIG_BROKEN |  | https://forums.minecraftforge.net/topic/120264-the-game-crashed-whilst-initializing-game-error-javalangexceptionininitializererror-null-exit-code-1/ | Delete config/forge-resource-caching.toml: Forge writes a new one. |
 | `client-real-client-iris-needs-older-sodium` | DEP_VERSION | sodium | https://github.com/IrisShaders/Iris/issues/3136 | Iris 1.8.8 only works with Sodium 0.6.x: install that branch, or a newer Iris. |
+| `client-real-client-opengl-too-old` | clean start |  | https://github.com/PrismLauncher/PrismLauncher/issues/3264 | Minecraft needs OpenGL 3.2 since 1.17: update the graphics driver, or play a version below 1.17. |
 | `client-real-client-sodium-breaks-iris-recent` | MOD_CONFLICT | sodium | https://github.com/IrisShaders/Iris/issues/3349 | Update Iris past 1.10.7, or drop Sodium to a build that accepts it. |
 | `net-real-bungee-forwarding-one-sided-backend` | PROXY_FORWARDING |  | https://docs.papermc.io/velocity/faq/ | Turn IP forwarding on on both sides, or on neither: the proxy and the server must agree. |
 | `net-real-bungee-forwarding-one-sided-proxy` | PROXY_FORWARDING |  | https://docs.papermc.io/velocity/faq/ | Turn IP forwarding on on both sides, or on neither: the proxy and the server must agree. |
@@ -42,12 +43,14 @@ to lead to the same answer on its own.
 | `real-plugin-missing-vault` | DEP_MISSING | Vault | https://github.com/Lenni0451/SpigotPluginManager/issues/26 | Install the plugin it names (Vault): a hard dependency must be there before it loads. |
 | `real-protocollib-too-old` | WRONG_MC | ProtocolLib | https://github.com/dmulloy2/ProtocolLib/issues/3073 | Update ProtocolLib: it reads the server's packet registry, which changes with every Minecraft version. |
 | `real-rcon-port-taken` | PORT_IN_USE |  | https://www.gameserverkings.com/knowledge-base/minecraft/setting-up-rcon/ | Give RCON a port of its own, different from server-port. |
+| `real-rcon-without-password` | CONFIG_BROKEN |  | https://github.com/itzg/docker-minecraft-server/issues/518 | Set rcon.password: with an empty one, RCON does not start at all, which looks like a refused connection. |
 | `real-recipe-old-result-format` | DATAPACK_BROKEN |  | https://github.com/misode/misode.github.io/issues/822 | In the result, write id instead of item: the game changed how an item stack is written in 1.20.5. |
 | `real-sodium-extra-on-server` | CLIENT_ONLY_ON_SERVER | sodium | https://github.com/AllTheMods/ATM-10/issues/402 | Take the client-only rendering mods out of the server's mods folder. |
 | `real-sodium-on-server` | CLIENT_ONLY_ON_SERVER | sodium | https://github.com/CaffeineMC/sodium/issues/3791 | Sodium only works in the game: take it out of the server's mods folder. |
+| `real-velocity-support-without-secret` | PROXY_FORWARDING |  | https://github.com/PaperMC/Velocity/issues/1043 | Put the proxy's forwarding secret in proxies.velocity.secret, or turn Velocity support off. |
 | `real-viaversion-warning-only` | clean start |  | https://github.com/ViaVersion/ViaVersion/issues/3917 | Nothing to fix: ViaVersion only lets newer clients in; older ones need ViaBackwards. |
 | `real-world-duplicate-uid` | WORLD_DUPLICATE |  | https://github.com/Multiverse/Multiverse-Core/issues/1877 | Delete uid.dat in the copied world: it is what says which world it is. |
 | `real-world-not-writable` | WORLD_LOCKED |  | https://github.com/itzg/docker-minecraft-server/issues/1080 | Give the folder to the user the server runs as (chown), or set the container's UID and GID to the owner's. |
 | `real-worldgen-settings-deleted` | WORLD_CORRUPT |  | https://github.com/PaperMC/Paper/issues/14066 | Restore that file from a backup: the server cannot start without it, and --safeMode does not help. |
 
-43 cases.
+46 cases.

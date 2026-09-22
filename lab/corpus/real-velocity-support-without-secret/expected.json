@@ -1,0 +1,9 @@
+{
+  "situation": "PROXY_FORWARDING",
+  "culprit": null,
+  "logs": [
+    "console.log"
+  ],
+  "source": "https://github.com/PaperMC/Velocity/issues/1043",
+  "fix": "Put the proxy's forwarding secret in proxies.velocity.secret, or turn Velocity support off."
+}

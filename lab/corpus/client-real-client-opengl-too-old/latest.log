@@ -1,0 +1,4 @@
+[23:16:42] [Datafixer Bootstrap/INFO]: 226 Datafixer optimizations took 563 milliseconds
+[23:16:46] [Render thread/INFO]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
+[23:16:46] [Render thread/INFO]: Setting user: CrashSleuth
+[23:16:46] [Render thread/INFO]: Backend library: LWJGL version 3.3.3+5

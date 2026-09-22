@@ -1,0 +1,42 @@
+TIMEOUT in 600 s
+missing software! (we will try basic console input)
+ ___________
+/           \ 
+| tiny file |
+|  dialogs  |
+\_____  ____/
+      \|
+tiny file dialogs on UNIX needs:
+   applescript or kdialog or yad or Xdialog
+or zenity (or matedialog or shellementary or qarma)
+or python (2 or 3) + tkinter + python-dbus (optional)
+or dialog (opens console if needed) ** Disabled by default **
+or xterm + bash (opens console for basic input)
+or existing console for basic input
+and the command `which` to detect any of the above.
+
+
+Minecraft
+
+GLFW error 65543: GLX: Failed to create context: GLXBadFBConfig.
+
+Please make sure you have up-to-date drivers (see aka.ms/mcdriver for instructions).
+
+press enter to continue 
+
+Exception in thread "Thread-0" java.io.IOException: Stream closed
+	at java.base/java.io.BufferedInputStream.ensureOpen(BufferedInputStream.java:206)
+	at java.base/java.io.BufferedInputStream.implRead(BufferedInputStream.java:411)
+	at java.base/java.io.BufferedInputStream.read(BufferedInputStream.java:405)
+	at java.base/sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:350)
+	at java.base/sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:393)
+	at java.base/sun.nio.cs.StreamDecoder.lockedRead(StreamDecoder.java:217)
+	at java.base/sun.nio.cs.StreamDecoder.read(StreamDecoder.java:171)
+	at java.base/java.io.InputStreamReader.read(InputStreamReader.java:188)
+	at java.base/java.io.BufferedReader.fill(BufferedReader.java:160)
+	at java.base/java.io.BufferedReader.implReadLine(BufferedReader.java:370)
+	at java.base/java.io.BufferedReader.readLine(BufferedReader.java:347)
+	at java.base/java.io.BufferedReader.readLine(BufferedReader.java:436)
+	at kotlin.io.LinesSequence$iterator$1.hasNext(ReadWrite.kt:94)
+	at dev.holo795.crashsleuth.runner.ServerLauncher.run$lambda$1(ServerLauncher.kt:148)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
