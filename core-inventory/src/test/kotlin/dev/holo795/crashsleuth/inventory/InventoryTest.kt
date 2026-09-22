@@ -163,10 +163,13 @@ class InventoryTest {
     fun `Java release read from the class files`() {
         root.resolve("versions/1.21.1").createDirectories()
         root.resolve("versions/1.21.1/paper-1.21.1.jar").writeText("")
-        jar("plugins", "Modern.jar", mapOf("plugin.yml" to "name: Modern\nversion: 1\nmain: a.B\n", "a/B.class" to classFile(25), "META-INF/versions/26/a/C.class" to classFile(26)))
+        jar("plugins", "Modern.jar", mapOf("plugin.yml" to "name: Modern\nversion: 1\nmain: a.B\n", "a/B.class" to classFile(25), "a/C.class" to classFile(8), "a/D.class" to classFile(8), "META-INF/versions/26/a/C.class" to classFile(26)))
+        // Optional adapters for a newer game do not raise the requirement (DecentHolograms case).
+        jar("plugins", "Adapters.jar", mapOf("plugin.yml" to "name: Adapters\nversion: 1\nmain: a.Main\n", "a/Main.class" to classFile(17), "a/v26/Adapter.class" to classFile(25)))
         jar("plugins", "Old.jar", mapOf("plugin.yml" to "name: Old\nversion: 1\nmain: a.B\n", "a/B.class" to classFile(17)))
         val inventory = InstanceScanner.scan(root)
-        assertEquals(25, inventory.jars.single { it.file == "Modern.jar" }.javaVersion)
+        assertEquals(25, inventory.jars.single { it.file == "Modern.jar" }.javaVersion, "entry class wins over the most common")
+        assertEquals(17, inventory.jars.single { it.file == "Adapters.jar" }.javaVersion)
         // Unknown runtime: compared with what Minecraft 1.21.1 needs (Java 21).
         val guessed = InventoryAnalyzer.analyze(inventory).single()
         assertEquals(Situation.JAVA_VERSION to "Modern", guessed.situation to guessed.culprits.single().id)

@@ -44,6 +44,8 @@ class RealWorldCorpusTest {
             .map { Diagnoser.Log(it, case.resolve(it.substringAfterLast('/')).readText()) }
         val inventory = case.resolve("inventory.json").takeIf { it.exists() }?.let { json.decodeFromString(Inventory.serializer(), it.readText()) }
         val report = diagnoser.diagnose(logs, inventory)
+        // Crashes that leave no explanation in the logs: only the culprit search can find them (bisect.json).
+        if (situation == null && expected["crashes"]?.jsonPrimitive?.content == "true") return
         if (situation == null) {
             assertTrue(report.findings.isEmpty(), "a clean start must give no finding, got ${report.findings.map { "${it.situation}${it.culprits.map { c -> c.id }}" }}")
             return

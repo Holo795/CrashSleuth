@@ -41,6 +41,8 @@ data class ModMetadata(
     val provides: List<String> = emptyList(),
     /** Minimum game API a plugin asks for (Bukkit/Paper "api-version"). */
     val apiVersion: String? = null,
+    /** Classes the loader starts first (plugin main class, Fabric entrypoints). */
+    val entrypoints: List<String> = emptyList(),
 )
 
 @Serializable

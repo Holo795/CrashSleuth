@@ -38,7 +38,7 @@ object JarScanner {
                 val files = zip.entries().asSequence().filterNot { it.isDirectory }
                     .associate { entry -> entry.name to { zip.getInputStream(entry).use(InputStream::readBytes) } }
                 val content = read(files, 0)
-                JarEntry(path.name, folder, size, content.mods, content.nested, javaVersion = javaVersion(zip))
+                JarEntry(path.name, folder, size, content.mods, content.nested, javaVersion = javaVersion(zip, content.mods.flatMap { it.entrypoints }))
             }
         } catch (error: Exception) {
             JarEntry(path.name, folder, size, error = error.message ?: error.javaClass.simpleName)
@@ -48,22 +48,27 @@ object JarScanner {
     private const val MAX_CLASSES = 4000
 
     /**
-     * Highest Java release among the classes of the jar, from the class file header. Multi-release
-     * classes (META-INF/versions/N) are left out: they only load on that Java.
+     * Java release the jar needs: the one of its entry class when the metadata names it (plugin main
+     * class, Fabric entrypoints), else the most common one. Not the highest: many jars ship optional
+     * adapters for newer games (DecentHolograms 2.10 has Java 25 classes for Minecraft 26 and runs on 21).
+     * Multi-release classes (META-INF/versions/N) are left out.
      */
-    private fun javaVersion(zip: ZipFile): Int? =
-        zip.entries().asSequence()
+    private fun javaVersion(zip: ZipFile, entries: List<String>): Int? {
+        fun version(name: String): Int? = zip.getEntry(name)?.let { entry ->
+            zip.getInputStream(entry).use { input ->
+                val header = input.readNBytes(8)
+                val magic = header.size == 8 && header[0] == 0xCA.toByte() && header[1] == 0xFE.toByte() &&
+                    header[2] == 0xBA.toByte() && header[3] == 0xBE.toByte()
+                if (magic) (((header[6].toInt() and 0xFF) shl 8) or (header[7].toInt() and 0xFF)) - 44 else null
+            }
+        }
+        entries.map { it.replace('.', '/') + ".class" }.mapNotNull(::version).maxOrNull()?.let { return it }
+        return zip.entries().asSequence()
             .filter { it.name.endsWith(".class") && !it.name.startsWith("META-INF/") }
             .take(MAX_CLASSES)
-            .mapNotNull { entry ->
-                zip.getInputStream(entry).use { input ->
-                    val header = input.readNBytes(8)
-                    val magic = header.size == 8 && header[0] == 0xCA.toByte() && header[1] == 0xFE.toByte() &&
-                        header[2] == 0xBA.toByte() && header[3] == 0xBE.toByte()
-                    if (magic) (((header[6].toInt() and 0xFF) shl 8) or (header[7].toInt() and 0xFF)) - 44 else null
-                }
-            }
-            .maxOrNull()
+            .mapNotNull { version(it.name) }
+            .groupingBy { it }.eachCount().maxByOrNull { it.value }?.key
+    }
 
     private class Content(val mods: List<ModMetadata>, val nested: List<ModMetadata>)
 
@@ -134,6 +139,9 @@ object JarScanner {
             dependencies = deps("depends", true) + deps("recommends", false),
             breaks = deps("breaks", true),
             provides = (root["provides"] as? JsonArray).orEmpty().mapNotNull { it.string() },
+            entrypoints = (root["entrypoints"] as? JsonObject).orEmpty().values.flatMap { value ->
+                (value as? JsonArray).orEmpty().mapNotNull { it.string() ?: (it as? JsonObject)?.get("value").string() }
+            }.map { it.substringBefore("::") },
         )
     }
 
@@ -233,6 +241,7 @@ object JarScanner {
                 root["softdepend"].stringList().map { Dependency(it, required = false) },
             provides = root["provides"].stringList(),
             apiVersion = root["api-version"]?.toString(),
+            entrypoints = listOfNotNull(root["main"]?.toString()),
         )
     }
 
@@ -257,6 +266,7 @@ object JarScanner {
             dependencies = dependencies,
             provides = root["provides"].stringList(),
             apiVersion = root["api-version"]?.toString(),
+            entrypoints = listOfNotNull(root["main"]?.toString()),
         )
     }
 
