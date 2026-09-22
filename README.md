@@ -14,6 +14,8 @@ CrashSleuth diagnoses crashes, startup failures, hangs, lag and connection probl
 - **Connections and proxies**: Velocity and BungeeCord, forwarding secret mismatch, backend server down, registry mismatch, disconnect reasons.
 - **Hangs and lag**: Paper watchdog dumps, deadlocks (JVM thread dumps and Paper's watchdog), repeated "Can't keep up" warnings, and **spark profiles**: the plugin or mod taking the main thread, with its share and heaviest method.
 - **While playing**: a crash during the tick of an entity or of a block names that entity or block, where it stands, and the mod behind it, on a server as well as in the game; a crash while the world is drawn names what the game was drawing (chunk sections, a block model, an entity, a screen) and the mod that was in the way.
+- **Reads the launcher's or panel's console too** (`console.log` next to the game's own log): a graphics driver that refuses the window, a JVM that will not start, a loader that dies first — none of that ever reaches `latest.log`.
+- **Pairs people found out the hard way**: two mods a maintainer says cannot live together, or a mod that needs another without declaring it, are named before anything crashes, with the link where it was established.
 - **Client side**: resource packs that cannot be opened or hold broken models, shader packs that do not compile (Iris), missing native libraries.
 - **Find the culprit** automatically: dependency-aware bisection with real launches, on servers and on the game client (vanilla, Fabric, NeoForge), including conflicts that only happen when two mods are installed together and crashes that only happen sometimes.
 - **Readable traces**: `class_310.method_22681` and `fgo.b` become Mojang's names (mappings downloaded once from Mojang and Fabric).

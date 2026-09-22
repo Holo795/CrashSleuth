@@ -1,11 +1,10 @@
 {
-  "situation": null,
+  "situation": "RENDER",
   "culprit": null,
   "logs": [
-    "latest.log",
     "console.log"
   ],
-  "crashes": true,
   "source": "https://github.com/PrismLauncher/PrismLauncher/issues/3264",
-  "fix": "Minecraft needs OpenGL 3.2 since 1.17: update the graphics driver, or play a version below 1.17."
+  "fix": "Minecraft has needed OpenGL 3.2 since 1.17: update the graphics driver, or play a version below 1.17.",
+  "note": "kept from a real run of the lab on a driver limited to OpenGL 2.1; the live scenario hangs, since a game that cannot open a window never gives up"
 }

@@ -13,7 +13,7 @@ to lead to the same answer on its own.
 | `client-real-client-fabric-api-wrong-point-release` | WRONG_MC | fabric-api | https://github.com/orgs/FabricMC/discussions/4034 | Take the Fabric API built for the exact point release you play. |
 | `client-real-client-forge-config-truncated` | CONFIG_BROKEN |  | https://forums.minecraftforge.net/topic/120264-the-game-crashed-whilst-initializing-game-error-javalangexceptionininitializererror-null-exit-code-1/ | Delete config/forge-resource-caching.toml: Forge writes a new one. |
 | `client-real-client-iris-needs-older-sodium` | DEP_VERSION | sodium | https://github.com/IrisShaders/Iris/issues/3136 | Iris 1.8.8 only works with Sodium 0.6.x: install that branch, or a newer Iris. |
-| `client-real-client-opengl-too-old` | clean start |  | https://github.com/PrismLauncher/PrismLauncher/issues/3264 | Minecraft needs OpenGL 3.2 since 1.17: update the graphics driver, or play a version below 1.17. |
+| `client-real-client-opengl-too-old` | RENDER |  | https://github.com/PrismLauncher/PrismLauncher/issues/3264 | Minecraft has needed OpenGL 3.2 since 1.17: update the graphics driver, or play a version below 1.17. |
 | `client-real-client-sodium-breaks-iris-recent` | MOD_CONFLICT | sodium | https://github.com/IrisShaders/Iris/issues/3349 | Update Iris past 1.10.7, or drop Sodium to a build that accepts it. |
 | `net-real-bungee-forwarding-one-sided-backend` | PROXY_FORWARDING |  | https://docs.papermc.io/velocity/faq/ | Turn IP forwarding on on both sides, or on neither: the proxy and the server must agree. |
 | `net-real-bungee-forwarding-one-sided-proxy` | PROXY_FORWARDING |  | https://docs.papermc.io/velocity/faq/ | Turn IP forwarding on on both sides, or on neither: the proxy and the server must agree. |
