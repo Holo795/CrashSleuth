@@ -156,3 +156,15 @@ class LogDocument(rawText: String) {
         private val CAUSED_BY = Regex("""^\s*Caused by:\s*(.+)$""")
     }
 }
+
+/**
+ * The mods a loader says it loaded. Fabric prints "- sodium 0.8.13+mc1.21.1" under "Loading 93 mods:",
+ * NeoForge and Forge print "\tsodium |Sodium |sodium |0.8.13" in their crash reports.
+ */
+fun LogDocument.modIds(): Set<String> {
+    val fabric = Regex("""^\s*(?:\||\\|-|\s)*-\s+([a-z][\w-]{2,})\s+\S+$""", RegexOption.MULTILINE)
+    val forge = Regex("""^\s*([a-z][\w-]{2,})\s*\|[^|\n]*\|\s*([\w.-]+)\s*\|""", RegexOption.MULTILINE)
+    return (fabric.findAll(text).map { it.groupValues[1] } + forge.findAll(text).map { it.groupValues[1] })
+        .map { it.lowercase() }.toSet()
+}
+

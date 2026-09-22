@@ -163,6 +163,39 @@ object InventoryAnalyzer {
         }
     }
 
+    /**
+     * The same knowledge, for a log that was pasted without its files: the loaders print the list of
+     * mods they loaded, and that is enough to name a pair known not to work together.
+     */
+    fun knownPairsAmong(ids: Set<String>): List<Finding> {
+        val present = ids.map { it.lowercase() }.toSet()
+        val findings = mutableListOf<Finding>()
+        KNOWN_PAIRS["incompatible"]?.jsonArray?.forEach { entry ->
+            val pair = entry.jsonObject
+            val a = pair.getValue("a").jsonPrimitive.content
+            val b = pair.getValue("b").jsonPrimitive.content
+            if (a !in present || b !in present) return@forEach
+            findings += Finding(
+                Situation.MOD_CONFLICT, Confidence.HIGH,
+                listOf(Culprit(CulpritKind.MOD, a), Culprit(CulpritKind.MOD, b)),
+                evidence = listOf(pair.getValue("why").jsonPrimitive.content, pair.getValue("source").jsonPrimitive.content),
+            )
+        }
+        KNOWN_PAIRS["needs"]?.jsonArray?.forEach { entry ->
+            val rule = entry.jsonObject
+            val id = rule.getValue("id").jsonPrimitive.content
+            val needed = rule.getValue("needs").jsonPrimitive.content
+            if (id !in present || needed in present) return@forEach
+            findings += Finding(
+                Situation.DEP_MISSING, Confidence.HIGH,
+                listOf(Culprit(CulpritKind.MOD, id), Culprit(CulpritKind.MOD, needed)),
+                evidence = listOf(rule.getValue("why").jsonPrimitive.content, rule.getValue("source").jsonPrimitive.content),
+                details = mapOf("requester" to id, "dependency" to needed),
+            )
+        }
+        return findings
+    }
+
     private val KNOWN_PAIRS: JsonObject by lazy {
         val text = InventoryAnalyzer::class.java.classLoader.getResourceAsStream("crashsleuth/known-pairs.json")!!.use { it.readBytes().toString(Charsets.UTF_8) }
         Json.parseToJsonElement(text).jsonObject

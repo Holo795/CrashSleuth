@@ -2,6 +2,7 @@
   "situation": "DEP_VERSION",
   "culprit": "iris",
   "logs": [
-    "latest.log"
+    "latest.log",
+    "console.log"
   ]
 }

@@ -1,3 +1,4 @@
+CRASHED in 3 s
 [01:36:23] [main/INFO]: Loading Minecraft 1.21.1 with Fabric Loader 0.19.5
 [01:36:23] [main/INFO]: Fabric is preparing JARs on first launch, this may take a few seconds...
 [01:36:23] [main/WARN]: Mod resolution failed
@@ -7,11 +8,12 @@
 [01:36:23] [main/ERROR]: Incompatible mods found!
 net.fabricmc.loader.impl.FormattedException: Some of your mods are incompatible with the game or each other!
 A potential solution has been determined, this may resolve your problem:
-	 - Install yet_another_config_lib_v3, version 3.6.6 or later.
+         - Install yet_another_config_lib_v3, version 3.6.6 or later.
 More details:
-	 - Mod 'Zoomify' (zoomify) 2.15.2+1.21.1 requires version 3.6.6 or later of yet_another_config_lib_v3, which is missing!
-	at net.fabricmc.loader.impl.FormattedException.ofLocalized(FormattedException.java:51) ~[fabric-loader-0.19.5.jar:?]
-	at net.fabricmc.loader.impl.FabricLoaderImpl.load(FabricLoaderImpl.java:202) ~[fabric-loader-0.19.5.jar:?]
-	at net.fabricmc.loader.impl.launch.knot.Knot.init(Knot.java:142) ~[fabric-loader-0.19.5.jar:?]
-	at net.fabricmc.loader.impl.launch.knot.Knot.launch(Knot.java:66) [fabric-loader-0.19.5.jar:?]
-	at net.fabricmc.loader.impl.launch.knot.KnotClient.main(KnotClient.java:23) [fabric-loader-0.19.5.jar:?]
+         - Mod 'Zoomify' (zoomify) 2.15.2+1.21.1 requires version 3.6.6 or later of yet_another_config_lib_v3, which is missing!
+        at net.fabricmc.loader.impl.FormattedException.ofLocalized(FormattedException.java:51) ~[fabric-loader-0.19.5.jar:?]
+        at net.fabricmc.loader.impl.FabricLoaderImpl.load(FabricLoaderImpl.java:202) ~[fabric-loader-0.19.5.jar:?]
+        at net.fabricmc.loader.impl.launch.knot.Knot.init(Knot.java:142) ~[fabric-loader-0.19.5.jar:?]
+        at net.fabricmc.loader.impl.launch.knot.Knot.launch(Knot.java:66) [fabric-loader-0.19.5.jar:?]
+        at net.fabricmc.loader.impl.launch.knot.KnotClient.main(KnotClient.java:23) [fabric-loader-0.19.5.jar:?]
+

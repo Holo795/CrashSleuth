@@ -2,6 +2,7 @@
   "situation": "DEP_MISSING",
   "culprit": "yet_another_config_lib",
   "logs": [
-    "latest.log"
+    "latest.log",
+    "console.log"
   ]
 }

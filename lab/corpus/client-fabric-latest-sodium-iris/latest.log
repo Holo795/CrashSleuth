@@ -1,10 +1,10 @@
-[21:33:02] [main/INFO]: Loading Minecraft 1.21.1 with Fabric Loader 0.19.5
-[21:33:02] [main/INFO]: Fabric is preparing JARs on first launch, this may take a few seconds...
-[21:33:02] [main/WARN]: Mod resolution failed
-[21:33:02] [main/INFO]: Immediate reason: [HARD_DEP_NO_CANDIDATE iris 1.8.8+mc1.21.1 {depends sodium @ [0.6.x]}, ROOT_FORCELOAD_SINGLE iris 1.8.8+mc1.21.1]
-[21:33:02] [main/INFO]: Reason: [HARD_DEP iris 1.8.8+mc1.21.1 {depends sodium @ [0.6.x]}, NEG_HARD_DEP sodium 0.8.13+mc1.21.1 {breaks iris @ [<1.8.13]}]
-[21:33:02] [main/INFO]: Fix: add [], remove [], replace [[sodium 0.8.13+mc1.21.1] -> add:sodium 0.6- ([[0.6-,0.7-)])]
-[21:33:02] [main/ERROR]: Incompatible mods found!
+[01:36:17] [main/INFO]: Loading Minecraft 1.21.1 with Fabric Loader 0.19.5
+[01:36:17] [main/INFO]: Fabric is preparing JARs on first launch, this may take a few seconds...
+[01:36:17] [main/WARN]: Mod resolution failed
+[01:36:17] [main/INFO]: Immediate reason: [HARD_DEP_NO_CANDIDATE iris 1.8.8+mc1.21.1 {depends sodium @ [0.6.x]}, ROOT_FORCELOAD_SINGLE iris 1.8.8+mc1.21.1]
+[01:36:17] [main/INFO]: Reason: [HARD_DEP iris 1.8.8+mc1.21.1 {depends sodium @ [0.6.x]}, NEG_HARD_DEP sodium 0.8.13+mc1.21.1 {breaks iris @ [<1.8.13]}]
+[01:36:17] [main/INFO]: Fix: add [], remove [], replace [[sodium 0.8.13+mc1.21.1] -> add:sodium 0.6- ([[0.6-,0.7-)])]
+[01:36:17] [main/ERROR]: Incompatible mods found!
 net.fabricmc.loader.impl.FormattedException: Some of your mods are incompatible with the game or each other!
 A potential solution has been determined, this may resolve your problem:
 	 - Replace mod 'Sodium' (sodium) 0.8.13+mc1.21.1 with any 0.6.x version.

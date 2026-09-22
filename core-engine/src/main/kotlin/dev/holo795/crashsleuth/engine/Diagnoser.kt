@@ -7,6 +7,7 @@ import dev.holo795.crashsleuth.inventory.InventoryAnalyzer
 import dev.holo795.crashsleuth.inventory.MixinIndex
 import dev.holo795.crashsleuth.logs.LogAnalyzer
 import dev.holo795.crashsleuth.logs.LogDocument
+import dev.holo795.crashsleuth.logs.modIds
 import dev.holo795.crashsleuth.logs.SparkProfile
 import dev.holo795.crashsleuth.logs.UncaughtExceptionDetector
 import dev.holo795.crashsleuth.model.Culprit
@@ -34,7 +35,11 @@ class Diagnoser(private val logAnalyzer: LogAnalyzer = LogAnalyzer()) {
         val environment = reports.map { it.environment }.fold(Environment(), ::merge)
             .let { if (inventory == null) it else merge(it, Environment(inventory.platform, inventory.minecraftVersion, inventory.loaderVersion, side = inventory.side)) }
         val fromLogs = preferNamed(dedup(profiles + reports.flatMap { it.findings })).filterNot { ownRecipe(it, inventory) }
-        val fromFiles = inventory?.let { InventoryAnalyzer.analyze(it, environment) }.orEmpty()
+        // A log pasted on its own still names the mods that were loaded: enough for the pairs that are
+        // known not to work together, even with no files to look at.
+        val fromList = if (inventory != null) emptyList() else
+            InventoryAnalyzer.knownPairsAmong(logs.flatMap { LogDocument(it.text).modIds() }.toSet())
+        val fromFiles = (inventory?.let { InventoryAnalyzer.analyze(it, environment) } ?: fromList)
             .filterNot { finding -> fromLogs.any { same(it, finding) } }
         val attributed = if (fromLogs.none(::needsMixinSuspects)) fromLogs else mixins()?.let { index -> fromLogs.map { suspectsByMixins(it, logs, index) } } ?: fromLogs
         return Report(

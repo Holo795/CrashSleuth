@@ -1,0 +1,26 @@
+CRASHED in 5 s
+[01:36:39] [main/INFO]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=file:/cache/game/libraries/net/fabricmc/sponge-mixin/0.17.4+mixin.0.8.7/sponge-mixin-0.17.4+mixin.0.8.7.jar Service=Knot/Fabric Env=CLIENT
+[01:36:39] [main/INFO]: Option 'mixin.entity.collisions.fluid' requires 'mixin.util.block_tracking=true' but found 'false'. Setting 'mixin.entity.collisions.fluid=false'.
+[01:36:39] [main/INFO]: Option 'mixin.experimental.entity.block_caching.block_support' requires 'mixin.util.block_tracking=true' but found 'false'. Setting 'mixin.experimental.entity.block_caching.block_support=false'.
+[01:36:39] [main/INFO]: Option 'mixin.experimental.entity.block_caching.fluid_pushing' requires 'mixin.util.block_tracking=true' but found 'false'. Setting 'mixin.experimental.entity.block_caching.fluid_pushing=false'.
+[01:36:39] [main/INFO]: Option 'mixin.experimental.entity.block_caching.block_touching' requires 'mixin.util.block_tracking=true' but found 'false'. Setting 'mixin.experimental.entity.block_caching.block_touching=false'.
+[01:36:39] [main/INFO]: Option 'mixin.experimental.entity.block_caching.suffocation' requires 'mixin.util.block_tracking=true' but found 'false'. Setting 'mixin.experimental.entity.block_caching.suffocation=false'.
+[01:36:39] [main/INFO]: Option 'mixin.experimental.entity.block_caching' requires 'mixin.util.block_tracking=true' but found 'false'. Setting 'mixin.experimental.entity.block_caching=false'.
+[01:36:39] [main/INFO]: Loaded configuration file for Lithium: 150 options available, 0 override(s) found
+[01:36:39] [main/INFO]: Loaded configuration file for Sodium: 45 options available, 0 override(s) found
+[01:36:39] [main/WARN]: Reference map 'yet_another_config_lib_v3.refmap.json' for yacl.mixins.json could not be read. If this is a development environment you can ignore this message
+[01:36:39] [main/WARN]: Reference map 'yet_another_config_lib_v3.refmap.json' for yacl-fabric.mixins.json could not be read. If this is a development environment you can ignore this message
+[01:36:39] [main/WARN]: Error loading class: mezz/jei/fabric/platform/RenderHelper (java.lang.ClassNotFoundException: mezz/jei/fabric/platform/RenderHelper)
+[01:36:39] [main/WARN]: @Mixin target mezz.jei.fabric.platform.RenderHelper was not found appleskin.jei.mixins.json:JEIRenderHelperMixin from mod appleskin
+[01:36:39] [main/WARN]: Error loading class: net/minecraft/world/entity/Entity (java.lang.ClassNotFoundException: net/minecraft/world/entity/Entity)
+[01:36:39] [main/WARN]: @Mixin target net.minecraft.world.entity.Entity was not found crashsleuth_fixture.mixins.json:EntityTickMixin from mod crashsleuth_fixture
+[01:36:39] [main/WARN]: Error loading class: net/minecraft/world/level/block/entity/AbstractFurnaceBlockEntity (java.lang.ClassNotFoundException: net/minecraft/world/level/block/entity/AbstractFurnaceBlockEntity)
+[01:36:39] [main/WARN]: @Mixin target net.minecraft.world.level.block.entity.AbstractFurnaceBlockEntity was not found crashsleuth_fixture.mixins.json:FurnaceTickMixin from mod crashsleuth_fixture
+[01:36:39] [main/INFO]: Searching for graphics cards...
+[01:36:39] [main/INFO]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.5.5).
+[01:36:40] [Datafixer Bootstrap/INFO]: 226 Datafixer optimizations took 94 milliseconds
+[01:36:41] [Render thread/INFO]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
+[01:36:41] [Render thread/INFO]: Setting user: CrashSleuth
+[01:36:41] [Render thread/INFO]: [STDOUT]: [CrashSleuthFixture] mode: halt
+[01:36:41] [Render thread/INFO]: [STDOUT]: [CrashSleuthFixture] mode: halt
+

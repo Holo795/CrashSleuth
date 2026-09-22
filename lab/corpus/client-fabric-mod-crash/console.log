@@ -1,0 +1,26 @@
+CRASHED in 7 s
+                        com_twelvemonkeys_common_common-lang: common-lang 3.12.0
+                        com_twelvemonkeys_imageio_imageio-core: imageio-core 3.12.0
+                        com_twelvemonkeys_imageio_imageio-metadata: imageio-metadata 3.12.0
+                        com_twelvemonkeys_imageio_imageio-webp: imageio-webp 3.12.0
+                        org_quiltmc_parsers_gson: gson 0.2.1
+                        org_quiltmc_parsers_json: json 0.2.1
+                zoomify: Zoomify 2.15.2+1.21.1
+                        com_akuleshov7_ktoml-core-jvm: ktoml-core-jvm 0.7.1
+        Launched Version: 1.21.1
+        Launcher name: CrashSleuth
+        Backend library: LWJGL version 3.3.3-snapshot
+        Backend API: Unknown
+        Window size: <not initialized>
+        GFLW Platform: <error>
+        GL Caps: Using framebuffer using OpenGL 3.2
+        GL debug messages: <disabled>
+        Is Modded: Definitely; Client brand changed to 'fabric'
+        Universe: 404
+        Type: Client (map_client.txt)
+        Locale: fr_FR
+        System encoding: UTF-8
+        File encoding: UTF-8
+        CPU: <unknown>
+#@!@# Game crashed! Crash report saved to: #@!@# /srv/client/fabric-mod-crash/crash-reports/crash-2026-09-23_01.36.32-client.txt
+

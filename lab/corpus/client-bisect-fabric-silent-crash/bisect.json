@@ -32,7 +32,7 @@
     "mods/zoomify-2.15.2+1.21.1.jar"
    ],
    "outcome": "CRASHED",
-   "seconds": 3.072112875,
+   "seconds": 3.104369334,
    "sameFailure": true,
    "note": "reference"
   },
@@ -48,7 +48,7 @@
     "mods/fabric-language-kotlin-1.14.1+kotlin.2.4.20.jar"
    ],
    "outcome": "CRASHED",
-   "seconds": 3.106912833,
+   "seconds": 2.934915917,
    "sameFailure": true,
    "note": null
   },
@@ -62,7 +62,7 @@
     "mods/fabric-api-0.116.17+1.21.1.jar"
    ],
    "outcome": "CRASHED",
-   "seconds": 3.11383675,
+   "seconds": 3.07723475,
    "sameFailure": true,
    "note": null
   },
@@ -74,7 +74,7 @@
     "mods/fabric-api-0.116.17+1.21.1.jar"
    ],
    "outcome": "READY",
-   "seconds": 14.706898583,
+   "seconds": 14.480133791,
    "sameFailure": false,
    "note": null
   },
@@ -86,7 +86,7 @@
     "mods/fabric-api-0.116.17+1.21.1.jar"
    ],
    "outcome": "CRASHED",
-   "seconds": 2.9284625,
+   "seconds": 2.854473875,
    "sameFailure": true,
    "note": null
   },
@@ -97,7 +97,7 @@
     "mods/fabric-api-0.116.17+1.21.1.jar"
    ],
    "outcome": "READY",
-   "seconds": 14.705348292,
+   "seconds": 14.49719825,
    "sameFailure": false,
    "note": null
   },
@@ -107,7 +107,7 @@
     "mods/crashsleuth-fixture-1.0.0.jar"
    ],
    "outcome": "CRASHED",
-   "seconds": 2.394992417,
+   "seconds": 2.438091541,
    "sameFailure": true,
    "note": null
   }
