@@ -39,7 +39,8 @@ def start_container(name: str, directory: Path, command: str, publish: int | Non
             "-e", "HOME=/srv", "--user", f"{os.getuid()}:{os.getgid()}", "--memory", "3g"]
     if publish:
         args += ["-p", f"127.0.0.1:{publish}:{publish}"]
-    docker(*args, f"eclipse-temurin:{java}-jdk", "sh", "-c", f"{command} > console.log 2>&1")
+    # exec: the server gets the stop signal itself and saves the world and the players.
+    docker(*args, f"eclipse-temurin:{java}-jdk", "sh", "-c", f"exec {command} >> console.log 2>&1")
 
 
 def wait_for(directory: Path, pattern: str, container: str, seconds: int = 300) -> bool:
@@ -123,6 +124,7 @@ SCENARIOS = {
     "proxy-secret-mismatch": "Velocity and Paper do not share the same forwarding secret",
     "proxy-backend-down": "Velocity points to a backend server that is not running",
     "mod-missing-on-client": "Fabric server with Farmer's Delight, the player only has Fabric API",
+    "playerdata-corrupt": "Paper 1.21.1: the player joins, the server stops, the player's save is damaged, the player joins again",
 }
 
 
@@ -171,6 +173,31 @@ def run_scenario(name: str, cli: str, java: str) -> tuple[bool, str]:
             found = any(f["situation"] == "MOD_MISMATCH" and any("farmers" in c["id"] for c in f["culprits"]) for f in compare)
             logged = any(f["situation"] in ("MOD_MISMATCH", "REGISTRY_MISMATCH") for f in reports["player"]["findings"])
             return outcome != "READY" and found and logged, text
+        if name == "playerdata-corrupt":
+            server = base / "server"
+            paper_backend(server, None, [])
+            start_container("cs-backend", server, "java -Xmx1G -jar server.jar nogui", SERVER_PORT)
+            if not wait_for(server, "Done (", "cs-backend"):
+                return False, "server did not start"
+            client_folder(player, [])
+            first = join(cli, java, player, "vanilla", SERVER_PORT)
+            docker("stop", "-t", "60", "cs-backend")
+            saves = sorted((server / "world" / "playerdata").glob("*.dat*"))
+            if first != "READY" or not saves:
+                return False, f"first join={first}, player files={[s.name for s in saves]}"
+            for save in saves:
+                save.write_bytes(save.read_bytes()[:30])
+            logs = server / "logs" / "latest.log"
+            before = analyse(cli, server)
+            docker("start", "cs-backend")
+            if not wait_for(server, "Done (", "cs-backend"):
+                return False, "server did not start again"
+            second = join(cli, java, player, "vanilla", SERVER_PORT)
+            time.sleep(3)
+            after = analyse(cli, server)
+            text = f"join={first}/{second} | before start: {summary(before)} | after: {summary(after)} | log: {logs.exists()}"
+            found = lambda report: any(f["situation"] == "CORRUPT_PLAYERDATA" for f in report["findings"])
+            return found(before) and found(after), text
         return False, "unknown scenario"
     finally:
         for container in ("cs-backend", "cs-proxy", "cs-fabric"):
@@ -184,6 +211,7 @@ EXPECTED = {
     "proxy-secret-mismatch": {"player": "PROXY_FORWARDING", "proxy": "PROXY_FORWARDING", "backend": "PROXY_FORWARDING"},
     "proxy-backend-down": {"player": "PROXY_BACKEND", "proxy": "PROXY_BACKEND"},
     "mod-missing-on-client": {"player": "REGISTRY_MISMATCH", "server": None},
+    "playerdata-corrupt": {"server": "CORRUPT_PLAYERDATA"},
 }
 
 

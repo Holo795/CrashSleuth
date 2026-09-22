@@ -818,5 +818,99 @@
     "expect": {
       "situation": "DATAPACK_BROKEN"
     }
+  },
+  {
+    "platform": "vanilla",
+    "minecraft": "1.21.1",
+    "java": 21,
+    "name": "world-chunks-corrupt",
+    "description": "Vanilla 1.21.1 whose region files have chunks with garbage in their compressed data: the server never finishes starting",
+    "mutate": [
+      {
+        "corrupt_chunks": "world/region",
+        "every": 1,
+        "how": "payload"
+      }
+    ],
+    "expect": {
+      "situation": "CORRUPT_CHUNK"
+    },
+    "timeout": 150
+  },
+  {
+    "platform": "vanilla",
+    "minecraft": "1.21.1",
+    "java": 21,
+    "name": "world-chunks-bad-compression",
+    "description": "Vanilla 1.21.1 whose chunks name a compression type that does not exist",
+    "mutate": [
+      {
+        "corrupt_chunks": "world/region",
+        "every": 1,
+        "how": "compression"
+      }
+    ],
+    "expect": {
+      "situation": "CORRUPT_CHUNK"
+    }
+  },
+  {
+    "platform": "vanilla",
+    "minecraft": "1.21.1",
+    "java": 21,
+    "name": "world-entities-corrupt",
+    "description": "Vanilla 1.21.1 whose entity region files are damaged",
+    "mutate": [
+      {
+        "corrupt_chunks": "world/entities",
+        "every": 1,
+        "how": "payload"
+      }
+    ],
+    "expect": {
+      "situation": "CORRUPT_ENTITY"
+    },
+    "properties": "level-seed=2151901553968352745\n"
+  },
+  {
+    "platform": "paper",
+    "minecraft": "1.21.1",
+    "java": 21,
+    "name": "paper-chunks-corrupt",
+    "description": "Paper 1.21.1 whose region files have damaged chunks",
+    "mutate": [
+      {
+        "corrupt_chunks": "world/region",
+        "every": 1,
+        "how": "payload"
+      }
+    ],
+    "expect": {
+      "situation": "CORRUPT_CHUNK"
+    }
+  },
+  {
+    "platform": "vanilla",
+    "minecraft": "1.21.1",
+    "java": 21,
+    "name": "world-chunks-corrupt-before-start",
+    "description": "Vanilla 1.21.1 world with damaged chunks and entities, checked before the server starts (it regenerates what it cannot read)",
+    "mutate": [
+      {
+        "corrupt_chunks": "world/region",
+        "every": 7,
+        "how": "payload"
+      },
+      {
+        "corrupt_chunks": "world/entities",
+        "every": 1,
+        "how": "compression"
+      }
+    ],
+    "expect": {
+      "situation": "CORRUPT_CHUNK"
+    },
+    "check_before": true,
+    "properties": "level-seed=2151901553968352745\n"
   }
 ]

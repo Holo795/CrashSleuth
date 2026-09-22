@@ -1,8 +1,20 @@
 # CrashSleuth — Spécification
 
-**Version 8 — 22/09/2026** — v7 + application de bureau, rapports partagés par lien, fichiers du serveur (monde, EULA, configuration), proxys, comparaison joueur / serveur, labo réseau.
+**Version 9 — 22/09/2026** — v8 + lecture des mondes : chunks, entités et sauvegardes des joueurs.
 
-### Changements depuis la v7
+### Changements depuis la v8
+- **Lecture des fichiers de région** (§6.1) avant tout démarrage, comme le jeu les lit : en-tête, emplacement de chaque chunk (dans l'en-tête, après la fin du fichier, secteurs partagés), longueur, type de compression, fichier `.mcc` des gros chunks, décompression puis NBT. Blocs (`region/`) et entités (`entities/`) séparés, pour le monde principal, le Nether, l'End, les dimensions des datapacks et les dossiers `world_nether` / `world_the_end` de Paper. Budget de 8 secondes pour tous les mondes d'un dossier : un très gros monde est lu en partie et le rapport le dit.
+- Chaque chunk abîmé est **nommé par sa position** (comme le fait le jeu) et le rapport donne le **fichier à restaurer** (`region/r.-1.0.mca`, calculé depuis les coordonnées).
+- **Sauvegardes des joueurs** (`playerdata/*.dat`) : illisibles ou déjà mises de côté par le jeu (`<uuid>_corrupted_<date>.dat`), avec le **nom du joueur** lu dans `usercache.json`.
+- **Nouvelles signatures** (49 en tout), relevées dans les vrais journaux : `Failed to load chunk x,z`, `Chunk [x, z] has invalid chunk stream version`, `Failed to load entity chunk`, chez Paper `Failed to read chunk data for task … type: CHUNK_DATA / ENTITY_DATA` et `Corrupt regionfile header detected`, `Failed to load player data for <joueur>`.
+- **Constats réels du labo** :
+  - des données illisibles dans les chunks font **manquer de mémoire** le serveur (une taille absurde lue dans le chunk) ; en vanilla il **ne finit jamais de démarrer**. Ces erreurs de mémoire levées pendant la lecture des chunks sont désormais rattachées à la vraie cause (le chunk abîmé) au lieu d'un faux « manque de mémoire » ;
+  - le serveur **régénère en silence** les chunks qu'il ne sait pas lire : ce qui y était construit est perdu, et les fichiers ne montrent plus rien après coup, d'où la lecture avant le démarrage ;
+  - Paper met de côté une sauvegarde de joueur abîmée et fait repartir le joueur de zéro, avec un simple avertissement.
+- **Labo** : 6 scénarios de monde (chunks remplis de données illisibles, compression inconnue, entités abîmées, Paper, lecture avant démarrage) et un scénario réseau où le vrai jeu se connecte, le serveur s'arrête, la sauvegarde du joueur est abîmée, et le joueur revient. **Tous réussis** ; le lecteur NBT vérifie aussi chaque taille contre les octets restants, pour ne jamais manquer de mémoire lui-même.
+- 122 tests, 71 cas réels rejoués.
+
+### Changements de la v8 (rappel)
 - **Application de bureau** (§9, jalon 4) : Compose, anglais et français, clair et sombre selon le système, épurée. On y dépose un dossier de serveur, un dossier de jeu, un modpack, un dossier de mods ou de plugins en vrac, ou un journal. Sous la zone de dépôt, un choix **Serveur / Joueur** s'applique aux modpacks et aux listes de mods ; pour un dossier ou un journal, le côté est reconnu tout seul. Le rapport montre la cause, le coupable, quoi faire, ce qui est installé et les chevauchements de mixins ; la recherche du coupable se lance d'un bouton (Java trouvée toute seule, chaque lancement affiché). Installeurs macOS, Windows et Linux avec icône. Pensée aussi pour un serveur qui tourne sur un ordinateur de bureau.
 - **Rapport partagé par lien, à la manière de spark** : `analyze --share`, `bisect --share` et le bouton Partager donnent un lien dont le rapport est **dans la partie après le #** : les navigateurs ne l'envoient jamais, rien n'est téléversé ni stocké, aucun port à ouvrir. La page qui l'affiche (`docs/r`, GitHub Pages) ne fait aucune requête extérieure.
 - **Autres vérifications** (bureau) : « Comparer avec un serveur » et « Vérifier les mises à jour » ; en ligne de commande `analyze --server <dossier>` et `analyze --online`.
@@ -145,7 +157,7 @@ Versions et plateformes principales d'abord, les autres ensuite.
 - Un **dossier** : `mods/`, `plugins/`, dossier complet de serveur ou d'instance.
 - Un **modpack** : zip CurseForge, `.mrpack` Modrinth, instance Prism / MultiMC / ATLauncher / FTB, ou l'**ID ou le lien** d'un pack (l'outil télécharge lui-même).
 - Des **journaux** : `crash-reports/*.txt`, `logs/latest.log`, `debug.log`, `hs_err_pid*.log` (crash natif de Java), logs du launcher, rapports spark, sortie du watchdog.
-- Plus tard : une **copie du monde**, pour reproduire un crash survenu en jeu.
+- Un **monde** (dossier de sauvegarde, avec ou sans le serveur) : chunks, entités et joueurs sont lus ; plus tard, une copie du monde pour reproduire un crash survenu en jeu.
 
 L'outil **détecte seul** la plateforme, la version de Minecraft, le loader et la version de Java à partir de ce qu'on lui donne.
 

@@ -1,0 +1,7 @@
+{
+  "situation": "CORRUPT_CHUNK",
+  "culprit": null,
+  "logs": [
+    "latest.log"
+  ]
+}

@@ -222,8 +222,10 @@ private fun moduleFormat(document: LogDocument, environment: Environment): List<
 object OutOfMemoryDetector : Detector {
     private val LINE = Regex("""java\.lang\.OutOfMemoryError(?::\s*(.+))?""")
 
+    // A damaged chunk can announce a huge size and exhaust memory in the threads that read chunks from disk:
+    // there the error is a consequence, the damaged chunk is the cause.
     override fun detect(document: LogDocument, environment: Environment): List<Finding> {
-        val match = document.find(LINE) ?: return emptyList()
+        val match = document.findAll(LINE).firstOrNull { !whileReadingChunks(document, it.range.first) } ?: return emptyList()
         return listOf(
             Finding(
                 situation = Situation.OUT_OF_MEMORY,
@@ -234,6 +236,12 @@ object OutOfMemoryDetector : Detector {
             ),
         )
     }
+}
+
+/** The log entry an error belongs to (its line with the time and thread) was written while reading chunks. */
+private fun whileReadingChunks(document: LogDocument, offset: Int): Boolean {
+    val owner = document.text.substring(0, offset).split('\n').takeLast(80).lastOrNull { it.startsWith("[") } ?: return false
+    return Regex("""IO-Worker-\d+|RegionFile I/O Thread|Failed to (?:read|load) (?:entity )?chunk""").containsMatchIn(owner)
 }
 
 /** `java.lang.StackOverflowError`: the repeating frames tell who loops. */

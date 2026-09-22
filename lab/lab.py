@@ -241,6 +241,7 @@ class Scenario:
     docker_args: list[str] = field(default_factory=list)  # extra docker run options (a tiny disk, for instance)
     seed: dict | None = None                            # {"platform", "minecraft"}: a server of another version creates the world first
     mutate: list[dict] = field(default_factory=list)    # after a first clean start: {"garble"|"truncate"|"delete"|"write": path, ...}
+    properties: str = ""                                # extra server.properties lines (a fixed level-seed)
     check_before: bool = False                          # judge the analysis made before the start (the server rewrites what it finds)
     flaky: bool = False                                 # crashes only sometimes: the first start may succeed
     bisect: dict | None = None                          # {"culprits": [...], "max_runs"?}: culprit search expected result
@@ -263,7 +264,7 @@ def prepare(scenario: Scenario, directory: Path) -> list[str]:
     directory.mkdir(parents=True)
     (directory / "eula.txt").write_text("eula=true\n")
     # Default world generation: a flat world without generator settings makes the server log an error of its own.
-    (directory / "server.properties").write_text("online-mode=false\nspawn-protection=0\nview-distance=4\nsimulation-distance=4\n")
+    (directory / "server.properties").write_text("online-mode=false\nspawn-protection=0\nview-distance=4\nsimulation-distance=4\n" + scenario.properties)
     java = f"-Xms256M -Xmx{scenario.memory} {scenario.jvm_extra}".strip()
     mods_dir = directory / ("plugins" if scenario.platform in ("paper", "purpur") else "mods")
 
@@ -313,9 +314,12 @@ def prepare(scenario: Scenario, directory: Path) -> list[str]:
 def apply_mutations(scenario: Scenario, directory: Path) -> None:
     """Breaks files on purpose once a first clean start has created them."""
     for action in scenario.mutate:
-        kind = next(k for k in ("garble", "truncate", "delete", "write") if k in action)
+        kind = next(k for k in ("garble", "truncate", "delete", "write", "corrupt_chunks") if k in action)
         target = directory / action[kind]
-        if kind == "garble":
+        if kind == "corrupt_chunks":
+            for region in sorted(target.glob("*.mca")):
+                corrupt_chunks(region, action.get("every", 1), action.get("how", "payload"))
+        elif kind == "garble":
             text = target.read_text(errors="replace")
             target.write_text(text[: len(text) // 2] + "\n=== not valid [[ {\n" + text[len(text) // 2:])
         elif kind == "truncate":
@@ -328,6 +332,27 @@ def apply_mutations(scenario: Scenario, directory: Path) -> None:
         else:
             target.parent.mkdir(parents=True, exist_ok=True)
             target.write_text(action["text"])
+
+
+def corrupt_chunks(region: Path, every: int, how: str) -> None:
+    """Damages chunks of an Anvil region file the way a crash or a bad disk does: garbage inside the
+    compressed data ("payload"), an unknown compression type ("compression"), or a location past the
+    end of the file ("offset")."""
+    data = bytearray(region.read_bytes())
+    for index in range(0, 1024, every):
+        entry = int.from_bytes(data[index * 4:index * 4 + 3], "big")
+        if entry == 0 or len(data) < 8192:
+            continue
+        start = entry * 4096
+        if how == "offset":
+            data[index * 4:index * 4 + 3] = (len(data) // 4096 + 50).to_bytes(3, "big")
+        elif how == "compression":
+            data[start + 4] = 42
+        else:
+            length = int.from_bytes(data[start:start + 4], "big")
+            middle = start + 5 + length // 3
+            data[middle:middle + 64] = bytes((i * 37 + 11) % 256 for i in range(64))
+    region.write_bytes(bytes(data))
 
 
 def prepare_command_without_pre(command: list[str], pre: str) -> list[str]:

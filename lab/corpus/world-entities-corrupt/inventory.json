@@ -1,0 +1,54 @@
+{
+ "platform": "VANILLA",
+ "minecraftVersion": "1.21.1",
+ "loaderVersion": null,
+ "side": "SERVER",
+ "jars": [],
+ "skipped": [],
+ "files": {
+  "worlds": [
+   {
+    "name": "world",
+    "versionName": "1.21.1",
+    "dataVersion": 3955,
+    "unreadable": null,
+    "hasBackup": true,
+    "locked": false,
+    "damagedChunks": [
+     {
+      "folder": "entities",
+      "file": "entities/r.-1.-1.mca",
+      "x": -2,
+      "z": -3,
+      "reason": "compressed data is damaged (invalid distance too far back)"
+     },
+     {
+      "folder": "entities",
+      "file": "entities/r.-1.0.mca",
+      "x": -3,
+      "z": 0,
+      "reason": "compressed data is damaged (invalid distance too far back)"
+     },
+     {
+      "folder": "entities",
+      "file": "entities/r.-1.0.mca",
+      "x": -2,
+      "z": 0,
+      "reason": "compressed data is damaged (invalid distance too far back)"
+     },
+     {
+      "folder": "entities",
+      "file": "entities/r.0.-1.mca",
+      "x": 3,
+      "z": -3,
+      "reason": "compressed data is damaged (invalid distance too far back)"
+     }
+    ],
+    "chunksChecked": 845,
+    "chunksComplete": true
+   }
+  ],
+  "eulaAccepted": true,
+  "configErrors": []
+ }
+}

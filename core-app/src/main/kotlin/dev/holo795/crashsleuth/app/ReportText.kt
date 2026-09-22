@@ -40,6 +40,13 @@ class ReportText(val messages: Messages) {
             Situation.MOD_CONFLICT -> messages.advice(finding.situation, first, finding.culprits.getOrNull(1)?.let { describe(it) } ?: "?")
             Situation.OUTDATED -> messages.advice(finding.situation, first, details["latest"])
             Situation.WORLD_DOWNGRADE -> messages.advice(finding.situation, details["expected"], details["actual"])
+            Situation.CORRUPT_CHUNK, Situation.CORRUPT_ENTITY -> {
+                val x = details["x"]?.toIntOrNull()
+                val z = details["z"]?.toIntOrNull()
+                val region = details["region"] ?: if (x != null && z != null) "r.${Math.floorDiv(x, 32)}.${Math.floorDiv(z, 32)}.mca" else "?"
+                val folder = if (finding.situation == Situation.CORRUPT_ENTITY) "entities" else "region"
+                messages.advice(finding.situation, if (x != null && z != null) "[$x, $z]" else "?", details["world"] ?: "world", details["file"] ?: "$folder/$region")
+            }
             Situation.CONNECTION_LOST -> messages.advice(finding.situation, first, details["reason"] ?: "?")
             Situation.PROXY_BACKEND -> messages.advice(finding.situation, details["server"] ?: first)
             else -> messages.advice(finding.situation, first)

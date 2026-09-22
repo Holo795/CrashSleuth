@@ -33,6 +33,23 @@ data class WorldInfo(
     val hasBackup: Boolean = false,
     /** Another running server holds the world. */
     val locked: Boolean = false,
+    /** Chunks of its region files the game cannot read (at most 50 listed). */
+    val damagedChunks: List<DamagedChunk> = emptyList(),
+    val chunksChecked: Int = 0,
+    /** False when the world was too large to be read within the time given. */
+    val chunksComplete: Boolean = true,
+    /** Player files the game cannot read: that player loses inventory and position when joining. */
+    val damagedPlayers: List<DamagedPlayer> = emptyList(),
+)
+
+@Serializable
+data class DamagedPlayer(
+    val file: String,
+    val name: String? = null,
+    val reason: String,
+    val hasBackup: Boolean = false,
+    /** Already set aside by the game: the player started over, the damaged save is kept for a restore. */
+    val setAside: Boolean = false,
 )
 
 /** A configuration file its loader will refuse. */
@@ -52,8 +69,16 @@ object ServerFilesScanner {
     private const val MAX_CONFIG_SIZE = 2L * 1024 * 1024
     private const val MAX_CONFIGS = 3000
 
-    fun scan(root: Path): ServerFiles = ServerFiles(
-        worlds = worldFolders(root).map(::world),
+    /** Time all the worlds of a folder may take to be read, chunk by chunk. */
+    private const val WORLD_BUDGET_MILLIS = 8_000L
+
+    fun scan(root: Path): ServerFiles {
+        val deadline = System.currentTimeMillis() + WORLD_BUDGET_MILLIS
+        return scanWith(root) { world(it, deadline) }
+    }
+
+    private fun scanWith(root: Path, world: (Path) -> WorldInfo): ServerFiles = ServerFiles(
+        worlds = worldFolders(root).map(world),
         eulaAccepted = root.resolve("eula.txt").takeIf { it.exists() }?.let { file ->
             properties(file)?.getProperty("eula")?.trim()?.equals("true", ignoreCase = true) ?: false
         },
@@ -65,13 +90,15 @@ object ServerFilesScanner {
     /** The world of server.properties (and its nether and end), and the saves of a game folder. */
     private fun worldFolders(root: Path): List<Path> = buildList {
         val level = root.resolve("server.properties").takeIf { it.exists() }?.let { properties(it)?.getProperty("level-name") }?.ifBlank { null } ?: "world"
-        root.resolve(level).takeIf { it.resolve("level.dat").exists() || it.resolve("level.dat_old").exists() }?.let(::add)
+        // Paper, Spigot and Purpur keep the nether and the end as worlds of their own.
+        listOf(level, "${level}_nether", "${level}_the_end").map(root::resolve)
+            .filter { it.resolve("level.dat").exists() || it.resolve("level.dat_old").exists() }.forEach(::add)
         root.resolve("saves").takeIf { it.isDirectory() }?.let { saves ->
             Files.list(saves).use { stream -> stream.filter { it.resolve("level.dat").exists() }.sorted().limit(20).toList() }.forEach(::add)
         }
     }
 
-    private fun world(directory: Path): WorldInfo {
+    private fun world(directory: Path, deadline: Long): WorldInfo {
         val levelDat = directory.resolve("level.dat")
         val backup = directory.resolve("level.dat_old").exists()
         val parsed = runCatching { levelDat.inputStream().use(Nbt::readGzip) }
@@ -83,7 +110,34 @@ object ServerFilesScanner {
             unreadable = if (!levelDat.exists()) "level.dat is missing" else parsed.exceptionOrNull()?.let { it.message ?: it.javaClass.simpleName },
             hasBackup = backup,
             locked = locked(directory.resolve("session.lock")),
-        )
+        ).let { info ->
+            val chunks = RegionScanner.scan(directory, (deadline - System.currentTimeMillis()).coerceAtLeast(0))
+            info.copy(damagedChunks = chunks.damaged, chunksChecked = chunks.checked, chunksComplete = chunks.complete, damagedPlayers = players(directory))
+        }
+    }
+
+    private const val MAX_PLAYERS = 5000
+    private val CORRUPTED = Regex("""([0-9a-f-]{36})_corrupted_([\d_-]+)\.dat""")
+
+    /** playerdata/<uuid>.dat, named with usercache.json of the server when it knows the player. */
+    private fun players(world: Path): List<DamagedPlayer> {
+        val folder = world.resolve("playerdata").takeIf { it.isDirectory() } ?: return emptyList()
+        val names = runCatching {
+            json.parseToJsonElement(world.resolveSibling("usercache.json").readText()).let { it as kotlinx.serialization.json.JsonArray }.associate { entry ->
+                val fields = entry as kotlinx.serialization.json.JsonObject
+                (fields["uuid"] as kotlinx.serialization.json.JsonPrimitive).content to (fields["name"] as kotlinx.serialization.json.JsonPrimitive).content
+            }
+        }.getOrDefault(emptyMap())
+        val files = Files.list(folder).use { stream -> stream.filter { it.name.endsWith(".dat") }.sorted().limit(MAX_PLAYERS.toLong()).toList() }
+        return files.mapNotNull { file ->
+            // The game itself sets a damaged save aside as <uuid>_corrupted_<date>.dat and starts the player over.
+            CORRUPTED.matchEntire(file.name)?.let { set ->
+                val (uuid, date) = set.destructured
+                return@mapNotNull DamagedPlayer("playerdata/${file.name}", names[uuid], "the game found it damaged on $date and set it aside", setAside = true)
+            }
+            val problem = runCatching { file.inputStream().use(Nbt::readGzip) }.exceptionOrNull() ?: return@mapNotNull null
+            DamagedPlayer("playerdata/${file.name}", names[file.name.removeSuffix(".dat")], problem.message ?: problem.javaClass.simpleName, file.resolveSibling("${file.name.removeSuffix(".dat")}.dat_old").exists())
+        }.take(50)
     }
 
     /** A running server keeps an exclusive lock on session.lock. */

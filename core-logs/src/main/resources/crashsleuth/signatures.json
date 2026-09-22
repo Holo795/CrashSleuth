@@ -557,6 +557,87 @@
         "reason": 1
       },
       "source": "lab: net scenarios (vanilla 1.21.1 client log)"
+    },
+    {
+      "id": "entity-chunk-load-failed",
+      "situation": "CORRUPT_ENTITY",
+      "confidence": "CERTAIN",
+      "pattern": "Failed to load entity chunk \\[(-?\\d+), (-?\\d+)]",
+      "details": {
+        "x": 1,
+        "z": 2
+      },
+      "source": "lab: world-chunks-corrupt, world-chunks-bad-compression, world-entities-corrupt, paper-chunks-corrupt (1.21.1 region files damaged on purpose)"
+    },
+    {
+      "id": "paper-entity-data-failed",
+      "situation": "CORRUPT_ENTITY",
+      "confidence": "CERTAIN",
+      "pattern": "Failed to read chunk data for task: Task for world: '([^']+)' at \\((-?\\d+),(-?\\d+)\\) type: ENTITY_DATA",
+      "details": {
+        "world": 1,
+        "x": 2,
+        "z": 3
+      },
+      "source": "lab: world-chunks-corrupt, world-chunks-bad-compression, world-entities-corrupt, paper-chunks-corrupt (1.21.1 region files damaged on purpose)"
+    },
+    {
+      "id": "chunk-stream-version",
+      "situation": "CORRUPT_CHUNK",
+      "confidence": "CERTAIN",
+      "pattern": "Chunk \\[(-?\\d+), (-?\\d+)] has invalid chunk stream version \\d+",
+      "details": {
+        "x": 1,
+        "z": 2
+      },
+      "source": "lab: world-chunks-corrupt, world-chunks-bad-compression, world-entities-corrupt, paper-chunks-corrupt (1.21.1 region files damaged on purpose)"
+    },
+    {
+      "id": "paper-chunk-data-failed",
+      "situation": "CORRUPT_CHUNK",
+      "confidence": "CERTAIN",
+      "pattern": "Failed to read chunk data for task: Task for world: '([^']+)' at \\((-?\\d+),(-?\\d+)\\) type: CHUNK_DATA",
+      "details": {
+        "world": 1,
+        "x": 2,
+        "z": 3
+      },
+      "source": "lab: world-chunks-corrupt, world-chunks-bad-compression, world-entities-corrupt, paper-chunks-corrupt (1.21.1 region files damaged on purpose)"
+    },
+    {
+      "id": "chunk-load-failed",
+      "situation": "CORRUPT_CHUNK",
+      "confidence": "HIGH",
+      "pattern": "Failed to load chunk (-?\\d+),(-?\\d+)",
+      "details": {
+        "x": 1,
+        "z": 2
+      },
+      "source": "lab: world-chunks-corrupt, world-chunks-bad-compression, world-entities-corrupt, paper-chunks-corrupt (1.21.1 region files damaged on purpose)"
+    },
+    {
+      "id": "paper-region-header",
+      "situation": "CORRUPT_CHUNK",
+      "confidence": "HIGH",
+      "pattern": "Corrupt regionfile header detected! Attempting to re-calculate header offsets for regionfile \\S*?/([\\w-]+)/region/(r\\.-?\\d+\\.-?\\d+\\.mca)",
+      "details": {
+        "world": 1,
+        "region": 2
+      },
+      "source": "lab: world-chunks-corrupt, world-chunks-bad-compression, world-entities-corrupt, paper-chunks-corrupt (1.21.1 region files damaged on purpose)"
+    },
+    {
+      "id": "player-data-load-failed",
+      "situation": "CORRUPT_PLAYERDATA",
+      "confidence": "CERTAIN",
+      "pattern": "Failed to load player data for (\\S+)",
+      "culprits": [
+        {
+          "group": 1,
+          "kind": "SYSTEM"
+        }
+      ],
+      "source": "lab: net playerdata-corrupt (Paper 1.21.1, the player's save cut after a first join)"
     }
   ]
 }

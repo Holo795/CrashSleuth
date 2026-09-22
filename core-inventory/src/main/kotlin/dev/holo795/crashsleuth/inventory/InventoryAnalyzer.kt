@@ -232,6 +232,23 @@ object InventoryAnalyzer {
             if (saved != null && minecraft != null && (Versions.compare(saved, minecraft) ?: 0) > 0) {
                 add(Finding(Situation.WORLD_DOWNGRADE, Confidence.CERTAIN, culprit, listOf("${world.name}/level.dat: saved by Minecraft $saved, the server is $minecraft"), mapOf("expected" to saved, "actual" to minecraft)))
             }
+            world.damagedPlayers.forEach { player ->
+                add(Finding(
+                    Situation.CORRUPT_PLAYERDATA, if (player.setAside) Confidence.MEDIUM else Confidence.HIGH,
+                    listOf(Culprit(CulpritKind.SYSTEM, player.name ?: player.file.substringAfterLast('/').substringBefore("_corrupted_").removeSuffix(".dat"))),
+                    listOf("${world.name}/${player.file}: ${player.reason}"),
+                    mapOf("world" to world.name, "file" to player.file, "backup" to player.hasBackup.toString()),
+                ))
+            }
+            // Blocks and entities apart: they are lost differently. Named by place, like the game's own log says it.
+            world.damagedChunks.groupBy { it.folder }.entries.sortedBy { it.key == "entities" }.forEach { (folder, chunks) ->
+                val first = chunks.first()
+                add(Finding(
+                    if (folder == "entities") Situation.CORRUPT_ENTITY else Situation.CORRUPT_CHUNK, Confidence.HIGH, emptyList(),
+                    chunks.take(5).map { "${world.name}/${it.file} [${it.x}, ${it.z}]: ${it.reason}" },
+                    mapOf("world" to world.name, "x" to first.x.toString(), "z" to first.z.toString(), "file" to first.file, "count" to chunks.size.toString()),
+                ))
+            }
         }
         files.configErrors.forEach { error ->
             add(

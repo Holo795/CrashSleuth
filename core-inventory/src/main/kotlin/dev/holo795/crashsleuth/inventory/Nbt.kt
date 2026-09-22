@@ -15,8 +15,12 @@ object Nbt {
     /** Reads a gzipped NBT file such as level.dat; the root compound is returned. */
     fun readGzip(input: InputStream): Map<String, Any?> = read(GZIPInputStream(input))
 
-    fun read(input: InputStream): Map<String, Any?> {
-        val data = DataInputStream(input.buffered())
+    /** Reads NBT held in memory (a decompressed chunk): sizes are checked against the bytes really left. */
+    fun read(bytes: ByteArray): Map<String, Any?> = read(java.io.ByteArrayInputStream(bytes), bounded = true)
+
+    fun read(input: InputStream, bounded: Boolean = false): Map<String, Any?> {
+        val data = DataInputStream(if (bounded) input else input.buffered())
+        this.bounded.set(bounded)
         val type = data.readByte().toInt()
         if (type != 10) throw Malformed("root is not a compound (tag $type)")
         data.readUTF()
@@ -59,7 +63,12 @@ object Nbt {
         }
     }
 
-    private fun size(data: DataInputStream): Int = data.readInt().also { if (it < 0 || it > MAX_ARRAY) throw Malformed("impossible size $it") }
+    private val bounded = ThreadLocal.withInitial { false }
+
+    /** A garbage size must not allocate gigabytes: a value can never be longer than the bytes left. */
+    private fun size(data: DataInputStream): Int = data.readInt().also {
+        if (it < 0 || it > MAX_ARRAY || (bounded.get() && it > data.available())) throw Malformed("impossible size $it")
+    }
 
     /** `path("Data", "Version", "Name")` on a root compound. */
     fun path(root: Map<String, Any?>, vararg keys: String): Any? =
