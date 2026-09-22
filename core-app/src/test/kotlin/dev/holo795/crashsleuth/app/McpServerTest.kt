@@ -19,6 +19,9 @@ class McpServerTest {
 
     private val server = McpServer()
 
+    /** A path of this computer inside JSON: Windows separators have to be escaped. */
+    private val here get() = folder.toString().replace("\\", "\\\\")
+
     private fun ask(line: String) = server.handle(Json.parseToJsonElement(line).jsonObject)
 
     private fun callText(name: String, arguments: String): String {
@@ -48,10 +51,10 @@ class McpServerTest {
     fun `a configuration file is read as it is, without its secrets`() {
         folder.resolve("config").createDirectories()
         folder.resolve("config/paper-global.yml").writeText("proxies:\n  velocity:\n    enabled: true\n    secret: hunter2\n")
-        val text = callText("config_read", """{"folder":"$folder","file":"config/paper-global.yml"}""")
+        val text = callText("config_read", """{"folder":"$here","file":"config/paper-global.yml"}""")
         assertTrue("enabled: true" in text, text)
         assertTrue("hunter2" !in text && "<hidden>" in text, text)
-        val outside = ask("""{"jsonrpc":"2.0","id":2,"method":"tools/call","params":{"name":"config_read","arguments":{"folder":"$folder","file":"../secrets.yml"}}}""")!!
+        val outside = ask("""{"jsonrpc":"2.0","id":2,"method":"tools/call","params":{"name":"config_read","arguments":{"folder":"$here","file":"../secrets.yml"}}}""")!!
         assertTrue(outside.containsKey("error"), "$outside")
     }
 
