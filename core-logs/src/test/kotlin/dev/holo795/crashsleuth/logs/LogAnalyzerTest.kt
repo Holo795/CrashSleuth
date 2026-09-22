@@ -171,4 +171,17 @@ class LogAnalyzerTest {
         assertEquals("0, 100, 0", finding.details["location"])
         assertEquals("shopmod", finding.culprits.firstOrNull()?.id)
     }
+
+    @Test
+    fun `a few lines pasted from a forum name the plugin, not its package`() {
+        val log = """
+            [12:01:02] [main/ERROR]: Error occurred while enabling Essentials v2.20.1 (Is it up to date?)
+            java.lang.UnsupportedClassVersionError: com/earth2me/essentials/Essentials has been compiled by a more recent version of the Java Runtime (class file version 65.0), this version of the Java Runtime only recognizes class file versions up to 61.0
+        """.trimIndent()
+        val report = LogAnalyzer().analyze(log)
+        val finding = assertNotNull(report.primary)
+        assertEquals(Situation.JAVA_VERSION, finding.situation)
+        assertEquals(listOf("java", "Essentials"), finding.culprits.map { it.id })
+        assertEquals("21", finding.details["required"])
+    }
 }

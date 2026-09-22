@@ -87,10 +87,15 @@ def prepare(scenario: dict, directory: Path, java_home: Path) -> None:
         build = neoforge_fixture if scenario.get("loader") == "neoforge" else fabric_fixture
         shutil.copy(build(java_home), directory / "mods" / "crashsleuth-fixture-1.0.0.jar")
         (directory / "fixture-mode.txt").write_text(scenario["fixture"] + "\n")
-    # Mods of another loader dropped in on purpose: {"slug", "loader"}.
+    # Mods dropped in as they are: {"slug", "loader", "minecraft"?} from Modrinth, or {"url", "file"?} for a
+    # jar a real report names that Modrinth does not carry (a GitHub release, a build from a thread).
     for extra in scenario.get("extra", []):
-        path = lab.modrinth_file(lab.modrinth_version(extra["slug"], extra["loader"], scenario["minecraft"]))
-        shutil.copy(path, directory / "mods" / path.name)
+        if extra.get("url"):
+            path = lab.download(extra["url"], extra.get("file"))
+        else:
+            path = lab.modrinth_file(lab.modrinth_version(extra["slug"], extra["loader"], extra.get("minecraft", scenario["minecraft"])))
+        (directory / "mods").mkdir(parents=True, exist_ok=True)
+        shutil.copy(path, directory / "mods" / (extra.get("file") or path.name))
     # Files of the game folder: a text, a zip of texts, or bytes that are no zip at all.
     for item in scenario.get("files", []):
         target = directory / item["path"]
@@ -230,7 +235,9 @@ def keep(scenario: dict, directory: Path) -> None:
     expect = scenario.get("expect") or {}
     (target / "expected.json").write_text(json.dumps(
         {"situation": expect.get("situation"), "culprit": expect.get("culprit"), "logs": [p.name for p in logs],
-         **({"crashes": True} if scenario.get("crashes") else {})}, indent=2) + "\n")
+         **({"crashes": True} if scenario.get("crashes") else {}),
+         **({"source": scenario["source"]} if scenario.get("source") else {}),
+         **({"fix": scenario["fix"]} if scenario.get("fix") else {})}, indent=2) + "\n")
 
 
 def main() -> int:

@@ -404,7 +404,7 @@ class Scenario:
     java: int
     mods: list[str] = field(default_factory=list)       # Modrinth slugs (mods or plugins)
     skip: list[str] = field(default_factory=list)       # dependencies deliberately left out
-    extra: list[dict] = field(default_factory=list)     # {"slug", "loader", "minecraft"?, "index"?}: extra files as they are
+    extra: list[dict] = field(default_factory=list)     # {"slug", "loader", "minecraft"?, "index"?} or {"url", "file"?}: extra files as they are
     modpack: str | None = None                          # Modrinth modpack slug, server side installed
     remove: list[str] = field(default_factory=list)     # modpack files removed on purpose (name substrings)
     fixture: str | None = None                          # fixture mode: Paper plugin (enable-npe, lag...) or Fabric mod (entity-tick...)
@@ -426,6 +426,8 @@ class Scenario:
     flaky: bool = False                                 # crashes only sometimes: the first start may succeed
     bisect: dict | None = None                          # {"culprits": [...], "max_runs"?}: culprit search expected result
     expect: Expectation | None = None                   # None: must start cleanly with no finding (unless crashes)
+    source: str | None = None                           # a real report of this problem on the web (issue, forum, thread)
+    fix: str | None = None                              # what really fixed it for those people, in one line
 
 
 def load_scenarios() -> list[Scenario]:
@@ -488,9 +490,13 @@ def prepare(scenario: Scenario, directory: Path) -> list[str]:
                 shutil.copy(path, mods_dir / path.name)
     for item in scenario.extra:
         mods_dir.mkdir(exist_ok=True)
-        version = modrinth_version(item["slug"], item["loader"], item.get("minecraft", scenario.minecraft), item.get("index", 0))
-        path = modrinth_file(version)
-        shutil.copy(path, mods_dir / path.name)
+        # Real cases often name a jar that is not on Modrinth (a GitHub release, a build of a forum thread).
+        if item.get("url"):
+            path = download(item["url"], item.get("file"))
+        else:
+            version = modrinth_version(item["slug"], item["loader"], item.get("minecraft", scenario.minecraft), item.get("index", 0))
+            path = modrinth_file(version)
+        shutil.copy(path, mods_dir / (item.get("file") or path.name))
     if scenario.modpack:
         removed = install_modpack(scenario.modpack, loader, scenario.minecraft, directory, scenario.remove)
         (directory / "removed-on-purpose.txt").write_text("\n".join(removed) + "\n")
@@ -763,22 +769,54 @@ def run(names: list[str], cli: str, keep: bool) -> int:
                 {"situation": scenario.expect.situation if scenario.expect else None,
                  "culprit": scenario.expect.culprit if scenario.expect else None,
                  "logs": [log.name], **({"profiles": [p.name for p in profiles]} if profiles else {}),
-                 **({"crashes": True} if scenario.crashes else {})}, indent=2) + "\n")
+                 **({"crashes": True} if scenario.crashes else {}),
+                 # Where this problem was really reported, and what fixed it for those people.
+                 **({"source": scenario.source} if scenario.source else {}),
+                 **({"fix": scenario.fix} if scenario.fix else {})}, indent=2) + "\n")
         if not keep:
             shutil.rmtree(directory, ignore_errors=True)
     print(f"\n{len(selected) - failures}/{len(selected)} scenarios passed")
     return 1 if failures else 0
 
 
+def write_sources() -> int:
+    """Writes docs/REAL_CASES.md from the corpus: the problems real people reported, replayed here."""
+    rows = []
+    for case in sorted(CORPUS.iterdir()):
+        expected = case / "expected.json"
+        if not expected.is_file():
+            continue
+        data = json.loads(expected.read_text())
+        if not data.get("source"):
+            continue
+        rows.append((case.name, data.get("situation") or "clean start", data.get("culprit") or "", data["source"], data.get("fix", "")))
+    doc = LAB_DIR.parent / "docs" / "REAL_CASES.md"
+    lines = ["# Problems real people had, replayed here", "",
+             "Every case below was reported by someone on the web, rebuilt in the lab with the same versions,",
+             "and is replayed by the tests. The last column is what fixed it for them; CrashSleuth is expected",
+             "to lead to the same answer on its own.", "",
+             "| Case | What CrashSleuth must find | Culprit | Reported at | What fixed it |",
+             "| --- | --- | --- | --- | --- |"]
+    for name, situation, culprit, source, fix in rows:
+        lines.append(f"| `{name}` | {situation} | {culprit} | {source} | {fix} |")
+    lines += ["", f"{len(rows)} cases.", ""]
+    doc.write_text("\n".join(lines))
+    print(f"{doc}: {len(rows)} cases")
+    return 0
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     sub = parser.add_subparsers(dest="command", required=True)
     sub.add_parser("list")
+    sub.add_parser("sources")
     runner = sub.add_parser("run")
     runner.add_argument("scenarios", nargs="+")
     runner.add_argument("--cli", default=os.environ.get("CRASHSLEUTH_CLI", "crashsleuth"))
     runner.add_argument("--keep", action="store_true", help="keep the server directories")
     args = parser.parse_args()
+    if args.command == "sources":
+        return write_sources()
     if args.command == "list":
         for scenario in load_scenarios():
             print(f"{scenario.name:40} {scenario.description}")
