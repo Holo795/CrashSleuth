@@ -131,7 +131,8 @@ def run_in_container(directory: Path, cli: str, scenario: dict, joining: list[st
          "-v", f"{Path(cli).resolve().parent.parent}:/opt/crashsleuth:ro", "-v", f"{cache}:/cache", "-v", f"{directory.resolve()}:/game", LINUX_IMAGE,
          "/opt/crashsleuth/bin/crashsleuth", "run-client", "/game", "--minecraft", scenario["minecraft"], "--loader", scenario.get("loader", "fabric"),
          "--java", "/opt/java/openjdk/bin/java", "--settle", str(scenario.get("settle", 45)), "--timeout", "10", *joining],
-        capture_output=True, text=True, timeout=3600)
+        # A game that cannot open a window never gives up: a scenario can say how long to wait for it.
+        capture_output=True, text=True, timeout=scenario.get("wait", 1800))
     # What the launcher printed: several failures never reach the game's own log.
     (directory / "console.log").write_text((result.stdout or "") + (result.stderr or ""))
     if not result.stdout:  # the container itself could not start: say why instead of blaming the game
