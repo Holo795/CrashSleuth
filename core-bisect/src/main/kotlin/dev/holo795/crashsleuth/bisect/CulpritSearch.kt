@@ -72,6 +72,10 @@ class CulpritSearch(
     private val parallel: Int = 1,
     private val progress: (String) -> kotlin.Unit = {},
     private val diagnoser: Diagnoser = Diagnoser(),
+    /** Every finished launch, as it happens (for live screens). */
+    private val onRun: (RunRecord) -> kotlin.Unit = {},
+    /** The jars still suspected, each time the search narrows them down. */
+    private val onSuspects: (List<String>) -> kotlin.Unit = {},
 ) {
     val units: List<Candidate> = inventory.jars.filter { it.error == null }.map { jar ->
         val mods = jar.mods
@@ -151,6 +155,7 @@ class CulpritSearch(
             val same = reference?.sameAs(print) ?: false
             synchronized(runs) {
                 runs += RunRecord(runs.size + 1, full.map { it.key }, result.outcome, result.seconds, same, note)
+                onRun(runs.last())
                 progress("run ${runs.size}: ${full.size} jar(s), ${result.outcome.name.lowercase()}${if (same) ", same crash" else ""} (${"%.0f".format(result.seconds)} s)")
             }
             return same
@@ -191,6 +196,7 @@ class CulpritSearch(
             progress("run ${runs.size + 1}: all ${units.size} jars, to record the crash")
             val result = launch(units.map { it.jar })
             runs += RunRecord(runs.size + 1, units.map { it.key }, result.outcome, result.seconds, result.outcome != Outcome.READY, "reference")
+            onRun(runs.last())
             baseline = result
             if (result.outcome != Outcome.READY) break
         }
@@ -200,6 +206,7 @@ class CulpritSearch(
         }
         reference = print
         cache[units.map { it.key }.toSet()] = true
+        onSuspects(units.map { it.key })
 
         var found: List<Candidate> = units
         var complete = true
@@ -223,6 +230,7 @@ class CulpritSearch(
         for (suspect in suspects.mapNotNull(::matching).distinct().take(3)) {
             val without = units - dependents(suspect)
             if (fails(without, "without suspect ${suspect.label}")) continue
+            onSuspects(listOf(suspect.key))
             if (fails(listOf(suspect), "suspect ${suspect.label} alone")) return listOf(suspect)
             // Needed, but not enough alone: find what it conflicts with.
             return listOf(suspect) + ddmin(units - suspect, forced = listOf(suspect))
@@ -242,6 +250,7 @@ class CulpritSearch(
             val subset = firstFailing(chunks.map { it + forced })
             if (subset != null) {
                 current = chunks[subset]
+                onSuspects((current + forced).map { it.key })
                 parts = 2
                 continue
             }
@@ -249,6 +258,7 @@ class CulpritSearch(
             val complement = if (chunks.size > 2) firstFailing(complements.map { it + forced }) else null
             if (complement != null) {
                 current = complements[complement]
+                onSuspects((current + forced).map { it.key })
                 parts = maxOf(parts - 1, 2)
                 continue
             }

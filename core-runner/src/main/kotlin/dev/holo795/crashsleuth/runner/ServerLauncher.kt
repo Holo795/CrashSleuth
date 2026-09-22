@@ -51,7 +51,8 @@ class ServerLauncher(
     /** The same launcher for another command (each client run has its own game folder in it). */
     fun withCommand(command: List<String>) = ServerLauncher(command, timeout, settle, ready, stopCommand, fatal)
 
-    fun run(directory: Path): RunResult {
+    /** [abort] is checked while the launch runs: when it says yes, the game or server is closed at once. */
+    fun run(directory: Path, abort: () -> Boolean = { false }): RunResult {
         val started = System.nanoTime()
         val process = ProcessBuilder(command).directory(directory.toFile()).redirectErrorStream(true).start()
         val failedAt = AtomicLong(0)
@@ -72,6 +73,10 @@ class ServerLauncher(
         var failed = false
         while (process.isAlive) {
             val now = System.nanoTime()
+            if (abort()) {
+                kill(process)
+                break
+            }
             // Give the crash report a few seconds to be written, then close.
             if (failedAt.get() != 0L && now - failedAt.get() >= Duration.ofSeconds(5).toNanos()) {
                 failed = true
