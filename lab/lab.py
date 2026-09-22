@@ -377,10 +377,13 @@ def build_paper_fixture(minecraft: str) -> Path:
     shutil.rmtree(work, ignore_errors=True)
     shutil.copytree(LAB_DIR / "fixtures" / "paper", work / "src-root")
     shutil.copy(paper_api(minecraft), work / "paper-api.jar")
+    # Recent Paper APIs refer to Adventure types, which live in their own jar.
+    key = maven_latest("https://repo1.maven.org/maven2/net/kyori/adventure-key/maven-metadata.xml", "4.")
+    shutil.copy(download(f"https://repo1.maven.org/maven2/net/kyori/adventure-key/{key}/adventure-key-{key}.jar"), work / "adventure-key.jar")
     shutil.copytree(LAB_DIR / "fixtures" / "paper-stubs", work / "stubs")
     # The stubs are only on the compile classpath: the jar references them without shipping them.
     script = ("mkdir -p out stubs-out && javac -nowarn -proc:none -d stubs-out $(find stubs -name '*.java') "
-              "&& javac -nowarn -proc:none -d out -cp paper-api.jar:stubs-out $(find src-root/src -name '*.java') "
+              "&& javac -nowarn -proc:none -d out -cp paper-api.jar:adventure-key.jar:stubs-out $(find src-root/src -name '*.java') "
               "&& cp src-root/plugin.yml out/ && cd out && jar cf ../fixture.jar .")
     subprocess.run(["docker", "run", "--rm", "-v", f"{work}:/w", "-w", "/w", "eclipse-temurin:21-jdk", "sh", "-c", script],
                    check=True, capture_output=True)

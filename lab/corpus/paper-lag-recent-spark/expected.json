@@ -1,0 +1,12 @@
+{
+  "situation": "LAG",
+  "culprit": "CrashSleuthFixture",
+  "logs": [
+    "latest.log"
+  ],
+  "profiles": [
+    "profile-2026-09-22_21.51.49.sparkprofile"
+  ],
+  "source": "lab, 22/09/2026: the way to see a slow tick now that the log says nothing",
+  "fix": "Read the spark profile: it names what eats the tick."
+}

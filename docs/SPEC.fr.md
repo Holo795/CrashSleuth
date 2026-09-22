@@ -1,8 +1,15 @@
 # CrashSleuth — Spécification
 
-**Version 17 — 22/09/2026** — v16 + des problèmes réellement vécus par des gens, rejoués tels quels et vérifiés contre la solution trouvée par la communauté.
+**Version 18 — 22/09/2026** — v17 + 30 cas réels rejoués, et un constat mesuré : les Paper récents ne disent plus qu'ils rament.
 
-### Changements depuis la v16
+### Changements depuis la v17
+- **Paper ne dit plus qu'il prend du retard** (§6.4) : mesuré au labo le 22/09/2026 avec le même plugin qui mange 70 ms par tick. Paper 1.21.1 écrit « Can't keep up! » ; **Paper 1.21.11 n'écrit rien du tout**. Quand un serveur à plugins récent ne montre aucun problème, CrashSleuth le dit maintenant et donne la marche à suivre : `spark profiler start --timeout 60 --save-to-file`, puis lui donner le profil — chemin vérifié, le profil désigne bien le coupable.
+- **Douze cas réels de plus**, tous rejoués et verts : plugin sans sa dépendance (Vault), plugin qui annonce une API plus récente que le serveur, Java trop ancienne pour Paper, Folia qui refuse un plugin, ProtocolLib qui ne reconnaît plus les entrailles du serveur, Velocity au secret vide, BungeeCord dont un seul côté transmet l'adresse, serveur laissé en online-mode derrière un proxy, jar de serveur tronqué, dossier de monde illisible, RCON sur le port du jeu, mod Kotlin sans son language provider, jar publié avec une plage de versions illisible (sur 1.21.1 **et** sur la toute dernière version), bibliothèque trop ancienne pour le bundle qui la réclame, jar Forge dans NeoForge, Create avec un Flywheel installé à la main, mod qui réclame une dépendance jamais publiée, fabric-api tronqué au téléchargement, configuration Forge à moitié écrite.
+- **Sept manques et un faux positif corrigés grâce à ces cas** : mod client réclamant la moitié client d'un autre mod, refus Folia, plugin qui fouille les entrailles du serveur, secret Velocity vide, transfert d'adresse à sens unique, serveur en online-mode derrière un proxy, jar illisible par le loader, et **Sinytra Connector** dont le fonctionnement normal (sauter les mods Fabric avant de les convertir) était signalé comme une erreur et masquait la vraie cause.
+- **Le labo** sait épingler une version de NeoForge ou de Forge, installer un jar depuis n'importe quelle adresse, rendre des fichiers illisibles, et se nettoyer ensuite. `lab.py sources` écrit `docs/REAL_CASES.md` depuis le corpus.
+- **Trois rapports non reproductibles, écartés** plutôt que mis en scène : crash Sodium 0.8.13 (`@Overwrite`), configuration de mod vidée (NeoForge la répare tout seul aujourd'hui), cycle de chargement de plugins (les versions actuelles ne bouclent plus).
+
+### Changements de la v17 (rappel)
 - **15 cas réels rejoués** (`docs/REAL_CASES.md`, engendré depuis le corpus) : chaque cas vient d'un signalement public (issue GitHub, forum PaperMC, discussion FabricMC), est reconstruit avec les mêmes versions et les mêmes jars, et CrashSleuth doit arriver à la même conclusion que la communauté. Le labo sait maintenant installer un jar depuis n'importe quelle adresse (pas seulement Modrinth), et garde dans le corpus **où le problème a été signalé** et **ce qui l'a réglé**.
 - **Cinq manques trouvés par ces cas réels, corrigés** :
   - un mod client sur un serveur qui réclame la moitié client d'un **autre** mod (Sodium Extra sans Sodium) : c'était une « erreur non gérée », c'est maintenant « mod client installé sur un serveur » ;

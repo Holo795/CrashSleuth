@@ -21,6 +21,7 @@ class ReportPrinter(private val messages: Messages) {
         if (primary == null) {
             appendLine(messages.get("report.noFinding"))
             appendLine(messages.get("report.noFindingHint"))
+            ReportText(messages).noFindingHints(report).forEach { appendLine(it) }
             if (report.exceptions.isNotEmpty()) {
                 appendLine()
                 appendLine("${messages.get("report.exceptions")}:")

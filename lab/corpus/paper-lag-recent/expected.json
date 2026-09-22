@@ -1,0 +1,9 @@
+{
+  "situation": null,
+  "culprit": null,
+  "logs": [
+    "latest.log"
+  ],
+  "source": "lab, 22/09/2026: checking whether recent Paper still writes 'Can't keep up!'",
+  "fix": "Nothing is written down any more: take a spark profile while it is slow."
+}

@@ -1,0 +1,48 @@
+21:40:50 [INFO] Using mbed TLS based native cipher.
+21:40:50 [INFO] Using zlib based native compressor.
+21:40:50 [INFO] Enabled BungeeCord version git:BungeeCord-Bootstrap:26.1-R0.1-SNAPSHOT:502ca71:2096
+21:40:50 [INFO] Not on Windows, attempting to use enhanced EpollEventLoop
+21:40:50 [INFO] Epoll is working, utilising it!
+21:40:50 [INFO] Discovered module: ModuleSpec(name=cmd_alert, file=modules/cmd_alert.jar, provider=JenkinsModuleSource())
+21:40:50 [INFO] Discovered module: ModuleSpec(name=cmd_find, file=modules/cmd_find.jar, provider=JenkinsModuleSource())
+21:40:50 [INFO] Discovered module: ModuleSpec(name=cmd_list, file=modules/cmd_list.jar, provider=JenkinsModuleSource())
+21:40:50 [INFO] Discovered module: ModuleSpec(name=cmd_send, file=modules/cmd_send.jar, provider=JenkinsModuleSource())
+21:40:50 [INFO] Discovered module: ModuleSpec(name=cmd_server, file=modules/cmd_server.jar, provider=JenkinsModuleSource())
+21:40:50 [INFO] Discovered module: ModuleSpec(name=reconnect_yaml, file=modules/reconnect_yaml.jar, provider=JenkinsModuleSource())
+21:40:50 [INFO] Attempting to update plugin from null to ModuleVersion(build=2096, git=502ca71)
+21:40:50 [INFO] Attempting to Jenkins download module cmd_alert v2096
+21:40:51 [INFO] Download complete
+21:40:51 [INFO] Attempting to update plugin from null to ModuleVersion(build=2096, git=502ca71)
+21:40:51 [INFO] Attempting to Jenkins download module cmd_find v2096
+21:40:51 [INFO] Download complete
+21:40:51 [INFO] Attempting to update plugin from null to ModuleVersion(build=2096, git=502ca71)
+21:40:51 [INFO] Attempting to Jenkins download module cmd_list v2096
+21:40:52 [INFO] Download complete
+21:40:52 [INFO] Attempting to update plugin from null to ModuleVersion(build=2096, git=502ca71)
+21:40:52 [INFO] Attempting to Jenkins download module cmd_send v2096
+21:40:52 [INFO] Download complete
+21:40:52 [INFO] Attempting to update plugin from null to ModuleVersion(build=2096, git=502ca71)
+21:40:52 [INFO] Attempting to Jenkins download module cmd_server v2096
+21:40:52 [INFO] Download complete
+21:40:52 [INFO] Attempting to update plugin from null to ModuleVersion(build=2096, git=502ca71)
+21:40:52 [INFO] Attempting to Jenkins download module reconnect_yaml v2096
+21:40:53 [INFO] Download complete
+21:40:53 [INFO] Loaded plugin reconnect_yaml version git:reconnect_yaml:26.1-R0.1-SNAPSHOT:502ca71:2096 by SpigotMC
+21:40:53 [INFO] Loaded plugin cmd_find version git:cmd_find:26.1-R0.1-SNAPSHOT:502ca71:2096 by SpigotMC
+21:40:53 [INFO] Loaded plugin cmd_server version git:cmd_server:26.1-R0.1-SNAPSHOT:502ca71:2096 by SpigotMC
+21:40:53 [INFO] Loaded plugin cmd_alert version git:cmd_alert:26.1-R0.1-SNAPSHOT:502ca71:2096 by SpigotMC
+21:40:53 [INFO] Loaded plugin cmd_send version git:cmd_send:26.1-R0.1-SNAPSHOT:502ca71:2096 by SpigotMC
+21:40:53 [INFO] Loaded plugin cmd_list version git:cmd_list:26.1-R0.1-SNAPSHOT:502ca71:2096 by SpigotMC
+21:40:53 [WARNING] Forced host server pvp is not defined
+21:40:53 [INFO] Enabled plugin reconnect_yaml version git:reconnect_yaml:26.1-R0.1-SNAPSHOT:502ca71:2096 by SpigotMC
+21:40:53 [INFO] Enabled plugin cmd_find version git:cmd_find:26.1-R0.1-SNAPSHOT:502ca71:2096 by SpigotMC
+21:40:53 [INFO] Enabled plugin cmd_server version git:cmd_server:26.1-R0.1-SNAPSHOT:502ca71:2096 by SpigotMC
+21:40:53 [INFO] Enabled plugin cmd_alert version git:cmd_alert:26.1-R0.1-SNAPSHOT:502ca71:2096 by SpigotMC
+21:40:53 [INFO] Enabled plugin cmd_send version git:cmd_send:26.1-R0.1-SNAPSHOT:502ca71:2096 by SpigotMC
+21:40:53 [INFO] Enabled plugin cmd_list version git:cmd_list:26.1-R0.1-SNAPSHOT:502ca71:2096 by SpigotMC
+21:40:53 [INFO] Listening on /0.0.0.0:25577
+21:40:59 [INFO] [CrashSleuth,/0.0.0.0:51232] <-> InitialHandler has connected
+21:40:59 [INFO] [CrashSleuth] <-> ServerConnector [lobby] has connected
+21:40:59 [INFO] [CrashSleuth] disconnected with: §f§cKicked whilst connecting to lobby: §fUnknown data in login hostname, did you forget to enable BungeeCord in spigot.yml?
+21:40:59 [INFO] [CrashSleuth] -> UpstreamBridge has disconnected
+21:40:59 [INFO] [CrashSleuth] <-> ServerConnector [lobby] has disconnected

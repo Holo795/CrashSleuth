@@ -22,6 +22,27 @@ class ReportText(val messages: Messages) {
 
     fun culpritList(finding: Finding): String = culprits(finding).joinToString(", ") { describe(it) }
 
+    /**
+     * What is worth saying when nothing was found. Checked in the lab on 22/09/2026: a plugin eating
+     * 70 ms of every tick makes Paper 1.21.11 write nothing at all, where 1.21.1 still wrote
+     * "Can't keep up!". On those servers a slow tick leaves no trace, and only a profile shows it.
+     */
+    fun noFindingHints(report: dev.holo795.crashsleuth.model.Report): List<String> {
+        val environment = report.environment
+        val silent = environment.platform.kind == dev.holo795.crashsleuth.model.PlatformKind.PLUGINS &&
+            atLeast(environment.minecraftVersion, 21, 9)
+        return if (silent) listOf(messages.get("report.hint.silentLag")) else emptyList()
+    }
+
+    /** True for Minecraft 1.x.y at or above the given minor and patch, and for anything newer (26.x). */
+    private fun atLeast(version: String?, minor: Int, patch: Int): Boolean {
+        val parts = version?.split('.')?.mapNotNull { it.takeWhile(Char::isDigit).toIntOrNull() } ?: return false
+        if (parts.isEmpty()) return false
+        if (parts[0] != 1) return parts[0] > 1
+        val (thisMinor, thisPatch) = (parts.getOrElse(1) { 0 }) to (parts.getOrElse(2) { 0 })
+        return thisMinor > minor || (thisMinor == minor && thisPatch >= patch)
+    }
+
     fun advice(finding: Finding): String {
         val details = finding.details
         val first = culprits(finding).firstOrNull()?.let { describe(it) } ?: "?"

@@ -1,0 +1,8 @@
+{
+  "situation": null,
+  "logs": [
+    "latest.log"
+  ],
+  "source": "https://www.gameserverkings.com/knowledge-base/minecraft/error-failed-to-verify-username/",
+  "fix": "A server behind a proxy runs with online-mode=false; the proxy does the checking."
+}

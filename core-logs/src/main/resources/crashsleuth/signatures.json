@@ -771,6 +771,30 @@
       ],
       "advice": "signature.connector-locator-error.advice",
       "source": "https://github.com/Sinytra/Connector/issues/2002 (replayed in the lab: Connector 2.0.0-beta.10 on NeoForge 1.21.1 with the Forgified Fabric API and Axiom)"
+    },
+    {
+      "id": "bungee-forwarding-not-enabled",
+      "situation": "PROXY_FORWARDING",
+      "confidence": "CERTAIN",
+      "pattern": "Unknown data in login hostname, did you forget to enable BungeeCord in spigot\\.yml",
+      "advice": "signature.bungee-forwarding-not-enabled.advice",
+      "source": "https://docs.papermc.io/velocity/faq/ (replayed in the lab: BungeeCord with ip_forward on, backend spigot.yml with bungeecord off)"
+    },
+    {
+      "id": "bungee-forwarding-proxy-side",
+      "situation": "PROXY_FORWARDING",
+      "confidence": "CERTAIN",
+      "pattern": "If you wish to use IP forwarding, please enable it in your Bungeecord config as well",
+      "advice": "signature.bungee-forwarding-proxy-side.advice",
+      "source": "https://docs.papermc.io/velocity/faq/"
+    },
+    {
+      "id": "velocity-backend-online-mode",
+      "situation": "PROXY_FORWARDING",
+      "confidence": "CERTAIN",
+      "pattern": "IllegalStateException: Backend server is online-mode!",
+      "advice": "signature.velocity-backend-online-mode.advice",
+      "source": "https://www.gameserverkings.com/knowledge-base/minecraft/error-failed-to-verify-username/ (replayed in the lab: Velocity 3.4.0 in front of a Paper 1.21.1 left at online-mode=true)"
     }
   ]
 }

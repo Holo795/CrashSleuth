@@ -151,6 +151,8 @@ SCENARIOS = {
     "velocity4-join-ok": "Vanilla client joins Paper 1.21.1 through Velocity 4 (Java 25)",
     "velocity4-backend-down": "Velocity 4 points to a server that is not running",
     "real-velocity-empty-secret": "Velocity with modern forwarding and an empty forwarding.secret (reported on the Paper forums)",
+    "real-bungee-forwarding-one-sided": "BungeeCord forwards, but the server behind it was never told to accept it",
+    "real-online-mode-behind-proxy": "A server behind Velocity left at online-mode=true",
 }
 
 
@@ -230,6 +232,37 @@ def run_scenario(name: str, cli: str, java: str) -> tuple[bool, str]:
             # Waterfall leaves the player waiting without a word: only its end of life can be said.
             expected = "OUTDATED" if project == "waterfall" else "PROXY_BACKEND"
             return outcome != "READY" and expected in situations, text
+        if name in ("real-bungee-forwarding-one-sided", "real-online-mode-behind-proxy"):
+            backend, proxy = base / "backend", base / "proxy"
+            if name == "real-online-mode-behind-proxy":
+                # https://www.gameserverkings.com/knowledge-base/minecraft/error-failed-to-verify-username/
+                paper_backend(backend, "right-secret", [])
+                properties = (backend / "server.properties").read_text().replace("online-mode=false", "online-mode=true")
+                (backend / "server.properties").write_text(properties)
+            else:
+                # https://docs.papermc.io/velocity/faq/ : one side forwards, the other does not.
+                paper_backend(backend, None, [])
+                (backend / "spigot.yml").write_text("settings:\n  bungeecord: false\n")
+            start_container("cs-backend", backend, "java -Xmx1G -jar server.jar nogui", None)
+            if not wait_for(backend, "Done (", "cs-backend"):
+                return False, "backend did not start"
+            if name == "real-online-mode-behind-proxy":
+                velocity_proxy(proxy, "right-secret", "cs-backend")
+                start_container("cs-proxy", proxy, "java -Xmx512M -jar velocity.jar", PROXY_PORT)
+                ready = wait_for(proxy, "Done (", "cs-proxy")
+            else:
+                bungee_proxy(proxy, "bungeecord", "cs-backend")
+                start_container("cs-proxy", proxy, "java -Xmx512M -jar bungeecord.jar", PROXY_PORT)
+                ready = wait_for(proxy, "Listening on", "cs-proxy") or wait_for(proxy, "Done (", "cs-proxy", 5)
+            if not ready:
+                return False, "proxy did not start"
+            client_folder(player, [])
+            outcome = join(cli, java, player, "vanilla", PROXY_PORT)
+            time.sleep(3)
+            reports = {"player": analyse(cli, player), "proxy": analyse(cli, proxy), "backend": analyse(cli, backend)}
+            text = f"join={outcome} | " + " | ".join(f"{side}: {summary(report)}" for side, report in reports.items())
+            situations = {f["situation"] for report in reports.values() for f in report["findings"]}
+            return outcome != "READY" and "PROXY_FORWARDING" in situations, text
         if name == "real-velocity-empty-secret":
             # https://forums.papermc.io/threads/how-to-solve-unable-to-read-load-save-your-velocity-toml.339/
             proxy = base / "proxy"
@@ -286,11 +319,18 @@ EXPECTED = {
     "velocity4-join-ok": {"player": None, "proxy": None, "backend": None},
     "velocity4-backend-down": {"player": "PROXY_BACKEND", "proxy": "PROXY_BACKEND"},
     "real-velocity-empty-secret": {"proxy": "PROXY_FORWARDING"},
+    "real-bungee-forwarding-one-sided": {"backend": "PROXY_FORWARDING", "proxy": "PROXY_FORWARDING"},
+    # The server behind the proxy is never told why the proxy gave up: only the proxy knows.
+    "real-online-mode-behind-proxy": {"backend": None, "proxy": "PROXY_FORWARDING"},
 }
 
 
 # Where a case was reported, and what fixed it for those people.
 SOURCES = {
+    "real-bungee-forwarding-one-sided": ("https://docs.papermc.io/velocity/faq/",
+                                         "Turn IP forwarding on on both sides, or on neither: the proxy and the server must agree."),
+    "real-online-mode-behind-proxy": ("https://www.gameserverkings.com/knowledge-base/minecraft/error-failed-to-verify-username/",
+                                      "A server behind a proxy runs with online-mode=false; the proxy does the checking."),
     "real-velocity-empty-secret": ("https://forums.papermc.io/threads/how-to-solve-unable-to-read-load-save-your-velocity-toml.339/",
                                    "Write the secret inside the file named by forwarding-secret-file; the setting is a path, not the secret."),
 }

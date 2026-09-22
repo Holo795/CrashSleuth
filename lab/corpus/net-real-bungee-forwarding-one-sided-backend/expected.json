@@ -1,0 +1,8 @@
+{
+  "situation": "PROXY_FORWARDING",
+  "logs": [
+    "latest.log"
+  ],
+  "source": "https://docs.papermc.io/velocity/faq/",
+  "fix": "Turn IP forwarding on on both sides, or on neither: the proxy and the server must agree."
+}

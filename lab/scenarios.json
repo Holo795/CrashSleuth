@@ -1566,5 +1566,37 @@
       "situation": "CORRUPT_JAR",
       "culprit": "midnightlib"
     }
+  },
+  {
+    "platform": "paper",
+    "minecraft": "1.21.11",
+    "java": 21,
+    "name": "paper-lag-recent",
+    "description": "Paper 1.21.11, a plugin eats 70 ms of every tick: this Paper says nothing at all",
+    "fixture": "lag",
+    "after_ready": 60,
+    "source": "lab, 22/09/2026: checking whether recent Paper still writes 'Can't keep up!'",
+    "fix": "Nothing is written down any more: take a spark profile while it is slow."
+  },
+  {
+    "platform": "paper",
+    "minecraft": "1.21.11",
+    "java": 21,
+    "name": "paper-lag-recent-spark",
+    "description": "Paper 1.21.11, the same slow plugin, found through a spark profile",
+    "fixture": "lag",
+    "after_ready": 70,
+    "console": [
+      {
+        "after": 10,
+        "command": "spark profiler start --timeout 30 --save-to-file"
+      }
+    ],
+    "source": "lab, 22/09/2026: the way to see a slow tick now that the log says nothing",
+    "fix": "Read the spark profile: it names what eats the tick.",
+    "expect": {
+      "situation": "LAG",
+      "culprit": "CrashSleuthFixture"
+    }
   }
 ]
