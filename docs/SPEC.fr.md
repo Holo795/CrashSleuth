@@ -1,8 +1,21 @@
 # CrashSleuth — Spécification
 
-**Version 4 — 22/09/2026** — v3 + vérification des fichiers installés, base de signatures, deuxième campagne réelle.
+**Version 5 — 22/09/2026** — v4 + modpacks sans installation, Java lue dans le bytecode, recherche automatique du coupable côté serveur.
 
-### Changements depuis la v3
+### Changements depuis la v4
+- **Recherche du coupable côté serveur** (§6.3, jalon 3) : `crashsleuth bisect <dossier>`. Nouveaux modules `core-runner` (copie de travail, lancement, verdict) et `core-bisect` (recherche). L'outil lance une copie du serveur (port libre, sans console distante, fichiers de l'utilisateur jamais modifiés), décide seul si le lancement est sain, planté ou bloqué, teste d'abord les suspects de l'analyse puis réduit l'ensemble par delta debugging (ddmin), ce qui trouve aussi les conflits entre plusieurs mods ou plugins. Chaque essai est complété par les dépendances nécessaires. Un crash différent de celui cherché n'est jamais pris pour lui (empreinte : issue, situation, exception).
+- **Modpacks sans installation** (§4) : `.mrpack` Modrinth (fichiers téléchargés depuis les hôtes autorisés par le format, vérifiés par SHA-1, mis en cache), zip CurseForge (fichiers embarqués seulement : les autres passent par l'API CurseForge, qui demande une clé), zip d'un dossier de serveur. Côté serveur ou client (`--side`).
+- **Java requise lue dans le bytecode** : version des classes de chaque jar, comparée à la Java qui tourne (si le journal la donne) ou à celle que demande la version de Minecraft.
+- **Liste de mods client confirmés** pour NeoForge et Forge, qui ne peuvent pas le déclarer : chaque entrée dit comment elle a été confirmée.
+- **Test réel sur les fichiers publiés** : le `.mrpack` officiel de Create Plus est analysé en 30 secondes sans rien installer et le mod client qui fait planter son serveur est désigné ; côté client, le même pack ressort sain (Sinytra Connector reconnu, même quand son identifiant est dans un jar embarqué). Cobbleverse ressort sain des deux côtés.
+- **Troisième campagne réelle : 34 scénarios, 34 réussis**, dont 3 recherches de coupable sans intervention humaine :
+  - Paper 1.21.1 avec 14 plugins (12 réels, WorldEdit en dépendance, un plugin de test) qui s'arrête net sans aucune trace dans les journaux : coupable trouvé en 7 lancements (8 min) ;
+  - même serveur, crash seulement quand deux plugins sont installés ensemble : les deux trouvés en 20 lancements (24 min) ;
+  - Create Plus tel que publié (106 mods) : Status Effect Bars confirmé en 3 lancements (3 min), grâce au suspect désigné par l'analyse.
+- **Leçon du réel pour la recherche** : l'identité d'un crash ne se calcule que sur ce qui a terminé le lancement (crash report, erreur fatale du démarrage). Deux faux coupables sont venus d'erreurs sans rapport avec l'arrêt, dont une reconnue avec certitude par une signature.
+- **Découverte réelle** : DecentHolograms 2.10.1, la dernière version, n'est pas chargé du tout sur Paper 1.21.1. Il contient des classes Java 25 (adaptateurs pour Minecraft 26) que le remappeur de Paper ne sait pas lire : le serveur démarre sans lui, avec pour seule trace une erreur technique. Nouvelle signature ; et la Java requise d'un jar est désormais celle de sa classe d'entrée, pas la plus haute trouvée dans ses adaptateurs optionnels.
+
+### Changements de la v4 (rappel)
 - **Vérification des fichiers installés** (§6.1, jalon 2 commencé) : `crashsleuth analyze <dossier>` lit les métadonnées de chaque jar de `mods/` et `plugins/` (y compris les jars embarqués) et croise ce qu'il trouve avec les journaux. Nouveau module `core-inventory`, et `core-engine` qui réunit journaux et fichiers.
 - **Règles tirées du réel**, pas de la théorie (§6.1) : Fabric et NeoForge gardent sans erreur la version la plus récente d'un mod en double ; Fabric ignore en silence les mods client sur un serveur ; NeoForge accepte JEI 1.21.1 alors que JEI déclare une plage qui exclut 1.21.1. L'analyse statique reproduit ces comportements pour ne jamais accuser à tort.
 - **Base de signatures** (§7) : fichier de données `signatures.json` chargé par un détecteur générique, 20 signatures au départ dont une partie adaptée de codex-minecraft (MIT, attribution dans `NOTICE`).
@@ -151,6 +164,7 @@ Chaque situation a un identifiant stable (utilisé par les signatures et les rap
 - **Crashs aléatoires** : relances multiples, score de confiance.
 - Lancements **en parallèle** quand la machine le permet, **cache** des combinaisons déjà testées, **budget** de temps réglable.
 - **Isolation** : le travail se fait sur une **copie** ; les fichiers de l'utilisateur ne sont jamais modifiés.
+- **Fait (v5), côté serveur** : copie de travail faite une fois (sans mods, plugins, journaux, ni mondes sauf `--with-world`), puis un dossier neuf par essai où les gros dossiers en lecture (`libraries`, `versions`, `cache`) sont liés et non copiés ; commande de lancement détectée comme le ferait le script du serveur (`@user_jvm_args.txt @libraries/.../unix_args.txt` pour NeoForge et Forge, `-jar` sinon) ; verdict : prêt (`Done (…)!` puis arrêt propre après quelques secondes), planté, ou délai dépassé ; budget de lancements. À venir : lancements en parallèle, crashs aléatoires (relances), côté client.
 - Côté serveur : lancement sans écran. Côté client : l'outil installe lui-même la version et le loader dans son espace de travail, lance le jeu en **petite fenêtre** (écran virtuel possible sous Linux), avec un monde de test généré et un profil local de test ; l'installation du joueur n'est jamais touchée. L'utilisateur est prévenu avant que les fenêtres s'ouvrent.
 - **Reproduction en jeu** (plus tard) : sur une copie du monde, téléportation aux coordonnées du crash, chargement du chunk, puis recherche du coupable dans ce scénario.
 
@@ -209,8 +223,8 @@ Ordre de passage, du gratuit au payant :
 ## 11. Architecture technique
 
 - **Kotlin (JVM 21)**, Gradle en Kotlin DSL, multi-modules :
-  - En place : `core-model` (situations, rapports, textes) · `core-logs` (découpage, attribution, détecteurs, signatures) · `core-inventory` (descripteurs des jars, plateforme, plages de versions, contrôles statiques) · `core-engine` (réunit journaux et fichiers, corpus réel) · `cli`.
-  - À venir : analyse ASM et mixins dans `core-inventory` · `core-runner` (lancement client/serveur, verdict) · `core-bisect` (bisection et ddmin) · `desktop` (Compose).
+  - En place : `core-model` (situations, rapports, textes) · `core-logs` (découpage, attribution, détecteurs, signatures) · `core-inventory` (descripteurs des jars, packs, Java du bytecode, contrôles statiques) · `core-engine` (réunit journaux et fichiers, corpus réel) · `core-runner` (copie de travail, lancement serveur, verdict) · `core-bisect` (suspects puis ddmin, dépendances respectées) · `cli`.
+  - À venir : analyse ASM et mixins dans `core-inventory` · lancement côté client dans `core-runner` · `desktop` (Compose).
 - Téléchargement des versions de Minecraft, loaders et serveurs (Paper, Purpur…) à la demande, avec cache.
 - **Tests en conditions réelles** (`lab/`) : de vrais serveurs (vanilla, Paper, Purpur, Fabric, NeoForge, Forge) téléchargés depuis les sources officielles, de vrais mods et plugins depuis Modrinth, cassés volontairement (dépendance retirée, mauvais loader, mod client sur serveur, mauvaise version de Java, mémoire insuffisante…), lancés dans Docker avec la bonne version de Java. Chaque journal obtenu est anonymisé et rangé dans `lab/corpus` avec l'inventaire des jars installés et la réponse attendue, puis rejoué en CI. Des plugins de test (`lab/fixtures`) provoquent les cas impossibles à obtenir avec de vrais plugins sains : exception au démarrage, tâche qui échoue en boucle, thread principal bloqué. Des modpacks entiers de Modrinth (Cobbleverse 168 mods, Create Plus 106 mods) servent de référence sans faux positif. Les démarrages sains servent à garantir l'absence de faux positifs. Les mods et serveurs ne sont jamais versionnés, seulement les journaux.
 - Tests unitaires en complément, pour les formats rares ou difficiles à provoquer.
@@ -225,7 +239,7 @@ Ordre de passage, du gratuit au payant :
 | 0 | Fondations | Dépôt, licence MIT, build Gradle, CI GitHub, README anglais + français, spec |
 | 1 | Analyse des journaux | Un crash report NeoForge, Fabric, Forge, Paper ou vanilla donne la cause et le coupable (CLI), signatures de base + import codex-minecraft — **en grande partie fait (v4)** |
 | 2 | Vérification avant lancement | Dossier ou pack → dépendances, versions, loader, doublons, Java, client/serveur, plugins, empreintes — **commencé (v4)** : dossier installé ; restent packs zip/mrpack, Java des `.class`, mixins, empreintes |
-| 3 | Recherche du coupable, serveur | Serveur NeoForge, Fabric, Forge ou Paper qui plante → coupable trouvé sans intervention, conflits à deux inclus |
+| 3 | Recherche du coupable, serveur | Serveur NeoForge, Fabric, Forge ou Paper qui plante → coupable trouvé sans intervention, conflits à deux inclus — **en cours (v5)** |
 | 4 | Application de bureau + recherche côté client | Un joueur glisse son pack, l'outil trouve seul le mod fautif |
 | 5 | Gels, lag, web, Discord, Pterodactyl | Dump de thread → coupable ; bot et version web en ligne |
 | 6 | IA | IA locale et clé personnelle ; IA hébergée si financement |
