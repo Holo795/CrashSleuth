@@ -26,7 +26,7 @@
     "mods/sophisticatedcore-1.21.1-1.5.1.2341.jar"
    ],
    "outcome": "CRASHED",
-   "seconds": 4.430742917,
+   "seconds": 3.952727959,
    "sameFailure": true,
    "note": "reference"
   },
@@ -39,7 +39,7 @@
     "mods/crashsleuth-fixture-1.0.0.jar"
    ],
    "outcome": "CRASHED",
-   "seconds": 4.388780917,
+   "seconds": 3.5055075,
    "sameFailure": true,
    "note": null
   },
@@ -50,7 +50,7 @@
     "mods/MouseTweaks-neoforge-mc1.21-2.26.1.jar"
    ],
    "outcome": "READY",
-   "seconds": 16.588136042,
+   "seconds": 15.34708925,
    "sameFailure": false,
    "note": null
   },
@@ -61,7 +61,7 @@
     "mods/crashsleuth-fixture-1.0.0.jar"
    ],
    "outcome": "CRASHED",
-   "seconds": 4.011760667,
+   "seconds": 3.760082291,
    "sameFailure": true,
    "note": null
   },
@@ -71,7 +71,7 @@
     "mods/appleskin-neoforge-mc1.21-3.0.9.jar"
    ],
    "outcome": "READY",
-   "seconds": 16.134511,
+   "seconds": 15.126671208,
    "sameFailure": false,
    "note": null
   },
@@ -81,7 +81,7 @@
     "mods/crashsleuth-fixture-1.0.0.jar"
    ],
    "outcome": "CRASHED",
-   "seconds": 3.923796667,
+   "seconds": 3.599141833,
    "sameFailure": true,
    "note": null
   }

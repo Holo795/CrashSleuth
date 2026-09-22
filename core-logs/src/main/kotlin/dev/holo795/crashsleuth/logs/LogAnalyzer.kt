@@ -90,6 +90,7 @@ class LogAnalyzer(
             LagDetector,
             ResourcePackDetector,
             ShaderPackDetector,
+            ClientRenderCrashDetector,
             SignatureDetector.BUILT_IN,
             JavaVersionDetector,
             OutOfMemoryDetector,

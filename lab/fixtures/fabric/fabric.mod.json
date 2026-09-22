@@ -5,6 +5,15 @@
   "name": "CrashSleuth Fixture",
   "description": "Test mod of the CrashSleuth lab. Misbehaves on purpose, as set in fixture-mode.txt.",
   "environment": "client",
-  "entrypoints": {"client": ["dev.holo795.crashsleuth.fixture.FixtureMod"]},
-  "depends": {"fabricloader": "*"}
+  "entrypoints": {
+    "client": [
+      "dev.holo795.crashsleuth.fixture.FixtureMod"
+    ]
+  },
+  "depends": {
+    "fabricloader": "*"
+  },
+  "mixins": [
+    "crashsleuth_fixture.mixins.json"
+  ]
 }

@@ -1,0 +1,124 @@
+---- Minecraft Crash Report ----
+// On the bright side, I bought you a teddy bear!
+
+Time: 2026-09-22 19:42:20
+Description: Batching sections
+
+java.lang.IllegalStateException: Shop sign model is not loaded
+	at knot//net.minecraft.class_776.handler$zzb001$crashsleuth_fixture$crashSleuthFixture(class_776.java:517)
+	at knot//net.minecraft.class_776.method_3355(class_776.java)
+	at knot//net.minecraft.class_9810.method_60904(class_9810.java:80)
+	at knot//net.minecraft.class_846$class_851$class_4578.method_22783(class_846.java:496)
+	at knot//net.minecraft.class_846.method_22757(class_846.java:104)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1768)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.exec(CompletableFuture.java:1760)
+	at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:387)
+	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1312)
+	at java.base/java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1843)
+	at java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1808)
+	at java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:188)
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Thread: Render thread
+Stacktrace:
+	at knot//net.minecraft.class_776.handler$zzb001$crashsleuth_fixture$crashSleuthFixture(class_776.java:517)
+	at knot//net.minecraft.class_776.method_3355(class_776.java)
+	at knot//net.minecraft.class_9810.method_60904(class_9810.java:80)
+	at knot//net.minecraft.class_846$class_851$class_4578.method_22783(class_846.java:496)
+
+-- Uptime --
+Details:
+	JVM uptime: 30.592s
+	Wall uptime: 14.824s
+	High-res time: 14.307s
+	Client ticks: 67 ticks / 3.350s
+Stacktrace:
+	at knot//net.minecraft.class_310.method_1587(class_310.java:2501)
+	at knot//net.minecraft.class_310.method_43589(class_310.java:931)
+	at knot//net.minecraft.class_310.method_54579(class_310.java:944)
+	at knot//net.minecraft.class_310.method_1514(class_310.java:873)
+	at knot//net.minecraft.client.main.Main.main(Main.java:256)
+	at net.fabricmc.loader.impl.game.minecraft.MinecraftGameProvider.launch(MinecraftGameProvider.java:517)
+	at net.fabricmc.loader.impl.launch.knot.Knot.launch(Knot.java:72)
+	at net.fabricmc.loader.impl.launch.knot.KnotClient.main(KnotClient.java:23)
+
+-- Affected level --
+Details:
+	All players: 1 total; [class_746['CrashSleuth'/8, l='ClientLevel', x=-3.50, y=133.00, z=9.50]]
+	Chunk stats: 961, 25
+	Level dimension: minecraft:overworld
+	Level spawn location: World: (0,138,0), Section: (at 0,10,0 in 0,8,0; chunk contains blocks 0,-64,0 to 15,319,15), Region: (0,0; contains chunks 0,0 to 31,31, blocks 0,-64,0 to 511,319,511)
+	Level time: 58 game time, 58 day time
+	Server brand: fabric
+	Server type: Integrated singleplayer server
+	Tracked entity count: 9
+
+-- Last reload --
+Details:
+	Reload number: 1
+	Reload reason: initial
+	Finished: Yes
+	Packs: vanilla
+
+-- System Details --
+Details:
+	Minecraft Version: 1.21.1
+	Minecraft Version ID: 1.21.1
+	Operating System: Linux (amd64) version 7.0.14-orbstack-00380-ga7e0a2dc9535
+	Java Version: 21.0.12, Eclipse Adoptium
+	Java VM Version: OpenJDK 64-Bit Server VM (mixed mode, sharing), Eclipse Adoptium
+	Memory: 164771456 bytes (157 MiB) / 587202560 bytes (560 MiB) up to 4294967296 bytes (4096 MiB)
+	CPUs: 12
+	Processor Vendor: VirtualApple
+	Processor Name: VirtualApple @ 2.50GHz
+	Identifier: VirtualApple Family 6 Model 142 Stepping 10
+	Microarchitecture: unknown
+	Frequency (GHz): 2.50
+	Number of physical packages: 1
+	Number of physical CPUs: 12
+	Number of logical CPUs: 12
+	Graphics card #0 name: unknown
+	Graphics card #0 vendor: unknown
+	Graphics card #0 VRAM (MiB): 0.00
+	Graphics card #0 deviceId: unknown
+	Graphics card #0 versionInfo: unknown
+	Virtual memory max (MiB): 19048.21
+	Virtual memory used (MiB): 3335.77
+	Swap memory total (MiB): 13040.14
+	Swap memory used (MiB): 0.00
+	Space in storage for jna.tmpdir (MiB): available: 145999.58, total: 471482.09
+	Space in storage for org.lwjgl.system.SharedLibraryExtractPath (MiB): available: 145999.58, total: 471482.09
+	Space in storage for io.netty.native.workdir (MiB): available: 145999.58, total: 471482.09
+	Space in storage for java.io.tmpdir (MiB): available: 136272.45, total: 149952.00
+	Space in storage for workdir (MiB): available: 145999.58, total: 471482.09
+	JVM Flags: 1 total; -Xmx4G
+	Launched Version: 1.21.1
+	Launcher name: CrashSleuth
+	Backend library: LWJGL version 3.3.3-snapshot
+	Backend API: llvmpipe (LLVM 21.1.8, 128 bits) GL version 4.5 (Core Profile) Mesa 26.0.8-1ubuntu0.3, Mesa
+	Window size: 427x240
+	GFLW Platform: x11
+	GL Caps: Using framebuffer using OpenGL 3.2
+	GL debug messages: 
+	Is Modded: Definitely; Client brand changed to 'fabric'; Server brand changed to 'fabric'
+	Universe: 400921fb54442d18
+	Type: Integrated Server (map_client.txt)
+	Graphics mode: fancy
+	Render Distance: 12/12 chunks
+	Resource Packs: vanilla
+	Current Language: en_us
+	Locale: en_US
+	System encoding: UTF-8
+	File encoding: UTF-8
+	CPU: 12x VirtualApple @ 2.50GHz
+	Server Running: true
+	Player Count: 1 / 8; [class_3222['CrashSleuth'/8, l='ServerLevel[world]', x=-3.50, y=133.00, z=9.50]]
+	Active Data Packs: vanilla
+	Available Data Packs: bundle, trade_rebalance, vanilla
+	Enabled Feature Flags: minecraft:vanilla
+	World Generation: Stable
+	World Seed: -4675461369262711340

@@ -1,0 +1,9 @@
+{
+  "situation": "RENDER",
+  "culprit": "crashsleuth",
+  "logs": [
+    "crash-2026-09-22_19.42.20-client.txt",
+    "latest.log"
+  ],
+  "crashes": true
+}

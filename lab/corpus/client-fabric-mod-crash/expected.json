@@ -2,7 +2,7 @@
   "situation": "UNCAUGHT_EXCEPTION",
   "culprit": "crashsleuth_fixture",
   "logs": [
-    "crash-2026-09-22_18.02.42-client.txt",
+    "crash-2026-09-22_21.33.17-client.txt",
     "latest.log"
   ]
 }

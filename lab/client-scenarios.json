@@ -269,5 +269,34 @@
   "expect": {
    "situation": "MOD_CONFLICT"
   }
+ },
+ {
+  "name": "ingame-entity-crash",
+  "description": "Fabric 1.21.1 client in a world, a mod throws while an entity is ticked",
+  "minecraft": "1.21.1",
+  "mods": [
+   "fabric-api"
+  ],
+  "fixture": "entity-tick",
+  "world": true,
+  "crashes": true,
+  "expect": {
+   "situation": "TICK_ENTITY",
+   "culprit": "crashsleuth"
+  }
+ },
+ {
+  "name": "ingame-block-crash",
+  "description": "Fabric 1.21.1 client in a world (drawn on a virtual screen), a mod throws while the blocks of a chunk are drawn",
+  "minecraft": "1.21.1",
+  "mods": [],
+  "fixture": "block-render",
+  "world": true,
+  "crashes": true,
+  "expect": {
+   "situation": "RENDER",
+   "culprit": "crashsleuth"
+  },
+  "render": true
  }
 ]

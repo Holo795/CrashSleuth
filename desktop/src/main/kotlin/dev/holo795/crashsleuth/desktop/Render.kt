@@ -18,14 +18,19 @@ import java.nio.file.Path
  * Arguments: the folder or file to analyse, then the output folder.
  */
 fun main(args: Array<String>) {
-    val target = Path.of(args[0])
     val out = Files.createDirectories(Path.of(args.getOrElse(1) { "." }))
     val state = AppState()
-    val analysis = Workbench().analyze(target)
-    val screens: List<Pair<String, @Composable () -> Unit>> = listOf(
-        "home" to { HomeScreen(state, dragging = false, chooseFolder = {}, chooseFile = {}) },
-        "report" to { ReportScreen(state, analysis) },
-    )
+    // A link holds a whole report: it is drawn like the rest, without any file of this computer.
+    val screens: List<Pair<String, @Composable () -> Unit>> = if (args[0].contains("#r=")) {
+        val shared = dev.holo795.crashsleuth.app.ShareLink.decode(args[0].substringAfter("#r="))
+        listOf("shared" to { SharedScreen(state, shared) })
+    } else {
+        val analysis = Workbench().analyze(Path.of(args[0]))
+        listOf(
+            "home" to { HomeScreen(state, dragging = false, chooseFolder = {}, chooseFile = {}) },
+            "report" to { ReportScreen(state, analysis) },
+        )
+    }
     screens.forEach { (name, content) ->
         val scene = ImageComposeScene(1240, 820, Density(1f)) {
             CrashSleuthTheme {

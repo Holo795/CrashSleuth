@@ -214,7 +214,7 @@
         {
             "file": "crashsleuth-fixture-1.0.0.jar",
             "folder": "mods",
-            "size": 2504,
+            "size": 5566,
             "mods": [
                 {
                     "format": "FABRIC",
@@ -3065,6 +3065,7 @@
     "files": {
         "worlds": [],
         "eulaAccepted": null,
-        "configErrors": []
+        "configErrors": [],
+        "rootJars": []
     }
 }

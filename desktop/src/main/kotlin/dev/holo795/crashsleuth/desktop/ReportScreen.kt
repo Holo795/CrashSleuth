@@ -86,7 +86,7 @@ fun ReportScreen(state: AppState, analysis: Analysis) {
                 )
                 Spacer(Modifier.height(16.dp))
                 val primary = report.primary
-                if (primary == null) NoFinding(ui) else Verdict(ui, primary)
+                if (primary == null) NoFinding(ui) else Verdict(ui, primary, analysis)
                 androidx.compose.runtime.LaunchedEffect(Unit) { if (state.localAi == null) state.lookForLocalAi() }
                 val explained = state.explanation?.takeIf { it.first == analysis.target.path }?.second
                 if (explained != null) {
@@ -97,6 +97,24 @@ fun ReportScreen(state: AppState, analysis: Analysis) {
                 } else if (state.localAi != null) {
                     Spacer(Modifier.height(20.dp))
                     TextButton(if (state.working(analysis, "explain")) ui["ai.working"] else ui["ai.button"], { if (!state.working(analysis)) state.explain(analysis) }, icon = Icons.Search)
+                }
+                if (state.localAi != null) {
+                    Spacer(Modifier.height(10.dp))
+                    Row(verticalAlignment = Alignment.CenterVertically) {
+                        Text(ui["ai.model"], style = MaterialTheme.typography.bodySmall, color = Theme.tones.muted)
+                        state.aiModels.take(4).forEach { model ->
+                            Spacer(Modifier.width(8.dp))
+                            val chosen = model == (state.aiModel ?: state.aiModels.firstOrNull())
+                            Text(
+                                model,
+                                style = MaterialTheme.typography.bodySmall,
+                                color = if (chosen) MaterialTheme.colorScheme.primary else Theme.tones.muted,
+                                modifier = Modifier.clickable { state.chooseAiModel(model) },
+                            )
+                        }
+                        Spacer(Modifier.width(12.dp))
+                        Text(ui["ai.off"], style = MaterialTheme.typography.bodySmall, color = Theme.tones.muted, modifier = Modifier.clickable { state.enableAi(false) })
+                    }
                 }
                 val others = report.findings.drop(1)
                 if (others.isNotEmpty()) {
@@ -119,7 +137,11 @@ fun ReportScreen(state: AppState, analysis: Analysis) {
             }
             analysis.inventory?.takeIf { it.jars.isNotEmpty() }?.let {
                 Spacer(Modifier.height(28.dp)); Hairline(); Spacer(Modifier.height(24.dp))
-                InstalledSection(ui, it.jars)
+                InstalledSection(state, analysis, it.jars)
+            }
+            analysis.inventory?.files?.worlds?.filter { it.damagedChunks.isNotEmpty() || it.damagedPlayers.isNotEmpty() }?.takeIf { it.isNotEmpty() }?.let { worlds ->
+                Spacer(Modifier.height(28.dp)); Hairline(); Spacer(Modifier.height(24.dp))
+                WorldsSection(state, analysis, worlds)
             }
             if (analysis.mixinCollisions.isNotEmpty()) {
                 Spacer(Modifier.height(28.dp)); Hairline(); Spacer(Modifier.height(24.dp))
@@ -129,8 +151,39 @@ fun ReportScreen(state: AppState, analysis: Analysis) {
     }
 }
 
+/** Worlds with damaged chunks, entities or player saves, and the way to their files. */
 @Composable
-private fun Verdict(ui: Ui, finding: Finding) {
+private fun WorldsSection(state: AppState, analysis: Analysis, worlds: List<dev.holo795.crashsleuth.inventory.WorldInfo>) {
+    val ui = state.ui
+    SectionTitle(ui["report.worlds"]) {
+        Text(worlds.sumOf { it.damagedChunks.size + it.damagedPlayers.size }.toString(), style = MaterialTheme.typography.bodySmall, color = Theme.tones.muted)
+    }
+    Text(ui["report.worlds.body"], style = MaterialTheme.typography.bodySmall, color = Theme.tones.muted)
+    Spacer(Modifier.height(10.dp))
+    worlds.forEach { world ->
+        Text(world.name, style = MaterialTheme.typography.titleSmall)
+        world.damagedChunks.take(6).forEach { chunk ->
+            Row(Modifier.fillMaxWidth().padding(vertical = 3.dp), verticalAlignment = Alignment.CenterVertically) {
+                Text("[${chunk.x}, ${chunk.z}]", style = CodeStyle, color = Theme.tones.critical)
+                Spacer(Modifier.width(8.dp))
+                Text(chunk.file, style = MaterialTheme.typography.bodySmall, color = Theme.tones.muted, maxLines = 1, overflow = TextOverflow.Ellipsis)
+            }
+        }
+        if (world.damagedChunks.size > 6) {
+            Text(ui["report.worlds.more", world.damagedChunks.size - 6], style = MaterialTheme.typography.bodySmall, color = Theme.tones.muted)
+        }
+        world.damagedPlayers.take(4).forEach { player ->
+            Text(ui["report.worlds.player", player.name ?: player.file], style = MaterialTheme.typography.bodySmall, color = Theme.tones.muted)
+        }
+        val folder = java.nio.file.Path.of(analysis.target.path).resolve(world.name)
+        Spacer(Modifier.height(6.dp))
+        TextButton(ui["report.worlds.open"], { dev.holo795.crashsleuth.app.Reveal.folder(folder) }, icon = Icons.Folder)
+        Spacer(Modifier.height(10.dp))
+    }
+}
+
+@Composable
+private fun Verdict(ui: Ui, finding: Finding, analysis: Analysis? = null) {
     val (tone, _) = confidenceColors(finding.confidence)
     var evidence by remember(finding) { mutableStateOf(false) }
     val culprits = ui.report.culprits(finding)
@@ -142,6 +195,8 @@ private fun Verdict(ui: Ui, finding: Finding) {
         Overline(if (culprits.size > 1) ui["report.culprits"] else ui["report.culprit"])
         Spacer(Modifier.height(10.dp))
         culprits.forEach { culprit ->
+            // The jar of this culprit, when it is on this computer: the person can go straight to it.
+            val jar = analysis?.inventory?.jars?.firstOrNull { it.file == culprit.file || it.mods.any { mod -> mod.id == culprit.id } }?.path
             Row(Modifier.padding(vertical = 4.dp), verticalAlignment = Alignment.Bottom) {
                 Text(culprit.label, style = MaterialTheme.typography.headlineSmall, color = tone)
                 culprit.version?.let {
@@ -151,6 +206,15 @@ private fun Verdict(ui: Ui, finding: Finding) {
                 if (culprit.name != null && culprit.name != culprit.id) {
                     Spacer(Modifier.width(10.dp))
                     Text(culprit.id, style = CodeStyle, color = Theme.tones.muted, modifier = Modifier.padding(bottom = 4.dp))
+                }
+                if (jar != null) {
+                    Spacer(Modifier.width(14.dp))
+                    Text(
+                        ui["report.reveal"],
+                        style = MaterialTheme.typography.bodySmall,
+                        color = Theme.tones.muted,
+                        modifier = Modifier.padding(bottom = 4.dp).clickable { dev.holo795.crashsleuth.app.Reveal.file(java.nio.file.Path.of(jar)) },
+                    )
                 }
             }
         }
@@ -249,7 +313,11 @@ private fun ToolsSection(state: AppState, analysis: Analysis) {
 }
 
 @Composable
-private fun InstalledSection(ui: Ui, jars: List<JarEntry>) {
+private fun InstalledSection(state: AppState, analysis: Analysis, jars: List<JarEntry>) {
+    val ui = state.ui
+    // What the Modrinth check found, by jar name: a newer version and the page of the project.
+    val updates = analysis.report.findings.filter { it.situation == Situation.OUTDATED }
+        .mapNotNull { finding -> finding.culprits.firstOrNull()?.file?.let { it to finding } }.toMap()
     var filter by remember { mutableStateOf("") }
     val mods = jars.count { it.folder == "mods" }
     val plugins = jars.count { it.folder == "plugins" }
@@ -269,8 +337,20 @@ private fun InstalledSection(ui: Ui, jars: List<JarEntry>) {
     Column(Modifier.heightIn(max = 440.dp).verticalScroll(rememberScrollState())) {
         shown.forEach { jar ->
             val mod = jar.mods.firstOrNull()
-            Row(Modifier.fillMaxWidth().padding(vertical = 6.dp), verticalAlignment = Alignment.CenterVertically) {
+            val update = updates[jar.file]
+            val project = update?.details?.get("project")
+            HoverRow(onClick = {
+                when {
+                    project != null -> dev.holo795.crashsleuth.app.Reveal.page("https://modrinth.com/project/$project")
+                    jar.path != null -> dev.holo795.crashsleuth.app.Reveal.file(java.nio.file.Path.of(jar.path!!))
+                    else -> {}
+                }
+            }, modifier = Modifier.padding(horizontal = 0.dp)) {
                 Text(mod?.name ?: mod?.id ?: jar.file, style = MaterialTheme.typography.bodySmall, color = if (jar.error != null) Theme.tones.critical else MaterialTheme.colorScheme.onSurface, maxLines = 1, overflow = TextOverflow.Ellipsis, modifier = Modifier.weight(1f))
+                if (update != null) {
+                    Spacer(Modifier.width(8.dp))
+                    Text(ui["report.update", update.details["latest"] ?: "?"], style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.primary, maxLines = 1)
+                }
                 Spacer(Modifier.width(10.dp))
                 Text(mod?.version?.take(18) ?: "", style = CodeStyle, color = Theme.tones.muted, maxLines = 1)
             }

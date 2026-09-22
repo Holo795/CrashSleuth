@@ -41,12 +41,17 @@ def fabric_fixture(java_home: Path) -> Path:
         return output
     loader = json.load(urllib.request.urlopen(urllib.request.Request("https://meta.fabricmc.net/v2/versions/loader", headers={"User-Agent": lab.USER_AGENT})))[0]["version"]
     api = lab.download(f"https://maven.fabricmc.net/net/fabricmc/fabric-loader/{loader}/fabric-loader-{loader}.jar")
+    # The mixins of the fixture are compiled against the mixin library Fabric itself uses.
+    mixin_version = lab.maven_latest("https://maven.fabricmc.net/net/fabricmc/sponge-mixin/maven-metadata.xml", "")
+    mixin = lab.download(f"https://maven.fabricmc.net/net/fabricmc/sponge-mixin/{mixin_version}/sponge-mixin-{mixin_version}.jar")
+    api = f"{api}{os.pathsep}{mixin}"
     work = lab.CACHE / "fixtures" / f"fabric-build-{digest}"
     shutil.rmtree(work, ignore_errors=True)
     (work / "out").mkdir(parents=True)
     java_files = [str(p) for p in (LAB_DIR / "fixtures" / "fabric" / "src").rglob("*.java")]
     subprocess.run([str(java_home / "bin" / "javac"), "--release", "21", "-nowarn", "-proc:none", "-d", str(work / "out"), "-cp", str(api), *java_files], check=True)
-    shutil.copy(LAB_DIR / "fixtures" / "fabric" / "fabric.mod.json", work / "out" / "fabric.mod.json")
+    for name in ("fabric.mod.json", "crashsleuth_fixture.mixins.json"):
+        shutil.copy(LAB_DIR / "fixtures" / "fabric" / name, work / "out" / name)
     output.parent.mkdir(parents=True, exist_ok=True)
     subprocess.run([str(java_home / "bin" / "jar"), "cf", str(output), "-C", str(work / "out"), "."], check=True)
     return output
@@ -124,6 +129,24 @@ def prepare(scenario: dict, directory: Path, java_home: Path) -> None:
     (directory / "options.txt").write_text("onboardAccessibility:false\nsoundCategory_master:0.0\ntutorialStep:none\nskipMultiplayerWarning:true\n" + scenario.get("options", ""))
 
 
+LINUX_IMAGE = "crashsleuth-linux-client"
+
+
+def run_in_container(directory: Path, cli: str, scenario: dict, joining: list[str]) -> str:
+    """Runs the game on a virtual screen inside a container: the world is really drawn, nothing is shown."""
+    dockerfile = (LAB_DIR / "fixtures" / "linux-client.Dockerfile").read_text()
+    subprocess.run(["docker", "build", "--platform", "linux/amd64", "-q", "-t", LINUX_IMAGE, "-"], input=dockerfile, text=True, capture_output=True, check=True)
+    cache = lab.CACHE / "linux-client"
+    cache.mkdir(parents=True, exist_ok=True)
+    result = subprocess.run(
+        ["docker", "run", "--rm", "--platform", "linux/amd64", "-e", "HOME=/tmp", "-e", "CRASHSLEUTH_CACHE=/cache", "-e", "LIBGL_ALWAYS_SOFTWARE=1",
+         "-v", f"{Path(cli).parent.parent}:/opt/crashsleuth:ro", "-v", f"{cache}:/cache", "-v", f"{directory}:/game", LINUX_IMAGE,
+         "/opt/crashsleuth/bin/crashsleuth", "run-client", "/game", "--minecraft", scenario["minecraft"], "--loader", scenario.get("loader", "fabric"),
+         "--java", "/opt/java/openjdk/bin/java", "--settle", str(scenario.get("settle", 45)), "--timeout", "10", *joining],
+        capture_output=True, text=True, timeout=3600)
+    return result.stdout.split()[0] if result.stdout else "ERROR"
+
+
 def run(names: list[str], cli: str, java_home: Path) -> int:
     os.environ["CRASHSLEUTH_CLI_FOR_KEEP"] = cli
     scenarios = json.loads((LAB_DIR / "client-scenarios.json").read_text())
@@ -148,8 +171,19 @@ def run(names: list[str], cli: str, java_home: Path) -> int:
             prepare(scenario, directory, java_home)
             started = time.time()
             joining = ["--join", "world:lab"] if scenario.get("world") else []
-            launch = subprocess.run([cli, "run-client", str(directory), "--loader", scenario.get("loader", "fabric"), *common, "--settle", "8", *joining], capture_output=True, text=True, timeout=900)
-            outcome = launch.stdout.split()[0] if launch.stdout else "ERROR"
+            if scenario.get("render"):
+                # Drawing the world needs a real render loop: a hidden window stops drawing on macOS.
+                outcome = run_in_container(directory, cli, scenario, joining)
+            else:
+                launch = subprocess.run([cli, "run-client", str(directory), "--loader", scenario.get("loader", "fabric"), *common, "--settle", "8", *joining], capture_output=True, text=True, timeout=900)
+                outcome = launch.stdout.split()[0] if launch.stdout else "ERROR"
+                # No screen at all (locked or asleep): the game cannot open a window, so it runs on a virtual one.
+                log = directory / "logs" / "latest.log"
+                if "primary monitor" in (launch.stdout + launch.stderr + (log.read_text(errors="replace") if log.exists() else "")):
+                    print("   (no usable screen on this computer: running it on a virtual screen)", flush=True)
+                    shutil.rmtree(directory / "logs", ignore_errors=True)
+                    shutil.rmtree(directory / "crash-reports", ignore_errors=True)
+                    outcome = run_in_container(directory, cli, scenario, joining)
             report = json.loads(subprocess.run([cli, "analyze", str(directory), "--json"], capture_output=True, text=True, timeout=300).stdout)
             findings = report["findings"]
             summary = ", ".join(f"{f['situation']}[{'/'.join(c['id'] for c in f['culprits'])}]" for f in findings[:3]) or "no finding"

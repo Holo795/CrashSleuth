@@ -1,10 +1,10 @@
-[18:02:30] [main/INFO]: Loading Minecraft 1.21.1 with Fabric Loader 0.19.5
-[18:02:30] [main/INFO]: Fabric is preparing JARs on first launch, this may take a few seconds...
-[18:02:30] [main/WARN]: Mod resolution failed
-[18:02:30] [main/INFO]: Immediate reason: [HARD_DEP_NO_CANDIDATE zoomify 2.15.2+1.21.1 {depends yet_another_config_lib_v3 @ [>=3.6.6]}, ROOT_FORCELOAD_SINGLE zoomify 2.15.2+1.21.1]
-[18:02:30] [main/INFO]: Reason: [HARD_DEP zoomify 2.15.2+1.21.1 {depends yet_another_config_lib_v3 @ [>=3.6.6]}]
-[18:02:30] [main/INFO]: Fix: add [add:yet_another_config_lib_v3 3.6.6 ([[3.6.6,∞)])], remove [], replace []
-[18:02:30] [main/ERROR]: Incompatible mods found!
+[21:33:08] [main/INFO]: Loading Minecraft 1.21.1 with Fabric Loader 0.19.5
+[21:33:08] [main/INFO]: Fabric is preparing JARs on first launch, this may take a few seconds...
+[21:33:08] [main/WARN]: Mod resolution failed
+[21:33:08] [main/INFO]: Immediate reason: [HARD_DEP_NO_CANDIDATE zoomify 2.15.2+1.21.1 {depends yet_another_config_lib_v3 @ [>=3.6.6]}, ROOT_FORCELOAD_SINGLE zoomify 2.15.2+1.21.1]
+[21:33:08] [main/INFO]: Reason: [HARD_DEP zoomify 2.15.2+1.21.1 {depends yet_another_config_lib_v3 @ [>=3.6.6]}]
+[21:33:08] [main/INFO]: Fix: add [add:yet_another_config_lib_v3 3.6.6 ([[3.6.6,∞)])], remove [], replace []
+[21:33:08] [main/ERROR]: Incompatible mods found!
 net.fabricmc.loader.impl.FormattedException: Some of your mods are incompatible with the game or each other!
 A potential solution has been determined, this may resolve your problem:
 	 - Install yet_another_config_lib_v3, version 3.6.6 or later.

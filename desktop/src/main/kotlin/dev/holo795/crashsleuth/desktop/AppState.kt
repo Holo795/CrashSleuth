@@ -12,6 +12,7 @@ import dev.holo795.crashsleuth.app.SearchCancelled
 import dev.holo795.crashsleuth.app.SearchListener
 import dev.holo795.crashsleuth.app.SearchSetup
 import dev.holo795.crashsleuth.app.TargetKind
+import dev.holo795.crashsleuth.app.ShareLink
 import dev.holo795.crashsleuth.app.Workbench
 import dev.holo795.crashsleuth.bisect.RunRecord
 import dev.holo795.crashsleuth.bisect.SearchResult
@@ -55,6 +56,8 @@ sealed interface Screen {
     data class Analyzing(val path: Path) : Screen
     data class Failed(val path: Path, val message: String) : Screen
     data class Report(val analysis: Analysis, val other: Analysis? = null) : Screen
+    /** A report someone else shared, opened from its link. */
+    data class Shared(val report: ShareLink.Shared, val link: String) : Screen
     data class Setup(val analysis: Analysis, val setup: SearchSetup, val javas: List<JavaInstall>) : Screen
     data class Searching(val analysis: Analysis, val setup: SearchSetup) : Screen
 }
@@ -62,6 +65,8 @@ sealed interface Screen {
 /** Live state of a running or finished culprit search. */
 class SearchProgress(val total: Int) {
     val runs = mutableStateListOf<RunRecord>()
+    /** What the search says while it works, newest last. */
+    val log = mutableStateListOf<String>()
     var suspects by mutableStateOf<List<String>>(emptyList())
     var phase by mutableStateOf("preparing")
     var result by mutableStateOf<SearchResult?>(null)
@@ -102,6 +107,14 @@ class AppState {
 
     fun home() {
         screen = Screen.Home
+    }
+
+    /** Opens a report someone shared as a link (the report travels inside the link). */
+    fun openShared(link: String) {
+        notice = null
+        runCatching { ShareLink.decode(link.trim().substringAfter("#r=")) }
+            .onSuccess { screen = Screen.Shared(it, link.trim()) }
+            .onFailure { notice = ui["home.link.invalid"] }
     }
 
     fun open(path: Path) {
@@ -149,13 +162,37 @@ class AppState {
     var explanation by mutableStateOf<Pair<String, String>?>(null)
 
     fun lookForLocalAi() {
+        if (!aiEnabled) return
         scope.launch {
             localAi = withContext(Dispatchers.IO) { runCatching { dev.holo795.crashsleuth.app.LocalAi().takeIf { it.available() } }.getOrNull() }
+            aiModels = withContext(Dispatchers.IO) { localAi?.models().orEmpty() }
         }
     }
 
+    var aiModels by mutableStateOf<List<String>>(emptyList())
+        private set
+
+    /** Model the person picked for the local AI, and whether they want it at all. */
+    var aiModel by mutableStateOf(settings.aiModel)
+        private set
+    var aiEnabled by mutableStateOf(settings.aiEnabled)
+        private set
+
+    fun chooseAiModel(model: String?) {
+        aiModel = model
+        settings = settings.copy(aiModel = model)
+        Settings.save(settings)
+    }
+
+    fun enableAi(enabled: Boolean) {
+        aiEnabled = enabled
+        settings = settings.copy(aiEnabled = enabled)
+        Settings.save(settings)
+        if (!enabled) { localAi = null; explanation = null } else lookForLocalAi()
+    }
+
     fun explain(analysis: Analysis) {
-        val ai = localAi ?: return
+        val ai = localAi?.let { if (aiModel != null) dev.holo795.crashsleuth.app.LocalAi(it.url, aiModel) else it } ?: return
         busy = "${analysis.target.path} explain"
         notice = null
         scope.launch {
@@ -203,6 +240,7 @@ class AppState {
         job = scope.launch {
             val listener = object : SearchListener {
                 override fun message(text: String) {
+                    scope.launch { progress.log.add(text); while (progress.log.size > 200) progress.log.removeAt(0) }
                     if (text == "preparing" || text == "installing") scope.launch { progress.phase = text }
                 }
                 override fun run(record: RunRecord) { scope.launch { progress.runs.add(record); progress.phase = "running" } }
@@ -223,7 +261,14 @@ class AppState {
 
 /** The few things remembered between two starts, in the user's own folder. */
 @Serializable
-data class Settings(val language: String? = null, val recents: List<Recent> = emptyList(), val side: String? = null) {
+data class Settings(
+    val language: String? = null,
+    val recents: List<Recent> = emptyList(),
+    val side: String? = null,
+    /** Local AI: the model to ask, and whether it is offered at all. */
+    val aiModel: String? = null,
+    val aiEnabled: Boolean = true,
+) {
     companion object {
         private val file: Path = Path.of(System.getProperty("user.home"), ".crashsleuth", "desktop.json")
         private val json = Json { ignoreUnknownKeys = true; prettyPrint = true }

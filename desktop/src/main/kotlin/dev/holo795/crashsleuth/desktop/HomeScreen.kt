@@ -28,6 +28,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.scale
+import androidx.compose.ui.input.key.Key
+import androidx.compose.ui.input.key.key
+import androidx.compose.ui.input.key.onKeyEvent
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.foundation.clickable
@@ -51,6 +54,8 @@ fun HomeScreen(state: AppState, dragging: Boolean, chooseFolder: () -> Unit, cho
             DropArea(dragging, ui, chooseFolder, chooseFile)
             Spacer(Modifier.height(14.dp))
             SideChooser(state)
+            Spacer(Modifier.height(20.dp))
+            SharedLink(state)
             Spacer(Modifier.height(44.dp))
             Recents(state)
             Spacer(Modifier.height(48.dp))
@@ -62,6 +67,38 @@ fun HomeScreen(state: AppState, dragging: Boolean, chooseFolder: () -> Unit, cho
             Spacer(Modifier.height(6.dp))
             Text(ui["home.works.list"], style = MaterialTheme.typography.bodySmall, color = Theme.tones.muted.copy(alpha = 0.7f), modifier = Modifier.padding(start = 22.dp))
         }
+    }
+}
+
+/** A report someone else shared travels inside its link: pasting it here opens it. */
+@Composable
+private fun SharedLink(state: AppState) {
+    val link = androidx.compose.runtime.remember { androidx.compose.runtime.mutableStateOf("") }
+    Row(verticalAlignment = Alignment.CenterVertically) {
+        Text(state.ui["home.link"], style = MaterialTheme.typography.bodySmall, color = Theme.tones.muted)
+        Spacer(Modifier.width(10.dp))
+        Row(
+            Modifier.weight(1f).clip(MaterialTheme.shapes.small).background(Theme.tones.raised).padding(horizontal = 10.dp, vertical = 8.dp),
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            Box(Modifier.weight(1f)) {
+                if (link.value.isEmpty()) Text(state.ui["home.link.hint"], style = MaterialTheme.typography.bodySmall, color = Theme.tones.muted)
+                androidx.compose.foundation.text.BasicTextField(
+                    link.value, { link.value = it }, singleLine = true,
+                    textStyle = MaterialTheme.typography.bodySmall.copy(color = MaterialTheme.colorScheme.onSurface),
+                    cursorBrush = androidx.compose.ui.graphics.SolidColor(MaterialTheme.colorScheme.primary),
+                    modifier = Modifier.fillMaxWidth().onKeyEvent { event ->
+                        if (event.key == Key.Enter && link.value.isNotBlank()) { state.openShared(link.value); true } else false
+                    },
+                )
+            }
+        }
+        Spacer(Modifier.width(10.dp))
+        TextButton(state.ui["home.link.open"], { if (link.value.isNotBlank()) state.openShared(link.value) }, icon = Icons.Search)
+    }
+    state.notice?.let {
+        Spacer(Modifier.height(8.dp))
+        Text(it, style = MaterialTheme.typography.bodySmall, color = Theme.tones.critical)
     }
 }
 

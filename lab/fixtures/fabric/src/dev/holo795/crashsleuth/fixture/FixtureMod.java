@@ -12,7 +12,7 @@ import net.fabricmc.loader.api.FabricLoader;
 public final class FixtureMod implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
-        String mode = readMode();
+        String mode = mode();
         System.out.println("[CrashSleuthFixture] mode: " + mode);
         if (mode.equals("throw")) {
             throw new IllegalStateException("Texture cache is not ready");
@@ -27,6 +27,14 @@ public final class FixtureMod implements ClientModInitializer {
             Runtime.getRuntime().halt(1);
         }
     }
+
+    /** The mode, read once; the mixins ask for it while the game runs. */
+    public static String mode() {
+        if (cached == null) cached = readMode();
+        return cached;
+    }
+
+    private static String cached;
 
     private static String readMode() {
         try {

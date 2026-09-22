@@ -118,6 +118,7 @@ private fun App(state: AppState, dragging: Boolean, chooseFolder: () -> Unit, ch
                 is Screen.Analyzing -> Analyzing(state.ui, screen.path)
                 is Screen.Failed -> Failed(state, screen)
                 is Screen.Report -> ReportScreen(state, screen.analysis)
+                is Screen.Shared -> SharedScreen(state, screen.report)
                 is Screen.Setup -> SetupScreen(state, screen.analysis, screen.setup, screen.javas, chooseJava)
                 is Screen.Searching -> SearchScreen(state, screen.analysis, screen.setup)
             }

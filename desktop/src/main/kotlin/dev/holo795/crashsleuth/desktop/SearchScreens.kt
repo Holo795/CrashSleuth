@@ -243,6 +243,12 @@ fun SearchScreen(state: AppState, analysis: Analysis, setup: SearchSetup) {
             Overline("${ui["search.launches", progress.runs.size]}")
             Spacer(Modifier.height(10.dp))
             Timeline(ui, progress.runs)
+            if (progress.log.isNotEmpty()) {
+                Spacer(Modifier.height(20.dp))
+                Overline(ui["search.log"])
+                Spacer(Modifier.height(6.dp))
+                CodeBlock(progress.log.takeLast(6))
+            }
         }
         Box(Modifier.width(1.dp).fillMaxHeight().background(Theme.tones.line))
         SuspectsColumn(ui, progress, setup)

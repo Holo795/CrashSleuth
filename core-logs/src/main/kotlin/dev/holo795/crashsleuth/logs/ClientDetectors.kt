@@ -62,3 +62,52 @@ object ShaderPackDetector : Detector {
         )
     }
 }
+
+/**
+ * A crash while the game draws the world or its interface. The crash report says what it was doing:
+ * "Batching sections" (the blocks of a chunk, 1.21), "Tesselating block model" (older), "Rendering entity in
+ * world", "Rendering screen". Whoever appears in the trace, other than the game itself, is the culprit.
+ */
+object ClientRenderCrashDetector : Detector {
+    private val DESCRIPTION = Regex("""(?m)^Description:\s*(.+)$""")
+    private val DRAWING = mapOf(
+        "batching sections" to "blocks",
+        "tesselating block model" to "blocks",
+        "tesselating block in world" to "blocks",
+        "rendering block entity" to "block entity",
+        "rendering entity in world" to "entity",
+        "rendering screen" to "screen",
+        "rendering overlay" to "screen",
+        "rendering item" to "item",
+    )
+    private val BLOCK_NAME = Regex("""Block: Block\{([\w.-]+:[\w./-]+)}""")
+    private val BLOCK_LOCATION = Regex("""Block location:\s*World:\s*\((-?\d+),\s*(-?\d+),\s*(-?\d+)\)""")
+    private val ENTITY_TYPE = Regex("""Entity Type:\s*([\w.-]+:[\w./-]+)""")
+
+    override fun detect(document: LogDocument, environment: Environment): List<Finding> {
+        val description = DESCRIPTION.find(document.text)?.groupValues?.get(1)?.trim() ?: return emptyList()
+        val drawing = DRAWING.entries.firstOrNull { description.lowercase().startsWith(it.key) } ?: return emptyList()
+        val trace = document.stackTraces.firstOrNull() ?: return emptyList()
+        val culprits = Attribution.culprits(trace, environment, 2)
+        val details = document.section("Block being tesselated") + document.section("Block being rendered") +
+            document.section("Entity being rendered") + document.section("Block Entity Details")
+        val what = details.joinToString("\n")
+        return listOf(
+            Finding(
+                situation = Situation.RENDER,
+                confidence = if (culprits.isEmpty()) Confidence.MEDIUM else Confidence.CERTAIN,
+                culprits = culprits,
+                evidence = listOfNotNull(
+                    "Description: $description",
+                    trace.root.headline,
+                    BLOCK_NAME.find(what)?.let { name ->
+                        val at = BLOCK_LOCATION.find(what)?.let { " at ${it.groupValues[1]}, ${it.groupValues[2]}, ${it.groupValues[3]}" }.orEmpty()
+                        "${name.groupValues[1]}$at"
+                    },
+                    ENTITY_TYPE.find(what)?.groupValues?.get(1),
+                ),
+                details = mapOfNotNull("adviceKey" to "render.drawing", "drawing" to drawing.value, "phase" to description),
+            ),
+        )
+    }
+}

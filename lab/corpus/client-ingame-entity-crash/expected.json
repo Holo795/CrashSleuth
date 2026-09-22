@@ -1,0 +1,9 @@
+{
+  "situation": "TICK_ENTITY",
+  "culprit": "crashsleuth",
+  "logs": [
+    "crash-2026-09-22_21.41.44-server.txt",
+    "latest.log"
+  ],
+  "crashes": true
+}

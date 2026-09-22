@@ -2080,12 +2080,13 @@
                 "hasBackup": true,
                 "locked": false,
                 "damagedChunks": [],
-                "chunksChecked": 847,
+                "chunksChecked": 848,
                 "chunksComplete": true,
                 "damagedPlayers": []
             }
         ],
         "eulaAccepted": null,
-        "configErrors": []
+        "configErrors": [],
+        "rootJars": []
     }
 }

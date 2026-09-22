@@ -26,7 +26,9 @@ class ReportText(val messages: Messages) {
         val details = finding.details
         val first = culprits(finding).firstOrNull()?.let { describe(it) } ?: "?"
         // Advice of a signature or a special case: {0} culprit, {1} player, {2} server, {3} percent, {4} method, {5} behindMs, {6} count.
-        details["adviceKey"]?.let { return messages.get(it, first, details["player"], details["server"], details["percent"], details["method"], details["behindMs"], details["count"]) }
+        details["adviceKey"]?.let {
+            return messages.get(it, first, details["player"], details["server"], details["percent"], details["method"] ?: details["drawing"]?.let { messages.get("render.what.$it") }, details["behindMs"], details["count"])
+        }
         return when (finding.situation) {
             Situation.DEP_MISSING -> messages.advice(finding.situation, details["dependency"], details["requester"])
             Situation.DEP_VERSION -> messages.advice(finding.situation, details["dependency"], details["requester"], details["expected"], details["actual"])
