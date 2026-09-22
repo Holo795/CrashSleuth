@@ -180,6 +180,28 @@ class InventoryTest {
     }
 
     @Test
+    fun `loader too old and conflicts declared by the mods`() {
+        fabricServer()
+        jar("mods", "sodium.jar", mapOf("fabric.mod.json" to fabricMod("sodium", "0.8.13", """, "breaks": {"iris": "<1.8.13"}""")))
+        jar("mods", "iris.jar", mapOf("fabric.mod.json" to fabricMod("iris", "1.8.8")))
+        jar("mods", "new.jar", mapOf("fabric.mod.json" to fabricMod("new", "1.0", """, "depends": {"fabricloader": ">=0.17.0"}""")))
+        jar("mods", "fine.jar", mapOf("fabric.mod.json" to fabricMod("fine", "1.0", """, "depends": {"fabricloader": ">=0.15"}, "breaks": {"iris": "<1.0"}""")))
+        val found = situations(InstanceScanner.scan(root)).toSet()
+        assertTrue(Situation.MOD_CONFLICT to "sodium" in found, "$found")
+        assertTrue(Situation.DEP_VERSION to "new" in found, "the server runs Fabric Loader 0.16.10: $found")
+        assertTrue(found.none { it.second == "fine" }, "$found")
+    }
+
+    @Test
+    fun `a bare NeoForge version means that one or newer`() {
+        root.resolve("libraries/net/neoforged/neoforge/21.1.251").createDirectories()
+        root.resolve("libraries/net/minecraft/server/1.21.1-20240808.144430").createDirectories()
+        root.resolve("server.properties").writeText("")
+        jar("mods", "cannons.jar", mapOf("META-INF/neoforge.mods.toml" to "[[mods]]\nmodId=\"createbigcannons\"\n[[dependencies.createbigcannons]]\nmodId=\"neoforge\"\ntype=\"required\"\nversionRange=\"21.1.225\"\n"))
+        assertEquals(emptyList(), situations(InstanceScanner.scan(root)))
+    }
+
+    @Test
     fun `version ranges`() {
         assertTrue(Versions.matches("1.21.1", ">=1.21 <1.21.2"))
         assertFalse(Versions.matches("1.21.2", ">=1.21 <1.21.2"))

@@ -1,0 +1,7 @@
+{
+  "situation": "JVM_OPTIONS",
+  "culprit": null,
+  "logs": [
+    "console.log"
+  ]
+}

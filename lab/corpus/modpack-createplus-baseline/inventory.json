@@ -729,7 +729,7 @@
       },
       {
        "id": "farmersdelight",
-       "versionRange": "1.21-1.3",
+       "versionRange": "[1.21-1.3,)",
        "required": true,
        "side": "UNKNOWN"
       },
@@ -966,7 +966,7 @@
       },
       {
        "id": "minecraft",
-       "versionRange": "=1.21.1",
+       "versionRange": "[=1.21.1,)",
        "required": true,
        "side": "CLIENT"
       }
@@ -3300,7 +3300,7 @@
      "dependencies": [
       {
        "id": "neoforge",
-       "versionRange": "21.1.225",
+       "versionRange": "[21.1.225,)",
        "required": true,
        "side": "UNKNOWN"
       },
@@ -5675,7 +5675,7 @@
      "dependencies": [
       {
        "id": "minecraft",
-       "versionRange": "1.21.1",
+       "versionRange": "[1.21.1,)",
        "required": true,
        "side": "UNKNOWN"
       },
@@ -5886,25 +5886,25 @@
       },
       {
        "id": "sounds",
-       "versionRange": "any",
+       "versionRange": "[any,)",
        "required": true,
        "side": "CLIENT"
       },
       {
        "id": "sophisticatedcore",
-       "versionRange": "any",
+       "versionRange": "[any,)",
        "required": false,
        "side": "UNKNOWN"
       },
       {
        "id": "jei",
-       "versionRange": "any",
+       "versionRange": "[any,)",
        "required": false,
        "side": "UNKNOWN"
       },
       {
        "id": "ae2",
-       "versionRange": "any",
+       "versionRange": "[any,)",
        "required": false,
        "side": "UNKNOWN"
       }
@@ -6306,7 +6306,7 @@
       },
       {
        "id": "minecraft",
-       "versionRange": "1.21.1",
+       "versionRange": "[1.21.1,)",
        "required": true,
        "side": "UNKNOWN"
       }
@@ -6878,7 +6878,7 @@
       },
       {
        "id": "minecraft",
-       "versionRange": "1.21.1",
+       "versionRange": "[1.21.1,)",
        "required": true,
        "side": "UNKNOWN"
       },
@@ -8460,5 +8460,19 @@
    "javaVersion": 21
   }
  ],
- "skipped": []
+ "skipped": [],
+ "files": {
+  "worlds": [
+   {
+    "name": "world",
+    "versionName": "1.21.1",
+    "dataVersion": 3955,
+    "unreadable": null,
+    "hasBackup": true,
+    "locked": false
+   }
+  ],
+  "eulaAccepted": true,
+  "configErrors": []
+ }
 }

@@ -24,7 +24,7 @@
       },
       {
        "id": "minecraft",
-       "versionRange": "1.21.1",
+       "versionRange": "[1.21.1,)",
        "required": true,
        "side": "UNKNOWN"
       },
@@ -109,5 +109,10 @@
    "javaVersion": 21
   }
  ],
- "skipped": []
+ "skipped": [],
+ "files": {
+  "worlds": [],
+  "eulaAccepted": true,
+  "configErrors": []
+ }
 }

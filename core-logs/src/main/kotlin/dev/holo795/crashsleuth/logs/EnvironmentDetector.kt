@@ -8,6 +8,8 @@ import dev.holo795.crashsleuth.model.Side
 object EnvironmentDetector {
     // Old builds: "version git-Paper-196 (MC: 1.20.1)"; recent ones: "version 1.21.1-133-master@a1b2c3d (date) (Implementing API version 1.21.1-R0.1-SNAPSHOT)".
     private val PAPER = Regex("""This server is running (Paper|Purpur|Folia|Pufferfish) version (\S+)""")
+    private val VELOCITY = Regex("""Booting up Velocity (\S+)""")
+    private val BUNGEE = Regex("""Enabled (?:BungeeCord|Waterfall) version (\S+)""")
     private val CRAFTBUKKIT = Regex("""This server is running CraftBukkit version (\S+)""")
     private val MC_TAG = Regex("""\(MC: ([\w.-]+)\)|Implementing API version (\d[\w.]*?)-R""")
     private val VANILLA_SERVER = Regex("""Starting minecraft server version ([\w.-]+)""")
@@ -33,7 +35,17 @@ object EnvironmentDetector {
         var loader: String? = null
         var side = Side.UNKNOWN
 
-        PAPER.find(text)?.let {
+        VELOCITY.find(text)?.let {
+            platform = Platform.VELOCITY
+            loader = it.groupValues[1]
+            side = Side.SERVER
+        }
+        if (platform == Platform.UNKNOWN) BUNGEE.find(text)?.let {
+            platform = Platform.BUNGEECORD
+            loader = it.groupValues[1]
+            side = Side.SERVER
+        }
+        if (platform == Platform.UNKNOWN) PAPER.find(text)?.let {
             platform = Platform.valueOf(it.groupValues[1].uppercase().let { name -> if (name == "PUFFERFISH") "PAPER" else name })
             loader = it.groupValues[2]
             minecraft = serverVersion(text, it)

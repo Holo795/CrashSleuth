@@ -9,14 +9,14 @@ If you're unsure, file a report on Connector's issue tracker found at https://gi
 
 
 
-// *plays dead*
+// What did you do
 Please make sure this issue is not caused by Sable before reporting it to other mod authors.
 If you cannot reproduce it without Sable, file a report on the issue tracker
 https://github.com/ryanhcode/sable/issues
 
-// Quite honestly, I wouldn't worry myself about that.
+// Daisy, daisy...
 
-Time: 2026-09-22 09:46:00
+Time: 2026-09-22 12:34:58
 Description: Mod loading failures have occurred; consult the issue messages for more details
 
 net.neoforged.neoforge.logging.CrashReportExtender$ModLoadingCrashException: Mod loading has failed
@@ -86,33 +86,33 @@ Stacktrace:
 Details:
 	Minecraft Version: 1.21.1
 	Minecraft Version ID: 1.21.1
-	Operating System: Linux (amd64) version 6.1.0-53-cloud-amd64
+	Operating System: Linux (aarch64) version 7.0.14-orbstack-00380-ga7e0a2dc9535
 	Java Version: 21.0.12, Eclipse Adoptium
 	Java VM Version: OpenJDK 64-Bit Server VM (mixed mode, sharing), Eclipse Adoptium
-	Memory: 796373256 bytes (759 MiB) / 1623195648 bytes (1548 MiB) up to 5368709120 bytes (5120 MiB)
-	CPUs: 4
-	Processor Vendor: GenuineIntel
-	Processor Name: Intel(R) Xeon(R) CPU E5-2470 v2 @ 2.40GHz
-	Identifier: Intel64 Family 6 Model 62 Stepping 4
-	Microarchitecture: Ivy Bridge (Server)
-	Frequency (GHz): 2.40
+	Memory: 105003584 bytes (100 MiB) / 1753219072 bytes (1672 MiB) up to 5368709120 bytes (5120 MiB)
+	CPUs: 12
+	Processor Vendor: Apple
+	Processor Name: 
+	Identifier: Apple Family 8 Model 0x000 Stepping r0p0
+	Microarchitecture: unknown
+	Frequency (GHz): -0.00
 	Number of physical packages: 1
-	Number of physical CPUs: 4
-	Number of logical CPUs: 4
+	Number of physical CPUs: 12
+	Number of logical CPUs: 12
 	Graphics card #0 name: unknown
 	Graphics card #0 vendor: unknown
 	Graphics card #0 VRAM (MiB): 0.00
 	Graphics card #0 deviceId: unknown
 	Graphics card #0 versionInfo: unknown
-	Virtual memory max (MiB): 3976.63
-	Virtual memory used (MiB): 2517.93
-	Swap memory total (MiB): 0.00
+	Virtual memory max (MiB): 19048.21
+	Virtual memory used (MiB): 3455.40
+	Swap memory total (MiB): 13040.14
 	Swap memory used (MiB): 0.00
 	Space in storage for jna.tmpdir (MiB): <path not set>
 	Space in storage for org.lwjgl.system.SharedLibraryExtractPath (MiB): <path not set>
 	Space in storage for io.netty.native.workdir (MiB): <path not set>
-	Space in storage for java.io.tmpdir (MiB): available: 47664.76, total: 60267.50
-	Space in storage for workdir (MiB): available: 47664.76, total: 60267.50
+	Space in storage for java.io.tmpdir (MiB): available: 135850.52, total: 148160.00
+	Space in storage for workdir (MiB): available: 143602.81, total: 471482.09
 	JVM Flags: 2 total; -Xms256M -Xmx5G
 	Sinytra Connector: 2.0.0-beta.14+1.21.1
 		SINYTRA CONNECTOR IS PRESENT!
@@ -327,6 +327,6 @@ Details:
 		YungsBetterStrongholds-1.21.1-NeoForge-5.1.3.jar  |YUNG's Better Strongholds     |betterstrongholds             |1.21.1-NeoForge-5.1.|Manifest: NOSIGNATURE
 		YungsExtras-1.21.1-NeoForge-5.1.1.jar             |YUNG's Extras                 |yungsextras                   |1.21.1-NeoForge-5.1.|Manifest: NOSIGNATURE
 		Zeta-1.1-40.jar                                   |Zeta                          |zeta                          |1.1-40              |Manifest: NOSIGNATURE
-	Crash Report UUID: 01fb7c96-dbb6-44eb-be17-06277f25f28d
+	Crash Report UUID: f86f5752-2265-43a3-9ab3-20c34defb9fe
 	FML: 4.0.44
 	NeoForge: 21.1.251

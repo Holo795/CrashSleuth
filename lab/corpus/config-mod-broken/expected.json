@@ -1,0 +1,7 @@
+{
+  "situation": "CONFIG_BROKEN",
+  "culprit": "supplementaries",
+  "logs": [
+    "latest.log"
+  ]
+}

@@ -93,6 +93,7 @@ fun main(args: Array<String>) {
                 }, true)
                 onDispose { }
             }
+            state.pickFolder = { chooseFolder(window) }
             CrashSleuthTheme {
                 App(
                     state = state,

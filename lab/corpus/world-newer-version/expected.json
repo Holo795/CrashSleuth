@@ -1,0 +1,7 @@
+{
+  "situation": "WORLD_DOWNGRADE",
+  "culprit": null,
+  "logs": [
+    "latest.log"
+  ]
+}

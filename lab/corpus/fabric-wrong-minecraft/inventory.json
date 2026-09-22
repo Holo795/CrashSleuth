@@ -49,5 +49,10 @@
    "javaVersion": 17
   }
  ],
- "skipped": []
+ "skipped": [],
+ "files": {
+  "worlds": [],
+  "eulaAccepted": true,
+  "configErrors": []
+ }
 }

@@ -1,0 +1,6 @@
+{
+  "situation": "PROXY_BACKEND",
+  "logs": [
+    "latest.log"
+  ]
+}

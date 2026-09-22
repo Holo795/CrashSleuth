@@ -78,7 +78,7 @@ class ClientInstaller(
      * The command that starts the client in [gameDirectory], in a small window. Values of the
      * launcher placeholders are filled here; the player is offline and has no account.
      */
-    fun command(profile: ClientProfile, gameDirectory: Path, java: String = "java", memory: String = "4G", extraJvm: List<String> = emptyList()): List<String> {
+    fun command(profile: ClientProfile, gameDirectory: Path, java: String = "java", memory: String = "4G", extraJvm: List<String> = emptyList(), join: String? = null): List<String> {
         val values = mapOf(
             "natives_directory" to profile.nativesDirectory.toString(),
             "launcher_name" to "CrashSleuth",
@@ -114,7 +114,9 @@ class ClientInstaller(
                 i++
             }
         }
-        return listOf(java, "-Xmx$memory", "-Dfabric.noGui=true") + extraJvm + jvm + profile.mainClass + cleanGame
+        // Quick Play (1.20+): the game connects to the server as soon as it has started.
+        val quickPlay = if (join != null) listOf("--quickPlayMultiplayer", join) else emptyList()
+        return listOf(java, "-Xmx$memory", "-Dfabric.noGui=true") + extraJvm + jvm + profile.mainClass + cleanGame + quickPlay
     }
 
     private fun vanillaJson(minecraft: String): JsonObject {
@@ -185,7 +187,8 @@ class ClientInstaller(
 
     /**
      * The asset index is always installed; the objects (sounds, languages, about 700 MB) only when
-     * asked: the game starts without them, which is all a crash test needs.
+     * asked: the game starts without them, which is all a crash test needs. The window icons and the
+     * built-in packs (1.4 MB) are always there: the game opens them at start and logs errors without them.
      */
     private fun installAssets(assetIndex: JsonObject, id: String, full: Boolean) {
         val file = cache.resolve("assets/indexes/$id.json")
@@ -193,8 +196,8 @@ class ClientInstaller(
             file.parent.createDirectories()
             file.writeBytes(fetch(URI(assetIndex.getValue("url").jsonPrimitive.content), assetIndex["sha1"]?.jsonPrimitive?.content))
         }
-        if (!full) return
-        json.parseToJsonElement(file.readText()).jsonObject.getValue("objects").jsonObject.values.forEach { element ->
+        json.parseToJsonElement(file.readText()).jsonObject.getValue("objects").jsonObject.forEach { (name, element) ->
+            if (!full && !ALWAYS.any(name::startsWith)) return@forEach
             val hash = element.jsonObject.getValue("hash").jsonPrimitive.content
             val target = cache.resolve("assets/objects/${hash.take(2)}/$hash")
             if (!target.exists()) {
@@ -203,6 +206,8 @@ class ClientInstaller(
             }
         }
     }
+
+    private val ALWAYS = listOf("icons/", "minecraft/resourcepacks/")
 
     private fun arguments(element: JsonElement?): List<String> = (element as? JsonArray).orEmpty().flatMap { argument ->
         when (argument) {

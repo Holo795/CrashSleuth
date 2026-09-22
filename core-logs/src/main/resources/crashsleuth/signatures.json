@@ -320,6 +320,243 @@
       ],
       "advice": "signature.authme-shutdown.advice",
       "source": "codex-minecraft"
+    },
+    {
+      "id": "eula-not-accepted",
+      "situation": "EULA",
+      "confidence": "CERTAIN",
+      "pattern": "You need to agree to the EULA in order to run the server",
+      "source": "lab"
+    },
+    {
+      "id": "port-in-use",
+      "situation": "PORT_IN_USE",
+      "confidence": "CERTAIN",
+      "pattern": "\\*\\*\\*\\* FAILED TO BIND TO PORT!|Failed to bind to port|(?:BindException|bind\\(\\.\\.\\) failed): Address already in use",
+      "source": "lab"
+    },
+    {
+      "id": "disk-full",
+      "situation": "DISK_FULL",
+      "confidence": "CERTAIN",
+      "pattern": "No space left on device",
+      "source": "lab"
+    },
+    {
+      "id": "jvm-unrecognized-option",
+      "situation": "JVM_OPTIONS",
+      "confidence": "CERTAIN",
+      "pattern": "Unrecognized VM option '([^']+)'",
+      "details": {
+        "option": 1
+      },
+      "source": "lab"
+    },
+    {
+      "id": "jvm-unrecognized-option-plain",
+      "situation": "JVM_OPTIONS",
+      "confidence": "CERTAIN",
+      "pattern": "Unrecognized option: (\\S+)",
+      "details": {
+        "option": 1
+      },
+      "source": "lab"
+    },
+    {
+      "id": "jvm-invalid-heap",
+      "situation": "JVM_OPTIONS",
+      "confidence": "CERTAIN",
+      "pattern": "Invalid (?:maximum|initial) heap size: (\\S+)",
+      "details": {
+        "option": 1
+      },
+      "source": "lab"
+    },
+    {
+      "id": "jvm-heap-too-big",
+      "situation": "JVM_OPTIONS",
+      "confidence": "CERTAIN",
+      "pattern": "Could not reserve enough space for (\\S+) object heap",
+      "details": {
+        "option": 1
+      },
+      "advice": "signature.heap-too-big.advice",
+      "source": "lab"
+    },
+    {
+      "id": "world-session-locked",
+      "situation": "WORLD_LOCKED",
+      "confidence": "CERTAIN",
+      "pattern": "([^\\s/]+)/session\\.lock: already locked",
+      "culprits": [
+        {
+          "group": 1,
+          "kind": "SYSTEM"
+        }
+      ],
+      "source": "lab"
+    },
+    {
+      "id": "level-dat-unreadable",
+      "situation": "WORLD_CORRUPT",
+      "confidence": "HIGH",
+      "pattern": "(?:Exception reading|Failed to (?:load|read)) [^\\n]*?([^\\s/]+)/level\\.dat",
+      "culprits": [
+        {
+          "group": 1,
+          "kind": "SYSTEM"
+        }
+      ],
+      "source": "lab"
+    },
+    {
+      "id": "fml-config-load-failed",
+      "situation": "CONFIG_BROKEN",
+      "confidence": "CERTAIN",
+      "pattern": "Failed loading config file (\\S+) of type \\w+ for modid (\\S+)",
+      "culprits": [
+        {
+          "group": 2,
+          "kind": "MOD"
+        }
+      ],
+      "details": {
+        "file": 1
+      },
+      "advice": "signature.config-broken.advice",
+      "source": "lab"
+    },
+    {
+      "id": "neoforge-config-recreated",
+      "situation": "CONFIG_BROKEN",
+      "confidence": "HIGH",
+      "pattern": "Failed to load config (([a-z][a-z0-9_]+)(?:-[\\w-]+)?\\.toml): [\\w.]*ParsingException: ([^\\n]+?)\\. Attempting to recreate",
+      "culprits": [
+        {
+          "group": 2,
+          "kind": "MOD"
+        }
+      ],
+      "details": {
+        "file": 1,
+        "reason": 3
+      },
+      "advice": "signature.config-broken.advice",
+      "source": "lab: config-mod-broken (NeoForge 1.21.1 replaces a broken supplementaries-common.toml with the defaults)"
+    },
+    {
+      "id": "nightconfig-parsing",
+      "situation": "CONFIG_BROKEN",
+      "confidence": "HIGH",
+      "pattern": "(?m)^(?![^\\n]*Failed to load config)[^\\n]*ParsingException: ([^\\n]+?)(?: at line (\\d+))?\\n",
+      "details": {
+        "reason": 1
+      },
+      "source": "lab"
+    },
+    {
+      "id": "bukkit-plugin-config",
+      "situation": "CONFIG_BROKEN",
+      "confidence": "CERTAIN",
+      "pattern": "Cannot load (plugins/(\\w+)/\\S+\\.yml)",
+      "culprits": [
+        {
+          "group": 2,
+          "kind": "PLUGIN"
+        }
+      ],
+      "details": {
+        "file": 1
+      },
+      "advice": "signature.config-broken.advice",
+      "source": "codex-minecraft"
+    },
+    {
+      "id": "datapack-failed",
+      "situation": "DATAPACK_BROKEN",
+      "confidence": "MEDIUM",
+      "pattern": "Failed to load datapacks, can't proceed with server load",
+      "source": "lab"
+    },
+    {
+      "id": "datapack-parse",
+      "situation": "DATAPACK_BROKEN",
+      "confidence": "HIGH",
+      "pattern": "Couldn't parse (?:data file|element) ([\\w.-]+:[\\w./-]+) from ([\\w.-]+:[\\w./-]+)",
+      "culprits": [
+        {
+          "group": 1,
+          "kind": "SYSTEM"
+        }
+      ],
+      "details": {
+        "file": 2
+      },
+      "source": "lab"
+    },
+    {
+      "id": "datapack-parsing-error",
+      "situation": "DATAPACK_BROKEN",
+      "confidence": "MEDIUM",
+      "pattern": "Parsing error loading (recipe|advancement|loot table|[\\w ]+?) (([\\w.-]+):[\\w./-]+)",
+      "details": {
+        "kind": 1,
+        "file": 2,
+        "namespace": 3
+      },
+      "source": "lab: datapack-broken (vanilla 1.21.1 skips a recipe that names an unknown item)"
+    },
+    {
+      "id": "velocity-forwarding-refused",
+      "situation": "PROXY_FORWARDING",
+      "confidence": "CERTAIN",
+      "pattern": "(?:disconnected while connecting to (\\S+)|Unable to connect to (\\S+)|Disconnecting \\S+ \\([^)]*\\)|lost connection): Unable to verify player details",
+      "details": {
+        "server": 1
+      },
+      "source": "lab: net proxy-secret-mismatch (Velocity 3.4.0 and Paper 1.21.1 with different forwarding secrets; same line on the player, the proxy and the server)"
+    },
+    {
+      "id": "velocity-backend-unreachable",
+      "situation": "PROXY_BACKEND",
+      "confidence": "CERTAIN",
+      "pattern": "unable to connect to server (\\S+)\\n(?:[^\\n]*\\n)?[^\\n]*(UnknownHostException|ConnectException|ConnectTimeoutException|NoRouteToHostException)[^\\n]*",
+      "details": {
+        "server": 1,
+        "reason": 2
+      },
+      "source": "lab: net proxy-backend-down (Velocity 3.4.0 whose [servers] entry names a server that is not running)"
+    },
+    {
+      "id": "proxy-backend-player-message",
+      "situation": "PROXY_BACKEND",
+      "confidence": "HIGH",
+      "pattern": "Unable to connect you to (\\S+?)\\. Please try again later|Could not connect to a default or fallback server",
+      "details": {
+        "server": 1
+      },
+      "source": "lab: net proxy-backend-down (message the player gets from Velocity; the second is BungeeCord's)"
+    },
+    {
+      "id": "fabric-registry-unknown",
+      "situation": "REGISTRY_MISMATCH",
+      "confidence": "CERTAIN",
+      "pattern": "Received (\\d+) registry entries that are unknown to this client",
+      "details": {
+        "count": 1
+      },
+      "advice": "signature.registry-unknown.advice",
+      "source": "lab: net mod-missing-on-client (Fabric 1.21.1 server with Farmer's Delight Refabricated, player without it)"
+    },
+    {
+      "id": "client-disconnected",
+      "situation": "CONNECTION_LOST",
+      "confidence": "MEDIUM",
+      "pattern": "Client disconnected with reason: ([^\\n]+)",
+      "details": {
+        "reason": 1
+      },
+      "source": "lab: net scenarios (vanilla 1.21.1 client log)"
     }
   ]
 }

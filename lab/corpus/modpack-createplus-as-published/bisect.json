@@ -124,7 +124,7 @@
     "mods/zfastnoise-1.0.11+2+1.21.1+neoforge.jar"
    ],
    "outcome": "CRASHED",
-   "seconds": 34.139281627,
+   "seconds": 9.607394583,
    "sameFailure": true,
    "note": "reference"
   },
@@ -238,7 +238,7 @@
     "mods/zfastnoise-1.0.11+2+1.21.1+neoforge.jar"
    ],
    "outcome": "READY",
-   "seconds": 99.776959346,
+   "seconds": 71.977710513,
    "sameFailure": false,
    "note": "without suspect Status Effect Bars"
   },
@@ -248,7 +248,7 @@
     "mods/statuseffectbars-1.21.1-NeoForge-1.0.2.jar"
    ],
    "outcome": "CRASHED",
-   "seconds": 13.178547886,
+   "seconds": 3.444048358,
    "sameFailure": true,
    "note": "suspect Status Effect Bars alone"
   }

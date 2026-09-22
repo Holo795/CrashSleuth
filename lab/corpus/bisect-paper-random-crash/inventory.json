@@ -87,7 +87,7 @@
   {
    "file": "CrashSleuthFixture-1.0.0.jar",
    "folder": "plugins",
-   "size": 3068,
+   "size": 3177,
    "mods": [
     {
      "format": "BUKKIT",
@@ -495,5 +495,19 @@
    "javaVersion": 21
   }
  ],
- "skipped": []
+ "skipped": [],
+ "files": {
+  "worlds": [
+   {
+    "name": "world",
+    "versionName": "1.21.1",
+    "dataVersion": 3955,
+    "unreadable": null,
+    "hasBackup": false,
+    "locked": false
+   }
+  ],
+  "eulaAccepted": true,
+  "configErrors": []
+ }
 }

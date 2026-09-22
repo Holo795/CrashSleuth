@@ -43,10 +43,12 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import dev.holo795.crashsleuth.app.Analysis
+import dev.holo795.crashsleuth.app.TargetKind
 import dev.holo795.crashsleuth.inventory.JarEntry
 import dev.holo795.crashsleuth.model.Finding
 import dev.holo795.crashsleuth.model.Platform
 import dev.holo795.crashsleuth.model.Side
+import dev.holo795.crashsleuth.model.Situation
 import androidx.compose.foundation.clickable
 import androidx.compose.ui.input.pointer.PointerIcon
 import androidx.compose.ui.input.pointer.pointerHoverIcon
@@ -98,6 +100,10 @@ fun ReportScreen(state: AppState, analysis: Analysis) {
         Box(Modifier.width(1.dp).fillMaxHeight().background(Theme.tones.line))
         Column(Modifier.width(340.dp).fillMaxHeight().verticalScroll(rememberScrollState()).padding(horizontal = 28.dp, vertical = 32.dp)) {
             SearchSection(state, analysis)
+            if (analysis.inventory?.jars?.isNotEmpty() == true) {
+                Spacer(Modifier.height(28.dp)); Hairline(); Spacer(Modifier.height(24.dp))
+                ToolsSection(state, analysis)
+            }
             analysis.inventory?.takeIf { it.jars.isNotEmpty() }?.let {
                 Spacer(Modifier.height(28.dp)); Hairline(); Spacer(Modifier.height(24.dp))
                 InstalledSection(ui, it.jars)
@@ -191,6 +197,33 @@ private fun SearchSection(state: AppState, analysis: Analysis) {
         PrimaryButton(ui["search.cta.button"], { state.prepareSearch(analysis) }, icon = Icons.Play, modifier = Modifier.fillMaxWidth())
     } else {
         Text(ui["search.cta.unavailable"], style = MaterialTheme.typography.bodySmall, color = Theme.tones.muted)
+    }
+}
+
+/** Checks that need something more: the server the player joins, or Modrinth. */
+@Composable
+private fun ToolsSection(state: AppState, analysis: Analysis) {
+    val ui = state.ui
+    val working = state.busy == analysis.target.path
+    Text(ui["tools.title"], style = MaterialTheme.typography.titleSmall)
+    Spacer(Modifier.height(8.dp))
+    if (analysis.target.kind != TargetKind.SERVER) {
+        Text(analysis.comparedWith?.let { ui["tools.compare.done", shortPath(it)] } ?: ui["tools.compare.body"], style = MaterialTheme.typography.bodySmall, color = Theme.tones.muted)
+        Spacer(Modifier.height(10.dp))
+        TextButton(ui["tools.compare.button"], { if (!working) state.compareWithServer(analysis) }, icon = Icons.Folder)
+        Spacer(Modifier.height(16.dp))
+    }
+    val outdated = analysis.report.findings.count { it.situation == Situation.OUTDATED }
+    Text(when {
+        !analysis.updatesChecked -> ui["tools.updates.body"]
+        outdated == 0 -> ui["tools.updates.none"]
+        else -> ui["tools.updates.found", outdated]
+    }, style = MaterialTheme.typography.bodySmall, color = Theme.tones.muted)
+    Spacer(Modifier.height(10.dp))
+    TextButton(if (working) ui["tools.working"] else ui["tools.updates.button"], { if (!working) state.checkUpdates(analysis) }, icon = Icons.Search)
+    state.notice?.let {
+        Spacer(Modifier.height(10.dp))
+        Text(it, style = MaterialTheme.typography.bodySmall, color = Theme.tones.critical)
     }
 }
 

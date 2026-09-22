@@ -1,0 +1,22 @@
+{
+ "platform": "PAPER",
+ "minecraftVersion": "1.21.1",
+ "loaderVersion": null,
+ "side": "SERVER",
+ "jars": [],
+ "skipped": [],
+ "files": {
+  "worlds": [
+   {
+    "name": "world",
+    "versionName": "1.21.1",
+    "dataVersion": 3955,
+    "unreadable": null,
+    "hasBackup": false,
+    "locked": false
+   }
+  ],
+  "eulaAccepted": false,
+  "configErrors": []
+ }
+}

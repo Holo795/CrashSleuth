@@ -25,7 +25,7 @@ class ReportText(val messages: Messages) {
     fun advice(finding: Finding): String {
         val details = finding.details
         val first = culprits(finding).firstOrNull()?.let { describe(it) } ?: "?"
-        details["adviceKey"]?.let { return messages.get(it, first) }
+        details["adviceKey"]?.let { return messages.get(it, first, details["player"], details["server"]) }
         return when (finding.situation) {
             Situation.DEP_MISSING -> messages.advice(finding.situation, details["dependency"], details["requester"])
             Situation.DEP_VERSION -> messages.advice(finding.situation, details["dependency"], details["requester"], details["expected"], details["actual"])
@@ -38,7 +38,10 @@ class ReportText(val messages: Messages) {
             Situation.SILENT_ERROR -> messages.advice(finding.situation, first, details["count"] ?: "1")
             Situation.DUPLICATE -> messages.advice(finding.situation, first, details["files"] ?: "")
             Situation.MOD_CONFLICT -> messages.advice(finding.situation, first, finding.culprits.getOrNull(1)?.let { describe(it) } ?: "?")
+            Situation.OUTDATED -> messages.advice(finding.situation, first, details["latest"])
             Situation.WORLD_DOWNGRADE -> messages.advice(finding.situation, details["expected"], details["actual"])
+            Situation.CONNECTION_LOST -> messages.advice(finding.situation, first, details["reason"] ?: "?")
+            Situation.PROXY_BACKEND -> messages.advice(finding.situation, details["server"] ?: first)
             else -> messages.advice(finding.situation, first)
         }
     }

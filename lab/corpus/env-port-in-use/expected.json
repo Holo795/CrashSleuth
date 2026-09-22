@@ -1,0 +1,7 @@
+{
+  "situation": "PORT_IN_USE",
+  "culprit": null,
+  "logs": [
+    "crash-2026-09-22_13.01.26-server.txt"
+  ]
+}

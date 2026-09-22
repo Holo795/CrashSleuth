@@ -18,7 +18,7 @@
      "dependencies": [
       {
        "id": "minecraft",
-       "versionRange": "1.21.1",
+       "versionRange": "[1.21.1,)",
        "required": true,
        "side": "CLIENT"
       },
@@ -164,7 +164,7 @@
      "dependencies": [
       {
        "id": "minecraft",
-       "versionRange": "1.21.1",
+       "versionRange": "[1.21.1,)",
        "required": true,
        "side": "CLIENT"
       },
@@ -192,5 +192,10 @@
    "javaVersion": 21
   }
  ],
- "skipped": []
+ "skipped": [],
+ "files": {
+  "worlds": [],
+  "eulaAccepted": true,
+  "configErrors": []
+ }
 }

@@ -1,0 +1,135 @@
+[13:04:02] [ServerMain/INFO]: [bootstrap] Running Java 21 (OpenJDK 64-Bit Server VM 21.0.12+8-LTS; Eclipse Adoptium Temurin-21.0.12+8) on Linux 7.0.14-orbstack-00380-ga7e0a2dc9535 (aarch64)
+[13:04:02] [ServerMain/INFO]: [bootstrap] Loading Paper 1.21.1-133-ver/1.21.1@3cb8529 (2025-03-28T16:14:36Z) for Minecraft 1.21.1
+[13:04:02] [ServerMain/INFO]: [PluginInitializerManager] Initializing plugins...
+[13:04:02] [ServerMain/INFO]: [PluginInitializerManager] Initialized 1 plugin
+[13:04:02] [ServerMain/INFO]: [PluginInitializerManager] Bukkit plugins (1):
+ - LuckPerms (5.5.71)
+[13:04:04] [ServerMain/INFO]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
+[13:04:05] [ServerMain/INFO]: Loaded 1290 recipes
+[13:04:05] [ServerMain/INFO]: Loaded 1399 advancements
+[13:04:05] [Server thread/INFO]: Starting minecraft server version 1.21.1
+[13:04:05] [Server thread/INFO]: Loading properties
+[13:04:05] [Server thread/INFO]: This server is running Paper version 1.21.1-133-ver/1.21.1@3cb8529 (2025-03-28T16:14:36Z) (Implementing API version 1.21.1-R0.1-SNAPSHOT)
+[13:04:05] [Server thread/INFO]: [spark] This server bundles the spark profiler. For more information please visit https://docs.papermc.io/paper/profiling
+[13:04:05] [Server thread/INFO]: Server Ping Player Sample Count: 12
+[13:04:05] [Server thread/INFO]: Using 4 threads for Netty based IO
+[13:04:06] [Server thread/INFO]: [ChunkTaskScheduler] Chunk system is using 1 I/O threads, 3 worker threads, and population gen parallelism of 3 threads
+[13:04:06] [Server thread/INFO]: Default game type: SURVIVAL
+[13:04:06] [Server thread/INFO]: Generating keypair
+[13:04:06] [Server thread/INFO]: Starting Minecraft server on *:25565
+[13:04:06] [Server thread/INFO]: Using epoll channel type
+[13:04:06] [Server thread/INFO]: Paper: Using libdeflate (Linux aarch64) compression from Velocity.
+[13:04:06] [Server thread/INFO]: Paper: Using OpenSSL 3.x.x (Linux aarch64) cipher from Velocity.
+[13:04:06] [Server thread/INFO]: [LuckPerms] Loading server plugin LuckPerms v5.5.71
+[13:04:06] [Server thread/INFO]: [LuckPerms] Loading configuration...
+[13:04:06] [Server thread/ERROR]: Cannot load /srv/plugins/LuckPerms/config.yml
+org.bukkit.configuration.InvalidConfigurationException: while scanning a simple key
+ in 'reader', line 379, column 1:
+    === not valid [[ {
+    ^
+could not find expected ':'
+ in 'reader', line 380, column 1:
+    ment in the resultant prefix/suffix.
+    ^
+
+	at org.bukkit.configuration.file.YamlConfiguration.loadFromString(YamlConfiguration.java:112) ~[paper-mojangapi-1.21.1-R0.1-SNAPSHOT.jar:?]
+	at org.bukkit.configuration.file.FileConfiguration.load(FileConfiguration.java:160) ~[paper-mojangapi-1.21.1-R0.1-SNAPSHOT.jar:?]
+	at org.bukkit.configuration.file.FileConfiguration.load(FileConfiguration.java:128) ~[paper-mojangapi-1.21.1-R0.1-SNAPSHOT.jar:?]
+	at org.bukkit.configuration.file.YamlConfiguration.loadConfiguration(YamlConfiguration.java:310) ~[paper-mojangapi-1.21.1-R0.1-SNAPSHOT.jar:?]
+	at me.lucko.luckperms.bukkit.BukkitConfigAdapter.reload(BukkitConfigAdapter.java:51) ~[?:?]
+	at me.lucko.luckperms.bukkit.BukkitConfigAdapter.<init>(BukkitConfigAdapter.java:46) ~[?:?]
+	at me.lucko.luckperms.bukkit.LPBukkitPlugin.provideConfigurationAdapter(LPBukkitPlugin.java:130) ~[?:?]
+	at me.lucko.luckperms.common.plugin.AbstractLuckPermsPlugin.load(AbstractLuckPermsPlugin.java:144) ~[?:?]
+	at me.lucko.luckperms.bukkit.LPBukkitBootstrap.onLoad(LPBukkitBootstrap.java:152) ~[?:?]
+	at LuckPerms-Bukkit-5.5.71.jar/me.lucko.luckperms.bukkit.loader.BukkitLoaderPlugin.onLoad(BukkitLoaderPlugin.java:45) ~[LuckPerms-Bukkit-5.5.71.jar:?]
+	at io.papermc.paper.plugin.storage.ServerPluginProviderStorage.processProvided(ServerPluginProviderStorage.java:59) ~[paper-1.21.1.jar:1.21.1-133-3cb8529]
+	at io.papermc.paper.plugin.storage.ServerPluginProviderStorage.processProvided(ServerPluginProviderStorage.java:18) ~[paper-1.21.1.jar:1.21.1-133-3cb8529]
+	at io.papermc.paper.plugin.storage.SimpleProviderStorage.enter(SimpleProviderStorage.java:39) ~[paper-1.21.1.jar:1.21.1-133-3cb8529]
+	at io.papermc.paper.plugin.entrypoint.LaunchEntryPointHandler.enter(LaunchEntryPointHandler.java:40) ~[paper-1.21.1.jar:1.21.1-133-3cb8529]
+	at org.bukkit.craftbukkit.CraftServer.loadPlugins(CraftServer.java:547) ~[paper-1.21.1.jar:1.21.1-133-3cb8529]
+	at net.minecraft.server.dedicated.DedicatedServer.initServer(DedicatedServer.java:292) ~[paper-1.21.1.jar:1.21.1-133-3cb8529]
+	at net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:1214) ~[paper-1.21.1.jar:1.21.1-133-3cb8529]
+	at net.minecraft.server.MinecraftServer.lambda$spin$0(MinecraftServer.java:329) ~[paper-1.21.1.jar:1.21.1-133-3cb8529]
+	at java.base/java.lang.Thread.run(Thread.java:1583) ~[?:?]
+Caused by: org.yaml.snakeyaml.scanner.ScannerException: while scanning a simple key
+ in 'reader', line 379, column 1:
+    === not valid [[ {
+    ^
+could not find expected ':'
+ in 'reader', line 380, column 1:
+    ment in the resultant prefix/suffix.
+    ^
+
+	at org.yaml.snakeyaml.scanner.ScannerImpl.stalePossibleSimpleKeys(ScannerImpl.java:502) ~[snakeyaml-2.2.jar:?]
+	at org.yaml.snakeyaml.scanner.ScannerImpl.needMoreTokens(ScannerImpl.java:307) ~[snakeyaml-2.2.jar:?]
+	at org.yaml.snakeyaml.scanner.ScannerImpl.checkToken(ScannerImpl.java:237) ~[snakeyaml-2.2.jar:?]
+	at org.yaml.snakeyaml.parser.ParserImpl$ParseBlockMappingKey.produce(ParserImpl.java:637) ~[snakeyaml-2.2.jar:?]
+	at org.yaml.snakeyaml.parser.ParserImpl.peekEvent(ParserImpl.java:161) ~[snakeyaml-2.2.jar:?]
+	at org.yaml.snakeyaml.comments.CommentEventsCollector$1.peek(CommentEventsCollector.java:57) ~[snakeyaml-2.2.jar:?]
+	at org.yaml.snakeyaml.comments.CommentEventsCollector$1.peek(CommentEventsCollector.java:43) ~[snakeyaml-2.2.jar:?]
+	at org.yaml.snakeyaml.comments.CommentEventsCollector.collectEvents(CommentEventsCollector.java:136) ~[snakeyaml-2.2.jar:?]
+	at org.yaml.snakeyaml.comments.CommentEventsCollector.collectEvents(CommentEventsCollector.java:116) ~[snakeyaml-2.2.jar:?]
+	at org.yaml.snakeyaml.composer.Composer.composeScalarNode(Composer.java:241) ~[snakeyaml-2.2.jar:?]
+	at org.yaml.snakeyaml.composer.Composer.composeNode(Composer.java:205) ~[snakeyaml-2.2.jar:?]
+	at org.yaml.snakeyaml.composer.Composer.composeValueNode(Composer.java:369) ~[snakeyaml-2.2.jar:?]
+	at org.yaml.snakeyaml.composer.Composer.composeMappingChildren(Composer.java:348) ~[snakeyaml-2.2.jar:?]
+	at org.yaml.snakeyaml.composer.Composer.composeMappingNode(Composer.java:323) ~[snakeyaml-2.2.jar:?]
+	at org.yaml.snakeyaml.composer.Composer.composeNode(Composer.java:209) ~[snakeyaml-2.2.jar:?]
+	at org.yaml.snakeyaml.composer.Composer.getNode(Composer.java:131) ~[snakeyaml-2.2.jar:?]
+	at org.yaml.snakeyaml.composer.Composer.getSingleNode(Composer.java:157) ~[snakeyaml-2.2.jar:?]
+	at org.yaml.snakeyaml.Yaml.compose(Yaml.java:575) ~[snakeyaml-2.2.jar:?]
+	at org.bukkit.configuration.file.YamlConfiguration.loadFromString(YamlConfiguration.java:105) ~[paper-mojangapi-1.21.1-R0.1-SNAPSHOT.jar:?]
+	... 18 more
+[13:04:06] [Server thread/INFO]: Server permissions file permissions.yml is empty, ignoring it
+[13:04:06] [Server thread/INFO]: [LuckPerms] Enabling LuckPerms v5.5.71
+[13:04:06] [Server thread/INFO]:         __    
+[13:04:06] [Server thread/INFO]:   |    |__)   LuckPerms v5.5.71
+[13:04:06] [Server thread/INFO]:   |___ |      Running on Bukkit - Paper
+[13:04:06] [Server thread/INFO]: 
+[13:04:06] [Server thread/INFO]: [LuckPerms] Loading storage provider... [H2]
+[13:04:06] [Server thread/INFO]: [LuckPerms] Loading internal permission managers...
+[13:04:06] [Server thread/INFO]: [LuckPerms] Performing initial data load...
+[13:04:06] [Server thread/INFO]: [LuckPerms] Successfully enabled. (took 322ms)
+[13:04:06] [Server thread/WARN]: **** SERVER IS RUNNING IN OFFLINE/INSECURE MODE!
+[13:04:06] [Server thread/WARN]: The server will make no attempt to authenticate usernames. Beware.
+[13:04:06] [Server thread/WARN]: While this makes the game possible to play without internet access, it also opens up the ability for hackers to connect with any username they choose.
+[13:04:06] [Server thread/WARN]: To change this, set "online-mode" to "true" in the server.properties file.
+[13:04:06] [Server thread/INFO]: Preparing level "world"
+[13:04:07] [Server thread/INFO]: Preparing start region for dimension minecraft:overworld
+[13:04:07] [Server thread/INFO]: Time elapsed: 467 ms
+[13:04:07] [Server thread/INFO]: Preparing start region for dimension minecraft:the_nether
+[13:04:07] [Server thread/INFO]: Time elapsed: 62 ms
+[13:04:07] [Server thread/INFO]: Preparing start region for dimension minecraft:the_end
+[13:04:07] [Server thread/INFO]: Time elapsed: 41 ms
+[13:04:07] [Server thread/INFO]: [spark] Starting background profiler...
+[13:04:07] [Server thread/INFO]: Done preparing level "world" (0.949s)
+[13:04:07] [Server thread/INFO]: Running delayed init tasks
+[13:04:07] [Server thread/INFO]: Done (5.695s)! For help, type "help"
+[13:04:07] [Server thread/INFO]: Timings Reset
+[13:04:09] [Server thread/INFO]: Stopping the server
+[13:04:09] [Server thread/INFO]: Stopping server
+[13:04:09] [Server thread/INFO]: [LuckPerms] Disabling LuckPerms v5.5.71
+[13:04:09] [Server thread/INFO]: [LuckPerms] Starting shutdown process...
+[13:04:09] [Server thread/INFO]: [LuckPerms] Closing storage...
+[13:04:09] [Server thread/INFO]: [LuckPerms] Goodbye!
+[13:04:09] [Server thread/INFO]: Saving players
+[13:04:09] [Server thread/INFO]: Saving worlds
+[13:04:09] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:overworld
+[13:04:09] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk system to halt for world 'world'
+[13:04:09] [Server thread/INFO]: [ChunkHolderManager] Halted chunk system for world 'world'
+[13:04:09] [Server thread/INFO]: [ChunkHolderManager] Saving all chunkholders for world 'world'
+[13:04:10] [Server thread/INFO]: [ChunkHolderManager] Saved 49 block chunks, 49 entity chunks, 0 poi chunks in world 'world' in 0.15s
+[13:04:10] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world_nether]'/minecraft:the_nether
+[13:04:10] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk system to halt for world 'world_nether'
+[13:04:10] [Server thread/INFO]: [ChunkHolderManager] Halted chunk system for world 'world_nether'
+[13:04:10] [Server thread/INFO]: [ChunkHolderManager] Saving all chunkholders for world 'world_nether'
+[13:04:10] [Server thread/INFO]: [ChunkHolderManager] Saved 49 block chunks, 49 entity chunks, 0 poi chunks in world 'world_nether' in 0.04s
+[13:04:10] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world_the_end]'/minecraft:the_end
+[13:04:10] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk system to halt for world 'world_the_end'
+[13:04:10] [Server thread/INFO]: [ChunkHolderManager] Halted chunk system for world 'world_the_end'
+[13:04:10] [Server thread/INFO]: [ChunkHolderManager] Saving all chunkholders for world 'world_the_end'
+[13:04:10] [Server thread/INFO]: [ChunkHolderManager] Saved 49 block chunks, 49 entity chunks, 0 poi chunks in world 'world_the_end' in 0.03s
+[13:04:10] [Server thread/INFO]: ThreadedAnvilChunkStorage (world): All chunks are saved
+[13:04:10] [Server thread/INFO]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[13:04:10] [Server thread/INFO]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[13:04:10] [Server thread/INFO]: ThreadedAnvilChunkStorage: All dimensions are saved

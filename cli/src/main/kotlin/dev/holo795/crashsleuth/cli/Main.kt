@@ -12,11 +12,13 @@ import com.github.ajalt.clikt.parameters.options.option
 import com.github.ajalt.clikt.parameters.types.choice
 import com.github.ajalt.clikt.parameters.types.path
 import dev.holo795.crashsleuth.app.Analysis
+import dev.holo795.crashsleuth.app.ModrinthCheck
 import dev.holo795.crashsleuth.app.ShareLink
 import dev.holo795.crashsleuth.app.Target
 import dev.holo795.crashsleuth.engine.Diagnoser
 import dev.holo795.crashsleuth.inventory.InstanceScanner
 import dev.holo795.crashsleuth.inventory.Inventory
+import dev.holo795.crashsleuth.inventory.ModCompare
 import dev.holo795.crashsleuth.inventory.PackScanner
 import dev.holo795.crashsleuth.model.Messages
 import dev.holo795.crashsleuth.model.Report
@@ -42,8 +44,11 @@ class Analyze : CliktCommand(name = "analyze") {
         .path(mustExist = true, mustBeReadable = true).multiple(required = true)
     private val json by option("--json", help = "print the report as JSON").flag()
     private val language by option("--lang", help = "language of the report (en, fr)")
+    private val online by option("--online", help = "ask Modrinth (by file hash only) whether newer versions of the installed mods exist").flag()
     private val share by option("--share", help = "print a link that opens this report in a browser (the report is inside the link; nothing is uploaded)").flag()
     private val side by option("--side", help = "side a modpack is checked for (server, client)").choice("server", "client").default("server")
+    private val server by option("--server", help = "server folder or modpack the player joins: the mods of both sides are compared")
+        .path(mustExist = true, mustBeReadable = true)
 
     override fun run() {
         val folder = targets.firstOrNull { it.isDirectory() }
@@ -54,8 +59,19 @@ class Analyze : CliktCommand(name = "analyze") {
         val logs = (files.ifEmpty { folder?.let(Diagnoser::recentLogs).orEmpty() })
             .map { Diagnoser.Log(it.name, it.readText(Charsets.UTF_8)) }
         val inventory = folder?.let(InstanceScanner::scan)
-            ?: pack?.let { PackScanner().scan(it, if (side == "client") Side.CLIENT else Side.SERVER) }
-        val report = Diagnoser().diagnose(logs, inventory)
+            ?: pack?.let { PackScanner().scan(it, if (side == "client" || server != null) Side.CLIENT else Side.SERVER) }
+        val analysed = Diagnoser().diagnose(logs, inventory)
+        val serverInventory = server?.let { if (it.isDirectory()) InstanceScanner.scan(it) else PackScanner().scan(it, Side.SERVER) }
+        val diagnosed = if (serverInventory == null || inventory == null) analysed else
+            analysed.copy(findings = (ModCompare.compare(inventory, serverInventory) + analysed.findings).sortedByDescending { it.confidence })
+        val report = if (online && inventory != null) {
+            val minecraft = diagnosed.environment.minecraftVersion ?: inventory.minecraftVersion
+                ?: folder?.let { Target.refine(Target.of(it), inventory).minecraft }
+            val updates = ModrinthCheck().run { findings(check(inventory, minecraft)) }
+            diagnosed.copy(findings = diagnosed.findings + updates)
+        } else {
+            diagnosed
+        }
         inventory?.skipped?.takeIf { it.isNotEmpty() }?.let { skipped ->
             System.err.println(Messages.forLanguage(language).get("report.skipped", skipped.size, skipped.take(5).joinToString()))
         }

@@ -133,3 +133,26 @@ object NotAPluginDetector : Detector {
             )
         }.toList()
 }
+
+/**
+ * A plugin built against the internals of one server version: `NoClassDefFoundError:
+ * org/bukkit/craftbukkit/v1_20_R3/...` or `net/minecraft/server/v1_16_R3/...`. Paper stopped
+ * relocating these packages in 1.20.5, so such plugins break on every other version.
+ */
+object VersionedInternalsDetector : Detector {
+    private val MISSING = Regex("""(?:NoClassDefFoundError|ClassNotFoundException):?\s*((?:org[/.]bukkit[/.]craftbukkit|net[/.]minecraft[/.]server)[/.](v(\d+)_(\d+)_R\d+))""")
+
+    override fun detect(document: LogDocument, environment: Environment): List<Finding> =
+        document.stackTraces.mapNotNull { trace ->
+            val match = trace.chain().firstNotNullOfOrNull { MISSING.find(it.headline) } ?: return@mapNotNull null
+            val culprits = Attribution.culprits(trace, environment, 1).ifEmpty { return@mapNotNull null }
+            val (_, _, major, minor) = match.destructured
+            Finding(
+                situation = Situation.WRONG_MC,
+                confidence = Confidence.CERTAIN,
+                culprits = culprits.map { it.copy(kind = CulpritKind.PLUGIN) },
+                evidence = listOf(match.value),
+                details = mapOf("expected" to "$major.$minor", "actual" to (environment.minecraftVersion ?: "?"), "internals" to match.groupValues[2]),
+            )
+        }.distinctBy { it.culprits.first().id }
+}

@@ -12,7 +12,7 @@ import dev.holo795.crashsleuth.model.PlatformKind
 object Attribution {
     /** Jars that belong to the game, the loader or common libraries: never a culprit. */
     private val PLATFORM_JAR = Regex(
-        """^(minecraft|client|server|paper|purpur|folia|spigot|craftbukkit|bukkit|patched|forge|neoforge|fmlloader|fmlcore|""" +
+        """^(minecraft|client|server|paper|purpur|folia|spigot|velocity|bungeecord|waterfall|craftbukkit|bukkit|patched|forge|neoforge|fmlloader|fmlcore|""" +
             """javafmllanguage|lowcodelanguage|mclanguage|modlauncher|bootstraplauncher|securejarhandler|eventbus|coremods|""" +
             """mixin|sponge-mixin|mixinextras|fabric-loader|quilt-loader|intermediary|datafixerupper|netty|log4j|guava|gson|""" +
             """jopt|lwjgl|authlib|brigadier|fastutil|commons|slf4j|asm|jna|oshi|icu4j|kotlin|java|jdk|srgutils|terminalconsoleappender|""" +
@@ -28,7 +28,7 @@ object Attribution {
         "org.spigotmc.", "io.papermc.", "com.destroystokyo.", "org.apache.", "com.google.", "it.unimi.", "com.llamalad7.",
         "org.objectweb.", "joptsimple.", "org.slf4j.", "com.electronwill.", "net.kyori.", "org.lwjgl.", "oshi.", "co.aikar.",
         "ca.spottedleaf.", "org.purpurmc.", "gg.pufferfish.", "org.yaml.", "org.jline.", "net.minecrell.", "java.base/",
-        "net.md_5.", "com.velocitypowered.",
+        "net.md_5.", "com.velocitypowered.", "io.github.waterfallmc.",
     )
 
     /** Java modules of the game, loaders and libraries (NeoForge and Forge print them in frames). */
@@ -47,7 +47,10 @@ object Attribution {
     private val VERSION_SUFFIX = Regex("""[-_+](?:mc)?v?\d.*$""", RegexOption.IGNORE_CASE)
     private val LOADER_TAG = Regex("""[-_](?:fabric|neoforge|forge|quilt|paper|bukkit|spigot|mc)$""", RegexOption.IGNORE_CASE)
 
-    fun isPlatformJar(jar: String): Boolean = PLATFORM_JAR.matches(jar.substringAfterLast('/'))
+    fun isPlatformJar(jar: String): Boolean = jar.substringAfterLast('/').let { PLATFORM_JAR.matches(it) || GAME_JAR.matches(it) }
+
+    /** The game itself as launchers install it: versions/1.21.1/1.21.1.jar, 24w14a.jar, 1.21.1-fabric.jar. */
+    private val GAME_JAR = Regex("""^(\d+\.\d+(?:\.\d+)?|\d{2}w\d{2}[a-z])(?:[-_].*)?\.jar$""")
 
     fun isPlatformClass(className: String): Boolean = PLATFORM_PACKAGES.any { className.startsWith(it) }
 
@@ -59,7 +62,7 @@ object Attribution {
     }
 
     fun kindFor(environment: Environment): CulpritKind = when (environment.platform.kind) {
-        PlatformKind.PLUGINS -> CulpritKind.PLUGIN
+        PlatformKind.PLUGINS, PlatformKind.PROXY -> CulpritKind.PLUGIN
         PlatformKind.MODS -> CulpritKind.MOD
         else -> CulpritKind.UNKNOWN
     }

@@ -11,9 +11,11 @@ import dev.holo795.crashsleuth.inventory.JarScanner
 import dev.holo795.crashsleuth.inventory.Inventory
 import dev.holo795.crashsleuth.inventory.InventoryAnalyzer
 import dev.holo795.crashsleuth.inventory.MixinIndex
+import dev.holo795.crashsleuth.inventory.ModCompare
 import dev.holo795.crashsleuth.inventory.PackScanner
 import dev.holo795.crashsleuth.model.Report
 import dev.holo795.crashsleuth.model.Side
+import dev.holo795.crashsleuth.model.Situation
 import dev.holo795.crashsleuth.runner.ClientInstaller
 import dev.holo795.crashsleuth.runner.ClientLaunch
 import dev.holo795.crashsleuth.runner.LaunchCommand
@@ -25,6 +27,7 @@ import java.nio.file.Path
 import java.time.Duration
 import java.util.concurrent.ArrayBlockingQueue
 import java.util.concurrent.atomic.AtomicBoolean
+import kotlin.io.path.isDirectory
 import kotlin.io.path.name
 import kotlin.io.path.readText
 
@@ -43,6 +46,10 @@ data class Analysis(
     val suspects: List<String> = emptyList(),
     /** For a modpack: the side it was read for (each file of a pack says which sides need it). */
     val side: Side? = null,
+    /** The server whose mods were compared with these, when the person asked for it. */
+    val comparedWith: String? = null,
+    /** Modrinth was asked whether newer versions exist. */
+    val updatesChecked: Boolean = false,
 )
 
 /** How to run a culprit search; everything has a sensible default. */
@@ -116,6 +123,23 @@ class Workbench(
                 Analysis(target, report, inventory, collisions(index.value), suspectsOf(report))
             }
         }
+    }
+
+    /** Adds what differs between these mods (the player's) and those of the server the player joins. */
+    fun compare(analysis: Analysis, server: Path): Analysis {
+        val player = analysis.inventory ?: return analysis
+        val theirs = if (server.isDirectory()) InstanceScanner.scan(server) else packs.scan(server, Side.SERVER)
+        val differences = ModCompare.compare(player, theirs)
+        val kept = analysis.report.findings.filterNot { it.details["adviceKey"]?.startsWith("compare.") == true }
+        return analysis.copy(report = analysis.report.copy(findings = (differences + kept).sortedByDescending { it.confidence }), comparedWith = server.toString())
+    }
+
+    /** Asks Modrinth, by file hash only, which installed mods have a newer version. */
+    fun checkUpdates(analysis: Analysis, check: ModrinthCheck = ModrinthCheck()): Analysis {
+        val inventory = analysis.inventory ?: return analysis
+        val updates = check.findings(check.check(inventory, analysis.target.minecraft ?: analysis.report.environment.minecraftVersion ?: inventory.minecraftVersion))
+        val kept = analysis.report.findings.filterNot { it.situation == Situation.OUTDATED }
+        return analysis.copy(report = analysis.report.copy(findings = kept + updates), updatesChecked = true)
     }
 
     /** The loader a list of jars is made for, from their metadata. */

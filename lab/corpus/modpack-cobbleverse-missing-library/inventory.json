@@ -13833,5 +13833,10 @@
    "javaVersion": 21
   }
  ],
- "skipped": []
+ "skipped": [],
+ "files": {
+  "worlds": [],
+  "eulaAccepted": true,
+  "configErrors": []
+ }
 }

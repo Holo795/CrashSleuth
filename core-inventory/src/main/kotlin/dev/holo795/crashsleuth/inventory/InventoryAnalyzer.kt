@@ -69,6 +69,9 @@ object InventoryAnalyzer {
         if (side == Side.SERVER && platform in setOf(Platform.NEOFORGE, Platform.FORGE)) findings += knownClientOnly(active)
         findings += javaVersions(loaded.filter { (jar, mods) -> mods.isNotEmpty() || jar.mods.isEmpty() }.map { it.first }, known.javaVersion, minecraft)
         findings += dependencies(active, provided, minecraft, side)
+        findings += loaderRequirements(active, platform, known.loaderVersion ?: inventory.loaderVersion)
+        findings += declaredConflicts(active)
+        findings += serverFiles(inventory.files, minecraft)
         findings += pluginApi(active, minecraft)
         return findings
     }
@@ -76,6 +79,8 @@ object InventoryAnalyzer {
     /** Metadata the current platform will actually read; empty when the jar does not belong here. */
     private fun usable(jar: JarEntry, platform: Platform, minecraft: String?): List<ModMetadata> {
         val accepted = when {
+            jar.folder == "plugins" && platform == Platform.VELOCITY -> setOf(MetadataFormat.VELOCITY)
+            jar.folder == "plugins" && platform == Platform.BUNGEECORD -> setOf(MetadataFormat.BUNGEE)
             jar.folder == "plugins" -> setOf(MetadataFormat.BUKKIT, MetadataFormat.PAPER)
             else -> when (platform) {
                 Platform.FABRIC -> setOf(MetadataFormat.FABRIC)
@@ -169,6 +174,75 @@ object InventoryAnalyzer {
                 evidence = listOf("${jar.folder}/${jar.file}: ${mod.id} is a known client-only mod"),
             )
         }
+
+    /** Ids of the loaders themselves in dependencies, and the platforms they belong to. */
+    private val LOADER_IDS = mapOf(
+        "fabricloader" to setOf(Platform.FABRIC, Platform.QUILT), "fabric-loader" to setOf(Platform.FABRIC, Platform.QUILT),
+        "neoforge" to setOf(Platform.NEOFORGE), "forge" to setOf(Platform.FORGE), "quilt_loader" to setOf(Platform.QUILT),
+    )
+
+    /** A mod that needs a newer loader than the installed one: the loader refuses to start. */
+    private fun loaderRequirements(active: List<Pair<JarEntry, ModMetadata>>, platform: Platform, loaderVersion: String?): List<Finding> {
+        if (loaderVersion == null) return emptyList()
+        return active.flatMap { (jar, mod) ->
+            mod.dependencies.filter { it.required }.mapNotNull { dependency ->
+                val platforms = LOADER_IDS[dependency.id.lowercase()] ?: return@mapNotNull null
+                if (platform !in platforms || Versions.matches(loaderVersion, dependency.versionRange)) return@mapNotNull null
+                Finding(
+                    Situation.DEP_VERSION, Confidence.HIGH,
+                    listOf(culprit(jar, mod), Culprit(CulpritKind.SYSTEM, dependency.id, platform.displayName)),
+                    evidence = listOf("${jar.folder}/${jar.file}: ${mod.id} requires ${dependency.id} ${dependency.versionRange}, installed $loaderVersion"),
+                    details = mapOf("dependency" to platform.displayName, "requester" to (mod.name ?: mod.id), "expected" to (dependency.versionRange ?: "?"), "actual" to loaderVersion),
+                )
+            }
+        }
+    }
+
+    /** Mods that declare they cannot run with another installed mod (Fabric "breaks", NeoForge "incompatible"). */
+    private fun declaredConflicts(active: List<Pair<JarEntry, ModMetadata>>): List<Finding> {
+        val byId = active.associateBy { it.second.id.lowercase() }
+        return active.flatMap { (jar, mod) ->
+            mod.breaks.mapNotNull { broken ->
+                val (otherJar, other) = byId[broken.id.lowercase()] ?: return@mapNotNull null
+                if (other === mod) return@mapNotNull null
+                // Without a version range the conflict is with every version; with one, only with the versions in it.
+                if (broken.versionRange != null && other.version != null && !Versions.matches(other.version, broken.versionRange)) return@mapNotNull null
+                if (broken.versionRange != null && other.version == null) return@mapNotNull null
+                Finding(
+                    Situation.MOD_CONFLICT, Confidence.HIGH, listOf(culprit(jar, mod), culprit(otherJar, other)),
+                    evidence = listOf("${jar.folder}/${jar.file}: ${mod.id} declares it breaks ${broken.id} ${broken.versionRange ?: ""}".trimEnd()),
+                )
+            }
+        }.distinctBy { finding -> finding.culprits.map { it.id }.sorted() }
+    }
+
+    private fun serverFiles(files: ServerFiles, minecraft: String?): List<Finding> = buildList {
+        if (files.eulaAccepted == false) {
+            add(Finding(Situation.EULA, Confidence.CERTAIN, evidence = listOf("eula.txt: eula=false")))
+        }
+        files.worlds.forEach { world ->
+            val culprit = listOf(Culprit(CulpritKind.SYSTEM, world.name))
+            if (world.unreadable != null) {
+                add(Finding(Situation.WORLD_CORRUPT, Confidence.HIGH, culprit, listOf("${world.name}/level.dat: ${world.unreadable}"), mapOf("backup" to world.hasBackup.toString())))
+            }
+            if (world.locked) {
+                add(Finding(Situation.WORLD_LOCKED, Confidence.HIGH, culprit, listOf("${world.name}/session.lock is held by another process")))
+            }
+            val saved = world.versionName
+            if (saved != null && minecraft != null && (Versions.compare(saved, minecraft) ?: 0) > 0) {
+                add(Finding(Situation.WORLD_DOWNGRADE, Confidence.CERTAIN, culprit, listOf("${world.name}/level.dat: saved by Minecraft $saved, the server is $minecraft"), mapOf("expected" to saved, "actual" to minecraft)))
+            }
+        }
+        files.configErrors.forEach { error ->
+            add(
+                Finding(
+                    Situation.CONFIG_BROKEN, Confidence.MEDIUM, listOf(Culprit(CulpritKind.SYSTEM, error.file)),
+                    listOf("${error.file}${error.line?.let { ":$it" } ?: ""}: ${error.message.take(200)}"),
+                    mapOf("file" to error.file),
+                ),
+            )
+        }
+    }
 
     /** Java release Minecraft itself needs, the one most servers and launchers run. */
     fun javaFor(minecraft: String): Int? {

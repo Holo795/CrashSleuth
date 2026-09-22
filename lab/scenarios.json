@@ -619,5 +619,204 @@
         "2G"
       ]
     }
+  },
+  {
+    "name": "env-eula-refused",
+    "description": "Paper 1.21.1 whose eula.txt says false",
+    "platform": "paper",
+    "minecraft": "1.21.1",
+    "java": 21,
+    "mutate": [
+      {
+        "write": "eula.txt",
+        "text": "eula=false\n"
+      }
+    ],
+    "expect": {
+      "situation": "EULA"
+    }
+  },
+  {
+    "name": "env-port-in-use",
+    "description": "Paper 1.21.1 while another program listens on its port",
+    "platform": "paper",
+    "minecraft": "1.21.1",
+    "java": 21,
+    "pre": "(java Hold.java port 25565 &) ; sleep 6",
+    "expect": {
+      "situation": "PORT_IN_USE"
+    }
+  },
+  {
+    "name": "env-jvm-bad-option",
+    "description": "Vanilla 1.21.1 started with an option Java does not know",
+    "platform": "vanilla",
+    "minecraft": "1.21.1",
+    "java": 21,
+    "jvm_extra": "-XX:+ThisOptionDoesNotExist",
+    "expect": {
+      "situation": "JVM_OPTIONS"
+    }
+  },
+  {
+    "name": "env-jvm-bad-heap",
+    "description": "Vanilla 1.21.1 started with an invalid -Xmx",
+    "platform": "vanilla",
+    "minecraft": "1.21.1",
+    "java": 21,
+    "memory": "2Q",
+    "expect": {
+      "situation": "JVM_OPTIONS"
+    }
+  },
+  {
+    "name": "env-disk-full",
+    "description": "Vanilla 1.21.1 whose world lives on a 256 KB disk",
+    "platform": "vanilla",
+    "minecraft": "1.21.1",
+    "java": 21,
+    "docker_args": [
+      "--tmpfs",
+      "/srv/world:size=256k,mode=1777"
+    ],
+    "expect": {
+      "situation": "DISK_FULL"
+    }
+  },
+  {
+    "name": "world-locked",
+    "description": "Vanilla 1.21.1 whose world is held by another process",
+    "platform": "vanilla",
+    "minecraft": "1.21.1",
+    "java": 21,
+    "mutate": [
+      {
+        "delete": "world/session.lock"
+      }
+    ],
+    "pre": "(java Hold.java lock world/session.lock &) ; sleep 6",
+    "expect": {
+      "situation": "WORLD_LOCKED"
+    }
+  },
+  {
+    "name": "world-newer-version",
+    "description": "Paper 1.21.1 on a world created by Minecraft 1.21.4: Paper opens it without a word and rewrites it, so the files are checked before the start",
+    "platform": "paper",
+    "minecraft": "1.21.1",
+    "java": 21,
+    "seed": {
+      "platform": "vanilla",
+      "minecraft": "1.21.4"
+    },
+    "expect": {
+      "situation": "WORLD_DOWNGRADE"
+    },
+    "check_before": true
+  },
+  {
+    "name": "world-level-dat-damaged",
+    "description": "Vanilla 1.21.1 whose level.dat is cut and has no backup",
+    "platform": "vanilla",
+    "minecraft": "1.21.1",
+    "java": 21,
+    "mutate": [
+      {
+        "truncate": "world/level.dat",
+        "bytes": 24
+      },
+      {
+        "delete": "world/level.dat_old"
+      }
+    ],
+    "expect": {
+      "situation": "WORLD_CORRUPT"
+    }
+  },
+  {
+    "name": "config-plugin-broken",
+    "description": "Paper 1.21.1 with LuckPerms whose config.yml is broken",
+    "platform": "paper",
+    "minecraft": "1.21.1",
+    "java": 21,
+    "mods": [
+      "luckperms"
+    ],
+    "mutate": [
+      {
+        "garble": "plugins/LuckPerms/config.yml"
+      }
+    ],
+    "expect": {
+      "situation": "CONFIG_BROKEN",
+      "culprit": "LuckPerms"
+    }
+  },
+  {
+    "name": "config-mod-broken",
+    "description": "NeoForge 1.21.1 with Supplementaries whose config is broken",
+    "platform": "neoforge",
+    "minecraft": "1.21.1",
+    "java": 21,
+    "mods": [
+      "supplementaries"
+    ],
+    "mutate": [
+      {
+        "garble": "config/supplementaries-common.toml"
+      }
+    ],
+    "memory": "3G",
+    "expect": {
+      "situation": "CONFIG_BROKEN",
+      "culprit": "supplementaries"
+    }
+  },
+  {
+    "name": "plugin-old-internals",
+    "description": "Paper 1.21.1 with a plugin built against the 1.20.4 internals",
+    "platform": "paper",
+    "minecraft": "1.21.1",
+    "java": 21,
+    "fixture": "nms-old",
+    "expect": {
+      "situation": "WRONG_MC",
+      "culprit": "CrashSleuthFixture"
+    }
+  },
+  {
+    "name": "fabric-loader-too-old",
+    "description": "Fabric 1.21.1 on Fabric Loader 0.15.3 with a Fabric API that needs 0.15.11",
+    "platform": "fabric",
+    "minecraft": "1.21.1",
+    "java": 21,
+    "loader_version": "0.15.3",
+    "mods": [
+      "fabric-api"
+    ],
+    "expect": {
+      "situation": "DEP_VERSION",
+      "culprit": "fabric"
+    }
+  },
+  {
+    "name": "datapack-broken",
+    "description": "Vanilla 1.21.1 with a datapack whose recipe is not valid",
+    "platform": "vanilla",
+    "minecraft": "1.21.1",
+    "java": 21,
+    "mutate": [
+      {
+        "write": "world/datapacks/broken/pack.mcmeta",
+        "text": "{\"pack\": {\"pack_format\": 48, \"description\": \"lab\"}}"
+      },
+      {
+        "write": "world/datapacks/broken/data/lab/recipe/bad.json",
+        "text": "{\"type\": \"minecraft:crafting_shaped\", \"pattern\": [\"#\"], \"key\": {\"#\": {\"item\": \"minecraft:not_an_item\"}}, \"result\": {\"id\": \"minecraft:stone\"}}"
+      }
+    ],
+    "expect": {
+      "situation": "DATAPACK_BROKEN"
+    }
   }
 ]

@@ -1,0 +1,22 @@
+{
+ "platform": "VANILLA",
+ "minecraftVersion": "1.21.1",
+ "loaderVersion": null,
+ "side": "SERVER",
+ "jars": [],
+ "skipped": [],
+ "files": {
+  "worlds": [
+   {
+    "name": "world",
+    "versionName": null,
+    "dataVersion": null,
+    "unreadable": "Unexpected end of ZLIB input stream",
+    "hasBackup": false,
+    "locked": false
+   }
+  ],
+  "eulaAccepted": true,
+  "configErrors": []
+ }
+}

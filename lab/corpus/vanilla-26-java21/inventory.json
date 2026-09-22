@@ -1,8 +1,13 @@
 {
  "platform": "UNKNOWN",
- "minecraftVersion": null,
+ "minecraftVersion": "26.3",
  "loaderVersion": null,
  "side": "SERVER",
  "jars": [],
- "skipped": []
+ "skipped": [],
+ "files": {
+  "worlds": [],
+  "eulaAccepted": true,
+  "configErrors": []
+ }
 }

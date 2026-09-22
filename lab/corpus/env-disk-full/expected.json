@@ -1,0 +1,7 @@
+{
+  "situation": "DISK_FULL",
+  "culprit": null,
+  "logs": [
+    "latest.log"
+  ]
+}

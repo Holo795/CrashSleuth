@@ -31,7 +31,7 @@ class Diagnoser(private val logAnalyzer: LogAnalyzer = LogAnalyzer()) {
         val reports = logs.map { logAnalyzer.analyze(it.text) }
         val environment = reports.map { it.environment }.fold(Environment(), ::merge)
             .let { if (inventory == null) it else merge(it, Environment(inventory.platform, inventory.minecraftVersion, inventory.loaderVersion, side = inventory.side)) }
-        val fromLogs = dedup(reports.flatMap { it.findings })
+        val fromLogs = dedup(reports.flatMap { it.findings }).filterNot { ownRecipe(it, inventory) }
         val fromFiles = inventory?.let { InventoryAnalyzer.analyze(it, environment) }.orEmpty()
             .filterNot { finding -> fromLogs.any { same(it, finding) } }
         val attributed = if (fromLogs.none(::needsMixinSuspects)) fromLogs else mixins()?.let { index -> fromLogs.map { suspectsByMixins(it, logs, index) } } ?: fromLogs
@@ -49,6 +49,16 @@ class Diagnoser(private val logAnalyzer: LogAnalyzer = LogAnalyzer()) {
         val inventory = InstanceScanner.scan(root)
         val logs = recentLogs(root).map { Log(root.relativize(it).toString(), it.readText(Charsets.UTF_8)) }
         return diagnose(logs, inventory) { MixinIndex.build(inventory.jars) } to inventory
+    }
+
+    /**
+     * A mod that ships recipes for items of an optional dependency logs a parsing error for each one and the game
+     * skips them: that is expected. Only data whose namespace belongs to no installed mod comes from a datapack.
+     */
+    private fun ownRecipe(finding: Finding, inventory: Inventory?): Boolean {
+        val namespace = finding.details["namespace"] ?: return false
+        if (finding.situation != Situation.DATAPACK_BROKEN || inventory == null) return false
+        return inventory.jars.any { jar -> jar.mods.any { it.id == namespace } }
     }
 
     private fun needsMixinSuspects(finding: Finding) =
@@ -81,7 +91,9 @@ class Diagnoser(private val logAnalyzer: LogAnalyzer = LogAnalyzer()) {
 
     private fun ids(finding: Finding) = finding.culprits.map { it.id.lowercase() }.toSet()
 
-    private fun same(a: Finding, b: Finding) = a.situation == b.situation && ids(a).intersect(ids(b)).isNotEmpty()
+    /** The same situation about the same culprit, or about nobody in particular (EULA, full disk). */
+    private fun same(a: Finding, b: Finding) =
+        a.situation == b.situation && (ids(a).intersect(ids(b)).isNotEmpty() || (ids(a).isEmpty() && ids(b).isEmpty()))
 
     private fun dedup(findings: List<Finding>): List<Finding> =
         findings.fold(mutableListOf()) { kept, finding -> kept.apply { if (none { same(it, finding) || it == finding }) add(finding) } }

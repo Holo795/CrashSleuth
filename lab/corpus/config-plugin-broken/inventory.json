@@ -1,0 +1,68 @@
+{
+ "platform": "PAPER",
+ "minecraftVersion": "1.21.1",
+ "loaderVersion": null,
+ "side": "SERVER",
+ "jars": [
+  {
+   "file": "LuckPerms-Bukkit-5.5.71.jar",
+   "folder": "plugins",
+   "size": 1501521,
+   "mods": [
+    {
+     "format": "BUKKIT",
+     "id": "LuckPerms",
+     "name": null,
+     "version": "5.5.71",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "LilyPad-Connect",
+       "versionRange": null,
+       "required": false,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "ViaVersion",
+       "versionRange": null,
+       "required": false,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": "1.13",
+     "entrypoints": [
+      "me.lucko.luckperms.bukkit.loader.BukkitLoaderPlugin"
+     ],
+     "addsContent": false,
+     "optionalOnClient": false
+    }
+   ],
+   "nested": [],
+   "error": null,
+   "javaVersion": 11
+  }
+ ],
+ "skipped": [],
+ "files": {
+  "worlds": [
+   {
+    "name": "world",
+    "versionName": "1.21.1",
+    "dataVersion": 3955,
+    "unreadable": null,
+    "hasBackup": true,
+    "locked": false
+   }
+  ],
+  "eulaAccepted": true,
+  "configErrors": [
+   {
+    "file": "plugins/LuckPerms/config.yml",
+    "line": 380,
+    "message": "while scanning a simple key"
+   }
+  ]
+ }
+}

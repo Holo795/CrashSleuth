@@ -20,14 +20,19 @@ object InstanceScanner {
             platform = platform,
             minecraftVersion = minecraftVersion(root),
             loaderVersion = loaderVersion,
-            side = if (root.resolve("server.properties").exists() || root.resolve("eula.txt").exists()) Side.SERVER else Side.UNKNOWN,
+            side = if (root.resolve("server.properties").exists() || root.resolve("eula.txt").exists() || root.resolve("velocity.toml").exists()) Side.SERVER else Side.UNKNOWN,
             jars = jars,
+            files = ServerFilesScanner.scan(root),
         )
     }
 
     private fun children(path: Path): List<Path> = if (path.isDirectory()) path.listDirectoryEntries().sorted() else emptyList()
 
     private fun platform(root: Path): Pair<Platform, String?> {
+        // Proxies: Velocity writes velocity.toml, BungeeCord and Waterfall ship their own jar.
+        if (root.resolve("velocity.toml").exists()) return Platform.VELOCITY to null
+        val rootJars = runCatching { root.listDirectoryEntries("*.jar").map { it.name.lowercase() } }.getOrDefault(emptyList())
+        if (rootJars.any { it.startsWith("bungeecord") || it.startsWith("waterfall") }) return Platform.BUNGEECORD to null
         val libraries = root.resolve("libraries")
         children(libraries.resolve("net/neoforged/neoforge")).lastOrNull()?.let { return Platform.NEOFORGE to it.name }
         children(libraries.resolve("net/neoforged/forge")).lastOrNull()?.let { return Platform.NEOFORGE to it.name.substringAfter('-') }
@@ -53,8 +58,17 @@ object InstanceScanner {
         // Forge and NeoForge: libraries/net/minecraft/server/<minecraft>-<mcp>
         children(root.resolve("libraries/net/minecraft/server")).lastOrNull()?.let { return it.name.substringBefore('-') }
         children(root.resolve("versions")).map { it.name }.lastOrNull { RELEASE.matches(it) || it.contains('w') }?.let { return it }
-        return Files.newDirectoryStream(root, "*.jar").use { stream ->
-            stream.asSequence().mapNotNull { Regex("""(\d+\.\d+(?:\.\d+)?)""").find(it.name)?.value }.firstOrNull()
-        }
+        val jars = Files.newDirectoryStream(root, "*.jar").use { it.toList() }
+        return jars.firstNotNullOfOrNull { Regex("""(\d+\.\d+(?:\.\d+)?)""").find(it.name)?.value }
+            ?: jars.firstNotNullOfOrNull(::bundledVersion)
     }
+
+    /** A server.jar that was never started: vanilla and Paper jars carry the game's version.json at their root. */
+    private fun bundledVersion(jar: Path): String? = runCatching {
+        java.util.zip.ZipFile(jar.toFile()).use { zip ->
+            val entry = zip.getEntry("version.json") ?: return null
+            val text = zip.getInputStream(entry).use { it.readBytes().decodeToString() }
+            Regex(""""id"\s*:\s*"([^"]+)"""").find(text)?.groupValues?.get(1)
+        }
+    }.getOrNull()
 }

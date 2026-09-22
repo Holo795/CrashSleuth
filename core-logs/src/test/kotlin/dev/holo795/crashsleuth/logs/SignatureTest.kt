@@ -12,7 +12,7 @@ class SignatureTest {
 
     @Test
     fun `all signatures load`() {
-        assertEquals(21, SignatureDetector.load(javaClass.classLoader.getResource("crashsleuth/signatures.json")!!.readText()).size)
+        assertEquals(42, SignatureDetector.load(javaClass.classLoader.getResource("crashsleuth/signatures.json")!!.readText()).size)
     }
 
     @Test

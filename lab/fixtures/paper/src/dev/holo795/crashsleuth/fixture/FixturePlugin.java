@@ -22,6 +22,8 @@ public final class FixturePlugin extends JavaPlugin {
             case "main-thread-hang" -> Bukkit.getScheduler().runTaskLater(this, this::blockMainThread, 100L);
             // Stops the JVM at once: no exception, no crash report, nothing in the logs to point at us.
             case "halt" -> Runtime.getRuntime().halt(1);
+            // Built against the 1.20.4 internals, like an outdated plugin: NoClassDefFoundError on any other version.
+            case "nms-old" -> getLogger().info("Server internals: " + org.bukkit.craftbukkit.v1_20_R3.CraftServer.version());
             default -> {
                 // "halt-random:60": dies on 60 % of the starts, like a crash that does not happen every time.
                 if (mode.startsWith("halt-random:") && new java.util.Random().nextInt(100) < Integer.parseInt(mode.substring("halt-random:".length()))) {

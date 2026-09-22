@@ -42,5 +42,19 @@
    "javaVersion": 8
   }
  ],
- "skipped": []
+ "skipped": [],
+ "files": {
+  "worlds": [
+   {
+    "name": "world",
+    "versionName": "1.21.1",
+    "dataVersion": 3955,
+    "unreadable": null,
+    "hasBackup": false,
+    "locked": false
+   }
+  ],
+  "eulaAccepted": true,
+  "configErrors": []
+ }
 }

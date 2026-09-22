@@ -131,6 +131,32 @@ class AppState {
         Settings.save(settings)
     }
 
+    /** Set by the window: opens the system folder picker. */
+    var pickFolder: () -> Path? = { null }
+
+    /** Compares the mods of this game with those of a server folder or modpack the person picks. */
+    fun compareWithServer(analysis: Analysis) {
+        val server = pickFolder() ?: return
+        refine(analysis) { workbench.compare(it, server) }
+    }
+
+    fun checkUpdates(analysis: Analysis) = refine(analysis) { workbench.checkUpdates(it) }
+
+    /** Work that adds to a report already on screen: the report stays, and a failure is shown on it. */
+    var busy by mutableStateOf<String?>(null)
+    var notice by mutableStateOf<String?>(null)
+
+    private fun refine(analysis: Analysis, work: (Analysis) -> Analysis) {
+        job?.cancel()
+        notice = null
+        busy = analysis.target.path
+        job = scope.launch {
+            val result = withContext(Dispatchers.IO) { runCatching { work(analysis) } }
+            busy = null
+            result.onSuccess { screen = Screen.Report(it) }.onFailure { notice = it.message ?: it.javaClass.simpleName }
+        }
+    }
+
     fun back(analysis: Analysis) {
         screen = Screen.Report(analysis)
     }

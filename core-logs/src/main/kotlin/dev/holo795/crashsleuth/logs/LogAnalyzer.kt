@@ -13,6 +13,10 @@ class LogAnalyzer(
 ) {
     fun analyze(path: Path): Report = analyze(Files.readString(path))
 
+    private val EXPLAINS_DISCONNECTION = setOf(
+        Situation.PROXY_FORWARDING, Situation.PROXY_BACKEND, Situation.REGISTRY_MISMATCH, Situation.MOD_MISMATCH, Situation.WRONG_MC,
+    )
+
     fun analyze(text: String): Report {
         val document = LogDocument(text)
         val environment = EnvironmentDetector.detect(document)
@@ -26,9 +30,12 @@ class LogAnalyzer(
             specific + UncaughtExceptionDetector.detect(document, environment)
                 .filter { fatal || it.confidence > Confidence.LOW || it.culprits.isNotEmpty() }
         }
+        // "Client disconnected with reason: ..." only repeats what a precise finding already explains.
+        val explained = findings.any { it.situation in EXPLAINS_DISCONNECTION }
+        val kept = if (explained) findings.filterNot { it.situation == Situation.CONNECTION_LOST } else findings
         return Report(
             environment = environment,
-            findings = enrich(rank(deduplicate(findings))),
+            findings = enrich(rank(deduplicate(kept))),
             exceptions = document.stackTraces.map { it.root.headline }.distinct().take(10),
         )
     }
@@ -69,6 +76,7 @@ class LogAnalyzer(
             FabricDependencyDetector,
             WrongLoaderDetector,
             ClientOnlyDetector,
+            VersionedInternalsDetector,
             PluginLoadDetector,
             PluginRuntimeDetector,
             NotAPluginDetector,

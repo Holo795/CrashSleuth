@@ -115,6 +115,8 @@ data class Target(
             Platform.FORGE -> "forge"
             Platform.PAPER, Platform.PURPUR, Platform.SPIGOT, Platform.FOLIA -> platform.name.lowercase()
             Platform.VANILLA -> "vanilla"
+            Platform.VELOCITY -> "velocity"
+            Platform.BUNGEECORD -> "bungeecord"
             Platform.UNKNOWN -> null
         }
     }

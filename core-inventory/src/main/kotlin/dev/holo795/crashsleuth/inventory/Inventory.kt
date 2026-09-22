@@ -44,6 +44,10 @@ data class ModMetadata(
     val apiVersion: String? = null,
     /** Classes the loader starts first (plugin main class, Fabric entrypoints). */
     val entrypoints: List<String> = emptyList(),
+    /** Registers blocks, items or recipes of its own: the player and the server both need it. */
+    val addsContent: Boolean = false,
+    /** Says players may join without it (NeoForge and Forge displayTest IGNORE_SERVER_VERSION or IGNORE_ALL_VERSION). */
+    val optionalOnClient: Boolean = false,
 )
 
 @Serializable
@@ -77,4 +81,6 @@ data class Inventory(
     val jars: List<JarEntry> = emptyList(),
     /** Files of a pack that could not be read (CurseForge files, untrusted download hosts). */
     val skipped: List<String> = emptyList(),
+    /** Worlds, EULA and configuration of a server or game folder. */
+    val files: ServerFiles = ServerFiles(),
 )

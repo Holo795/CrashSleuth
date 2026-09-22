@@ -23,13 +23,14 @@ class RunClientCommand : CliktCommand(name = "run-client") {
     private val java by option("--java", help = "Java executable").default("java")
     private val timeout by option("--timeout", help = "minutes the game may take to reach the title screen").int().default(5)
     private val settle by option("--settle", help = "seconds the game stays open once ready").int().default(10)
+    private val join by option("--join", help = "host:port of a server to join as soon as the game has started")
 
     override fun run() {
         gameDir.createDirectories()
         val installer = ClientInstaller()
         val profile = installer.install(minecraft, loader)
-        val launcher = ClientLaunch.launcher(installer, profile, java, Duration.ofMinutes(timeout.toLong()), Duration.ofSeconds(settle.toLong()))
-        val command = installer.command(profile, gameDir.toAbsolutePath(), java)
+        val launcher = ClientLaunch.launcher(installer, profile, java, Duration.ofMinutes(timeout.toLong()), Duration.ofSeconds(settle.toLong()), joining = join != null)
+        val command = installer.command(profile, gameDir.toAbsolutePath(), java, join = join)
         if (System.getenv("CRASHSLEUTH_DEBUG") != null) System.err.println(command.joinToString("\n"))
         val result = launcher.withCommand(command).run(gameDir)
         echo("${result.outcome} in ${"%.0f".format(result.seconds)} s")

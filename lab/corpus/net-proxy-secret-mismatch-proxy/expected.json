@@ -1,0 +1,6 @@
+{
+  "situation": "PROXY_FORWARDING",
+  "logs": [
+    "latest.log"
+  ]
+}

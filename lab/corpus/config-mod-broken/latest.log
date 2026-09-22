@@ -1,0 +1,85 @@
+[22Sep2026 13:05:39.525] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgeserver, --fml.neoForgeVersion, 21.1.251, --fml.fmlVersion, 4.0.44, --fml.mcVersion, 1.21.1, --fml.neoFormVersion, 20240808.144430, nogui]
+[22Sep2026 13:05:39.526] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: JVM identified as Eclipse Adoptium OpenJDK 64-Bit Server VM 21.0.12+8-LTS
+[22Sep2026 13:05:39.527] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher 11.0.5+main.901c6ea8 starting: java version 21.0.12 by Eclipse Adoptium; OS Linux arch aarch64 version 7.0.14-orbstack-00380-ga7e0a2dc9535
+[22Sep2026 13:05:39.575] [main/INFO] [net.neoforged.fml.loading.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forgeserver
+[22Sep2026 13:05:39.595] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=union:/srv/libraries/net/fabricmc/sponge-mixin/0.15.2+mixin.0.8.7/sponge-mixin-0.15.2+mixin.0.8.7.jar%2373!/ Service=ModLauncher Env=SERVER
+[22Sep2026 13:05:39.716] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "server-1.21.1-20240808.144430-srg.jar" [locator: production server provider +net.neoforged:neoforge:21.1.251:server]
+[22Sep2026 13:05:39.726] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "neoforge-21.1.251-universal.jar" [locator: PathBasedLocator[name=neoforge, paths=[libraries/net/neoforged/neoforge/21.1.251/neoforge-21.1.251-universal.jar]], reader: mod manifest]
+[22Sep2026 13:05:39.730] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "moonlight-1.21.1-3.6.8-neoforge.jar" [locator: {mods folder locator at /srv/mods}, reader: mod manifest]
+[22Sep2026 13:05:39.734] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "supplementaries-1.21.1-3.9.9-neoforge.jar" [locator: {mods folder locator at /srv/mods}, reader: mod manifest]
+[22Sep2026 13:05:39.807] [main/INFO] [net.neoforged.fml.loading.moddiscovery.locators.JarInJarDependencyLocator/]: Found 6 dependencies adding them to mods collection
+[22Sep2026 13:05:39.808] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found gamelibrary file "mixinextras-neoforge-0.5.3.jar" [parent: neoforge-21.1.251-universal.jar, locator: jarinjar, reader: mod manifest]
+[22Sep2026 13:05:39.808] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found library file "MixinSquared-0.3.7-beta.3.jar" [parent: mixinsquared-forge-0.3.7-beta.3.jar, locator: jarinjar]
+[22Sep2026 13:05:39.808] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "sable-companion-common-1.21.1-1.6.0.jar" [parent: supplementaries-1.21.1-3.9.9-neoforge.jar, locator: jarinjar, reader: mod manifest]
+[22Sep2026 13:05:39.808] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "codecui-neoforge-1.21.1-1.4.5.jar" [parent: moonlight-1.21.1-3.6.8-neoforge.jar, locator: jarinjar, reader: mod manifest]
+[22Sep2026 13:05:39.808] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found library file "net.neoforged.neoforge-coremods-21.1.251.jar" [parent: neoforge-21.1.251-universal.jar, locator: jarinjar, reader: mod manifest]
+[22Sep2026 13:05:39.808] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found gamelibrary file "mixinsquared-forge-0.3.7-beta.3.jar" [parent: supplementaries-1.21.1-3.9.9-neoforge.jar, locator: jarinjar, reader: mod manifest]
+[22Sep2026 13:05:39.809] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/]: 
+     Mod List:
+		Name Version (Mod Id)
+
+		CodecUI 1.21.1-1.4.5 (codecui)
+		Minecraft 1.21.1 (minecraft)
+		Moonlight Lib 1.21.1-3.6.8 (moonlight)
+		NeoForge 21.1.251 (neoforge)
+		Sable Companion 1.6.0 (sablecompanion)
+		Supplementaries 1.21.1-3.9.9 (supplementaries)
+[22Sep2026 13:05:40.152] [main/INFO] [mixin/]: Compatibility level set to JAVA_17
+[22Sep2026 13:05:40.158] [main/INFO] [mixin/]: Compatibility level set to JAVA_21
+[22Sep2026 13:05:40.169] [main/INFO] [cpw.mods.modlauncher.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgeserver' with arguments [nogui]
+[22Sep2026 13:05:40.496] [main/WARN] [mixin/]: Error loading class: vectorwing/farmersdelight/common/block/TomatoBlock (java.lang.ClassNotFoundException: vectorwing.farmersdelight.common.block.TomatoBlock)
+[22Sep2026 13:05:40.814] [main/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.5.3).
+[22Sep2026 13:05:43.106] [modloading-worker-0/INFO] [CodecUI/]: Codec construction mixins inactive (Codec, MapCodec, RecordCodecBuilder) - expected on NeoForge; using reflective schema inference (numeric ranges recovered, optional-field defaults not).
+[22Sep2026 13:05:43.111] [modloading-worker-0/INFO] [net.neoforged.neoforge.common.NeoForgeMod/NEOFORGE-MOD]: NeoForge mod loading, version 21.1.251, for MC 1.21.1
+[22Sep2026 13:05:43.133] [modloading-worker-0/INFO] [Moonlight/]: Sending changed configs to client
+[22Sep2026 13:05:43.142] [modloading-worker-0/WARN] [net.neoforged.fml.config.ConfigTracker/CONFIG]: Failed to load config supplementaries-common.toml: com.electronwill.nightconfig.core.io.ParsingException: Invalid bare key: '='. Attempting to recreate
+[22Sep2026 13:05:43.164] [modloading-worker-0/INFO] [Moonlight/]: Sending changed configs to client
+[22Sep2026 13:05:43.260] [modloading-worker-0/WARN] [Supplementaries/]: Dye color white produced diffuse color -1 (white), this should never happen
+[22Sep2026 13:05:43.627] [modloading-sync-worker/INFO] [Moonlight/]: Initialized block sets in 3ms
+[22Sep2026 13:05:43.788] [modloading-sync-worker/INFO] [Moonlight/]: Sending changed configs to client
+[22Sep2026 13:05:43.791] [modloading-sync-worker/INFO] [Moonlight/]: Sending changed configs to client
+[22Sep2026 13:05:43.808] [modloading-sync-worker/INFO] [Moonlight/]: Initialized color sets in 8ms
+[22Sep2026 13:05:43.811] [modloading-sync-worker/INFO] [Supplementaries/]: Finished mod setup in: [0, 0, 0, 0, 1, 0] ms
+[22Sep2026 13:05:43.867] [main/INFO] [com.mojang.authlib.yggdrasil.YggdrasilAuthenticationService/]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
+[22Sep2026 13:05:43.913] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/srv/libraries/net/minecraft/server/1.21.1-20240808.144430/server-1.21.1-20240808.144430-srg.jar%23119!/assets/.mcassetsroot' uses unexpected schema
+[22Sep2026 13:05:43.913] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/srv/libraries/net/minecraft/server/1.21.1-20240808.144430/server-1.21.1-20240808.144430-srg.jar%23119!/data/.mcassetsroot' uses unexpected schema
+[22Sep2026 13:05:43.942] [main/INFO] [Moonlight/]: Resource cache state for SERVER_DATA: up to date
+[22Sep2026 13:05:43.946] [main/INFO] [Moonlight/]: Populated search tree for pack at /srv/dynamic-data-pack-cache/supplementaries-generated_pack in 2.431 ms
+[22Sep2026 13:05:43.947] [main/INFO] [Moonlight/]: Starting runtime resource generation for pack type SERVER_DATA with generators [supplementaries:generated_pack]
+[22Sep2026 13:05:43.947] [main/INFO] [Moonlight/]: Skipping regeneration for Dynamic SERVER_DATA Resources Provider [supplementaries:generated_pack] (cache up-to-date)
+[22Sep2026 13:05:43.947] [main/INFO] [Moonlight/]: Finished runtime resources generation for 1 packs in a total of 425.4 μs 
+[22Sep2026 13:05:44.542] [main/INFO] [net.minecraft.world.item.crafting.RecipeManager/]: Loaded 1565 recipes
+[22Sep2026 13:05:44.616] [main/INFO] [net.minecraft.advancements.AdvancementTree/]: Loaded 1675 advancements
+[22Sep2026 13:05:44.640] [main/INFO] [Moonlight/]: Applied 17 data villager trades
+[22Sep2026 13:05:44.642] [main/INFO] [Moonlight/]: Failed to load custom color set definition {"id":"quark:rune","colors":{"default":"quark:blank_rune"},"replace":false}. Ignoring
+[22Sep2026 13:05:44.642] [main/INFO] [Moonlight/]: Failed to load custom color set definition {"id":"quark:shard","colors":{"default":"quark:clear_shard"},"replace":false}. Ignoring
+[22Sep2026 13:05:44.645] [main/INFO] [Supplementaries/]: Loaded 29 flute songs
+[22Sep2026 13:05:44.910] [main/INFO] [Supplementaries/]: Registering custom dispenser behaviors
+[22Sep2026 13:05:44.949] [Server thread/INFO] [net.minecraft.server.dedicated.DedicatedServer/]: Starting minecraft server version 1.21.1
+[22Sep2026 13:05:44.949] [Server thread/INFO] [net.minecraft.server.dedicated.DedicatedServer/]: Loading properties
+[22Sep2026 13:05:44.949] [Server thread/INFO] [net.minecraft.server.dedicated.DedicatedServer/]: Default game type: SURVIVAL
+[22Sep2026 13:05:44.949] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Generating keypair
+[22Sep2026 13:05:44.989] [Server thread/INFO] [net.minecraft.server.dedicated.DedicatedServer/]: Starting Minecraft server on *:25565
+[22Sep2026 13:05:45.014] [Server thread/INFO] [net.minecraft.server.network.ServerConnectionListener/]: Using epoll channel type
+[22Sep2026 13:05:45.033] [Server thread/WARN] [net.minecraft.server.dedicated.DedicatedServer/]: **** SERVER IS RUNNING IN OFFLINE/INSECURE MODE!
+[22Sep2026 13:05:45.034] [Server thread/WARN] [net.minecraft.server.dedicated.DedicatedServer/]: The server will make no attempt to authenticate usernames. Beware.
+[22Sep2026 13:05:45.034] [Server thread/WARN] [net.minecraft.server.dedicated.DedicatedServer/]: While this makes the game possible to play without internet access, it also opens up the ability for hackers to connect with any username they choose.
+[22Sep2026 13:05:45.034] [Server thread/WARN] [net.minecraft.server.dedicated.DedicatedServer/]: To change this, set "online-mode" to "true" in the server.properties file.
+[22Sep2026 13:05:45.057] [Server thread/INFO] [net.minecraft.server.dedicated.DedicatedServer/]: Preparing level "world"
+[22Sep2026 13:05:45.596] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Preparing start region for dimension minecraft:overworld
+[22Sep2026 13:05:45.730] [Worker-Main-3/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Preparing spawn area: 0%
+[22Sep2026 13:05:45.795] [Server thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Time elapsed: 199 ms
+[22Sep2026 13:05:45.795] [Server thread/INFO] [net.minecraft.server.dedicated.DedicatedServer/]: Done (0.752s)! For help, type "help"
+[22Sep2026 13:05:45.803] [LanServerPinger #1/WARN] [net.minecraft.client.server.LanServerPinger/]: LanServerPinger: Network is unreachable
+[22Sep2026 13:05:45.815] [Server thread/INFO] [net.neoforged.neoforge.server.permission.PermissionAPI/]: Successfully initialized permission handler neoforge:default_handler
+[22Sep2026 13:05:46.784] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Stopping the server
+[22Sep2026 13:05:46.803] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Stopping server
+[22Sep2026 13:05:46.804] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving players
+[22Sep2026 13:05:46.805] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving worlds
+[22Sep2026 13:05:46.843] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[world]'/minecraft:overworld
+[22Sep2026 13:05:46.923] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[world]'/minecraft:the_end
+[22Sep2026 13:05:46.926] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[world]'/minecraft:the_nether
+[22Sep2026 13:05:46.933] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: ThreadedAnvilChunkStorage (world): All chunks are saved
+[22Sep2026 13:05:46.933] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[22Sep2026 13:05:46.933] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[22Sep2026 13:05:46.934] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: ThreadedAnvilChunkStorage: All dimensions are saved

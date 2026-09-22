@@ -1,8 +1,29 @@
 # CrashSleuth — Spécification
 
-**Version 7 — 22/09/2026** — v6 + recherche du coupable côté client (jeu lancé par l'outil).
+**Version 8 — 22/09/2026** — v7 + application de bureau, rapports partagés par lien, fichiers du serveur (monde, EULA, configuration), proxys, comparaison joueur / serveur, labo réseau.
 
-### Changements depuis la v6
+### Changements depuis la v7
+- **Application de bureau** (§9, jalon 4) : Compose, anglais et français, clair et sombre selon le système, épurée. On y dépose un dossier de serveur, un dossier de jeu, un modpack, un dossier de mods ou de plugins en vrac, ou un journal. Sous la zone de dépôt, un choix **Serveur / Joueur** s'applique aux modpacks et aux listes de mods ; pour un dossier ou un journal, le côté est reconnu tout seul. Le rapport montre la cause, le coupable, quoi faire, ce qui est installé et les chevauchements de mixins ; la recherche du coupable se lance d'un bouton (Java trouvée toute seule, chaque lancement affiché). Installeurs macOS, Windows et Linux avec icône. Pensée aussi pour un serveur qui tourne sur un ordinateur de bureau.
+- **Rapport partagé par lien, à la manière de spark** : `analyze --share`, `bisect --share` et le bouton Partager donnent un lien dont le rapport est **dans la partie après le #** : les navigateurs ne l'envoient jamais, rien n'est téléversé ni stocké, aucun port à ouvrir. La page qui l'affiche (`docs/r`, GitHub Pages) ne fait aucune requête extérieure.
+- **Autres vérifications** (bureau) : « Comparer avec un serveur » et « Vérifier les mises à jour » ; en ligne de commande `analyze --server <dossier>` et `analyze --online`.
+- **Fichiers du serveur** (§6.1) : lecture des mondes (`level.dat` en NBT : version qui l'a écrit, illisible, sauvegarde `level.dat_old`, verrou `session.lock` tenu par un autre programme), de l'EULA, et de la **syntaxe des configurations** (`config/`, `defaultconfigs/`, `plugins/`, en TOML, JSON avec commentaires et YAML) avec fichier et ligne.
+- **Nouvelles situations** : `EULA`, `PORT_IN_USE`, `DISK_FULL`, `JVM_OPTIONS` (option inconnue, `-Xmx` invalide ou trop grand), `WORLD_LOCKED`, `WORLD_CORRUPT`, `OUTDATED` ; `WORLD_DOWNGRADE` et `CONFIG_BROKEN` désormais détectés ; connexion : `PROXY_FORWARDING`, `PROXY_BACKEND`, `CONNECTION_LOST`.
+- **Contrôles statiques ajoutés** : Fabric Loader ou NeoForge trop ancien pour un mod ; mods qui se déclarent incompatibles (`breaks`, `incompatible`) ; plugin compilé contre les classes internes d'une autre version (`craftbukkit.v1_20_R3`) ; version NeoForge nue dans `mods.toml` lue « celle-ci ou plus récente » (faux positif Create Plus corrigé).
+- **Proxys** : Velocity et BungeeCord / Waterfall reconnus (journal et dossier), leurs plugins lus avec leurs dépendances.
+- **Mises à jour** (`--online`, bouton) : Modrinth est interrogé **par empreinte SHA-1 seulement** ; le loader et la version sont déduits des jars quand le dossier ne les dit pas. Information, jamais une cause.
+- **Comparaison joueur / serveur** : ne comptent que les mods qui **ajoutent du contenu** (blocs, recettes, butin, génération du monde, repérés dans le jar) et que le client ne peut pas ignorer (`displayTest` de NeoForge et Forge). Signalés : mod de contenu d'un seul côté, versions différentes, autre loader, autre version de Minecraft. Les mods de performance ou d'interface d'un seul côté sont laissés tranquilles.
+- **Recettes des mods** : un mod qui livre des recettes pour un mod optionnel absent écrit une erreur par recette, et le jeu les ignore (vu sur le vrai Create Plus) : ce n'est signalé que si l'espace de noms n'appartient à aucun mod installé, donc à un datapack.
+- **Labo serveur, vague 1** sur le Mac : **13 nouveaux scénarios, 13 réussis** (EULA refusée, port pris, option Java inconnue, `-Xmx` invalide, disque plein, monde verrouillé, monde d'une version plus récente, `level.dat` abîmé, config de plugin cassée, config de mod cassée, plugin lié aux classes internes de 1.20.4, Fabric Loader trop ancien, datapack cassé).
+- **Constats réels du labo** : Paper 1.21.1 ouvre sans un mot un monde créé en 1.21.4 et réécrit `level.dat` (le monde est vérifié avant le démarrage, la version du serveur est lue dans le `version.json` du jar même jamais lancé) ; NeoForge **remplace en silence** une configuration illisible par les valeurs par défaut (réglages perdus) ; le message de Paper pour un port pris n'est pas celui de vanilla.
+- **Labo réseau** (`lab/net_lab.py`), sur le Mac : de vrais serveurs dans Docker (Paper 1.21.1, Velocity 3.4.0, Fabric 1.21.1) sur un réseau privé, et le **vrai jeu** lancé sur le Mac qui s'y connecte (Quick Play, `run-client --join`). **4 scénarios, 4 réussis** ; le journal de chaque côté (joueur, proxy, serveur) devient un cas du corpus :
+  - connexion normale par Velocity : le joueur entre, aucun constat nulle part ;
+  - secret de transfert différent : « Unable to verify player details », reconnu chez le joueur, le proxy et le serveur (`PROXY_FORWARDING`) ;
+  - serveur derrière le proxy éteint : `PROXY_BACKEND`, avec le nom du serveur (`lobby`) ;
+  - serveur Fabric avec Farmer's Delight, joueur sans : « 362 registry entries that are unknown » (`REGISTRY_MISMATCH`), et la comparaison des deux dossiers nomme Farmer's Delight.
+- **Corrigés grâce au labo réseau** : le jar du jeu (`1.21.1.jar`) et celui de Velocity n'étaient pas reconnus comme du code de la plateforme et pouvaient être désignés coupables ; Velocity 4.x exige Java 25 (constat réel) ; les icônes et packs intégrés (1,4 Mo) sont désormais toujours installés côté client.
+- 42 signatures, 114 tests, 65 cas réels rejoués ; labo serveur complet relancé sur le Mac : **49 scénarios sur 49 réussis**.
+
+### Changements de la v7 (rappel)
 - **Côté client** (§6.3, jalon 4 commencé) : l'outil installe lui-même Minecraft et Fabric dans son propre cache à partir des manifestes officiels (Mojang, Fabric), fichiers vérifiés par SHA-1, bibliothèques et natives choisies pour la machine (macOS, Windows, Linux, x86 ou ARM) ; le launcher du joueur n'est jamais utilisé ni modifié. Le jeu s'ouvre dans une **petite fenêtre** (427 × 240), en joueur hors ligne, et se ferme tout seul.
 - **Verdict sans humain côté client** : prêt quand l'écran titre est construit (atlas des blocs et moteur de son, repérés dans les vrais journaux de 1.21.1 vanilla et Fabric) ; planté si le jeu s'arrête ou si le loader affiche son écran d'erreur (Fabric lancé avec `fabric.noGui`, sinon il attend le joueur).
 - **Commandes** : `crashsleuth run-client <dossier de jeu> --minecraft 1.21.1 --loader fabric` (un lancement de test) et `crashsleuth bisect <dossier de jeu> --client --minecraft 1.21.1` (la recherche, avec les mêmes options que côté serveur : `--repeat`, `--parallel`…).
@@ -144,10 +165,13 @@ Chaque situation a un identifiant stable (utilisé par les signatures et les rap
 - `PLUGIN_API` plugin compilé pour une API plus récente, `plugin.yml` invalide, dépendance `depend` manquante, plugin Paper-only sur Spigot.
 - `CORRUPT_JAR` jar illisible ou différent de l'original (empreintes Modrinth/CurseForge).
 - `CONFIG_BROKEN` fichier de configuration illisible · `DATAPACK_BROKEN` datapack ou recette invalide.
+- `EULA` EULA non acceptée · `PORT_IN_USE` port déjà pris · `DISK_FULL` disque plein · `JVM_OPTIONS` option Java inconnue ou mémoire impossible · `MOD_CONFLICT` mods déclarés incompatibles.
 
 **Chargement du monde et connexion**
 - `REGISTRY_MISMATCH` contenu différent entre client et serveur · `MOD_MISMATCH` mods différents à la connexion.
 - `CORRUPT_CHUNK`, `CORRUPT_ENTITY` avec coordonnées et dimension, `CORRUPT_PLAYERDATA`.
+- `WORLD_DOWNGRADE` monde écrit par une version plus récente · `WORLD_DUPLICATE` · `WORLD_LOCKED` monde tenu par un autre programme · `WORLD_CORRUPT` `level.dat` illisible.
+- `PROXY_FORWARDING` proxy et serveur sans le même secret ou mode de transfert · `PROXY_BACKEND` serveur injoignable depuis le proxy · `CONNECTION_LOST` joueur déconnecté, avec la raison.
 
 **En jeu**
 - `TICK_ENTITY` / `TICK_BLOCK_ENTITY` crash sur une entité ou un bloc précis (position, mod d'origine).
@@ -160,6 +184,7 @@ Chaque situation a un identifiant stable (utilisé par les signatures et les rap
 - `DEADLOCK` deux threads qui s'attendent mutuellement.
 - `LAG` lecture d'un profil spark → mods ou plugins qui consomment.
 - `LOG_SPAM`, `SILENT_ERROR` erreurs répétées sans crash (recettes, structures, tâches de plugins).
+- `OUTDATED` version plus récente sur Modrinth (information seulement).
 
 ---
 
@@ -227,12 +252,13 @@ Ordre de passage, du gratuit au payant :
 |---|---|---|
 | **Cœur** (bibliothèque Kotlin) | Toute l'intelligence, réutilisable | Dès le départ |
 | **CLI** `crashsleuth` | Serveurs, CI, scripts ; sortie texte, JSON et SARIF | Dès le départ |
-| **Application de bureau** (Compose Multiplatform) | Joueurs : glisser un dossier, suivre la recherche, rapport clair | Jalon 3 |
+| **Application de bureau** (Compose Multiplatform) | Joueurs, et serveurs sur un ordinateur de bureau : glisser un dossier, suivre la recherche, rapport clair | **Fait (v8)** |
+| **Lien de rapport** (page statique `docs/r`) | Partager un rapport sans serveur ni port ouvert : le rapport est dans le lien | **Fait (v8)** |
 | **Version web** | Coller un log, analyse immédiate (modes 1 et 2 seulement) | Jalon 5 |
 | **Bot Discord** | Support des communautés de modpacks | Jalon 5 |
 | **Extension Pterodactyl** | Via Pulse : diagnostic depuis le panel, capture des gels | Jalon 5 |
 
-**Rapport** : lisible par un débutant (cause, coupable, quoi faire), plus un détail technique repliable et un export partageable (texte, JSON, lien mclo.gs).
+**Rapport** : lisible par un débutant (cause, coupable, quoi faire), plus un détail technique repliable et un export partageable (texte, JSON, lien de rapport).
 
 ---
 
@@ -242,6 +268,7 @@ Ordre de passage, du gratuit au payant :
 - Anonymisation avant tout envoi : pseudos, UUID, IP, chemins, jetons.
 - Aucun envoi automatique de statistiques.
 - Les jars ne sont exécutés que dans les lancements de test, sur une copie, jamais « à côté » de l'installation de l'utilisateur.
+- La vérification des mises à jour n'envoie que les empreintes SHA-1 des jars, et seulement quand on la demande. Un lien de rapport garde le rapport après le #, jamais envoyé au serveur de la page.
 
 ---
 
@@ -249,7 +276,7 @@ Ordre de passage, du gratuit au payant :
 
 - **Kotlin (JVM 21)**, Gradle en Kotlin DSL, multi-modules :
   - En place : `core-model` (situations, rapports, textes) · `core-logs` (découpage, attribution, détecteurs, signatures) · `core-inventory` (descripteurs des jars, packs, Java du bytecode, contrôles statiques) · `core-engine` (réunit journaux et fichiers, corpus réel) · `core-runner` (copie de travail, lancement serveur, verdict) · `core-bisect` (suspects puis ddmin, dépendances respectées) · `cli`.
-  - À venir : analyse ASM et mixins dans `core-inventory` · lancement côté client dans `core-runner` · `desktop` (Compose).
+  - Aussi : `core-app` (service commun à la ligne de commande et au bureau, liens de rapport, vérification Modrinth) · `desktop` (Compose). L'analyse ASM des mixins est dans `core-inventory`, le lancement côté client dans `core-runner`.
 - Téléchargement des versions de Minecraft, loaders et serveurs (Paper, Purpur…) à la demande, avec cache.
 - **Tests en conditions réelles** (`lab/`) : de vrais serveurs (vanilla, Paper, Purpur, Fabric, NeoForge, Forge) téléchargés depuis les sources officielles, de vrais mods et plugins depuis Modrinth, cassés volontairement (dépendance retirée, mauvais loader, mod client sur serveur, mauvaise version de Java, mémoire insuffisante…), lancés dans Docker avec la bonne version de Java. Chaque journal obtenu est anonymisé et rangé dans `lab/corpus` avec l'inventaire des jars installés et la réponse attendue, puis rejoué en CI. Des plugins de test (`lab/fixtures`) provoquent les cas impossibles à obtenir avec de vrais plugins sains : exception au démarrage, tâche qui échoue en boucle, thread principal bloqué. Des modpacks entiers de Modrinth (Cobbleverse 168 mods, Create Plus 106 mods) servent de référence sans faux positif. Les démarrages sains servent à garantir l'absence de faux positifs. Les mods et serveurs ne sont jamais versionnés, seulement les journaux.
 - Tests unitaires en complément, pour les formats rares ou difficiles à provoquer.
@@ -265,7 +292,7 @@ Ordre de passage, du gratuit au payant :
 | 1 | Analyse des journaux | Un crash report NeoForge, Fabric, Forge, Paper ou vanilla donne la cause et le coupable (CLI), signatures de base + import codex-minecraft — **en grande partie fait (v4)** |
 | 2 | Vérification avant lancement | Dossier ou pack → dépendances, versions, loader, doublons, Java, client/serveur, plugins, empreintes — **commencé (v4)** : dossier installé ; restent packs zip/mrpack, Java des `.class`, mixins, empreintes |
 | 3 | Recherche du coupable, serveur | Serveur NeoForge, Fabric, Forge ou Paper qui plante → coupable trouvé sans intervention, conflits à deux inclus — **fait (v6)** pour Paper et NeoForge, crashs aléatoires et parallèle compris ; reste : crashs en jeu (monde, joueurs) |
-| 4 | Application de bureau + recherche côté client | Un joueur glisse son pack, l'outil trouve seul le mod fautif — **commencé (v7)** : recherche côté client pour vanilla et Fabric en ligne de commande |
+| 4 | Application de bureau + recherche côté client | Un joueur glisse son pack, l'outil trouve seul le mod fautif — **en grande partie fait (v8)** : application de bureau, recherche côté client pour vanilla et Fabric ; restent NeoForge et Forge côté client |
 | 5 | Gels, lag, web, Discord, Pterodactyl | Dump de thread → coupable ; bot et version web en ligne |
 | 6 | IA | IA locale et clé personnelle ; IA hébergée si financement |
 

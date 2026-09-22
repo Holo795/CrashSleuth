@@ -83,8 +83,8 @@ def purpur_server(version: str) -> Path:
     return download(f"https://api.purpurmc.org/v2/purpur/{version}/{build}/download", f"purpur-{version}-{build}.jar")
 
 
-def fabric_server(version: str) -> Path:
-    loader = http_json(f"https://meta.fabricmc.net/v2/versions/loader/{version}")[0]["loader"]["version"]
+def fabric_server(version: str, loader: str | None = None) -> Path:
+    loader = loader or http_json(f"https://meta.fabricmc.net/v2/versions/loader/{version}")[0]["loader"]["version"]
     installer = http_json("https://meta.fabricmc.net/v2/versions/installer")[0]["version"]
     url = f"https://meta.fabricmc.net/v2/versions/loader/{version}/{loader}/{installer}/server/jar"
     return download(url, f"fabric-server-{version}-{loader}.jar")
@@ -188,7 +188,7 @@ def paper_api(minecraft: str) -> Path:
 
 def build_paper_fixture(minecraft: str) -> Path:
     """Compiles lab/fixtures/paper into a plugin jar, in a Java container."""
-    sources = sorted(p for p in (LAB_DIR / "fixtures" / "paper").rglob("*") if p.is_file())
+    sources = sorted(p for folder in ("paper", "paper-stubs") for p in (LAB_DIR / "fixtures" / folder).rglob("*") if p.is_file())
     digest = hashlib.sha1(b"".join(p.read_bytes() for p in sources)).hexdigest()[:10]
     output = CACHE / "fixtures" / f"CrashSleuthFixture-{minecraft}-{digest}.jar"
     if output.exists():
@@ -197,7 +197,10 @@ def build_paper_fixture(minecraft: str) -> Path:
     shutil.rmtree(work, ignore_errors=True)
     shutil.copytree(LAB_DIR / "fixtures" / "paper", work / "src-root")
     shutil.copy(paper_api(minecraft), work / "paper-api.jar")
-    script = ("mkdir -p out && javac -nowarn -proc:none -d out -cp paper-api.jar $(find src-root/src -name '*.java') "
+    shutil.copytree(LAB_DIR / "fixtures" / "paper-stubs", work / "stubs")
+    # The stubs are only on the compile classpath: the jar references them without shipping them.
+    script = ("mkdir -p out stubs-out && javac -nowarn -proc:none -d stubs-out $(find stubs -name '*.java') "
+              "&& javac -nowarn -proc:none -d out -cp paper-api.jar:stubs-out $(find src-root/src -name '*.java') "
               "&& cp src-root/plugin.yml out/ && cd out && jar cf ../fixture.jar .")
     subprocess.run(["docker", "run", "--rm", "-v", f"{work}:/w", "-w", "/w", "eclipse-temurin:21-jdk", "sh", "-c", script],
                    check=True, capture_output=True)
@@ -232,6 +235,13 @@ class Scenario:
     memory: str = "2G"
     timeout: int = 420
     crashes: bool = False                               # expected to crash without any explanation in its logs
+    loader_version: str | None = None                   # Fabric Loader version (default: latest)
+    jvm_extra: str = ""                                 # extra JVM options on the start command
+    pre: str = ""                                       # shell run in the container before the server (a port taken, a lock held)
+    docker_args: list[str] = field(default_factory=list)  # extra docker run options (a tiny disk, for instance)
+    seed: dict | None = None                            # {"platform", "minecraft"}: a server of another version creates the world first
+    mutate: list[dict] = field(default_factory=list)    # after a first clean start: {"garble"|"truncate"|"delete"|"write": path, ...}
+    check_before: bool = False                          # judge the analysis made before the start (the server rewrites what it finds)
     flaky: bool = False                                 # crashes only sometimes: the first start may succeed
     bisect: dict | None = None                          # {"culprits": [...], "max_runs"?}: culprit search expected result
     expect: Expectation | None = None                   # None: must start cleanly with no finding (unless crashes)
@@ -254,7 +264,7 @@ def prepare(scenario: Scenario, directory: Path) -> list[str]:
     (directory / "eula.txt").write_text("eula=true\n")
     # Default world generation: a flat world without generator settings makes the server log an error of its own.
     (directory / "server.properties").write_text("online-mode=false\nspawn-protection=0\nview-distance=4\nsimulation-distance=4\n")
-    java = f"-Xms256M -Xmx{scenario.memory}"
+    java = f"-Xms256M -Xmx{scenario.memory} {scenario.jvm_extra}".strip()
     mods_dir = directory / ("plugins" if scenario.platform in ("paper", "purpur") else "mods")
 
     if scenario.platform == "vanilla":
@@ -265,13 +275,14 @@ def prepare(scenario: Scenario, directory: Path) -> list[str]:
         shutil.copy(jar, directory / "server.jar")
         command = f"java {java} -jar server.jar nogui"
     elif scenario.platform == "fabric":
-        shutil.copy(fabric_server(scenario.minecraft), directory / "server.jar")
+        shutil.copy(fabric_server(scenario.minecraft, scenario.loader_version), directory / "server.jar")
         command = f"java {java} -jar server.jar nogui"
     elif scenario.platform in ("neoforge", "forge"):
         installer, version = neoforge_installer(scenario.minecraft) if scenario.platform == "neoforge" else forge_installer(scenario.minecraft)
         shutil.copy(installer, directory / "installer.jar")
         (directory / "user_jvm_args.txt").write_text(java + "\n")
-        command = "java -jar installer.jar --installServer > installer.log 2>&1 && rm -f installer.jar installer.jar.log && sh run.sh nogui"
+        # Installed once: a second start (after files were broken on purpose) goes straight to the server.
+        command = "( [ ! -f installer.jar ] || ( java -jar installer.jar --installServer > installer.log 2>&1 && rm -f installer.jar installer.jar.log ) ) && sh run.sh nogui"
     else:
         raise ValueError(scenario.platform)
 
@@ -293,7 +304,47 @@ def prepare(scenario: Scenario, directory: Path) -> list[str]:
         mods_dir.mkdir(exist_ok=True)
         shutil.copy(build_paper_fixture(scenario.minecraft), mods_dir / "CrashSleuthFixture-1.0.0.jar")
         (directory / "fixture-mode.txt").write_text(scenario.fixture + "\n")
+    if scenario.pre:
+        shutil.copy(LAB_DIR / "fixtures" / "tools" / "Hold.java", directory / "Hold.java")
+        command = f"{scenario.pre} ; {command}"
     return ["sh", "-c", command]
+
+
+def apply_mutations(scenario: Scenario, directory: Path) -> None:
+    """Breaks files on purpose once a first clean start has created them."""
+    for action in scenario.mutate:
+        kind = next(k for k in ("garble", "truncate", "delete", "write") if k in action)
+        target = directory / action[kind]
+        if kind == "garble":
+            text = target.read_text(errors="replace")
+            target.write_text(text[: len(text) // 2] + "\n=== not valid [[ {\n" + text[len(text) // 2:])
+        elif kind == "truncate":
+            target.write_bytes(target.read_bytes()[: action.get("bytes", 20)])
+        elif kind == "delete":
+            if target.is_dir():
+                shutil.rmtree(target)
+            else:
+                target.unlink(missing_ok=True)
+        else:
+            target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_text(action["text"])
+
+
+def prepare_command_without_pre(command: list[str], pre: str) -> list[str]:
+    return [command[0], command[1], command[2].replace(f"{pre} ; ", "", 1)]
+
+
+def seed_world(scenario: Scenario, directory: Path) -> None:
+    """Creates the world with another server version, then leaves only the world behind."""
+    seed = Scenario(name=f"{scenario.name}-seed", description="seed", platform=scenario.seed["platform"],
+                    minecraft=scenario.seed["minecraft"], java=scenario.seed.get("java", 21), timeout=600)
+    seed_dir = directory.parent / f"{scenario.name}-seed"
+    shutil.rmtree(seed_dir, ignore_errors=True)
+    outcome, _ = run_server(seed, seed_dir, prepare(seed, seed_dir))
+    if outcome != "ready":
+        raise RuntimeError(f"seed server did not start ({outcome})")
+    shutil.copytree(seed_dir / "world", directory / "world")
+    shutil.rmtree(seed_dir, ignore_errors=True)
 
 
 def run_server(scenario: Scenario, directory: Path, command: list[str]) -> tuple[str, float]:
@@ -304,7 +355,7 @@ def run_server(scenario: Scenario, directory: Path, command: list[str]) -> tuple
     start = time.time()
     process = subprocess.Popen(
         ["docker", "run", "--rm", "--name", name, "-i", "-v", f"{directory}:/srv", "-w", "/srv", "-e", "HOME=/srv",
-         "--memory", "6g", "--user", f"{os.getuid()}:{os.getgid()}", image, *command],
+         "--memory", "6g", "--user", f"{os.getuid()}:{os.getgid()}", *scenario.docker_args, image, *command],
         stdin=subprocess.PIPE, stdout=open(directory / "console.log", "wb"), stderr=subprocess.STDOUT,
     )
     outcome = "timeout"
@@ -426,9 +477,26 @@ def run(names: list[str], cli: str, keep: bool) -> int:
         answer = None
         try:
             command = prepare(scenario, directory)
+            if scenario.seed:
+                seed_world(scenario, directory)
+            if scenario.mutate:
+                # A first clean start creates the files that are then broken on purpose.
+                first = Scenario(**{**scenario.__dict__, "mutate": [], "pre": "", "name": scenario.name + "-first"})
+                first_outcome, _ = run_server(first, directory, command if not scenario.pre else prepare_command_without_pre(command, scenario.pre))
+                if first_outcome != "ready":
+                    raise RuntimeError(f"first start did not succeed ({first_outcome})")
+                for leftover in ("logs", "crash-reports"):
+                    shutil.rmtree(directory / leftover, ignore_errors=True)
+                apply_mutations(scenario, directory)
+            before = cli_json(cli, "analyze", str(directory), "--json") if scenario.check_before else None
+            before_inventory = cli_json(cli, "inventory", str(directory)) if scenario.check_before else None
             outcome, duration = run_server(scenario, directory, command)
             log = pick_log(directory)
             report, inventory = analyse(cli, directory, log)
+            if before is not None:
+                # What the files said before the server touched them.
+                report, inventory = before, before_inventory
+                outcome = "exited" if scenario.expect else outcome
             ok, detail = verdict(scenario, outcome, report)
             if scenario.bisect:
                 print(f"   analysis {'PASS' if ok else 'FAIL'}: {detail}", flush=True)

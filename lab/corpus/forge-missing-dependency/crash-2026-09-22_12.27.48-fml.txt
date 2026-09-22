@@ -1,7 +1,7 @@
 ---- Minecraft Crash Report ----
-// On the bright side, I bought you a teddy bear!
+// Quite honestly, I wouldn't worry myself about that.
 
-Time: 2026-09-22 09:30:58
+Time: 2026-09-22 12:27:48
 Description: Mod loading error has occurred
 
 java.lang.Exception: Mod Loading has failed
@@ -68,27 +68,27 @@ Stacktrace:
 Details:
 	Minecraft Version: 1.20.1
 	Minecraft Version ID: 1.20.1
-	Operating System: Linux (amd64) version 6.1.0-53-cloud-amd64
+	Operating System: Linux (aarch64) version 7.0.14-orbstack-00380-ga7e0a2dc9535
 	Java Version: 17.0.20, Eclipse Adoptium
 	Java VM Version: OpenJDK 64-Bit Server VM (mixed mode, sharing), Eclipse Adoptium
-	Memory: 80487944 bytes (76 MiB) / 290455552 bytes (277 MiB) up to 2147483648 bytes (2048 MiB)
-	CPUs: 4
-	Processor Vendor: GenuineIntel
-	Processor Name: Intel(R) Xeon(R) CPU E5-2470 v2 @ 2.40GHz
-	Identifier: Intel64 Family 6 Model 62 Stepping 4
-	Microarchitecture: Ivy Bridge (Server)
-	Frequency (GHz): 2.40
+	Memory: 475479552 bytes (453 MiB) / 805306368 bytes (768 MiB) up to 2147483648 bytes (2048 MiB)
+	CPUs: 12
+	Processor Vendor: aarch64
+	Processor Name: 
+	Identifier: aarch64 Family 8 Model 0x000 Stepping r0x0p0
+	Microarchitecture: unknown
+	Frequency (GHz): -0.00
 	Number of physical packages: 1
-	Number of physical CPUs: 4
-	Number of logical CPUs: 4
+	Number of physical CPUs: 12
+	Number of logical CPUs: 12
 	Graphics card #0 name: unknown
 	Graphics card #0 vendor: unknown
 	Graphics card #0 VRAM (MB): 0.00
 	Graphics card #0 deviceId: unknown
 	Graphics card #0 versionInfo: unknown
-	Virtual memory max (MB): 3976.63
-	Virtual memory used (MB): 993.25
-	Swap memory total (MB): 0.00
+	Virtual memory max (MB): 19048.21
+	Virtual memory used (MB): 2069.20
+	Swap memory total (MB): 13040.14
 	Swap memory used (MB): 0.00
 	JVM Flags: 2 total; -Xms256M -Xmx2G
 	ModLauncher: 10.0.9+10.0.9+main.dcd20f30

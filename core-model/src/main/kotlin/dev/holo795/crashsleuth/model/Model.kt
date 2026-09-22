@@ -14,11 +14,13 @@ enum class Platform(val displayName: String, val kind: PlatformKind) {
     FORGE("Forge", PlatformKind.MODS),
     FABRIC("Fabric", PlatformKind.MODS),
     QUILT("Quilt", PlatformKind.MODS),
+    VELOCITY("Velocity", PlatformKind.PROXY),
+    BUNGEECORD("BungeeCord", PlatformKind.PROXY),
     UNKNOWN("Unknown", PlatformKind.UNKNOWN),
 }
 
 @Serializable
-enum class PlatformKind { VANILLA, PLUGINS, MODS, UNKNOWN }
+enum class PlatformKind { VANILLA, PLUGINS, MODS, PROXY, UNKNOWN }
 
 @Serializable
 enum class Side { CLIENT, SERVER, UNKNOWN }

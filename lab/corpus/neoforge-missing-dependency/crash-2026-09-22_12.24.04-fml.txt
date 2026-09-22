@@ -1,7 +1,7 @@
 ---- Minecraft Crash Report ----
-// Ooh. Shiny.
+// Ouch. That hurt :(
 
-Time: 2026-09-22 09:23:53
+Time: 2026-09-22 12:24:04
 Description: Mod loading failures have occurred; consult the issue messages for more details
 
 net.neoforged.neoforge.logging.CrashReportExtender$ModLoadingCrashException: Mod loading has failed
@@ -24,33 +24,33 @@ Details:
 Details:
 	Minecraft Version: 1.21.1
 	Minecraft Version ID: 1.21.1
-	Operating System: Linux (amd64) version 6.1.0-53-cloud-amd64
+	Operating System: Linux (aarch64) version 7.0.14-orbstack-00380-ga7e0a2dc9535
 	Java Version: 21.0.12, Eclipse Adoptium
 	Java VM Version: OpenJDK 64-Bit Server VM (mixed mode, sharing), Eclipse Adoptium
-	Memory: 54460400 bytes (51 MiB) / 335544320 bytes (320 MiB) up to 2147483648 bytes (2048 MiB)
-	CPUs: 4
-	Processor Vendor: GenuineIntel
-	Processor Name: Intel(R) Xeon(R) CPU E5-2470 v2 @ 2.40GHz
-	Identifier: Intel64 Family 6 Model 62 Stepping 4
-	Microarchitecture: Ivy Bridge (Server)
-	Frequency (GHz): 2.40
+	Memory: 129562544 bytes (123 MiB) / 416284672 bytes (397 MiB) up to 2147483648 bytes (2048 MiB)
+	CPUs: 12
+	Processor Vendor: Apple
+	Processor Name: 
+	Identifier: Apple Family 8 Model 0x000 Stepping r0p0
+	Microarchitecture: unknown
+	Frequency (GHz): -0.00
 	Number of physical packages: 1
-	Number of physical CPUs: 4
-	Number of logical CPUs: 4
+	Number of physical CPUs: 12
+	Number of logical CPUs: 12
 	Graphics card #0 name: unknown
 	Graphics card #0 vendor: unknown
 	Graphics card #0 VRAM (MiB): 0.00
 	Graphics card #0 deviceId: unknown
 	Graphics card #0 versionInfo: unknown
-	Virtual memory max (MiB): 3976.63
-	Virtual memory used (MiB): 1023.92
-	Swap memory total (MiB): 0.00
+	Virtual memory max (MiB): 19048.21
+	Virtual memory used (MiB): 2026.95
+	Swap memory total (MiB): 13040.14
 	Swap memory used (MiB): 0.00
 	Space in storage for jna.tmpdir (MiB): <path not set>
 	Space in storage for org.lwjgl.system.SharedLibraryExtractPath (MiB): <path not set>
 	Space in storage for io.netty.native.workdir (MiB): <path not set>
-	Space in storage for java.io.tmpdir (MiB): available: 47864.96, total: 60267.50
-	Space in storage for workdir (MiB): available: 47864.96, total: 60267.50
+	Space in storage for java.io.tmpdir (MiB): available: 136160.75, total: 148160.00
+	Space in storage for workdir (MiB): available: 145215.13, total: 471482.09
 	JVM Flags: 2 total; -Xms256M -Xmx2G
 	ModLauncher: 11.0.5+main.901c6ea8
 	ModLauncher launch target: forgeserver

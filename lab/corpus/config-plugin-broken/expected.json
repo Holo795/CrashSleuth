@@ -1,0 +1,7 @@
+{
+  "situation": "CONFIG_BROKEN",
+  "culprit": "LuckPerms",
+  "logs": [
+    "latest.log"
+  ]
+}

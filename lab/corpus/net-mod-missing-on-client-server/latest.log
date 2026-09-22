@@ -1,0 +1,73 @@
+[13:09:57] [main/INFO]: Loading Minecraft 1.21.1 with Fabric Loader 0.19.5
+[13:09:57] [main/INFO]: Fabric is preparing JARs on first launch, this may take a few seconds...
+[13:09:57] [main/INFO]: Loading 43 mods:
+	- fabric-api 0.116.17+1.21.1
+	   |-- fabric-api-base 0.4.42+6573ed8c19
+	   |-- fabric-api-lookup-api-v1 1.6.72+7b3d111d19
+	   |-- fabric-biome-api-v1 13.0.31+d527f9fd19
+	   |-- fabric-block-api-v1 1.1.0+0bc3503219
+	   |-- fabric-block-view-api-v2 1.0.11+ebb2264e19
+	   |-- fabric-command-api-v1 1.2.49+f71b366f19
+	   |-- fabric-command-api-v2 2.2.28+6ced4dd919
+	   |-- fabric-commands-v0 0.2.66+df3654b319
+	   |-- fabric-content-registries-v0 8.0.19+b559734419
+	   |-- fabric-convention-tags-v1 2.1.7+7f945d5b19
+	   |-- fabric-convention-tags-v2 2.12.0+c3656daa19
+	   |-- fabric-crash-report-info-v1 0.2.29+0af3f5a719
+	   |-- fabric-data-attachment-api-v1 1.4.7+5b36e0f719
+	   |-- fabric-data-generation-api-v1 20.3.0+1eb36c0719
+	   |-- fabric-dimensions-v1 4.0.1+65213ef819
+	   |-- fabric-entity-events-v1 1.8.0+2b27e0a419
+	   |-- fabric-events-interaction-v0 0.7.14+ba9dae0619
+	   |-- fabric-game-rule-api-v1 1.0.53+6ced4dd919
+	   |-- fabric-item-api-v1 11.3.0+467044f319
+	   |-- fabric-item-group-api-v1 4.1.7+def88e3a19
+	   |-- fabric-lifecycle-events-v1 2.6.0+0865547519
+	   |-- fabric-loot-api-v2 3.0.15+3f89f5a519
+	   |-- fabric-loot-api-v3 1.0.3+3f89f5a519
+	   |-- fabric-message-api-v1 6.0.14+8aaf3aca19
+	   |-- fabric-networking-api-v1 4.3.1+d30f6a7919
+	   |-- fabric-object-builder-api-v1 15.2.1+40875a9319
+	   |-- fabric-particles-v1 4.0.2+6573ed8c19
+	   |-- fabric-recipe-api-v1 5.0.16+2475392c19
+	   |-- fabric-registry-sync-v0 5.3.2+e3eddc2119
+	   |-- fabric-rendering-data-attachment-v1 0.3.49+73761d2e19
+	   |-- fabric-rendering-fluids-v1 3.1.6+1daea21519
+	   |-- fabric-resource-conditions-api-v1 4.3.0+8dc279b119
+	   |-- fabric-resource-loader-v0 1.3.1+5b5275af19
+	   |-- fabric-screen-handler-api-v1 1.3.91+b559734419
+	   |-- fabric-tag-api-v1 1.3.0+1eb36c0719
+	   |-- fabric-transfer-api-v1 5.4.4+7b3d111d19
+	   \-- fabric-transitive-access-wideners-v1 6.2.0+45b9699719
+	- fabricloader 0.19.5
+	   \-- mixinextras 0.5.5
+	- farmersdelight 1.21.1-3.3.6+refabricated
+	- java 21
+	- minecraft 1.21.1
+[13:09:57] [main/INFO]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=file:/srv/libraries/net/fabricmc/sponge-mixin/0.17.4+mixin.0.8.7/sponge-mixin-0.17.4+mixin.0.8.7.jar Service=Knot/Fabric Env=SERVER
+[13:09:57] [main/INFO]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.5.5).
+[13:09:59] [main/INFO]: Loaded config farmersdelight-common.json
+[13:09:59] [main/INFO]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
+[13:09:59] [main/INFO]: No existing world data, creating new world
+[13:10:00] [main/INFO]: Loaded 1594 recipes
+[13:10:00] [main/INFO]: Loaded 1617 advancements
+[13:10:00] [main/INFO]: Applied 79 biome modifications to 43 of 64 new biomes in 3.269 ms
+[13:10:00] [Server thread/INFO]: Starting minecraft server version 1.21.1
+[13:10:00] [Server thread/INFO]: Loading properties
+[13:10:00] [Server thread/INFO]: Default game type: SURVIVAL
+[13:10:00] [Server thread/INFO]: Generating keypair
+[13:10:00] [Server thread/INFO]: Starting Minecraft server on *:25565
+[13:10:00] [Server thread/INFO]: Using epoll channel type
+[13:10:00] [Server thread/WARN]: **** SERVER IS RUNNING IN OFFLINE/INSECURE MODE!
+[13:10:00] [Server thread/WARN]: The server will make no attempt to authenticate usernames. Beware.
+[13:10:00] [Server thread/WARN]: While this makes the game possible to play without internet access, it also opens up the ability for hackers to connect with any username they choose.
+[13:10:00] [Server thread/WARN]: To change this, set "online-mode" to "true" in the server.properties file.
+[13:10:00] [Server thread/INFO]: Preparing level "world"
+[13:10:01] [Server thread/INFO]: Preparing start region for dimension minecraft:overworld
+[13:10:01] [Worker-Main-4/INFO]: Preparing spawn area: 2%
+[13:10:02] [Worker-Main-8/INFO]: Preparing spawn area: 18%
+[13:10:03] [Worker-Main-7/INFO]: Preparing spawn area: 51%
+[13:10:03] [Worker-Main-8/INFO]: Preparing spawn area: 51%
+[13:10:03] [Server thread/INFO]: Time elapsed: 1541 ms
+[13:10:03] [Server thread/INFO]: Done (2.922s)! For help, type "help"
+[13:10:14] [Server thread/INFO]: com.mojang.authlib.GameProfile@a37519a[id=f261d4f8-3d63-3d50-bfb9-627e804e9cc5,name=CrashSleuth,properties={}] lost connection: Disconnected

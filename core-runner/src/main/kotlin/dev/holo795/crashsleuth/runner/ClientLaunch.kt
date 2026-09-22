@@ -10,6 +10,16 @@ object ClientLaunch {
     /** A loader that shows its error screen waits for the player: the launch is over. */
     val FATAL = Regex("""Incompatible mods found!|Mod loading has failed|This crash report has been saved to|Crash report saved to|#@!@# Game crashed!""")
 
-    fun launcher(installer: ClientInstaller, profile: ClientProfile, java: String, timeout: Duration, settle: Duration) =
-        ServerLauncher(listOf(java), timeout, settle, ready = READY, stopCommand = null, fatal = FATAL)
+    /** In a world: the player's own join message comes back in the chat. */
+    val JOINED = Regex("""\[CHAT] \S+ joined the game""")
+
+    /** The game went back to a disconnection screen. */
+    val DISCONNECTED = Regex("""Client disconnected with reason|Disconnected from server|Connection lost|Kicked from server|Failed to connect to the server|Couldn't connect to server""")
+
+    fun launcher(installer: ClientInstaller, profile: ClientProfile, java: String, timeout: Duration, settle: Duration, joining: Boolean = false) =
+        if (joining) {
+            ServerLauncher(listOf(java), timeout, settle, ready = JOINED, stopCommand = null, fatal = Regex(FATAL.pattern + "|" + DISCONNECTED.pattern))
+        } else {
+            ServerLauncher(listOf(java), timeout, settle, ready = READY, stopCommand = null, fatal = FATAL)
+        }
 }

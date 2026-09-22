@@ -1,0 +1,7 @@
+{
+  "situation": "WRONG_MC",
+  "culprit": "CrashSleuthFixture",
+  "logs": [
+    "latest.log"
+  ]
+}

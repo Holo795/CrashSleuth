@@ -1,64 +1,59 @@
-[09:36:59] [ServerMain/INFO]: [bootstrap] Running Java 21 (OpenJDK 64-Bit Server VM 21.0.12+8-LTS; Eclipse Adoptium Temurin-21.0.12+8) on Linux 6.1.0-53-cloud-amd64 (amd64)
-[09:36:59] [ServerMain/INFO]: [bootstrap] Loading Paper 1.21.1-133-ver/1.21.1@3cb8529 (2025-03-28T16:14:36Z) for Minecraft 1.21.1
-[09:36:59] [ServerMain/INFO]: [PluginInitializerManager] Initializing plugins...
-[09:36:59] [Paper Plugin Remapper Thread - 1/INFO]: [ReobfServer] Remapping server...
-[09:37:08] [Paper Plugin Remapper Thread - 1/INFO]: [ReobfServer] Done remapping server in 8929ms.
-[09:37:08] [Paper Plugin Remapper Thread - 2/INFO]: [PluginRemapper] Remapping plugin 'plugins/CrashSleuthFixture-1.0.0.jar'...
-[09:37:08] [Paper Plugin Remapper Thread - 2/INFO]: [PluginRemapper] Done remapping plugin 'plugins/CrashSleuthFixture-1.0.0.jar' in 167ms.
-[09:37:08] [ServerMain/INFO]: [PluginInitializerManager] Initialized 1 plugin
-[09:37:08] [ServerMain/INFO]: [PluginInitializerManager] Bukkit plugins (1):
+[12:29:33] [ServerMain/INFO]: [bootstrap] Running Java 21 (OpenJDK 64-Bit Server VM 21.0.12+8-LTS; Eclipse Adoptium Temurin-21.0.12+8) on Linux 7.0.14-orbstack-00380-ga7e0a2dc9535 (aarch64)
+[12:29:33] [ServerMain/INFO]: [bootstrap] Loading Paper 1.21.1-133-ver/1.21.1@3cb8529 (2025-03-28T16:14:36Z) for Minecraft 1.21.1
+[12:29:33] [ServerMain/INFO]: [PluginInitializerManager] Initializing plugins...
+[12:29:33] [Paper Plugin Remapper Thread - 1/INFO]: [ReobfServer] Remapping server...
+[12:29:36] [Paper Plugin Remapper Thread - 1/INFO]: [ReobfServer] Done remapping server in 2738ms.
+[12:29:36] [Paper Plugin Remapper Thread - 1/INFO]: [PluginRemapper] Remapping plugin 'plugins/CrashSleuthFixture-1.0.0.jar'...
+[12:29:36] [Paper Plugin Remapper Thread - 1/INFO]: [PluginRemapper] Done remapping plugin 'plugins/CrashSleuthFixture-1.0.0.jar' in 54ms.
+[12:29:36] [ServerMain/INFO]: [PluginInitializerManager] Initialized 1 plugin
+[12:29:36] [ServerMain/INFO]: [PluginInitializerManager] Bukkit plugins (1):
  - CrashSleuthFixture (1.0.0)
-[09:37:14] [ServerMain/INFO]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
-[09:37:15] [ServerMain/INFO]: Found new data pack file/bukkit, loading it automatically
-[09:37:15] [ServerMain/INFO]: Found new data pack paper, loading it automatically
-[09:37:16] [ServerMain/INFO]: No existing world data, creating new world
-[09:37:17] [ServerMain/INFO]: Loaded 1290 recipes
-[09:37:17] [ServerMain/INFO]: Loaded 1399 advancements
-[09:37:17] [Server thread/INFO]: Starting minecraft server version 1.21.1
-[09:37:17] [Server thread/WARN]: ****************************
-[09:37:17] [Server thread/WARN]: YOU ARE RUNNING THIS SERVER AS AN ADMINISTRATIVE OR ROOT USER. THIS IS NOT ADVISED.
-[09:37:17] [Server thread/WARN]: YOU ARE OPENING YOURSELF UP TO POTENTIAL RISKS WHEN DOING THIS.
-[09:37:17] [Server thread/WARN]: FOR MORE INFORMATION, SEE https://madelinemiller.dev/blog/root-minecraft-server/
-[09:37:17] [Server thread/WARN]: ****************************
-[09:37:17] [Server thread/INFO]: Loading properties
-[09:37:17] [Server thread/INFO]: This server is running Paper version 1.21.1-133-ver/1.21.1@3cb8529 (2025-03-28T16:14:36Z) (Implementing API version 1.21.1-R0.1-SNAPSHOT)
-[09:37:18] [Server thread/INFO]: [spark] This server bundles the spark profiler. For more information please visit https://docs.papermc.io/paper/profiling
-[09:37:18] [Server thread/INFO]: Server Ping Player Sample Count: 12
-[09:37:18] [Server thread/INFO]: Using 4 threads for Netty based IO
-[09:37:19] [Server thread/INFO]: [ChunkTaskScheduler] Chunk system is using 1 I/O threads, 1 worker threads, and population gen parallelism of 1 threads
-[09:37:20] [Server thread/INFO]: Default game type: SURVIVAL
-[09:37:20] [Server thread/INFO]: Generating keypair
-[09:37:20] [Server thread/INFO]: Starting Minecraft server on *:25565
-[09:37:20] [Server thread/INFO]: Using epoll channel type
-[09:37:20] [Server thread/INFO]: Paper: Using libdeflate (Linux x86_64) compression from Velocity.
-[09:37:20] [Server thread/INFO]: Paper: Using OpenSSL 3.x.x (Linux x86_64) cipher from Velocity.
-[09:37:20] [Server thread/INFO]: [CrashSleuthFixture] Loading server plugin CrashSleuthFixture v1.0.0
-[09:37:20] [Server thread/WARN]: **** SERVER IS RUNNING IN OFFLINE/INSECURE MODE!
-[09:37:20] [Server thread/WARN]: The server will make no attempt to authenticate usernames. Beware.
-[09:37:20] [Server thread/WARN]: While this makes the game possible to play without internet access, it also opens up the ability for hackers to connect with any username they choose.
-[09:37:20] [Server thread/WARN]: To change this, set "online-mode" to "true" in the server.properties file.
-[09:37:20] [Server thread/INFO]: Preparing level "world"
-[09:37:36] [Server thread/INFO]: Preparing start region for dimension minecraft:overworld
-[09:37:44] [Server thread/INFO]: Time elapsed: 8922 ms
-[09:37:44] [Server thread/INFO]: Preparing start region for dimension minecraft:the_nether
-[09:37:47] [Server thread/INFO]: Time elapsed: 2953 ms
-[09:37:47] [Server thread/INFO]: Preparing start region for dimension minecraft:the_end
-[09:37:48] [Server thread/INFO]: Time elapsed: 830 ms
-[09:37:48] [Server thread/INFO]: [CrashSleuthFixture] Enabling CrashSleuthFixture v1.0.0
-[09:37:48] [Server thread/INFO]: [CrashSleuthFixture] CrashSleuth fixture mode: task-exception
-[09:37:48] [Server thread/INFO]: [spark] Starting background profiler...
-[09:37:48] [Server thread/INFO]: Done preparing level "world" (28.520s)
-[09:37:49] [Server thread/INFO]: Running delayed init tasks
-[09:37:49] [Server thread/INFO]: Done (51.126s)! For help, type "help"
-[09:37:49] [Server thread/INFO]: *************************************************************************************
-[09:37:49] [Server thread/INFO]: This is the first time you're starting this server.
-[09:37:49] [Server thread/INFO]: It's recommended you read our 'Getting Started' documentation for guidance.
-[09:37:49] [Server thread/INFO]: View this and more helpful information here: https://docs.papermc.io/paper/next-steps
-[09:37:49] [Server thread/INFO]: *************************************************************************************
-[09:37:49] [Server thread/INFO]: Timings Reset
-[09:37:53] [Server thread/WARN]: [CrashSleuthFixture] Task #2 for CrashSleuthFixture v1.0.0 generated an exception
+[12:29:37] [ServerMain/INFO]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
+[12:29:38] [ServerMain/INFO]: Found new data pack file/bukkit, loading it automatically
+[12:29:38] [ServerMain/INFO]: Found new data pack paper, loading it automatically
+[12:29:38] [ServerMain/INFO]: No existing world data, creating new world
+[12:29:38] [ServerMain/INFO]: Loaded 1290 recipes
+[12:29:38] [ServerMain/INFO]: Loaded 1399 advancements
+[12:29:38] [Server thread/INFO]: Starting minecraft server version 1.21.1
+[12:29:38] [Server thread/INFO]: Loading properties
+[12:29:38] [Server thread/INFO]: This server is running Paper version 1.21.1-133-ver/1.21.1@3cb8529 (2025-03-28T16:14:36Z) (Implementing API version 1.21.1-R0.1-SNAPSHOT)
+[12:29:39] [Server thread/INFO]: [spark] This server bundles the spark profiler. For more information please visit https://docs.papermc.io/paper/profiling
+[12:29:39] [Server thread/INFO]: Server Ping Player Sample Count: 12
+[12:29:39] [Server thread/INFO]: Using 4 threads for Netty based IO
+[12:29:39] [Server thread/INFO]: [ChunkTaskScheduler] Chunk system is using 1 I/O threads, 3 worker threads, and population gen parallelism of 3 threads
+[12:29:39] [Server thread/INFO]: Default game type: SURVIVAL
+[12:29:39] [Server thread/INFO]: Generating keypair
+[12:29:39] [Server thread/INFO]: Starting Minecraft server on *:25565
+[12:29:39] [Server thread/INFO]: Using epoll channel type
+[12:29:39] [Server thread/INFO]: Paper: Using libdeflate (Linux aarch64) compression from Velocity.
+[12:29:39] [Server thread/INFO]: Paper: Using OpenSSL 3.x.x (Linux aarch64) cipher from Velocity.
+[12:29:39] [Server thread/INFO]: [CrashSleuthFixture] Loading server plugin CrashSleuthFixture v1.0.0
+[12:29:39] [Server thread/WARN]: **** SERVER IS RUNNING IN OFFLINE/INSECURE MODE!
+[12:29:39] [Server thread/WARN]: The server will make no attempt to authenticate usernames. Beware.
+[12:29:39] [Server thread/WARN]: While this makes the game possible to play without internet access, it also opens up the ability for hackers to connect with any username they choose.
+[12:29:39] [Server thread/WARN]: To change this, set "online-mode" to "true" in the server.properties file.
+[12:29:39] [Server thread/INFO]: Preparing level "world"
+[12:29:41] [Server thread/INFO]: Preparing start region for dimension minecraft:overworld
+[12:29:42] [Server thread/INFO]: Time elapsed: 1123 ms
+[12:29:42] [Server thread/INFO]: Preparing start region for dimension minecraft:the_nether
+[12:29:43] [Server thread/INFO]: Time elapsed: 365 ms
+[12:29:43] [Server thread/INFO]: Preparing start region for dimension minecraft:the_end
+[12:29:43] [Server thread/INFO]: Time elapsed: 149 ms
+[12:29:43] [Server thread/INFO]: [CrashSleuthFixture] Enabling CrashSleuthFixture v1.0.0
+[12:29:43] [Server thread/INFO]: [CrashSleuthFixture] CrashSleuth fixture mode: task-exception
+[12:29:43] [Server thread/INFO]: [spark] Starting background profiler...
+[12:29:43] [Server thread/INFO]: Done preparing level "world" (3.904s)
+[12:29:43] [Server thread/INFO]: Running delayed init tasks
+[12:29:43] [Server thread/INFO]: Done (10.574s)! For help, type "help"
+[12:29:43] [Server thread/INFO]: *************************************************************************************
+[12:29:43] [Server thread/INFO]: This is the first time you're starting this server.
+[12:29:43] [Server thread/INFO]: It's recommended you read our 'Getting Started' documentation for guidance.
+[12:29:43] [Server thread/INFO]: View this and more helpful information here: https://docs.papermc.io/paper/next-steps
+[12:29:43] [Server thread/INFO]: *************************************************************************************
+[12:29:43] [Server thread/INFO]: Timings Reset
+[12:29:48] [Server thread/WARN]: [CrashSleuthFixture] Task #2 for CrashSleuthFixture v1.0.0 generated an exception
 java.lang.IllegalStateException: Shop inventory is not loaded
-	at CrashSleuthFixture-1.0.0.jar/dev.holo795.crashsleuth.fixture.FixturePlugin.brokenTask(FixturePlugin.java:40) ~[CrashSleuthFixture-1.0.0.jar:?]
+	at CrashSleuthFixture-1.0.0.jar/dev.holo795.crashsleuth.fixture.FixturePlugin.brokenTask(FixturePlugin.java:42) ~[CrashSleuthFixture-1.0.0.jar:?]
 	at org.bukkit.craftbukkit.scheduler.CraftTask.run(CraftTask.java:86) ~[paper-1.21.1.jar:1.21.1-133-3cb8529]
 	at org.bukkit.craftbukkit.scheduler.CraftScheduler.mainThreadHeartbeat(CraftScheduler.java:475) ~[paper-1.21.1.jar:1.21.1-133-3cb8529]
 	at net.minecraft.server.MinecraftServer.tickChildren(MinecraftServer.java:1724) ~[paper-1.21.1.jar:1.21.1-133-3cb8529]
@@ -67,9 +62,9 @@ java.lang.IllegalStateException: Shop inventory is not loaded
 	at net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:1302) ~[paper-1.21.1.jar:1.21.1-133-3cb8529]
 	at net.minecraft.server.MinecraftServer.lambda$spin$0(MinecraftServer.java:329) ~[paper-1.21.1.jar:1.21.1-133-3cb8529]
 	at java.base/java.lang.Thread.run(Thread.java:1583) ~[?:?]
-[09:37:55] [Server thread/WARN]: [CrashSleuthFixture] Task #2 for CrashSleuthFixture v1.0.0 generated an exception
+[12:29:50] [Server thread/WARN]: [CrashSleuthFixture] Task #2 for CrashSleuthFixture v1.0.0 generated an exception
 java.lang.IllegalStateException: Shop inventory is not loaded
-	at CrashSleuthFixture-1.0.0.jar/dev.holo795.crashsleuth.fixture.FixturePlugin.brokenTask(FixturePlugin.java:40) ~[CrashSleuthFixture-1.0.0.jar:?]
+	at CrashSleuthFixture-1.0.0.jar/dev.holo795.crashsleuth.fixture.FixturePlugin.brokenTask(FixturePlugin.java:42) ~[CrashSleuthFixture-1.0.0.jar:?]
 	at org.bukkit.craftbukkit.scheduler.CraftTask.run(CraftTask.java:86) ~[paper-1.21.1.jar:1.21.1-133-3cb8529]
 	at org.bukkit.craftbukkit.scheduler.CraftScheduler.mainThreadHeartbeat(CraftScheduler.java:475) ~[paper-1.21.1.jar:1.21.1-133-3cb8529]
 	at net.minecraft.server.MinecraftServer.tickChildren(MinecraftServer.java:1724) ~[paper-1.21.1.jar:1.21.1-133-3cb8529]
@@ -78,9 +73,9 @@ java.lang.IllegalStateException: Shop inventory is not loaded
 	at net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:1302) ~[paper-1.21.1.jar:1.21.1-133-3cb8529]
 	at net.minecraft.server.MinecraftServer.lambda$spin$0(MinecraftServer.java:329) ~[paper-1.21.1.jar:1.21.1-133-3cb8529]
 	at java.base/java.lang.Thread.run(Thread.java:1583) ~[?:?]
-[09:37:57] [Server thread/WARN]: [CrashSleuthFixture] Task #2 for CrashSleuthFixture v1.0.0 generated an exception
+[12:29:52] [Server thread/WARN]: [CrashSleuthFixture] Task #2 for CrashSleuthFixture v1.0.0 generated an exception
 java.lang.IllegalStateException: Shop inventory is not loaded
-	at CrashSleuthFixture-1.0.0.jar/dev.holo795.crashsleuth.fixture.FixturePlugin.brokenTask(FixturePlugin.java:40) ~[CrashSleuthFixture-1.0.0.jar:?]
+	at CrashSleuthFixture-1.0.0.jar/dev.holo795.crashsleuth.fixture.FixturePlugin.brokenTask(FixturePlugin.java:42) ~[CrashSleuthFixture-1.0.0.jar:?]
 	at org.bukkit.craftbukkit.scheduler.CraftTask.run(CraftTask.java:86) ~[paper-1.21.1.jar:1.21.1-133-3cb8529]
 	at org.bukkit.craftbukkit.scheduler.CraftScheduler.mainThreadHeartbeat(CraftScheduler.java:475) ~[paper-1.21.1.jar:1.21.1-133-3cb8529]
 	at net.minecraft.server.MinecraftServer.tickChildren(MinecraftServer.java:1724) ~[paper-1.21.1.jar:1.21.1-133-3cb8529]
@@ -89,9 +84,9 @@ java.lang.IllegalStateException: Shop inventory is not loaded
 	at net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:1302) ~[paper-1.21.1.jar:1.21.1-133-3cb8529]
 	at net.minecraft.server.MinecraftServer.lambda$spin$0(MinecraftServer.java:329) ~[paper-1.21.1.jar:1.21.1-133-3cb8529]
 	at java.base/java.lang.Thread.run(Thread.java:1583) ~[?:?]
-[09:37:59] [Server thread/WARN]: [CrashSleuthFixture] Task #2 for CrashSleuthFixture v1.0.0 generated an exception
+[12:29:54] [Server thread/WARN]: [CrashSleuthFixture] Task #2 for CrashSleuthFixture v1.0.0 generated an exception
 java.lang.IllegalStateException: Shop inventory is not loaded
-	at CrashSleuthFixture-1.0.0.jar/dev.holo795.crashsleuth.fixture.FixturePlugin.brokenTask(FixturePlugin.java:40) ~[CrashSleuthFixture-1.0.0.jar:?]
+	at CrashSleuthFixture-1.0.0.jar/dev.holo795.crashsleuth.fixture.FixturePlugin.brokenTask(FixturePlugin.java:42) ~[CrashSleuthFixture-1.0.0.jar:?]
 	at org.bukkit.craftbukkit.scheduler.CraftTask.run(CraftTask.java:86) ~[paper-1.21.1.jar:1.21.1-133-3cb8529]
 	at org.bukkit.craftbukkit.scheduler.CraftScheduler.mainThreadHeartbeat(CraftScheduler.java:475) ~[paper-1.21.1.jar:1.21.1-133-3cb8529]
 	at net.minecraft.server.MinecraftServer.tickChildren(MinecraftServer.java:1724) ~[paper-1.21.1.jar:1.21.1-133-3cb8529]
@@ -100,9 +95,9 @@ java.lang.IllegalStateException: Shop inventory is not loaded
 	at net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:1302) ~[paper-1.21.1.jar:1.21.1-133-3cb8529]
 	at net.minecraft.server.MinecraftServer.lambda$spin$0(MinecraftServer.java:329) ~[paper-1.21.1.jar:1.21.1-133-3cb8529]
 	at java.base/java.lang.Thread.run(Thread.java:1583) ~[?:?]
-[09:38:01] [Server thread/WARN]: [CrashSleuthFixture] Task #2 for CrashSleuthFixture v1.0.0 generated an exception
+[12:29:56] [Server thread/WARN]: [CrashSleuthFixture] Task #2 for CrashSleuthFixture v1.0.0 generated an exception
 java.lang.IllegalStateException: Shop inventory is not loaded
-	at CrashSleuthFixture-1.0.0.jar/dev.holo795.crashsleuth.fixture.FixturePlugin.brokenTask(FixturePlugin.java:40) ~[CrashSleuthFixture-1.0.0.jar:?]
+	at CrashSleuthFixture-1.0.0.jar/dev.holo795.crashsleuth.fixture.FixturePlugin.brokenTask(FixturePlugin.java:42) ~[CrashSleuthFixture-1.0.0.jar:?]
 	at org.bukkit.craftbukkit.scheduler.CraftTask.run(CraftTask.java:86) ~[paper-1.21.1.jar:1.21.1-133-3cb8529]
 	at org.bukkit.craftbukkit.scheduler.CraftScheduler.mainThreadHeartbeat(CraftScheduler.java:475) ~[paper-1.21.1.jar:1.21.1-133-3cb8529]
 	at net.minecraft.server.MinecraftServer.tickChildren(MinecraftServer.java:1724) ~[paper-1.21.1.jar:1.21.1-133-3cb8529]
@@ -111,9 +106,9 @@ java.lang.IllegalStateException: Shop inventory is not loaded
 	at net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:1302) ~[paper-1.21.1.jar:1.21.1-133-3cb8529]
 	at net.minecraft.server.MinecraftServer.lambda$spin$0(MinecraftServer.java:329) ~[paper-1.21.1.jar:1.21.1-133-3cb8529]
 	at java.base/java.lang.Thread.run(Thread.java:1583) ~[?:?]
-[09:38:03] [Server thread/WARN]: [CrashSleuthFixture] Task #2 for CrashSleuthFixture v1.0.0 generated an exception
+[12:29:58] [Server thread/WARN]: [CrashSleuthFixture] Task #2 for CrashSleuthFixture v1.0.0 generated an exception
 java.lang.IllegalStateException: Shop inventory is not loaded
-	at CrashSleuthFixture-1.0.0.jar/dev.holo795.crashsleuth.fixture.FixturePlugin.brokenTask(FixturePlugin.java:40) ~[CrashSleuthFixture-1.0.0.jar:?]
+	at CrashSleuthFixture-1.0.0.jar/dev.holo795.crashsleuth.fixture.FixturePlugin.brokenTask(FixturePlugin.java:42) ~[CrashSleuthFixture-1.0.0.jar:?]
 	at org.bukkit.craftbukkit.scheduler.CraftTask.run(CraftTask.java:86) ~[paper-1.21.1.jar:1.21.1-133-3cb8529]
 	at org.bukkit.craftbukkit.scheduler.CraftScheduler.mainThreadHeartbeat(CraftScheduler.java:475) ~[paper-1.21.1.jar:1.21.1-133-3cb8529]
 	at net.minecraft.server.MinecraftServer.tickChildren(MinecraftServer.java:1724) ~[paper-1.21.1.jar:1.21.1-133-3cb8529]
@@ -122,9 +117,9 @@ java.lang.IllegalStateException: Shop inventory is not loaded
 	at net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:1302) ~[paper-1.21.1.jar:1.21.1-133-3cb8529]
 	at net.minecraft.server.MinecraftServer.lambda$spin$0(MinecraftServer.java:329) ~[paper-1.21.1.jar:1.21.1-133-3cb8529]
 	at java.base/java.lang.Thread.run(Thread.java:1583) ~[?:?]
-[09:38:05] [Server thread/WARN]: [CrashSleuthFixture] Task #2 for CrashSleuthFixture v1.0.0 generated an exception
+[12:30:00] [Server thread/WARN]: [CrashSleuthFixture] Task #2 for CrashSleuthFixture v1.0.0 generated an exception
 java.lang.IllegalStateException: Shop inventory is not loaded
-	at CrashSleuthFixture-1.0.0.jar/dev.holo795.crashsleuth.fixture.FixturePlugin.brokenTask(FixturePlugin.java:40) ~[CrashSleuthFixture-1.0.0.jar:?]
+	at CrashSleuthFixture-1.0.0.jar/dev.holo795.crashsleuth.fixture.FixturePlugin.brokenTask(FixturePlugin.java:42) ~[CrashSleuthFixture-1.0.0.jar:?]
 	at org.bukkit.craftbukkit.scheduler.CraftTask.run(CraftTask.java:86) ~[paper-1.21.1.jar:1.21.1-133-3cb8529]
 	at org.bukkit.craftbukkit.scheduler.CraftScheduler.mainThreadHeartbeat(CraftScheduler.java:475) ~[paper-1.21.1.jar:1.21.1-133-3cb8529]
 	at net.minecraft.server.MinecraftServer.tickChildren(MinecraftServer.java:1724) ~[paper-1.21.1.jar:1.21.1-133-3cb8529]
@@ -133,9 +128,9 @@ java.lang.IllegalStateException: Shop inventory is not loaded
 	at net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:1302) ~[paper-1.21.1.jar:1.21.1-133-3cb8529]
 	at net.minecraft.server.MinecraftServer.lambda$spin$0(MinecraftServer.java:329) ~[paper-1.21.1.jar:1.21.1-133-3cb8529]
 	at java.base/java.lang.Thread.run(Thread.java:1583) ~[?:?]
-[09:38:07] [Server thread/WARN]: [CrashSleuthFixture] Task #2 for CrashSleuthFixture v1.0.0 generated an exception
+[12:30:02] [Server thread/WARN]: [CrashSleuthFixture] Task #2 for CrashSleuthFixture v1.0.0 generated an exception
 java.lang.IllegalStateException: Shop inventory is not loaded
-	at CrashSleuthFixture-1.0.0.jar/dev.holo795.crashsleuth.fixture.FixturePlugin.brokenTask(FixturePlugin.java:40) ~[CrashSleuthFixture-1.0.0.jar:?]
+	at CrashSleuthFixture-1.0.0.jar/dev.holo795.crashsleuth.fixture.FixturePlugin.brokenTask(FixturePlugin.java:42) ~[CrashSleuthFixture-1.0.0.jar:?]
 	at org.bukkit.craftbukkit.scheduler.CraftTask.run(CraftTask.java:86) ~[paper-1.21.1.jar:1.21.1-133-3cb8529]
 	at org.bukkit.craftbukkit.scheduler.CraftScheduler.mainThreadHeartbeat(CraftScheduler.java:475) ~[paper-1.21.1.jar:1.21.1-133-3cb8529]
 	at net.minecraft.server.MinecraftServer.tickChildren(MinecraftServer.java:1724) ~[paper-1.21.1.jar:1.21.1-133-3cb8529]
@@ -144,27 +139,27 @@ java.lang.IllegalStateException: Shop inventory is not loaded
 	at net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:1302) ~[paper-1.21.1.jar:1.21.1-133-3cb8529]
 	at net.minecraft.server.MinecraftServer.lambda$spin$0(MinecraftServer.java:329) ~[paper-1.21.1.jar:1.21.1-133-3cb8529]
 	at java.base/java.lang.Thread.run(Thread.java:1583) ~[?:?]
-[09:38:09] [Server thread/INFO]: Stopping the server
-[09:38:09] [Server thread/INFO]: Stopping server
-[09:38:09] [Server thread/INFO]: [CrashSleuthFixture] Disabling CrashSleuthFixture v1.0.0
-[09:38:09] [Server thread/INFO]: Saving players
-[09:38:09] [Server thread/INFO]: Saving worlds
-[09:38:09] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:overworld
-[09:38:09] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk system to halt for world 'world'
-[09:38:09] [Server thread/INFO]: [ChunkHolderManager] Halted chunk system for world 'world'
-[09:38:09] [Server thread/INFO]: [ChunkHolderManager] Saving all chunkholders for world 'world'
-[09:38:10] [Server thread/INFO]: [ChunkHolderManager] Saved 841 block chunks, 49 entity chunks, 1 poi chunks in world 'world' in 1.44s
-[09:38:10] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world_nether]'/minecraft:the_nether
-[09:38:10] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk system to halt for world 'world_nether'
-[09:38:10] [Server thread/INFO]: [ChunkHolderManager] Halted chunk system for world 'world_nether'
-[09:38:10] [Server thread/INFO]: [ChunkHolderManager] Saving all chunkholders for world 'world_nether'
-[09:38:11] [Server thread/INFO]: [ChunkHolderManager] Saved 841 block chunks, 49 entity chunks, 0 poi chunks in world 'world_nether' in 0.65s
-[09:38:11] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world_the_end]'/minecraft:the_end
-[09:38:11] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk system to halt for world 'world_the_end'
-[09:38:11] [Server thread/INFO]: [ChunkHolderManager] Halted chunk system for world 'world_the_end'
-[09:38:11] [Server thread/INFO]: [ChunkHolderManager] Saving all chunkholders for world 'world_the_end'
-[09:38:11] [Server thread/INFO]: [ChunkHolderManager] Saved 841 block chunks, 49 entity chunks, 0 poi chunks in world 'world_the_end' in 0.26s
-[09:38:11] [Server thread/INFO]: ThreadedAnvilChunkStorage (world): All chunks are saved
-[09:38:11] [Server thread/INFO]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
-[09:38:11] [Server thread/INFO]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
-[09:38:11] [Server thread/INFO]: ThreadedAnvilChunkStorage: All dimensions are saved
+[12:30:04] [Server thread/INFO]: Stopping the server
+[12:30:04] [Server thread/INFO]: Stopping server
+[12:30:04] [Server thread/INFO]: [CrashSleuthFixture] Disabling CrashSleuthFixture v1.0.0
+[12:30:04] [Server thread/INFO]: Saving players
+[12:30:04] [Server thread/INFO]: Saving worlds
+[12:30:04] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:overworld
+[12:30:04] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk system to halt for world 'world'
+[12:30:04] [Server thread/INFO]: [ChunkHolderManager] Halted chunk system for world 'world'
+[12:30:04] [Server thread/INFO]: [ChunkHolderManager] Saving all chunkholders for world 'world'
+[12:30:04] [Server thread/INFO]: [ChunkHolderManager] Saved 841 block chunks, 49 entity chunks, 9 poi chunks in world 'world' in 0.38s
+[12:30:04] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world_nether]'/minecraft:the_nether
+[12:30:04] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk system to halt for world 'world_nether'
+[12:30:04] [Server thread/INFO]: [ChunkHolderManager] Halted chunk system for world 'world_nether'
+[12:30:04] [Server thread/INFO]: [ChunkHolderManager] Saving all chunkholders for world 'world_nether'
+[12:30:04] [Server thread/INFO]: [ChunkHolderManager] Saved 841 block chunks, 49 entity chunks, 0 poi chunks in world 'world_nether' in 0.15s
+[12:30:04] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world_the_end]'/minecraft:the_end
+[12:30:04] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk system to halt for world 'world_the_end'
+[12:30:04] [Server thread/INFO]: [ChunkHolderManager] Halted chunk system for world 'world_the_end'
+[12:30:04] [Server thread/INFO]: [ChunkHolderManager] Saving all chunkholders for world 'world_the_end'
+[12:30:04] [Server thread/INFO]: [ChunkHolderManager] Saved 841 block chunks, 49 entity chunks, 0 poi chunks in world 'world_the_end' in 0.14s
+[12:30:04] [Server thread/INFO]: ThreadedAnvilChunkStorage (world): All chunks are saved
+[12:30:04] [Server thread/INFO]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[12:30:04] [Server thread/INFO]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[12:30:04] [Server thread/INFO]: ThreadedAnvilChunkStorage: All dimensions are saved

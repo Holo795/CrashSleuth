@@ -4,5 +4,10 @@
  "loaderVersion": "21.1.251",
  "side": "SERVER",
  "jars": [],
- "skipped": []
+ "skipped": [],
+ "files": {
+  "worlds": [],
+  "eulaAccepted": true,
+  "configErrors": []
+ }
 }

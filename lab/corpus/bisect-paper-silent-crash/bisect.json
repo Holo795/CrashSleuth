@@ -31,7 +31,7 @@
     "plugins/worldguard-bukkit-7.0.12-dist.jar"
    ],
    "outcome": "CRASHED",
-   "seconds": 70.520235358,
+   "seconds": 15.321573716,
    "sameFailure": true,
    "note": "reference"
   },
@@ -52,7 +52,7 @@
     "plugins/worldguard-bukkit-7.0.12-dist.jar"
    ],
    "outcome": "CRASHED",
-   "seconds": 73.929128255,
+   "seconds": 14.858006101,
    "sameFailure": true,
    "note": "without suspect DecentHolograms"
   },
@@ -68,7 +68,7 @@
     "plugins/TAB v6.2.0 - Paper 1.20.5 - 1.21.4.jar"
    ],
    "outcome": "CRASHED",
-   "seconds": 60.888880332,
+   "seconds": 12.572110198,
    "sameFailure": true,
    "note": null
   },
@@ -81,7 +81,7 @@
     "plugins/DecentHolograms-2.10.1.jar"
    ],
    "outcome": "CRASHED",
-   "seconds": 61.76521983,
+   "seconds": 11.064594267,
    "sameFailure": true,
    "note": null
   },
@@ -92,7 +92,7 @@
     "plugins/CoreProtect-CE-24.0.jar"
    ],
    "outcome": "READY",
-   "seconds": 66.353912284,
+   "seconds": 21.66410145,
    "sameFailure": false,
    "note": null
   },
@@ -103,7 +103,7 @@
     "plugins/DecentHolograms-2.10.1.jar"
    ],
    "outcome": "CRASHED",
-   "seconds": 64.349862464,
+   "seconds": 11.276325276,
    "sameFailure": true,
    "note": null
   },
@@ -113,7 +113,7 @@
     "plugins/CrashSleuthFixture-1.0.0.jar"
    ],
    "outcome": "CRASHED",
-   "seconds": 53.215879463,
+   "seconds": 11.152372217,
    "sameFailure": true,
    "note": null
   }

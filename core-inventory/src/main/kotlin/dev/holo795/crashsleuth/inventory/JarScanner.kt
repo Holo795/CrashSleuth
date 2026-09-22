@@ -86,7 +86,7 @@ object JarScanner {
             text("paper-plugin.yml")?.let { parseSafely { paper(it) } }?.let(::add)
             text("bungee.yml")?.let { parseSafely { simpleYaml(it, MetadataFormat.BUNGEE) } }?.let(::add)
             text("velocity-plugin.json")?.let { parseSafely { velocity(it) } }?.let(::add)
-        }
+        }.map { mod -> if (CONTENT.any { folder -> files.keys.any { it.startsWith(folder.format(mod.id)) } }) mod.copy(addsContent = true) else mod }
 
         val nested = if (depth >= MAX_DEPTH) emptyList() else files.keys
             .filter { it.endsWith(".jar") && (it.startsWith("META-INF/jars/") || it.startsWith("META-INF/jarjar/")) }
@@ -111,6 +111,9 @@ object JarScanner {
         }
         return result
     }
+
+    /** Folders only a mod with content of its own has; %s is the mod id. */
+    private val CONTENT = listOf("assets/%s/blockstates/", "data/%s/recipe/", "data/%s/recipes/", "data/%s/loot_table/", "data/%s/loot_tables/", "data/%s/worldgen/")
 
     private val METADATA_FILES = setOf(
         "fabric.mod.json", "quilt.mod.json", "META-INF/neoforge.mods.toml", "META-INF/mods.toml",
@@ -191,12 +194,13 @@ object JarScanner {
                 id = id,
                 name = mod.text("displayName"),
                 version = version,
+                optionalOnClient = mod.text("displayTest")?.uppercase() in setOf("IGNORE_SERVER_VERSION", "IGNORE_ALL_VERSION"),
                 dependencies = dependencies.mapNotNull { dep ->
                     val type = dep.text("type")?.lowercase()
                     if (type == "incompatible" || type == "discouraged") return@mapNotNull null
                     Dependency(
                         id = dep.text("modId") ?: return@mapNotNull null,
-                        versionRange = dep.text("versionRange"),
+                        versionRange = mavenRange(dep.text("versionRange")),
                         // NeoForge says type="required", Forge says mandatory=true; an absent field means required.
                         required = when {
                             type != null -> type == "required"
@@ -211,6 +215,12 @@ object JarScanner {
                 },
             )
         }
+    }
+
+    /** In Maven and FML, a bare version ("21.1.225") means "this one or newer". */
+    private fun mavenRange(range: String?): String? {
+        val text = range?.trim()?.ifEmpty { null } ?: return null
+        return if (text.startsWith("[") || text.startsWith("(") || text == "*") text else "[$text,)"
     }
 
     // Explicit types: tomlj annotates its results with checker-framework annotations that are not on the classpath.
@@ -272,12 +282,23 @@ object JarScanner {
 
     private fun simpleYaml(text: String, format: MetadataFormat): ModMetadata {
         val root = yamlMap(text)
-        return ModMetadata(format, root.getValue("name").toString(), version = root["version"]?.toString())
+        return ModMetadata(
+            format, root.getValue("name").toString(), version = root["version"]?.toString(),
+            dependencies = (root["depends"] ?: root["depend"]).stringList().map { Dependency(it) } +
+                (root["softDepends"] ?: root["softdepend"]).stringList().map { Dependency(it, required = false) },
+            entrypoints = listOfNotNull(root["main"]?.toString()),
+        )
     }
 
     private fun velocity(text: String): ModMetadata {
         val root = json.parseToJsonElement(text).jsonObject
-        return ModMetadata(MetadataFormat.VELOCITY, root.getValue("id").jsonPrimitive.content, root["name"].string(), root["version"].string())
+        return ModMetadata(
+            MetadataFormat.VELOCITY, root.getValue("id").jsonPrimitive.content, root["name"].string(), root["version"].string(),
+            dependencies = (root["dependencies"] as? JsonArray).orEmpty().mapNotNull { element ->
+                val dependency = element as? JsonObject ?: return@mapNotNull null
+                Dependency(dependency["id"].string() ?: return@mapNotNull null, required = dependency["optional"]?.jsonPrimitive?.booleanOrNull != true)
+            },
+        )
     }
 
     private fun side(value: String?): Side = when (value?.lowercase()) {

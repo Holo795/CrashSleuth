@@ -21,14 +21,23 @@ enum class Situation(val stage: Stage) {
     PLUGIN_API(Stage.STARTUP),
     CORRUPT_JAR(Stage.STARTUP),
     CONFIG_BROKEN(Stage.STARTUP),
+    EULA(Stage.STARTUP),
+    PORT_IN_USE(Stage.STARTUP),
+    DISK_FULL(Stage.STARTUP),
+    JVM_OPTIONS(Stage.STARTUP),
     DATAPACK_BROKEN(Stage.STARTUP),
     REGISTRY_MISMATCH(Stage.WORLD),
     MOD_MISMATCH(Stage.WORLD),
+    PROXY_FORWARDING(Stage.CONNECTION),
+    PROXY_BACKEND(Stage.CONNECTION),
+    CONNECTION_LOST(Stage.CONNECTION),
     CORRUPT_CHUNK(Stage.WORLD),
     CORRUPT_ENTITY(Stage.WORLD),
     CORRUPT_PLAYERDATA(Stage.WORLD),
     WORLD_DOWNGRADE(Stage.WORLD),
     WORLD_DUPLICATE(Stage.WORLD),
+    WORLD_LOCKED(Stage.WORLD),
+    WORLD_CORRUPT(Stage.WORLD),
     TICK_ENTITY(Stage.GAME),
     TICK_BLOCK_ENTITY(Stage.GAME),
     OUT_OF_MEMORY(Stage.GAME),
@@ -40,8 +49,9 @@ enum class Situation(val stage: Stage) {
     LAG(Stage.NO_CRASH),
     LOG_SPAM(Stage.NO_CRASH),
     SILENT_ERROR(Stage.NO_CRASH),
+    OUTDATED(Stage.NO_CRASH),
     UNCAUGHT_EXCEPTION(Stage.GAME),
 }
 
 @Serializable
-enum class Stage { STARTUP, WORLD, GAME, NO_CRASH }
+enum class Stage { STARTUP, WORLD, CONNECTION, GAME, NO_CRASH }
