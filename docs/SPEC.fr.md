@@ -1,8 +1,21 @@
 # CrashSleuth — Spécification
 
-**Version 18 — 22/09/2026** — v17 + 30 cas réels rejoués, et un constat mesuré : les Paper récents ne disent plus qu'ils rament.
+**Version 19 — 23/09/2026** — v18 + 42 problèmes réellement signalés rejoués, trois mauvaises réponses corrigées, et une base de couples connus.
 
-### Changements depuis la v17
+### Changements depuis la v18
+- **42 cas réels rejoués** (`docs/REAL_CASES.md`, engendré depuis le corpus, 376 cas au total) : serveurs à plugins, mods, proxys, mondes, datapacks et clients, chacun reconstruit avec les versions et les jars du signalement.
+- **Trois mauvaises réponses trouvées en rejouant une foule de poulets** (16 000 dans un chunk, sur un cœur) :
+  - un chunk trop gros pour son fichier de région vit dans un `c.x.z.mcc` à part, et son entrée d'un octet était lue comme un chunk **endommagé** : tout monde contenant un chunk surdimensionné était déclaré cassé ;
+  - un serveur bloqué par le jeu lui-même était accusé sur **« 0x000000800222db68 »**, l'adresse d'une frame lambda ; ces frames nomment maintenant la classe qui les a créées, et quand rien du monde de la personne n'apparaît dans le dump, le conseil le dit ;
+  - une seule ligne « Can't keep up! » à 2,5 s de retard ne déclenchait rien : un retard important compte désormais même signalé une seule fois.
+- **Un amas d'entités est signalé avant la panne** : un chunk d'entités gardé à part est nommé avec sa position, parce que c'est ce qui fait ramer un serveur bien avant qu'un fichier soit abîmé.
+- **Couples connus** (`known-pairs.json`) : deux mods dont on sait qu'ils ne fonctionnent pas ensemble, et des mods qui en exigent un autre sans le déclarer, sont nommés **avant** tout crash, avec la source de l'information. Sert aux cas où le coupable n'apparaît nulle part dans la trace.
+- **Nouvelles détections tirées de cas réels** : jar refusé par le loader (métadonnées illisibles), language provider dans la mauvaise version, secret Velocity vide, transfert d'adresse à sens unique (BungeeCord), serveur laissé en online-mode derrière un proxy, fichier de réglages de génération perdu, recette écrite à l'ancien format (`item` au lieu de `id`), jar tronqué, dossier illisible, refus Folia, plugin qui fouille les entrailles du serveur.
+- **Un faux positif retiré** : Sinytra Connector saute exprès les mods Fabric avant de les convertir ; c'était signalé comme « mod du mauvais loader » et masquait la vraie erreur.
+- **Le labo** sait épingler une version de NeoForge ou de Forge, installer un jar depuis n'importe quelle adresse, copier un fichier d'un monde à l'autre, rendre des fichiers illisibles, et se nettoyer ensuite.
+- **Quatre signalements non reproductibles, écartés** plutôt que mis en scène (crash Sodium `@Overwrite`, configuration de mod vidée, cycle de chargement de plugins, Jade + Not Enough Crashes).
+
+### Changements de la v18 (rappel)
 - **Paper ne dit plus qu'il prend du retard** (§6.4) : mesuré au labo le 22/09/2026 avec le même plugin qui mange 70 ms par tick. Paper 1.21.1 écrit « Can't keep up! » ; **Paper 1.21.11 n'écrit rien du tout**. Quand un serveur à plugins récent ne montre aucun problème, CrashSleuth le dit maintenant et donne la marche à suivre : `spark profiler start --timeout 60 --save-to-file`, puis lui donner le profil — chemin vérifié, le profil désigne bien le coupable.
 - **Douze cas réels de plus**, tous rejoués et verts : plugin sans sa dépendance (Vault), plugin qui annonce une API plus récente que le serveur, Java trop ancienne pour Paper, Folia qui refuse un plugin, ProtocolLib qui ne reconnaît plus les entrailles du serveur, Velocity au secret vide, BungeeCord dont un seul côté transmet l'adresse, serveur laissé en online-mode derrière un proxy, jar de serveur tronqué, dossier de monde illisible, RCON sur le port du jeu, mod Kotlin sans son language provider, jar publié avec une plage de versions illisible (sur 1.21.1 **et** sur la toute dernière version), bibliothèque trop ancienne pour le bundle qui la réclame, jar Forge dans NeoForge, Create avec un Flywheel installé à la main, mod qui réclame une dépendance jamais publiée, fabric-api tronqué au téléchargement, configuration Forge à moitié écrite.
 - **Sept manques et un faux positif corrigés grâce à ces cas** : mod client réclamant la moitié client d'un autre mod, refus Folia, plugin qui fouille les entrailles du serveur, secret Velocity vide, transfert d'adresse à sens unique, serveur en online-mode derrière un proxy, jar illisible par le loader, et **Sinytra Connector** dont le fonctionnement normal (sauter les mods Fabric avant de les convertir) était signalé comme une erreur et masquait la vraie cause.
