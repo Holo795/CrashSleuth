@@ -1351,5 +1351,106 @@
     "after_ready": 10,
     "source": "https://github.com/ViaVersion/ViaVersion/issues/3917",
     "fix": "Nothing to fix: ViaVersion only lets newer clients in; older ones need ViaBackwards."
+  },
+  {
+    "platform": "paper",
+    "minecraft": "1.21.8",
+    "java": 21,
+    "name": "plugins-built-for-java25",
+    "description": "Paper 1.21.8 on Java 21 with today's WorldEdit, WorldGuard and BentoBox, all built for Java 25",
+    "mods": [
+      "worldguard",
+      "bentobox"
+    ],
+    "source": "lab, 22/09/2026: the current builds of these plugins are compiled for Java 25 (class file 69)",
+    "fix": "Run the server with the Java version the plugins were built for, or take an older build of the plugin.",
+    "expect": {
+      "situation": "JAVA_VERSION",
+      "culprit": "java"
+    }
+  },
+  {
+    "platform": "neoforge",
+    "minecraft": "1.21.1",
+    "java": 21,
+    "name": "real-densefuel-language-provider-pinned",
+    "description": "NeoForge 21.1.236 with DenseFuel, which asks for javafml 4.0.42 exactly",
+    "loader_version": "21.1.236",
+    "extra": [
+      {
+        "slug": "densefuel",
+        "loader": "neoforge"
+      }
+    ],
+    "source": "https://github.com/legoaggelos/densefuel/issues/1",
+    "fix": "Stay below NeoForge 21.1.235, or the mod must widen the javafml range it asks for.",
+    "log": "console.log",
+    "expect": {
+      "situation": "DEP_VERSION",
+      "culprit": "densefuel"
+    }
+  },
+  {
+    "platform": "paper",
+    "minecraft": "1.21.1",
+    "java": 21,
+    "name": "real-world-not-writable",
+    "description": "Paper 1.21.1 whose world folder the server may no longer read (wrong owner in a container)",
+    "mutate": [
+      {
+        "chmod": "world",
+        "mode": "000"
+      }
+    ],
+    "source": "https://github.com/itzg/docker-minecraft-server/issues/1080",
+    "fix": "Give the folder to the user the server runs as (chown), or set the container's UID and GID to the owner's.",
+    "log": "console.log",
+    "expect": {
+      "situation": "WORLD_LOCKED"
+    }
+  },
+  {
+    "platform": "vanilla",
+    "minecraft": "1.21.1",
+    "java": 21,
+    "name": "real-corrupt-server-jar",
+    "description": "Vanilla 1.21.1 whose server.jar was cut short by a failed download",
+    "mutate": [
+      {
+        "truncate": "server.jar",
+        "bytes": 4096
+      }
+    ],
+    "source": "https://github.com/itzg/docker-minecraft-server/discussions/2786",
+    "fix": "Delete the jar and download it again: the file is incomplete.",
+    "log": "console.log",
+    "expect": {
+      "situation": "CORRUPT_JAR"
+    }
+  },
+  {
+    "platform": "paper",
+    "minecraft": "1.21.1",
+    "java": 21,
+    "name": "real-rcon-port-taken",
+    "description": "Paper 1.21.1 with RCON told to use the port the game already listens on",
+    "properties": "enable-rcon=true\nrcon.password=lab\nrcon.port=25565\n",
+    "after_ready": 5,
+    "source": "https://www.gameserverkings.com/knowledge-base/minecraft/setting-up-rcon/",
+    "fix": "Give RCON a port of its own, different from server-port.",
+    "expect": {
+      "situation": "PORT_IN_USE"
+    }
+  },
+  {
+    "platform": "paper",
+    "minecraft": "1.21.1",
+    "java": 21,
+    "name": "real-level-type-legacy",
+    "description": "Paper 1.21.1 with the old level-type 'default', which it only warns about",
+    "properties": "level-type=default\n",
+    "after_ready": 5,
+    "source": "https://github.com/itzg/docker-minecraft-server/issues/1445",
+    "fix": "Nothing breaks: since 22w12a the value is minecraft:normal, and anything else falls back to it."
   }
 ]

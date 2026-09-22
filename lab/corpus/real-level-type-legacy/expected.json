@@ -1,0 +1,9 @@
+{
+  "situation": null,
+  "culprit": null,
+  "logs": [
+    "latest.log"
+  ],
+  "source": "https://github.com/itzg/docker-minecraft-server/issues/1445",
+  "fix": "Nothing breaks: since 22w12a the value is minecraft:normal, and anything else falls back to it."
+}

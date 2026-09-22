@@ -1,0 +1,27 @@
+Starting org.bukkit.craftbukkit.Main
+*** Warning, you've not updated in a while! ***
+*** Please download a new build as per instructions from https://papermc.io/downloads/paper ***
+WARN StatusConsoleListener Advanced terminal features are not available in this environment
+[21:13:05 INFO]: [bootstrap] Running Java 21 (OpenJDK 64-Bit Server VM 21.0.12+8-LTS; Eclipse Adoptium Temurin-21.0.12+8) on Linux 7.0.14-orbstack-00380-ga7e0a2dc9535 (aarch64)
+[21:13:05 INFO]: [bootstrap] Loading Paper 1.21.1-133-ver/1.21.1@3cb8529 (2025-03-28T16:14:36Z) for Minecraft 1.21.1
+[21:13:05 INFO]: [PluginInitializerManager] Initializing plugins...
+[21:13:05 INFO]: [PluginInitializerManager] Initialized 0 plugins
+[21:13:07 INFO]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
+[21:13:07 ERROR]: Failed to start the minecraft server
+java.nio.file.AccessDeniedException: ./world
+	at java.base/sun.nio.fs.UnixException.translateToIOException(UnixException.java:90) ~[?:?]
+	at java.base/sun.nio.fs.UnixException.asIOException(UnixException.java:115) ~[?:?]
+	at java.base/sun.nio.fs.UnixFileSystemProvider.newDirectoryStream(UnixFileSystemProvider.java:501) ~[?:?]
+	at java.base/java.nio.file.Files.newDirectoryStream(Files.java:482) ~[?:?]
+	at java.base/java.nio.file.FileTreeWalker.visit(FileTreeWalker.java:301) ~[?:?]
+	at java.base/java.nio.file.FileTreeWalker.walk(FileTreeWalker.java:323) ~[?:?]
+	at java.base/java.nio.file.Files.walkFileTree(Files.java:2792) ~[?:?]
+	at java.base/java.nio.file.Files.walkFileTree(Files.java:2870) ~[?:?]
+	at net.minecraft.world.level.validation.DirectoryValidator.validateKnownDirectory(DirectoryValidator.java:63) ~[paper-1.21.1.jar:1.21.1-133-3cb8529]
+	at net.minecraft.world.level.validation.DirectoryValidator.validateDirectory(DirectoryValidator.java:57) ~[paper-1.21.1.jar:1.21.1-133-3cb8529]
+	at net.minecraft.world.level.storage.LevelStorageSource.validateAndCreateAccess(LevelStorageSource.java:423) ~[paper-1.21.1.jar:1.21.1-133-3cb8529]
+	at net.minecraft.server.Main.main(Main.java:198) ~[paper-1.21.1.jar:1.21.1-133-3cb8529]
+	at io.papermc.paper.PaperBootstrap.boot(PaperBootstrap.java:21) ~[paper-1.21.1.jar:1.21.1-133-3cb8529]
+	at org.bukkit.craftbukkit.Main.main(Main.java:281) ~[paper-1.21.1.jar:1.21.1-133-3cb8529]
+	at io.papermc.paperclip.Paperclip.lambda$main$0(Paperclip.java:42) ~[app:?]
+	at java.base/java.lang.Thread.run(Thread.java:1583) ~[?:?]

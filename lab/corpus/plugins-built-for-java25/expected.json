@@ -1,0 +1,9 @@
+{
+  "situation": "JAVA_VERSION",
+  "culprit": "java",
+  "logs": [
+    "latest.log"
+  ],
+  "source": "lab, 22/09/2026: the current builds of these plugins are compiled for Java 25 (class file 69)",
+  "fix": "Run the server with the Java version the plugins were built for, or take an older build of the plugin."
+}

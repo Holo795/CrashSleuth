@@ -1,0 +1,9 @@
+{
+  "situation": "PORT_IN_USE",
+  "culprit": null,
+  "logs": [
+    "latest.log"
+  ],
+  "source": "https://www.gameserverkings.com/knowledge-base/minecraft/setting-up-rcon/",
+  "fix": "Give RCON a port of its own, different from server-port."
+}

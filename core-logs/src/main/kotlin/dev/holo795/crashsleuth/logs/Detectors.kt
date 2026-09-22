@@ -187,6 +187,8 @@ object PluginLoadDetector : Detector {
 object JavaVersionDetector : Detector {
     // "Error occurred while enabling Essentials v2.20.1 (Is it up to date?)", a line above the error itself.
     private val ENABLING = Regex("""Error occurred while (?:enabling|loading) ([\w .'-]+?) v(\S+?) \(Is it up to date\?\)""")
+    // "Could not load plugin 'worldedit-bukkit-7.4.5.jar' in folder 'plugins'": the file says which plugin it is.
+    private val COULD_NOT_LOAD = Regex("""Could not load plugin '([^']+\.jar)'""")
     private val LINE = Regex("""UnsupportedClassVersionError: (\S+) has been compiled by a more recent version of the Java Runtime \(class file version (\d+)(?:\.\d+)?\), this version of the Java Runtime only recognizes class file versions up to (\d+)""")
 
     override fun detect(document: LogDocument, environment: Environment): List<Finding> {
@@ -196,8 +198,11 @@ object JavaVersionDetector : Detector {
         val trace = document.stackTraces.firstOrNull { it.chain().any { e -> e.type.endsWith("UnsupportedClassVersionError") } }
         val owner = match.groupValues[1].replace('/', '.')
         // A server says whose plugin it was on the line just above: that name means more than its package.
-        val named = ENABLING.findAll(document.text.take(match.range.first)).lastOrNull()
+        val before = document.text.take(match.range.first)
+        val named = ENABLING.findAll(before).lastOrNull()
+        val jar = COULD_NOT_LOAD.findAll(before.takeLast(400)).lastOrNull()?.groupValues?.get(1)?.substringAfterLast('/')
         val culprits = named?.let { listOf(Culprit(CulpritKind.PLUGIN, it.groupValues[1], it.groupValues[1], it.groupValues[2])) }
+            ?: jar?.let { listOf(Culprit(CulpritKind.PLUGIN, Attribution.idFromJar(it), file = it)) }
             ?: trace?.let { Attribution.culprits(it, environment, 1) }.orEmpty().ifEmpty {
                 if (Attribution.isPlatformClass(owner)) emptyList() else listOf(Culprit(Attribution.kindFor(environment), owner.substringBeforeLast('.')))
             }

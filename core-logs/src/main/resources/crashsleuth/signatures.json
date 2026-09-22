@@ -147,10 +147,35 @@
       "source": "codex-minecraft"
     },
     {
+      "id": "forge-language-provider-version",
+      "situation": "DEP_VERSION",
+      "confidence": "CERTAIN",
+      "pattern": "Missing language ([\\w-]+) version \\[([^\\]]+)\\] wanted by (?:\\S*/)?([^/\\n]+?\\.jar), found (\\S+)",
+      "culprits": [
+        {
+          "group": 3,
+          "kind": "MOD",
+          "fromJar": true
+        },
+        {
+          "group": 1,
+          "kind": "MOD"
+        }
+      ],
+      "details": {
+        "dependency": 1,
+        "expected": 2,
+        "requester": 3,
+        "actual": 4
+      },
+      "source": "https://github.com/legoaggelos/densefuel/issues/1 (replayed in the lab: NeoForge 21.1.236, javafml 4.0.43 against a mod asking for 4.0.44)",
+      "advice": "signature.forge-language-provider-version.advice"
+    },
+    {
       "id": "forge-language-provider-missing",
       "situation": "DEP_MISSING",
       "confidence": "CERTAIN",
-      "pattern": "Mod File ([^/\\n]+?\\.jar) needs language provider ([\\w-]+):(\\S+?) to load",
+      "pattern": "Mod File (?:\\S*/)?([^/\\n]+?\\.jar) needs language provider ([\\w-]+):(\\S+?) to load",
       "culprits": [
         {
           "group": 1,
@@ -692,6 +717,28 @@
       "pattern": "Unable to read/load/save your velocity\\.toml(?![\\s\\S]{0,300}forwarding-secret file must not be empty)",
       "advice": "signature.velocity-config-unreadable.advice",
       "source": "https://forums.papermc.io/threads/how-to-solve-unable-to-read-load-save-your-velocity-toml.339/"
+    },
+    {
+      "id": "jar-invalid-or-corrupt",
+      "situation": "CORRUPT_JAR",
+      "confidence": "CERTAIN",
+      "pattern": "Error: Invalid or corrupt jarfile (\\S+)",
+      "details": {
+        "file": 1
+      },
+      "advice": "signature.jar-invalid-or-corrupt.advice",
+      "source": "https://github.com/itzg/docker-minecraft-server/discussions/2786 (replayed in the lab: a vanilla 1.21.1 server.jar cut to 4 KB)"
+    },
+    {
+      "id": "file-access-denied",
+      "situation": "WORLD_LOCKED",
+      "confidence": "CERTAIN",
+      "pattern": "java\\.nio\\.file\\.AccessDeniedException:\\s*(\\S+)",
+      "details": {
+        "file": 1
+      },
+      "advice": "signature.file-access-denied.advice",
+      "source": "https://github.com/itzg/docker-minecraft-server/issues/1080 (replayed in the lab: the world folder made unreadable for the user the server runs as)"
     }
   ]
 }

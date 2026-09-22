@@ -1,0 +1,9 @@
+{
+  "situation": "CORRUPT_JAR",
+  "culprit": null,
+  "logs": [
+    "console.log"
+  ],
+  "source": "https://github.com/itzg/docker-minecraft-server/discussions/2786",
+  "fix": "Delete the jar and download it again: the file is incomplete."
+}

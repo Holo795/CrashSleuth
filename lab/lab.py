@@ -112,7 +112,10 @@ def maven_latest(metadata_url: str, prefix: str) -> str:
     return matching[-1]
 
 
-def neoforge_installer(minecraft: str) -> tuple[Path, str]:
+def neoforge_installer(minecraft: str, pinned: str | None = None) -> tuple[Path, str]:
+    # A report often names the exact loader build where a mod stops working.
+    if pinned:
+        return download(f"https://maven.neoforged.net/releases/net/neoforged/neoforge/{pinned}/neoforge-{pinned}-installer.jar"), pinned
     if minecraft == "1.20.1":
         # NeoForge began as a fork of Forge 1.20.1, published as net.neoforged:forge.
         version = [v for v in neoforge_versions("forge") if v.startswith("1.20.1-")][-1]
@@ -167,8 +170,8 @@ def quilt_install(version: str, directory: Path) -> None:
                    capture_output=True, text=True, check=True, timeout=900)
 
 
-def forge_installer(minecraft: str) -> tuple[Path, str]:
-    version = maven_latest("https://maven.minecraftforge.net/net/minecraftforge/forge/maven-metadata.xml", minecraft + "-")
+def forge_installer(minecraft: str, pinned: str | None = None) -> tuple[Path, str]:
+    version = f"{minecraft}-{pinned}" if pinned else maven_latest("https://maven.minecraftforge.net/net/minecraftforge/forge/maven-metadata.xml", minecraft + "-")
     url = f"https://maven.minecraftforge.net/net/minecraftforge/forge/{version}/forge-{version}-installer.jar"
     return download(url), version
 
@@ -412,7 +415,7 @@ class Scenario:
     memory: str = "2G"
     timeout: int = 420
     crashes: bool = False                               # expected to crash without any explanation in its logs
-    loader_version: str | None = None                   # Fabric Loader version (default: latest)
+    loader_version: str | None = None                   # loader version to pin: Fabric Loader, NeoForge or Forge (default: latest)
     jvm_extra: str = ""                                 # extra JVM options on the start command
     pre: str = ""                                       # shell run in the container before the server (a port taken, a lock held)
     docker_args: list[str] = field(default_factory=list)  # extra docker run options (a tiny disk, for instance)
@@ -444,6 +447,19 @@ def load_scenarios() -> list[Scenario]:
 
 # ---------------------------------------------------------------------------------------- running
 
+def remove_tree(directory: Path) -> None:
+    """Deletes a run folder, even one a scenario made unreadable on purpose."""
+    if directory.exists():
+        os.chmod(directory, 0o700)
+        for root, folders, files in os.walk(directory):
+            for name in folders + files:
+                try:
+                    os.chmod(os.path.join(root, name), 0o700)
+                except OSError:
+                    pass
+    shutil.rmtree(directory, ignore_errors=True)
+
+
 def prepare(scenario: Scenario, directory: Path) -> list[str]:
     """Builds the server directory and returns the command to run inside the container."""
     directory.mkdir(parents=True)
@@ -468,7 +484,8 @@ def prepare(scenario: Scenario, directory: Path) -> list[str]:
         shutil.copy(fabric_server(scenario.minecraft, scenario.loader_version), directory / "server.jar")
         command = f"java {java} -jar server.jar nogui"
     elif scenario.platform in ("neoforge", "forge"):
-        installer, version = neoforge_installer(scenario.minecraft) if scenario.platform == "neoforge" else forge_installer(scenario.minecraft)
+        installer, version = (neoforge_installer(scenario.minecraft, scenario.loader_version) if scenario.platform == "neoforge"
+                              else forge_installer(scenario.minecraft, scenario.loader_version))
         shutil.copy(installer, directory / "installer.jar")
         (directory / "user_jvm_args.txt").write_text(java + "\n")
         # Installed once: a second start (after files were broken on purpose) goes straight to the server.
@@ -517,9 +534,12 @@ def prepare(scenario: Scenario, directory: Path) -> list[str]:
 def apply_mutations(scenario: Scenario, directory: Path) -> None:
     """Breaks files on purpose once a first clean start has created them."""
     for action in scenario.mutate:
-        kind = next(k for k in ("garble", "truncate", "delete", "write", "corrupt_chunks") if k in action)
+        kind = next(k for k in ("garble", "truncate", "delete", "write", "corrupt_chunks", "chmod") if k in action)
         target = directory / action[kind]
-        if kind == "corrupt_chunks":
+        if kind == "chmod":
+            # Files the server may no longer read or write: what a container with the wrong owner gives.
+            target.chmod(int(action.get("mode", "000"), 8))
+        elif kind == "corrupt_chunks":
             for region in sorted(target.glob("*.mca")):
                 corrupt_chunks(region, action.get("every", 1), action.get("how", "payload"))
         elif kind == "garble":
@@ -717,7 +737,7 @@ def run(names: list[str], cli: str, keep: bool) -> int:
     failures = 0
     for scenario in selected:
         directory = RUNS / scenario.name
-        shutil.rmtree(directory, ignore_errors=True)
+        remove_tree(directory)
         print(f"== {scenario.name}: {scenario.description}", flush=True)
         answer = None
         try:
@@ -774,7 +794,7 @@ def run(names: list[str], cli: str, keep: bool) -> int:
                  **({"source": scenario.source} if scenario.source else {}),
                  **({"fix": scenario.fix} if scenario.fix else {})}, indent=2) + "\n")
         if not keep:
-            shutil.rmtree(directory, ignore_errors=True)
+            remove_tree(directory)
     print(f"\n{len(selected) - failures}/{len(selected)} scenarios passed")
     return 1 if failures else 0
 

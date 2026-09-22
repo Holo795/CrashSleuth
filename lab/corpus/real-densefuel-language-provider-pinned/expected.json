@@ -1,0 +1,9 @@
+{
+  "situation": "DEP_VERSION",
+  "culprit": "densefuel",
+  "logs": [
+    "console.log"
+  ],
+  "source": "https://github.com/legoaggelos/densefuel/issues/1",
+  "fix": "Stay below NeoForge 21.1.235, or the mod must widen the javafml range it asks for."
+}

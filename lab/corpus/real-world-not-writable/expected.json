@@ -1,0 +1,9 @@
+{
+  "situation": "WORLD_LOCKED",
+  "culprit": null,
+  "logs": [
+    "console.log"
+  ],
+  "source": "https://github.com/itzg/docker-minecraft-server/issues/1080",
+  "fix": "Give the folder to the user the server runs as (chown), or set the container's UID and GID to the owner's."
+}
