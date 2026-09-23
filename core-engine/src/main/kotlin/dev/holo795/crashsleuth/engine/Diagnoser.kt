@@ -14,6 +14,7 @@ import dev.holo795.crashsleuth.model.Culprit
 import dev.holo795.crashsleuth.model.CulpritKind
 import dev.holo795.crashsleuth.model.Environment
 import dev.holo795.crashsleuth.model.Finding
+import dev.holo795.crashsleuth.model.PlatformKind
 import dev.holo795.crashsleuth.model.Platform
 import dev.holo795.crashsleuth.model.Report
 import dev.holo795.crashsleuth.model.Side
@@ -45,10 +46,22 @@ class Diagnoser(private val logAnalyzer: LogAnalyzer = LogAnalyzer()) {
         return Report(
             environment = environment,
             // What the log proves comes first; installed-file warnings follow, unless they are more certain.
-            findings = (attributed + dedup(fromFiles)).sortedWith(compareByDescending<Finding> { it.confidence }.thenBy { if (it in attributed) 0 else 1 }),
+            findings = (attributed + dedup(fromFiles)).map { bundledLoader(it, environment.platform) }
+                .sortedWith(compareByDescending<Finding> { it.confidence }.thenBy { if (it in attributed) 0 else 1 }),
             exceptions = reports.flatMap { it.exceptions }.distinct().take(10),
             sources = logs.map { it.name },
         )
+    }
+
+    /**
+     * A hybrid ships its loader inside itself: a mod asking for a newer one cannot be satisfied by updating the
+     * loader, the way it would on a plain server. Whichever part of the analysis found it, the advice says so.
+     */
+    private fun bundledLoader(finding: Finding, platform: Platform): Finding {
+        if (platform.kind != PlatformKind.HYBRID || finding.situation != Situation.DEP_VERSION) return finding
+        val dependency = finding.details["dependency"]?.lowercase() ?: return finding
+        if (dependency !in platform.loaderIds && dependency != platform.base.displayName.lowercase()) return finding
+        return finding.copy(details = finding.details + mapOf("bundledIn" to platform.displayName, "dependency" to platform.base.displayName))
     }
 
     /** Scans a server or instance folder and analyses its most recent logs. */

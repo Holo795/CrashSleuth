@@ -1,0 +1,65 @@
+[10:20:15] [main/INFO] [cpw.mods.modlauncher.Launcher]: ModLauncher running: args [--launchTarget, forgeserver, --fml.neoForgeVersion, 21.1.251, --fml.fmlVersion, 4.0.45, --fml.mcVersion, 1.21.1, --fml.neoFormVersion, 20240808.144430]
+[10:20:15] [main/INFO] [cpw.mods.modlauncher.Launcher]: JVM identified as Eclipse Adoptium OpenJDK 64-Bit Server VM 21.0.12+8-LTS
+[10:20:15] [main/INFO] [cpw.mods.modlauncher.Launcher]: ModLauncher 11.0.5+main.901c6ea8 starting: java version 21.0.12 by Eclipse Adoptium; OS Linux arch aarch64 version 7.0.14-orbstack-00380-ga7e0a2dc9535
+[10:20:15] [main/INFO] [net.neoforged.fml.loading.ImmediateWindowHandler]: ImmediateWindowProvider not loading because launch target is forgeserver
+[10:20:15] [main/INFO] [mixin]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=union:/srv/libraries/net/fabricmc/sponge-mixin/0.15.2+mixin.0.8.7/sponge-mixin-0.15.2+mixin.0.8.7.jar%23139!/ Service=ModLauncher Env=SERVER
+[10:20:15] [main/INFO] [net.neoforged.fml.loading.moddiscovery.locators.JarInJarDependencyLocator]: Found 3 dependencies adding them to mods collection
+[10:20:15] [main/INFO] [mixin]: Compatibility level set to JAVA_21
+[10:20:15] [main/INFO] [cpw.mods.modlauncher.LaunchServiceHandler]: Launching target 'forgeserver' with arguments []
+[10:20:15] [main/WARN] [mixin]: Error loading class: com/simibubi/create/content/kinetics/base/BlockBreakingKineticBlockEntity (java.lang.ClassNotFoundException: com.simibubi.create.content.kinetics.base.BlockBreakingKineticBlockEntity)
+[10:20:15] [main/WARN] [mixin]: @Mixin target com.simibubi.create.content.kinetics.base.BlockBreakingKineticBlockEntity was not found youer.mixins.json:compat.create.MixinBlockBreakingKineticBlockEntity from mod neoforge
+[10:20:15] [main/WARN] [mixin]: Error loading class: com/simibubi/create/content/fluids/transfer/GenericItemEmptying (java.lang.ClassNotFoundException: com.simibubi.create.content.fluids.transfer.GenericItemEmptying)
+[10:20:15] [main/WARN] [mixin]: @Mixin target com.simibubi.create.content.fluids.transfer.GenericItemEmptying was not found youer.mixins.json:compat.create.MixinGenericItemEmptying from mod neoforge
+[10:20:16] [main/INFO] [io.papermc.paper.plugin.PluginInitializerManager]: Initializing plugins...
+[10:20:16] [main/INFO] [io.papermc.paper.plugin.PluginInitializerManager]: Initialized 0 plugins
+[10:20:16] [main/INFO] [MixinExtras|Service]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.5.3).
+[10:20:16] [Paper Plugin Remapper Thread - 0/INFO] [io.papermc.paper.pluginremap.ReobfServer]: Remapping server...
+[10:20:18] [modloading-worker-0/INFO] [net.neoforged.neoforge.common.NeoForgeMod]: NeoForge mod loading, version 21.1.251, for MC 1.21.1
+[10:20:18] [modloading-worker-0/INFO] [com.mohistmc.youer.Youer]: EventDispatcherRegistry initialized
+[10:20:18] [main/INFO]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
+[10:20:18] [main/INFO]: Found new data pack file/bukkit, loading it automatically
+[10:20:18] [main/INFO]: No existing world data, creating new world
+[10:20:19] [main/INFO]: Loaded 1290 recipes
+[10:20:19] [main/INFO]: Loaded 1399 advancements
+[10:20:19] [Server thread/INFO]: Starting minecraft server version 1.21.1
+[10:20:19] [Server thread/INFO]: Loading properties
+[10:20:19] [Server thread/INFO]: This server is running Youer version 1.21.1-84641e3c (2026-09-21T08:46:49Z) (Implementing API version 1.21.1-R0.1-SNAPSHOT, NeoForge version 21.1.251)
+[10:20:19] [Paper Plugin Remapper Thread - 0/INFO] [io.papermc.paper.pluginremap.ReobfServer]: Done remapping server in 3035ms.
+[10:20:19] [Server thread/INFO] [Bukkit]: Server Ping Player Sample Count: 12
+[10:20:19] [Server thread/INFO] [Bukkit]: Using 4 threads for Netty based IO
+[10:20:20] [Server thread/WARN] [Pufferfish]: SIMD operations are available for your server, but are not configured!
+[10:20:20] [Server thread/WARN] [Pufferfish]: To enable additional optimizations, add "--add-modules=jdk.incubator.vector" to your startup flags, BEFORE the "-jar".
+[10:20:20] [Server thread/WARN] [Pufferfish]: If you have already added this flag, then SIMD operations are not supported on your JVM or CPU.
+[10:20:20] [Server thread/WARN] [Pufferfish]: Debug: Java: 21.0.12, test run: true
+[10:20:20] [Server thread/INFO]: Default game type: SURVIVAL
+[10:20:20] [Server thread/INFO]: Generating keypair
+[10:20:20] [Server thread/INFO]: Starting Minecraft server on *:25565
+[10:20:20] [Server thread/INFO]: Using epoll channel type
+[10:20:20] [Server thread/INFO]: Paper: Using libdeflate (Linux aarch64) compression from Velocity.
+[10:20:20] [Server thread/INFO]: Paper: Using OpenSSL 3.x.x (Linux aarch64) cipher from Velocity.
+[10:20:20] [Server thread/WARN]: **** SERVER IS RUNNING IN OFFLINE/INSECURE MODE!
+[10:20:20] [Server thread/WARN]: The server will make no attempt to authenticate usernames. Beware.
+[10:20:20] [Server thread/WARN]: While this makes the game possible to play without internet access, it also opens up the ability for hackers to connect with any username they choose.
+[10:20:20] [Server thread/WARN]: To change this, set "online-mode" to "true" in the server.properties file.
+[10:20:20] [Server thread/INFO]: Preparing level "world"
+[10:20:22] [Server thread/INFO]: Preparing start region for dimension minecraft:overworld
+[10:20:22] [Worker-Main-6/INFO]: Preparing spawn area: 2%
+[10:20:22] [Worker-Main-3/INFO]: Preparing spawn area: 18%
+[10:20:23] [Worker-Main-6/INFO]: Preparing spawn area: 51%
+[10:20:23] [Server thread/INFO]: Time elapsed: 1199 ms
+[10:20:23] [Server thread/INFO]: Done preparing level "world" (2.724s)
+[10:20:23] [Server thread/INFO] [net.neoforged.neoforge.server.permission.PermissionAPI]: Successfully initialized permission handler neoforge:default_handler
+[10:20:23] [Server thread/INFO] [net.neoforged.neoforge.server.permission.PermissionAPI]: Forwarding neoforge permission[neoforge:default_handler] to bukkit[youer:permission]
+[10:20:23] [Server thread/INFO]: Running delayed init tasks
+[10:20:23] [Server thread/INFO]: Done (7.211s)! For help, type "help"
+[10:20:23] [Server thread/INFO]: Stopping the server
+[10:20:23] [Server thread/INFO]: Stopping server
+[10:20:23] [Server thread/INFO]: Saving players
+[10:20:23] [Server thread/INFO]: Saving worlds
+[10:20:23] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:overworld
+[10:20:24] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world/DIM1]'/minecraft:the_end
+[10:20:24] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world/DIM-1]'/minecraft:the_nether
+[10:20:24] [Server thread/INFO]: ThreadedAnvilChunkStorage (world): All chunks are saved
+[10:20:24] [Server thread/INFO]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[10:20:24] [Server thread/INFO]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[10:20:24] [Server thread/INFO]: ThreadedAnvilChunkStorage: All dimensions are saved

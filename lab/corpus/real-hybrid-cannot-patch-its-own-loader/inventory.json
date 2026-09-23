@@ -1,0 +1,18 @@
+{
+ "platform": "ARCLIGHT_FORGE",
+ "minecraftVersion": "1.21.1",
+ "loaderVersion": "52.1.1",
+ "side": "SERVER",
+ "jars": [],
+ "skipped": [],
+ "files": {
+  "worlds": [],
+  "eulaAccepted": true,
+  "configErrors": [],
+  "rootJars": [
+   "forge-1.21.1-52.1.1-installer.jar",
+   "forge-1.21.1-52.1.1-shim.jar",
+   "server.jar"
+  ]
+ }
+}

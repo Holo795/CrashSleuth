@@ -1,0 +1,89 @@
+[10:21:10] [main/INFO] [net.neoforged.fml.startup.Entrypoint]: JVM Uptime at startup: 2608ms
+[10:21:10] [main/INFO] [net.neoforged.fml.loading.FMLLoader]: Starting FancyModLoader version 11.0.16 (DEDICATED_SERVER in PROD)
+[10:21:10] [main/INFO] [net.neoforged.fml.loading.FMLLoader]: Game directory: /srv
+[10:21:10] [main/INFO] [net.neoforged.fml.loading.EarlyServiceDiscovery]: Found 2 early service jars (out of 134) in 10ms
+[10:21:10] [main/INFO] [net.neoforged.fml.loading.FMLLoader]: Loading FML Early Services:
+[10:21:10] [main/INFO] [net.neoforged.fml.loading.FMLLoader]:  - libraries/net/neoforged/fancymodloader/earlydisplay/11.0.16/earlydisplay-11.0.16.jar
+[10:21:10] [main/INFO] [net.neoforged.fml.loading.FMLLoader]:  - libraries/net/neoforged/fancymodloader/loader/11.0.16/loader-11.0.16.jar
+[10:21:10] [main/INFO] [net.neoforged.fml.loading.ImmediateWindowHandler]: Not loading early display in headless mode.
+[10:21:10] [main/INFO] [net.neoforged.fml.loading.moddiscovery.locators.GameLocator]: Failed to find common Minecraft classes and resources on the classpath. Assuming we're launching production.
+[10:21:10] [main/INFO] [net.neoforged.fml.loading.moddiscovery.locators.JarInJarDependencyLocator]: Found 2 dependencies adding them to mods collection
+[10:21:10] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer]: 
+     Mod List:
+		Name Version (Mod Id)
+
+		Minecraft 26.2 (minecraft)
+		NeoForge 26.2.0.88 (neoforge)
+[10:21:11] [main/INFO] [mixin]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=file:/srv/libraries/net/fabricmc/sponge-mixin/0.17.3+mixin.0.8.8/sponge-mixin-0.17.3+mixin.0.8.8.jar Service=FML Env=SERVER
+[10:21:11] [main/INFO] [net.neoforged.fml.loading.FMLLoader]: Loading FML Plugins:
+[10:21:11] [main/INFO] [net.neoforged.fml.loading.FMLLoader]:  - ~libraries/net/neoforged/neoforge/0.0.0.0/neoforge-26.2.0.88-universal.jar > net.neoforged.neoforge-coremods-26.2.0.88.jar
+[10:21:11] [main/INFO] [net.neoforged.fml.loading.FMLLoader]: Building game content classloader:
+ - leafpile (jar(libraries/ca/spottedleaf/leafpile/1.2.0/leafpile-1.2.0.jar))
+ - minecraft (jar(~libraries/net/neoforged/minecraft-server-patched/0.0.0.0/minecraft-server-patched-26.2.0.88.jar))
+ - mixinextras.neoforge (jar(~libraries/net/neoforged/neoforge/0.0.0.0/neoforge-26.2.0.88-universal.jar > mixinextras-neoforge-0.5.4.jar))
+ - neoforge (jar(~libraries/net/neoforged/neoforge/0.0.0.0/neoforge-26.2.0.88-universal.jar))
+ - net.neoforged.fml.generated (empty(VirtualJar/net.neoforged.fml.generated))
+[10:21:11] [main/INFO] [net.neoforged.fml.loading.FMLLoader]: Built game content classloader in 13ms
+[10:21:11] [main/INFO] [com.mohistmc.youer.Youer]: YouerMixinPlugin loaded
+[10:21:11] [main/INFO] [PluginInitializerManager]: Initializing plugins...
+[10:21:11] [main/INFO] [PluginInitializerManager]: Initialized 0 plugins
+[10:21:11] [main/INFO] [MixinExtras|Service]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.5.4).
+[10:21:13] [DataConverter MCTypeRegistry init thread/INFO] [ca.spottedleaf.dataconverter.minecraft.datatypes.MCTypeRegistry]: Initialising converters for DataConverter...
+[10:21:13] [modloading-worker-0/INFO] [net.neoforged.neoforge.common.NeoForgeMod]: NeoForge mod loading, version 26.2.0.88, for MC 26.2
+[10:21:13] [modloading-worker-0/INFO] [com.mohistmc.youer.Youer]: EventDispatcherRegistry initialized
+[10:21:13] [modloading-worker-0/INFO] [Youer-DB]: [Youer-DB] SQLite connection opened: youer-config/database/youer.db
+[10:21:13] [DataConverter MCTypeRegistry init thread/INFO] [ca.spottedleaf.dataconverter.minecraft.datatypes.MCTypeRegistry]: Finished initialising converters for DataConverter in 272.8ms
+[10:21:13] [main/INFO]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, profilesHost=https://api.mojang.com, name=PROD]
+[10:21:14] [Worker-Main-4/INFO]: No existing world data, creating new world
+[10:21:15] [main/INFO]: Loaded 1585 recipes
+[10:21:15] [main/INFO]: Loaded 1688 advancements
+[10:21:15] [main/INFO] [net.neoforged.neoforge.common.crafting.RecipePriorityManager]: Loaded 0 recipe priority overrides
+[10:21:15] [Server thread/INFO]: Starting minecraft server version 26.2
+[10:21:15] [Server thread/INFO]: Loading properties
+[10:21:15] [Server thread/INFO]: This server is running Youer version 26.2-DEV (2026-09-23T10:21:11Z) (Implementing API version 26.2)
+[10:21:15] [Server thread/INFO]: Server Ping Player Sample Count: 12
+[10:21:15] [Server thread/INFO]: Using 4 threads for Netty based IO
+[10:21:15] [Server thread/INFO] [MoonriseCommon]: Paper is using 3 worker threads, 1 I/O threads
+[10:21:15] [Server thread/INFO]: Default game type: SURVIVAL
+[10:21:15] [Server thread/INFO]: Generating keypair
+[10:21:15] [Server thread/INFO]: Starting Minecraft server on *:25565
+[10:21:15] [Server thread/INFO]: Paper: Using libdeflate (Linux aarch64) compression from Velocity.
+[10:21:15] [Server thread/INFO]: Paper: Using OpenSSL 3.x.x (Linux aarch64) cipher from Velocity.
+[10:21:15] [Server thread/WARN] [com.mohistmc.youer.Youer]: SIMD operations are available for your server, but are not configured!
+[10:21:15] [Server thread/WARN] [com.mohistmc.youer.Youer]: To enable additional optimizations, add "--add-modules=jdk.incubator.vector" to your startup flags, BEFORE the "-jar".
+[10:21:15] [Server thread/WARN] [com.mohistmc.youer.Youer]: If you have already added this flag, then SIMD operations are not supported on your JVM or CPU.
+[10:21:15] [Server thread/WARN]: **** SERVER IS RUNNING IN OFFLINE/INSECURE MODE!
+[10:21:15] [Server thread/WARN]: The server will make no attempt to authenticate usernames. Beware.
+[10:21:15] [Server thread/WARN]: While this makes the game possible to play without internet access, it also opens up the ability for hackers to connect with any username they choose.
+[10:21:15] [Server thread/WARN]: To change this, set "online-mode" to "true" in the server.properties file.
+[10:21:15] [Server thread/INFO]: Preparing level "world"
+[10:21:15] [Server thread/INFO]: Selecting spawn point for level 'minecraft:overworld'...
+[10:21:17] [Server thread/INFO]: Selecting spawn point for level 'minecraft:the_nether'...
+[10:21:17] [Server thread/INFO]: Selecting spawn point for level 'minecraft:the_end'...
+[10:21:17] [Server thread/INFO]: Loading 0 persistent chunks for level 'minecraft:overworld'...
+[10:21:17] [Server thread/INFO]: Preparing spawn area: 100%
+[10:21:17] [Server thread/INFO]: Prepared spawn area in 1708 ms
+[10:21:17] [Server thread/INFO]: Loading 0 persistent chunks for level 'minecraft:the_nether'...
+[10:21:17] [Server thread/INFO]: Preparing spawn area: 100%
+[10:21:17] [Server thread/INFO]: Prepared spawn area in 342 ms
+[10:21:17] [Server thread/INFO]: Loading 0 persistent chunks for level 'minecraft:the_end'...
+[10:21:17] [Server thread/INFO]: Preparing spawn area: 100%
+[10:21:17] [Server thread/INFO]: Prepared spawn area in 115 ms
+[10:21:17] [Server thread/INFO]: Done preparing level "world" (1.979s)
+[10:21:17] [Server thread/INFO] [Youer-DB]: [Youer-DB] DatabaseManager initialized.
+[10:21:17] [Server thread/INFO] [Youer-DB]: [Youer-DB] Back location table ready (SQLite)
+[10:21:17] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:overworld
+[10:21:17] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:the_nether
+[10:21:17] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:the_end
+[10:21:17] [Server thread/INFO]: ThreadedAnvilChunkStorage (world): All chunks are saved
+[10:21:17] [Server thread/INFO]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[10:21:17] [Server thread/INFO]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[10:21:17] [Server thread/INFO]: ThreadedAnvilChunkStorage: All dimensions are saved
+[10:21:17] [Server thread/INFO] [net.neoforged.neoforge.server.permission.PermissionAPI]: Successfully initialized permission handler neoforge:default_handler
+[10:21:17] [Server thread/INFO]: Running delayed init tasks
+[10:21:17] [Server thread/INFO]: Done (6.194s)! For help, type "help"
+[10:21:17] [Server thread/INFO]: *************************************************************************************
+[10:21:17] [Server thread/INFO]: This is the first time you're starting this server.
+[10:21:17] [Server thread/INFO]: It's recommended you read our 'Getting Started' documentation for guidance.
+[10:21:17] [Server thread/INFO]: View this and more helpful information here: https://docs.papermc.io/paper/next-steps
+[10:21:17] [Server thread/INFO]: *************************************************************************************

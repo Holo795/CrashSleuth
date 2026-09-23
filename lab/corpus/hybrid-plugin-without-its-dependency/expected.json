@@ -1,0 +1,7 @@
+{
+  "situation": "DEP_MISSING",
+  "culprit": "EssentialsChat",
+  "logs": [
+    "latest.log"
+  ]
+}

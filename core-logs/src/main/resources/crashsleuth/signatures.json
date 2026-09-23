@@ -1267,6 +1267,31 @@
       },
       "advice": "signature.every-resource-pack-turned-off-at-once.advice",
       "source": "https://github.com/sp614x/optifine/issues/7945"
+    },
+    {
+      "id": "hybrid-build-missing-its-own-library",
+      "situation": "CORRUPT_JAR",
+      "confidence": "CERTAIN",
+      "pattern": "\\[(Mohist|Youer)\\] The file (\\S+) doesn't exists in the (?:Mohist|Youer) jar",
+      "details": {
+        "server": 1,
+        "name": 2,
+        "titleKey": "hybrid.build-missing-library.title"
+      },
+      "advice": "signature.hybrid-build-missing-its-own-library.advice",
+      "source": "https://github.com/Teneted/Tenet/issues/3463 (replayed in the lab: Mohist 1.19.2, build 391)"
+    },
+    {
+      "id": "hybrid-cannot-patch-its-own-loader",
+      "situation": "MIXIN_CONFLICT",
+      "confidence": "CERTAIN",
+      "pattern": "Mixin apply failed (mixins\\.(?:arclight|mohist|youer)[\\w.]*\\.json):[\\w.$]+ -> ([\\w.$]+)",
+      "details": {
+        "name": 2,
+        "titleKey": "hybrid.own-mixin-failed.title"
+      },
+      "advice": "signature.hybrid-cannot-patch-its-own-loader.advice",
+      "source": "https://github.com/IzzelAliz/Arclight/issues/1927 (replayed in the lab: Arclight 1.21.1 on Forge, build 1.0.1-8ec9529, no mod and no plugin)"
     }
   ]
 }

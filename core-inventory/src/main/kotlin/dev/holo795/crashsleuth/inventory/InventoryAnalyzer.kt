@@ -285,12 +285,12 @@ object InventoryAnalyzer {
         return active.flatMap { (jar, mod) ->
             mod.dependencies.filter { it.required }.mapNotNull { dependency ->
                 val platforms = LOADER_IDS[dependency.id.lowercase()] ?: return@mapNotNull null
-                if (platform !in platforms || Versions.matches(loaderVersion, dependency.versionRange)) return@mapNotNull null
+                if (platform.base !in platforms || Versions.matches(loaderVersion, dependency.versionRange)) return@mapNotNull null
                 Finding(
                     Situation.DEP_VERSION, Confidence.HIGH,
-                    listOf(culprit(jar, mod), Culprit(CulpritKind.SYSTEM, dependency.id, platform.displayName)),
+                    listOf(culprit(jar, mod), Culprit(CulpritKind.SYSTEM, dependency.id, platform.base.displayName)),
                     evidence = listOf("${jar.folder}/${jar.file}: ${mod.id} requires ${dependency.id} ${dependency.versionRange}, installed $loaderVersion"),
-                    details = mapOf("dependency" to platform.displayName, "requester" to (mod.name ?: mod.id), "expected" to (dependency.versionRange ?: "?"), "actual" to loaderVersion),
+                    details = mapOf("dependency" to platform.base.displayName, "requester" to (mod.name ?: mod.id), "expected" to (dependency.versionRange ?: "?"), "actual" to loaderVersion),
                 )
             }
         }

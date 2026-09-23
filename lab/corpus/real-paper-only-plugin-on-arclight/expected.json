@@ -1,0 +1,9 @@
+{
+  "situation": "WRONG_LOADER",
+  "culprit": "MCKotlin",
+  "logs": [
+    "latest.log"
+  ],
+  "source": "https://github.com/4drian3d/MCKotlin/issues/125",
+  "fix": "The plugin is Paper-only by design: run it on a Paper-based server, or give it a plugin.yml; updating does not help."
+}

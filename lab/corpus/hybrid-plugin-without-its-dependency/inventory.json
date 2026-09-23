@@ -1,0 +1,64 @@
+{
+ "platform": "MOHIST",
+ "minecraftVersion": "1.20.1",
+ "loaderVersion": "47.4.13",
+ "side": "SERVER",
+ "jars": [
+  {
+   "file": "EssentialsXChat-2.22.0.jar",
+   "folder": "plugins",
+   "size": 21800,
+   "mods": [
+    {
+     "format": "BUKKIT",
+     "id": "EssentialsChat",
+     "name": null,
+     "version": "2.22.0",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "Essentials",
+       "versionRange": null,
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": "1.13",
+     "entrypoints": [
+      "com.earth2me.essentials.chat.EssentialsChat"
+     ],
+     "addsContent": false,
+     "optionalOnClient": false
+    }
+   ],
+   "nested": [],
+   "error": null,
+   "javaVersion": 8
+  }
+ ],
+ "skipped": [],
+ "files": {
+  "worlds": [
+   {
+    "name": "world",
+    "versionName": "1.20.1",
+    "dataVersion": 3465,
+    "unreadable": null,
+    "hasBackup": true,
+    "locked": false,
+    "damagedChunks": [],
+    "chunksChecked": 6121,
+    "oversizedChunks": [],
+    "chunksComplete": true,
+    "damagedPlayers": []
+   }
+  ],
+  "eulaAccepted": true,
+  "configErrors": [],
+  "rootJars": [
+   "server.jar"
+  ]
+ }
+}

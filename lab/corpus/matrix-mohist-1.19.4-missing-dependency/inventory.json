@@ -1,0 +1,60 @@
+{
+ "platform": "MOHIST",
+ "minecraftVersion": "1.19.4",
+ "loaderVersion": "45.3.3",
+ "side": "SERVER",
+ "jars": [
+  {
+   "file": "IronJetpacks-1.19.4-6.2.3.jar",
+   "folder": "mods",
+   "size": 157344,
+   "mods": [
+    {
+     "format": "FORGE",
+     "id": "ironjetpacks",
+     "name": "Iron Jetpacks",
+     "version": "6.2.3",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "forge",
+       "versionRange": "[45.0.0,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.19.4]",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "cucumber",
+       "versionRange": "[6.1.5,)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [],
+     "addsContent": true,
+     "optionalOnClient": false
+    }
+   ],
+   "nested": [],
+   "error": null,
+   "javaVersion": 17
+  }
+ ],
+ "skipped": [],
+ "files": {
+  "worlds": [],
+  "eulaAccepted": true,
+  "configErrors": [],
+  "rootJars": [
+   "server.jar"
+  ]
+ }
+}

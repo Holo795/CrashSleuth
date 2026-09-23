@@ -12,7 +12,7 @@ class SignatureTest {
 
     @Test
     fun `all signatures load`() {
-        assertEquals(100, SignatureDetector.load(javaClass.classLoader.getResource("crashsleuth/signatures.json")!!.readText()).size)
+        assertEquals(102, SignatureDetector.load(javaClass.classLoader.getResource("crashsleuth/signatures.json")!!.readText()).size)
     }
 
     @Test
@@ -329,5 +329,32 @@ class SignatureTest {
                     "removing all selected resourcepacks\n",
             ),
         )
+    }
+
+    /** https://github.com/Teneted/Tenet/issues/3463 : the build loops forever on a file it does not ship. */
+    @Test
+    fun `a hybrid build that cannot find its own library`() {
+        assertEquals(
+            Situation.CORRUPT_JAR to emptyList(),
+            primary(
+                "[Mohist] The file libraries/net/minecraftforge/coremods/5.2.4/coremods-5.2.4.jar doesn't exists in the Mohist jar !\n" +
+                    " 100% [=====] 1/1 (0:00:00 / 0:00:00)\n" +
+                    "[Mohist] The file libraries/net/minecraftforge/coremods/5.2.4/coremods-5.2.4.jar doesn't exists in the Mohist jar !\n",
+            ),
+        )
+    }
+
+    /** https://github.com/IzzelAliz/Arclight/issues/1927 : the server's own patch fails, with nothing installed. */
+    @Test
+    fun `a hybrid that cannot patch the loader it runs on`() {
+        val found = LogAnalyzer().analyze(
+            "[main/FATAL] [mixin/]: Mixin apply failed mixins.arclight.core.json:server.MinecraftServerMixin -> " +
+                "net.minecraft.server.MinecraftServer: org.spongepowered.asm.mixin.injection.throwables.InvalidInjectionException: " +
+                "Stack element not match argument type: frame 0, argument Ljava/lang/Object;\n",
+        ).primary!!
+        assertEquals(Situation.MIXIN_CONFLICT, found.situation)
+        // Not one of the user's mods: nobody is to be removed.
+        assertEquals(emptyList(), found.culprits)
+        assertEquals("hybrid.own-mixin-failed.title", found.details["titleKey"])
     }
 }

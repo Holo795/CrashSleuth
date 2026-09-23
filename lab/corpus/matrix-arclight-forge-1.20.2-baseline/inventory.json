@@ -1,0 +1,31 @@
+{
+ "platform": "ARCLIGHT_FORGE",
+ "minecraftVersion": "1.20.2",
+ "loaderVersion": "48.1.0",
+ "side": "SERVER",
+ "jars": [],
+ "skipped": [],
+ "files": {
+  "worlds": [
+   {
+    "name": "world",
+    "versionName": "1.20.2",
+    "dataVersion": 3578,
+    "unreadable": null,
+    "hasBackup": true,
+    "locked": false,
+    "damagedChunks": [],
+    "chunksChecked": 2080,
+    "oversizedChunks": [],
+    "chunksComplete": true,
+    "damagedPlayers": []
+   }
+  ],
+  "eulaAccepted": true,
+  "configErrors": [],
+  "rootJars": [
+   "forge-1.20.2-48.1.0-installer.jar",
+   "server.jar"
+  ]
+ }
+}

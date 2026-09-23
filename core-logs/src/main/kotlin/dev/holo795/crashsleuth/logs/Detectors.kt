@@ -135,6 +135,9 @@ object PluginLoadDetector : Detector {
     )
     private val UNSUPPORTED_API = Regex("""(?:Unsupported API version|compiled against a newer API version|newer API version)\s*([\w.]*)""", RegexOption.IGNORE_CASE)
     private val INVALID_DESCRIPTION = Regex("""InvalidDescriptionException: (.+)""")
+    private val NO_PLUGIN_YML = Regex("""Jar does not contain plugin\.yml""")
+    /** A line that opens a new log record: "[10:22:36 ERROR]:", "[23Sep2026 10:22:36.398] [Server thread/INFO]". */
+    private val NEXT_RECORD = Regex("""\n\[(?:\d{2}:\d{2}:\d{2}|\d{2}\w{3}\d{4} )""")
     private val ENABLING = Regex("""Error occurred while enabling (\S+) v?(\S+) \(Is it up to date\?\)""")
 
     override fun detect(document: LogDocument, environment: Environment): List<Finding> {
@@ -157,6 +160,19 @@ object PluginLoadDetector : Detector {
             val jar = match.groupValues[1]
             val following = document.text.substring(match.range.last, minOf(document.text.length, match.range.last + 600))
             if (UNKNOWN_DEPENDENCY.containsMatchIn(following)) return@forEach
+            // "Jar does not contain plugin.yml": either a mod dropped among the plugins, or a plugin made for Paper
+            // alone, which Spigot and the hybrids built on it cannot read. "Invalid plugin.yml" says neither.
+            if (NO_PLUGIN_YML.containsMatchIn(errorBlock(document.text, match.range.last))) {
+                findings += Finding(
+                    situation = Situation.WRONG_LOADER,
+                    confidence = Confidence.CERTAIN,
+                    culprits = listOf(Culprit(CulpritKind.PLUGIN, Attribution.idFromJar(jar), file = jar)),
+                    evidence = listOf(match.value, "Jar does not contain plugin.yml"),
+                    details = mapOf("adviceKey" to "plugin.no-plugin-yml", "titleKey" to "plugin.no-plugin-yml.title",
+                                    "server" to environment.platform.displayName),
+                )
+                return@forEach
+            }
             val reason = UNSUPPORTED_API.find(following)?.value ?: INVALID_DESCRIPTION.find(following)?.groupValues?.get(1)
             findings += Finding(
                 situation = Situation.PLUGIN_API,
@@ -177,6 +193,16 @@ object PluginLoadDetector : Detector {
             )
         }
         return findings
+    }
+
+    /**
+     * The whole error that follows a line: its stack trace and every "Caused by", up to the next record of the
+     * log. The reason can sit thousands of characters down, after the frames.
+     */
+    private fun errorBlock(text: String, from: Int): String {
+        val rest = text.substring(from, minOf(text.length, from + 20_000))
+        val next = NEXT_RECORD.find(rest, rest.indexOf('\n').coerceAtLeast(0))?.range?.first ?: rest.length
+        return rest.substring(0, next)
     }
 
     private fun jarBefore(document: LogDocument, offset: Int): String? =

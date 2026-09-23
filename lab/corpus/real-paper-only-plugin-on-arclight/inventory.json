@@ -1,0 +1,58 @@
+{
+ "platform": "ARCLIGHT_NEOFORGE",
+ "minecraftVersion": "1.21.1",
+ "loaderVersion": "21.1.192",
+ "side": "SERVER",
+ "jars": [
+  {
+   "file": "MCKotlinPaper-1.5.1-k2.4.0.jar",
+   "folder": "plugins",
+   "size": 7233914,
+   "mods": [
+    {
+     "format": "PAPER",
+     "id": "MCKotlin-Paper",
+     "name": null,
+     "version": "1.5.1-k2.4.0",
+     "environment": "UNKNOWN",
+     "dependencies": [],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": "1.20",
+     "entrypoints": [
+      "io.github._4drian3d.mckotlin.paper.PaperPlugin"
+     ],
+     "addsContent": false,
+     "optionalOnClient": false
+    }
+   ],
+   "nested": [],
+   "error": null,
+   "javaVersion": 21
+  }
+ ],
+ "skipped": [],
+ "files": {
+  "worlds": [
+   {
+    "name": "world",
+    "versionName": "1.21.1",
+    "dataVersion": 3955,
+    "unreadable": null,
+    "hasBackup": true,
+    "locked": false,
+    "damagedChunks": [],
+    "chunksChecked": 847,
+    "oversizedChunks": [],
+    "chunksComplete": true,
+    "damagedPlayers": []
+   }
+  ],
+  "eulaAccepted": true,
+  "configErrors": [],
+  "rootJars": [
+   "neoforge-21.1.192-installer.jar",
+   "server.jar"
+  ]
+ }
+}

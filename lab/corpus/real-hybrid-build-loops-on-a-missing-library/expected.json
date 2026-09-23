@@ -1,0 +1,10 @@
+{
+  "situation": "CORRUPT_JAR",
+  "culprit": null,
+  "logs": [
+    "console.log"
+  ],
+  "crashes": true,
+  "source": "https://github.com/Teneted/Tenet/issues/3463",
+  "fix": "The file is missing from the build itself: take another build of Mohist for this version, re-downloading the same one changes nothing."
+}

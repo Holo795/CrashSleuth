@@ -1,0 +1,64 @@
+[10:22:23] [main/INFO] [net.neoforged.fml.startup.Entrypoint]: JVM Uptime at startup: 2911ms
+[10:22:23] [main/INFO] [net.neoforged.fml.loading.FMLLoader]: Starting FancyModLoader version 11.0.16 (DEDICATED_SERVER in PROD)
+[10:22:23] [main/INFO] [net.neoforged.fml.loading.FMLLoader]: Game directory: /srv
+[10:22:23] [main/INFO] [net.neoforged.fml.loading.EarlyServiceDiscovery]: Found 2 early service jars (out of 135) in 9ms
+[10:22:23] [main/INFO] [net.neoforged.fml.loading.FMLLoader]: Loading FML Early Services:
+[10:22:23] [main/INFO] [net.neoforged.fml.loading.FMLLoader]:  - libraries/net/neoforged/fancymodloader/earlydisplay/11.0.16/earlydisplay-11.0.16.jar
+[10:22:23] [main/INFO] [net.neoforged.fml.loading.FMLLoader]:  - libraries/net/neoforged/fancymodloader/loader/11.0.16/loader-11.0.16.jar
+[10:22:23] [main/INFO] [net.neoforged.fml.loading.ImmediateWindowHandler]: Not loading early display in headless mode.
+[10:22:23] [main/INFO] [net.neoforged.fml.loading.moddiscovery.locators.GameLocator]: Failed to find common Minecraft classes and resources on the classpath. Assuming we're launching production.
+[10:22:23] [main/INFO] [net.neoforged.fml.loading.moddiscovery.locators.JarInJarDependencyLocator]: Found 2 dependencies adding them to mods collection
+[10:22:23] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer]: 
+     Mod List:
+		Name Version (Mod Id)
+
+		Minecraft 26.2 (minecraft)
+		NeoForge 26.2.0.88 (neoforge)
+		Sophisticated Backpacks 3.26.2 (sophisticatedbackpacks)
+[10:22:23] [main/ERROR] [net.neoforged.fml.loading.ModSorter]: Missing or unsupported mandatory dependencies:
+	Mod ID: 'sophisticatedcore', Requested by: 'sophisticatedbackpacks', Expected range: '[1.5.0,)', Actual version: '[MISSING]'
+[10:22:23] [main/ERROR] [net.neoforged.fml.loading.FMLLoader]: Mod §esophisticatedbackpacks§r requires §6sophisticatedcore§r §o1.5.0 or above§r
+§7Currently, §6sophisticatedcore§r§7 is §o§nnot installed§r
+
+[10:22:23] [main/INFO] [net.neoforged.fml.loading.FMLLoader]: Closing FML Loader 199e4c2b
+[10:22:23] [main/ERROR] [net.neoforged.fml.loading.modscan.BackgroundScanHandler]: An error occurred scanning file jar(~libraries/net/neoforged/minecraft-server-patched/0.0.0.0/minecraft-server-patched-26.2.0.88.jar)
+java.util.concurrent.CancellationException
+	at java.base/java.util.concurrent.CompletableFuture.cancel(CompletableFuture.java:2552) ~[?:?]
+	at net.neoforged.fml.loading.moddiscovery.ModFile.close(ModFile.java:246) ~[loader-11.0.16.jar:11.0]
+	at net.neoforged.fml.loading.FMLLoader.close(FMLLoader.java:239) ~[loader-11.0.16.jar:11.0]
+	at net.neoforged.fml.loading.FMLLoader.create(FMLLoader.java:415) ~[loader-11.0.16.jar:11.0]
+	at net.neoforged.fml.startup.Entrypoint.startup(Entrypoint.java:65) ~[loader-11.0.16.jar:11.0]
+	at net.neoforged.fml.startup.Server.main(Server.java:17) ~[loader-11.0.16.jar:11.0]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[?:?]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565) ~[?:?]
+	at com.mohistmc.launcher.youer.action.Action.start(Action.java:208) ~[server.jar:26.2-cb817794]
+	at com.mohistmc.launcher.youer.Main.main(Main.java:81) ~[server.jar:26.2-cb817794]
+[10:22:23] [main/ERROR] [net.neoforged.fml.loading.modscan.BackgroundScanHandler]: An error occurred scanning file jar(~libraries/net/neoforged/neoforge/0.0.0.0/neoforge-26.2.0.88-universal.jar)
+java.util.concurrent.CancellationException
+	at java.base/java.util.concurrent.CompletableFuture.cancel(CompletableFuture.java:2552) ~[?:?]
+	at net.neoforged.fml.loading.moddiscovery.ModFile.close(ModFile.java:246) ~[loader-11.0.16.jar:11.0]
+	at net.neoforged.fml.loading.FMLLoader.close(FMLLoader.java:239) ~[loader-11.0.16.jar:11.0]
+	at net.neoforged.fml.loading.FMLLoader.create(FMLLoader.java:415) ~[loader-11.0.16.jar:11.0]
+	at net.neoforged.fml.startup.Entrypoint.startup(Entrypoint.java:65) ~[loader-11.0.16.jar:11.0]
+	at net.neoforged.fml.startup.Server.main(Server.java:17) ~[loader-11.0.16.jar:11.0]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[?:?]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565) ~[?:?]
+	at com.mohistmc.launcher.youer.action.Action.start(Action.java:208) ~[server.jar:26.2-cb817794]
+	at com.mohistmc.launcher.youer.Main.main(Main.java:81) ~[server.jar:26.2-cb817794]
+[10:22:23] [background-scan-handler-3/ERROR] [net.neoforged.fml.loading.modscan.Scanner]: Exception scanning jar(~libraries/net/neoforged/minecraft-server-patched/0.0.0.0/minecraft-server-patched-26.2.0.88.jar) path com/mojang/math/OctahedralGroup.class
+java.util.zip.ZipException: ZipFile closed
+	at java.base/java.util.zip.ZipFile.ensureOpenOrZipException(ZipFile.java:835) ~[?:?]
+	at java.base/java.util.zip.ZipFile$ZipFileInputStream.read(ZipFile.java:925) ~[?:?]
+	at java.base/java.util.zip.ZipFile$ZipFileInflaterInputStream.fill(ZipFile.java:449) ~[?:?]
+	at java.base/java.util.zip.InflaterInputStream.read(InflaterInputStream.java:208) ~[?:?]
+	at org.objectweb.asm.ClassReader.readStream(ClassReader.java:323) ~[asm-9.10.1.jar:9.10.1]
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:288) ~[asm-9.10.1.jar:9.10.1]
+	at net.neoforged.fml.loading.modscan.Scanner.lambda$scan$0(Scanner.java:31) ~[loader-11.0.16.jar:11.0]
+	at net.neoforged.fml.jarcontents.JarFileContents.visitContent(JarFileContents.java:162) ~[loader-11.0.16.jar:11.0]
+	at net.neoforged.fml.jarcontents.JarContents.visitContent(JarContents.java:215) ~[loader-11.0.16.jar:11.0]
+	at net.neoforged.fml.loading.modscan.Scanner.scan(Scanner.java:27) ~[loader-11.0.16.jar:11.0]
+	at net.neoforged.fml.loading.moddiscovery.ModFile.lambda$startScan$0(ModFile.java:160) ~[loader-11.0.16.jar:11.0]
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1789) ~[?:?]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090) ~[?:?]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614) ~[?:?]
+	at java.base/java.lang.Thread.run(Thread.java:1474) ~[?:?]

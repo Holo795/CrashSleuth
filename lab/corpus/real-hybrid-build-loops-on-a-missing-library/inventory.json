@@ -1,0 +1,16 @@
+{
+ "platform": "MOHIST",
+ "minecraftVersion": "1.19.2",
+ "loaderVersion": null,
+ "side": "SERVER",
+ "jars": [],
+ "skipped": [],
+ "files": {
+  "worlds": [],
+  "eulaAccepted": true,
+  "configErrors": [],
+  "rootJars": [
+   "server.jar"
+  ]
+ }
+}

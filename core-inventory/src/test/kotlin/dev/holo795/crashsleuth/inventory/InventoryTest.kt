@@ -200,6 +200,33 @@ class InventoryTest {
         assertFalse(InventoryAnalyzer.analyze(onYouer).any { it.situation == Situation.WRONG_LOADER })
     }
 
+    /** Seen in the lab: Arclight 1.21.1 ships NeoForge 21.1.192, and Sophisticated Backpacks asks for 21.1.229. */
+    @Test
+    fun `a mod asking for a newer loader than the one a hybrid ships`() {
+        root.resolve(".arclight").createDirectories()
+        root.resolve("arclight.conf").writeText("")
+        root.resolve("libraries/net/neoforged/neoforge/21.1.192").createDirectories()
+        jar("mods", "sophisticatedbackpacks-1.21.1-3.26.3.2158.jar", mapOf("META-INF/neoforge.mods.toml" to """
+            modLoader="javafml"
+            loaderVersion="[1,)"
+            license="All rights reserved"
+            [[mods]]
+            modId="sophisticatedbackpacks"
+            version="3.26.3.2158"
+            [[dependencies.sophisticatedbackpacks]]
+            modId="neoforge"
+            type="required"
+            versionRange="[21.1.229,)"
+        """.trimIndent()))
+        val inventory = InstanceScanner.scan(root)
+        assertEquals(Platform.ARCLIGHT_NEOFORGE, inventory.platform)
+        // Before, the check compared Arclight with NeoForge and never ran on a hybrid.
+        val finding = InventoryAnalyzer.analyze(inventory).single { it.situation == Situation.DEP_VERSION }
+        assertEquals("sophisticatedbackpacks", finding.culprits.first().id)
+        assertEquals("NeoForge", finding.details["dependency"])
+        assertEquals("21.1.192", finding.details["actual"])
+    }
+
     private fun classFile(java: Int) = byteArrayOf(0xCA.toByte(), 0xFE.toByte(), 0xBA.toByte(), 0xBE.toByte(), 0, 0, 0, (java + 44).toByte())
 
     @Test

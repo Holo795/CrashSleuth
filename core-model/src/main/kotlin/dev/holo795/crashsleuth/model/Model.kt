@@ -29,6 +29,16 @@ enum class Platform(val displayName: String, val kind: PlatformKind) {
     val readsPaperPlugins: Boolean
         get() = this != MOHIST && this != ARCLIGHT_FORGE && this != ARCLIGHT_NEOFORGE && this != ARCLIGHT_FABRIC
 
+    /** The ids mods use to ask for this platform's loader in their dependencies. */
+    val loaderIds: Set<String>
+        get() = when (base) {
+            FORGE -> setOf("forge")
+            NEOFORGE -> setOf("neoforge")
+            FABRIC -> setOf("fabricloader", "fabric-loader", "fabric")
+            QUILT -> setOf("quilt_loader", "fabricloader")
+            else -> emptySet()
+        }
+
     /** The loader whose mods a platform runs: itself for a plain loader, the one underneath for a hybrid. */
     val base: Platform
         get() = when (this) {

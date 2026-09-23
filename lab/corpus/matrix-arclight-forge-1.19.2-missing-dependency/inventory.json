@@ -1,0 +1,55 @@
+{
+ "platform": "ARCLIGHT_FORGE",
+ "minecraftVersion": "1.19.2",
+ "loaderVersion": "43.3.8",
+ "side": "SERVER",
+ "jars": [
+  {
+   "file": "sophisticatedbackpacks-1.19.2-3.20.2.1035.jar",
+   "folder": "mods",
+   "size": 835625,
+   "mods": [
+    {
+     "format": "FORGE",
+     "id": "sophisticatedbackpacks",
+     "name": "Sophisticated Backpacks",
+     "version": "1.19.2-3.20.2.1035",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "forge",
+       "versionRange": "[43.0.0,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "sophisticatedcore",
+       "versionRange": "[1.19.2-0.6.0,)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [],
+     "addsContent": true,
+     "optionalOnClient": false
+    }
+   ],
+   "nested": [],
+   "error": null,
+   "javaVersion": 17
+  }
+ ],
+ "skipped": [],
+ "files": {
+  "worlds": [],
+  "eulaAccepted": true,
+  "configErrors": [],
+  "rootJars": [
+   "forge-1.19.2-43.3.8-installer.jar",
+   "server.jar"
+  ]
+ }
+}

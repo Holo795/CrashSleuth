@@ -2167,5 +2167,33 @@
       "situation": "DEP_MISSING",
       "culprit": "EssentialsChat"
     }
+  },
+  {
+    "platform": "mohist",
+    "minecraft": "1.19.2",
+    "java": 17,
+    "name": "real-hybrid-build-loops-on-a-missing-library",
+    "description": "Mohist 1.19.2, current build: it looks for a library inside its own jar and loops forever",
+    "timeout": 150,
+    "crashes": true,
+    "source": "https://github.com/Teneted/Tenet/issues/3463",
+    "fix": "The file is missing from the build itself: take another build of Mohist for this version, re-downloading the same one changes nothing.",
+    "expect": {
+      "situation": "CORRUPT_JAR"
+    }
+  },
+  {
+    "platform": "arclight-forge",
+    "minecraft": "1.21.1",
+    "java": 21,
+    "name": "real-hybrid-cannot-patch-its-own-loader",
+    "description": "Arclight 1.21.1 on Forge, release build, no mod and no plugin: its own mixin does not apply",
+    "timeout": 300,
+    "crashes": true,
+    "source": "https://github.com/IzzelAliz/Arclight/issues/1927",
+    "fix": "The failing change is Arclight's own, with nothing installed: take another Arclight build for this version.",
+    "expect": {
+      "situation": "MIXIN_CONFLICT"
+    }
   }
 ]

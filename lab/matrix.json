@@ -1782,5 +1782,320 @@
   "expect": {
    "situation": "DEP_MISSING"
   }
+ },
+ {
+  "platform": "mohist",
+  "minecraft": "1.20.1",
+  "java": 17,
+  "timeout": 600,
+  "name": "matrix-mohist-1.20.1-baseline",
+  "description": "Mohist 1.20.1, clean start: no finding"
+ },
+ {
+  "platform": "mohist",
+  "minecraft": "1.20.1",
+  "java": 17,
+  "timeout": 600,
+  "name": "matrix-mohist-1.20.1-missing-dependency",
+  "description": "Mohist 1.20.1, a real mod or plugin without its required dependency",
+  "auto_missing": true,
+  "expect": {
+   "situation": "DEP_MISSING",
+   "primary": false
+  }
+ },
+ {
+  "platform": "mohist",
+  "minecraft": "1.19.4",
+  "java": 17,
+  "timeout": 600,
+  "name": "matrix-mohist-1.19.4-baseline",
+  "description": "Mohist 1.19.4, clean start: no finding"
+ },
+ {
+  "platform": "mohist",
+  "minecraft": "1.19.4",
+  "java": 17,
+  "timeout": 600,
+  "name": "matrix-mohist-1.19.4-missing-dependency",
+  "description": "Mohist 1.19.4, a real mod or plugin without its required dependency",
+  "auto_missing": true,
+  "expect": {
+   "situation": "DEP_MISSING",
+   "primary": false
+  }
+ },
+ {
+  "platform": "mohist",
+  "minecraft": "1.20.2",
+  "java": 17,
+  "timeout": 600,
+  "name": "matrix-mohist-1.20.2-baseline",
+  "description": "Mohist 1.20.2, clean start: no finding"
+ },
+ {
+  "platform": "mohist",
+  "minecraft": "1.20.2",
+  "java": 17,
+  "timeout": 600,
+  "name": "matrix-mohist-1.20.2-missing-dependency",
+  "description": "Mohist 1.20.2, a real mod or plugin without its required dependency",
+  "auto_missing": true,
+  "expect": {
+   "situation": "DEP_MISSING",
+   "primary": false
+  }
+ },
+ {
+  "platform": "youer",
+  "minecraft": "1.21.1",
+  "java": 21,
+  "timeout": 600,
+  "name": "matrix-youer-1.21.1-baseline",
+  "description": "Youer 1.21.1, clean start: no finding"
+ },
+ {
+  "platform": "youer",
+  "minecraft": "1.21.1",
+  "java": 21,
+  "timeout": 600,
+  "name": "matrix-youer-1.21.1-missing-dependency",
+  "description": "Youer 1.21.1, a real mod or plugin without its required dependency",
+  "auto_missing": true,
+  "expect": {
+   "situation": "DEP_MISSING",
+   "primary": false
+  }
+ },
+ {
+  "platform": "youer",
+  "minecraft": "26.2",
+  "java": 25,
+  "timeout": 600,
+  "name": "matrix-youer-26.2-baseline",
+  "description": "Youer 26.2, clean start: no finding"
+ },
+ {
+  "platform": "youer",
+  "minecraft": "26.2",
+  "java": 25,
+  "timeout": 600,
+  "name": "matrix-youer-26.2-missing-dependency",
+  "description": "Youer 26.2, a real mod or plugin without its required dependency",
+  "auto_missing": true,
+  "expect": {
+   "situation": "DEP_MISSING",
+   "primary": false
+  }
+ },
+ {
+  "platform": "arclight-forge",
+  "minecraft": "1.19.2",
+  "java": 17,
+  "timeout": 600,
+  "name": "matrix-arclight-forge-1.19.2-baseline",
+  "description": "Arclight (Forge) 1.19.2, clean start: no finding"
+ },
+ {
+  "platform": "arclight-forge",
+  "minecraft": "1.19.2",
+  "java": 17,
+  "timeout": 600,
+  "name": "matrix-arclight-forge-1.19.2-missing-dependency",
+  "description": "Arclight (Forge) 1.19.2, a real mod or plugin without its required dependency",
+  "auto_missing": true,
+  "expect": {
+   "situation": "DEP_MISSING",
+   "primary": false
+  }
+ },
+ {
+  "platform": "arclight-forge",
+  "minecraft": "1.19.3",
+  "java": 17,
+  "timeout": 600,
+  "name": "matrix-arclight-forge-1.19.3-baseline",
+  "description": "Arclight (Forge) 1.19.3, clean start: no finding"
+ },
+ {
+  "platform": "arclight-forge",
+  "minecraft": "1.19.3",
+  "java": 17,
+  "timeout": 600,
+  "name": "matrix-arclight-forge-1.19.3-missing-dependency",
+  "description": "Arclight (Forge) 1.19.3, a real mod or plugin without its required dependency",
+  "auto_missing": true,
+  "expect": {
+   "situation": "DEP_MISSING",
+   "primary": false
+  }
+ },
+ {
+  "platform": "arclight-forge",
+  "minecraft": "1.19.4",
+  "java": 17,
+  "timeout": 600,
+  "name": "matrix-arclight-forge-1.19.4-baseline",
+  "description": "Arclight (Forge) 1.19.4, clean start: no finding"
+ },
+ {
+  "platform": "arclight-forge",
+  "minecraft": "1.19.4",
+  "java": 17,
+  "timeout": 600,
+  "name": "matrix-arclight-forge-1.19.4-missing-dependency",
+  "description": "Arclight (Forge) 1.19.4, a real mod or plugin without its required dependency",
+  "auto_missing": true,
+  "expect": {
+   "situation": "DEP_MISSING",
+   "primary": false
+  }
+ },
+ {
+  "platform": "arclight-forge",
+  "minecraft": "1.20.1",
+  "java": 17,
+  "timeout": 600,
+  "name": "matrix-arclight-forge-1.20.1-baseline",
+  "description": "Arclight (Forge) 1.20.1, clean start: no finding"
+ },
+ {
+  "platform": "arclight-forge",
+  "minecraft": "1.20.1",
+  "java": 17,
+  "timeout": 600,
+  "name": "matrix-arclight-forge-1.20.1-missing-dependency",
+  "description": "Arclight (Forge) 1.20.1, a real mod or plugin without its required dependency",
+  "auto_missing": true,
+  "expect": {
+   "situation": "DEP_MISSING",
+   "primary": false
+  }
+ },
+ {
+  "platform": "arclight-forge",
+  "minecraft": "1.20.2",
+  "java": 17,
+  "timeout": 600,
+  "name": "matrix-arclight-forge-1.20.2-baseline",
+  "description": "Arclight (Forge) 1.20.2, clean start: no finding"
+ },
+ {
+  "platform": "arclight-forge",
+  "minecraft": "1.20.2",
+  "java": 17,
+  "timeout": 600,
+  "name": "matrix-arclight-forge-1.20.2-missing-dependency",
+  "description": "Arclight (Forge) 1.20.2, a real mod or plugin without its required dependency",
+  "auto_missing": true,
+  "expect": {
+   "situation": "DEP_MISSING",
+   "primary": false
+  }
+ },
+ {
+  "platform": "arclight-forge",
+  "minecraft": "1.20.4",
+  "java": 17,
+  "timeout": 600,
+  "name": "matrix-arclight-forge-1.20.4-baseline",
+  "description": "Arclight (Forge) 1.20.4, clean start: no finding"
+ },
+ {
+  "platform": "arclight-forge",
+  "minecraft": "1.20.4",
+  "java": 17,
+  "timeout": 600,
+  "name": "matrix-arclight-forge-1.20.4-missing-dependency",
+  "description": "Arclight (Forge) 1.20.4, a real mod or plugin without its required dependency",
+  "auto_missing": true,
+  "expect": {
+   "situation": "DEP_MISSING",
+   "primary": false
+  }
+ },
+ {
+  "platform": "arclight-neoforge",
+  "minecraft": "1.20.4",
+  "java": 17,
+  "timeout": 600,
+  "name": "matrix-arclight-neoforge-1.20.4-baseline",
+  "description": "Arclight (NeoForge) 1.20.4, clean start: no finding"
+ },
+ {
+  "platform": "arclight-neoforge",
+  "minecraft": "1.20.4",
+  "java": 17,
+  "timeout": 600,
+  "name": "matrix-arclight-neoforge-1.20.4-missing-dependency",
+  "description": "Arclight (NeoForge) 1.20.4, a real mod or plugin without its required dependency",
+  "auto_missing": true,
+  "expect": {
+   "situation": "DEP_MISSING",
+   "primary": false
+  }
+ },
+ {
+  "platform": "arclight-neoforge",
+  "minecraft": "1.21.1",
+  "java": 21,
+  "timeout": 600,
+  "name": "matrix-arclight-neoforge-1.21.1-baseline",
+  "description": "Arclight (NeoForge) 1.21.1, clean start: no finding"
+ },
+ {
+  "platform": "arclight-neoforge",
+  "minecraft": "1.21.1",
+  "java": 21,
+  "timeout": 600,
+  "name": "matrix-arclight-neoforge-1.21.1-missing-dependency",
+  "description": "Arclight (NeoForge) 1.21.1, a real mod or plugin without its required dependency",
+  "auto_missing": true,
+  "expect": {
+   "situation": "DEP_MISSING",
+   "primary": false
+  }
+ },
+ {
+  "platform": "arclight-fabric",
+  "minecraft": "1.20.4",
+  "java": 17,
+  "timeout": 600,
+  "name": "matrix-arclight-fabric-1.20.4-baseline",
+  "description": "Arclight (Fabric) 1.20.4, clean start: no finding"
+ },
+ {
+  "platform": "arclight-fabric",
+  "minecraft": "1.20.4",
+  "java": 17,
+  "timeout": 600,
+  "name": "matrix-arclight-fabric-1.20.4-missing-dependency",
+  "description": "Arclight (Fabric) 1.20.4, a real mod or plugin without its required dependency",
+  "auto_missing": true,
+  "expect": {
+   "situation": "DEP_MISSING",
+   "primary": false
+  }
+ },
+ {
+  "platform": "arclight-fabric",
+  "minecraft": "1.21.1",
+  "java": 21,
+  "timeout": 600,
+  "name": "matrix-arclight-fabric-1.21.1-baseline",
+  "description": "Arclight (Fabric) 1.21.1, clean start: no finding"
+ },
+ {
+  "platform": "arclight-fabric",
+  "minecraft": "1.21.1",
+  "java": 21,
+  "timeout": 600,
+  "name": "matrix-arclight-fabric-1.21.1-missing-dependency",
+  "description": "Arclight (Fabric) 1.21.1, a real mod or plugin without its required dependency",
+  "auto_missing": true,
+  "expect": {
+   "situation": "DEP_MISSING",
+   "primary": false
+  }
  }
 ]

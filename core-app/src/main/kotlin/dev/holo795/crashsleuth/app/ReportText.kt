@@ -59,7 +59,9 @@ class ReportText(val messages: Messages) {
         }
         return when (finding.situation) {
             Situation.DEP_MISSING -> messages.advice(finding.situation, details["dependency"], details["requester"])
-            Situation.DEP_VERSION -> messages.advice(finding.situation, details["dependency"], details["requester"], details["expected"], details["actual"])
+            Situation.DEP_VERSION -> details["bundledIn"]?.let { hybrid ->
+                messages.get("dep.loader-bundled", details["dependency"], details["requester"], details["expected"], details["actual"], hybrid)
+            } ?: messages.advice(finding.situation, details["dependency"], details["requester"], details["expected"], details["actual"])
             Situation.JAVA_VERSION -> messages.advice(finding.situation, details["required"], details["current"])
             Situation.TICK_ENTITY, Situation.TICK_BLOCK_ENTITY ->
                 messages.advice(finding.situation, details["object"], details["location"] ?: "?", first)

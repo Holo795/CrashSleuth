@@ -1,0 +1,10 @@
+{
+  "situation": "MIXIN_CONFLICT",
+  "culprit": null,
+  "logs": [
+    "latest.log"
+  ],
+  "crashes": true,
+  "source": "https://github.com/IzzelAliz/Arclight/issues/1927",
+  "fix": "The failing change is Arclight's own, with nothing installed: take another Arclight build for this version."
+}

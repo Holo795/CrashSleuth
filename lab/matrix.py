@@ -64,6 +64,8 @@ def _available(platform: str, version: str) -> bool:
 # would claim a server that never ran, and listed with the reason on the Supported versions page.
 DOES_NOT_START = {
     ("mohist", "1.19.2"): "its newest build (391) loops on a library missing from its own jar and never starts",
+    ("arclight-forge", "1.21.1"): "its release build (1.0.1) cannot apply its own changes to Forge and stops before loading "
+                                   "anything, with no mod and no plugin (https://github.com/IzzelAliz/Arclight/issues/1927)",
 }
 
 
@@ -119,8 +121,13 @@ def scenario(platform: str, version: str, kind: str) -> dict:
     base = {"platform": platform, "minecraft": version, "java": lab.java_for(version), "timeout": 600}
     if kind == "baseline":
         return {**base, "name": f"matrix-{platform}-{version}-baseline", "description": f"{label(platform)} {version}, clean start: no finding"}
+    expect = {"situation": "DEP_MISSING"}
+    # A hybrid ships its loader inside itself, often older than what the newest mods ask for: the mod picked
+    # can then also need a newer loader, which rightly comes first. The missing dependency must still be named.
+    if platform in lab.HYBRIDS:
+        expect["primary"] = False
     return {**base, "name": f"matrix-{platform}-{version}-missing-dependency", "description": f"{label(platform)} {version}, a real mod or plugin without its required dependency",
-            "auto_missing": True, "expect": {"situation": "DEP_MISSING"}}
+            "auto_missing": True, "expect": expect}
 
 
 def main() -> None:
