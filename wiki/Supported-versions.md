@@ -21,23 +21,34 @@ than no tool. Vanilla has nothing to remove, so for vanilla the clean launch *is
 Vanilla is started on **every** release. The other platforms are started on one version per line of
 Minecraft — each point where the game, the loader or Java changed in a way that shows in the logs.
 
-| Minecraft | Vanilla | Paper | Purpur | Spigot | Folia | Fabric | Quilt | NeoForge | Forge |
-| --- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| **1.19.2** | ☑️ | ✅ | ✅ |  |  | ✅ | ✅ |  | ✅ |
-| **1.19.4** | ☑️ | ✅ | ✅ | ✅ | ☑️ | ✅ | ✅ |  | ✅ |
-| **1.20.1** | ☑️ | ✅ | ✅ |  | ☑️ | ✅ | ✅ | ✅ | ✅ |
-| **1.20.4** | ☑️ | ✅ | ✅ | ✅ | ☑️ | ✅ | ✅ | ✅ | ✅ |
-| **1.20.6** | ☑️ | ✅ | ✅ |  | ☑️ | ✅ | ✅ | ✅ | ✅ |
-| **1.21.1** | ☑️ | ✅ | ✅ | ✅ |  | ✅ | ✅ | ✅ | ✅ |
-| **1.21.4** | ☑️ | ✅ | ✅ |  | ☑️ | ✅ | ✅ | ✅ | ✅ |
-| **1.21.8** | ☑️ | ✅ | ✅ |  | ☑️ | ✅ | ✅ | ✅ | ✅ |
-| **1.21.11** | ☑️ | ✅ | ✅ | ✅ | ☑️ | ✅ | ✅ | ✅ | ✅ |
-| **26.1.2** | ☑️ | ✅ | ✅ |  | ☑️ | ✅ | ✅ | ✅ | ✅ |
-| **26.2** | ☑️ | ✅ | ✅ |  | ☑️ | ✅ | ✅ | ✅ | ✅ |
-| **26.3** | ☑️ | ✅ | ✅ | ✅ |  | ✅ | ✅ |  | ✅ |
+| Minecraft | Vanilla | Paper | Purpur | Spigot | Folia | Fabric | Quilt | NeoForge | Forge | Mohist | Youer | Arclight (Forge) | Arclight (NeoForge) | Arclight (Fabric) |
+| --- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| **1.19.2** | ☑️ | ✅ | ✅ |  |  | ✅ | ✅ |  | ✅ |  |  | ✅ |  |  |
+| **1.19.3** | ☑️ |  |  |  |  |  |  |  |  |  |  | ✅ |  |  |
+| **1.19.4** | ☑️ | ✅ | ✅ | ✅ | ☑️ | ✅ | ✅ |  | ✅ | ✅ |  | ✅ |  |  |
+| **1.20.1** | ☑️ | ✅ | ✅ |  | ☑️ | ✅ | ✅ | ✅ | ✅ | ✅ |  | ✅ |  |  |
+| **1.20.2** | ☑️ |  |  |  |  |  |  |  |  | ✅ |  | ✅ |  |  |
+| **1.20.4** | ☑️ | ✅ | ✅ | ✅ | ☑️ | ✅ | ✅ | ✅ | ✅ |  |  | ✅ | ✅ | ✅ |
+| **1.20.6** | ☑️ | ✅ | ✅ |  | ☑️ | ✅ | ✅ | ✅ | ✅ |  |  |  |  |  |
+| **1.21.1** | ☑️ | ✅ | ✅ | ✅ |  | ✅ | ✅ | ✅ | ✅ |  | ✅ |  | ✅ | ✅ |
+| **1.21.4** | ☑️ | ✅ | ✅ |  | ☑️ | ✅ | ✅ | ✅ | ✅ |  |  |  |  |  |
+| **1.21.8** | ☑️ | ✅ | ✅ |  | ☑️ | ✅ | ✅ | ✅ | ✅ |  |  |  |  |  |
+| **1.21.11** | ☑️ | ✅ | ✅ | ✅ | ☑️ | ✅ | ✅ | ✅ | ✅ |  |  |  |  |  |
+| **26.1.2** | ☑️ | ✅ | ✅ |  | ☑️ | ✅ | ✅ | ✅ | ✅ |  |  |  |  |  |
+| **26.2** | ☑️ | ✅ | ✅ |  | ☑️ | ✅ | ✅ | ✅ | ✅ |  | ✅ |  |  |  |
+| **26.3** | ☑️ | ✅ | ✅ | ✅ |  | ✅ | ✅ |  | ✅ |  |  |  |  |  |
 
 **Every vanilla release** from 1.19 to 26.3 is started on its own
 (29 versions): 1.19, 1.19.1, 1.19.2, 1.19.3, 1.19.4, 1.20, 1.20.1, 1.20.2, 1.20.3, 1.20.4, 1.20.5, 1.20.6, 1.21, 1.21.1, 1.21.2, 1.21.3, 1.21.4, 1.21.5, 1.21.6, 1.21.7, 1.21.8, 1.21.9, 1.21.10, 1.21.11, 26.1, 26.1.1, 26.1.2, 26.2, 26.3.
+
+**Hybrid servers** — Mohist, Youer, Arclight (Forge), Arclight (NeoForge), Arclight (Fabric) — run mods and plugins at once; both folders are read, and the checks of both kinds apply.
+
+### Published, but not started
+
+These versions exist, yet the server they ship does not start in the lab, so nothing can be said about them. They come back in the table as soon as a working build is published.
+
+- **Arclight (Forge) 1.21.1** — its release build (1.0.1) cannot apply its own changes to Forge and stops before loading anything, with no mod and no plugin (https://github.com/IzzelAliz/Arclight/issues/1927).
+- **Mohist 1.19.2** — its newest build (391) loops on a library missing from its own jar and never starts.
 
 ## Game clients
 
@@ -71,4 +82,4 @@ to check it: older loaders word their errors differently and no rule is tested a
 
 ---
 
-*186 launches in the matrix, regenerated with `python3 lab/versions.py`.*
+*216 launches in the matrix, regenerated with `python3 lab/versions.py`.*

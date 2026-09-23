@@ -16,7 +16,11 @@
 <article>
 <h1 id="what-it-covers">What it covers</h1>
 <h2 id="platforms">Platforms</h2>
-<p><strong>Servers</strong> — vanilla, Paper, Spigot, Purpur, Folia, Fabric, Quilt, NeoForge, Forge. <strong>Proxies</strong> — Velocity, BungeeCord, Waterfall. <strong>Clients</strong> — vanilla, Fabric, NeoForge, Forge.</p>
+<p><strong>Servers</strong> — vanilla, Paper, Spigot, Purpur, Folia, Fabric, Quilt, NeoForge, Forge. <strong>Hybrid servers</strong> — Mohist, Youer and Arclight (on Forge, NeoForge or Fabric), which run mods and Bukkit plugins at the same time. <strong>Proxies</strong> — Velocity, BungeeCord, Waterfall. <strong>Clients</strong> — vanilla, Fabric, NeoForge, Forge.</p>
+<h2 id="hybrid-servers">Hybrid servers</h2>
+<p>A hybrid is two servers in one: the mods of a loader and the Bukkit plugins, side by side. CrashSleuth reads <strong>both</strong> folders and applies the checks of <strong>both</strong> kinds — a mod without its dependency, a plugin without its own, a Fabric mod dropped on a Forge-based hybrid.</p>
+<p>It also knows the trap that is specific to them: <strong>Mohist and Arclight are built on Spigot, not Paper</strong>. A plugin that only ships a <code>paper-plugin.yml</code> is skipped by them without a word, and what you see instead is another plugin failing because it was relying on the first one. CrashSleuth names the plugin that was skipped, before anything crashes. Youer is built on Paper and loads such plugins normally.</p>
+<p>Which hybrid runs on which Minecraft version, and which were really started, is on <a href="Supported-versions.html">Supported versions</a>.</p>
 <p>Every one of those is started for real in the lab, on every line of Minecraft versions <strong>from 1.19 to the latest</strong>, including the 26.x numbering. <a href="Supported-versions.html"><strong>Supported versions</strong></a> has the exact table, platform by platform, generated from what the lab actually starts.</p>
 <h2 id="systems">Systems</h2>
 <p>Linux, Windows and macOS, tested for real on all three: the analyses give the same answers on Windows as on macOS (Windows line endings included), the game launches work, and the app itself runs. Servers are launched on Linux in the lab.</p>
@@ -33,7 +37,7 @@
 <h2 id="where-the-limits-are">Where the limits are</h2>
 <ul><li>It reads what is written. A mod that crashes without logging anything needs the culprit search.</li><li>The culprit search needs to be able to <strong>launch</strong> your server or game; a lone log file is not enough.</li><li>A conclusion is only as good as the folder you point it at: give it the real one, not a copy with half the mods removed.</li><li>New Minecraft versions change messages. When one is not understood yet, it says so instead of guessing — and <a href="Contributing.html">that is worth sending in</a>.</li></ul>
 </article>
-<aside class="toc"><p class="group">On this page</p><ul><li class="l2"><a href="#platforms">Platforms</a></li><li class="l2"><a href="#systems">Systems</a></li><li class="l2"><a href="#what-it-can-tell-you-about">What it can tell you about</a></li><li class="l2"><a href="#what-it-refuses-to-say">What it refuses to say</a></li><li class="l2"><a href="#where-the-limits-are">Where the limits are</a></li></ul></aside>
+<aside class="toc"><p class="group">On this page</p><ul><li class="l2"><a href="#platforms">Platforms</a></li><li class="l2"><a href="#hybrid-servers">Hybrid servers</a></li><li class="l2"><a href="#systems">Systems</a></li><li class="l2"><a href="#what-it-can-tell-you-about">What it can tell you about</a></li><li class="l2"><a href="#what-it-refuses-to-say">What it refuses to say</a></li><li class="l2"><a href="#where-the-limits-are">Where the limits are</a></li></ul></aside>
 </main>
 </body>
 </html>

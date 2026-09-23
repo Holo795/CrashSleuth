@@ -1,8 +1,24 @@
 # CrashSleuth — Spécification
 
-**Version 21 — 23/09/2026** — v20 + le niveau d'une ligne ne dit rien de sa gravité : un plugin qui a renoncé pendant que le serveur affiche « Done ».
+**Version 22 — 23/09/2026** — v21 + un éclaireur qui cherche chaque semaine les cas que l'outil ne sait pas encore lire, les serveurs hybrides (Mohist, Youer, Arclight), et une page publique des versions réellement testées.
 
-### Changements depuis la v20
+### Changements depuis la v21
+- **L'outil se nourrit au fil du temps, sans jamais s'écrire lui-même.** Chaque lundi, un « éclaireur » (`scout/scout.py`, workflow `scout.yml`) :
+  - cherche dans les issues GitHub publiques de la semaine les phrases typiques d'un plantage Minecraft, garde celles qui contiennent un vrai journal (au moins 4 lignes) ;
+  - passe chaque journal dans CrashSleuth et ne retient **que ceux où il ne dit rien** ;
+  - marque ce qui est rejouable (plateforme connue, version dans la plage), ce qui a déjà une réponse (issue fermée avec des commentaires) et ce qui ressemble à une règle existante ;
+  - ouvre **une seule issue de synthèse** (label `scout`), sans doublon d'une semaine sur l'autre, sans mentionner personne (`@` neutralisé).
+  Un humain choisit, écrit le scénario ; le workflow `lab-replay.yml` le rejoue au labo (à la demande ou sur une PR qui touche `lab/scenarios.json`) et publie les journaux. **Le robot ne propose et n'ajoute jamais de règle** ; une règle n'entre qu'après reproduction et relecture.
+- **Serveurs hybrides (mods + plugins)** : Mohist, Youer, Arclight (Forge, NeoForge, Fabric), de 1.19 à la dernière version publiée.
+  - Reconnus dans le journal (y compris dans les toutes premières lignes, avant le message de version) et dans le dossier (`mohist-config/`, `youer-config/`, `.arclight/`, jar du serveur) ; un Mohist n'est plus pris pour un NeoForge qui ignorerait ses plugins.
+  - Les deux dossiers sont lus : `mods/` avec les règles du chargeur de base, `plugins/` avec celles de Bukkit.
+  - **Un plugin « Paper uniquement » sur un hybride basé sur Spigot (Mohist, Arclight)** est refusé par le serveur, et le journal ne dit parfois que `Jar does not contain plugin.yml` : c'est maintenant dit tel quel, avec le plugin nommé. Youer, basé sur Paper, les accepte.
+  - Un mod qui réclame une autre version du chargeur (`neoforge`) sur Arclight NeoForge : le chargeur est **fourni par le serveur**, on ne peut pas le remplacer à part — c'est la version de l'hybride qu'il faut changer.
+- **Deux builds publiés qui ne démarrent pas, transformés en cas réels** : Mohist 1.19.2 tourne en boucle sur une bibliothèque absente de son propre jar (`The file … doesn't exists in the Mohist jar`), Arclight Forge 1.21.1 (1.0.1) ne parvient pas à appliquer ses propres modifications à Forge (`Mixin apply failed mixins.arclight…`). Deux règles en confiance certaine : ce n'est ni un mod ni un plugin, aucun ne sert à rien de retirer.
+- **Page « Supported versions »** (wiki et site), générée par `lab/versions.py` à partir de la matrice du labo : pour chaque plateforme et chaque version, ✅ si le démarrage normal **et** le cas « dépendance manquante » sont rejoués, ☑️ si seul le démarrage l'est ; les builds publiés mais qui ne démarrent pas sont listés à part avec leur raison. 14 lignes serveur, 8 lignes client, 216 lancements.
+- **Cas réels rejoués : 68** (`docs/REAL_CASES.md`), corpus de 433 cas, 102 signatures.
+
+### Changements de la v21 (rappel)
 - **Un plugin peut renoncer sans hausser le ton.** Deux cas réels rejoués avec une base de données qui ne répond jamais :
   - CoreProtect écrit `CoreProtect was unable to start.` **en INFO**, entre deux lignes ordinaires, puis le serveur affiche `Done` : plus rien n'est enregistré, et il n'y aura rien à restaurer ;
   - LuckPerms écrit `Failed to init storage implementation`, puis **`Successfully enabled`** quinze secondes plus tard, et le serveur démarre comme d'habitude.
@@ -319,6 +335,9 @@ Versions et plateformes principales d'abord, les autres ensuite.
 | NeoForge | 1.21.1 | 21 |
 | Forge | 1.20.1 | 17 |
 | Fabric | 1.20.1, 1.21.1, dernière 1.21.x | 17 / 21 |
+| Hybrides : Mohist, Youer, Arclight (Forge / NeoForge / Fabric) | 1.19 → dernière publiée | 17 / 21 |
+
+La liste exacte des versions rejouées au labo est publiée sur la page **Supported versions** du wiki (générée, jamais écrite à la main).
 
 **Ensuite** : Quilt, Folia, proxys Velocity et BungeeCord (recherche du plugin coupable côté proxy), versions plus anciennes (1.16.5, 1.18.2, 1.19.2, très utilisées en modpacks), Sponge.
 
@@ -415,6 +434,7 @@ Chaque situation a un identifiant stable (utilisé par les signatures et les rap
 - Une signature = conditions (exception, classe, message, mod et versions, plateforme) → situation, explication (anglais + français), solution, liens (issue du mod, page de téléchargement).
 - **Import des règles codex-minecraft** (MIT) pour démarrer avec une base riche.
 - Recherche automatique dans les issues GitHub et Modrinth du mod en cause : « déjà signalé ici, corrigé en 2.3 ».
+- **Éclaireur hebdomadaire (v22)** : les journaux publics sur lesquels l'outil reste muet sont listés dans une issue ; un humain décide, le labo reproduit, puis la règle est écrite et relue.
 - Contributions : un cas résolu peut proposer une nouvelle signature, validée par relecture avant fusion.
 
 ---

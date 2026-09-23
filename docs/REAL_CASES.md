@@ -24,6 +24,8 @@ Written by `python3 lab/lab.py sources`, from the corpus itself.
 | `real-fabric-api-missing-journeymap` | DEP_MISSING | fabric | https://github.com/itzg/docker-minecraft-server/discussions/2661 | Install the Fabric API jar: nothing pulls it in for you. |
 | `real-fabric-api-wrong-minecraft` | WRONG_MC | fabric-api | https://github.com/orgs/FabricMC/discussions/4403 | Download the Fabric API built for the Minecraft version you run. |
 | `real-folia-plugin-unsupported` | PLUGIN_API | InvSee | https://github.com/Jannyboy11/InvSee-plus-plus/issues/87 | Only plugins whose plugin.yml says folia-supported: true load on Folia; ask the author or run Paper. |
+| `real-hybrid-build-loops-on-a-missing-library` | CORRUPT_JAR |  | https://github.com/Teneted/Tenet/issues/3463 | The file is missing from the build itself: take another build of Mohist for this version, re-downloading the same one changes nothing. |
+| `real-hybrid-cannot-patch-its-own-loader` | MIXIN_CONFLICT |  | https://github.com/IzzelAliz/Arclight/issues/1927 | The failing change is Arclight's own, with nothing installed: take another Arclight build for this version. |
 | `real-ids-that-nothing-registered` | DATAPACK_BROKEN |  | https://github.com/Stardust-Labs-MC/Terralith/issues/257 | Tectonic 3.0.26 fixed it: the ids carry Terralith's name, but the mod asking for them was the other one. |
 | `real-jar-not-there` | CORRUPT_JAR |  | https://github.com/pterodactyl/panel/issues/5729 | The start command names a file that is not there: fix the jar name in the panel or the script. |
 | `real-java-options-override` | JVM_OPTIONS |  | https://www.minecraftforum.net/forums/support/java-edition-support/2296914-cant-allocate-more-ram-with-razer | Remove the _JAVA_OPTIONS variable (Razer Synapse and other tools set it): it is applied after the command line and wins. |
@@ -36,6 +38,7 @@ Written by `python3 lab/lab.py sources`, from the corpus itself.
 | `real-modernfix-loader-too-old` | DEP_VERSION | fabric | https://github.com/orgs/FabricMC/discussions/4410 | Run the Fabric installer again and pick loader 0.16.10 or later. |
 | `real-one-bad-jar-stops-every-plugin` | CORRUPT_JAR | InvSee | https://github.com/PaperMC/Paper/issues/11152 | Rebuild or remove that one jar: Paper rewrites every plugin before loading any, so one it cannot read blocks them all. |
 | `real-paper-needs-java21` | JAVA_VERSION | java | https://github.com/itzg/docker-minecraft-server/issues/2905 | Run Minecraft 1.20.5 and later with Java 21. |
+| `real-paper-only-plugin-on-arclight` | WRONG_LOADER | MCKotlin | https://github.com/4drian3d/MCKotlin/issues/125 | The plugin is Paper-only by design: run it on a Paper-based server, or give it a plugin.yml; updating does not help. |
 | `real-plugin-api-too-new` | PLUGIN_API | InvSee | https://github.com/Spottedleaf/OldGenerator/issues/9 | Run a server at least as recent as the plugin's api-version, or take an older build of the plugin. |
 | `real-plugin-api-too-new-26` | PLUGIN_API | namefilterhopper | https://github.com/kcbleeker/NameFilterHopper/issues/1 | Run a server at least as recent as the plugin's api-version, or take the build made for yours. |
 | `real-plugin-missing-vault` | DEP_MISSING | Vault | https://github.com/Lenni0451/SpigotPluginManager/issues/26 | Install the plugin it names (Vault): a hard dependency must be there before it loads. |
@@ -86,4 +89,4 @@ Written by `python3 lab/lab.py sources`, from the corpus itself.
 | `net-real-velocity-forwarding-off-player` | PROXY_FORWARDING |  | https://github.com/PaperMC/Velocity/issues/1347 | Set player-info-forwarding-mode to modern on the proxy, and save the file before restarting. |
 | `net-real-velocity-forwarding-off-proxy` | PROXY_FORWARDING |  | https://github.com/PaperMC/Velocity/issues/1347 | Set player-info-forwarding-mode to modern on the proxy, and save the file before restarting. |
 
-65 cases.
+68 cases.
