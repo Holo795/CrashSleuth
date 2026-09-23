@@ -1,0 +1,9 @@
+{
+  "situation": "DATAPACK_BROKEN",
+  "culprit": null,
+  "logs": [
+    "latest.log"
+  ],
+  "source": "https://github.com/Stardust-Labs-MC/Terralith/issues/257",
+  "fix": "Tectonic 3.0.26 fixed it: the ids carry Terralith's name, but the mod asking for them was the other one."
+}

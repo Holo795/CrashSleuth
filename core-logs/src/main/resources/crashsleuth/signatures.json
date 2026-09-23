@@ -1183,6 +1183,43 @@
       "pattern": "NoSuchMethodError: '[^']*\\bjava\\.(?:util|lang|nio|io|time|net|text)\\.[\\w.$]+\\.[\\w$]+\\(",
       "advice": "signature.a-method-of-java-itself-is-missing.advice",
       "source": "https://github.com/opanel-mc/opanel/issues/273"
+    },
+    {
+      "id": "ids-that-nothing-registered",
+      "situation": "DATAPACK_BROKEN",
+      "confidence": "CERTAIN",
+      "pattern": "Unbound values in registry ResourceKey\\[[^\\]\\n]*\\]: \\[([\\w.\\-]+):(\\S+?)[,\\]]",
+      "details": {
+        "prefix": 1,
+        "name": 2
+      },
+      "advice": "signature.ids-that-nothing-registered.advice",
+      "source": "https://github.com/Stardust-Labs-MC/Terralith/issues/257"
+    },
+    {
+      "id": "world-settings-where-this-version-does-not-look",
+      "situation": "WORLD_DOWNGRADE",
+      "confidence": "CERTAIN",
+      "pattern": "No key dimensions in MapLike\\[\\{\\}\\](?:;\\s*No key seed in MapLike\\[\\{\\}\\])?",
+      "advice": "signature.world-settings-where-this-version-does-not-look.advice",
+      "source": "https://github.com/Winds-Studio/Leaf/issues/777"
+    },
+    {
+      "id": "a-datapack-that-lives-inside-a-mod",
+      "situation": "DATAPACK_BROKEN",
+      "confidence": "CERTAIN",
+      "pattern": "from pack mod/([\\w.\\-]+):built_in_datapacks/(\\S+)",
+      "culprits": [
+        {
+          "group": 1,
+          "kind": "MOD"
+        }
+      ],
+      "details": {
+        "name": 2
+      },
+      "advice": "signature.a-datapack-that-lives-inside-a-mod.advice",
+      "source": "https://github.com/wdiscute/starcatcher/issues/145"
     }
   ]
 }

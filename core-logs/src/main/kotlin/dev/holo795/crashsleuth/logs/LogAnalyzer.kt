@@ -38,11 +38,12 @@ class LogAnalyzer(
         }
         return Report(
             environment = environment,
-            findings = enrich(rank(deduplicate(kept))),
+            findings = enrich(deduplicate(rank(kept))),
             exceptions = document.stackTraces.map { it.root.headline }.distinct().take(10),
         )
     }
 
+    /** Ranked first, so that of two findings saying the same thing the surer one is the one kept. */
     private fun deduplicate(findings: List<Finding>): List<Finding> =
         findings.distinctBy { finding -> finding.situation to finding.culprits.map { it.id.lowercase() } }
 

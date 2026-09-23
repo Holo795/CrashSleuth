@@ -12,7 +12,7 @@ class SignatureTest {
 
     @Test
     fun `all signatures load`() {
-        assertEquals(92, SignatureDetector.load(javaClass.classLoader.getResource("crashsleuth/signatures.json")!!.readText()).size)
+        assertEquals(95, SignatureDetector.load(javaClass.classLoader.getResource("crashsleuth/signatures.json")!!.readText()).size)
     }
 
     @Test
@@ -180,6 +180,41 @@ class SignatureTest {
                     "setJavalinCookie(Cookie.kt:47)\n" +
                     "\tat TRANSFORMER/opanel@2.0.0/net.opanel.controller.api.AuthController." +
                     "lambda${'$'}new${'$'}1(AuthController.java:69)\n",
+            ),
+        )
+    }
+
+    /** Three reports the game answers with "fix your datapacks" when no datapack is involved. */
+    @Test
+    fun `the game blames your datapacks when you have none`() {
+        // https://github.com/Stardust-Labs-MC/Terralith/issues/257 : every id says terralith, and it is not the one.
+        assertEquals(
+            Situation.DATAPACK_BROKEN to emptyList(),
+            primary(
+                "[16:18:38] [Worker-Main-7/ERROR]: Registry loading errors:\n" +
+                    "java.lang.IllegalStateException: Unbound values in registry " +
+                    "ResourceKey[minecraft:root / minecraft:worldgen/biome]: " +
+                    "[terralith:comment_dont_generate_strips_here, terralith:icy_spires]\n" +
+                    "[16:18:39] [main/WARN]: Failed to load datapacks, can't proceed with server load. " +
+                    "You can either fix your datapacks or reset to vanilla with --safeMode\n",
+            ),
+        )
+        // https://github.com/wdiscute/starcatcher/issues/145 : the file is sealed inside the mod jar.
+        assertEquals(
+            Situation.DATAPACK_BROKEN to listOf("starcatcher"),
+            primary(
+                "java.lang.IllegalStateException: Failed to parse tide:starcatcher/fish/shooting_starfish.json " +
+                    "from pack mod/starcatcher:built_in_datapacks/tide_compat\n" +
+                    "Failed to load datapacks, can't proceed with server load.\n",
+            ),
+        )
+        // https://github.com/Winds-Studio/Leaf/issues/777 : a world coming back from a newer version.
+        assertEquals(
+            Situation.WORLD_DOWNGRADE to emptyList(),
+            primary(
+                "[20:29:42] [ServerMain/WARN]: Failed to load datapacks, can't proceed with server load.\n" +
+                    "java.util.concurrent.ExecutionException: java.lang.IllegalStateException: " +
+                    "No key dimensions in MapLike[{}]; No key seed in MapLike[{}]\n",
             ),
         )
     }
