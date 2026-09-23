@@ -2127,5 +2127,45 @@
     "expect": {
       "situation": "WORLD_DOWNGRADE"
     }
+  },
+  {
+    "platform": "arclight-neoforge",
+    "minecraft": "1.21.1",
+    "java": 21,
+    "name": "real-paper-only-plugin-on-arclight",
+    "description": "Arclight 1.21.1 on NeoForge with a plugin that only ships paper-plugin.yml, so it is never loaded",
+    "extra": [
+      {
+        "url": "https://github.com/4drian3d/MCKotlin/releases/download/1.5.1-k2.4.0/MCKotlinPaper-1.5.1-k2.4.0.jar",
+        "file": "MCKotlinPaper-1.5.1-k2.4.0.jar",
+        "folder": "plugins"
+      }
+    ],
+    "timeout": 600,
+    "source": "https://github.com/4drian3d/MCKotlin/issues/125",
+    "fix": "The plugin is Paper-only by design: run it on a Paper-based server, or give it a plugin.yml; updating does not help.",
+    "expect": {
+      "situation": "WRONG_LOADER",
+      "culprit": "MCKotlin"
+    }
+  },
+  {
+    "platform": "mohist",
+    "minecraft": "1.20.1",
+    "java": 17,
+    "name": "hybrid-plugin-without-its-dependency",
+    "description": "Mohist 1.20.1 with EssentialsX Chat and no EssentialsX: the plugins folder of a hybrid is read too",
+    "extra": [
+      {
+        "url": "https://github.com/EssentialsX/Essentials/releases/download/2.22.0/EssentialsXChat-2.22.0.jar",
+        "file": "EssentialsXChat-2.22.0.jar",
+        "folder": "plugins"
+      }
+    ],
+    "timeout": 600,
+    "expect": {
+      "situation": "DEP_MISSING",
+      "culprit": "EssentialsChat"
+    }
   }
 ]

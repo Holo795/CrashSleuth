@@ -16,11 +16,37 @@ enum class Platform(val displayName: String, val kind: PlatformKind) {
     QUILT("Quilt", PlatformKind.MODS),
     VELOCITY("Velocity", PlatformKind.PROXY),
     BUNGEECORD("BungeeCord", PlatformKind.PROXY),
+    // Hybrids: one server that loads mods of a loader and Bukkit plugins at the same time.
+    MOHIST("Mohist", PlatformKind.HYBRID),
+    YOUER("Youer", PlatformKind.HYBRID),
+    ARCLIGHT_FORGE("Arclight (Forge)", PlatformKind.HYBRID),
+    ARCLIGHT_NEOFORGE("Arclight (NeoForge)", PlatformKind.HYBRID),
+    ARCLIGHT_FABRIC("Arclight (Fabric)", PlatformKind.HYBRID),
     UNKNOWN("Unknown", PlatformKind.UNKNOWN),
+    ;
+
+    /** Whether the server reads paper-plugin.yml. The Spigot-based hybrids do not, and skip such a plugin. */
+    val readsPaperPlugins: Boolean
+        get() = this != MOHIST && this != ARCLIGHT_FORGE && this != ARCLIGHT_NEOFORGE && this != ARCLIGHT_FABRIC
+
+    /** The loader whose mods a platform runs: itself for a plain loader, the one underneath for a hybrid. */
+    val base: Platform
+        get() = when (this) {
+            MOHIST, ARCLIGHT_FORGE -> FORGE
+            YOUER, ARCLIGHT_NEOFORGE -> NEOFORGE
+            ARCLIGHT_FABRIC -> FABRIC
+            else -> this
+        }
 }
 
 @Serializable
-enum class PlatformKind { VANILLA, PLUGINS, MODS, PROXY, UNKNOWN }
+enum class PlatformKind {
+    VANILLA, PLUGINS, MODS, PROXY, HYBRID, UNKNOWN;
+
+    /** A hybrid is both: its mods folder and its plugins folder are loaded, and both are checked. */
+    val loadsMods: Boolean get() = this == MODS || this == HYBRID
+    val loadsPlugins: Boolean get() = this == PLUGINS || this == HYBRID
+}
 
 @Serializable
 enum class Side { CLIENT, SERVER, UNKNOWN }

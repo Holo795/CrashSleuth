@@ -3,8 +3,24 @@
 ## Platforms
 
 **Servers** — vanilla, Paper, Spigot, Purpur, Folia, Fabric, Quilt, NeoForge, Forge.
+**Hybrid servers** — Mohist, Youer and Arclight (on Forge, NeoForge or Fabric), which run mods and Bukkit
+plugins at the same time.
 **Proxies** — Velocity, BungeeCord, Waterfall.
 **Clients** — vanilla, Fabric, NeoForge, Forge.
+
+## Hybrid servers
+
+A hybrid is two servers in one: the mods of a loader and the Bukkit plugins, side by side. CrashSleuth reads
+**both** folders and applies the checks of **both** kinds — a mod without its dependency, a plugin without
+its own, a Fabric mod dropped on a Forge-based hybrid.
+
+It also knows the trap that is specific to them: **Mohist and Arclight are built on Spigot, not Paper**. A
+plugin that only ships a `paper-plugin.yml` is skipped by them without a word, and what you see instead is
+another plugin failing because it was relying on the first one. CrashSleuth names the plugin that was
+skipped, before anything crashes. Youer is built on Paper and loads such plugins normally.
+
+Which hybrid runs on which Minecraft version, and which were really started, is on
+[Supported versions](Supported-versions).
 
 Every one of those is started for real in the lab, on every line of Minecraft versions **from 1.19 to the
 latest**, including the 26.x numbering. [**Supported versions**](Supported-versions) has the exact table,

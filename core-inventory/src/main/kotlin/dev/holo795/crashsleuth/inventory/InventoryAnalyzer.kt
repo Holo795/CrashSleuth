@@ -83,8 +83,11 @@ object InventoryAnalyzer {
         val accepted = when {
             jar.folder == "plugins" && platform == Platform.VELOCITY -> setOf(MetadataFormat.VELOCITY)
             jar.folder == "plugins" && platform == Platform.BUNGEECORD -> setOf(MetadataFormat.BUNGEE)
+            // Mohist and Arclight are built on Spigot, not Paper: a plugin that only ships paper-plugin.yml is skipped.
+            jar.folder == "plugins" && !platform.readsPaperPlugins -> setOf(MetadataFormat.BUKKIT)
             jar.folder == "plugins" -> setOf(MetadataFormat.BUKKIT, MetadataFormat.PAPER)
-            else -> when (platform) {
+            // A hybrid reads the mods of the loader it is built on.
+            else -> when (platform.base) {
                 Platform.FABRIC -> setOf(MetadataFormat.FABRIC)
                 Platform.QUILT -> setOf(MetadataFormat.QUILT, MetadataFormat.FABRIC)
                 Platform.FORGE -> setOf(MetadataFormat.FORGE)
@@ -112,13 +115,18 @@ object InventoryAnalyzer {
         val connector = loaded.any { (jar, mods) -> (mods + jar.nested).any { it.id == "connectormod" || it.id == "connector" } }
         return loaded.mapNotNull { (jar, usable) ->
             if (usable.isNotEmpty() || jar.mods.isEmpty()) return@mapNotNull null
-            if (jar.folder == "mods" && platform.kind != PlatformKind.MODS) return@mapNotNull null
+            if (jar.folder == "mods" && !platform.kind.loadsMods) return@mapNotNull null
             if (connector && jar.formats == setOf(MetadataFormat.FABRIC)) return@mapNotNull null
             val made = jar.mods.first()
+            // A plugin built for Paper alone, on a Spigot-based hybrid: it is skipped without a word, and what
+            // breaks is whatever depends on it (https://github.com/4drian3d/MCKotlin/issues/125).
+            val paperOnly = jar.folder == "plugins" && jar.formats == setOf(MetadataFormat.PAPER) && !platform.readsPaperPlugins
             Finding(
-                Situation.WRONG_LOADER, Confidence.HIGH, listOf(culprit(jar, made)),
+                Situation.WRONG_LOADER, if (paperOnly) Confidence.CERTAIN else Confidence.HIGH, listOf(culprit(jar, made)),
                 evidence = listOf("${jar.folder}/${jar.file}: ${jar.formats.joinToString { it.name.lowercase() }} metadata only"),
-                details = mapOf("platform" to if (jar.folder == "plugins") "${platform.displayName} (plugins)" else platform.displayName),
+                details = mapOf("platform" to if (jar.folder == "plugins") "${platform.displayName} (plugins)" else platform.displayName) +
+                    if (paperOnly) mapOf("adviceKey" to "inventory.paper-only-plugin", "titleKey" to "inventory.paper-only-plugin.title",
+                                         "server" to platform.displayName) else emptyMap(),
             )
         }
     }

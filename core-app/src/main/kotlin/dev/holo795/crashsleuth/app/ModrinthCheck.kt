@@ -82,7 +82,7 @@ class ModrinthCheck(private val post: (String, String) -> String = ::httpPost) {
     }.toString()
 
     companion object {
-        fun loaderOf(platform: Platform): String? = when (platform) {
+        fun loaderOf(platform: Platform): String? = when (platform.base) {
             Platform.FABRIC -> "fabric"
             Platform.QUILT -> "quilt"
             Platform.NEOFORGE -> "neoforge"

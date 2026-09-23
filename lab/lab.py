@@ -83,6 +83,33 @@ def purpur_server(version: str) -> Path:
     return download(f"https://api.purpurmc.org/v2/purpur/{version}/{build}/download", f"purpur-{version}-{build}.jar")
 
 
+# Hybrid servers: one jar that runs mods and Bukkit plugins at once. Their base loader decides which mods
+# they take; both a mods and a plugins folder sit next to them.
+HYBRIDS = {"mohist": "forge", "youer": "neoforge", "arclight-forge": "forge", "arclight-neoforge": "neoforge",
+           "arclight-fabric": "fabric"}
+
+
+def mohistmc_server(project: str, version: str) -> Path:
+    """Mohist (Forge) and Youer (NeoForge) come from MohistMC's own API; the newest build by date."""
+    builds = http_json(f"https://api.mohistmc.com/project/{project}/{version}/builds")
+    if not builds:
+        raise RuntimeError(f"{project} publishes no build for {version}")
+    build = max(builds, key=lambda b: b["build_date"])
+    return download(f"https://api.mohistmc.com/project/{project}/{version}/builds/{build['id']}/download",
+                    f"{project}-{version}-{build['id']}.jar")
+
+
+def arclight_server(loader: str, version: str) -> Path:
+    """Arclight publishes one jar per loader and version on its GitHub releases; the newest that fits."""
+    releases = http_json("https://api.github.com/repos/IzzelAliz/Arclight/releases?per_page=50")
+    pattern = re.compile(rf"arclight-{loader}-{re.escape(version)}-[\w.+-]+\.jar$")
+    for release in releases:
+        for asset in release.get("assets", []):
+            if pattern.match(asset["name"]):
+                return download(asset["browser_download_url"], asset["name"])
+    raise RuntimeError(f"Arclight publishes no {loader} build for {version}")
+
+
 def fabric_server(version: str, loader: str | None = None) -> Path:
     loader = loader or http_json(f"https://meta.fabricmc.net/v2/versions/loader/{version}")[0]["loader"]["version"]
     installer = http_json("https://meta.fabricmc.net/v2/versions/installer")[0]["version"]
@@ -126,6 +153,11 @@ def neoforge_installer(minecraft: str, pinned: str | None = None) -> tuple[Path,
     version = [v for v in neoforge_versions() if v.startswith(prefix) and "beta" not in v and "alpha" not in v][-1]
     url = f"https://maven.neoforged.net/releases/net/neoforged/neoforge/{version}/neoforge-{version}-installer.jar"
     return download(url), version
+
+
+def order_version(version: str) -> list[int]:
+    """1.9 before 1.10, and 1.21.11 before 26.1: versions compared as numbers."""
+    return [int(part) for part in re.findall(r"\d+", version)]
 
 
 def java_for(minecraft: str) -> int:
@@ -512,6 +544,7 @@ def prepare(scenario: Scenario, directory: Path) -> list[str]:
     (directory / "server.properties").write_text("online-mode=false\nspawn-protection=0\nview-distance=4\nsimulation-distance=4\n" + scenario.properties)
     java = f"-Xms256M -Xmx{scenario.memory} {scenario.jvm_extra}".strip()
     mods_dir = directory / ("plugins" if scenario.platform in ("paper", "purpur", "spigot", "folia") else "mods")
+    plugins_dir = directory / "plugins"
 
     if scenario.platform == "vanilla":
         shutil.copy(vanilla_server(scenario.minecraft), directory / "server.jar")
@@ -534,11 +567,20 @@ def prepare(scenario: Scenario, directory: Path) -> list[str]:
         (directory / "user_jvm_args.txt").write_text(java + "\n")
         # Installed once: a second start (after files were broken on purpose) goes straight to the server.
         command = "( [ ! -f installer.jar ] || ( java -jar installer.jar --installServer > installer.log 2>&1 && rm -f installer.jar installer.jar.log ) ) && sh run.sh nogui"
+    elif scenario.platform in HYBRIDS:
+        jar = (mohistmc_server(scenario.platform, scenario.minecraft) if scenario.platform in ("mohist", "youer")
+               else arclight_server(HYBRIDS[scenario.platform], scenario.minecraft))
+        shutil.copy(jar, directory / "server.jar")
+        # Both folders exist on a hybrid; each starts empty, as on a fresh install.
+        (directory / "mods").mkdir(exist_ok=True)
+        plugins_dir.mkdir(exist_ok=True)
+        command = f"java {java} -jar server.jar nogui"
     else:
         raise ValueError(scenario.platform)
 
     # Quilt runs Fabric mods, and most Quilt users install them: Modrinth lists them as Fabric.
-    loader = {"paper": "paper", "purpur": "paper", "spigot": "spigot", "folia": "folia", "quilt": "fabric"}.get(scenario.platform, scenario.platform)
+    loader = {"paper": "paper", "purpur": "paper", "spigot": "spigot", "folia": "folia", "quilt": "fabric",
+              **HYBRIDS}.get(scenario.platform, scenario.platform)
     if scenario.auto_missing:
         mod, dependency = auto_missing(loader, scenario.minecraft)
         scenario.mods = [mod]
@@ -557,7 +599,9 @@ def prepare(scenario: Scenario, directory: Path) -> list[str]:
         else:
             version = modrinth_version(item["slug"], item["loader"], item.get("minecraft", scenario.minecraft), item.get("index", 0))
             path = modrinth_file(version)
-        shutil.copy(path, mods_dir / (item.get("file") or path.name))
+        target = directory / item["folder"] if item.get("folder") else mods_dir
+        target.mkdir(exist_ok=True)
+        shutil.copy(path, target / (item.get("file") or path.name))
     if scenario.modpack:
         removed = install_modpack(scenario.modpack, loader, scenario.minecraft, directory, scenario.remove)
         (directory / "removed-on-purpose.txt").write_text("\n".join(removed) + "\n")

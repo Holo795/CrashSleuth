@@ -56,6 +56,20 @@ def grid(table: dict[str, dict[str, set[str]]], columns: list[tuple[str, str]], 
     return "\n".join([head, rule, *body])
 
 
+def unstartable() -> str:
+    """Versions a platform publishes but whose build does not start: said, rather than left blank."""
+    import sys
+    sys.path.insert(0, str(LAB))
+    from matrix import DOES_NOT_START
+    if not DOES_NOT_START:
+        return ""
+    names = dict(SERVERS)
+    rows = "\n".join(f"- **{names.get(p, p)} {v}** — {why}." for (p, v), why in sorted(DOES_NOT_START.items()))
+    return ("### Published, but not started\n\n"
+            "These versions exist, yet the server they ship does not start in the lab, so nothing can be said about "
+            "them. They come back in the table as soon as a working build is published.\n\n" + rows + "\n\n")
+
+
 def proxies() -> list[str]:
     source = (LAB / "net_lab.py").read_text()
     velocity = sorted(set(re.findall(r'paper_server\("([\d.]+)", "velocity"\)', source)), key=order)
@@ -105,7 +119,7 @@ Minecraft — each point where the game, the loader or Java changed in a way tha
 **Every vanilla release** from {every_release[0]} to {every_release[-1]} is started on its own
 ({len(every_release)} versions): {", ".join(every_release)}.
 
-{f"**Hybrid servers** — {', '.join(hybrids)} — run mods and plugins at once; both folders are read, and the checks of both kinds apply.{chr(10)}{chr(10)}" if hybrids else ""}## Game clients
+{f"**Hybrid servers** — {', '.join(hybrids)} — run mods and plugins at once; both folders are read, and the checks of both kinds apply.{chr(10)}{chr(10)}" if hybrids else ""}{unstartable()}## Game clients
 
 The real game, started in a window that never comes to the front.
 

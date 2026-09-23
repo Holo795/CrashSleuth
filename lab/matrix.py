@@ -60,6 +60,36 @@ def _available(platform: str, version: str) -> bool:
         return False
 
 
+# Versions a platform publishes whose current build does not start at all: not in the matrix, since a tick
+# would claim a server that never ran, and listed with the reason on the Supported versions page.
+DOES_NOT_START = {
+    ("mohist", "1.19.2"): "its newest build (391) loops on a library missing from its own jar and never starts",
+}
+
+
+def hybrid_versions() -> dict[str, list[str]]:
+    """What each hybrid really publishes from 1.19 on, asked to its own source. Snapshot builds are left out:
+    a version is only listed as tested when a finished build of it exists."""
+    import re
+    found: dict[str, list[str]] = {}
+    for project in ("mohist", "youer"):
+        versions = [v["name"] for v in lab.http_json(f"https://api.mohistmc.com/project/{project}/versions")]
+        found[project] = [v for v in versions if lab.order_version(v) >= lab.order_version("1.19")
+                          and lab.http_json(f"https://api.mohistmc.com/project/{project}/{v}/builds")]
+    releases = lab.http_json("https://api.github.com/repos/IzzelAliz/Arclight/releases?per_page=50")
+    for loader in ("forge", "neoforge", "fabric"):
+        versions = set()
+        for release in releases:
+            if "SNAPSHOT" in release["tag_name"].upper():
+                continue
+            for asset in release.get("assets", []):
+                match = re.match(rf"arclight-{loader}-([\d.]+)-", asset["name"])
+                if match and lab.order_version(match.group(1)) >= lab.order_version("1.19"):
+                    versions.add(match.group(1))
+        found[f"arclight-{loader}"] = sorted(versions, key=lab.order_version)
+    return found
+
+
 def maven_versions(url: str) -> list[str]:
     import re
     import urllib.request
@@ -80,11 +110,16 @@ def forge_exists(version: str) -> bool:
     return any(v.startswith(version + "-") for v in maven_versions("https://maven.minecraftforge.net/net/minecraftforge/forge/maven-metadata.xml"))
 
 
+def label(platform: str) -> str:
+    names = {"arclight-forge": "Arclight (Forge)", "arclight-neoforge": "Arclight (NeoForge)", "arclight-fabric": "Arclight (Fabric)"}
+    return names.get(platform, platform.capitalize())
+
+
 def scenario(platform: str, version: str, kind: str) -> dict:
     base = {"platform": platform, "minecraft": version, "java": lab.java_for(version), "timeout": 600}
     if kind == "baseline":
-        return {**base, "name": f"matrix-{platform}-{version}-baseline", "description": f"{platform.capitalize()} {version}, clean start: no finding"}
-    return {**base, "name": f"matrix-{platform}-{version}-missing-dependency", "description": f"{platform.capitalize()} {version}, a real mod or plugin without its required dependency",
+        return {**base, "name": f"matrix-{platform}-{version}-baseline", "description": f"{label(platform)} {version}, clean start: no finding"}
+    return {**base, "name": f"matrix-{platform}-{version}-missing-dependency", "description": f"{label(platform)} {version}, a real mod or plugin without its required dependency",
             "auto_missing": True, "expect": {"situation": "DEP_MISSING"}}
 
 
@@ -101,6 +136,11 @@ def main() -> None:
                 scenarios.append(scenario(platform, version, "missing"))
     for version in SPIGOT_LINES:
         scenarios += [scenario("spigot", version, "baseline"), scenario("spigot", version, "missing")]
+    # Hybrids: every version they publish in the range, a clean start and a mod left without its dependency.
+    for platform, versions in hybrid_versions().items():
+        for version in versions:
+            if (platform, version) not in DOES_NOT_START:
+                scenarios += [scenario(platform, version, "baseline"), scenario(platform, version, "missing")]
     (lab.LAB_DIR / "matrix.json").write_text(json.dumps(scenarios, indent=1) + "\n")
     print(f"{len(scenarios)} scenarios in lab/matrix.json")
     clients = []

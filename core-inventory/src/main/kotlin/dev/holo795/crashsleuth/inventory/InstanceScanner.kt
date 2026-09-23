@@ -34,6 +34,7 @@ object InstanceScanner {
         val rootJars = runCatching { root.listDirectoryEntries("*.jar").map { it.name.lowercase() } }.getOrDefault(emptyList())
         if (rootJars.any { it.startsWith("bungeecord") || it.startsWith("waterfall") }) return Platform.BUNGEECORD to null
         val libraries = root.resolve("libraries")
+        hybrid(root, rootJars)?.let { return it }
         children(libraries.resolve("net/neoforged/neoforge")).lastOrNull()?.let { return Platform.NEOFORGE to it.name }
         children(libraries.resolve("net/neoforged/forge")).lastOrNull()?.let { return Platform.NEOFORGE to it.name.substringAfter('-') }
         children(libraries.resolve("net/minecraftforge/forge")).lastOrNull()?.let { return Platform.FORGE to it.name.substringAfter('-') }
@@ -52,6 +53,29 @@ object InstanceScanner {
         }
         if (unpacked.any { it.startsWith("server-") }) return Platform.VANILLA to null
         return Platform.UNKNOWN to null
+    }
+
+    /**
+     * A hybrid has to be recognised before its loader, or Mohist is read as Forge and its plugins folder is
+     * never looked at. Each one leaves its own configuration next to the server; a server never started only
+     * has its jar. The version given is the base loader's, which is what mods declare they need.
+     */
+    private fun hybrid(root: Path, rootJars: List<String>): Pair<Platform, String?>? {
+        val libraries = root.resolve("libraries")
+        val forge = children(libraries.resolve("net/minecraftforge/forge")).lastOrNull()?.name?.substringAfter('-')
+        val neoforge = children(libraries.resolve("net/neoforged/neoforge")).lastOrNull()?.name
+        val fabric = children(libraries.resolve("net/fabricmc/fabric-loader")).lastOrNull()?.name
+        return when {
+            root.resolve("youer-config").isDirectory() || rootJars.any { it.startsWith("youer") } -> Platform.YOUER to neoforge
+            root.resolve("mohist-config").isDirectory() || rootJars.any { it.startsWith("mohist") } -> Platform.MOHIST to forge
+            root.resolve(".arclight").isDirectory() || root.resolve("arclight.conf").exists() || rootJars.any { it.startsWith("arclight") } ->
+                when {
+                    fabric != null || rootJars.any { it.startsWith("arclight-fabric") } -> Platform.ARCLIGHT_FABRIC to fabric
+                    neoforge != null || rootJars.any { it.startsWith("arclight-neoforge") } -> Platform.ARCLIGHT_NEOFORGE to neoforge
+                    else -> Platform.ARCLIGHT_FORGE to forge
+                }
+            else -> null
+        }
     }
 
     /** "hash\t1.21.1\t1.21.1/paper-1.21.1.jar" lines of a Paperclip jar: the file names, lower case. */

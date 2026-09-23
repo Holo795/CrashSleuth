@@ -22,7 +22,8 @@ object ModCompare {
         val onPlayer = available(player)
         val onServer = available(server)
 
-        if (player.platform != server.platform && player.platform.kind == PlatformKind.MODS && server.platform.kind == PlatformKind.MODS) {
+        // A Forge player joins a Mohist server: the loader underneath is what has to match.
+        if (player.platform.base != server.platform.base && player.platform.kind.loadsMods && server.platform.kind.loadsMods) {
             add(Finding(
                 Situation.MOD_MISMATCH, Confidence.CERTAIN, emptyList(),
                 evidence = listOf("${player.platform.displayName} ≠ ${server.platform.displayName}"),
@@ -30,7 +31,7 @@ object ModCompare {
             ))
         }
         val (playerGame, serverGame) = player.minecraftVersion to server.minecraftVersion
-        if (playerGame != null && serverGame != null && playerGame != serverGame && server.platform.kind == PlatformKind.MODS) {
+        if (playerGame != null && serverGame != null && playerGame != serverGame && server.platform.kind.loadsMods) {
             add(Finding(
                 Situation.WRONG_MC, Confidence.CERTAIN, emptyList(),
                 evidence = listOf("Minecraft $playerGame ≠ $serverGame"),

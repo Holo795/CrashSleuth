@@ -157,6 +157,49 @@ class InventoryTest {
         )
     }
 
+    /** A hybrid folder, as Mohist leaves it after a first start: both folders, and Forge underneath. */
+    private fun mohistServer() {
+        root.resolve("mohist-config").createDirectories()
+        root.resolve("libraries/net/minecraftforge/forge/1.20.1-47.4.13").createDirectories()
+        root.resolve("libraries/net/minecraft/server/1.20.1-20230612.114412").createDirectories()
+        root.resolve("bukkit.yml").writeText("")
+    }
+
+    @Test
+    fun `a hybrid reads both folders, and its mods are those of the loader underneath`() {
+        mohistServer()
+        jar("plugins", "EssentialsXChat.jar", mapOf("plugin.yml" to "name: EssentialsChat\nversion: 2.22.0\nmain: a.B\ndepend: [Essentials]\n"))
+        jar("mods", "sodium-fabric.jar", mapOf("fabric.mod.json" to fabricMod("sodium", "0.5.0")))
+        val inventory = InstanceScanner.scan(root)
+        assertEquals(Platform.MOHIST, inventory.platform)
+        val found = situations(inventory).toSet()
+        // The plugins folder is read: before, a Mohist folder was taken for Forge and its plugins ignored.
+        assertTrue(Situation.DEP_MISSING to "EssentialsChat" in found, "$found")
+        // Mohist runs Forge: a Fabric mod does not belong in its mods folder.
+        assertTrue(Situation.WRONG_LOADER to "sodium" in found, "$found")
+    }
+
+    /** https://github.com/4drian3d/MCKotlin/issues/125 : Mohist and Arclight are Spigot-based. */
+    @Test
+    fun `a plugin made for Paper alone is named on a Spigot-based hybrid, and left alone on a Paper-based one`() {
+        val paperOnly = mapOf("paper-plugin.yml" to "name: MCKotlin-Paper\nversion: 1.5.1-k2.4.0\nmain: a.B\napi-version: '1.20'\nload: STARTUP\n")
+        mohistServer()
+        jar("plugins", "MCKotlinPaper-1.5.1-k2.4.0.jar", paperOnly)
+        val onMohist = InventoryAnalyzer.analyze(InstanceScanner.scan(root)).single { it.situation == Situation.WRONG_LOADER }
+        assertEquals("MCKotlin-Paper", onMohist.culprits.first().id)
+        assertEquals(Confidence.CERTAIN, onMohist.confidence)
+        assertEquals("inventory.paper-only-plugin", onMohist.details["adviceKey"])
+
+        // Youer is built on Paper: the same plugin loads there, and nothing is said.
+        root.resolve("mohist-config").toFile().deleteRecursively()
+        root.resolve("libraries/net/minecraftforge").toFile().deleteRecursively()
+        root.resolve("youer-config").createDirectories()
+        root.resolve("libraries/net/neoforged/neoforge/21.1.251").createDirectories()
+        val onYouer = InstanceScanner.scan(root)
+        assertEquals(Platform.YOUER, onYouer.platform)
+        assertFalse(InventoryAnalyzer.analyze(onYouer).any { it.situation == Situation.WRONG_LOADER })
+    }
+
     private fun classFile(java: Int) = byteArrayOf(0xCA.toByte(), 0xFE.toByte(), 0xBA.toByte(), 0xBE.toByte(), 0, 0, 0, (java + 44).toByte())
 
     @Test

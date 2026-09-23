@@ -8,6 +8,9 @@ import dev.holo795.crashsleuth.model.Side
 object EnvironmentDetector {
     // Old builds: "version git-Paper-196 (MC: 1.20.1)"; recent ones: "version 1.21.1-133-master@a1b2c3d (date) (Implementing API version 1.21.1-R0.1-SNAPSHOT)".
     private val PAPER = Regex("""This server is running (Paper|Purpur|Folia|Pufferfish) version (\S+)""")
+    /** Hybrids name themselves late, once everything loaded; the early markers catch a start that died first. */
+    private val HYBRID = Regex("""This server is running (Mohist|Youer|Arclight) version (\S+)""")
+    private val HYBRID_EARLY = Regex("""com\.mohistmc\.youer|youer\.mixins\.json|Thanks for using Youer|com\.mohistmc|Mohist mod loading|Thanks for using Mohist|\[Arclight|io\.izzel\.arclight|Minecraft [\w.]+ Arclight""")
     private val VELOCITY = Regex("""Booting up Velocity (\S+)""")
     private val BUNGEE = Regex("""Enabled (?:BungeeCord|Waterfall) version (\S+)""")
     private val CRAFTBUKKIT = Regex("""This server is running CraftBukkit version (\S+)""")
@@ -39,6 +42,20 @@ object EnvironmentDetector {
             ?: Regex("""^(\d+\.\d+(?:\.\d+)?)-""").find(line.groupValues[2])?.groupValues?.get(1)
     }
 
+    /**
+     * Mohist runs Forge and Youer NeoForge. Arclight exists for all three loaders and does not say which in
+     * its own line, so the loader's own words decide; measured on real starts, they never overlap.
+     */
+    private fun hybrid(family: String, text: String): Platform = when (family) {
+        "Mohist" -> Platform.MOHIST
+        "Youer" -> Platform.YOUER
+        else -> when {
+            text.contains("Fabric Loader") || text.contains("fabricloader") -> Platform.ARCLIGHT_FABRIC
+            text.contains("neoforged", ignoreCase = true) -> Platform.ARCLIGHT_NEOFORGE
+            else -> Platform.ARCLIGHT_FORGE
+        }
+    }
+
     /** The platform a crash report names as the brand of the game or server, when it names one. */
     private fun brand(text: String): Platform? = when (BRAND.find(text)?.groupValues?.get(1)?.lowercase()) {
         "fabric" -> Platform.FABRIC
@@ -68,6 +85,23 @@ object EnvironmentDetector {
             platform = Platform.BUNGEECORD
             loader = it.groupValues[1]
             side = Side.SERVER
+        }
+        if (platform == Platform.UNKNOWN) {
+            val named = HYBRID.find(text)
+            val early = if (named == null) HYBRID_EARLY.find(text) else null
+            val family = named?.groupValues?.get(1) ?: early?.value?.let { marker ->
+                when {
+                    marker.contains("youer", ignoreCase = true) -> "Youer"
+                    marker.contains("mohist", ignoreCase = true) -> "Mohist"
+                    else -> "Arclight"
+                }
+            }
+            if (family != null) {
+                platform = hybrid(family, text)
+                loader = named?.groupValues?.get(2)
+                minecraft = named?.let { serverVersion(text, it) } ?: minecraft
+                side = Side.SERVER
+            }
         }
         if (platform == Platform.UNKNOWN) PAPER.find(text)?.let {
             platform = Platform.valueOf(it.groupValues[1].uppercase().let { name -> if (name == "PUFFERFISH") "PAPER" else name })

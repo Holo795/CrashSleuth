@@ -113,6 +113,10 @@ data class Target(
             Platform.QUILT -> "quilt"
             Platform.NEOFORGE -> "neoforge"
             Platform.FORGE -> "forge"
+            // A hybrid's mods are those of the loader underneath: that is what Modrinth is asked about.
+            Platform.MOHIST, Platform.ARCLIGHT_FORGE -> "forge"
+            Platform.YOUER, Platform.ARCLIGHT_NEOFORGE -> "neoforge"
+            Platform.ARCLIGHT_FABRIC -> "fabric"
             Platform.PAPER, Platform.PURPUR, Platform.SPIGOT, Platform.FOLIA -> platform.name.lowercase()
             Platform.VANILLA -> "vanilla"
             Platform.VELOCITY -> "velocity"
