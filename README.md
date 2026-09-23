@@ -26,6 +26,19 @@ CrashSleuth diagnoses crashes, startup failures, hangs, lag and connection probl
 
 **Checked against problems real people had**: [docs/REAL_CASES.md](docs/REAL_CASES.md) lists reports from GitHub issues and forums, rebuilt in the lab with the same versions and the same jars; CrashSleuth has to reach the answer those people ended up with.
 
+### What it refuses to say
+
+Most lines that name a mod name the one that *noticed*, not the one at fault, and the usual advice is often wrong. CrashSleuth is built against that:
+
+- a mixin that could not be applied names the mod that **lost**; the one that got there first is only in the class name of the mixin that merged, and that is who gets named;
+- `Could not pass event … to X` names whoever registered the listener; if none of X is in the trace, the code that really threw is named instead;
+- when a loader refuses to start because one mod declares it breaks another, the mod to change is the one being refused, not the one that wrote the rule;
+- Forge's `Suspected Mods` is a list of everything in the stack, by its own authors' description, and is presented as a lead;
+- a watchdog that fires while the server thread is waiting for its next tick means the clock jumped, not that anything is stuck, and a short watchdog warning is not a crash;
+- "give it more RAM" is not said when an environment variable is overriding the memory that was set, and never from a lag warning alone;
+- the game's own line about updating graphics drivers is printed for every window failure and is treated as boilerplate;
+- missing models, resource packs that come inside mods, connections that never said hello, and illegal-reflective-access warnings are not reported at all.
+
 Everything is **local by default**: nothing leaves the computer unless you ask (update check, share link, mappings download).
 
 ## Systems
