@@ -12,7 +12,7 @@ class SignatureTest {
 
     @Test
     fun `all signatures load`() {
-        assertEquals(90, SignatureDetector.load(javaClass.classLoader.getResource("crashsleuth/signatures.json")!!.readText()).size)
+        assertEquals(92, SignatureDetector.load(javaClass.classLoader.getResource("crashsleuth/signatures.json")!!.readText()).size)
     }
 
     @Test
@@ -165,6 +165,21 @@ class SignatureTest {
                     "This is usually caused by a mismatched mod set between the client and server.\n" +
                     "The following registry entry namespaces may be related:\n" +
                     "spawnermod\n",
+            ),
+        )
+    }
+
+    /** https://github.com/opanel-mc/opanel/issues/273 : the missing method belongs to Java, not to a mod. */
+    @Test
+    fun `a method Java 21 brought, called on an older Java`() {
+        assertEquals(
+            Situation.JAVA_VERSION to emptyList(),
+            primary(
+                "java.lang.NoSuchMethodError: 'java.lang.Object java.util.List.removeFirst()'\n" +
+                    "\tat TRANSFORMER/opanel@2.0.0/net.opanel.deps.javalin.http.CookieKt." +
+                    "setJavalinCookie(Cookie.kt:47)\n" +
+                    "\tat TRANSFORMER/opanel@2.0.0/net.opanel.controller.api.AuthController." +
+                    "lambda${'$'}new${'$'}1(AuthController.java:69)\n",
             ),
         )
     }

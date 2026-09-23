@@ -366,6 +366,47 @@ def build_fabric_fixture(java_home: Path | None = None) -> Path:
     return output
 
 
+def build_java21_plugin(minecraft: str) -> Path:
+    """A plugin whose class files are Java 17 but which calls a method Java 21 brought: javac was
+    given -source/-target instead of --release, so it linked against the newer library."""
+    source = """
+package dev.holo795.crashsleuth.fixture;
+
+import java.util.ArrayList;
+import java.util.List;
+import org.bukkit.plugin.java.JavaPlugin;
+
+public final class TooNewForThisJava extends JavaPlugin {
+    @Override
+    public void onEnable() {
+        List<String> waiting = new ArrayList<>();
+        waiting.add("a player who left before the restart");
+        getLogger().info("first in the queue: " + waiting.removeFirst());
+    }
+}
+"""
+    yaml = ("name: TooNewForThisJava\nversion: 1.0.0\n"
+            "main: dev.holo795.crashsleuth.fixture.TooNewForThisJava\napi-version: '1.20'\n")
+    digest = hashlib.sha1((source + yaml).encode()).hexdigest()[:10]
+    output = CACHE / "fixtures" / f"TooNewForThisJava-{minecraft}-{digest}.jar"
+    if output.exists():
+        return output
+    work = CACHE / "fixtures" / f"build-java21-{minecraft}"
+    shutil.rmtree(work, ignore_errors=True)
+    (work / "src/dev/holo795/crashsleuth/fixture").mkdir(parents=True)
+    (work / "src/dev/holo795/crashsleuth/fixture/TooNewForThisJava.java").write_text(source)
+    (work / "plugin.yml").write_text(yaml)
+    shutil.copy(paper_api(minecraft), work / "paper-api.jar")
+    script = ("mkdir -p out && javac -nowarn -proc:none -source 17 -target 17 -d out -cp paper-api.jar "
+              "src/dev/holo795/crashsleuth/fixture/TooNewForThisJava.java && cp plugin.yml out/ "
+              "&& cd out && jar cf ../plugin.jar .")
+    subprocess.run(["docker", "run", "--rm", "-v", f"{work}:/w", "-w", "/w", "eclipse-temurin:21-jdk", "sh", "-c", script],
+                   check=True, capture_output=True)
+    output.parent.mkdir(parents=True, exist_ok=True)
+    shutil.copy(work / "plugin.jar", output)
+    return output
+
+
 def build_paper_fixture(minecraft: str) -> Path:
     """Compiles lab/fixtures/paper into a plugin jar, in a Java container."""
     sources = sorted(p for folder in ("paper", "paper-stubs") for p in (LAB_DIR / "fixtures" / folder).rglob("*") if p.is_file())
@@ -523,7 +564,11 @@ def prepare(scenario: Scenario, directory: Path) -> list[str]:
     if scenario.fixture:
         mods_dir.mkdir(exist_ok=True)
         # A plugin on the Bukkit side, a Fabric mod on the loader side: the same modes, both real.
-        if scenario.platform in ("fabric", "quilt"):
+        if scenario.fixture == "java21-method":
+            # Compiled for Java 17 class files but linked against a Java 21 library: what -target
+            # without --release gives, and what the reports show (opanel-mc/opanel#273).
+            shutil.copy(build_java21_plugin(scenario.minecraft), mods_dir / "TooNewForThisJava-1.0.0.jar")
+        elif scenario.platform in ("fabric", "quilt"):
             shutil.copy(build_fabric_fixture(), mods_dir / "crashsleuth-fixture-1.0.0.jar")
         else:
             shutil.copy(build_paper_fixture(scenario.minecraft), mods_dir / "CrashSleuthFixture-1.0.0.jar")

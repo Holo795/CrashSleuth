@@ -2065,5 +2065,19 @@
       "situation": "CORRUPT_JAR",
       "culprit": "InvSee"
     }
+  },
+  {
+    "platform": "paper",
+    "minecraft": "1.20.4",
+    "java": 17,
+    "name": "real-a-method-java-21-brought",
+    "description": "Paper 1.20.4 on Java 17 with a plugin that calls a method Java 21 brought",
+    "fixture": "java21-method",
+    "after_ready": 3,
+    "source": "https://github.com/opanel-mc/opanel/issues/273",
+    "fix": "Run the server on Java 21, or use a build made for the Java in place: the method belongs to Java, not to the plugin.",
+    "expect": {
+      "situation": "JAVA_VERSION"
+    }
   }
 ]

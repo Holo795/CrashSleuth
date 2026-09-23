@@ -1,0 +1,9 @@
+{
+  "situation": "JAVA_VERSION",
+  "culprit": null,
+  "logs": [
+    "latest.log"
+  ],
+  "source": "https://github.com/opanel-mc/opanel/issues/273",
+  "fix": "Run the server on Java 21, or use a build made for the Java in place: the method belongs to Java, not to the plugin."
+}

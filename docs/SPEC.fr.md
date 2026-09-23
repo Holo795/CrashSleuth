@@ -17,7 +17,8 @@
 - **Un désaccord de registre nomme enfin le mod.** Fabric écrit le nom du mod concerné dans les deux formulations du message ; on ne rapportait qu'un nombre d'entrées (« 362 »). C'est maintenant « installez farmersdelight, dans la même version que le serveur », avec le rappel que deux versions différentes font la même chose qu'un mod absent.
 - **Un mod qui touche la moitié client du jeu sur un serveur est nommé.** NeoForge l'écrit noir sur blanc (`- Nox Lights (noxlights) encountered an error… Attempted to load class … for invalid dist DEDICATED_SERVER`) et rien n'était dit : le mod est désormais nommé, avec la distinction entre « c'est un défaut du mod » et « il n'a rien à faire côté serveur ».
 - **Méthode : passer de vrais rapports dans l'outil pour trouver ses silences.** 60 signalements publics analysés tels quels ; les silences réels ont donné les règles ci-dessus, et ce qui reste muet est surtout du texte sans journal, ce qui est le comportement voulu.
-- **Cas réels rejoués : 58** (`docs/REAL_CASES.md`), corpus de 392 cas, 90 signatures.
+- **Une méthode de Java qui manque n'est pas un mod cassé.** `NoSuchMethodError: 'java.lang.Object java.util.List.removeFirst()'` fait accuser le mod nommé dans la trace ; c'est une méthode arrivée avec Java 21, appelée sur un Java plus ancien. Rejoué au labo : un plugin compilé en classes Java 17 mais lié à la bibliothèque de Java 21 (`-target` sans `--release`), lancé sur un serveur Java 17.
+- **Cas réels rejoués : 59** (`docs/REAL_CASES.md`), corpus de 393 cas, 92 signatures.
 
 ### Changements de la v20 (rappel)
 - **Qui nomme n'est pas qui est fautif.** Dans cet écosystème, presque toutes les lignes qui nomment un mod nomment celui qui a *remarqué* le problème. Corrigé sur quatre cas, chacun tiré d'un signalement réel :

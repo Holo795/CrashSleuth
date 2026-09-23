@@ -1,0 +1,83 @@
+{
+ "platform": "PAPER",
+ "minecraftVersion": "1.20.4",
+ "loaderVersion": null,
+ "side": "SERVER",
+ "jars": [
+  {
+   "file": "TooNewForThisJava-1.0.0.jar",
+   "folder": "plugins",
+   "size": 1835,
+   "mods": [
+    {
+     "format": "BUKKIT",
+     "id": "TooNewForThisJava",
+     "name": null,
+     "version": "1.0.0",
+     "environment": "UNKNOWN",
+     "dependencies": [],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": "1.20",
+     "entrypoints": [
+      "dev.holo795.crashsleuth.fixture.TooNewForThisJava"
+     ],
+     "addsContent": false,
+     "optionalOnClient": false
+    }
+   ],
+   "nested": [],
+   "error": null,
+   "javaVersion": 17
+  }
+ ],
+ "skipped": [],
+ "files": {
+  "worlds": [
+   {
+    "name": "world",
+    "versionName": "1.20.4",
+    "dataVersion": 3700,
+    "unreadable": null,
+    "hasBackup": false,
+    "locked": false,
+    "damagedChunks": [],
+    "chunksChecked": 1103,
+    "oversizedChunks": [],
+    "chunksComplete": true,
+    "damagedPlayers": []
+   },
+   {
+    "name": "world_nether",
+    "versionName": "1.20.4",
+    "dataVersion": 3700,
+    "unreadable": null,
+    "hasBackup": false,
+    "locked": false,
+    "damagedChunks": [],
+    "chunksChecked": 1092,
+    "oversizedChunks": [],
+    "chunksComplete": true,
+    "damagedPlayers": []
+   },
+   {
+    "name": "world_the_end",
+    "versionName": "1.20.4",
+    "dataVersion": 3700,
+    "unreadable": null,
+    "hasBackup": false,
+    "locked": false,
+    "damagedChunks": [],
+    "chunksChecked": 1099,
+    "oversizedChunks": [],
+    "chunksComplete": true,
+    "damagedPlayers": []
+   }
+  ],
+  "eulaAccepted": true,
+  "configErrors": [],
+  "rootJars": [
+   "server.jar"
+  ]
+ }
+}

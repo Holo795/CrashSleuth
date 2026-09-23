@@ -1164,6 +1164,25 @@
       },
       "advice": "signature.mod-reached-for-the-client-half.advice",
       "source": "https://github.com/Glytch10/noxlights-1.21.1/issues/3"
+    },
+    {
+      "id": "a-method-java-21-brought",
+      "situation": "JAVA_VERSION",
+      "confidence": "CERTAIN",
+      "pattern": "NoSuchMethodError: '[^']*\\bjava\\.util\\.(?:List|Deque|SequencedCollection|SequencedMap|SequencedSet|LinkedHashMap|LinkedHashSet|SortedSet|SortedMap)\\.(removeFirst|removeLast|getFirst|getLast|addFirst|addLast|reversed|putFirst|putLast|firstEntry|lastEntry)\\(",
+      "details": {
+        "name": 1
+      },
+      "advice": "signature.a-method-java-21-brought.advice",
+      "source": "https://github.com/opanel-mc/opanel/issues/273 and https://github.com/sakura-ryoko/unplugged-afk/issues/17"
+    },
+    {
+      "id": "a-method-of-java-itself-is-missing",
+      "situation": "JAVA_VERSION",
+      "confidence": "HIGH",
+      "pattern": "NoSuchMethodError: '[^']*\\bjava\\.(?:util|lang|nio|io|time|net|text)\\.[\\w.$]+\\.[\\w$]+\\(",
+      "advice": "signature.a-method-of-java-itself-is-missing.advice",
+      "source": "https://github.com/opanel-mc/opanel/issues/273"
     }
   ]
 }
