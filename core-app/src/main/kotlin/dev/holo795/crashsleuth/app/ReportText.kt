@@ -53,6 +53,10 @@ class ReportText(val messages: Messages) {
             val second = culprits(finding).getOrNull(1)?.let { culprit -> describe(culprit) }
             return messages.get(it, first, details["player"] ?: second, details["server"], details["percent"], details["method"] ?: details["drawing"]?.let { messages.get("render.what.$it") }, details["behindMs"], details["count"])
         }
+        // Naming nobody is better than naming "?": say what is known and what to do next instead.
+        if (culprits(finding).isEmpty() && finding.situation == Situation.UNCAUGHT_EXCEPTION) {
+            return messages.get("uncaught.no-culprit")
+        }
         return when (finding.situation) {
             Situation.DEP_MISSING -> messages.advice(finding.situation, details["dependency"], details["requester"])
             Situation.DEP_VERSION -> messages.advice(finding.situation, details["dependency"], details["requester"], details["expected"], details["actual"])
