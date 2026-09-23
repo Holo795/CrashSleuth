@@ -13,6 +13,7 @@ Doing more
 
 About
 - [What it covers](What-it-covers)
+- [Supported versions](Supported-versions)
 - [What leaves your computer](Privacy)
 - [How it is tested](How-it-is-tested)
 - [Contributing](Contributing)

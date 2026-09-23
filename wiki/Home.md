@@ -34,7 +34,8 @@ application they have not seen before.
 
 - [**Command line**](Command-line) — every command, with what it prints.
 - [**Assistants (MCP)**](Assistants-MCP) — let an assistant read your server instead of guessing.
-- [**What it covers**](What-it-covers) — platforms, versions, and the things it deliberately stays quiet about.
+- [**What it covers**](What-it-covers) — platforms, and the things it deliberately stays quiet about.
+- [**Supported versions**](Supported-versions) — the exact Minecraft versions tested, platform by platform.
 - [**What leaves your computer**](Privacy) — the short answer is: nothing, unless you ask.
 - [**How it is tested**](How-it-is-tested) — 62 problems real people reported, replayed with the same jars.
 - [**Contributing**](Contributing) — sending a log that is not understood, or a rule that reads it.

@@ -59,7 +59,7 @@ Linux, Windows and macOS. Tested for real on the three so far: the analyses (the
 
 ## Platforms
 
-Tested in the lab, on every line of versions from **1.19 to the latest**: vanilla, Paper, Spigot, Purpur, Folia, Fabric, Quilt, NeoForge and Forge servers; Velocity, BungeeCord and Waterfall proxies; vanilla, Fabric, NeoForge and Forge clients.
+Tested in the lab, on every line of versions from **1.19 to the latest** ([exact table](https://holo795.github.io/CrashSleuth/Supported-versions.html)): vanilla, Paper, Spigot, Purpur, Folia, Fabric, Quilt, NeoForge and Forge servers; Velocity, BungeeCord and Waterfall proxies; vanilla, Fabric, NeoForge and Forge clients.
 
 ## Desktop app
 

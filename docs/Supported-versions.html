@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Supported versions — CrashSleuth</title>
+<meta name="description" content="This page is generated from the lab, not written by hand: every tick below is a server or a game that">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#content">Skip to the content</a>
+<input type="checkbox" id="menu" hidden>
+<label class="burger" for="menu" aria-label="Menu">☰</label>
+<nav class="side"><a class="brand" href="index.html">CrashSleuth</a><p class="group">Getting started</p><ul><li><a href="index.html">Overview</a></li><li><a href="Install.html">Installation</a></li><li><a href="First-analysis.html">Your first analysis</a></li><li><a href="Reading-a-report.html">Reading a report</a></li></ul><p class="group">Doing more</p><ul><li><a href="Sharing-a-report.html">Sharing a report</a></li><li><a href="Finding-the-culprit.html">Finding the culprit</a></li><li><a href="Command-line.html">Command line</a></li><li><a href="Assistants-MCP.html">Assistants (MCP)</a></li></ul><p class="group">About</p><ul><li><a href="What-it-covers.html">What it covers</a></li><li><a href="Supported-versions.html" class="on">Supported versions</a></li><li><a href="Privacy.html">What leaves your computer</a></li><li><a href="How-it-is-tested.html">How it is tested</a></li><li><a href="Contributing.html">Contributing</a></li><li><a href="FAQ.html">FAQ</a></li></ul><p class="group">Elsewhere</p><ul><li><a href="https://github.com/Holo795/CrashSleuth/releases/latest" target="_blank" rel="noopener">Download</a></li><li><a href="https://github.com/Holo795/CrashSleuth" target="_blank" rel="noopener">Repository</a></li></ul></nav>
+<main id="content">
+<article>
+<h1 id="supported-versions">Supported versions</h1>
+<p>This page is <strong>generated from the lab</strong>, not written by hand: every tick below is a server or a game that was really started, and the page cannot show a version that nobody ran.</p>
+<p><strong>The range is Minecraft 1.19 to 26.3</strong>, including the 26.x numbering.</p>
+<h2 id="what-a-tick-means">What a tick means</h2>
+<div class="scroll"><table><thead><tr><th>Mark</th><th>What was started</th></tr></thead><tbody><tr><td>✅</td><td>two launches: a <strong>clean</strong> one, where CrashSleuth must say nothing, and one with a <strong>dependency removed on purpose</strong>, which it must name</td></tr><tr><td>☑️</td><td>the clean launch only — CrashSleuth stays silent on a healthy server</td></tr><tr><td><em>(empty)</em></td><td>not started: the platform does not publish that version, or it sits between two tested lines</td></tr></tbody></table></div>
+<p>The clean launch matters as much as the other one: a tool that finds problems on healthy servers is worse than no tool. Vanilla has nothing to remove, so for vanilla the clean launch <em>is</em> the whole test.</p>
+<h2 id="servers">Servers</h2>
+<p>Vanilla is started on <strong>every</strong> release. The other platforms are started on one version per line of Minecraft — each point where the game, the loader or Java changed in a way that shows in the logs.</p>
+<div class="scroll"><table><thead><tr><th>Minecraft</th><th>Vanilla</th><th>Paper</th><th>Purpur</th><th>Spigot</th><th>Folia</th><th>Fabric</th><th>Quilt</th><th>NeoForge</th><th>Forge</th></tr></thead><tbody><tr><td><strong>1.19.2</strong></td><td>☑️</td><td>✅</td><td>✅</td><td></td><td></td><td>✅</td><td>✅</td><td></td><td>✅</td></tr><tr><td><strong>1.19.4</strong></td><td>☑️</td><td>✅</td><td>✅</td><td>✅</td><td>☑️</td><td>✅</td><td>✅</td><td></td><td>✅</td></tr><tr><td><strong>1.20.1</strong></td><td>☑️</td><td>✅</td><td>✅</td><td></td><td>☑️</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td><strong>1.20.4</strong></td><td>☑️</td><td>✅</td><td>✅</td><td>✅</td><td>☑️</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td><strong>1.20.6</strong></td><td>☑️</td><td>✅</td><td>✅</td><td></td><td>☑️</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td><strong>1.21.1</strong></td><td>☑️</td><td>✅</td><td>✅</td><td>✅</td><td></td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td><strong>1.21.4</strong></td><td>☑️</td><td>✅</td><td>✅</td><td></td><td>☑️</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td><strong>1.21.8</strong></td><td>☑️</td><td>✅</td><td>✅</td><td></td><td>☑️</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td><strong>1.21.11</strong></td><td>☑️</td><td>✅</td><td>✅</td><td>✅</td><td>☑️</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td><strong>26.1.2</strong></td><td>☑️</td><td>✅</td><td>✅</td><td></td><td>☑️</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td><strong>26.2</strong></td><td>☑️</td><td>✅</td><td>✅</td><td></td><td>☑️</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td><strong>26.3</strong></td><td>☑️</td><td>✅</td><td>✅</td><td>✅</td><td></td><td>✅</td><td>✅</td><td></td><td>✅</td></tr></tbody></table></div>
+<p><strong>Every vanilla release</strong> from 1.19 to 26.3 is started on its own (29 versions): 1.19, 1.19.1, 1.19.2, 1.19.3, 1.19.4, 1.20, 1.20.1, 1.20.2, 1.20.3, 1.20.4, 1.20.5, 1.20.6, 1.21, 1.21.1, 1.21.2, 1.21.3, 1.21.4, 1.21.5, 1.21.6, 1.21.7, 1.21.8, 1.21.9, 1.21.10, 1.21.11, 26.1, 26.1.1, 26.1.2, 26.2, 26.3.</p>
+<h2 id="game-clients">Game clients</h2>
+<p>The real game, started in a window that never comes to the front.</p>
+<div class="scroll"><table><thead><tr><th>Minecraft</th><th>Vanilla</th><th>Fabric</th><th>NeoForge</th><th>Forge</th></tr></thead><tbody><tr><td><strong>1.19.4</strong></td><td>☑️</td><td>✅</td><td></td><td>☑️</td></tr><tr><td><strong>1.20.1</strong></td><td>☑️</td><td>✅</td><td>☑️</td><td>☑️</td></tr><tr><td><strong>1.20.4</strong></td><td>☑️</td><td>✅</td><td>☑️</td><td>☑️</td></tr><tr><td><strong>1.21.1</strong></td><td>☑️</td><td>✅</td><td>☑️</td><td>☑️</td></tr><tr><td><strong>1.21.4</strong></td><td>☑️</td><td>✅</td><td>☑️</td><td>☑️</td></tr><tr><td><strong>1.21.11</strong></td><td>☑️</td><td>✅</td><td>☑️</td><td>☑️</td></tr><tr><td><strong>26.1.2</strong></td><td>☑️</td><td>✅</td><td>☑️</td><td>☑️</td></tr><tr><td><strong>26.3</strong></td><td>☑️</td><td>✅</td><td></td><td>☑️</td></tr></tbody></table></div>
+<h2 id="proxies">Proxies</h2>
+<p>Velocity 3.4.0, Velocity 4.2.0, BungeeCord (latest build), Waterfall (latest build), each with a real player joining through it.</p>
+<h2 id="versions-in-between">Versions in between</h2>
+<p>A version that sits between two tested lines — 1.20.2, say — was not started on its own. It usually behaves like its neighbours, because the messages CrashSleuth reads rarely change within a line, but that is an expectation and not a proof. If something looks wrong on such a version, <a href="Contributing.html">the log is worth sending</a>.</p>
+<h2 id="outside-the-range">Outside the range</h2>
+<p>Before 1.19, CrashSleuth still reads the logs and will often be right, but nothing is started to check it: older loaders word their errors differently and no rule is tested against them.</p>
+<hr>
+<p><em>186 launches in the matrix, regenerated with <code>python3 lab/versions.py</code>.</em></p>
+</article>
+<aside class="toc"><p class="group">On this page</p><ul><li class="l2"><a href="#what-a-tick-means">What a tick means</a></li><li class="l2"><a href="#servers">Servers</a></li><li class="l2"><a href="#game-clients">Game clients</a></li><li class="l2"><a href="#proxies">Proxies</a></li><li class="l2"><a href="#versions-in-between">Versions in between</a></li><li class="l2"><a href="#outside-the-range">Outside the range</a></li></ul></aside>
+</main>
+</body>
+</html>

@@ -7,7 +7,8 @@
 **Clients** — vanilla, Fabric, NeoForge, Forge.
 
 Every one of those is started for real in the lab, on every line of Minecraft versions **from 1.19 to the
-latest**, including the 26.x numbering.
+latest**, including the 26.x numbering. [**Supported versions**](Supported-versions) has the exact table,
+platform by platform, generated from what the lab actually starts.
 
 ## Systems
 

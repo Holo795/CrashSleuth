@@ -34,6 +34,7 @@ NAV = [
     ]),
     ("About", [
         ("What-it-covers", "What it covers"),
+        ("Supported-versions", "Supported versions"),
         ("Privacy", "What leaves your computer"),
         ("How-it-is-tested", "How it is tested"),
         ("Contributing", "Contributing"),
