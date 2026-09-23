@@ -17,9 +17,10 @@
 <h1 id="sharing-a-report">Sharing a report</h1>
 <p>You want someone else to look at your crash. You do not want to upload your server, and you do not want a paste that expires in a week.</p>
 <p><strong>Share</strong> gives you one link. The report travels <em>inside</em> the link.</p>
-<p><img src="images/shared.png" alt="A shared report, opened from its link" loading="lazy"></p>
 <h2 id="how-to-share-one">How to share one</h2>
-<p><strong>In the app</strong> — open a report and click <strong>Share</strong>. The link is on your clipboard. Paste it into Discord, a GitHub issue, a forum thread, wherever.</p>
+<p><strong>In the app</strong> — open a report and click <strong>Share</strong>, at the top right of the report:</p>
+<p><img src="images/share-button.png" alt="The Share button, at the top right of a report" loading="lazy"></p>
+<p>The link goes straight onto your clipboard. Paste it into Discord, a GitHub issue, a forum thread, wherever. (<strong>Copy the report</strong>, next to it, gives plain text instead — handy where a long link would be cut.)</p>
 <p><strong>From the command line</strong>:</p>
 <pre class="code" data-lang="bash"><code>crashsleuth analyze /srv/minecraft --share</code></pre>
 <p>It prints a link that looks like this:</p>
@@ -27,6 +28,8 @@
 <h2 id="how-to-open-one-someone-sent-you">How to open one someone sent you</h2>
 <p>Either way works:</p>
 <ul><li><strong>Click it.</strong> It opens in any browser, no install, no account.</li><li><strong>Paste it into the app</strong>, in the <em>&quot;A report someone shared?&quot;</em> box on the home screen, and read it with the same interface as your own reports.</li></ul>
+<p>This is what they see — your report, with a line saying it was read from a link:</p>
+<p><img src="images/shared.png" alt="A shared report, opened from its link" loading="lazy"></p>
 <h2 id="why-nothing-is-uploaded">Why nothing is uploaded</h2>
 <p>Look at the link again. Everything after the <code>#</code> is the report itself, compressed and encoded.</p>
 <p>A browser <strong>never sends the part after the <code>#</code></strong> to the server. It is called the fragment, and it exists to point at a place inside a page; it stays in the browser. So when someone opens your link:</p>

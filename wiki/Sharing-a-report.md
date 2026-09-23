@@ -5,12 +5,15 @@ paste that expires in a week.
 
 **Share** gives you one link. The report travels *inside* the link.
 
-![A shared report, opened from its link](images/shared.png)
-
 ## How to share one
 
-**In the app** — open a report and click **Share**. The link is on your clipboard. Paste it into Discord, a
-GitHub issue, a forum thread, wherever.
+**In the app** — open a report and click **Share**, at the top right of the report:
+
+![The Share button, at the top right of a report](images/share-button.png)
+
+The link goes straight onto your clipboard. Paste it into Discord, a GitHub issue, a forum thread,
+wherever. (**Copy the report**, next to it, gives plain text instead — handy where a long link would be
+cut.)
 
 **From the command line**:
 
@@ -31,6 +34,10 @@ Either way works:
 - **Click it.** It opens in any browser, no install, no account.
 - **Paste it into the app**, in the *"A report someone shared?"* box on the home screen, and read it with
   the same interface as your own reports.
+
+This is what they see — your report, with a line saying it was read from a link:
+
+![A shared report, opened from its link](images/shared.png)
 
 ## Why nothing is uploaded
 
