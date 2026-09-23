@@ -211,4 +211,20 @@ class LogAnalyzerTest {
         """.trimIndent()
         assertTrue(LogAnalyzer().analyze(log).findings.isEmpty(), "a missing model is not what breaks a game")
     }
+
+    @Test
+    fun `the plugin named by a failed event is not always the one whose code failed`() {
+        // https://github.com/mewin/WorldGuard-Region-Events/issues/20 : WorldGuard is named because the
+        // listener was registered under its name, and appears in none of the frames.
+        val log = """
+            [05:17:26 ERROR]: Could not pass event PlayerJoinEvent to WorldGuard v7.0.4+f7ff984
+            java.lang.NoSuchMethodError: 'com.sk89q.worldguard.protection.managers.RegionManager com.sk89q.worldguard.bukkit.WorldGuardPlugin.getRegionManager(org.bukkit.World)'
+            	at com.mewin.WGRegionEvents.WGRegionEventsListener.updateRegions(WGRegionEventsListener.java:113) ~[?:?]
+            	at com.mewin.WGRegionEvents.WGRegionEventsListener.onPlayerJoin(WGRegionEventsListener.java:71) ~[?:?]
+            	at io.papermc.paper.plugin.manager.PaperEventManager.callEvent(PaperEventManager.java:54) ~[paper-1.16.5.jar:git-Paper-505]
+        """.trimIndent()
+        val finding = LogAnalyzer().analyze(log).find(Situation.SILENT_ERROR)
+        assertEquals("com.mewin.WGRegionEvents", finding.culprits.first().id)
+        assertEquals("WorldGuard", finding.culprits[1].id, "the one that registered it is still said, second")
+    }
 }

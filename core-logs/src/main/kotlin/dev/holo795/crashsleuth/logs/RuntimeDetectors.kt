@@ -87,12 +87,21 @@ object PluginRuntimeDetector : Detector {
             val first = occurrences.minBy { it.offset }
             val lineIndex = document.text.substring(0, first.offset).count { it == '\n' }
             val trace = document.stackTraces.firstOrNull { it.lineIndex > lineIndex && it.lineIndex <= lineIndex + 2 }
+            // The line names the plugin that registered the listener or the task, which is not always
+            // the one whose code failed: another plugin's listener can be registered under its name, and
+            // a shaded library keeps the name of whoever shipped it. When nothing of the named plugin is
+            // in the trace, the code that actually threw comes first.
+            val named = Culprit(CulpritKind.PLUGIN, plugin, version = first.version)
+            val fromTrace = trace?.let { Attribution.culprits(it, environment, 2) }.orEmpty()
+            val ownsAFrame = fromTrace.any { it.id.equals(plugin, ignoreCase = true) || plugin.contains(it.id, ignoreCase = true) || it.id.contains(plugin, ignoreCase = true) }
+            val culprits = if (fromTrace.isEmpty() || ownsAFrame) listOf(named) else fromTrace.take(1) + named
             Finding(
                 situation = Situation.SILENT_ERROR,
                 confidence = Confidence.HIGH,
-                culprits = listOf(Culprit(CulpritKind.PLUGIN, plugin, version = first.version)),
+                culprits = culprits,
                 evidence = listOfNotNull(document.lineContaining(first.line), trace?.root?.headline),
-                details = mapOf("count" to occurrences.size.toString(), "where" to occurrences.map { it.kind }.distinct().joinToString()),
+                details = mapOf("count" to occurrences.size.toString(), "where" to occurrences.map { it.kind }.distinct().joinToString()) +
+                    if (culprits.size > 1) mapOf("adviceKey" to "silent.registered-by", "registeredBy" to plugin) else emptyMap(),
             )
         }
     }
