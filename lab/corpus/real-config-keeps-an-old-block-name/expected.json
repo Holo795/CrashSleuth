@@ -2,7 +2,7 @@
   "situation": "CONFIG_BROKEN",
   "culprit": null,
   "logs": [
-    "crash-2026-09-23_01.53.36-server.txt"
+    "crash-2026-09-23_09.17.16-server.txt"
   ],
   "source": "https://github.com/PaperMC/Paper/issues/10909",
   "fix": "Nothing migrates these files: back up config/, let the server write fresh ones, then re-apply the settings by hand."

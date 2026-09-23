@@ -1,37 +1,37 @@
-[01:11:51] [ServerMain/INFO]: [bootstrap] Running Java 25 (OpenJDK 64-Bit Server VM 25.0.4+7-LTS; Eclipse Adoptium Temurin-25.0.4+7) on Linux 7.0.14-orbstack-00380-ga7e0a2dc9535 (aarch64)
-[01:11:51] [ServerMain/INFO]: [bootstrap] Loading Paper 26.2-128-ver/26.2@5749698 (2026-09-22T12:09:59Z) for Minecraft 26.2
-[01:11:51] [ServerMain/INFO]: [PluginInitializerManager] Initializing plugins...
-[01:11:51] [ServerMain/INFO]: [PluginInitializerManager] Initialized 1 plugin
-[01:11:51] [ServerMain/INFO]: [PluginInitializerManager] Bukkit plugins (1):
+[09:17:21] [ServerMain/INFO]: [bootstrap] Running Java 25 (OpenJDK 64-Bit Server VM 25.0.4+7-LTS; Eclipse Adoptium Temurin-25.0.4+7) on Linux 7.0.14-orbstack-00380-ga7e0a2dc9535 (aarch64)
+[09:17:21] [ServerMain/INFO]: [bootstrap] Loading Paper 26.2-128-ver/26.2@5749698 (2026-09-22T12:09:59Z) for Minecraft 26.2
+[09:17:21] [ServerMain/INFO]: [PluginInitializerManager] Initializing plugins...
+[09:17:22] [ServerMain/INFO]: [PluginInitializerManager] Initialized 1 plugin
+[09:17:22] [ServerMain/INFO]: [PluginInitializerManager] Bukkit plugins (1):
  - GrimAC (2.3.74-e37b7e3)
-[01:11:52] [DataConverter MCTypeRegistry init thread/INFO]: [ca.spottedleaf.dataconverter.minecraft.datatypes.MCTypeRegistry] Initialising converters for DataConverter...
-[01:11:52] [ServerMain/INFO]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, profilesHost=https://api.mojang.com, name=PROD]
-[01:11:53] [DataConverter MCTypeRegistry init thread/INFO]: [ca.spottedleaf.dataconverter.minecraft.datatypes.MCTypeRegistry] Finished initialising converters for DataConverter in 187.3ms
-[01:11:53] [ServerMain/INFO]: Found new data pack paper, loading it automatically
-[01:11:53] [Worker-Main-3/INFO]: No existing world data, creating new world
-[01:11:53] [ServerMain/INFO]: Loaded 1585 recipes
-[01:11:53] [ServerMain/INFO]: Loaded 1688 advancements
-[01:11:53] [Server thread/INFO]: Starting minecraft server version 26.2
-[01:11:53] [Server thread/INFO]: Loading properties
-[01:11:53] [Server thread/INFO]: This server is running Paper version 26.2-128-ver/26.2@5749698 (2026-09-22T12:09:59Z) (Implementing API version 26.2.build.128-stable)
-[01:11:53] [Server thread/INFO]: [spark] This server bundles the spark profiler. For more information please visit https://docs.papermc.io/paper/profiling
-[01:11:53] [Server thread/INFO]: Server Ping Player Sample Count: 12
-[01:11:53] [Server thread/INFO]: Using 4 threads for Netty based IO
-[01:11:53] [Server thread/INFO]: [MoonriseCommon] Paper is using 3 worker threads, 1 I/O threads
-[01:11:54] [Server thread/INFO]: Default game type: SURVIVAL
-[01:11:54] [Server thread/INFO]: Generating keypair
-[01:11:54] [Server thread/INFO]: Starting Minecraft server on *:25565
-[01:11:54] [Server thread/INFO]: Paper: Using libdeflate (Linux aarch64) compression from Velocity.
-[01:11:54] [Server thread/INFO]: Paper: Using OpenSSL 3.x.x (Linux aarch64) cipher from Velocity.
-[01:11:54] [Server thread/INFO]: [GrimAC] Loading server plugin GrimAC v2.3.74-e37b7e3
-[01:11:54] [Server thread/ERROR]: [GrimAC] [STDERR] SLF4J(W): No SLF4J providers were found.
-[01:11:54] [Server thread/WARN]: Nag author(s): '[GrimAC]' of 'GrimAC v2.3.74-e37b7e3' about their usage of System.out/err.print. Please use your plugin's logger instead (JavaPlugin#getLogger).
-[01:11:54] [Server thread/ERROR]: [GrimAC] [STDERR] SLF4J(W): Defaulting to no-operation (NOP) logger implementation
-[01:11:54] [Server thread/ERROR]: [GrimAC] [STDERR] SLF4J(W): See https://www.slf4j.org/codes.html#noProviders for further details.
-[01:11:54] [Server thread/INFO]: [GrimAC] Loading PacketEvents...
-[01:11:54] [Server thread/INFO]: [packetevents] Your server software is preventing us from checking the Minecraft Server version. This is what we found: 26.2.build.128-stable. We will assume the Server version is V_1_8_8...
+[09:17:23] [DataConverter MCTypeRegistry init thread/INFO]: [ca.spottedleaf.dataconverter.minecraft.datatypes.MCTypeRegistry] Initialising converters for DataConverter...
+[09:17:23] [ServerMain/INFO]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, profilesHost=https://api.mojang.com, name=PROD]
+[09:17:23] [DataConverter MCTypeRegistry init thread/INFO]: [ca.spottedleaf.dataconverter.minecraft.datatypes.MCTypeRegistry] Finished initialising converters for DataConverter in 210.4ms
+[09:17:23] [ServerMain/INFO]: Found new data pack paper, loading it automatically
+[09:17:24] [Worker-Main-1/INFO]: No existing world data, creating new world
+[09:17:24] [ServerMain/INFO]: Loaded 1585 recipes
+[09:17:24] [ServerMain/INFO]: Loaded 1688 advancements
+[09:17:24] [Server thread/INFO]: Starting minecraft server version 26.2
+[09:17:24] [Server thread/INFO]: Loading properties
+[09:17:24] [Server thread/INFO]: This server is running Paper version 26.2-128-ver/26.2@5749698 (2026-09-22T12:09:59Z) (Implementing API version 26.2.build.128-stable)
+[09:17:24] [Server thread/INFO]: [spark] This server bundles the spark profiler. For more information please visit https://docs.papermc.io/paper/profiling
+[09:17:24] [Server thread/INFO]: Server Ping Player Sample Count: 12
+[09:17:24] [Server thread/INFO]: Using 4 threads for Netty based IO
+[09:17:24] [Server thread/INFO]: [MoonriseCommon] Paper is using 3 worker threads, 1 I/O threads
+[09:17:24] [Server thread/INFO]: Default game type: SURVIVAL
+[09:17:24] [Server thread/INFO]: Generating keypair
+[09:17:24] [Server thread/INFO]: Starting Minecraft server on *:25565
+[09:17:24] [Server thread/INFO]: Paper: Using libdeflate (Linux aarch64) compression from Velocity.
+[09:17:24] [Server thread/INFO]: Paper: Using OpenSSL 3.x.x (Linux aarch64) cipher from Velocity.
+[09:17:25] [Server thread/INFO]: [GrimAC] Loading server plugin GrimAC v2.3.74-e37b7e3
+[09:17:25] [Server thread/ERROR]: [GrimAC] [STDERR] SLF4J(W): No SLF4J providers were found.
+[09:17:25] [Server thread/WARN]: Nag author(s): '[GrimAC]' of 'GrimAC v2.3.74-e37b7e3' about their usage of System.out/err.print. Please use your plugin's logger instead (JavaPlugin#getLogger).
+[09:17:25] [Server thread/ERROR]: [GrimAC] [STDERR] SLF4J(W): Defaulting to no-operation (NOP) logger implementation
+[09:17:25] [Server thread/ERROR]: [GrimAC] [STDERR] SLF4J(W): See https://www.slf4j.org/codes.html#noProviders for further details.
+[09:17:25] [Server thread/INFO]: [GrimAC] Loading PacketEvents...
+[09:17:25] [Server thread/INFO]: [packetevents] Your server software is preventing us from checking the Minecraft Server version. This is what we found: 26.2.build.128-stable. We will assume the Server version is V_1_8_8...
  If you need assistance, join our Discord server: https://discord.gg/DVHxPPxHZc
-[01:11:54] [Server thread/ERROR]: [GrimAC] Failed to load PacketEventsInit: java.lang.IllegalStateException: java.lang.NullPointerException: Cannot invoke "java.lang.Class.getConstructor(java.lang.Class[])" because "ac.grim.grimac.shaded.io.github.retrooper.packetevents.util.SpigotReflectionUtil.NMS_ITEM_STACK_CLASS" is null
+[09:17:25] [Server thread/ERROR]: [GrimAC] Failed to load PacketEventsInit: java.lang.IllegalStateException: java.lang.NullPointerException: Cannot invoke "java.lang.Class.getConstructor(java.lang.Class[])" because "ac.grim.grimac.shaded.io.github.retrooper.packetevents.util.SpigotReflectionUtil.NMS_ITEM_STACK_CLASS" is null
 	at grimac-bukkit-2.3.74-e37b7e3.jar//ac.grim.grimac.shaded.io.github.retrooper.packetevents.factory.spigot.SpigotPacketEventsBuilder$1.load(SpigotPacketEventsBuilder.java:118)
 	at grimac-bukkit-2.3.74-e37b7e3.jar//ac.grim.grimac.manager.init.load.PacketEventsInit.load(PacketEventsInit.java:36)
 	at grimac-bukkit-2.3.74-e37b7e3.jar//ac.grim.grimac.manager.InitManager.load(InitManager.java:74)
@@ -52,28 +52,28 @@ Caused by: java.lang.NullPointerException: Cannot invoke "java.lang.Class.getCon
 	at grimac-bukkit-2.3.74-e37b7e3.jar//ac.grim.grimac.shaded.io.github.retrooper.packetevents.factory.spigot.SpigotPacketEventsBuilder$1.load(SpigotPacketEventsBuilder.java:115)
 	... 13 more
 
-[01:11:54] [Server thread/WARN]: [GrimAC] Deprecated Grim command-execute string listener registered; use the Supplier<String> verbose handler and call verbose.get() only when text is needed.
-[01:11:54] [Server thread/WARN]: **** SERVER IS RUNNING IN OFFLINE/INSECURE MODE!
-[01:11:54] [Server thread/WARN]: The server will make no attempt to authenticate usernames. Beware.
-[01:11:54] [Server thread/WARN]: While this makes the game possible to play without internet access, it also opens up the ability for hackers to connect with any username they choose.
-[01:11:54] [Server thread/WARN]: To change this, set "online-mode" to "true" in the server.properties file.
-[01:11:54] [Server thread/INFO]: Preparing level "world"
-[01:11:54] [Server thread/INFO]: Selecting spawn point for level 'minecraft:overworld'...
-[01:11:55] [Server thread/INFO]: Selecting spawn point for level 'minecraft:the_nether'...
-[01:11:56] [Server thread/INFO]: Selecting spawn point for level 'minecraft:the_end'...
-[01:11:56] [Server thread/INFO]: Loading 0 persistent chunks for level 'minecraft:overworld'...
-[01:11:56] [Server thread/INFO]: Preparing spawn area: 100%
-[01:11:56] [Server thread/INFO]: Prepared spawn area in 1684 ms
-[01:11:56] [Server thread/INFO]: Loading 0 persistent chunks for level 'minecraft:the_nether'...
-[01:11:56] [Server thread/INFO]: Preparing spawn area: 100%
-[01:11:56] [Server thread/INFO]: Prepared spawn area in 355 ms
-[01:11:56] [Server thread/INFO]: Loading 0 persistent chunks for level 'minecraft:the_end'...
-[01:11:56] [Server thread/INFO]: Preparing spawn area: 100%
-[01:11:56] [Server thread/INFO]: Prepared spawn area in 131 ms
-[01:11:56] [Server thread/INFO]: Done preparing level "world" (1.837s)
-[01:11:56] [Server thread/INFO]: [GrimAC] Enabling GrimAC v2.3.74-e37b7e3
-[01:11:56] [Server thread/INFO]: [GrimAC] Registering packets...
-[01:11:56] [Server thread/ERROR]: [GrimAC] Failed to start PacketManager: java.lang.IllegalStateException: java.lang.NullPointerException: Cannot invoke "java.lang.Class.getConstructor(java.lang.Class[])" because "ac.grim.grimac.shaded.io.github.retrooper.packetevents.util.SpigotReflectionUtil.NMS_ITEM_STACK_CLASS" is null
+[09:17:25] [Server thread/WARN]: [GrimAC] Deprecated Grim command-execute string listener registered; use the Supplier<String> verbose handler and call verbose.get() only when text is needed.
+[09:17:25] [Server thread/WARN]: **** SERVER IS RUNNING IN OFFLINE/INSECURE MODE!
+[09:17:25] [Server thread/WARN]: The server will make no attempt to authenticate usernames. Beware.
+[09:17:25] [Server thread/WARN]: While this makes the game possible to play without internet access, it also opens up the ability for hackers to connect with any username they choose.
+[09:17:25] [Server thread/WARN]: To change this, set "online-mode" to "true" in the server.properties file.
+[09:17:25] [Server thread/INFO]: Preparing level "world"
+[09:17:25] [Server thread/INFO]: Selecting spawn point for level 'minecraft:overworld'...
+[09:17:26] [Server thread/INFO]: Selecting spawn point for level 'minecraft:the_nether'...
+[09:17:26] [Server thread/INFO]: Selecting spawn point for level 'minecraft:the_end'...
+[09:17:27] [Server thread/INFO]: Loading 0 persistent chunks for level 'minecraft:overworld'...
+[09:17:27] [Server thread/INFO]: Preparing spawn area: 100%
+[09:17:27] [Server thread/INFO]: Prepared spawn area in 1648 ms
+[09:17:27] [Server thread/INFO]: Loading 0 persistent chunks for level 'minecraft:the_nether'...
+[09:17:27] [Server thread/INFO]: Preparing spawn area: 100%
+[09:17:27] [Server thread/INFO]: Prepared spawn area in 340 ms
+[09:17:27] [Server thread/INFO]: Loading 0 persistent chunks for level 'minecraft:the_end'...
+[09:17:27] [Server thread/INFO]: Preparing spawn area: 100%
+[09:17:27] [Server thread/INFO]: Prepared spawn area in 121 ms
+[09:17:27] [Server thread/INFO]: Done preparing level "world" (1.798s)
+[09:17:27] [Server thread/INFO]: [GrimAC] Enabling GrimAC v2.3.74-e37b7e3
+[09:17:27] [Server thread/INFO]: [GrimAC] Registering packets...
+[09:17:27] [Server thread/ERROR]: [GrimAC] Failed to start PacketManager: java.lang.IllegalStateException: java.lang.NullPointerException: Cannot invoke "java.lang.Class.getConstructor(java.lang.Class[])" because "ac.grim.grimac.shaded.io.github.retrooper.packetevents.util.SpigotReflectionUtil.NMS_ITEM_STACK_CLASS" is null
 	at grimac-bukkit-2.3.74-e37b7e3.jar//ac.grim.grimac.shaded.io.github.retrooper.packetevents.factory.spigot.SpigotPacketEventsBuilder$1.load(SpigotPacketEventsBuilder.java:118)
 	at grimac-bukkit-2.3.74-e37b7e3.jar//ac.grim.grimac.shaded.io.github.retrooper.packetevents.factory.spigot.SpigotPacketEventsBuilder$1.init(SpigotPacketEventsBuilder.java:166)
 	at grimac-bukkit-2.3.74-e37b7e3.jar//ac.grim.grimac.manager.init.start.PacketManager.start(PacketManager.java:48)
@@ -97,67 +97,67 @@ Caused by: java.lang.NullPointerException: Cannot invoke "java.lang.Class.getCon
 	at grimac-bukkit-2.3.74-e37b7e3.jar//ac.grim.grimac.shaded.io.github.retrooper.packetevents.factory.spigot.SpigotPacketEventsBuilder$1.load(SpigotPacketEventsBuilder.java:115)
 	... 16 more
 
-[01:11:56] [Server thread/INFO]: [GrimAC] Registering tick schedulers...
-[01:11:56] [Server thread/INFO]: Grim Version: 2.3.74-e37b7e3
-[01:11:56] [Server thread/INFO]: [grim-datastore] [grim-datastore] SQLite engine 3.49.1 — using modern dialect
-[01:11:56] [Server thread/INFO]: [grim-datastore] [v2-bootstrap] grim:grim_sessions (sessions): 0 migration(s)
-[01:11:56] [Server thread/INFO]: [grim-datastore] [v2-bootstrap] grim:grim_settings (settings): 0 migration(s)
-[01:11:56] [Server thread/INFO]: [grim-datastore] [v2-bootstrap] grim:grim_violations (violations): 0 migration(s)
-[01:11:56] [Server thread/INFO]: [grim-datastore] [v2-bootstrap] grim:grim_checks (checks): 0 migration(s)
-[01:11:56] [Server thread/INFO]: [grim-datastore] [v2-bootstrap] grim:verbose_schemas (verbose_schemas): 0 migration(s)
-[01:11:56] [Server thread/INFO]: [grim-datastore] [v2-bootstrap] grim:grim_players (players): 0 migration(s)
-[01:11:56] [Server thread/INFO]: [grim-datastore] [v2-bootstrap] grim:server_startups (server_startups): 0 migration(s)
-[01:11:56] [Server thread/INFO]: [grim-datastore] [grim-datastore] v2 cutover complete: 1 v2 backend(s), ac.grim.grimac.internal.storage.core.V2Routes@6769a8fa routes installed, 0 legacy backends
-[01:11:56] [Server thread/WARN]: [grim-datastore] [grim-datastore] storage startup claimed: serverName='ChangeMe' instanceId=4b8aa5f4-b7fb-4080-a36c-b0d20268ec70 startupId=fae229b1-6862-4118-84c5-de7409a7c74f; recovered 0 previous open session(s).
-[01:11:56] [Server thread/INFO]: [GrimAC] Registering singular bukkit event... (PistonEvent)
-[01:11:56] [Server thread/INFO]: [spark] Starting background profiler...
-[01:11:56] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:overworld
-[01:11:56] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:the_nether
-[01:11:56] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:the_end
-[01:11:56] [Server thread/INFO]: ThreadedAnvilChunkStorage (world): All chunks are saved
-[01:11:56] [Server thread/INFO]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
-[01:11:56] [Server thread/INFO]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
-[01:11:56] [Server thread/INFO]: ThreadedAnvilChunkStorage: All dimensions are saved
-[01:11:56] [Server thread/INFO]: Running delayed init tasks
-[01:11:56] [Server thread/INFO]: Done (5.773s)! For help, type "help"
-[01:11:56] [Server thread/INFO]: *************************************************************************************
-[01:11:56] [Server thread/INFO]: This is the first time you're starting this server.
-[01:11:56] [Server thread/INFO]: It's recommended you read our 'Getting Started' documentation for guidance.
-[01:11:56] [Server thread/INFO]: View this and more helpful information here: https://docs.papermc.io/paper/next-steps
-[01:11:56] [Server thread/INFO]: *************************************************************************************
-[01:11:57] [Craft Scheduler Thread - 2 - GrimAC/INFO]: You are using the latest version of GrimAC
-[01:12:02] [Server thread/INFO]: Stopping the server
-[01:12:02] [Server thread/INFO]: Stopping server
-[01:12:02] [Server thread/INFO]: [GrimAC] Disabling GrimAC v2.3.74-e37b7e3
-[01:12:02] [Server thread/INFO]: [GrimAC] Terminating PacketEvents...
-[01:12:02] [Server thread/INFO]: Saving players
-[01:12:02] [Server thread/INFO]: Saving worlds
-[01:12:02] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:overworld
-[01:12:02] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk system to halt for world 'minecraft:overworld'
-[01:12:02] [Server thread/INFO]: [ChunkHolderManager] Halted chunk system for world 'minecraft:overworld'
-[01:12:02] [Server thread/INFO]: [ChunkHolderManager] Saving all chunkholders for world 'minecraft:overworld'
-[01:12:02] [Server thread/INFO]: [ChunkHolderManager] Saved 0 block chunks, 0 entity chunks, 0 poi chunks in world 'minecraft:overworld' in 0.00s
-[01:12:02] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk I/O to halt for world 'minecraft:overworld'
-[01:12:02] [Server thread/INFO]: [ChunkHolderManager] Halted I/O scheduler for world 'minecraft:overworld'
-[01:12:02] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:the_nether
-[01:12:02] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk system to halt for world 'minecraft:the_nether'
-[01:12:02] [Server thread/INFO]: [ChunkHolderManager] Halted chunk system for world 'minecraft:the_nether'
-[01:12:02] [Server thread/INFO]: [ChunkHolderManager] Saving all chunkholders for world 'minecraft:the_nether'
-[01:12:02] [Server thread/INFO]: [ChunkHolderManager] Saved 0 block chunks, 0 entity chunks, 0 poi chunks in world 'minecraft:the_nether' in 0.00s
-[01:12:02] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk I/O to halt for world 'minecraft:the_nether'
-[01:12:02] [Server thread/INFO]: [ChunkHolderManager] Halted I/O scheduler for world 'minecraft:the_nether'
-[01:12:02] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:the_end
-[01:12:02] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk system to halt for world 'minecraft:the_end'
-[01:12:02] [Server thread/INFO]: [ChunkHolderManager] Halted chunk system for world 'minecraft:the_end'
-[01:12:02] [Server thread/INFO]: [ChunkHolderManager] Saving all chunkholders for world 'minecraft:the_end'
-[01:12:02] [Server thread/INFO]: [ChunkHolderManager] Saved 0 block chunks, 0 entity chunks, 0 poi chunks in world 'minecraft:the_end' in 0.00s
-[01:12:02] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk I/O to halt for world 'minecraft:the_end'
-[01:12:02] [Server thread/INFO]: [ChunkHolderManager] Halted I/O scheduler for world 'minecraft:the_end'
-[01:12:02] [Server thread/INFO]: ThreadedAnvilChunkStorage (world): All chunks are saved
-[01:12:02] [Server thread/INFO]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
-[01:12:02] [Server thread/INFO]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
-[01:12:02] [Server thread/INFO]: ThreadedAnvilChunkStorage: All dimensions are saved
-[01:12:02] [Server thread/INFO]: Waiting for all RegionFile I/O tasks to complete...
-[01:12:02] [Server thread/INFO]: All RegionFile I/O tasks to complete
-[01:12:02] [Server thread/INFO]: [MoonriseCommon] Awaiting termination of worker pool for up to 60s...
-[01:12:02] [Server thread/INFO]: [MoonriseCommon] Awaiting termination of I/O pool for up to 60s...
+[09:17:27] [Server thread/INFO]: [GrimAC] Registering tick schedulers...
+[09:17:27] [Server thread/INFO]: Grim Version: 2.3.74-e37b7e3
+[09:17:27] [Server thread/INFO]: [grim-datastore] [grim-datastore] SQLite engine 3.49.1 — using modern dialect
+[09:17:27] [Server thread/INFO]: [grim-datastore] [v2-bootstrap] grim:grim_players (players): 0 migration(s)
+[09:17:27] [Server thread/INFO]: [grim-datastore] [v2-bootstrap] grim:grim_settings (settings): 0 migration(s)
+[09:17:27] [Server thread/INFO]: [grim-datastore] [v2-bootstrap] grim:grim_violations (violations): 0 migration(s)
+[09:17:27] [Server thread/INFO]: [grim-datastore] [v2-bootstrap] grim:grim_checks (checks): 0 migration(s)
+[09:17:27] [Server thread/INFO]: [grim-datastore] [v2-bootstrap] grim:verbose_schemas (verbose_schemas): 0 migration(s)
+[09:17:27] [Server thread/INFO]: [grim-datastore] [v2-bootstrap] grim:grim_sessions (sessions): 0 migration(s)
+[09:17:27] [Server thread/INFO]: [grim-datastore] [v2-bootstrap] grim:server_startups (server_startups): 0 migration(s)
+[09:17:27] [Server thread/INFO]: [grim-datastore] [grim-datastore] v2 cutover complete: 1 v2 backend(s), ac.grim.grimac.internal.storage.core.V2Routes@b59d9fb routes installed, 0 legacy backends
+[09:17:27] [Server thread/WARN]: [grim-datastore] [grim-datastore] storage startup claimed: serverName='ChangeMe' instanceId=1dcdc21e-1bf9-40c8-a874-87dc323d2fea startupId=1db8a617-f8f9-4da4-bbdc-f76418032ef1; recovered 0 previous open session(s).
+[09:17:27] [Server thread/INFO]: [GrimAC] Registering singular bukkit event... (PistonEvent)
+[09:17:27] [Server thread/INFO]: [spark] Starting background profiler...
+[09:17:27] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:overworld
+[09:17:27] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:the_nether
+[09:17:27] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:the_end
+[09:17:27] [Server thread/INFO]: ThreadedAnvilChunkStorage (world): All chunks are saved
+[09:17:27] [Server thread/INFO]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[09:17:27] [Server thread/INFO]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[09:17:27] [Server thread/INFO]: ThreadedAnvilChunkStorage: All dimensions are saved
+[09:17:27] [Server thread/INFO]: Running delayed init tasks
+[09:17:27] [Server thread/INFO]: Done (6.074s)! For help, type "help"
+[09:17:27] [Server thread/INFO]: *************************************************************************************
+[09:17:27] [Server thread/INFO]: This is the first time you're starting this server.
+[09:17:27] [Server thread/INFO]: It's recommended you read our 'Getting Started' documentation for guidance.
+[09:17:27] [Server thread/INFO]: View this and more helpful information here: https://docs.papermc.io/paper/next-steps
+[09:17:27] [Server thread/INFO]: *************************************************************************************
+[09:17:28] [Craft Scheduler Thread - 2 - GrimAC/INFO]: You are using the latest version of GrimAC
+[09:17:33] [Server thread/INFO]: Stopping the server
+[09:17:33] [Server thread/INFO]: Stopping server
+[09:17:33] [Server thread/INFO]: [GrimAC] Disabling GrimAC v2.3.74-e37b7e3
+[09:17:33] [Server thread/INFO]: [GrimAC] Terminating PacketEvents...
+[09:17:33] [Server thread/INFO]: Saving players
+[09:17:33] [Server thread/INFO]: Saving worlds
+[09:17:33] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:overworld
+[09:17:33] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk system to halt for world 'minecraft:overworld'
+[09:17:33] [Server thread/INFO]: [ChunkHolderManager] Halted chunk system for world 'minecraft:overworld'
+[09:17:33] [Server thread/INFO]: [ChunkHolderManager] Saving all chunkholders for world 'minecraft:overworld'
+[09:17:33] [Server thread/INFO]: [ChunkHolderManager] Saved 0 block chunks, 0 entity chunks, 0 poi chunks in world 'minecraft:overworld' in 0.00s
+[09:17:33] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk I/O to halt for world 'minecraft:overworld'
+[09:17:33] [Server thread/INFO]: [ChunkHolderManager] Halted I/O scheduler for world 'minecraft:overworld'
+[09:17:33] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:the_nether
+[09:17:33] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk system to halt for world 'minecraft:the_nether'
+[09:17:33] [Server thread/INFO]: [ChunkHolderManager] Halted chunk system for world 'minecraft:the_nether'
+[09:17:33] [Server thread/INFO]: [ChunkHolderManager] Saving all chunkholders for world 'minecraft:the_nether'
+[09:17:33] [Server thread/INFO]: [ChunkHolderManager] Saved 0 block chunks, 0 entity chunks, 0 poi chunks in world 'minecraft:the_nether' in 0.00s
+[09:17:33] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk I/O to halt for world 'minecraft:the_nether'
+[09:17:33] [Server thread/INFO]: [ChunkHolderManager] Halted I/O scheduler for world 'minecraft:the_nether'
+[09:17:33] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:the_end
+[09:17:33] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk system to halt for world 'minecraft:the_end'
+[09:17:33] [Server thread/INFO]: [ChunkHolderManager] Halted chunk system for world 'minecraft:the_end'
+[09:17:33] [Server thread/INFO]: [ChunkHolderManager] Saving all chunkholders for world 'minecraft:the_end'
+[09:17:33] [Server thread/INFO]: [ChunkHolderManager] Saved 0 block chunks, 0 entity chunks, 0 poi chunks in world 'minecraft:the_end' in 0.00s
+[09:17:33] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk I/O to halt for world 'minecraft:the_end'
+[09:17:33] [Server thread/INFO]: [ChunkHolderManager] Halted I/O scheduler for world 'minecraft:the_end'
+[09:17:33] [Server thread/INFO]: ThreadedAnvilChunkStorage (world): All chunks are saved
+[09:17:33] [Server thread/INFO]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[09:17:33] [Server thread/INFO]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[09:17:33] [Server thread/INFO]: ThreadedAnvilChunkStorage: All dimensions are saved
+[09:17:33] [Server thread/INFO]: Waiting for all RegionFile I/O tasks to complete...
+[09:17:33] [Server thread/INFO]: All RegionFile I/O tasks to complete
+[09:17:33] [Server thread/INFO]: [MoonriseCommon] Awaiting termination of worker pool for up to 60s...
+[09:17:33] [Server thread/INFO]: [MoonriseCommon] Awaiting termination of I/O pool for up to 60s...

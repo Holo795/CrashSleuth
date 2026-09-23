@@ -1,38 +1,38 @@
-[01:56:29] [ServerMain/INFO]: [bootstrap] Running Java 21 (OpenJDK 64-Bit Server VM 21.0.12+8-LTS; Eclipse Adoptium Temurin-21.0.12+8) on Linux 7.0.14-orbstack-00380-ga7e0a2dc9535 (aarch64)
-[01:56:29] [ServerMain/INFO]: [bootstrap] Loading Paper 1.21.1-133-ver/1.21.1@3cb8529 (2025-03-28T16:14:36Z) for Minecraft 1.21.1
-[01:56:29] [ServerMain/INFO]: [PluginInitializerManager] Initializing plugins...
-[01:56:29] [ServerMain/INFO]: [PluginInitializerManager] Initialized 1 plugin
-[01:56:29] [ServerMain/INFO]: [PluginInitializerManager] Bukkit plugins (1):
+[09:16:28] [ServerMain/INFO]: [bootstrap] Running Java 21 (OpenJDK 64-Bit Server VM 21.0.12+8-LTS; Eclipse Adoptium Temurin-21.0.12+8) on Linux 7.0.14-orbstack-00380-ga7e0a2dc9535 (aarch64)
+[09:16:28] [ServerMain/INFO]: [bootstrap] Loading Paper 1.21.1-133-ver/1.21.1@3cb8529 (2025-03-28T16:14:36Z) for Minecraft 1.21.1
+[09:16:28] [ServerMain/INFO]: [PluginInitializerManager] Initializing plugins...
+[09:16:28] [ServerMain/INFO]: [PluginInitializerManager] Initialized 1 plugin
+[09:16:28] [ServerMain/INFO]: [PluginInitializerManager] Bukkit plugins (1):
  - LuckPerms (5.5.85)
-[01:56:31] [ServerMain/INFO]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
-[01:56:31] [ServerMain/INFO]: Loaded 1290 recipes
-[01:56:31] [ServerMain/INFO]: Loaded 1399 advancements
-[01:56:31] [Server thread/INFO]: Starting minecraft server version 1.21.1
-[01:56:31] [Server thread/INFO]: Loading properties
-[01:56:31] [Server thread/INFO]: This server is running Paper version 1.21.1-133-ver/1.21.1@3cb8529 (2025-03-28T16:14:36Z) (Implementing API version 1.21.1-R0.1-SNAPSHOT)
-[01:56:32] [Server thread/INFO]: [spark] This server bundles the spark profiler. For more information please visit https://docs.papermc.io/paper/profiling
-[01:56:32] [Server thread/INFO]: Server Ping Player Sample Count: 12
-[01:56:32] [Server thread/INFO]: Using 4 threads for Netty based IO
-[01:56:32] [Server thread/INFO]: [ChunkTaskScheduler] Chunk system is using 1 I/O threads, 3 worker threads, and population gen parallelism of 3 threads
-[01:56:32] [Server thread/INFO]: Default game type: SURVIVAL
-[01:56:32] [Server thread/INFO]: Generating keypair
-[01:56:32] [Server thread/INFO]: Starting Minecraft server on *:25565
-[01:56:32] [Server thread/INFO]: Using epoll channel type
-[01:56:32] [Server thread/INFO]: Paper: Using libdeflate (Linux aarch64) compression from Velocity.
-[01:56:32] [Server thread/INFO]: Paper: Using OpenSSL 3.x.x (Linux aarch64) cipher from Velocity.
-[01:56:32] [Server thread/INFO]: [LuckPerms] Loading server plugin LuckPerms v5.5.85
-[01:56:32] [Server thread/INFO]: [LuckPerms] Loading configuration...
-[01:56:32] [Server thread/INFO]: Server permissions file permissions.yml is empty, ignoring it
-[01:56:32] [Server thread/INFO]: [LuckPerms] Enabling LuckPerms v5.5.85
-[01:56:32] [Server thread/INFO]:         __    
-[01:56:32] [Server thread/INFO]:   |    |__)   LuckPerms v5.5.85
-[01:56:32] [Server thread/INFO]:   |___ |      Running on Bukkit - Paper
-[01:56:32] [Server thread/INFO]: 
-[01:56:33] [Server thread/INFO]: [LuckPerms] Loading storage provider... [MYSQL]
-[01:56:33] [Server thread/INFO]: [me.lucko.luckperms.lib.hikari.HikariDataSource] luckperms-hikari - Starting...
-[01:56:33] [Server thread/INFO]: [me.lucko.luckperms.lib.hikari.HikariDataSource] luckperms-hikari - Start completed.
-[01:56:38] [Server thread/ERROR]: [LuckPerms] Failed to init storage implementation
-java.sql.SQLTransientConnectionException: luckperms-hikari - Connection is not available, request timed out after 5005ms (total=0, active=0, idle=0, waiting=0)
+[09:16:29] [ServerMain/INFO]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
+[09:16:30] [ServerMain/INFO]: Loaded 1290 recipes
+[09:16:30] [ServerMain/INFO]: Loaded 1399 advancements
+[09:16:30] [Server thread/INFO]: Starting minecraft server version 1.21.1
+[09:16:30] [Server thread/INFO]: Loading properties
+[09:16:30] [Server thread/INFO]: This server is running Paper version 1.21.1-133-ver/1.21.1@3cb8529 (2025-03-28T16:14:36Z) (Implementing API version 1.21.1-R0.1-SNAPSHOT)
+[09:16:30] [Server thread/INFO]: [spark] This server bundles the spark profiler. For more information please visit https://docs.papermc.io/paper/profiling
+[09:16:30] [Server thread/INFO]: Server Ping Player Sample Count: 12
+[09:16:30] [Server thread/INFO]: Using 4 threads for Netty based IO
+[09:16:31] [Server thread/INFO]: [ChunkTaskScheduler] Chunk system is using 1 I/O threads, 3 worker threads, and population gen parallelism of 3 threads
+[09:16:31] [Server thread/INFO]: Default game type: SURVIVAL
+[09:16:31] [Server thread/INFO]: Generating keypair
+[09:16:31] [Server thread/INFO]: Starting Minecraft server on *:25565
+[09:16:31] [Server thread/INFO]: Using epoll channel type
+[09:16:31] [Server thread/INFO]: Paper: Using libdeflate (Linux aarch64) compression from Velocity.
+[09:16:31] [Server thread/INFO]: Paper: Using OpenSSL 3.x.x (Linux aarch64) cipher from Velocity.
+[09:16:31] [Server thread/INFO]: [LuckPerms] Loading server plugin LuckPerms v5.5.85
+[09:16:31] [Server thread/INFO]: [LuckPerms] Loading configuration...
+[09:16:31] [Server thread/INFO]: Server permissions file permissions.yml is empty, ignoring it
+[09:16:31] [Server thread/INFO]: [LuckPerms] Enabling LuckPerms v5.5.85
+[09:16:31] [Server thread/INFO]:         __    
+[09:16:31] [Server thread/INFO]:   |    |__)   LuckPerms v5.5.85
+[09:16:31] [Server thread/INFO]:   |___ |      Running on Bukkit - Paper
+[09:16:31] [Server thread/INFO]: 
+[09:16:32] [Server thread/INFO]: [LuckPerms] Loading storage provider... [MYSQL]
+[09:16:32] [Server thread/INFO]: [me.lucko.luckperms.lib.hikari.HikariDataSource] luckperms-hikari - Starting...
+[09:16:32] [Server thread/INFO]: [me.lucko.luckperms.lib.hikari.HikariDataSource] luckperms-hikari - Start completed.
+[09:16:37] [Server thread/ERROR]: [LuckPerms] Failed to init storage implementation
+java.sql.SQLTransientConnectionException: luckperms-hikari - Connection is not available, request timed out after 5001ms (total=0, active=0, idle=0, waiting=0)
 	at me.lucko.luckperms.lib.hikari.pool.HikariPool.createTimeoutException(HikariPool.java:709) ~[?:?]
 	at me.lucko.luckperms.lib.hikari.pool.HikariPool.getConnection(HikariPool.java:188) ~[?:?]
 	at me.lucko.luckperms.lib.hikari.pool.HikariPool.getConnection(HikariPool.java:146) ~[?:?]
@@ -54,9 +54,9 @@ java.sql.SQLTransientConnectionException: luckperms-hikari - Connection is not a
 	at net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:1214) ~[paper-1.21.1.jar:1.21.1-133-3cb8529]
 	at net.minecraft.server.MinecraftServer.lambda$spin$0(MinecraftServer.java:329) ~[paper-1.21.1.jar:1.21.1-133-3cb8529]
 	at java.base/java.lang.Thread.run(Thread.java:1583) ~[?:?]
-[01:56:38] [Server thread/INFO]: [LuckPerms] Loading messaging service... [SQL]
-[01:56:43] [Server thread/ERROR]: [LuckPerms] Exception occurred whilst enabling SQL messaging service
-java.lang.RuntimeException: java.sql.SQLTransientConnectionException: luckperms-hikari - Connection is not available, request timed out after 5005ms (total=0, active=0, idle=0, waiting=0)
+[09:16:37] [Server thread/INFO]: [LuckPerms] Loading messaging service... [SQL]
+[09:16:42] [Server thread/ERROR]: [LuckPerms] Exception occurred whilst enabling SQL messaging service
+java.lang.RuntimeException: java.sql.SQLTransientConnectionException: luckperms-hikari - Connection is not available, request timed out after 5002ms (total=0, active=0, idle=0, waiting=0)
 	at me.lucko.luckperms.common.messaging.sql.SqlMessenger.init(SqlMessenger.java:56) ~[?:?]
 	at me.lucko.luckperms.common.messaging.MessagingFactory$SqlMessengerProvider.obtain(MessagingFactory.java:281) ~[?:?]
 	at me.lucko.luckperms.common.messaging.LuckPermsMessagingService.<init>(LuckPermsMessagingService.java:75) ~[?:?]
@@ -76,7 +76,7 @@ java.lang.RuntimeException: java.sql.SQLTransientConnectionException: luckperms-
 	at net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:1214) ~[paper-1.21.1.jar:1.21.1-133-3cb8529]
 	at net.minecraft.server.MinecraftServer.lambda$spin$0(MinecraftServer.java:329) ~[paper-1.21.1.jar:1.21.1-133-3cb8529]
 	at java.base/java.lang.Thread.run(Thread.java:1583) ~[?:?]
-Caused by: java.sql.SQLTransientConnectionException: luckperms-hikari - Connection is not available, request timed out after 5005ms (total=0, active=0, idle=0, waiting=0)
+Caused by: java.sql.SQLTransientConnectionException: luckperms-hikari - Connection is not available, request timed out after 5002ms (total=0, active=0, idle=0, waiting=0)
 	at me.lucko.luckperms.lib.hikari.pool.HikariPool.createTimeoutException(HikariPool.java:709) ~[?:?]
 	at me.lucko.luckperms.lib.hikari.pool.HikariPool.getConnection(HikariPool.java:188) ~[?:?]
 	at me.lucko.luckperms.lib.hikari.pool.HikariPool.getConnection(HikariPool.java:146) ~[?:?]
@@ -86,109 +86,109 @@ Caused by: java.sql.SQLTransientConnectionException: luckperms-hikari - Connecti
 	at me.lucko.luckperms.common.messaging.sql.AbstractSqlMessenger.init(AbstractSqlMessenger.java:60) ~[?:?]
 	at me.lucko.luckperms.common.messaging.sql.SqlMessenger.init(SqlMessenger.java:54) ~[?:?]
 	... 18 more
-[01:56:43] [Server thread/WARN]: [LuckPerms] Messaging service 'sql' not recognised.
-[01:56:43] [Server thread/INFO]: [LuckPerms] Loading internal permission managers...
-[01:56:43] [Server thread/INFO]: [LuckPerms] Performing initial data load...
-[01:56:48] [Server thread/WARN]: java.util.concurrent.CompletionException: java.sql.SQLTransientConnectionException: luckperms-hikari - Connection is not available, request timed out after 5006ms (total=0, active=0, idle=0, waiting=0)
-[01:56:48] [Server thread/WARN]: 	at me.lucko.luckperms.common.util.AsyncInterface.lambda$future$1(AsyncInterface.java:66)
-[01:56:48] [Server thread/WARN]: 	at java.base/java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1804)
-[01:56:48] [Server thread/WARN]: 	at java.base/java.util.concurrent.CompletableFuture$AsyncRun.exec(CompletableFuture.java:1796)
-[01:56:48] [Server thread/WARN]: 	at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:387)
-[01:56:48] [Server thread/WARN]: 	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1312)
-[01:56:48] [Server thread/WARN]: 	at java.base/java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1843)
-[01:56:48] [Server thread/WARN]: 	at java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1808)
-[01:56:48] [Server thread/WARN]: 	at java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:188)
-[01:56:48] [Server thread/WARN]: Caused by: java.sql.SQLTransientConnectionException: luckperms-hikari - Connection is not available, request timed out after 5006ms (total=0, active=0, idle=0, waiting=0)
-[01:56:48] [Server thread/WARN]: 	at me.lucko.luckperms.lib.hikari.pool.HikariPool.createTimeoutException(HikariPool.java:709)
-[01:56:48] [Server thread/WARN]: 	at me.lucko.luckperms.lib.hikari.pool.HikariPool.getConnection(HikariPool.java:188)
-[01:56:48] [Server thread/WARN]: 	at me.lucko.luckperms.lib.hikari.pool.HikariPool.getConnection(HikariPool.java:146)
-[01:56:48] [Server thread/WARN]: 	at me.lucko.luckperms.lib.hikari.HikariDataSource.getConnection(HikariDataSource.java:99)
-[01:56:48] [Server thread/WARN]: 	at me.lucko.luckperms.common.storage.implementation.sql.connection.hikari.HikariConnectionFactory.getConnection(HikariConnectionFactory.java:173)
-[01:56:48] [Server thread/WARN]: 	at me.lucko.luckperms.common.storage.implementation.sql.SqlStorage.loadAllGroups(SqlStorage.java:533)
-[01:56:48] [Server thread/WARN]: 	at me.lucko.luckperms.common.storage.Storage.lambda$loadAllGroups$0(Storage.java:178)
-[01:56:48] [Server thread/WARN]: 	at me.lucko.luckperms.common.util.AsyncInterface.lambda$future$1(AsyncInterface.java:61)
-[01:56:48] [Server thread/WARN]: 	... 7 more
-[01:56:48] [Server thread/WARN]: Caused by: me.lucko.luckperms.lib.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
-[01:56:48] [Server thread/WARN]: 	at me.lucko.luckperms.lib.mysql.cj.jdbc.exceptions.SQLError.createCommunicationsException(SQLError.java:165)
-[01:56:48] [Server thread/WARN]: 	at me.lucko.luckperms.lib.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:55)
-[01:56:48] [Server thread/WARN]: 	at me.lucko.luckperms.lib.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:833)
-[01:56:48] [Server thread/WARN]: 	at me.lucko.luckperms.lib.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:416)
-[01:56:48] [Server thread/WARN]: 	at me.lucko.luckperms.lib.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:238)
-[01:56:48] [Server thread/WARN]: 	at me.lucko.luckperms.lib.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:180)
-[01:56:48] [Server thread/WARN]: 	at me.lucko.luckperms.lib.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:139)
-[01:56:48] [Server thread/WARN]: 	at me.lucko.luckperms.lib.hikari.pool.PoolBase.newConnection(PoolBase.java:368)
-[01:56:48] [Server thread/WARN]: 	at me.lucko.luckperms.lib.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:205)
-[01:56:48] [Server thread/WARN]: 	at me.lucko.luckperms.lib.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:483)
-[01:56:48] [Server thread/WARN]: 	at me.lucko.luckperms.lib.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:747)
-[01:56:48] [Server thread/WARN]: 	at me.lucko.luckperms.lib.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:726)
-[01:56:48] [Server thread/WARN]: 	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
-[01:56:48] [Server thread/WARN]: 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
-[01:56:48] [Server thread/WARN]: 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
-[01:56:48] [Server thread/WARN]: 	at java.base/java.lang.Thread.run(Thread.java:1583)
-[01:56:48] [Server thread/WARN]: Caused by: me.lucko.luckperms.lib.mysql.cj.exceptions.CJCommunicationsException: Communications link failure
-[01:56:48] [Server thread/WARN]: 	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
-[01:56:48] [Server thread/WARN]: 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
-[01:56:48] [Server thread/WARN]: 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
-[01:56:48] [Server thread/WARN]: 	at me.lucko.luckperms.lib.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:52)
-[01:56:48] [Server thread/WARN]: 	at me.lucko.luckperms.lib.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:95)
-[01:56:48] [Server thread/WARN]: 	at me.lucko.luckperms.lib.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:140)
-[01:56:48] [Server thread/WARN]: 	at me.lucko.luckperms.lib.mysql.cj.exceptions.ExceptionFactory.createCommunicationsException(ExceptionFactory.java:156)
-[01:56:48] [Server thread/WARN]: 	at me.lucko.luckperms.lib.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:79)
-[01:56:48] [Server thread/WARN]: 	at me.lucko.luckperms.lib.mysql.cj.NativeSession.connect(NativeSession.java:142)
-[01:56:48] [Server thread/WARN]: 	at me.lucko.luckperms.lib.mysql.cj.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:957)
-[01:56:48] [Server thread/WARN]: 	at me.lucko.luckperms.lib.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:821)
-[01:56:48] [Server thread/WARN]: 	... 13 more
-[01:56:48] [Server thread/WARN]: Caused by: java.net.UnknownHostException: db.invalid.local
-[01:56:48] [Server thread/WARN]: 	at java.base/java.net.InetAddress$CachedLookup.get(InetAddress.java:988)
-[01:56:48] [Server thread/WARN]: 	at java.base/java.net.InetAddress.getAllByName0(InetAddress.java:1818)
-[01:56:48] [Server thread/WARN]: 	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1688)
-[01:56:48] [Server thread/WARN]: 	at me.lucko.luckperms.lib.mysql.cj.protocol.StandardSocketFactory.connect(StandardSocketFactory.java:121)
-[01:56:48] [Server thread/WARN]: 	at me.lucko.luckperms.lib.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:53)
-[01:56:48] [Server thread/WARN]: 	... 16 more
-[01:56:48] [Server thread/INFO]: [LuckPerms] Successfully enabled. (took 16021ms)
-[01:56:48] [Server thread/WARN]: **** SERVER IS RUNNING IN OFFLINE/INSECURE MODE!
-[01:56:48] [Server thread/WARN]: The server will make no attempt to authenticate usernames. Beware.
-[01:56:48] [Server thread/WARN]: While this makes the game possible to play without internet access, it also opens up the ability for hackers to connect with any username they choose.
-[01:56:48] [Server thread/WARN]: To change this, set "online-mode" to "true" in the server.properties file.
-[01:56:48] [Server thread/INFO]: Preparing level "world"
-[01:56:48] [Server thread/INFO]: Preparing start region for dimension minecraft:overworld
-[01:56:49] [Server thread/INFO]: Time elapsed: 364 ms
-[01:56:49] [Server thread/INFO]: Preparing start region for dimension minecraft:the_nether
-[01:56:49] [Server thread/INFO]: Time elapsed: 49 ms
-[01:56:49] [Server thread/INFO]: Preparing start region for dimension minecraft:the_end
-[01:56:49] [Server thread/INFO]: Time elapsed: 38 ms
-[01:56:49] [Server thread/INFO]: [spark] Starting background profiler...
-[01:56:49] [Server thread/INFO]: Done preparing level "world" (0.688s)
-[01:56:49] [Server thread/INFO]: Running delayed init tasks
-[01:56:49] [Server thread/INFO]: Done (20.102s)! For help, type "help"
-[01:56:49] [Server thread/INFO]: Timings Reset
-[01:56:56] [Server thread/INFO]: Stopping the server
-[01:56:56] [Server thread/INFO]: Stopping server
-[01:56:56] [Server thread/INFO]: [LuckPerms] Disabling LuckPerms v5.5.85
-[01:56:56] [Server thread/INFO]: [LuckPerms] Starting shutdown process...
-[01:56:56] [Server thread/INFO]: [LuckPerms] Closing storage...
-[01:56:56] [Server thread/INFO]: [me.lucko.luckperms.lib.hikari.HikariDataSource] luckperms-hikari - Shutdown initiated...
-[01:57:01] [Server thread/WARN]: [me.lucko.luckperms.lib.hikari.pool.HikariPool] Timed-out waiting for add connection executor to shutdown
-[01:57:01] [Server thread/INFO]: [me.lucko.luckperms.lib.hikari.HikariDataSource] luckperms-hikari - Shutdown completed.
-[01:57:01] [Server thread/INFO]: [LuckPerms] Goodbye!
-[01:57:01] [Server thread/INFO]: Saving players
-[01:57:01] [Server thread/INFO]: Saving worlds
-[01:57:01] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:overworld
-[01:57:01] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk system to halt for world 'world'
-[01:57:01] [Server thread/INFO]: [ChunkHolderManager] Halted chunk system for world 'world'
-[01:57:01] [Server thread/INFO]: [ChunkHolderManager] Saving all chunkholders for world 'world'
-[01:57:01] [Server thread/INFO]: [ChunkHolderManager] Saved 49 block chunks, 49 entity chunks, 0 poi chunks in world 'world' in 0.11s
-[01:57:01] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world_nether]'/minecraft:the_nether
-[01:57:01] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk system to halt for world 'world_nether'
-[01:57:01] [Server thread/INFO]: [ChunkHolderManager] Halted chunk system for world 'world_nether'
-[01:57:01] [Server thread/INFO]: [ChunkHolderManager] Saving all chunkholders for world 'world_nether'
-[01:57:01] [Server thread/INFO]: [ChunkHolderManager] Saved 49 block chunks, 49 entity chunks, 0 poi chunks in world 'world_nether' in 0.06s
-[01:57:01] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world_the_end]'/minecraft:the_end
-[01:57:01] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk system to halt for world 'world_the_end'
-[01:57:01] [Server thread/INFO]: [ChunkHolderManager] Halted chunk system for world 'world_the_end'
-[01:57:01] [Server thread/INFO]: [ChunkHolderManager] Saving all chunkholders for world 'world_the_end'
-[01:57:01] [Server thread/INFO]: [ChunkHolderManager] Saved 49 block chunks, 49 entity chunks, 0 poi chunks in world 'world_the_end' in 0.02s
-[01:57:01] [Server thread/INFO]: ThreadedAnvilChunkStorage (world): All chunks are saved
-[01:57:01] [Server thread/INFO]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
-[01:57:01] [Server thread/INFO]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
-[01:57:01] [Server thread/INFO]: ThreadedAnvilChunkStorage: All dimensions are saved
+[09:16:42] [Server thread/WARN]: [LuckPerms] Messaging service 'sql' not recognised.
+[09:16:42] [Server thread/INFO]: [LuckPerms] Loading internal permission managers...
+[09:16:42] [Server thread/INFO]: [LuckPerms] Performing initial data load...
+[09:16:47] [Server thread/WARN]: java.util.concurrent.CompletionException: java.sql.SQLTransientConnectionException: luckperms-hikari - Connection is not available, request timed out after 5005ms (total=0, active=0, idle=0, waiting=0)
+[09:16:47] [Server thread/WARN]: 	at me.lucko.luckperms.common.util.AsyncInterface.lambda$future$1(AsyncInterface.java:66)
+[09:16:47] [Server thread/WARN]: 	at java.base/java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1804)
+[09:16:47] [Server thread/WARN]: 	at java.base/java.util.concurrent.CompletableFuture$AsyncRun.exec(CompletableFuture.java:1796)
+[09:16:47] [Server thread/WARN]: 	at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:387)
+[09:16:47] [Server thread/WARN]: 	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1312)
+[09:16:47] [Server thread/WARN]: 	at java.base/java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1843)
+[09:16:47] [Server thread/WARN]: 	at java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1808)
+[09:16:47] [Server thread/WARN]: 	at java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:188)
+[09:16:47] [Server thread/WARN]: Caused by: java.sql.SQLTransientConnectionException: luckperms-hikari - Connection is not available, request timed out after 5005ms (total=0, active=0, idle=0, waiting=0)
+[09:16:47] [Server thread/WARN]: 	at me.lucko.luckperms.lib.hikari.pool.HikariPool.createTimeoutException(HikariPool.java:709)
+[09:16:47] [Server thread/WARN]: 	at me.lucko.luckperms.lib.hikari.pool.HikariPool.getConnection(HikariPool.java:188)
+[09:16:47] [Server thread/WARN]: 	at me.lucko.luckperms.lib.hikari.pool.HikariPool.getConnection(HikariPool.java:146)
+[09:16:47] [Server thread/WARN]: 	at me.lucko.luckperms.lib.hikari.HikariDataSource.getConnection(HikariDataSource.java:99)
+[09:16:47] [Server thread/WARN]: 	at me.lucko.luckperms.common.storage.implementation.sql.connection.hikari.HikariConnectionFactory.getConnection(HikariConnectionFactory.java:173)
+[09:16:47] [Server thread/WARN]: 	at me.lucko.luckperms.common.storage.implementation.sql.SqlStorage.loadAllGroups(SqlStorage.java:533)
+[09:16:47] [Server thread/WARN]: 	at me.lucko.luckperms.common.storage.Storage.lambda$loadAllGroups$0(Storage.java:178)
+[09:16:47] [Server thread/WARN]: 	at me.lucko.luckperms.common.util.AsyncInterface.lambda$future$1(AsyncInterface.java:61)
+[09:16:47] [Server thread/WARN]: 	... 7 more
+[09:16:47] [Server thread/WARN]: Caused by: me.lucko.luckperms.lib.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
+[09:16:47] [Server thread/WARN]: 	at me.lucko.luckperms.lib.mysql.cj.jdbc.exceptions.SQLError.createCommunicationsException(SQLError.java:165)
+[09:16:47] [Server thread/WARN]: 	at me.lucko.luckperms.lib.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:55)
+[09:16:47] [Server thread/WARN]: 	at me.lucko.luckperms.lib.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:833)
+[09:16:47] [Server thread/WARN]: 	at me.lucko.luckperms.lib.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:416)
+[09:16:47] [Server thread/WARN]: 	at me.lucko.luckperms.lib.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:238)
+[09:16:47] [Server thread/WARN]: 	at me.lucko.luckperms.lib.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:180)
+[09:16:47] [Server thread/WARN]: 	at me.lucko.luckperms.lib.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:139)
+[09:16:47] [Server thread/WARN]: 	at me.lucko.luckperms.lib.hikari.pool.PoolBase.newConnection(PoolBase.java:368)
+[09:16:47] [Server thread/WARN]: 	at me.lucko.luckperms.lib.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:205)
+[09:16:47] [Server thread/WARN]: 	at me.lucko.luckperms.lib.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:483)
+[09:16:47] [Server thread/WARN]: 	at me.lucko.luckperms.lib.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:747)
+[09:16:47] [Server thread/WARN]: 	at me.lucko.luckperms.lib.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:726)
+[09:16:47] [Server thread/WARN]: 	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+[09:16:47] [Server thread/WARN]: 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+[09:16:47] [Server thread/WARN]: 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+[09:16:47] [Server thread/WARN]: 	at java.base/java.lang.Thread.run(Thread.java:1583)
+[09:16:47] [Server thread/WARN]: Caused by: me.lucko.luckperms.lib.mysql.cj.exceptions.CJCommunicationsException: Communications link failure
+[09:16:47] [Server thread/WARN]: 	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+[09:16:47] [Server thread/WARN]: 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+[09:16:47] [Server thread/WARN]: 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+[09:16:47] [Server thread/WARN]: 	at me.lucko.luckperms.lib.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:52)
+[09:16:47] [Server thread/WARN]: 	at me.lucko.luckperms.lib.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:95)
+[09:16:47] [Server thread/WARN]: 	at me.lucko.luckperms.lib.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:140)
+[09:16:47] [Server thread/WARN]: 	at me.lucko.luckperms.lib.mysql.cj.exceptions.ExceptionFactory.createCommunicationsException(ExceptionFactory.java:156)
+[09:16:47] [Server thread/WARN]: 	at me.lucko.luckperms.lib.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:79)
+[09:16:47] [Server thread/WARN]: 	at me.lucko.luckperms.lib.mysql.cj.NativeSession.connect(NativeSession.java:142)
+[09:16:47] [Server thread/WARN]: 	at me.lucko.luckperms.lib.mysql.cj.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:957)
+[09:16:47] [Server thread/WARN]: 	at me.lucko.luckperms.lib.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:821)
+[09:16:47] [Server thread/WARN]: 	... 13 more
+[09:16:47] [Server thread/WARN]: Caused by: java.net.UnknownHostException: db.invalid.local
+[09:16:47] [Server thread/WARN]: 	at java.base/java.net.InetAddress$CachedLookup.get(InetAddress.java:988)
+[09:16:47] [Server thread/WARN]: 	at java.base/java.net.InetAddress.getAllByName0(InetAddress.java:1818)
+[09:16:47] [Server thread/WARN]: 	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1688)
+[09:16:47] [Server thread/WARN]: 	at me.lucko.luckperms.lib.mysql.cj.protocol.StandardSocketFactory.connect(StandardSocketFactory.java:121)
+[09:16:47] [Server thread/WARN]: 	at me.lucko.luckperms.lib.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:53)
+[09:16:47] [Server thread/WARN]: 	... 16 more
+[09:16:47] [Server thread/INFO]: [LuckPerms] Successfully enabled. (took 15853ms)
+[09:16:47] [Server thread/WARN]: **** SERVER IS RUNNING IN OFFLINE/INSECURE MODE!
+[09:16:47] [Server thread/WARN]: The server will make no attempt to authenticate usernames. Beware.
+[09:16:47] [Server thread/WARN]: While this makes the game possible to play without internet access, it also opens up the ability for hackers to connect with any username they choose.
+[09:16:47] [Server thread/WARN]: To change this, set "online-mode" to "true" in the server.properties file.
+[09:16:47] [Server thread/INFO]: Preparing level "world"
+[09:16:47] [Server thread/INFO]: Preparing start region for dimension minecraft:overworld
+[09:16:47] [Server thread/INFO]: Time elapsed: 452 ms
+[09:16:47] [Server thread/INFO]: Preparing start region for dimension minecraft:the_nether
+[09:16:48] [Server thread/INFO]: Time elapsed: 47 ms
+[09:16:48] [Server thread/INFO]: Preparing start region for dimension minecraft:the_end
+[09:16:48] [Server thread/INFO]: Time elapsed: 77 ms
+[09:16:48] [Server thread/INFO]: [spark] Starting background profiler...
+[09:16:48] [Server thread/INFO]: Done preparing level "world" (0.836s)
+[09:16:48] [Server thread/INFO]: Running delayed init tasks
+[09:16:48] [Server thread/INFO]: Done (20.222s)! For help, type "help"
+[09:16:48] [Server thread/INFO]: Timings Reset
+[09:16:54] [Server thread/INFO]: Stopping the server
+[09:16:54] [Server thread/INFO]: Stopping server
+[09:16:54] [Server thread/INFO]: [LuckPerms] Disabling LuckPerms v5.5.85
+[09:16:54] [Server thread/INFO]: [LuckPerms] Starting shutdown process...
+[09:16:54] [Server thread/INFO]: [LuckPerms] Closing storage...
+[09:16:54] [Server thread/INFO]: [me.lucko.luckperms.lib.hikari.HikariDataSource] luckperms-hikari - Shutdown initiated...
+[09:16:59] [Server thread/WARN]: [me.lucko.luckperms.lib.hikari.pool.HikariPool] Timed-out waiting for add connection executor to shutdown
+[09:16:59] [Server thread/INFO]: [me.lucko.luckperms.lib.hikari.HikariDataSource] luckperms-hikari - Shutdown completed.
+[09:16:59] [Server thread/INFO]: [LuckPerms] Goodbye!
+[09:16:59] [Server thread/INFO]: Saving players
+[09:16:59] [Server thread/INFO]: Saving worlds
+[09:16:59] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:overworld
+[09:16:59] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk system to halt for world 'world'
+[09:16:59] [Server thread/INFO]: [ChunkHolderManager] Halted chunk system for world 'world'
+[09:16:59] [Server thread/INFO]: [ChunkHolderManager] Saving all chunkholders for world 'world'
+[09:16:59] [Server thread/INFO]: [ChunkHolderManager] Saved 49 block chunks, 49 entity chunks, 0 poi chunks in world 'world' in 0.11s
+[09:16:59] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world_nether]'/minecraft:the_nether
+[09:16:59] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk system to halt for world 'world_nether'
+[09:16:59] [Server thread/INFO]: [ChunkHolderManager] Halted chunk system for world 'world_nether'
+[09:16:59] [Server thread/INFO]: [ChunkHolderManager] Saving all chunkholders for world 'world_nether'
+[09:16:59] [Server thread/INFO]: [ChunkHolderManager] Saved 49 block chunks, 49 entity chunks, 0 poi chunks in world 'world_nether' in 0.03s
+[09:17:00] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world_the_end]'/minecraft:the_end
+[09:17:00] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk system to halt for world 'world_the_end'
+[09:17:00] [Server thread/INFO]: [ChunkHolderManager] Halted chunk system for world 'world_the_end'
+[09:17:00] [Server thread/INFO]: [ChunkHolderManager] Saving all chunkholders for world 'world_the_end'
+[09:17:00] [Server thread/INFO]: [ChunkHolderManager] Saved 49 block chunks, 49 entity chunks, 0 poi chunks in world 'world_the_end' in 0.02s
+[09:17:00] [Server thread/INFO]: ThreadedAnvilChunkStorage (world): All chunks are saved
+[09:17:00] [Server thread/INFO]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[09:17:00] [Server thread/INFO]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[09:17:00] [Server thread/INFO]: ThreadedAnvilChunkStorage: All dimensions are saved

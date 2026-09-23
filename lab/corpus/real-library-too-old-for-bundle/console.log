@@ -1,33 +1,33 @@
-[32m[01:50:06.679] [main/INFO] [Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgeserver, --fml.neoForgeVersion, 21.1.251, --fml.fmlVersion, 4.0.44, --fml.mcVersion, 1.21.1, --fml.neoFormVersion, 20240808.144430, nogui] 
-[m[32m[01:50:06.680] [main/INFO] [Launcher/MODLAUNCHER]: JVM identified as Eclipse Adoptium OpenJDK 64-Bit Server VM 21.0.12+8-LTS 
-[m[32m[01:50:06.681] [main/INFO] [Launcher/MODLAUNCHER]: ModLauncher 11.0.5+main.901c6ea8 starting: java version 21.0.12 by Eclipse Adoptium; OS Linux arch aarch64 version 7.0.14-orbstack-00380-ga7e0a2dc9535 
-[m[32m[01:50:06.715] [main/INFO] [loading.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forgeserver 
-[m[32m[01:50:06.732] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=union:/srv/libraries/net/fabricmc/sponge-mixin/0.15.2+mixin.0.8.7/sponge-mixin-0.15.2+mixin.0.8.7.jar%2373!/ Service=ModLauncher Env=SERVER 
-[m[32m[01:50:06.853] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "server-1.21.1-20240808.144430-srg.jar" [locator: production server provider +net.neoforged:neoforge:21.1.251:server] 
-[m[32m[01:50:06.861] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "neoforge-21.1.251-universal.jar" [locator: PathBasedLocator[name=neoforge, paths=[libraries/net/neoforged/neoforge/21.1.251/neoforge-21.1.251-universal.jar]], reader: mod manifest] 
-[m[32m[01:50:06.865] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "collective-1.21.1-8.3.jar" [locator: {mods folder locator at /srv/mods}, reader: mod manifest] 
-[m[32m[01:50:06.867] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "serilumscustomizationbundle-1.21.1-2.6.jar" [locator: {mods folder locator at /srv/mods}, reader: mod manifest] 
-[m[32m[01:50:06.958] [main/INFO] [loading.moddiscovery.locators.JarInJarDependencyLocator/]: Found 19 dependencies adding them to mods collection 
-[m[32m[01:50:06.958] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found gamelibrary file "mixinextras-neoforge-0.5.3.jar" [parent: neoforge-21.1.251-universal.jar, locator: jarinjar, reader: mod manifest] 
-[m[32m[01:50:06.958] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "configurablemobpotioneffects-1.21.1-3.6.jar" [parent: serilumscustomizationbundle-1.21.1-2.6.jar, locator: jarinjar, reader: mod manifest] 
-[m[32m[01:50:06.958] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "starterstructure-1.21.1-4.2.jar" [parent: serilumscustomizationbundle-1.21.1-2.6.jar, locator: jarinjar, reader: mod manifest] 
-[m[32m[01:50:06.958] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "simplemenu-1.21.1-2.0.jar" [parent: serilumscustomizationbundle-1.21.1-2.6.jar, locator: jarinjar, reader: mod manifest] 
-[m[32m[01:50:06.958] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "starterkit-1.21.1-7.4.jar" [parent: serilumscustomizationbundle-1.21.1-2.6.jar, locator: jarinjar, reader: mod manifest] 
-[m[32m[01:50:06.958] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "biomespawnpoint-1.21.1-2.4.jar" [parent: serilumscustomizationbundle-1.21.1-2.6.jar, locator: jarinjar, reader: mod manifest] 
-[m[32m[01:50:06.958] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "configurablefurnaceburntime-1.21.1-2.5.jar" [parent: serilumscustomizationbundle-1.21.1-2.6.jar, locator: jarinjar, reader: mod manifest] 
-[m[32m[01:50:06.959] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "setworldspawnpoint-1.21.1-3.5.jar" [parent: serilumscustomizationbundle-1.21.1-2.6.jar, locator: jarinjar, reader: mod manifest] 
-[m[32m[01:50:06.959] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found library file "net.neoforged.neoforge-coremods-21.1.251.jar" [parent: neoforge-21.1.251-universal.jar, locator: jarinjar, reader: mod manifest] 
-[m[32m[01:50:06.959] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "firstjoinmessage-1.21.1-3.8.jar" [parent: serilumscustomizationbundle-1.21.1-2.6.jar, locator: jarinjar, reader: mod manifest] 
-[m[32m[01:50:06.959] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "hideexperimentalwarning-1.21.1-1.2.jar" [parent: serilumscustomizationbundle-1.21.1-2.6.jar, locator: jarinjar, reader: mod manifest] 
-[m[32m[01:50:06.959] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "difficultylock-1.21.1-4.7.jar" [parent: serilumscustomizationbundle-1.21.1-2.6.jar, locator: jarinjar, reader: mod manifest] 
-[m[32m[01:50:06.959] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "cycletitlescreensplash-1.21.1-1.3.jar" [parent: serilumscustomizationbundle-1.21.1-2.6.jar, locator: jarinjar, reader: mod manifest] 
-[m[32m[01:50:06.959] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "customcredits-1.21.1-1.7.jar" [parent: serilumscustomizationbundle-1.21.1-2.6.jar, locator: jarinjar, reader: mod manifest] 
-[m[32m[01:50:06.959] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "configurabledespawntimer-1.21.1-4.3.jar" [parent: serilumscustomizationbundle-1.21.1-2.6.jar, locator: jarinjar, reader: mod manifest] 
-[m[32m[01:50:06.959] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "saveandloadinventories-1.21.1-3.5.jar" [parent: serilumscustomizationbundle-1.21.1-2.6.jar, locator: jarinjar, reader: mod manifest] 
-[m[32m[01:50:06.959] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "alternativeworldsavelocation-1.21.1-3.6.jar" [parent: serilumscustomizationbundle-1.21.1-2.6.jar, locator: jarinjar, reader: mod manifest] 
-[m[32m[01:50:06.959] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "altereddamage-1.21.1-3.6.jar" [parent: serilumscustomizationbundle-1.21.1-2.6.jar, locator: jarinjar, reader: mod manifest] 
-[m[32m[01:50:06.959] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "configurableextramobdrops-1.21.1-3.6.jar" [parent: serilumscustomizationbundle-1.21.1-2.6.jar, locator: jarinjar, reader: mod manifest] 
-[m[32m[01:50:06.960] [main/INFO] [loading.moddiscovery.ModDiscoverer/]: 
+[32m[09:05:42.319] [main/INFO] [Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgeserver, --fml.neoForgeVersion, 21.1.251, --fml.fmlVersion, 4.0.44, --fml.mcVersion, 1.21.1, --fml.neoFormVersion, 20240808.144430, nogui] 
+[m[32m[09:05:42.320] [main/INFO] [Launcher/MODLAUNCHER]: JVM identified as Eclipse Adoptium OpenJDK 64-Bit Server VM 21.0.12+8-LTS 
+[m[32m[09:05:42.320] [main/INFO] [Launcher/MODLAUNCHER]: ModLauncher 11.0.5+main.901c6ea8 starting: java version 21.0.12 by Eclipse Adoptium; OS Linux arch aarch64 version 7.0.14-orbstack-00380-ga7e0a2dc9535 
+[m[32m[09:05:42.356] [main/INFO] [loading.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forgeserver 
+[m[32m[09:05:42.373] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=union:/srv/libraries/net/fabricmc/sponge-mixin/0.15.2+mixin.0.8.7/sponge-mixin-0.15.2+mixin.0.8.7.jar%2373!/ Service=ModLauncher Env=SERVER 
+[m[32m[09:05:42.495] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "server-1.21.1-20240808.144430-srg.jar" [locator: production server provider +net.neoforged:neoforge:21.1.251:server] 
+[m[32m[09:05:42.503] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "neoforge-21.1.251-universal.jar" [locator: PathBasedLocator[name=neoforge, paths=[libraries/net/neoforged/neoforge/21.1.251/neoforge-21.1.251-universal.jar]], reader: mod manifest] 
+[m[32m[09:05:42.507] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "collective-1.21.1-8.3.jar" [locator: {mods folder locator at /srv/mods}, reader: mod manifest] 
+[m[32m[09:05:42.509] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "serilumscustomizationbundle-1.21.1-2.6.jar" [locator: {mods folder locator at /srv/mods}, reader: mod manifest] 
+[m[32m[09:05:42.599] [main/INFO] [loading.moddiscovery.locators.JarInJarDependencyLocator/]: Found 19 dependencies adding them to mods collection 
+[m[32m[09:05:42.600] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found gamelibrary file "mixinextras-neoforge-0.5.3.jar" [parent: neoforge-21.1.251-universal.jar, locator: jarinjar, reader: mod manifest] 
+[m[32m[09:05:42.600] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "configurablemobpotioneffects-1.21.1-3.6.jar" [parent: serilumscustomizationbundle-1.21.1-2.6.jar, locator: jarinjar, reader: mod manifest] 
+[m[32m[09:05:42.600] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "starterstructure-1.21.1-4.2.jar" [parent: serilumscustomizationbundle-1.21.1-2.6.jar, locator: jarinjar, reader: mod manifest] 
+[m[32m[09:05:42.600] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "simplemenu-1.21.1-2.0.jar" [parent: serilumscustomizationbundle-1.21.1-2.6.jar, locator: jarinjar, reader: mod manifest] 
+[m[32m[09:05:42.600] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "starterkit-1.21.1-7.4.jar" [parent: serilumscustomizationbundle-1.21.1-2.6.jar, locator: jarinjar, reader: mod manifest] 
+[m[32m[09:05:42.600] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "biomespawnpoint-1.21.1-2.4.jar" [parent: serilumscustomizationbundle-1.21.1-2.6.jar, locator: jarinjar, reader: mod manifest] 
+[m[32m[09:05:42.600] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "configurablefurnaceburntime-1.21.1-2.5.jar" [parent: serilumscustomizationbundle-1.21.1-2.6.jar, locator: jarinjar, reader: mod manifest] 
+[m[32m[09:05:42.600] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "setworldspawnpoint-1.21.1-3.5.jar" [parent: serilumscustomizationbundle-1.21.1-2.6.jar, locator: jarinjar, reader: mod manifest] 
+[m[32m[09:05:42.600] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found library file "net.neoforged.neoforge-coremods-21.1.251.jar" [parent: neoforge-21.1.251-universal.jar, locator: jarinjar, reader: mod manifest] 
+[m[32m[09:05:42.601] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "firstjoinmessage-1.21.1-3.8.jar" [parent: serilumscustomizationbundle-1.21.1-2.6.jar, locator: jarinjar, reader: mod manifest] 
+[m[32m[09:05:42.601] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "hideexperimentalwarning-1.21.1-1.2.jar" [parent: serilumscustomizationbundle-1.21.1-2.6.jar, locator: jarinjar, reader: mod manifest] 
+[m[32m[09:05:42.601] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "difficultylock-1.21.1-4.7.jar" [parent: serilumscustomizationbundle-1.21.1-2.6.jar, locator: jarinjar, reader: mod manifest] 
+[m[32m[09:05:42.601] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "cycletitlescreensplash-1.21.1-1.3.jar" [parent: serilumscustomizationbundle-1.21.1-2.6.jar, locator: jarinjar, reader: mod manifest] 
+[m[32m[09:05:42.601] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "customcredits-1.21.1-1.7.jar" [parent: serilumscustomizationbundle-1.21.1-2.6.jar, locator: jarinjar, reader: mod manifest] 
+[m[32m[09:05:42.601] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "configurabledespawntimer-1.21.1-4.3.jar" [parent: serilumscustomizationbundle-1.21.1-2.6.jar, locator: jarinjar, reader: mod manifest] 
+[m[32m[09:05:42.601] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "saveandloadinventories-1.21.1-3.5.jar" [parent: serilumscustomizationbundle-1.21.1-2.6.jar, locator: jarinjar, reader: mod manifest] 
+[m[32m[09:05:42.601] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "alternativeworldsavelocation-1.21.1-3.6.jar" [parent: serilumscustomizationbundle-1.21.1-2.6.jar, locator: jarinjar, reader: mod manifest] 
+[m[32m[09:05:42.601] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "altereddamage-1.21.1-3.6.jar" [parent: serilumscustomizationbundle-1.21.1-2.6.jar, locator: jarinjar, reader: mod manifest] 
+[m[32m[09:05:42.601] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "configurableextramobdrops-1.21.1-3.6.jar" [parent: serilumscustomizationbundle-1.21.1-2.6.jar, locator: jarinjar, reader: mod manifest] 
+[m[32m[09:05:42.602] [main/INFO] [loading.moddiscovery.ModDiscoverer/]: 
      Mod List:
 		Name Version (Mod Id)
 
@@ -52,20 +52,20 @@
 		Simple Menu 2.0 (simplemenu)
 		Starter Kit 7.4 (starterkit)
 		Starter Structure 4.2 (starterstructure) 
-[m[1;31m[01:50:06.979] [main/ERROR] [loading.ModSorter/LOADING]: Missing or unsupported mandatory dependencies:
+[m[1;31m[09:05:42.625] [main/ERROR] [loading.ModSorter/LOADING]: Missing or unsupported mandatory dependencies:
 	Mod ID: 'collective', Requested by: 'serilumscustomizationbundle', Expected range: '[8.4,)', Actual version: '8.3' 
-[m[32m[01:50:07.131] [main/INFO] [LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgeserver' with arguments [nogui] 
+[m[32m[09:05:42.792] [main/INFO] [LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgeserver' with arguments [nogui] 
 [mWARN StatusConsoleListener Advanced terminal features are not available in this environment
-[01:50:07] [main/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.5.3).
-[01:50:09] [main/FATAL] [ne.ne.fm.ModLoader/CORE]: Error during pre-loading phase: Mod serilumscustomizationbundle requires collective 8.4 or above
+[09:05:43] [main/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.5.3).
+[09:05:44] [main/FATAL] [ne.ne.fm.ModLoader/CORE]: Error during pre-loading phase: Mod serilumscustomizationbundle requires collective 8.4 or above
 Currently, collective is 8.3
 
-[01:50:09] [main/ERROR] [minecraft/CrashReport]: Negative index in crash report handler (0/18)
-[01:50:09] [main/FATAL] [ne.ne.ne.se.lo.ServerModLoader/]: Crash report saved to ./crash-reports/crash-2026-09-23_01.50.09-fml.txt
+[09:05:44] [main/ERROR] [minecraft/CrashReport]: Negative index in crash report handler (0/18)
+[09:05:44] [main/FATAL] [ne.ne.ne.se.lo.ServerModLoader/]: Crash report saved to ./crash-reports/crash-2026-09-23_09.05.44-fml.txt
 ---- Minecraft Crash Report ----
-// I blame Dinnerbone.
+// Daisy, daisy...
 
-Time: 2026-09-23 01:50:09
+Time: 2026-09-23 09:05:44
 Description: Mod loading failures have occurred; consult the issue messages for more details
 
 net.neoforged.neoforge.logging.CrashReportExtender$ModLoadingCrashException: Mod loading has failed
@@ -91,7 +91,7 @@ Details:
 	Operating System: Linux (aarch64) version 7.0.14-orbstack-00380-ga7e0a2dc9535
 	Java Version: 21.0.12, Eclipse Adoptium
 	Java VM Version: OpenJDK 64-Bit Server VM (mixed mode, sharing), Eclipse Adoptium
-	Memory: 182770888 bytes (174 MiB) / 456130560 bytes (435 MiB) up to 2147483648 bytes (2048 MiB)
+	Memory: 176139168 bytes (167 MiB) / 454033408 bytes (433 MiB) up to 2147483648 bytes (2048 MiB)
 	CPUs: 12
 	Processor Vendor: Apple
 	Processor Name: 
@@ -107,14 +107,14 @@ Details:
 	Graphics card #0 deviceId: unknown
 	Graphics card #0 versionInfo: unknown
 	Virtual memory max (MiB): 19048.21
-	Virtual memory used (MiB): 2021.75
+	Virtual memory used (MiB): 2030.63
 	Swap memory total (MiB): 13040.14
 	Swap memory used (MiB): 0.00
 	Space in storage for jna.tmpdir (MiB): <path not set>
 	Space in storage for org.lwjgl.system.SharedLibraryExtractPath (MiB): <path not set>
 	Space in storage for io.netty.native.workdir (MiB): <path not set>
-	Space in storage for java.io.tmpdir (MiB): available: 132309.64, total: 145984.00
-	Space in storage for workdir (MiB): available: 140856.17, total: 471482.09
+	Space in storage for java.io.tmpdir (MiB): available: 133781.59, total: 147456.00
+	Space in storage for workdir (MiB): available: 142340.84, total: 471482.09
 	JVM Flags: 2 total; -Xms256M -Xmx2G
 	ModLauncher: 11.0.5+main.901c6ea8
 	ModLauncher launch target: forgeserver
@@ -133,7 +133,7 @@ Details:
 	Mod List: 
 		server-1.21.1-20240808.144430-srg.jar             |Minecraft                     |minecraft                     |1.21.1              |Manifest: NOSIGNATURE
 		neoforge-21.1.251-universal.jar                   |NeoForge                      |neoforge                      |21.1.251            |Manifest: NOSIGNATURE
-[01:50:09] [main/ERROR] [minecraft/Main]: Failed to start the minecraft server
+[09:05:44] [main/ERROR] [minecraft/Main]: Failed to start the minecraft server
 net.neoforged.fml.ModLoadingException: Loading errors encountered:
 	- Mod serilumscustomizationbundle requires collective 8.4 or above
 	  Currently, collective is 8.3

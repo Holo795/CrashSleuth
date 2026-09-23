@@ -1,7 +1,7 @@
 ---- Minecraft Crash Report ----
-// Surprise! Haha. Well, this is awkward.
+// Ooh. Shiny.
 
-Time: 2026-09-23 01:52:04
+Time: 2026-09-23 09:07:52
 Description: Ticking block entity
 
 java.lang.NoClassDefFoundError: net/p3pp3rf1y/sophisticatedcore/util/IDoubleBlock
@@ -66,11 +66,11 @@ Details:
 	All players: 0 total; 
 	Chunk stats: 729
 	Level dimension: minecraft:overworld
-	Level spawn location: World: (0,112,0), Section: (at 0,0,0 in 0,7,0; chunk contains blocks 0,-64,0 to 15,319,15), Region: (0,0; contains chunks 0,0 to 31,31, blocks 0,-64,0 to 511,319,511)
-	Level time: 231 game time, 231 day time
+	Level spawn location: World: (-16,70,16), Section: (at 0,6,0 in -1,4,1; chunk contains blocks -16,-64,16 to -1,319,31), Region: (-1,0; contains chunks -32,0 to -1,31, blocks -512,-64,0 to -1,319,511)
+	Level time: 211 game time, 211 day time
 	Level name: world
 	Level game mode: Game mode: survival (ID 0). Hardcore: false. Commands: false
-	Level weather: Rain time: 26720 (now: false), thunder time: 165635 (now: false)
+	Level weather: Rain time: 173222 (now: false), thunder time: 92169 (now: false)
 	Known server brands: neoforge
 	Removed feature flags: 
 	Level was modded: true
@@ -94,7 +94,7 @@ Details:
 	Operating System: Linux (aarch64) version 7.0.14-orbstack-00380-ga7e0a2dc9535
 	Java Version: 21.0.12, Eclipse Adoptium
 	Java VM Version: OpenJDK 64-Bit Server VM (mixed mode, sharing), Eclipse Adoptium
-	Memory: 209308928 bytes (199 MiB) / 590348288 bytes (563 MiB) up to 2147483648 bytes (2048 MiB)
+	Memory: 102585928 bytes (97 MiB) / 419430400 bytes (400 MiB) up to 2147483648 bytes (2048 MiB)
 	CPUs: 12
 	Processor Vendor: Apple
 	Processor Name: -
@@ -110,14 +110,14 @@ Details:
 	Graphics card #0 deviceId: unknown
 	Graphics card #0 versionInfo: unknown
 	Virtual memory max (MiB): 19048.21
-	Virtual memory used (MiB): 2307.63
+	Virtual memory used (MiB): 2168.39
 	Swap memory total (MiB): 13040.14
 	Swap memory used (MiB): 0.00
 	Space in storage for jna.tmpdir (MiB): <path not set>
 	Space in storage for org.lwjgl.system.SharedLibraryExtractPath (MiB): <path not set>
 	Space in storage for io.netty.native.workdir (MiB): <path not set>
-	Space in storage for java.io.tmpdir (MiB): available: 132309.63, total: 145984.00
-	Space in storage for workdir (MiB): available: 140895.94, total: 471482.09
+	Space in storage for java.io.tmpdir (MiB): available: 133845.58, total: 147520.00
+	Space in storage for workdir (MiB): available: 142377.23, total: 471482.09
 	JVM Flags: 2 total; -Xms256M -Xmx2G
 	Debug Flags: 0 total; 
 	Server Running: true
@@ -126,7 +126,7 @@ Details:
 	Available Data Packs: minecart_improvements, redstone_experiments, trade_rebalance, vanilla, mod/neoforge, mod/sophisticatedcore (incompatible), mod/toms_storage (incompatible), mod_data
 	Enabled Feature Flags: minecraft:vanilla
 	World Generation: Stable
-	World Seed: 6068330515416901444
+	World Seed: -7441540150758121853
 	Suppressed Exceptions: ~~NONE~~
 	Is Modded: Definitely; Server brand changed to 'neoforge'
 	Type: Dedicated Server (map_server.txt)
@@ -145,6 +145,6 @@ Details:
 		neoforge-21.11.45-universal.jar                   |NeoForge                      |neoforge                      |21.11.45            |Manifest: 0d9ab82c37319ed6514e8e28e5ab357ba5e9b8043ee4621333cf45b743039cba
 		sophisticatedcore-1.21.11-1.4.48.jar              |Sophisticated Core            |sophisticatedcore             |1.4.48              |Manifest: 4be7255843e9ebe58fbb8f240ff0a1c5eca1876efeda7ee4e19a37b1d69d3208
 		toms_storage-1.21.11-2.8.0.jar                    |Tom's Simple Storage Mod      |toms_storage                  |2.8.0               |Manifest: 89ea79ba620bda987cee7f2387dbde22693d82bea50698b421c489ac4f991815
-	Crash Report UUID: 683a48dc-d2c7-4e20-87f6-aaeb956e3ecd
+	Crash Report UUID: e09e0046-1190-446b-8a70-dbd62534a1ae
 	FML: 10.0.36
 	NeoForge: 21.11.45

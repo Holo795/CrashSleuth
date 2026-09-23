@@ -22,6 +22,8 @@ dependencies {
     )
     implementation(libs.material3)
     implementation(libs.coroutines.swing)
+    // Windows keeps a light title bar on every Java window until it is told otherwise (DwmSetWindowAttribute).
+    implementation(libs.jna.platform)
 }
 
 compose.desktop {
@@ -30,7 +32,8 @@ compose.desktop {
         nativeDistributions {
             targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
             packageName = "CrashSleuth"
-            packageVersion = "1.0.0"
+            // jpackage wants three numbers and nothing else: -Pversion=1.2.3 on a release, 1.0.0 otherwise.
+            packageVersion = Regex("""\d+\.\d+\.\d+""").find(project.version.toString())?.value ?: "1.0.0"
             description = "Find out why Minecraft crashes, and who is to blame."
             vendor = "Holo795"
             copyright = "MIT License"

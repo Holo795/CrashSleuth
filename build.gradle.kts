@@ -7,7 +7,8 @@ plugins {
 
 allprojects {
     group = "dev.holo795.crashsleuth"
-    version = "0.1.0-SNAPSHOT"
+    // -Pversion=1.2.3 on a release build; a working copy stays a snapshot.
+    version = (findProperty("version")?.toString()?.takeIf { it != "unspecified" }) ?: "0.1.0-SNAPSHOT"
 }
 
 subprojects {

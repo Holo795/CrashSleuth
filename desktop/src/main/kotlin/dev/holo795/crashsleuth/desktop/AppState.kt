@@ -7,6 +7,7 @@ import androidx.compose.runtime.setValue
 import dev.holo795.crashsleuth.app.Analysis
 import dev.holo795.crashsleuth.app.JavaFinder
 import dev.holo795.crashsleuth.app.JavaInstall
+import dev.holo795.crashsleuth.app.Release
 import dev.holo795.crashsleuth.app.ReportText
 import dev.holo795.crashsleuth.app.SearchCancelled
 import dev.holo795.crashsleuth.app.SearchListener
@@ -89,6 +90,35 @@ class AppState {
     var side by mutableStateOf(if (settings.side == "CLIENT") Side.CLIENT else Side.SERVER)
         private set
     val recents = mutableStateListOf<Recent>().apply { addAll(settings.recents) }
+
+    // A newer CrashSleuth, once it has been looked for. The question is asked before anything is sent.
+    var newVersion by mutableStateOf<String?>(null)
+        private set
+    val updateAnswered: Boolean get() = settings.updateCheck != null
+
+    /** Answers the question once and for all; a yes looks straight away. */
+    fun allowUpdateCheck(allowed: Boolean) {
+        settings = settings.copy(updateCheck = allowed)
+        if (allowed) lookForNewVersion()
+    }
+
+    /** This version has been seen and set aside; the next one will be offered again. */
+    fun dismissNewVersion() {
+        settings = settings.copy(updateDismissed = newVersion)
+        newVersion = null
+    }
+
+    /** Asks GitHub for the latest tag, at most once a day, and never before the question was answered. */
+    fun lookForNewVersion(scope: CoroutineScope = CoroutineScope(Dispatchers.IO)) {
+        val installed = Release.current ?: return
+        if (settings.updateCheck != true) return
+        if (System.currentTimeMillis() - settings.updateCheckedAt < 24 * 60 * 60 * 1000L) return
+        scope.launch {
+            val latest = Release.latest() ?: return@launch
+            settings = settings.copy(updateCheckedAt = System.currentTimeMillis())
+            if (Release.isNewer(latest, installed) && latest != settings.updateDismissed) newVersion = latest
+        }
+    }
     var search by mutableStateOf<SearchProgress?>(null)
         private set
     private var job: Job? = null
@@ -268,6 +298,10 @@ data class Settings(
     /** Local AI: the model to ask, and whether it is offered at all. */
     val aiModel: String? = null,
     val aiEnabled: Boolean = true,
+    /** Asking GitHub whether a newer CrashSleuth exists: null until the question has been answered once. */
+    val updateCheck: Boolean? = null,
+    val updateDismissed: String? = null,
+    val updateCheckedAt: Long = 0,
 ) {
     companion object {
         private val file: Path = Path.of(System.getProperty("user.home"), ".crashsleuth", "desktop.json")

@@ -28,6 +28,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -94,6 +95,9 @@ fun main(args: Array<String>) {
                 onDispose { }
             }
             state.pickFolder = { chooseFolder(window) }
+            // The title bar is drawn by the system: it has to be told which theme the app is in.
+            val dark = androidx.compose.foundation.isSystemInDarkTheme()
+            LaunchedEffect(dark) { WindowFrame.followTheme(window, dark) }
             CrashSleuthTheme {
                 App(
                     state = state,

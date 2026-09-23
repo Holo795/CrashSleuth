@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -22,7 +23,9 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -58,7 +61,9 @@ fun HomeScreen(state: AppState, dragging: Boolean, chooseFolder: () -> Unit, cho
             SharedLink(state)
             Spacer(Modifier.height(44.dp))
             Recents(state)
-            Spacer(Modifier.height(48.dp))
+            Spacer(Modifier.height(28.dp))
+            UpdateLine(state)
+            Spacer(Modifier.height(20.dp))
             Row(verticalAlignment = Alignment.CenterVertically) {
                 Icon(Icons.Shield, null, Modifier.size(14.dp), tint = Theme.tones.muted)
                 Spacer(Modifier.width(8.dp))
@@ -188,5 +193,38 @@ private fun relative(at: Long, ui: Ui): String {
         minutes < 60 -> "$minutes min"
         minutes < 60 * 24 -> "${minutes / 60} h"
         else -> "${minutes / (60 * 24)} ${if (french) "j" else "d"}"
+    }
+}
+
+/**
+ * Either the one question asked about looking for new versions, or the answer when there is one. Nothing
+ * reaches the network until the question has been answered with a yes.
+ */
+@Composable
+private fun UpdateLine(state: AppState) {
+    val ui = state.ui
+    LaunchedEffect(Unit) { state.lookForNewVersion() }
+    val version = state.newVersion
+    when {
+        version != null -> Row(
+            Modifier.fillMaxWidth().clip(RoundedCornerShape(10.dp))
+                .background(MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.5f))
+                .padding(horizontal = 14.dp, vertical = 10.dp),
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            Text(ui["home.update.found", version], style = MaterialTheme.typography.bodyMedium)
+            Spacer(Modifier.weight(1f))
+            TextButton(onClick = { dev.holo795.crashsleuth.app.Reveal.page(dev.holo795.crashsleuth.app.Release.PAGE) }) { Text(ui["home.update.get"]) }
+            TextButton(onClick = { state.dismissNewVersion() }) { Text(ui["home.update.later"]) }
+        }
+        !state.updateAnswered && dev.holo795.crashsleuth.app.Release.current != null -> Row(
+            Modifier.fillMaxWidth().padding(start = 12.dp),
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            Text(ui["home.update.ask"], style = MaterialTheme.typography.bodySmall, color = Theme.tones.muted)
+            Spacer(Modifier.weight(1f))
+            TextButton(onClick = { state.allowUpdateCheck(true) }) { Text(ui["home.update.yes"]) }
+            TextButton(onClick = { state.allowUpdateCheck(false) }) { Text(ui["home.update.no"]) }
+        }
     }
 }

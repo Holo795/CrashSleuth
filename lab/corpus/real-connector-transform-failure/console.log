@@ -1,61 +1,61 @@
-[32m[01:50:54.250] [main/INFO] [Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgeserver, --fml.neoForgeVersion, 21.1.251, --fml.fmlVersion, 4.0.44, --fml.mcVersion, 1.21.1, --fml.neoFormVersion, 20240808.144430, nogui] 
-[m[32m[01:50:54.251] [main/INFO] [Launcher/MODLAUNCHER]: JVM identified as Eclipse Adoptium OpenJDK 64-Bit Server VM 21.0.12+8-LTS 
-[m[32m[01:50:54.252] [main/INFO] [Launcher/MODLAUNCHER]: ModLauncher 11.0.5+main.901c6ea8 starting: java version 21.0.12 by Eclipse Adoptium; OS Linux arch aarch64 version 7.0.14-orbstack-00380-ga7e0a2dc9535 
-[m[32m[01:50:54.366] [main/INFO] [loading.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forgeserver 
-[m[32m[01:50:54.391] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=union:/srv/libraries/net/fabricmc/sponge-mixin/0.15.2+mixin.0.8.7/sponge-mixin-0.15.2+mixin.0.8.7.jar%2373!/ Service=ModLauncher Env=SERVER 
-[m[32m[01:50:54.474] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "server-1.21.1-20240808.144430-srg.jar" [locator: production server provider +net.neoforged:neoforge:21.1.251:server] 
-[m[32m[01:50:54.482] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "neoforge-21.1.251-universal.jar" [locator: PathBasedLocator[name=neoforge, paths=[libraries/net/neoforged/neoforge/21.1.251/neoforge-21.1.251-universal.jar]], reader: mod manifest] 
-[m[32m[01:50:54.483] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found library file "~nonexistent" [locator: org.sinytra.connector.locator.ConnectorEarlyLocatorBootstrap@59d2103b] 
-[m[33m[01:50:54.519] [main/WARN] [loading.moddiscovery.ModDiscoverer/SCAN]: Skipping jar. File /srv/mods/Axiom-5.1.0.jar is a Fabric mod and cannot be loaded 
-[m[32m[01:50:54.523] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "forgified-fabric-api-0.115.6.jar" [locator: {mods folder locator at /srv/mods}, reader: mod manifest] 
-[m[33m[01:50:54.688] [main/WARN] [selection.JarSelector/]: Attempted to select a dependency jar for JarJar which was passed in as source: library:net.fabricmc.loader. Using Mod File: /~nonexistent 
-[m[32m[01:50:54.688] [main/INFO] [loading.moddiscovery.locators.JarInJarDependencyLocator/]: Found 44 dependencies adding them to mods collection 
-[m[32m[01:50:54.688] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "fabric-transfer-api-v1-5.4.2+a25cb45619.jar" [parent: forgified-fabric-api-0.115.6.jar, locator: jarinjar, reader: mod manifest] 
-[m[32m[01:50:54.688] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found gamelibrary file "mixinextras-neoforge-0.5.3.jar" [parent: neoforge-21.1.251-universal.jar, locator: jarinjar, reader: mod manifest] 
-[m[32m[01:50:54.688] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "fabric-game-rule-api-v1-1.0.53+36d727be19.jar" [parent: forgified-fabric-api-0.115.6.jar, locator: jarinjar, reader: mod manifest] 
-[m[32m[01:50:54.688] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "fabric-api-base-0.4.42+d1308ded19.jar" [parent: forgified-fabric-api-0.115.6.jar, locator: jarinjar, reader: mod manifest] 
-[m[32m[01:50:54.688] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "fabric-renderer-api-v1-3.4.0+9c40919e19.jar" [parent: forgified-fabric-api-0.115.6.jar, locator: jarinjar, reader: mod manifest] 
-[m[32m[01:50:54.688] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "fabric-api-lookup-api-v1-1.6.70+c290471319.jar" [parent: forgified-fabric-api-0.115.6.jar, locator: jarinjar, reader: mod manifest] 
-[m[32m[01:50:54.688] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "fabric-blockrenderlayer-v1-1.1.52+c290471319.jar" [parent: forgified-fabric-api-0.115.6.jar, locator: jarinjar, reader: mod manifest] 
-[m[32m[01:50:54.688] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "fabric-item-api-v1-11.1.1+57cdfa8219.jar" [parent: forgified-fabric-api-0.115.6.jar, locator: jarinjar, reader: mod manifest] 
-[m[32m[01:50:54.688] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found library file "net.neoforged.neoforge-coremods-21.1.251.jar" [parent: neoforge-21.1.251-universal.jar, locator: jarinjar, reader: mod manifest] 
-[m[32m[01:50:54.688] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "fabric-model-loading-api-v1-2.0.0+986ae77219.jar" [parent: forgified-fabric-api-0.115.6.jar, locator: jarinjar, reader: mod manifest] 
-[m[32m[01:50:54.688] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "fabric-block-api-v1-1.0.22+a6e994cd19.jar" [parent: forgified-fabric-api-0.115.6.jar, locator: jarinjar, reader: mod manifest] 
-[m[32m[01:50:54.689] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "fabric-rendering-fluids-v1-3.1.6+857185bc19.jar" [parent: forgified-fabric-api-0.115.6.jar, locator: jarinjar, reader: mod manifest] 
-[m[32m[01:50:54.689] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "fabric-resource-conditions-api-v1-4.3.0+5bdd099819.jar" [parent: forgified-fabric-api-0.115.6.jar, locator: jarinjar, reader: mod manifest] 
-[m[32m[01:50:54.689] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "fabric-screen-handler-api-v1-1.3.88+8dbc56dd19.jar" [parent: forgified-fabric-api-0.115.6.jar, locator: jarinjar, reader: mod manifest] 
-[m[32m[01:50:54.689] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "fabric-resource-loader-v0-1.3.1+4ea8954419.jar" [parent: forgified-fabric-api-0.115.6.jar, locator: jarinjar, reader: mod manifest] 
-[m[32m[01:50:54.689] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "fabric-rendering-v1-5.0.5+c290471319.jar" [parent: forgified-fabric-api-0.115.6.jar, locator: jarinjar, reader: mod manifest] 
-[m[32m[01:50:54.689] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "fabric-renderer-indigo-1.7.0+4198af7119.jar" [parent: forgified-fabric-api-0.115.6.jar, locator: jarinjar, reader: mod manifest] 
-[m[32m[01:50:54.689] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "fabric-item-group-api-v1-4.1.7+e324903319.jar" [parent: forgified-fabric-api-0.115.6.jar, locator: jarinjar, reader: mod manifest] 
-[m[32m[01:50:54.689] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "fabric-convention-tags-v1-2.1.4+7f945d5b19.jar" [parent: forgified-fabric-api-0.115.6.jar, locator: jarinjar, reader: mod manifest] 
-[m[32m[01:50:54.689] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "fabric-gametest-api-v1-2.0.5+29f188ce19.jar" [parent: forgified-fabric-api-0.115.6.jar, locator: jarinjar, reader: mod manifest] 
-[m[32m[01:50:54.689] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "fabric-convention-tags-v2-2.11.0+87e5848019.jar" [parent: forgified-fabric-api-0.115.6.jar, locator: jarinjar, reader: mod manifest] 
-[m[32m[01:50:54.689] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "fabric-block-view-api-v2-1.0.11+e9036fd419.jar" [parent: forgified-fabric-api-0.115.6.jar, locator: jarinjar, reader: mod manifest] 
-[m[32m[01:50:54.689] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "fabric-command-api-v2-2.2.28+36d727be19.jar" [parent: forgified-fabric-api-0.115.6.jar, locator: jarinjar, reader: mod manifest] 
-[m[32m[01:50:54.689] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "fabric-data-attachment-api-v1-1.4.3+c290471319.jar" [parent: forgified-fabric-api-0.115.6.jar, locator: jarinjar, reader: mod manifest] 
-[m[32m[01:50:54.689] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "fabric-biome-api-v1-13.0.31+1e62d33c19.jar" [parent: forgified-fabric-api-0.115.6.jar, locator: jarinjar, reader: mod manifest] 
-[m[32m[01:50:54.689] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "fabric-entity-events-v1-1.7.0+1af6e62419.jar" [parent: forgified-fabric-api-0.115.6.jar, locator: jarinjar, reader: mod manifest] 
-[m[32m[01:50:54.689] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "fabric-registry-sync-v0-5.2.0+867470b919.jar" [parent: forgified-fabric-api-0.115.6.jar, locator: jarinjar, reader: mod manifest] 
-[m[32m[01:50:54.690] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "fabric-recipe-api-v1-5.0.14+59440bcc19.jar" [parent: forgified-fabric-api-0.115.6.jar, locator: jarinjar, reader: mod manifest] 
-[m[32m[01:50:54.690] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "fabric-loot-api-v2-3.0.15+a3ee712d19.jar" [parent: forgified-fabric-api-0.115.6.jar, locator: jarinjar, reader: mod manifest] 
-[m[32m[01:50:54.690] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "fabric-object-builder-api-v1-15.2.1+cc242efd19.jar" [parent: forgified-fabric-api-0.115.6.jar, locator: jarinjar, reader: mod manifest] 
-[m[32m[01:50:54.690] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "fabric-loot-api-v3-1.0.3+333dfad919.jar" [parent: forgified-fabric-api-0.115.6.jar, locator: jarinjar, reader: mod manifest] 
-[m[32m[01:50:54.690] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "fabric-screen-api-v1-2.0.25+4228281319.jar" [parent: forgified-fabric-api-0.115.6.jar, locator: jarinjar, reader: mod manifest] 
-[m[32m[01:50:54.690] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "fabric-rendering-data-attachment-v1-0.3.49+73761d2e19.jar" [parent: forgified-fabric-api-0.115.6.jar, locator: jarinjar, reader: mod manifest] 
-[m[32m[01:50:54.690] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "fabric-networking-api-v1-4.3.0+30a980d919.jar" [parent: forgified-fabric-api-0.115.6.jar, locator: jarinjar, reader: mod manifest] 
-[m[32m[01:50:54.690] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "fabric-sound-api-v1-1.0.23+10b84f8419.jar" [parent: forgified-fabric-api-0.115.6.jar, locator: jarinjar, reader: mod manifest] 
-[m[32m[01:50:54.690] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "fabric-particles-v1-4.0.2+824f924c19.jar" [parent: forgified-fabric-api-0.115.6.jar, locator: jarinjar, reader: mod manifest] 
-[m[32m[01:50:54.690] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "fabric-message-api-v1-6.0.13+e053909619.jar" [parent: forgified-fabric-api-0.115.6.jar, locator: jarinjar, reader: mod manifest] 
-[m[32m[01:50:54.690] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "fabric-content-registries-v0-8.0.18+c290471319.jar" [parent: forgified-fabric-api-0.115.6.jar, locator: jarinjar, reader: mod manifest] 
-[m[32m[01:50:54.690] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "fabric-lifecycle-events-v1-2.5.0+a2ee258a19.jar" [parent: forgified-fabric-api-0.115.6.jar, locator: jarinjar, reader: mod manifest] 
-[m[32m[01:50:54.690] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "fabric-transitive-access-wideners-v1-6.2.0+6c854b6f19.jar" [parent: forgified-fabric-api-0.115.6.jar, locator: jarinjar, reader: mod manifest] 
-[m[32m[01:50:54.690] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "fabric-data-generation-api-v1-20.2.28+2d91a6db19.jar" [parent: forgified-fabric-api-0.115.6.jar, locator: jarinjar, reader: mod manifest] 
-[m[32m[01:50:54.690] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "fabric-events-interaction-v0-0.7.13+7b71cc1619.jar" [parent: forgified-fabric-api-0.115.6.jar, locator: jarinjar, reader: mod manifest] 
-[m[32m[01:50:54.690] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "fabric-key-binding-api-v1-1.0.47+62cc7ce119.jar" [parent: forgified-fabric-api-0.115.6.jar, locator: jarinjar, reader: mod manifest] 
-[m[32m[01:50:54.690] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "fabric-client-tags-api-v1-1.1.15+e053909619.jar" [parent: forgified-fabric-api-0.115.6.jar, locator: jarinjar, reader: mod manifest] 
-[m[1;31m[01:50:54.847] [main/ERROR] [transformer.jar.JarTransformer/]: Error reading mixin config entry lattice1202.mixins.json in file /srv/mods/.connector/temp/Axiom-5.1.0$lattice-1.2.15.jar 
-[m[1;31m[01:50:54.850] [main/ERROR] [locator.ConnectorLocator/]: Connector locator error java.lang.RuntimeException: java.lang.UnsupportedOperationException: JsonNull
+[32m[09:06:30.959] [main/INFO] [Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgeserver, --fml.neoForgeVersion, 21.1.251, --fml.fmlVersion, 4.0.44, --fml.mcVersion, 1.21.1, --fml.neoFormVersion, 20240808.144430, nogui] 
+[m[32m[09:06:30.960] [main/INFO] [Launcher/MODLAUNCHER]: JVM identified as Eclipse Adoptium OpenJDK 64-Bit Server VM 21.0.12+8-LTS 
+[m[32m[09:06:30.960] [main/INFO] [Launcher/MODLAUNCHER]: ModLauncher 11.0.5+main.901c6ea8 starting: java version 21.0.12 by Eclipse Adoptium; OS Linux arch aarch64 version 7.0.14-orbstack-00380-ga7e0a2dc9535 
+[m[32m[09:06:31.052] [main/INFO] [loading.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forgeserver 
+[m[32m[09:06:31.088] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=union:/srv/libraries/net/fabricmc/sponge-mixin/0.15.2+mixin.0.8.7/sponge-mixin-0.15.2+mixin.0.8.7.jar%2373!/ Service=ModLauncher Env=SERVER 
+[m[32m[09:06:31.166] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "server-1.21.1-20240808.144430-srg.jar" [locator: production server provider +net.neoforged:neoforge:21.1.251:server] 
+[m[32m[09:06:31.174] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "neoforge-21.1.251-universal.jar" [locator: PathBasedLocator[name=neoforge, paths=[libraries/net/neoforged/neoforge/21.1.251/neoforge-21.1.251-universal.jar]], reader: mod manifest] 
+[m[32m[09:06:31.175] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found library file "~nonexistent" [locator: org.sinytra.connector.locator.ConnectorEarlyLocatorBootstrap@24bdb479] 
+[m[33m[09:06:31.210] [main/WARN] [loading.moddiscovery.ModDiscoverer/SCAN]: Skipping jar. File /srv/mods/Axiom-5.1.0.jar is a Fabric mod and cannot be loaded 
+[m[32m[09:06:31.213] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "forgified-fabric-api-0.115.6.jar" [locator: {mods folder locator at /srv/mods}, reader: mod manifest] 
+[m[33m[09:06:31.391] [main/WARN] [selection.JarSelector/]: Attempted to select a dependency jar for JarJar which was passed in as source: library:net.fabricmc.loader. Using Mod File: /~nonexistent 
+[m[32m[09:06:31.391] [main/INFO] [loading.moddiscovery.locators.JarInJarDependencyLocator/]: Found 44 dependencies adding them to mods collection 
+[m[32m[09:06:31.391] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "fabric-transfer-api-v1-5.4.2+a25cb45619.jar" [parent: forgified-fabric-api-0.115.6.jar, locator: jarinjar, reader: mod manifest] 
+[m[32m[09:06:31.391] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found gamelibrary file "mixinextras-neoforge-0.5.3.jar" [parent: neoforge-21.1.251-universal.jar, locator: jarinjar, reader: mod manifest] 
+[m[32m[09:06:31.391] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "fabric-game-rule-api-v1-1.0.53+36d727be19.jar" [parent: forgified-fabric-api-0.115.6.jar, locator: jarinjar, reader: mod manifest] 
+[m[32m[09:06:31.391] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "fabric-api-base-0.4.42+d1308ded19.jar" [parent: forgified-fabric-api-0.115.6.jar, locator: jarinjar, reader: mod manifest] 
+[m[32m[09:06:31.391] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "fabric-renderer-api-v1-3.4.0+9c40919e19.jar" [parent: forgified-fabric-api-0.115.6.jar, locator: jarinjar, reader: mod manifest] 
+[m[32m[09:06:31.391] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "fabric-api-lookup-api-v1-1.6.70+c290471319.jar" [parent: forgified-fabric-api-0.115.6.jar, locator: jarinjar, reader: mod manifest] 
+[m[32m[09:06:31.391] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "fabric-blockrenderlayer-v1-1.1.52+c290471319.jar" [parent: forgified-fabric-api-0.115.6.jar, locator: jarinjar, reader: mod manifest] 
+[m[32m[09:06:31.391] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "fabric-item-api-v1-11.1.1+57cdfa8219.jar" [parent: forgified-fabric-api-0.115.6.jar, locator: jarinjar, reader: mod manifest] 
+[m[32m[09:06:31.391] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found library file "net.neoforged.neoforge-coremods-21.1.251.jar" [parent: neoforge-21.1.251-universal.jar, locator: jarinjar, reader: mod manifest] 
+[m[32m[09:06:31.391] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "fabric-model-loading-api-v1-2.0.0+986ae77219.jar" [parent: forgified-fabric-api-0.115.6.jar, locator: jarinjar, reader: mod manifest] 
+[m[32m[09:06:31.391] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "fabric-block-api-v1-1.0.22+a6e994cd19.jar" [parent: forgified-fabric-api-0.115.6.jar, locator: jarinjar, reader: mod manifest] 
+[m[32m[09:06:31.391] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "fabric-rendering-fluids-v1-3.1.6+857185bc19.jar" [parent: forgified-fabric-api-0.115.6.jar, locator: jarinjar, reader: mod manifest] 
+[m[32m[09:06:31.392] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "fabric-resource-conditions-api-v1-4.3.0+5bdd099819.jar" [parent: forgified-fabric-api-0.115.6.jar, locator: jarinjar, reader: mod manifest] 
+[m[32m[09:06:31.392] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "fabric-screen-handler-api-v1-1.3.88+8dbc56dd19.jar" [parent: forgified-fabric-api-0.115.6.jar, locator: jarinjar, reader: mod manifest] 
+[m[32m[09:06:31.392] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "fabric-resource-loader-v0-1.3.1+4ea8954419.jar" [parent: forgified-fabric-api-0.115.6.jar, locator: jarinjar, reader: mod manifest] 
+[m[32m[09:06:31.392] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "fabric-rendering-v1-5.0.5+c290471319.jar" [parent: forgified-fabric-api-0.115.6.jar, locator: jarinjar, reader: mod manifest] 
+[m[32m[09:06:31.392] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "fabric-renderer-indigo-1.7.0+4198af7119.jar" [parent: forgified-fabric-api-0.115.6.jar, locator: jarinjar, reader: mod manifest] 
+[m[32m[09:06:31.392] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "fabric-item-group-api-v1-4.1.7+e324903319.jar" [parent: forgified-fabric-api-0.115.6.jar, locator: jarinjar, reader: mod manifest] 
+[m[32m[09:06:31.392] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "fabric-convention-tags-v1-2.1.4+7f945d5b19.jar" [parent: forgified-fabric-api-0.115.6.jar, locator: jarinjar, reader: mod manifest] 
+[m[32m[09:06:31.392] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "fabric-gametest-api-v1-2.0.5+29f188ce19.jar" [parent: forgified-fabric-api-0.115.6.jar, locator: jarinjar, reader: mod manifest] 
+[m[32m[09:06:31.392] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "fabric-convention-tags-v2-2.11.0+87e5848019.jar" [parent: forgified-fabric-api-0.115.6.jar, locator: jarinjar, reader: mod manifest] 
+[m[32m[09:06:31.392] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "fabric-block-view-api-v2-1.0.11+e9036fd419.jar" [parent: forgified-fabric-api-0.115.6.jar, locator: jarinjar, reader: mod manifest] 
+[m[32m[09:06:31.392] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "fabric-command-api-v2-2.2.28+36d727be19.jar" [parent: forgified-fabric-api-0.115.6.jar, locator: jarinjar, reader: mod manifest] 
+[m[32m[09:06:31.392] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "fabric-data-attachment-api-v1-1.4.3+c290471319.jar" [parent: forgified-fabric-api-0.115.6.jar, locator: jarinjar, reader: mod manifest] 
+[m[32m[09:06:31.392] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "fabric-biome-api-v1-13.0.31+1e62d33c19.jar" [parent: forgified-fabric-api-0.115.6.jar, locator: jarinjar, reader: mod manifest] 
+[m[32m[09:06:31.392] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "fabric-entity-events-v1-1.7.0+1af6e62419.jar" [parent: forgified-fabric-api-0.115.6.jar, locator: jarinjar, reader: mod manifest] 
+[m[32m[09:06:31.392] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "fabric-registry-sync-v0-5.2.0+867470b919.jar" [parent: forgified-fabric-api-0.115.6.jar, locator: jarinjar, reader: mod manifest] 
+[m[32m[09:06:31.392] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "fabric-recipe-api-v1-5.0.14+59440bcc19.jar" [parent: forgified-fabric-api-0.115.6.jar, locator: jarinjar, reader: mod manifest] 
+[m[32m[09:06:31.392] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "fabric-loot-api-v2-3.0.15+a3ee712d19.jar" [parent: forgified-fabric-api-0.115.6.jar, locator: jarinjar, reader: mod manifest] 
+[m[32m[09:06:31.392] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "fabric-object-builder-api-v1-15.2.1+cc242efd19.jar" [parent: forgified-fabric-api-0.115.6.jar, locator: jarinjar, reader: mod manifest] 
+[m[32m[09:06:31.393] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "fabric-loot-api-v3-1.0.3+333dfad919.jar" [parent: forgified-fabric-api-0.115.6.jar, locator: jarinjar, reader: mod manifest] 
+[m[32m[09:06:31.393] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "fabric-screen-api-v1-2.0.25+4228281319.jar" [parent: forgified-fabric-api-0.115.6.jar, locator: jarinjar, reader: mod manifest] 
+[m[32m[09:06:31.393] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "fabric-rendering-data-attachment-v1-0.3.49+73761d2e19.jar" [parent: forgified-fabric-api-0.115.6.jar, locator: jarinjar, reader: mod manifest] 
+[m[32m[09:06:31.393] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "fabric-networking-api-v1-4.3.0+30a980d919.jar" [parent: forgified-fabric-api-0.115.6.jar, locator: jarinjar, reader: mod manifest] 
+[m[32m[09:06:31.393] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "fabric-sound-api-v1-1.0.23+10b84f8419.jar" [parent: forgified-fabric-api-0.115.6.jar, locator: jarinjar, reader: mod manifest] 
+[m[32m[09:06:31.393] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "fabric-particles-v1-4.0.2+824f924c19.jar" [parent: forgified-fabric-api-0.115.6.jar, locator: jarinjar, reader: mod manifest] 
+[m[32m[09:06:31.393] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "fabric-message-api-v1-6.0.13+e053909619.jar" [parent: forgified-fabric-api-0.115.6.jar, locator: jarinjar, reader: mod manifest] 
+[m[32m[09:06:31.393] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "fabric-content-registries-v0-8.0.18+c290471319.jar" [parent: forgified-fabric-api-0.115.6.jar, locator: jarinjar, reader: mod manifest] 
+[m[32m[09:06:31.393] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "fabric-lifecycle-events-v1-2.5.0+a2ee258a19.jar" [parent: forgified-fabric-api-0.115.6.jar, locator: jarinjar, reader: mod manifest] 
+[m[32m[09:06:31.393] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "fabric-transitive-access-wideners-v1-6.2.0+6c854b6f19.jar" [parent: forgified-fabric-api-0.115.6.jar, locator: jarinjar, reader: mod manifest] 
+[m[32m[09:06:31.393] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "fabric-data-generation-api-v1-20.2.28+2d91a6db19.jar" [parent: forgified-fabric-api-0.115.6.jar, locator: jarinjar, reader: mod manifest] 
+[m[32m[09:06:31.393] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "fabric-events-interaction-v0-0.7.13+7b71cc1619.jar" [parent: forgified-fabric-api-0.115.6.jar, locator: jarinjar, reader: mod manifest] 
+[m[32m[09:06:31.393] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "fabric-key-binding-api-v1-1.0.47+62cc7ce119.jar" [parent: forgified-fabric-api-0.115.6.jar, locator: jarinjar, reader: mod manifest] 
+[m[32m[09:06:31.393] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "fabric-client-tags-api-v1-1.1.15+e053909619.jar" [parent: forgified-fabric-api-0.115.6.jar, locator: jarinjar, reader: mod manifest] 
+[m[1;31m[09:06:31.552] [main/ERROR] [transformer.jar.JarTransformer/]: Error reading mixin config entry lattice1202.mixins.json in file /srv/mods/.connector/temp/Axiom-5.1.0$lattice-1.2.15.jar 
+[m[1;31m[09:06:31.555] [main/ERROR] [locator.ConnectorLocator/]: Connector locator error java.lang.RuntimeException: java.lang.UnsupportedOperationException: JsonNull
 	at LAYER SERVICE/org.sinytra.connector@2.0.0-beta.10/org.sinytra.connector.transformer.jar.JarTransformer.readMixinConfigPackages(JarTransformer.java:215) ~[?:?] {}
 	at LAYER SERVICE/org.sinytra.connector@2.0.0-beta.10/org.sinytra.connector.transformer.jar.JarTransformer.readModMetadata(JarTransformer.java:165) ~[?:?] {}
 	at LAYER SERVICE/org.sinytra.connector@2.0.0-beta.10/org.sinytra.connector.transformer.jar.JarTransformer.cacheTransformableJar(JarTransformer.java:85) ~[?:?] {}
@@ -113,10 +113,10 @@ Caused by: java.lang.UnsupportedOperationException: JsonNull
 	at LAYER SERVICE/org.sinytra.connector@2.0.0-beta.10/org.sinytra.connector.transformer.jar.JarTransformer.readMixinConfigPackages(JarTransformer.java:207) ~[?:?] {}
 	... 51 more
 
-[m[32m[01:50:54.893] [main/INFO] [loading.moddiscovery.locators.JarInJarDependencyLocator/]: Found 2 dependencies adding them to mods collection 
-[m[32m[01:50:54.893] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "org.sinytra.connector-2.0.0-beta.10+1.21.1-mod.jar" [parent: , locator: org.sinytra.connector.locator.ConnectorLocator@482d776b, reader: mod manifest] 
-[m[32m[01:50:54.893] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found gamelibrary file "runtime-1.0.0+1.21.1.jar" [parent: , locator: org.sinytra.connector.locator.ConnectorLocator@482d776b, reader: mod manifest] 
-[m[32m[01:50:54.894] [main/INFO] [loading.moddiscovery.ModDiscoverer/]: 
+[m[32m[09:06:31.601] [main/INFO] [loading.moddiscovery.locators.JarInJarDependencyLocator/]: Found 2 dependencies adding them to mods collection 
+[m[32m[09:06:31.601] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "org.sinytra.connector-2.0.0-beta.10+1.21.1-mod.jar" [parent: , locator: org.sinytra.connector.locator.ConnectorLocator@72a85671, reader: mod manifest] 
+[m[32m[09:06:31.601] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found gamelibrary file "runtime-1.0.0+1.21.1.jar" [parent: , locator: org.sinytra.connector.locator.ConnectorLocator@72a85671, reader: mod manifest] 
+[m[32m[09:06:31.602] [main/INFO] [loading.moddiscovery.ModDiscoverer/]: 
      Mod List:
 		Name Version (Mod Id)
 
@@ -166,16 +166,16 @@ Caused by: java.lang.UnsupportedOperationException: JsonNull
 		Minecraft 1.21.1 (minecraft)
 		NeoForge 21.1.251 (neoforge)
 		Sinytra Connector 2.0.0-beta.10+1.21.1 (connector) 
-[m[32m[01:50:55.011] [main/INFO] [service.hacks.ModuleLayerMigrator/]: Successfully made module authlib transformable 
-[m[32m[01:50:55.011] [main/INFO] [service.hacks.ModuleLayerMigrator/]: Successfully made module brigadier transformable 
-[m[32m[01:50:55.110] [main/INFO] [mixin/]: Compatibility level set to JAVA_17 
-[m[32m[01:50:55.112] [main/INFO] [mixin/]: Compatibility level set to JAVA_21 
-[m[1;31m[01:50:55.146] [main/ERROR] [ConnectorEarlyLoader/]: Skipping early mod setup due to previous error 
-[m[32m[01:50:55.148] [main/INFO] [LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgeserver' with arguments [nogui] 
-[m[33m[01:50:55.205] [main/WARN] [mixin/]: Reference map '' for adapter.init.mixins.json could not be read. If this is a development environment you can ignore this message 
+[m[32m[09:06:31.706] [main/INFO] [service.hacks.ModuleLayerMigrator/]: Successfully made module authlib transformable 
+[m[32m[09:06:31.707] [main/INFO] [service.hacks.ModuleLayerMigrator/]: Successfully made module brigadier transformable 
+[m[32m[09:06:31.801] [main/INFO] [mixin/]: Compatibility level set to JAVA_17 
+[m[32m[09:06:31.802] [main/INFO] [mixin/]: Compatibility level set to JAVA_21 
+[m[1;31m[09:06:31.825] [main/ERROR] [ConnectorEarlyLoader/]: Skipping early mod setup due to previous error 
+[m[32m[09:06:31.826] [main/INFO] [LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgeserver' with arguments [nogui] 
+[m[33m[09:06:31.882] [main/WARN] [mixin/]: Reference map '' for adapter.init.mixins.json could not be read. If this is a development environment you can ignore this message 
 [mWARN StatusConsoleListener Advanced terminal features are not available in this environment
-[01:50:55] [main/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.5.3).
-[01:50:57] [main/FATAL] [ne.ne.fm.ModLoader/CORE]: Error during pre-loading phase: [Connector] Fabric mod discovery failed
+[09:06:32] [main/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.5.3).
+[09:06:34] [main/FATAL] [ne.ne.fm.ModLoader/CORE]: Error during pre-loading phase: [Connector] Fabric mod discovery failed
 java.lang.RuntimeException: java.lang.UnsupportedOperationException: JsonNull
 java.lang.RuntimeException: java.lang.UnsupportedOperationException: JsonNull
 	at LAYER SERVICE/org.sinytra.connector@2.0.0-beta.10/org.sinytra.connector.transformer.jar.JarTransformer.readMixinConfigPackages(JarTransformer.java:215) ~[connector-2.0.0-beta.10.jar%23119!/:2.0.0-beta.10+1.21.1] {}
@@ -234,8 +234,8 @@ Caused by: java.lang.UnsupportedOperationException: JsonNull
 	at MC-BOOTSTRAP/com.google.gson@2.10.1/com.google.gson.JsonElement.getAsString(JsonElement.java:187) ~[gson-2.10.1.jar%2394!/:?] {}
 	at LAYER SERVICE/org.sinytra.connector@2.0.0-beta.10/org.sinytra.connector.transformer.jar.JarTransformer.readMixinConfigPackages(JarTransformer.java:207) ~[connector-2.0.0-beta.10.jar%23119!/:2.0.0-beta.10+1.21.1] {}
 	... 51 more
-[01:50:57] [main/ERROR] [minecraft/CrashReport]: Negative index in crash report handler (0/18)
-[01:50:57] [main/FATAL] [ne.ne.ne.se.lo.ServerModLoader/]: Crash report saved to ./crash-reports/crash-2026-09-23_01.50.57-fml.txt
+[09:06:34] [main/ERROR] [minecraft/CrashReport]: Negative index in crash report handler (0/18)
+[09:06:34] [main/FATAL] [ne.ne.ne.se.lo.ServerModLoader/]: Crash report saved to ./crash-reports/crash-2026-09-23_09.06.34-fml.txt
 ---- Minecraft Crash Report ----
 
 // Hi. I'm Connector, and I'm a crashaholic
@@ -248,7 +248,7 @@ If you're unsure, file a report on Connector's issue tracker found at https://gi
 
 // I just don't know what went wrong :(
 
-Time: 2026-09-23 01:50:57
+Time: 2026-09-23 09:06:34
 Description: Mod loading failures have occurred; consult the issue messages for more details
 
 net.neoforged.neoforge.logging.CrashReportExtender$ModLoadingCrashException: Mod loading has failed
@@ -386,7 +386,7 @@ Details:
 	Operating System: Linux (aarch64) version 7.0.14-orbstack-00380-ga7e0a2dc9535
 	Java Version: 21.0.12, Eclipse Adoptium
 	Java VM Version: OpenJDK 64-Bit Server VM (mixed mode, sharing), Eclipse Adoptium
-	Memory: 101075264 bytes (96 MiB) / 480247808 bytes (458 MiB) up to 2147483648 bytes (2048 MiB)
+	Memory: 102970200 bytes (98 MiB) / 488636416 bytes (466 MiB) up to 2147483648 bytes (2048 MiB)
 	CPUs: 12
 	Processor Vendor: Apple
 	Processor Name: 
@@ -402,14 +402,14 @@ Details:
 	Graphics card #0 deviceId: unknown
 	Graphics card #0 versionInfo: unknown
 	Virtual memory max (MiB): 19048.21
-	Virtual memory used (MiB): 2138.48
+	Virtual memory used (MiB): 2134.40
 	Swap memory total (MiB): 13040.14
 	Swap memory used (MiB): 0.00
 	Space in storage for jna.tmpdir (MiB): <path not set>
 	Space in storage for org.lwjgl.system.SharedLibraryExtractPath (MiB): <path not set>
 	Space in storage for io.netty.native.workdir (MiB): <path not set>
-	Space in storage for java.io.tmpdir (MiB): available: 132309.64, total: 145984.00
-	Space in storage for workdir (MiB): available: 140809.75, total: 471482.09
+	Space in storage for java.io.tmpdir (MiB): available: 133781.58, total: 147456.00
+	Space in storage for workdir (MiB): available: 142288.81, total: 471482.09
 	JVM Flags: 2 total; -Xms256M -Xmx2G
 	Sinytra Connector: 2.0.0-beta.10+1.21.1
 		SINYTRA CONNECTOR IS PRESENT!
@@ -477,7 +477,7 @@ Details:
 		server-1.21.1-20240808.144430-srg.jar             |Minecraft                     |minecraft                     |1.21.1              |Manifest: NOSIGNATURE
 		neoforge-21.1.251-universal.jar                   |NeoForge                      |neoforge                      |21.1.251            |Manifest: NOSIGNATURE
 		org.sinytra.connector-2.0.0-beta.10+1.21.1-mod.jar|Sinytra Connector             |connector                     |2.0.0-beta.10+1.21.1|Manifest: NOSIGNATURE
-[01:50:57] [main/ERROR] [minecraft/Main]: Failed to start the minecraft server
+[09:06:34] [main/ERROR] [minecraft/Main]: Failed to start the minecraft server
 net.neoforged.fml.ModLoadingException: Loading errors encountered:
 	- [Connector] Fabric mod discovery failed
 	  java.lang.RuntimeException: java.lang.UnsupportedOperationException: JsonNull
