@@ -86,6 +86,7 @@ class LogAnalyzer(
             MissingLibraryDetector,
             PluginLoadDetector,
             PluginRuntimeDetector,
+            FabricEntrypointDetector,
             NotAPluginDetector,
             DuplicateDetector,
             DeadlockDetector,

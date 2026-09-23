@@ -27,7 +27,12 @@
 - **Un message qui nomme ce qui n'est pas installé** : « enable it in your BungeeCord config as well! » arrive sur des réseaux où BungeeCord n'existe nulle part ; c'est le réglage que le serveur a lu, pas un logiciel présent. Dit tel quel, avec les deux réglages à accorder.
 - **Un réglage jamais appliqué, dit une seule fois** : l'image Docker prévient qu'elle ne peut pas modifier un fichier absent, puis démarre le serveur ; plus rien ne le rappellera ensuite.
 - **Un titre qui mentait** : un fichier illisible s'affichait sous « Le monde est déjà utilisé » alors que le conseil parlait de droits.
-- **Cas réels rejoués : 61** (`docs/REAL_CASES.md`), corpus de 395 cas, 98 signatures.
+- **Côté client, la ligne la plus grosse nomme souvent l'innocent.** Quatre réponses corrigées :
+  - l'écran de plantage de Fabric nomme le mod dont l'entrypoint tournait — son auteur a fini par renommer sa classe en `Crash_Is_Not_Caused_By_BetterClouds` ; on lit désormais la chaîne `Caused by`, et un mod déplacé dans un autre paquet est nommé par son identifiant grâce à la liste des mods chargés ;
+  - « Out of stack space » recevait « donnez plus de mémoire à Java » : c'est l'espace natif de LWJGL, que ni `-Xmx` ni `-Xss` ne touchent ;
+  - « removing all selected resourcepacks » ne donnait rien : le jeu éteint tous les packs d'un coup pour un seul fautif ;
+  - « OpenGL is not supported » sur une carte récente : c'est XWayland, pas la carte.
+- **Cas réels rejoués : 61** (`docs/REAL_CASES.md`), corpus de 395 cas, 100 signatures.
 
 ### Changements de la v20 (rappel)
 - **Qui nomme n'est pas qui est fautif.** Dans cet écosystème, presque toutes les lignes qui nomment un mod nomment celui qui a *remarqué* le problème. Corrigé sur quatre cas, chacun tiré d'un signalement réel :

@@ -117,6 +117,52 @@ object PluginRuntimeDetector : Detector {
 }
 
 /**
+ * Fabric's crash screen names the mod that owns the entrypoint it was running, which is the first and
+ * largest line a player reads. The mod that actually threw is further down, in the `Caused by` chain:
+ * a mixin plugin of another mod, a config it could not read. When nothing of the named mod appears in
+ * the trace, the code that really failed is named first (https://github.com/FabricMC/fabric-loader/issues/998).
+ */
+object FabricEntrypointDetector : Detector {
+    private val ENTRYPOINT = Regex("""Could not execute entrypoint stage '([^']+)' due to errors, provided by '([\w.-]+)'""")
+
+    override fun detect(document: LogDocument, environment: Environment): List<Finding> =
+        document.findAll(ENTRYPOINT).map { match ->
+            val stage = match.groupValues[1]
+            val owner = match.groupValues[2]
+            val lineIndex = document.text.substring(0, match.range.last).count { it == '\n' }
+            val trace = document.stackTraces.firstOrNull { it.lineIndex >= lineIndex }
+            val named = Culprit(CulpritKind.MOD, owner)
+            val fromTrace = byName(trace?.let { Attribution.culprits(it, environment, 2) }.orEmpty(), trace, document)
+            val ownsAFrame = fromTrace.any { it.id.equals(owner, ignoreCase = true) }
+            val culprits = if (fromTrace.isEmpty() || ownsAFrame) listOf(named) else fromTrace.take(1) + named
+            Finding(
+                situation = Situation.UNCAUGHT_EXCEPTION,
+                confidence = if (culprits.size > 1) Confidence.HIGH else Confidence.CERTAIN,
+                culprits = culprits,
+                evidence = listOfNotNull(document.lineContaining(match.value), trace?.root?.headline),
+                details = mapOf("stage" to stage) +
+                    if (culprits.size > 1) mapOf("adviceKey" to "uncaught.entrypoint-owner", "titleKey" to "uncaught.entrypoint-owner.title") else emptyMap(),
+            )
+        }.toList()
+
+    /**
+     * A mod moved into another package keeps nothing of its name in the package root: Sinytra Connector
+     * puts Fabric mods under `fabric.`, and shading does the same. When a package holds the id of a mod
+     * the log says is loaded, that id is the name to use.
+     */
+    private fun byName(culprit: List<Culprit>, trace: StackTrace?, document: LogDocument): List<Culprit> {
+        if (trace == null) return culprit
+        val loaded = document.modIds()
+        if (loaded.isEmpty()) return culprit
+        val fromPackage = trace.chain().flatMap { it.frames }
+            .firstNotNullOfOrNull { frame -> frame.className.split('.').firstOrNull { it.lowercase() in loaded } }
+            ?: return culprit
+        return culprit.map { if (it.id.equals(fromPackage, ignoreCase = true)) it else it.copy(id = fromPackage) }
+            .distinctBy { it.id.lowercase() }
+    }
+}
+
+/**
  * The same mod or plugin installed twice. Paper: `Ambiguous plugin name 'Chunky' for files 'a.jar' and 'b.jar'`;
  * Forge: `Found a duplicate mod jei at [...]` or `Mod ID: 'jei' from mod files: a.jar, b.jar`;
  * NeoForge (debug.log): `Found 2 mods for first modid jei, selecting most recent`.

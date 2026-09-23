@@ -12,7 +12,7 @@ class SignatureTest {
 
     @Test
     fun `all signatures load`() {
-        assertEquals(99, SignatureDetector.load(javaClass.classLoader.getResource("crashsleuth/signatures.json")!!.readText()).size)
+        assertEquals(100, SignatureDetector.load(javaClass.classLoader.getResource("crashsleuth/signatures.json")!!.readText()).size)
     }
 
     @Test
@@ -289,6 +289,44 @@ class SignatureTest {
                 "[23:06:50] [Render thread/ERROR]: Failed to create backend OpenGL\n" +
                     "com.mojang.renderpearl.api.device.BackendCreationException: OpenGL is not supported: " +
                     "Could not retrieve OpenGL functions\n",
+            ),
+        )
+    }
+
+    /** Three client reports where the loudest name is the wrong one, or no name at all. */
+    @Test
+    fun `the client blames the wrong thing`() {
+        // https://github.com/FabricMC/fabric-loader/issues/998 : the entrypoint owner is not the cause.
+        assertEquals(
+            Situation.UNCAUGHT_EXCEPTION to listOf("badoptimizations", "betterclouds"),
+            primary(
+                "[13:14:02] [main/INFO]: Loading 4 mods:\n" +
+                    "\t- badoptimizations 2.1.4\n\t- betterclouds 1.7.4+1.21\n\t- minecraft 1.21\n" +
+                    "A mod crashed on startup!\n" +
+                    "net.fabricmc.loader.impl.FormattedException: java.lang.RuntimeException: Could not " +
+                    "execute entrypoint stage 'preLaunch' due to errors, provided by 'betterclouds' at " +
+                    "'com.qendolin.betterclouds.platform.fabric.Crash_Is_Not_Caused_By_BetterClouds'!\n" +
+                    "Caused by: java.lang.ExceptionInInitializerError\n" +
+                    "\tat knot//fabric.me.thosea.badoptimizations.mixin.BOMixinPlugin.onLoad(BOMixinPlugin.java:19)\n",
+            ),
+        )
+        // https://github.com/xCollateral/VulkanMod/issues/665 : neither -Xmx nor -Xss touches this.
+        assertEquals(
+            Situation.OUT_OF_MEMORY to emptyList(),
+            primary(
+                "java.lang.OutOfMemoryError: Out of stack space\n" +
+                    "    at knot//org.lwjgl.system.MemoryStack.nmalloc(MemoryStack.java:322)\n" +
+                    "    at knot//org.lwjgl.vulkan.VkInstance.getAvailableDeviceExtensions(VkInstance.java:82)\n",
+            ),
+        )
+        // https://github.com/sp614x/optifine/issues/7945 : one bad pack, every pack switched off.
+        assertEquals(
+            Situation.SILENT_ERROR to emptyList(),
+            primary(
+                "[21:37:35] [Render thread/ERROR]: Couldn't compile fragment shader " +
+                    "(minecraft:core/rendertype_text)\n" +
+                    "[21:37:35] [Render thread/INFO]: Caught error loading resourcepacks, " +
+                    "removing all selected resourcepacks\n",
             ),
         )
     }

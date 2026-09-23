@@ -31,6 +31,9 @@ CrashSleuth diagnoses crashes, startup failures, hangs, lag and connection probl
 Most lines that name a mod name the one that *noticed*, not the one at fault, and the usual advice is often wrong. CrashSleuth is built against that:
 
 - a mixin that could not be applied names the mod that **lost**; the one that got there first is only in the class name of the mixin that merged, and that is who gets named;
+- Fabric's crash screen names the mod whose entrypoint was running, in its first and largest line; the mod that really threw is read out of the `Caused by` chain instead, and a mod moved into another package is named by its id and not by its package;
+- “Out of stack space” is LWJGL's native scratch space, not the Java heap: `-Xmx` is never suggested for it;
+- when the game switches off every resource pack at once, the pack that broke is the one to look at, not the ones that went with it;
 - `Could not pass event … to X` names whoever registered the listener; if none of X is in the trace, the code that really threw is named instead;
 - when a loader refuses to start because one mod declares it breaks another, the mod to change is the one being refused, not the one that wrote the rule;
 - Forge's `Suspected Mods` is a list of everything in the stack, by its own authors' description, and is presented as a lead;

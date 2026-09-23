@@ -129,19 +129,6 @@
       "source": "codex-minecraft"
     },
     {
-      "id": "fabric-entrypoint-failed",
-      "situation": "UNCAUGHT_EXCEPTION",
-      "confidence": "CERTAIN",
-      "pattern": "Could not execute entrypoint stage '[^']+' due to errors, provided by '([\\w.-]+)'",
-      "culprits": [
-        {
-          "group": 1,
-          "kind": "MOD"
-        }
-      ],
-      "source": "codex-minecraft"
-    },
-    {
       "id": "forge-caught-exception-from-mod",
       "situation": "UNCAUGHT_EXCEPTION",
       "confidence": "HIGH",
@@ -766,6 +753,14 @@
       "source": "lab: net playerdata-corrupt (Paper 1.21.1, the player's save cut after a first join)"
     },
     {
+      "id": "the-native-stack-is-not-the-java-heap",
+      "situation": "OUT_OF_MEMORY",
+      "confidence": "CERTAIN",
+      "pattern": "OutOfMemoryError: Out of stack space[\\s\\S]{0,300}?org\\.lwjgl\\.system\\.MemoryStack",
+      "advice": "signature.the-native-stack-is-not-the-java-heap.advice",
+      "source": "https://github.com/xCollateral/VulkanMod/issues/665"
+    },
+    {
       "id": "killed-by-system",
       "situation": "OUT_OF_MEMORY",
       "confidence": "HIGH",
@@ -1261,6 +1256,17 @@
       },
       "advice": "signature.opengl-said-unsupported-on-a-card-that-has-it.advice",
       "source": "https://github.com/IrisShaders/Iris/issues/3345"
+    },
+    {
+      "id": "every-resource-pack-turned-off-at-once",
+      "situation": "SILENT_ERROR",
+      "confidence": "HIGH",
+      "pattern": "Caught error loading resourcepacks, removing all selected resourcepacks",
+      "details": {
+        "titleKey": "packs.all-removed.title"
+      },
+      "advice": "signature.every-resource-pack-turned-off-at-once.advice",
+      "source": "https://github.com/sp614x/optifine/issues/7945"
     }
   ]
 }
