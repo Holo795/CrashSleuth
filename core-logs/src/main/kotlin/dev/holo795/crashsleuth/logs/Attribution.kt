@@ -131,7 +131,7 @@ object Attribution {
     }
 
     /** `com.simibubi.create.content.Foo` gives `com.simibubi.create`. */
-    private fun packageRoot(className: String): String {
+    fun packageRoot(className: String): String {
         val parts = className.split('.')
         return parts.take(minOf(3, (parts.size - 1).coerceAtLeast(1))).joinToString(".")
     }

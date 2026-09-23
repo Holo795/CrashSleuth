@@ -290,6 +290,8 @@ object StackOverflowDetector : Detector {
 /** Mixin failures: `Mixin [create.mixins.json:SomeMixin] from mod create failed`, injection errors. */
 object MixinDetector : Detector {
     private val FROM_MOD = Regex("""([\w.-]+\.mixins?\.json):([\w.$]+)(?: from mod ([\w.-]+))?""")
+    /** The mixin that got there first, named by its class: its package says whose mod it is. */
+    private val MERGED_BY = Regex("""merged by ([\w.$]+) with priority""")
     private val FAILURE = Regex("""(MixinApplyError|MixinTransformerError|InvalidInjectionException|InvalidMixinException|MixinPreProcessorException|Mixin apply for mod [\w.-]+ failed|Mixin prepare failed|Critical injection failure)""")
 
     override fun detect(document: LogDocument, environment: Environment): List<Finding> {
@@ -299,13 +301,28 @@ object MixinDetector : Detector {
         val direct = Regex("""Mixin apply for mod ([\w.-]+) failed""").find(around)?.groupValues?.get(1)
         val mods = (listOfNotNull(direct) + mixins.mapNotNull { it.groupValues[3].ifEmpty { null } } +
             mixins.map { it.groupValues[1].substringBefore(".mixins").substringBefore(".mixin") }).distinct()
+        // "cannot inject into ... merged by com.example.mixin.FooMixin": the game method was already
+        // taken over by someone else's mixin. The mod named by the failure is the one that lost, so the
+        // other one is what has to move. Mixin only writes this when the merging mixin really won.
+        val mergedBy = MERGED_BY.find(around)?.groupValues?.get(1)
+        val mergedOwner = mergedBy?.let { Attribution.packageRoot(it) }
+            ?.removeSuffix(".mixins")?.removeSuffix(".mixin")?.removeSuffix(".mixins.client")
+        val culprits = if (mergedOwner != null) {
+            listOfNotNull(Culprit(CulpritKind.MOD, mergedOwner), mods.firstOrNull()?.let { Culprit(CulpritKind.MOD, it) })
+        } else {
+            mods.take(2).map { Culprit(CulpritKind.MOD, it) }
+        }
         return listOf(
             Finding(
                 situation = Situation.MIXIN_CONFLICT,
-                confidence = if (mods.isNotEmpty()) Confidence.HIGH else Confidence.MEDIUM,
-                culprits = mods.take(2).map { Culprit(CulpritKind.MOD, it) },
+                confidence = if (mods.isNotEmpty() || mergedOwner != null) Confidence.HIGH else Confidence.MEDIUM,
+                culprits = culprits,
                 evidence = listOf(failure.value) + mixins.take(2).map { it.value },
-                details = mapOfNotNull("mixin" to mixins.firstOrNull()?.let { "${it.groupValues[1]}:${it.groupValues[2]}" }),
+                details = mapOfNotNull(
+                    "mixin" to mixins.firstOrNull()?.let { "${it.groupValues[1]}:${it.groupValues[2]}" },
+                    "mergedBy" to mergedBy,
+                    "adviceKey" to (if (mergedOwner != null) "mixin.merged-by" else null),
+                ),
             ),
         )
     }

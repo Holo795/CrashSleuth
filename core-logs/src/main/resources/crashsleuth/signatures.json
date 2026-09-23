@@ -47,6 +47,29 @@
       "source": "codex-minecraft"
     },
     {
+      "id": "fabric-breaks-version-range",
+      "situation": "MOD_CONFLICT",
+      "confidence": "CERTAIN",
+      "pattern": "Mod '([^']+)' \\(([\\w.-]+)\\) \\S+ is incompatible with version ([^\\n]*?) of mod '([^']+)' \\(([\\w.-]+)\\)",
+      "culprits": [
+        {
+          "group": 5,
+          "name": 4,
+          "kind": "MOD"
+        },
+        {
+          "group": 2,
+          "name": 1,
+          "kind": "MOD"
+        }
+      ],
+      "details": {
+        "range": 3
+      },
+      "advice": "signature.fabric-breaks-version-range.advice",
+      "source": "https://github.com/IrisShaders/Iris/issues/3349 and Sodium's own fabric.mod.json, where the breaks clause names the version of the other mod it refuses (replayed in the lab)"
+    },
+    {
       "id": "fabric-incompatible-mods",
       "situation": "MOD_CONFLICT",
       "confidence": "CERTAIN",
