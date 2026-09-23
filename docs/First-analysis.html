@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Your first analysis — CrashSleuth</title>
+<meta name="description" content="Open CrashSleuth and drop something on it. That is the whole of it.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#content">Skip to the content</a>
+<input type="checkbox" id="menu" hidden>
+<label class="burger" for="menu" aria-label="Menu">☰</label>
+<nav class="side"><a class="brand" href="index.html">CrashSleuth</a><p class="group">Getting started</p><ul><li><a href="index.html">Overview</a></li><li><a href="Install.html">Installation</a></li><li><a href="First-analysis.html" class="on">Your first analysis</a></li><li><a href="Reading-a-report.html">Reading a report</a></li></ul><p class="group">Doing more</p><ul><li><a href="Sharing-a-report.html">Sharing a report</a></li><li><a href="Finding-the-culprit.html">Finding the culprit</a></li><li><a href="Command-line.html">Command line</a></li><li><a href="Assistants-MCP.html">Assistants (MCP)</a></li></ul><p class="group">About</p><ul><li><a href="What-it-covers.html">What it covers</a></li><li><a href="Privacy.html">What leaves your computer</a></li><li><a href="How-it-is-tested.html">How it is tested</a></li><li><a href="Contributing.html">Contributing</a></li><li><a href="FAQ.html">FAQ</a></li></ul><p class="group">Elsewhere</p><ul><li><a href="https://github.com/Holo795/CrashSleuth/releases/latest" target="_blank" rel="noopener">Download</a></li><li><a href="https://github.com/Holo795/CrashSleuth" target="_blank" rel="noopener">Repository</a></li></ul></nav>
+<main id="content">
+<article>
+<h1 id="your-first-analysis">Your first analysis</h1>
+<p>Open CrashSleuth and drop something on it. That is the whole of it.</p>
+<p><img src="images/home.png" alt="The home screen" loading="lazy"></p>
+<h2 id="what-you-can-drop-on-it">What you can drop on it</h2>
+<div class="scroll"><table><thead><tr><th>You have</th><th>Drop this</th><th>What it adds</th></tr></thead><tbody><tr><td>A server that will not start</td><td>the <strong>server folder</strong></td><td>logs <em>and</em> the jars, so it can see what is installed</td></tr><tr><td>A game that crashes</td><td>the <strong>game folder</strong> (<code>.minecraft</code>, or the instance folder of your launcher)</td><td>same, on the client side</td></tr><tr><td>A modpack</td><td>the <code>.mrpack</code> or the CurseForge <code>.zip</code></td><td>checked before you ever install it</td></tr><tr><td>Just a crash report</td><td><code>crash-2026-…-server.txt</code></td><td>the trace, read and attributed</td></tr><tr><td>Just a log</td><td><code>latest.log</code>, or the console your panel shows</td><td>what the log proves</td></tr><tr><td>A JVM crash</td><td><code>hs_err_pid1234.log</code></td><td>the native library or driver behind it</td></tr><tr><td>Lag you cannot explain</td><td>a <strong>spark profile</strong></td><td>the plugin or mod holding the main thread</td></tr><tr><td>A loose pile of jars</td><td>the <strong>mods</strong> or <strong>plugins</strong> folder</td><td>dependencies, pairs and duplicates</td></tr><tr><td>A link someone sent you</td><td>paste it in <strong>&quot;A report someone shared?&quot;</strong></td><td>their report, nothing downloaded</td></tr></tbody></table></div>
+<p><strong>Give it the folder whenever you can.</strong> A log alone says what happened; a folder also lets it see what is installed, so it can tell you about a missing dependency, an incompatible pair or a duplicate jar <em>before</em> anything crashes.</p>
+<h2 id="the-server--player-switch">The Server / Player switch</h2>
+<p>Under the drop area there is a <strong>Server / Player</strong> switch. It only matters for a modpack or a bare list of mods, where nothing in the files says which side they are for: a mod that only works in the game client is a fatal mistake on a server and perfectly normal on a player&#x27;s machine.</p>
+<p>Folders and logs are recognised on their own — the switch is ignored for them.</p>
+<h2 id="what-happens-next">What happens next</h2>
+<p>Nothing is uploaded, nothing is changed. CrashSleuth reads:</p>
+<ul><li>every recent log in the folder, <strong>including <code>console.log</code></strong> next to it — the launcher&#x27;s or panel&#x27;s own console, where a graphics driver refusing the window or a JVM that will not start ends up, none of which ever reaches <code>latest.log</code>;</li><li>the crash reports, newest first;</li><li>the jars: their metadata, their dependencies, their mixins;</li><li>the world: <code>level.dat</code>, the region files (read the way the game reads them), the player saves;</li><li>the configuration files that matter, <code>server.properties</code>, <code>paper-global.yml</code>, <code>velocity.toml</code> and friends.</li></ul>
+<p>Then it shows you a report. <a href="Reading-a-report.html">How to read it →</a></p>
+<h2 id="if-it-finds-nothing">If it finds nothing</h2>
+<p>That happens, and it is on purpose: CrashSleuth would rather say nothing than name the wrong mod. When the report is empty you have two ways forward:</p>
+<ul><li><strong>Let it find the culprit by launching</strong> — the button on the right of the report. It starts a copy of your server or game with fewer mods each time and works it out. <a href="Finding-the-culprit.html">How that works →</a></li><li><strong>Send the log</strong> so a rule can be written for it. <a href="Contributing.html">How →</a></li></ul>
+</article>
+<aside class="toc"><p class="group">On this page</p><ul><li class="l2"><a href="#what-you-can-drop-on-it">What you can drop on it</a></li><li class="l2"><a href="#the-server--player-switch">The Server / Player switch</a></li><li class="l2"><a href="#what-happens-next">What happens next</a></li><li class="l2"><a href="#if-it-finds-nothing">If it finds nothing</a></li></ul></aside>
+</main>
+</body>
+</html>

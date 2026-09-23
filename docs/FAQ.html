@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FAQ and troubleshooting — CrashSleuth</title>
+<meta name="description" content="Two things to try, in order:">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#content">Skip to the content</a>
+<input type="checkbox" id="menu" hidden>
+<label class="burger" for="menu" aria-label="Menu">☰</label>
+<nav class="side"><a class="brand" href="index.html">CrashSleuth</a><p class="group">Getting started</p><ul><li><a href="index.html">Overview</a></li><li><a href="Install.html">Installation</a></li><li><a href="First-analysis.html">Your first analysis</a></li><li><a href="Reading-a-report.html">Reading a report</a></li></ul><p class="group">Doing more</p><ul><li><a href="Sharing-a-report.html">Sharing a report</a></li><li><a href="Finding-the-culprit.html">Finding the culprit</a></li><li><a href="Command-line.html">Command line</a></li><li><a href="Assistants-MCP.html">Assistants (MCP)</a></li></ul><p class="group">About</p><ul><li><a href="What-it-covers.html">What it covers</a></li><li><a href="Privacy.html">What leaves your computer</a></li><li><a href="How-it-is-tested.html">How it is tested</a></li><li><a href="Contributing.html">Contributing</a></li><li><a href="FAQ.html" class="on">FAQ</a></li></ul><p class="group">Elsewhere</p><ul><li><a href="https://github.com/Holo795/CrashSleuth/releases/latest" target="_blank" rel="noopener">Download</a></li><li><a href="https://github.com/Holo795/CrashSleuth" target="_blank" rel="noopener">Repository</a></li></ul></nav>
+<main id="content">
+<article>
+<h1 id="faq-and-troubleshooting">FAQ and troubleshooting</h1>
+<h3 id="it-found-nothing-but-my-server-is-clearly-broken">It found nothing, but my server is clearly broken</h3>
+<p>Two things to try, in order:</p>
+<ol><li><strong>Give it the folder, not the log.</strong> A log says what happened; a folder also shows what is installed, and that is where half the answers are.</li><li><strong>Let it find the culprit by launching.</strong> <a href="Finding-the-culprit.html">How →</a></li></ol>
+<p>If neither works, the log is one it does not know yet — <a href="Contributing.html">sending it in</a> is genuinely useful.</p>
+<h3 id="windows-says-windows-protected-your-pc">Windows says &quot;Windows protected your PC&quot;</h3>
+<p>Because the installer is not signed with a paid certificate. <strong>More info</strong> → <strong>Run anyway</strong>. <a href="Install.html#windows">Details →</a></p>
+<h3 id="macos-says-the-developer-cannot-be-verified">macOS says the developer cannot be verified</h3>
+<p>Same reason, Apple&#x27;s version. <strong>System Settings → Privacy &amp; Security → Open Anyway</strong>. <a href="Install.html#macos">Details →</a></p>
+<h3 id="does-it-send-my-logs-anywhere">Does it send my logs anywhere?</h3>
+<p>No. Nothing leaves the machine unless you ask, and the five things that <em>can</em> are listed one by one on <a href="Privacy.html">what leaves your computer</a>.</p>
+<h3 id="is-the-share-link-uploaded-somewhere">Is the share link uploaded somewhere?</h3>
+<p>No. The report is inside the link, after the <code>#</code>, which browsers never send to any server. <a href="Sharing-a-report.html#why-nothing-is-uploaded">The whole explanation →</a></p>
+<h3 id="it-named-a-mod-but-that-mod-is-fine">It named a mod, but that mod is fine</h3>
+<p>It may well be right in a way that looks wrong: the mod that <em>fails</em> is often not the mod that is <em>broken</em> — a mod can fail because another one changed the game underneath it. Open <strong>Show the evidence</strong> and read the lines; the advice usually says which is which.</p>
+<p>If it is simply wrong, that is worth an issue with the log. Wrong answers are how the good rules got written.</p>
+<h3 id="the-culprit-search-says-it-needs-a-folder">The culprit search says it needs a folder</h3>
+<p>You gave it a single log file. Point it at the server or game folder and the button becomes available.</p>
+<h3 id="the-culprit-search-is-taking-forever">The culprit search is taking forever</h3>
+<p>Each launch costs what your server costs to start. <code>--parallel 2</code> runs two at a time if you have the memory, <code>--max-runs 20</code> puts a ceiling on it. A heavy modpack is genuinely slow — the number of launches is small, the launches themselves are not.</p>
+<h3 id="can-i-run-it-on-a-headless-server">Can I run it on a headless server?</h3>
+<p>Yes — that is what the <a href="Command-line.html">command line</a> is for. <code>crashsleuth analyze /srv/minecraft</code> needs no display. The client-side parts (<code>--client</code>, <code>run-client</code>) use a virtual screen on Linux.</p>
+<h3 id="which-java-do-i-need">Which Java do I need?</h3>
+<p>Java 21 or newer for the portable and command-line versions. The installers carry their own runtime, so there is nothing to install.</p>
+<h3 id="it-says-my-java-is-wrong-but-i-installed-the-right-one">It says my Java is wrong but I installed the right one</h3>
+<p>Check what the <em>server</em> uses, not what your terminal uses. A panel, a <code>start.sh</code> or a systemd unit often pins a different one. And <code>_JAVA_OPTIONS</code> in the environment silently overrides what the start command says — CrashSleuth reports that one on its own when it sees it.</p>
+<h3 id="does-it-work-on-bedrock">Does it work on Bedrock?</h3>
+<p>No. Java Edition only: servers, proxies, modpacks and the Java client.</p>
+<h3 id="does-it-modify-my-server">Does it modify my server?</h3>
+<p>Never. The analysis only reads, and the culprit search works on copies in a temporary folder.</p>
+<h3 id="how-do-i-report-a-bug-in-crashsleuth-itself">How do I report a bug in CrashSleuth itself?</h3>
+<p><a href="https://github.com/Holo795/CrashSleuth/issues/new" target="_blank" rel="noopener">An issue</a>, with what you gave it and what it said. If it is a wrong answer, the log matters more than anything else you can write.</p>
+</article>
+<aside class="toc"><p class="group">On this page</p><ul><li class="l3"><a href="#it-found-nothing-but-my-server-is-clearly-broken">It found nothing, but my server is clearly broken</a></li><li class="l3"><a href="#windows-says-windows-protected-your-pc">Windows says &quot;Windows protected your PC&quot;</a></li><li class="l3"><a href="#macos-says-the-developer-cannot-be-verified">macOS says the developer cannot be verified</a></li><li class="l3"><a href="#does-it-send-my-logs-anywhere">Does it send my logs anywhere?</a></li><li class="l3"><a href="#is-the-share-link-uploaded-somewhere">Is the share link uploaded somewhere?</a></li><li class="l3"><a href="#it-named-a-mod-but-that-mod-is-fine">It named a mod, but that mod is fine</a></li><li class="l3"><a href="#the-culprit-search-says-it-needs-a-folder">The culprit search says it needs a folder</a></li><li class="l3"><a href="#the-culprit-search-is-taking-forever">The culprit search is taking forever</a></li><li class="l3"><a href="#can-i-run-it-on-a-headless-server">Can I run it on a headless server?</a></li><li class="l3"><a href="#which-java-do-i-need">Which Java do I need?</a></li><li class="l3"><a href="#it-says-my-java-is-wrong-but-i-installed-the-right-one">It says my Java is wrong but I installed the right one</a></li><li class="l3"><a href="#does-it-work-on-bedrock">Does it work on Bedrock?</a></li><li class="l3"><a href="#does-it-modify-my-server">Does it modify my server?</a></li><li class="l3"><a href="#how-do-i-report-a-bug-in-crashsleuth-itself">How do I report a bug in CrashSleuth itself?</a></li></ul></aside>
+</main>
+</body>
+</html>

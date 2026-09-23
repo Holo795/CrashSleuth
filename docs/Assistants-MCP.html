@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Using it from an assistant — CrashSleuth</title>
+<meta name="description" content="crashsleuth mcp turns the tool into a Model Context Protocol server, so an assistant can read your server">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#content">Skip to the content</a>
+<input type="checkbox" id="menu" hidden>
+<label class="burger" for="menu" aria-label="Menu">☰</label>
+<nav class="side"><a class="brand" href="index.html">CrashSleuth</a><p class="group">Getting started</p><ul><li><a href="index.html">Overview</a></li><li><a href="Install.html">Installation</a></li><li><a href="First-analysis.html">Your first analysis</a></li><li><a href="Reading-a-report.html">Reading a report</a></li></ul><p class="group">Doing more</p><ul><li><a href="Sharing-a-report.html">Sharing a report</a></li><li><a href="Finding-the-culprit.html">Finding the culprit</a></li><li><a href="Command-line.html">Command line</a></li><li><a href="Assistants-MCP.html" class="on">Assistants (MCP)</a></li></ul><p class="group">About</p><ul><li><a href="What-it-covers.html">What it covers</a></li><li><a href="Privacy.html">What leaves your computer</a></li><li><a href="How-it-is-tested.html">How it is tested</a></li><li><a href="Contributing.html">Contributing</a></li><li><a href="FAQ.html">FAQ</a></li></ul><p class="group">Elsewhere</p><ul><li><a href="https://github.com/Holo795/CrashSleuth/releases/latest" target="_blank" rel="noopener">Download</a></li><li><a href="https://github.com/Holo795/CrashSleuth" target="_blank" rel="noopener">Repository</a></li></ul></nav>
+<main id="content">
+<article>
+<h1 id="using-it-from-an-assistant">Using it from an assistant</h1>
+<p><code>crashsleuth mcp</code> turns the tool into a Model Context Protocol server, so an assistant can read your server <strong>instead of guessing at it</strong>. It speaks over standard input and output; there is no port and no daemon.</p>
+<h2 id="why-bother">Why bother</h2>
+<p>Ask an assistant why your server will not start and it will usually invent a plausible-sounding answer from the log you pasted. With this it can instead:</p>
+<ul><li>analyse the actual folder, jars included;</li><li>list what is really installed, with versions and declared dependencies;</li><li>compare a player&#x27;s mods with the server&#x27;s;</li><li>read a configuration file — with secrets replaced before it ever sees them;</li><li>ask <strong>which settings exist and what values they accept</strong>, rather than inventing a key that does not.</li></ul>
+<p>That last one matters: most bad advice about Minecraft servers is a setting that does not exist.</p>
+<h2 id="setting-it-up">Setting it up</h2>
+<h3 id="claude-desktop">Claude Desktop</h3>
+<p><code>claude_desktop_config.json</code>:</p>
+<pre class="code" data-lang="json"><code>{
+  &quot;mcpServers&quot;: {
+    &quot;crashsleuth&quot;: {
+      &quot;command&quot;: &quot;/path/to/crashsleuth/bin/crashsleuth&quot;,
+      &quot;args&quot;: [&quot;mcp&quot;]
+    }
+  }
+}</code></pre>
+<h3 id="claude-code">Claude Code</h3>
+<pre class="code" data-lang="bash"><code>claude mcp add crashsleuth -- /path/to/crashsleuth/bin/crashsleuth mcp</code></pre>
+<h3 id="anything-else-that-speaks-mcp">Anything else that speaks MCP</h3>
+<p>Run <code>crashsleuth mcp</code> as the command, with no arguments, and let it talk over stdio.</p>
+<h2 id="what-it-offers">What it offers</h2>
+<div class="scroll"><table><thead><tr><th>Tool</th><th>What it answers</th></tr></thead><tbody><tr><td><code>analyze</code></td><td>what is wrong with this folder, log or crash report</td></tr><tr><td><code>inventory</code></td><td>what is installed, with metadata</td></tr><tr><td><code>compare</code></td><td>what a player has that a server does not, and the other way round</td></tr><tr><td><code>readable</code></td><td>this trace, with the game&#x27;s names translated</td></tr><tr><td><code>config_read</code></td><td>this configuration file, secrets hidden</td></tr><tr><td><code>known_pairs</code></td><td>mods known not to work together, with the source</td></tr><tr><td><code>known_settings</code></td><td>the settings that exist, their accepted values and what they do</td></tr></tbody></table></div>
+<h2 id="what-it-will-not-do">What it will not do</h2>
+<p>It reads. It does not edit your files, restart your server, or install anything.</p>
+<p>Secrets — a forwarding secret, an RCON password, a database password — are replaced before the file is handed over, so an assistant cannot repeat them back into a chat log.</p>
+</article>
+<aside class="toc"><p class="group">On this page</p><ul><li class="l2"><a href="#why-bother">Why bother</a></li><li class="l2"><a href="#setting-it-up">Setting it up</a></li><li class="l3"><a href="#claude-desktop">Claude Desktop</a></li><li class="l3"><a href="#claude-code">Claude Code</a></li><li class="l3"><a href="#anything-else-that-speaks-mcp">Anything else that speaks MCP</a></li><li class="l2"><a href="#what-it-offers">What it offers</a></li><li class="l2"><a href="#what-it-will-not-do">What it will not do</a></li></ul></aside>
+</main>
+</body>
+</html>

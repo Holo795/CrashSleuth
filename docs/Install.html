@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Installation — CrashSleuth</title>
+<meta name="description" content="Every file below is built by GitHub from a tag, on a clean machine, and listed on the">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#content">Skip to the content</a>
+<input type="checkbox" id="menu" hidden>
+<label class="burger" for="menu" aria-label="Menu">☰</label>
+<nav class="side"><a class="brand" href="index.html">CrashSleuth</a><p class="group">Getting started</p><ul><li><a href="index.html">Overview</a></li><li><a href="Install.html" class="on">Installation</a></li><li><a href="First-analysis.html">Your first analysis</a></li><li><a href="Reading-a-report.html">Reading a report</a></li></ul><p class="group">Doing more</p><ul><li><a href="Sharing-a-report.html">Sharing a report</a></li><li><a href="Finding-the-culprit.html">Finding the culprit</a></li><li><a href="Command-line.html">Command line</a></li><li><a href="Assistants-MCP.html">Assistants (MCP)</a></li></ul><p class="group">About</p><ul><li><a href="What-it-covers.html">What it covers</a></li><li><a href="Privacy.html">What leaves your computer</a></li><li><a href="How-it-is-tested.html">How it is tested</a></li><li><a href="Contributing.html">Contributing</a></li><li><a href="FAQ.html">FAQ</a></li></ul><p class="group">Elsewhere</p><ul><li><a href="https://github.com/Holo795/CrashSleuth/releases/latest" target="_blank" rel="noopener">Download</a></li><li><a href="https://github.com/Holo795/CrashSleuth" target="_blank" rel="noopener">Repository</a></li></ul></nav>
+<main id="content">
+<article>
+<h1 id="installation">Installation</h1>
+<p>Every file below is built by GitHub from a tag, on a clean machine, and listed on the <a href="https://github.com/Holo795/CrashSleuth/releases/latest" target="_blank" rel="noopener">latest release</a> with its SHA-256 checksum in <code>SHA256SUMS.txt</code>.</p>
+<p>Nothing is bundled with the app that phones home. See <a href="Privacy.html">what leaves your computer</a>.</p>
+<h2 id="windows">Windows</h2>
+<ol><li>Download <code>CrashSleuth-&lt;version&gt;-windows-x64.msi</code>.</li><li>Run it. It installs for your user only — no administrator password.</li><li>Windows shows <strong>&quot;Windows protected your PC&quot;</strong> the first time, because the installer is not signed with a paid certificate. Click <strong>More info</strong>, then <strong>Run anyway</strong>.</li></ol>
+<p>The app is then in the Start menu under <strong>CrashSleuth</strong>.</p>
+<h2 id="macos">macOS</h2>
+<ol><li>Download <code>CrashSleuth-&lt;version&gt;-macos-arm64.dmg</code> on an Apple-silicon Mac (M1 and later), or <code>-macos-x64.dmg</code> on an Intel one. If you are unsure:  → <strong>About This Mac</strong> tells you.</li><li>Open the <code>.dmg</code> and drag <strong>CrashSleuth</strong> into <strong>Applications</strong>.</li><li>The first launch is refused: <em>&quot;CrashSleuth cannot be opened because the developer cannot be verified.&quot;</em> Open <strong>System Settings → Privacy &amp; Security</strong>, scroll to the bottom, and click <strong>Open Anyway</strong>. From then on it opens normally.</li></ol>
+<p>That warning is macOS telling you the app is not notarised by a paid Apple developer account. It is not a judgement about the app.</p>
+<h2 id="linux">Linux</h2>
+<pre class="code" data-lang="bash"><code>sudo apt install ./CrashSleuth-&lt;version&gt;-linux-x64.deb</code></pre>
+<p>Works on Debian, Ubuntu, Mint and their relatives. The app appears in your menu under <strong>CrashSleuth</strong>.</p>
+<p>On other distributions, use the portable version below.</p>
+<h2 id="portable--any-system-with-java-21">Portable — any system with Java 21</h2>
+<p>No installer, nothing written outside the folder you unzip it into.</p>
+<pre class="code" data-lang="bash"><code>unzip CrashSleuth-portable-&lt;version&gt;.zip
+java -cp &quot;lib/*&quot; dev.holo795.crashsleuth.desktop.MainKt</code></pre>
+<p>You need a Java 21 or newer runtime on the machine (<code>java -version</code> to check). This is also how the app is tried on a system it was not built on.</p>
+<h2 id="command-line">Command line</h2>
+<p>The same tool without a window: the one to install on a server, in a container, or for an assistant.</p>
+<pre class="code" data-lang="bash"><code>unzip CrashSleuth-cli-&lt;version&gt;.zip
+./crashsleuth-&lt;version&gt;/bin/crashsleuth analyze /srv/minecraft</code></pre>
+<p>It also needs Java 21. Put <code>bin/</code> on your <code>PATH</code> if you want to type <code>crashsleuth</code> from anywhere. Everything it can do is on the <a href="Command-line.html">command line page</a>.</p>
+<h2 id="building-it-yourself">Building it yourself</h2>
+<pre class="code" data-lang="bash"><code>git clone https://github.com/Holo795/CrashSleuth.git
+cd CrashSleuth
+./gradlew build            # compiles and runs the whole test suite
+./gradlew :cli:installDist # cli/build/install/crashsleuth/bin/crashsleuth
+./gradlew :desktop:run     # the app</code></pre>
+<p>JDK 21 is the only requirement. <code>./gradlew :desktop:packageMsi</code> (or <code>packageDmg</code>, <code>packageDeb</code>) builds the installer for the system you are on — jpackage cannot cross-build, which is why the release is built on three runners.</p>
+<h2 id="updating">Updating</h2>
+<p>CrashSleuth never checks its own version and never updates itself. To move to a newer one, download it from the <a href="https://github.com/Holo795/CrashSleuth/releases" target="_blank" rel="noopener">releases page</a> and install it over the old one — the Windows installer replaces the previous version in place, and on macOS you drag the new app over the old one.</p>
+<p>(The &quot;check for updates&quot; the app <em>does</em> offer is about <strong>your mods</strong>, not about itself: see <a href="Command-line.html#analyze"><code>--online</code></a> and <a href="Privacy.html">what leaves your computer</a>.)</p>
+</article>
+<aside class="toc"><p class="group">On this page</p><ul><li class="l2"><a href="#windows">Windows</a></li><li class="l2"><a href="#macos">macOS</a></li><li class="l2"><a href="#linux">Linux</a></li><li class="l2"><a href="#portable--any-system-with-java-21">Portable — any system with Java 21</a></li><li class="l2"><a href="#command-line">Command line</a></li><li class="l2"><a href="#building-it-yourself">Building it yourself</a></li><li class="l2"><a href="#updating">Updating</a></li></ul></aside>
+</main>
+</body>
+</html>

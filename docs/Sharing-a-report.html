@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sharing a report — CrashSleuth</title>
+<meta name="description" content="You want someone else to look at your crash. You do not want to upload your server, and you do not want a">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#content">Skip to the content</a>
+<input type="checkbox" id="menu" hidden>
+<label class="burger" for="menu" aria-label="Menu">☰</label>
+<nav class="side"><a class="brand" href="index.html">CrashSleuth</a><p class="group">Getting started</p><ul><li><a href="index.html">Overview</a></li><li><a href="Install.html">Installation</a></li><li><a href="First-analysis.html">Your first analysis</a></li><li><a href="Reading-a-report.html">Reading a report</a></li></ul><p class="group">Doing more</p><ul><li><a href="Sharing-a-report.html" class="on">Sharing a report</a></li><li><a href="Finding-the-culprit.html">Finding the culprit</a></li><li><a href="Command-line.html">Command line</a></li><li><a href="Assistants-MCP.html">Assistants (MCP)</a></li></ul><p class="group">About</p><ul><li><a href="What-it-covers.html">What it covers</a></li><li><a href="Privacy.html">What leaves your computer</a></li><li><a href="How-it-is-tested.html">How it is tested</a></li><li><a href="Contributing.html">Contributing</a></li><li><a href="FAQ.html">FAQ</a></li></ul><p class="group">Elsewhere</p><ul><li><a href="https://github.com/Holo795/CrashSleuth/releases/latest" target="_blank" rel="noopener">Download</a></li><li><a href="https://github.com/Holo795/CrashSleuth" target="_blank" rel="noopener">Repository</a></li></ul></nav>
+<main id="content">
+<article>
+<h1 id="sharing-a-report">Sharing a report</h1>
+<p>You want someone else to look at your crash. You do not want to upload your server, and you do not want a paste that expires in a week.</p>
+<p><strong>Share</strong> gives you one link. The report travels <em>inside</em> the link.</p>
+<p><img src="images/shared.png" alt="A shared report, opened from its link" loading="lazy"></p>
+<h2 id="how-to-share-one">How to share one</h2>
+<p><strong>In the app</strong> — open a report and click <strong>Share</strong>. The link is on your clipboard. Paste it into Discord, a GitHub issue, a forum thread, wherever.</p>
+<p><strong>From the command line</strong>:</p>
+<pre class="code" data-lang="bash"><code>crashsleuth analyze /srv/minecraft --share</code></pre>
+<p>It prints a link that looks like this:</p>
+<pre class="code" data-lang=""><code>https://holo795.github.io/CrashSleuth/r/#r=XVNNb9swDP0rhLBj6tZNu605bcv6kWFri7W3tgdGph0hipR...</code></pre>
+<h2 id="how-to-open-one-someone-sent-you">How to open one someone sent you</h2>
+<p>Either way works:</p>
+<ul><li><strong>Click it.</strong> It opens in any browser, no install, no account.</li><li><strong>Paste it into the app</strong>, in the <em>&quot;A report someone shared?&quot;</em> box on the home screen, and read it with the same interface as your own reports.</li></ul>
+<h2 id="why-nothing-is-uploaded">Why nothing is uploaded</h2>
+<p>Look at the link again. Everything after the <code>#</code> is the report itself, compressed and encoded.</p>
+<p>A browser <strong>never sends the part after the <code>#</code></strong> to the server. It is called the fragment, and it exists to point at a place inside a page; it stays in the browser. So when someone opens your link:</p>
+<ul><li>the page at <code>holo795.github.io/CrashSleuth/r/</code> is fetched — a static page, the same for everyone;</li><li>the report is decoded <strong>in their browser</strong>, from the link they already had;</li><li>no server ever receives it, GitHub included.</li></ul>
+<p>Nothing is uploaded when you create the link either: making it is pure arithmetic on your own machine. No account, no expiry, no port opened, no service to trust — and nothing to delete afterwards, because nothing was stored.</p>
+<h2 id="what-is-inside-the-link">What is inside the link</h2>
+<p>The report, not your files. That means:</p>
+<ul><li>the environment line (server software, Minecraft version, Java version);</li><li>the findings: situation, confidence, culprits, advice;</li><li>the evidence lines quoted in the report;</li><li>the list of mods or plugins, when the analysis had it.</li></ul>
+<p>It does <strong>not</strong> contain your logs in full, your world, your configuration files, your IP address or your player list. What you can see in the report is what the other person gets — nothing behind it.</p>
+<p>Still worth a glance before sharing: an evidence line comes from your log, and a log can mention a folder path with your name in it, or a player name. Read what you are sending, the way you would read a paste.</p>
+<h2 id="how-long-the-link-lasts">How long the link lasts</h2>
+<p>As long as the page stays online. There is nothing to expire, because there is nothing stored anywhere: two years from now the same link decodes the same report.</p>
+<p>The flip side: a very large report makes a very long link. Some chat clients cut long links — if yours does, send it as a file or use <strong>Copy the report</strong> instead, which gives plain text.</p>
+</article>
+<aside class="toc"><p class="group">On this page</p><ul><li class="l2"><a href="#how-to-share-one">How to share one</a></li><li class="l2"><a href="#how-to-open-one-someone-sent-you">How to open one someone sent you</a></li><li class="l2"><a href="#why-nothing-is-uploaded">Why nothing is uploaded</a></li><li class="l2"><a href="#what-is-inside-the-link">What is inside the link</a></li><li class="l2"><a href="#how-long-the-link-lasts">How long the link lasts</a></li></ul></aside>
+</main>
+</body>
+</html>

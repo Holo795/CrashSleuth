@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Finding the culprit by launching — CrashSleuth</title>
+<meta name="description" content="Sometimes the log names nobody. The crash is inside the game&#x27;s own code, the trace is all vanilla, and every">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#content">Skip to the content</a>
+<input type="checkbox" id="menu" hidden>
+<label class="burger" for="menu" aria-label="Menu">☰</label>
+<nav class="side"><a class="brand" href="index.html">CrashSleuth</a><p class="group">Getting started</p><ul><li><a href="index.html">Overview</a></li><li><a href="Install.html">Installation</a></li><li><a href="First-analysis.html">Your first analysis</a></li><li><a href="Reading-a-report.html">Reading a report</a></li></ul><p class="group">Doing more</p><ul><li><a href="Sharing-a-report.html">Sharing a report</a></li><li><a href="Finding-the-culprit.html" class="on">Finding the culprit</a></li><li><a href="Command-line.html">Command line</a></li><li><a href="Assistants-MCP.html">Assistants (MCP)</a></li></ul><p class="group">About</p><ul><li><a href="What-it-covers.html">What it covers</a></li><li><a href="Privacy.html">What leaves your computer</a></li><li><a href="How-it-is-tested.html">How it is tested</a></li><li><a href="Contributing.html">Contributing</a></li><li><a href="FAQ.html">FAQ</a></li></ul><p class="group">Elsewhere</p><ul><li><a href="https://github.com/Holo795/CrashSleuth/releases/latest" target="_blank" rel="noopener">Download</a></li><li><a href="https://github.com/Holo795/CrashSleuth" target="_blank" rel="noopener">Repository</a></li></ul></nav>
+<main id="content">
+<article>
+<h1 id="finding-the-culprit-by-launching">Finding the culprit by launching</h1>
+<p>Sometimes the log names nobody. The crash is inside the game&#x27;s own code, the trace is all vanilla, and every answer on the internet is &quot;remove mods until it stops&quot;.</p>
+<p>That is exactly what CrashSleuth does — except it does it for you, and it does not ask you anything.</p>
+<h2 id="what-it-actually-does">What it actually does</h2>
+<p>It copies your server (or game folder) into a working directory, starts it with <strong>half the mods</strong>, sees whether it still breaks, and narrows down from there. When it is done it names the mod, or the <strong>pair</strong> of mods, that has to be present for the problem to happen.</p>
+<p><strong>Your files are never changed.</strong> Everything happens on copies, in a temporary folder that is deleted afterwards unless you ask to keep it.</p>
+<p>It decides for itself whether a launch failed. You never answer &quot;did it crash?&quot;.</p>
+<h2 id="in-the-app">In the app</h2>
+<p>Open a report and click <strong>Find the culprit by launching</strong>, on the right.</p>
+<p>If the panel says <em>&quot;The search needs a server or game folder&quot;</em>, you gave it a lone log file. Point it at the folder instead and the button becomes available.</p>
+<h2 id="from-the-command-line">From the command line</h2>
+<pre class="code" data-lang="bash"><code>crashsleuth bisect /srv/minecraft</code></pre>
+<p>The options you are most likely to need:</p>
+<div class="scroll"><table><thead><tr><th>Option</th><th>For</th></tr></thead><tbody><tr><td><code>--with-world</code></td><td>crashes that only happen once a world is loaded (the worlds are copied into each launch)</td></tr><tr><td><code>--repeat 3</code></td><td>crashes that only happen sometimes; each set is tried several times</td></tr><tr><td><code>--parallel 2</code></td><td>two launches at once — each one needs its own memory</td></tr><tr><td><code>--memory 6G</code></td><td>when the server&#x27;s own setting is not what you want</td></tr><tr><td><code>--client</code></td><td>search in the game <strong>client</strong> instead: it installs Minecraft itself and opens small windows</td></tr><tr><td><code>--max-runs 20</code></td><td>put a ceiling on how long it may take</td></tr><tr><td><code>--keep</code></td><td>keep the working folder to look at the logs afterwards</td></tr></tbody></table></div>
+<h2 id="it-understands-dependencies">It understands dependencies</h2>
+<p>A naive bisection removes a library and blames it for every mod that needed it. This one reads the dependency graph first: a mod is never tested without what it requires, so the answer is a real culprit and not a library everything depended on.</p>
+<h2 id="it-finds-pairs">It finds pairs</h2>
+<p>Some crashes need <strong>two</strong> mods present at once, and neither is at fault alone. A bisection that only ever removes half the list can miss those forever. When removing one half and the other half both stop the crash, CrashSleuth knows it is looking at a pair and goes after it.</p>
+<h2 id="on-the-game-client">On the game client</h2>
+<pre class="code" data-lang="bash"><code>crashsleuth bisect ~/.minecraft --client --minecraft 1.21.1 --loader fabric</code></pre>
+<p>It installs the Minecraft version it needs on its own — you do not have to have played it. The windows it opens <strong>never come to the front</strong>: hidden on macOS, minimised without focus on Windows, a virtual screen on Linux. You can keep working while it runs.</p>
+<h2 id="how-long-it-takes">How long it takes</h2>
+<p>Each launch costs what your server costs to start, so a search is a handful of minutes for a small server and can be much longer for a heavy modpack. The number of launches grows with the <em>logarithm</em> of the number of mods: 200 mods is around 8 launches, not 200.</p>
+<p><code>--parallel</code> shortens it if you have the memory; <code>--max-runs</code> stops it if you do not have the time.</p>
+</article>
+<aside class="toc"><p class="group">On this page</p><ul><li class="l2"><a href="#what-it-actually-does">What it actually does</a></li><li class="l2"><a href="#in-the-app">In the app</a></li><li class="l2"><a href="#from-the-command-line">From the command line</a></li><li class="l2"><a href="#it-understands-dependencies">It understands dependencies</a></li><li class="l2"><a href="#it-finds-pairs">It finds pairs</a></li><li class="l2"><a href="#on-the-game-client">On the game client</a></li><li class="l2"><a href="#how-long-it-takes">How long it takes</a></li></ul></aside>
+</main>
+</body>
+</html>

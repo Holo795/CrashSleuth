@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Command line — CrashSleuth</title>
+<meta name="description" content="The same engine as the app, without a window. This is what you install on a server, in a container, or">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#content">Skip to the content</a>
+<input type="checkbox" id="menu" hidden>
+<label class="burger" for="menu" aria-label="Menu">☰</label>
+<nav class="side"><a class="brand" href="index.html">CrashSleuth</a><p class="group">Getting started</p><ul><li><a href="index.html">Overview</a></li><li><a href="Install.html">Installation</a></li><li><a href="First-analysis.html">Your first analysis</a></li><li><a href="Reading-a-report.html">Reading a report</a></li></ul><p class="group">Doing more</p><ul><li><a href="Sharing-a-report.html">Sharing a report</a></li><li><a href="Finding-the-culprit.html">Finding the culprit</a></li><li><a href="Command-line.html" class="on">Command line</a></li><li><a href="Assistants-MCP.html">Assistants (MCP)</a></li></ul><p class="group">About</p><ul><li><a href="What-it-covers.html">What it covers</a></li><li><a href="Privacy.html">What leaves your computer</a></li><li><a href="How-it-is-tested.html">How it is tested</a></li><li><a href="Contributing.html">Contributing</a></li><li><a href="FAQ.html">FAQ</a></li></ul><p class="group">Elsewhere</p><ul><li><a href="https://github.com/Holo795/CrashSleuth/releases/latest" target="_blank" rel="noopener">Download</a></li><li><a href="https://github.com/Holo795/CrashSleuth" target="_blank" rel="noopener">Repository</a></li></ul></nav>
+<main id="content">
+<article>
+<h1 id="command-line">Command line</h1>
+<p>The same engine as the app, without a window. This is what you install on a server, in a container, or behind an assistant.</p>
+<pre class="code" data-lang="bash"><code>crashsleuth --help</code></pre>
+<div class="scroll"><table><thead><tr><th>Command</th><th>What it does</th></tr></thead><tbody><tr><td><a href="#analyze"><code>analyze</code></a></td><td>read a folder, a crash report or a log, and say what is wrong</td></tr><tr><td><a href="#bisect"><code>bisect</code></a></td><td>launch the server or game with fewer mods until the culprit is alone</td></tr><tr><td><a href="#inventory"><code>inventory</code></a></td><td>list the mods and plugins with their metadata, as JSON</td></tr><tr><td><a href="#readable"><code>readable</code></a></td><td>print a log with the game&#x27;s obfuscated names translated</td></tr><tr><td><a href="#mixins"><code>mixins</code></a></td><td>which mod changes which method of the game, and where they collide</td></tr><tr><td><a href="#mcp"><code>mcp</code></a></td><td>serve CrashSleuth to an assistant</td></tr><tr><td><a href="#run-client"><code>run-client</code></a></td><td>start the game once and say whether it started</td></tr></tbody></table></div>
+<hr>
+<h2 id="analyze">analyze</h2>
+<pre class="code" data-lang="bash"><code>crashsleuth analyze /srv/minecraft
+crashsleuth analyze crash-2026-09-23_01.11.37-server.txt
+crashsleuth analyze ~/.minecraft --server /srv/minecraft</code></pre>
+<p>Takes one or more targets: a server folder, a game folder, a modpack, a crash report, a <code>latest.log</code>, an <code>hs_err_pid</code> file, a spark profile.</p>
+<div class="scroll"><table><thead><tr><th>Option</th><th>What it adds</th></tr></thead><tbody><tr><td><code>--json</code></td><td>the report as JSON, for a script</td></tr><tr><td><code>--lang en</code> / <code>--lang fr</code></td><td>the language of the report</td></tr><tr><td><code>--share</code></td><td>print a link holding the whole report; nothing is uploaded (<a href="Sharing-a-report.html">how</a>)</td></tr><tr><td><code>--server &lt;path&gt;</code></td><td>compare a player&#x27;s folder with the server they are joining</td></tr><tr><td><code>--side server</code> / <code>--side client</code></td><td>which side a modpack is checked for</td></tr><tr><td><code>--online</code></td><td>ask Modrinth, <strong>by file hash only</strong>, whether newer versions exist</td></tr><tr><td><code>--readable</code></td><td>translate the game&#x27;s obfuscated names in the evidence (downloads mappings once)</td></tr><tr><td><code>--explain</code></td><td>ask a model <strong>running on your own computer</strong> to put it in plain words</td></tr></tbody></table></div>
+<p><code>--online</code>, <code>--readable</code> and <code>--explain</code> are the only ones that touch the network. <a href="Privacy.html">What is sent, exactly →</a></p>
+<h2 id="bisect">bisect</h2>
+<pre class="code" data-lang="bash"><code>crashsleuth bisect /srv/minecraft --with-world --repeat 3
+crashsleuth bisect ~/.minecraft --client --minecraft 1.21.1 --loader fabric</code></pre>
+<p>Launches copies of your server or game with fewer mods each time, and names what has to be there for the crash to happen. Your files are never changed. <a href="Finding-the-culprit.html">The whole page on it →</a></p>
+<h2 id="inventory">inventory</h2>
+<pre class="code" data-lang="bash"><code>crashsleuth inventory /srv/minecraft</code></pre>
+<p>Every jar with its id, version, loader, declared dependencies and the Minecraft versions it says it supports — as JSON. Useful in a script, or to see what CrashSleuth thinks is installed when its answer surprises you.</p>
+<h2 id="readable">readable</h2>
+<pre class="code" data-lang="bash"><code>crashsleuth readable crash-2026-09-23-client.txt</code></pre>
+<p>Obfuscated and intermediary names — <code>fgo.b</code>, <code>class_310.method_22681</code> — are replaced by the names Mojang publishes, so a trace becomes something you can read. The mappings come from Mojang and Fabric, are downloaded once for the version in the log, and are then kept in the cache.</p>
+<h2 id="mixins">mixins</h2>
+<pre class="code" data-lang="bash"><code>crashsleuth mixins /srv/minecraft</code></pre>
+<p>Which mod rewrites which method of the game, and which ones are fighting over the same one. This is the list behind the &quot;two mods changed the same thing&quot; findings.</p>
+<h2 id="mcp">mcp</h2>
+<pre class="code" data-lang="bash"><code>crashsleuth mcp</code></pre>
+<p>Speaks the Model Context Protocol on standard input and output, so an assistant can analyse a folder, list what is installed, compare a player with a server, read a configuration file (with secrets hidden) and ask which settings exist. <a href="Assistants-MCP.html">How to wire it up →</a></p>
+<h2 id="run-client">run-client</h2>
+<pre class="code" data-lang="bash"><code>crashsleuth run-client ~/.minecraft --minecraft 1.21.1 --loader fabric</code></pre>
+<p>Starts the game once and says whether it reached the title screen. The window is hidden by default — the verdict comes from the logs — and <code>--show</code> leaves it in front if you want to watch. <code>--join host:port</code> sends it to a server as soon as it has started, <code>--join world:&lt;save&gt;</code> opens a world instead.</p>
+<p>This is the building block <code>bisect --client</code> uses; on its own it answers &quot;does this modpack even start?&quot;.</p>
+<h2 id="exit-codes">Exit codes</h2>
+<p><code>0</code> when it ran, whatever it found. A non-zero code means the command itself failed — a folder that does not exist, a download that did not work — not that your server is broken.</p>
+</article>
+<aside class="toc"><p class="group">On this page</p><ul><li class="l2"><a href="#analyze">analyze</a></li><li class="l2"><a href="#bisect">bisect</a></li><li class="l2"><a href="#inventory">inventory</a></li><li class="l2"><a href="#readable">readable</a></li><li class="l2"><a href="#mixins">mixins</a></li><li class="l2"><a href="#mcp">mcp</a></li><li class="l2"><a href="#run-client">run-client</a></li><li class="l2"><a href="#exit-codes">Exit codes</a></li></ul></aside>
+</main>
+</body>
+</html>

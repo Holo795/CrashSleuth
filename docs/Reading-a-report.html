@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reading a report — CrashSleuth</title>
+<meta name="description" content="A report answers three questions, in order: what happened, who is responsible, what to do.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#content">Skip to the content</a>
+<input type="checkbox" id="menu" hidden>
+<label class="burger" for="menu" aria-label="Menu">☰</label>
+<nav class="side"><a class="brand" href="index.html">CrashSleuth</a><p class="group">Getting started</p><ul><li><a href="index.html">Overview</a></li><li><a href="Install.html">Installation</a></li><li><a href="First-analysis.html">Your first analysis</a></li><li><a href="Reading-a-report.html" class="on">Reading a report</a></li></ul><p class="group">Doing more</p><ul><li><a href="Sharing-a-report.html">Sharing a report</a></li><li><a href="Finding-the-culprit.html">Finding the culprit</a></li><li><a href="Command-line.html">Command line</a></li><li><a href="Assistants-MCP.html">Assistants (MCP)</a></li></ul><p class="group">About</p><ul><li><a href="What-it-covers.html">What it covers</a></li><li><a href="Privacy.html">What leaves your computer</a></li><li><a href="How-it-is-tested.html">How it is tested</a></li><li><a href="Contributing.html">Contributing</a></li><li><a href="FAQ.html">FAQ</a></li></ul><p class="group">Elsewhere</p><ul><li><a href="https://github.com/Holo795/CrashSleuth/releases/latest" target="_blank" rel="noopener">Download</a></li><li><a href="https://github.com/Holo795/CrashSleuth" target="_blank" rel="noopener">Repository</a></li></ul></nav>
+<main id="content">
+<article>
+<h1 id="reading-a-report">Reading a report</h1>
+<p>A report answers three questions, in order: <strong>what happened</strong>, <strong>who is responsible</strong>, <strong>what to do</strong>.</p>
+<p><img src="images/report-plugin.png" alt="A report naming a plugin" loading="lazy"></p>
+<h2 id="the-header">The header</h2>
+<p><code>Log · Paper 1.21.1-133 · Minecraft 1.21.1 · Java 21.0.12</code></p>
+<p>What CrashSleuth worked out about your setup on its own: whether it read a log, a crash report or a whole folder, which server software, which Minecraft, which Java. If one of those is wrong, doubt everything under it — a wrong version here is usually the sign that you pointed it at the wrong folder.</p>
+<h2 id="confidence">Confidence</h2>
+<p>The coloured dot above the title. Four levels, each meaning something precise:</p>
+<div class="scroll"><table><thead><tr><th>Level</th><th>What it means</th></tr></thead><tbody><tr><td><strong>Certain</strong></td><td>The log states it. There is nothing left to interpret.</td></tr><tr><td><strong>High</strong></td><td>One well-known message, read the way the people who wrote it meant it.</td></tr><tr><td><strong>Medium</strong></td><td>Consistent with the evidence, but another explanation exists.</td></tr><tr><td><strong>Low</strong></td><td>A lead, not an answer. Worth checking before acting on it.</td></tr></tbody></table></div>
+<p>A <strong>Low</strong> finding is still shown, because knowing where to look is worth something. It is never dressed up as a conclusion.</p>
+<h2 id="the-culprit">The culprit</h2>
+<p>The mod, plugin, file or setting to change. This is the part most tools get wrong, so it is worth saying plainly what happens here.</p>
+<p><strong>The name in the log is usually the one that noticed, not the one at fault.</strong> A mixin that failed names the mod that <em>lost</em> the race. <code>Could not pass event … to X</code> names whoever registered the listener. Fabric&#x27;s crash screen names the mod whose entrypoint happened to be running — one author ended up renaming his class to <code>Crash_Is_Not_Caused_By_BetterClouds</code> over it.</p>
+<p>In each of those cases CrashSleuth looks past the loud name, reports the code that actually failed, <strong>says that it did</strong>, and names the other one second so you can still check it:</p>
+<blockquote><code>badoptimizations</code> is the code that actually failed. The loader&#x27;s screen names <code>betterclouds</code> because the game was running its entrypoint at that moment, and that is the first and largest line people read: it is not a diagnosis.</blockquote>
+<p>When it genuinely cannot tell, it names nobody rather than picking someone.</p>
+<h2 id="what-to-do">What to do</h2>
+<p>The sentence that matters. It is written to be acted on without knowing what a mixin is, and it says <em>why</em>, so you can tell when it does not apply to you.</p>
+<p>When the obvious fix would be wrong, it says so. Two real examples:</p>
+<blockquote>The database this plugin was told to use did not answer. The plugin is not at fault and <strong>updating it will change nothing</strong>: check the address, the port, the credentials […]</blockquote>
+<blockquote>The method that is missing belongs to Java itself: this family arrived in Java 21. […] <strong>The mod named in the trace is where the call happens, not what is broken.</strong></blockquote>
+<h2 id="show-the-evidence">Show the evidence</h2>
+<p>The exact lines the conclusion rests on. Open it to check the reasoning — or when you are about to tell a mod author &quot;your mod is broken&quot; and want the line that proves it.</p>
+<p>Turn on <strong>readable traces</strong> and obfuscated game code like <code>class_310.method_22681</code> or <code>fgo.b</code> becomes Mojang&#x27;s own names first, using mappings downloaded once.</p>
+<h2 id="also-found">Also found</h2>
+<p>Everything else, ordered by confidence. A second finding is not noise: a server can have a broken config <em>and</em> an outdated plugin, and the one that stopped it today is not always the one that will bite tomorrow.</p>
+<p>In the screenshot above, <code>Broken configuration file</code> sits under the silent error — the same root cause seen from the other side.</p>
+<h2 id="a-modded-server">A modded server</h2>
+<p><img src="images/report-mod.png" alt="A report naming a mod" loading="lazy"></p>
+<p>Same structure, different world. Here the server refused to start, every identifier in the error carried one mod&#x27;s name — and that mod was not the one at fault. The advice says so, and says which one to look at first.</p>
+<h2 id="taking-it-elsewhere">Taking it elsewhere</h2>
+<ul><li><strong>Copy the report</strong> puts a plain-text version on the clipboard: ready for a Discord thread or a GitHub issue, with the environment, the finding and the evidence.</li><li><strong>Share</strong> turns the whole report into a link. <a href="Sharing-a-report.html">How that works, and why nothing is uploaded →</a></li><li><strong>Find the culprit by launching</strong> is on the right when the folder can be started. <a href="Finding-the-culprit.html">What it does →</a></li></ul>
+</article>
+<aside class="toc"><p class="group">On this page</p><ul><li class="l2"><a href="#the-header">The header</a></li><li class="l2"><a href="#confidence">Confidence</a></li><li class="l2"><a href="#the-culprit">The culprit</a></li><li class="l2"><a href="#what-to-do">What to do</a></li><li class="l2"><a href="#show-the-evidence">Show the evidence</a></li><li class="l2"><a href="#also-found">Also found</a></li><li class="l2"><a href="#a-modded-server">A modded server</a></li><li class="l2"><a href="#taking-it-elsewhere">Taking it elsewhere</a></li></ul></aside>
+</main>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>What leaves your computer — CrashSleuth</title>
+<meta name="description" content="Nothing, unless you ask. There is no account, no telemetry, no crash reporting, no analytics, and no">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#content">Skip to the content</a>
+<input type="checkbox" id="menu" hidden>
+<label class="burger" for="menu" aria-label="Menu">☰</label>
+<nav class="side"><a class="brand" href="index.html">CrashSleuth</a><p class="group">Getting started</p><ul><li><a href="index.html">Overview</a></li><li><a href="Install.html">Installation</a></li><li><a href="First-analysis.html">Your first analysis</a></li><li><a href="Reading-a-report.html">Reading a report</a></li></ul><p class="group">Doing more</p><ul><li><a href="Sharing-a-report.html">Sharing a report</a></li><li><a href="Finding-the-culprit.html">Finding the culprit</a></li><li><a href="Command-line.html">Command line</a></li><li><a href="Assistants-MCP.html">Assistants (MCP)</a></li></ul><p class="group">About</p><ul><li><a href="What-it-covers.html">What it covers</a></li><li><a href="Privacy.html" class="on">What leaves your computer</a></li><li><a href="How-it-is-tested.html">How it is tested</a></li><li><a href="Contributing.html">Contributing</a></li><li><a href="FAQ.html">FAQ</a></li></ul><p class="group">Elsewhere</p><ul><li><a href="https://github.com/Holo795/CrashSleuth/releases/latest" target="_blank" rel="noopener">Download</a></li><li><a href="https://github.com/Holo795/CrashSleuth" target="_blank" rel="noopener">Repository</a></li></ul></nav>
+<main id="content">
+<article>
+<h1 id="what-leaves-your-computer">What leaves your computer</h1>
+<p><strong>Nothing, unless you ask.</strong> There is no account, no telemetry, no crash reporting, no analytics, and no server of ours anywhere. The app does not even check its own version until you have said it may.</p>
+<p>Here is the complete list of things that can reach the network, what each one sends, and how to stop it.</p>
+<h2 id="nothing-at-all-by-default">Nothing at all, by default</h2>
+<p>Open the app, drop a server folder on it, read the report: not one byte leaves the machine. The whole analysis — logs, jars, mixins, world files, configuration — happens locally.</p>
+<h2 id="the-five-things-that-can-and-only-when-asked">The five things that can, and only when asked</h2>
+<h3 id="1-looking-for-a-newer-crashsleuth">1. Looking for a newer CrashSleuth</h3>
+<p><strong>Asked first.</strong> The home screen shows one line — <em>&quot;Look on GitHub for new versions of CrashSleuth?&quot;</em> — and does nothing until you answer. Say no and it never asks again.</p>
+<p>If you say yes: a plain <code>GET</code> to <code>api.github.com</code> for the latest tag of this repository, at most once a day. Nothing about you, your files or your server is sent. It never downloads or installs anything; it tells you a version exists and gives you the link.</p>
+<p>A build from sources has no version, so the question is not even shown.</p>
+<h3 id="2---online-are-my-mods-up-to-date">2. <code>--online</code>: are my mods up to date?</h3>
+<p>Sends the <strong>SHA-1 hash of each jar file</strong> to Modrinth, which answers with the newest version it knows for that file. The jar itself is never uploaded, and no file names, paths or identifiers go with it.</p>
+<p>Only happens with <code>--online</code>, or the equivalent button in the app.</p>
+<h3 id="3---readable-translating-the-games-names">3. <code>--readable</code>: translating the game&#x27;s names</h3>
+<p>Downloads Minecraft&#x27;s official mappings from <code>piston-meta.mojang.com</code> (Mojang) and Fabric&#x27;s from <code>meta.fabricmc.net</code>, for the version found in your log. It sends the version number and nothing else, and keeps the file so it only happens once.</p>
+<h3 id="4---share-a-report-as-a-link">4. <code>--share</code>: a report as a link</h3>
+<p><strong>Nothing is uploaded, including here.</strong> Making the link is arithmetic on your own machine; the report lives inside the link, after the <code>#</code>, which browsers never send to any server. <a href="Sharing-a-report.html#why-nothing-is-uploaded">The whole explanation →</a></p>
+<h3 id="5---explain-plain-words-from-a-local-model">5. <code>--explain</code>: plain words from a local model</h3>
+<p>Talks to a model <strong>running on your own computer</strong> — Ollama, or any OpenAI-compatible server you point <code>CRASHSLEUTH_AI_URL</code> at. Nothing goes to a company&#x27;s API.</p>
+<p>Even locally it is careful: only an <strong>anonymised summary</strong> of the report is passed, and the model is only allowed to name settings CrashSleuth already knows. If it names anything else, that is flagged in the answer rather than repeated as advice.</p>
+<h2 id="what-the-culprit-search-does">What the culprit search does</h2>
+<p><code>bisect</code> launches copies of your own server or game. Those launches are the server doing what it normally does — which, for a modded server, may mean the mods themselves talking to their own services. CrashSleuth adds nothing to that, and installs game versions from Mojang&#x27;s and the loaders&#x27; official sources when it needs them.</p>
+<p><strong>Your files are never modified.</strong> Everything runs on copies in a temporary folder.</p>
+<h2 id="where-things-are-stored-on-your-machine">Where things are stored on your machine</h2>
+<div class="scroll"><table><thead><tr><th>What</th><th>Where</th></tr></thead><tbody><tr><td>Your settings and recent analyses</td><td><code>~/.crashsleuth/desktop.json</code></td></tr><tr><td>Downloaded mappings, game files</td><td><code>~/.cache/crashsleuth/</code> (or <code>$CRASHSLEUTH_CACHE</code>)</td></tr></tbody></table></div>
+<p>Delete either at any time; the app rebuilds what it needs.</p>
+<h2 id="cutting-it-off-entirely">Cutting it off entirely</h2>
+<p>Block the app in your firewall, or simply never use <code>--online</code>, <code>--readable</code> or <code>--explain</code> and answer <em>no</em> to the version question. Everything else keeps working: the analysis has never needed the network.</p>
+</article>
+<aside class="toc"><p class="group">On this page</p><ul><li class="l2"><a href="#nothing-at-all-by-default">Nothing at all, by default</a></li><li class="l2"><a href="#the-five-things-that-can-and-only-when-asked">The five things that can, and only when asked</a></li><li class="l3"><a href="#1-looking-for-a-newer-crashsleuth">1. Looking for a newer CrashSleuth</a></li><li class="l3"><a href="#2---online-are-my-mods-up-to-date">2. --online: are my mods up to date?</a></li><li class="l3"><a href="#3---readable-translating-the-games-names">3. --readable: translating the game&#x27;s names</a></li><li class="l3"><a href="#4---share-a-report-as-a-link">4. --share: a report as a link</a></li><li class="l3"><a href="#5---explain-plain-words-from-a-local-model">5. --explain: plain words from a local model</a></li><li class="l2"><a href="#what-the-culprit-search-does">What the culprit search does</a></li><li class="l2"><a href="#where-things-are-stored-on-your-machine">Where things are stored on your machine</a></li><li class="l2"><a href="#cutting-it-off-entirely">Cutting it off entirely</a></li></ul></aside>
+</main>
+</body>
+</html>

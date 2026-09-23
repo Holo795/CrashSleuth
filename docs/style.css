@@ -1,0 +1,87 @@
+/* Two columns on a screen, one on a phone; the system's own theme, and no web font to wait for. */
+:root {
+  --bg: #ffffff; --panel: #f7f7f8; --line: #e4e4e7; --text: #1b1b1f; --muted: #62626b;
+  --accent: #5b5bd6; --code-bg: #f4f4f5;
+  --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #121215; --panel: #171719; --line: #2a2a30; --text: #ececf0; --muted: #9a9aa4;
+    --accent: #a5a5f5; --code-bg: #1c1c21;
+  }
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; background: var(--bg); color: var(--text); font-family: var(--font);
+  font-size: 16px; line-height: 1.65; -webkit-font-smoothing: antialiased;
+}
+.skip { position: absolute; left: -9999px; }
+.skip:focus { left: 8px; top: 8px; background: var(--panel); padding: 8px 12px; border-radius: 8px; z-index: 10; }
+
+main { display: grid; grid-template-columns: minmax(0, 1fr) 220px; gap: 48px; max-width: 1100px;
+       margin-left: 280px; padding: 56px 40px 96px; }
+article { min-width: 0; }
+
+.side {
+  position: fixed; inset: 0 auto 0 0; width: 260px; padding: 32px 20px; overflow-y: auto;
+  border-right: 1px solid var(--line); background: var(--panel);
+}
+.brand { display: block; font-weight: 650; font-size: 1.05rem; color: var(--text); text-decoration: none; margin-bottom: 28px; }
+.side ul { list-style: none; margin: 0 0 22px; padding: 0; }
+.side li { margin: 1px 0; }
+.side a { display: block; padding: 5px 10px; border-radius: 7px; color: var(--muted); text-decoration: none; font-size: 0.93rem; }
+.side a:hover { background: var(--bg); color: var(--text); }
+.side a.on { background: var(--bg); color: var(--accent); font-weight: 550; }
+.group { margin: 0 0 6px; padding-left: 10px; font-size: 0.72rem; letter-spacing: 0.09em;
+         text-transform: uppercase; color: var(--muted); opacity: 0.75; }
+
+.toc { position: sticky; top: 56px; align-self: start; font-size: 0.87rem; }
+.toc ul { list-style: none; margin: 0; padding: 0; border-left: 1px solid var(--line); }
+.toc a { display: block; padding: 3px 0 3px 12px; color: var(--muted); text-decoration: none; }
+.toc a:hover { color: var(--text); }
+.toc .l3 a { padding-left: 24px; font-size: 0.95em; }
+
+h1 { font-size: 2.1rem; line-height: 1.2; margin: 0 0 20px; letter-spacing: -0.02em; }
+h2 { font-size: 1.4rem; margin: 44px 0 14px; letter-spacing: -0.01em; }
+h3 { font-size: 1.08rem; margin: 30px 0 10px; }
+h2, h3 { scroll-margin-top: 24px; }
+p { margin: 0 0 16px; }
+a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+ul, ol { margin: 0 0 16px; padding-left: 22px; }
+li { margin: 5px 0; }
+hr { border: 0; border-top: 1px solid var(--line); margin: 40px 0; }
+strong { font-weight: 640; }
+
+blockquote {
+  margin: 20px 0; padding: 12px 18px; border-left: 3px solid var(--accent);
+  background: var(--panel); border-radius: 0 8px 8px 0; color: var(--muted);
+}
+code { font-family: var(--mono); font-size: 0.88em; background: var(--code-bg);
+       padding: 0.14em 0.4em; border-radius: 5px; }
+pre.code { margin: 0 0 18px; padding: 15px 18px; background: var(--code-bg);
+           border: 1px solid var(--line); border-radius: 10px; overflow-x: auto; }
+pre.code code { background: none; padding: 0; font-size: 0.86rem; line-height: 1.55; }
+
+.scroll { overflow-x: auto; margin: 0 0 20px; }
+table { border-collapse: collapse; width: 100%; font-size: 0.93rem; }
+th, td { text-align: left; padding: 9px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font-weight: 600; font-size: 0.78rem; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); }
+tbody tr:last-child td { border-bottom: 0; }
+
+img { max-width: 100%; height: auto; border-radius: 10px; border: 1px solid var(--line); margin: 6px 0 22px; display: block; }
+
+.burger { display: none; }
+@media (max-width: 1080px) {
+  main { grid-template-columns: minmax(0, 1fr); margin-left: 260px; padding: 44px 32px 80px; gap: 0; }
+  .toc { display: none; }
+}
+@media (max-width: 820px) {
+  main { margin-left: 0; padding: 72px 20px 64px; }
+  .side { transform: translateX(-100%); transition: transform 0.18s ease-out; z-index: 5; width: 250px; }
+  #menu:checked ~ .side { transform: none; }
+  .burger { display: block; position: fixed; top: 12px; left: 12px; z-index: 6; cursor: pointer;
+            background: var(--panel); border: 1px solid var(--line); border-radius: 9px;
+            padding: 7px 12px; font-size: 1.05rem; line-height: 1; }
+  h1 { font-size: 1.7rem; }
+}

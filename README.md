@@ -4,6 +4,8 @@
 
 CrashSleuth diagnoses crashes, startup failures, hangs, lag and connection problems for **players and server admins**, on **vanilla, plugin servers, proxies and modpacks**. It reads your logs and files, checks your mods or plugins before launch, and when that is not enough, **launches the game or server by itself**, removing mods or plugins step by step until it names the culprit. No need to answer "did it crash?" after every run.
 
+**[Download](https://github.com/Holo795/CrashSleuth/releases/latest)** · **[Documentation](https://holo795.github.io/CrashSleuth/)** · [Wiki](https://github.com/Holo795/CrashSleuth/wiki)
+
 > Status: in development, usable from the command line and the desktop app. See the [specification (French)](docs/SPEC.fr.md) and the [prior art review](docs/PRIOR_ART.md).
 
 ## What it does

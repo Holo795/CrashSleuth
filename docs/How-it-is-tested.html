@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How it is tested — CrashSleuth</title>
+<meta name="description" content="The point of this project is to be right, so most of the work is in proving that it is.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#content">Skip to the content</a>
+<input type="checkbox" id="menu" hidden>
+<label class="burger" for="menu" aria-label="Menu">☰</label>
+<nav class="side"><a class="brand" href="index.html">CrashSleuth</a><p class="group">Getting started</p><ul><li><a href="index.html">Overview</a></li><li><a href="Install.html">Installation</a></li><li><a href="First-analysis.html">Your first analysis</a></li><li><a href="Reading-a-report.html">Reading a report</a></li></ul><p class="group">Doing more</p><ul><li><a href="Sharing-a-report.html">Sharing a report</a></li><li><a href="Finding-the-culprit.html">Finding the culprit</a></li><li><a href="Command-line.html">Command line</a></li><li><a href="Assistants-MCP.html">Assistants (MCP)</a></li></ul><p class="group">About</p><ul><li><a href="What-it-covers.html">What it covers</a></li><li><a href="Privacy.html">What leaves your computer</a></li><li><a href="How-it-is-tested.html" class="on">How it is tested</a></li><li><a href="Contributing.html">Contributing</a></li><li><a href="FAQ.html">FAQ</a></li></ul><p class="group">Elsewhere</p><ul><li><a href="https://github.com/Holo795/CrashSleuth/releases/latest" target="_blank" rel="noopener">Download</a></li><li><a href="https://github.com/Holo795/CrashSleuth" target="_blank" rel="noopener">Repository</a></li></ul></nav>
+<main id="content">
+<article>
+<h1 id="how-it-is-tested">How it is tested</h1>
+<p>The point of this project is to be <strong>right</strong>, so most of the work is in proving that it is.</p>
+<h2 id="problems-real-people-actually-had">Problems real people actually had</h2>
+<p>The heart of it: <strong>65 reports</strong> from GitHub issues and forums, each rebuilt in a lab with the same Minecraft version, the same loader and the same jars — and CrashSleuth has to reach the answer those people ended up with.</p>
+<p>Every one is listed in <a href="https://github.com/Holo795/CrashSleuth/blob/main/docs/REAL_CASES.md" target="_blank" rel="noopener">docs/REAL_CASES.md</a> with its source link and the fix that worked.</p>
+<p>A few of them, to show what that means in practice:</p>
+<ul><li>a Paper server told to use a database that never answers — CoreProtect says so at INFO level and the server prints <code>Done</code> as if all were well;</li><li>a Fabric 26.2 server where one mod asks for biomes another never registered, and the game blames your datapacks;</li><li>a plugin jar holding the same class twice, which stops <strong>every</strong> plugin from loading;</li><li>a world written by a 26.1.2 server, opened by a 1.21.11 one;</li><li>a resource pack whose core shader quietly switches off every pack you had selected;</li><li>a server set to accept BungeeCord forwarding behind a Velocity proxy, kicked with a message naming a program that is installed nowhere.</li></ul>
+<h2 id="what-happens-when-one-does-not-reproduce">What happens when one does not reproduce</h2>
+<p>It is dropped, and said so. Several reports were tried and abandoned rather than staged: a plugin load cycle that Paper 1.21.8 simply does not complain about (tried with <code>softdepend</code>, <code>loadbefore</code> and <code>depend</code>), a Sodium <code>@Overwrite</code> crash, a truncated mod config NeoForge repairs by itself, and a few others.</p>
+<p>A rule with a real source and a verbatim test but no replay stays in — described as exactly that.</p>
+<h2 id="the-corpus">The corpus</h2>
+<p>Every replay leaves its logs behind. <strong>399 of them</strong> are replayed on every single build, on three operating systems, and the answers must not move. That is what catches a new rule quietly breaking an old one — it has happened, and that is the point.</p>
+<h2 id="rules-are-locked-to-their-source">Rules are locked to their source</h2>
+<p>Each detection rule carries the report it came from, and a test built on the <strong>verbatim text</strong> of that report. Not a paraphrase: the exact lines the person pasted.</p>
+<h2 id="healthy-games-too">Healthy games, too</h2>
+<p>Just as important: perfectly fine servers and games are analysed, and the tool has to stay <strong>silent</strong>. Two of its own rules were caught this way, firing on games where nothing was wrong at all, and were removed or narrowed.</p>
+<h2 id="finding-its-own-blind-spots">Finding its own blind spots</h2>
+<p>A newer habit: take a pile of public reports — 134 of them so far — and run them through the tool exactly as they were written, to see what it says nothing about. That turned up eleven wrong or missing answers, including five where it was repeating the same bad advice the game gives, and two defects in the tool itself.</p>
+<h2 id="on-every-commit">On every commit</h2>
+<p><code>./gradlew build</code> on Linux, Windows and macOS: the whole test suite plus the 399-case corpus. The lab runs (real servers and real game clients in Docker) are run by hand before a release, because they need Docker and a lot of time.</p>
+<h2 id="doing-it-yourself">Doing it yourself</h2>
+<pre class="code" data-lang="bash"><code>./gradlew build                      # tests and corpus
+python3 lab/lab.py run &#x27;real-*&#x27;      # replay the server cases (needs Docker)
+python3 lab/client_lab.py run &#x27;real-*&#x27;   # the client ones
+python3 lab/net_lab.py run join-ok       # a proxy and a player</code></pre>
+</article>
+<aside class="toc"><p class="group">On this page</p><ul><li class="l2"><a href="#problems-real-people-actually-had">Problems real people actually had</a></li><li class="l2"><a href="#what-happens-when-one-does-not-reproduce">What happens when one does not reproduce</a></li><li class="l2"><a href="#the-corpus">The corpus</a></li><li class="l2"><a href="#rules-are-locked-to-their-source">Rules are locked to their source</a></li><li class="l2"><a href="#healthy-games-too">Healthy games, too</a></li><li class="l2"><a href="#finding-its-own-blind-spots">Finding its own blind spots</a></li><li class="l2"><a href="#on-every-commit">On every commit</a></li><li class="l2"><a href="#doing-it-yourself">Doing it yourself</a></li></ul></aside>
+</main>
+</body>
+</html>
