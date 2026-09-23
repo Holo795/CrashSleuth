@@ -930,6 +930,47 @@
       },
       "advice": "signature.forge-removes-erroring-entities.advice",
       "source": "Forge's own config text (\"BE WARNED THIS COULD SCREW UP EVERYTHING\") and the patch that calls discard() on the entity instead of reporting the crash"
+    },
+    {
+      "id": "jar-not-found",
+      "situation": "CORRUPT_JAR",
+      "confidence": "CERTAIN",
+      "pattern": "Error: Unable to access jarfile\\s*(\\S*)",
+      "details": {
+        "file": 1
+      },
+      "advice": "signature.jar-not-found.advice",
+      "source": "https://github.com/pterodactyl/panel/issues/5729 and https://github.com/itzg/docker-minecraft-server/issues/3310 (replayed in the lab: the start command pointing at a jar that is not there)"
+    },
+    {
+      "id": "host-cannot-commit-heap",
+      "situation": "JVM_OPTIONS",
+      "confidence": "CERTAIN",
+      "pattern": "There is insufficient memory for the Java Runtime Environment to continue|Native memory allocation \\((?:mmap|malloc)\\) failed to map (\\d+) bytes",
+      "details": {
+        "bytes": 1
+      },
+      "advice": "signature.host-cannot-commit-heap.advice",
+      "source": "https://github.com/itzg/docker-minecraft-server/issues/3368 (replayed in the lab: 4 GB asked for inside a 512 MB container)"
+    },
+    {
+      "id": "panel-restarted-a-clean-exit",
+      "situation": "SILENT_ERROR",
+      "confidence": "HIGH",
+      "pattern": "Detected server process in a crashed state![\\s\\S]{0,200}?Exit Code: 0",
+      "advice": "signature.panel-restarted-a-clean-exit.advice",
+      "source": "https://github.com/pterodactyl/panel/issues/2136"
+    },
+    {
+      "id": "data-folder-not-writable",
+      "situation": "WORLD_LOCKED",
+      "confidence": "CERTAIN",
+      "pattern": "ERROR: unable to write eula to (\\S+)|\\[init\\] Running as uid=(\\d+) gid=(\\d+)[^\\n]*Permission denied",
+      "details": {
+        "folder": 1
+      },
+      "advice": "signature.data-folder-not-writable.advice",
+      "source": "https://github.com/itzg/docker-minecraft-server/issues/1269 and /issues/390"
     }
   ]
 }

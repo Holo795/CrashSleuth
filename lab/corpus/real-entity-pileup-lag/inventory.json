@@ -15,8 +15,16 @@
     "hasBackup": false,
     "locked": false,
     "damagedChunks": [],
-    "chunksChecked": 1126,
-    "oversizedChunks": [],
+    "chunksChecked": 1739,
+    "oversizedChunks": [
+     {
+      "folder": "entities",
+      "file": "entities/r.0.-1.mca",
+      "x": 11,
+      "z": -28,
+      "reason": "kept apart in c.11.-28.mcc (1079 KB)"
+     }
+    ],
     "chunksComplete": true,
     "damagedPlayers": []
    },
@@ -28,7 +36,7 @@
     "hasBackup": false,
     "locked": false,
     "damagedChunks": [],
-    "chunksChecked": 1094,
+    "chunksChecked": 1090,
     "oversizedChunks": [],
     "chunksComplete": true,
     "damagedPlayers": []

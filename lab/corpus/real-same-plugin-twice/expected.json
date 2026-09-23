@@ -1,0 +1,9 @@
+{
+  "situation": "DUPLICATE",
+  "culprit": "InvSee",
+  "logs": [
+    "latest.log"
+  ],
+  "source": "https://github.com/XxDaShTixX/Minecraft-ArrowTNT/issues/7",
+  "fix": "Delete one of the two copies: with both there, neither is loaded."
+}

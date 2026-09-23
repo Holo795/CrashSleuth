@@ -1,0 +1,9 @@
+{
+  "situation": "CORRUPT_JAR",
+  "culprit": null,
+  "logs": [
+    "console.log"
+  ],
+  "source": "https://github.com/pterodactyl/panel/issues/5729",
+  "fix": "The start command names a file that is not there: fix the jar name in the panel or the script."
+}

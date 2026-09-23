@@ -227,4 +227,35 @@ class LogAnalyzerTest {
         assertEquals("com.mewin.WGRegionEvents", finding.culprits.first().id)
         assertEquals("WorldGuard", finding.culprits[1].id, "the one that registered it is still said, second")
     }
+
+    @Test
+    fun `loud lines that break nothing are left alone`() {
+        // All four are verbatim from real reports, and all four are harmless: ProtocolLib warns about an
+        // untested Minecraft, WorldEdit about a server it cannot fully drive, Multiverse about an optional
+        // script engine, and the JDK about spark loading its profiler. The last one is even logged at ERROR.
+        val log = """
+            [09:47:00] [Server thread/WARN]: [ProtocolLib] Version (MC: 1.20.1) has not yet been tested! Proceed with caution.
+            [17:27:02] [Server thread/WARN]: ** This WorldEdit version does not fully support your version of Bukkit.
+            [19:31:05] [Server thread/WARN]: [Multiverse-Core] Buscript failed to load! The script command will be disabled!
+            [19:31:06] [Server thread/ERROR]: [STDERR] WARNING: A Java agent has been loaded dynamically (/tmp/byteBuddyAgent1675.jar)
+            [19:31:07] [Server thread/INFO]: Done (12.3s)! For help, type "help"
+        """.trimIndent()
+        assertTrue(LogAnalyzer().analyze(log).findings.isEmpty(), "none of these stop anything")
+    }
+
+    @Test
+    fun `a machine that cannot give the memory asked for is not a server that was killed`() {
+        // https://github.com/itzg/docker-minecraft-server/issues/3368 : the JVM refused to start, exit 1,
+        // nothing was killed. A container that kills the server looks completely different (no Java output).
+        val log = """
+            [init] Setting initial memory to 4G and max to 4G
+            [init] Starting the Minecraft server...
+            #
+            # There is insufficient memory for the Java Runtime Environment to continue.
+            # Native memory allocation (mmap) failed to map 4294967296 bytes. Error detail: committing reserved memory.
+            OpenJDK 64-Bit Server VM warning: INFO: os::commit_memory(0x0000000700000000, 4294967296, 0) failed; error='Not enough space' (errno=12)
+        """.trimIndent()
+        val finding = LogAnalyzer().analyze(log).find(Situation.JVM_OPTIONS)
+        assertTrue(finding.evidence.any { it.contains("insufficient memory") || it.contains("mmap") }, "${finding.evidence}")
+    }
 }

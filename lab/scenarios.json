@@ -1910,5 +1910,47 @@
     "expect": {
       "situation": "JVM_OPTIONS"
     }
+  },
+  {
+    "platform": "vanilla",
+    "minecraft": "1.21.1",
+    "java": 21,
+    "name": "real-jar-not-there",
+    "description": "A start command pointing at a server jar that is not in the folder",
+    "mutate": [
+      {
+        "delete": "server.jar"
+      }
+    ],
+    "source": "https://github.com/pterodactyl/panel/issues/5729",
+    "fix": "The start command names a file that is not there: fix the jar name in the panel or the script.",
+    "log": "console.log",
+    "expect": {
+      "situation": "CORRUPT_JAR"
+    }
+  },
+  {
+    "platform": "paper",
+    "minecraft": "1.20.1",
+    "java": 17,
+    "name": "real-same-plugin-twice",
+    "description": "Paper 1.20.1 with the same plugin present under two names",
+    "extra": [
+      {
+        "url": "https://github.com/Jannyboy11/InvSee-plus-plus/releases/download/v0.24.6/InvSee%2B%2B.jar",
+        "file": "InvSeePlusPlus.jar"
+      },
+      {
+        "url": "https://github.com/Jannyboy11/InvSee-plus-plus/releases/download/v0.24.6/InvSee%2B%2B.jar",
+        "file": "InvSeePlusPlus (1).jar"
+      }
+    ],
+    "after_ready": 5,
+    "source": "https://github.com/XxDaShTixX/Minecraft-ArrowTNT/issues/7",
+    "fix": "Delete one of the two copies: with both there, neither is loaded.",
+    "expect": {
+      "situation": "DUPLICATE",
+      "culprit": "InvSee"
+    }
   }
 ]
