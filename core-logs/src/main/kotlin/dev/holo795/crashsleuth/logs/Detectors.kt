@@ -438,7 +438,11 @@ object TickingDetector : Detector {
     }
 }
 
-/** NeoForge and Forge crash reports list the mods found in the stack under `Suspected Mod(s):`. */
+/**
+ * NeoForge and Forge crash reports list the mods found in the stack under `Suspected Mod(s):`. Forge's
+ * own authors call it a best guess: it names every mod whose package appears anywhere in the cause
+ * chain, so a mod that merely called the one that failed is listed too. A lead, not a verdict.
+ */
 object SuspectedModsDetector : Detector {
     private val HEADER = Regex("""^\s*Suspected Mods?:\s*(.*)$""")
     private val ENTRY = Regex("""^\s*([^(\n]+?)\s*\(([\w.-]+)\),\s*Version:\s*(\S+)""")
@@ -454,9 +458,10 @@ object SuspectedModsDetector : Detector {
         return listOf(
             Finding(
                 situation = Situation.UNCAUGHT_EXCEPTION,
-                confidence = Confidence.HIGH,
+                confidence = if (candidates.size == 1) Confidence.HIGH else Confidence.MEDIUM,
                 culprits = candidates.map { Culprit(CulpritKind.MOD, it.groupValues[2], it.groupValues[1].trim(), it.groupValues[3]) },
                 evidence = listOfNotNull(root?.headline) + candidates.map { it.value.trim() },
+                details = if (candidates.size > 1) mapOf("adviceKey" to "uncaught.suspects") else emptyMap(),
             ),
         )
     }

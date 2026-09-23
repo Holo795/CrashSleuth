@@ -1,8 +1,18 @@
 # CrashSleuth — Spécification
 
-**Version 19 — 23/09/2026** — v18 + 42 problèmes réellement signalés rejoués, trois mauvaises réponses corrigées, et une base de couples connus.
+**Version 20 — 23/09/2026** — v19 + les conseils répandus qui sont faux, et « qui a remarqué » distingué de « qui est fautif ».
 
-### Changements depuis la v18
+### Changements depuis la v19
+- **Qui nomme n'est pas qui est fautif.** Dans cet écosystème, presque toutes les lignes qui nomment un mod nomment celui qui a *remarqué* le problème. Corrigé sur quatre cas, chacun tiré d'un signalement réel :
+  - `Mixin apply for mod X failed … merged by Y` : X est celui qui a perdu ; c'est le propriétaire de Y qu'on nomme maintenant en premier ;
+  - `Could not pass event … to X` : X a seulement enregistré l'écouteur ; si rien de X n'est dans la trace, on nomme le code qui a réellement échoué ;
+  - Fabric « Replace mod 'Sodium' … » : le mod à changer est celui qui est *refusé*, pas celui qui écrit la règle ; la plage de versions refusée fait partie de la réponse ;
+  - `Suspected Mods:` de Forge : ses propres auteurs disent que c'est une liste de suspects (tout ce qui apparaît dans la pile) ; confiance abaissée et conseil qui l'explique.
+- **Mythes répandus, corrigés** : une variable d'environnement (`_JAVA_OPTIONS`) écrase la mémoire réglée — « alloue plus de RAM » ne peut rien donner tant qu'elle est là ; un watchdog qui se déclenche pendant que le serveur dort veut dire que l'horloge a sauté, pas qu'il est bloqué ; un avertissement watchdog court n'est pas un crash (le serveur continue) ; `removeErroringEntities` supprime définitivement ce qui échoue et cache la cause ; la phrase du jeu sur les pilotes graphiques s'affiche à chaque échec de fenêtre et ne dit rien.
+- **Ne rien dire plutôt que mal dire** : une erreur que rien ne rattache à un mod n'est plus « l'erreur vient de ? » ; les modèles manquants d'un pack et les packs internes de mods ne sont plus signalés (deux de mes propres règles, attrapées par les tests sur des jeux sains) ; les connexions qui n'ont jamais dit bonjour (scanners) ne donnent rien.
+- **Cas réels rejoués : 51** (`docs/REAL_CASES.md`), corpus de 385 cas.
+
+### Changements de la v19 (rappel)
 - **42 cas réels rejoués** (`docs/REAL_CASES.md`, engendré depuis le corpus, 376 cas au total) : serveurs à plugins, mods, proxys, mondes, datapacks et clients, chacun reconstruit avec les versions et les jars du signalement.
 - **Trois mauvaises réponses trouvées en rejouant une foule de poulets** (16 000 dans un chunk, sur un cœur) :
   - un chunk trop gros pour son fichier de région vit dans un `c.x.z.mcc` à part, et son entrée d'un octet était lue comme un chunk **endommagé** : tout monde contenant un chunk surdimensionné était déclaré cassé ;
