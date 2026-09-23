@@ -1,29 +1,15 @@
 # Problems real people had, replayed here
 
-Every case below was reported by someone on the web, rebuilt in the lab with the same versions,
-and is replayed by the tests. The last column is what fixed it for them; CrashSleuth is expected
-to lead to the same answer on its own.
+Every case below was reported by someone on the web, rebuilt in the lab with the same versions
+and the same jars, and is replayed by the tests. The last column is what fixed it for them;
+CrashSleuth is expected to reach the same answer on its own, from the logs alone.
+
+Written by `python3 lab/lab.py sources`, from the corpus itself.
+
+## On a server
 
 | Case | What CrashSleuth must find | Culprit | Reported at | What fixed it |
 | --- | --- | --- | --- | --- |
-| `client-real-client-create-standalone-flywheel` | DEP_VERSION | flywheel | https://github.com/Creators-of-Create/Create/issues/5215 | Delete the Flywheel jar you added: Create carries its own inside. |
-| `client-real-client-dependency-never-published` | DEP_MISSING | flywheel | https://github.com/Asek3/Oculus/issues/804 | Install Flywheel, or remove the bridge mod that asks for it. |
-| `client-real-client-dependency-that-does-not-exist` | DEP_MISSING | intermap | https://github.com/TheTypholorian/big_shot_lib/issues/4 | That library was never released: take a build of the mod from Modrinth instead. |
-| `client-real-client-fabric-api-corrupt` | CORRUPT_JAR | fabric-api | https://github.com/orgs/FabricMC/discussions/3934 | Delete that jar and download it again: it is there but unreadable, so the loader calls it missing. |
-| `client-real-client-fabric-api-wrong-point-release` | WRONG_MC | fabric-api | https://github.com/orgs/FabricMC/discussions/4034 | Take the Fabric API built for the exact point release you play. |
-| `client-real-client-forge-config-truncated` | CONFIG_BROKEN |  | https://forums.minecraftforge.net/topic/120264-the-game-crashed-whilst-initializing-game-error-javalangexceptionininitializererror-null-exit-code-1/ | Delete config/forge-resource-caching.toml: Forge writes a new one. |
-| `client-real-client-iris-needs-older-sodium` | DEP_VERSION | sodium | https://github.com/IrisShaders/Iris/issues/3136 | Iris 1.8.8 only works with Sodium 0.6.x: install that branch, or a newer Iris. |
-| `client-real-client-opengl-too-old` | RENDER |  | https://github.com/PrismLauncher/PrismLauncher/issues/3264 | Minecraft has needed OpenGL 3.2 since 1.17: update the graphics driver, or play a version below 1.17. |
-| `client-real-client-pack-format-too-old` | RENDER | old.zip | https://github.com/Godlander/objmc/issues/102 | Take the pack built for the Minecraft version you play: its pack_format says which one it is for. |
-| `client-real-client-sodium-breaks-iris-recent` | MOD_CONFLICT | sodium | https://github.com/IrisShaders/Iris/issues/3349 | Update Iris past 1.10.7, or drop Sodium to a build that accepts it. |
-| `net-real-bungee-forwarding-one-sided-backend` | PROXY_FORWARDING |  | https://docs.papermc.io/velocity/faq/ | Turn IP forwarding on on both sides, or on neither: the proxy and the server must agree. |
-| `net-real-bungee-forwarding-one-sided-proxy` | PROXY_FORWARDING |  | https://docs.papermc.io/velocity/faq/ | Turn IP forwarding on on both sides, or on neither: the proxy and the server must agree. |
-| `net-real-online-mode-behind-proxy-backend` | clean start |  | https://www.gameserverkings.com/knowledge-base/minecraft/error-failed-to-verify-username/ | A server behind a proxy runs with online-mode=false; the proxy does the checking. |
-| `net-real-online-mode-behind-proxy-proxy` | PROXY_FORWARDING |  | https://www.gameserverkings.com/knowledge-base/minecraft/error-failed-to-verify-username/ | A server behind a proxy runs with online-mode=false; the proxy does the checking. |
-| `net-real-velocity-empty-secret-proxy` | PROXY_FORWARDING |  | https://forums.papermc.io/threads/how-to-solve-unable-to-read-load-save-your-velocity-toml.339/ | Write the secret inside the file named by forwarding-secret-file; the setting is a path, not the secret. |
-| `net-real-velocity-forwarding-off-backend` | PROXY_FORWARDING |  | https://github.com/PaperMC/Velocity/issues/1347 | Set player-info-forwarding-mode to modern on the proxy, and save the file before restarting. |
-| `net-real-velocity-forwarding-off-player` | PROXY_FORWARDING |  | https://github.com/PaperMC/Velocity/issues/1347 | Set player-info-forwarding-mode to modern on the proxy, and save the file before restarting. |
-| `net-real-velocity-forwarding-off-proxy` | PROXY_FORWARDING |  | https://github.com/PaperMC/Velocity/issues/1347 | Set player-info-forwarding-mode to modern on the proxy, and save the file before restarting. |
 | `real-block-entity-tick-crash-mods` | TICK_BLOCK_ENTITY | toms_storage | https://github.com/tom5454/Toms-Storage/issues/753 | Update Tom's Storage to 2.8.1, or go back to the Sophisticated Core it was built against. |
 | `real-bluemap-eventbus7` | UNCAUGHT_EXCEPTION | bluemap | https://github.com/BlueMap-Minecraft/BlueMap/issues/743 | Update BlueMap past 5.12: Forge EventBus 7 refuses its old listener. |
 | `real-broken-version-range-in-metadata` | CORRUPT_JAR | tenshilib | https://github.com/Flemmli97/TenshiLib/issues/17 | Take the rebuilt jar (2.3.0.b): the range in its metadata was written wrong. |
@@ -57,5 +43,33 @@ to lead to the same answer on its own.
 | `real-world-duplicate-uid` | WORLD_DUPLICATE |  | https://github.com/Multiverse/Multiverse-Core/issues/1877 | Delete uid.dat in the copied world: it is what says which world it is. |
 | `real-world-not-writable` | WORLD_LOCKED |  | https://github.com/itzg/docker-minecraft-server/issues/1080 | Give the folder to the user the server runs as (chown), or set the container's UID and GID to the owner's. |
 | `real-worldgen-settings-deleted` | WORLD_CORRUPT |  | https://github.com/PaperMC/Paper/issues/14066 | Restore that file from a backup: the server cannot start without it, and --safeMode does not help. |
+
+## In the game
+
+| Case | What CrashSleuth must find | Culprit | Reported at | What fixed it |
+| --- | --- | --- | --- | --- |
+| `client-real-client-create-standalone-flywheel` | DEP_VERSION | flywheel | https://github.com/Creators-of-Create/Create/issues/5215 | Delete the Flywheel jar you added: Create carries its own inside. |
+| `client-real-client-dependency-never-published` | DEP_MISSING | flywheel | https://github.com/Asek3/Oculus/issues/804 | Install Flywheel, or remove the bridge mod that asks for it. |
+| `client-real-client-dependency-that-does-not-exist` | DEP_MISSING | intermap | https://github.com/TheTypholorian/big_shot_lib/issues/4 | That library was never released: take a build of the mod from Modrinth instead. |
+| `client-real-client-fabric-api-corrupt` | CORRUPT_JAR | fabric-api | https://github.com/orgs/FabricMC/discussions/3934 | Delete that jar and download it again: it is there but unreadable, so the loader calls it missing. |
+| `client-real-client-fabric-api-wrong-point-release` | WRONG_MC | fabric-api | https://github.com/orgs/FabricMC/discussions/4034 | Take the Fabric API built for the exact point release you play. |
+| `client-real-client-forge-config-truncated` | CONFIG_BROKEN |  | https://forums.minecraftforge.net/topic/120264-the-game-crashed-whilst-initializing-game-error-javalangexceptionininitializererror-null-exit-code-1/ | Delete config/forge-resource-caching.toml: Forge writes a new one. |
+| `client-real-client-iris-needs-older-sodium` | DEP_VERSION | sodium | https://github.com/IrisShaders/Iris/issues/3136 | Iris 1.8.8 only works with Sodium 0.6.x: install that branch, or a newer Iris. |
+| `client-real-client-opengl-too-old` | RENDER |  | https://github.com/PrismLauncher/PrismLauncher/issues/3264 | Minecraft has needed OpenGL 3.2 since 1.17: update the graphics driver, or play a version below 1.17. |
+| `client-real-client-pack-format-too-old` | RENDER | old.zip | https://github.com/Godlander/objmc/issues/102 | Take the pack built for the Minecraft version you play: its pack_format says which one it is for. |
+| `client-real-client-sodium-breaks-iris-recent` | MOD_CONFLICT | sodium | https://github.com/IrisShaders/Iris/issues/3349 | Update Iris past 1.10.7, or drop Sodium to a build that accepts it. |
+
+## Between a proxy and a server
+
+| Case | What CrashSleuth must find | Culprit | Reported at | What fixed it |
+| --- | --- | --- | --- | --- |
+| `net-real-bungee-forwarding-one-sided-backend` | PROXY_FORWARDING |  | https://docs.papermc.io/velocity/faq/ | Turn IP forwarding on on both sides, or on neither: the proxy and the server must agree. |
+| `net-real-bungee-forwarding-one-sided-proxy` | PROXY_FORWARDING |  | https://docs.papermc.io/velocity/faq/ | Turn IP forwarding on on both sides, or on neither: the proxy and the server must agree. |
+| `net-real-online-mode-behind-proxy-backend` | clean start |  | https://www.gameserverkings.com/knowledge-base/minecraft/error-failed-to-verify-username/ | A server behind a proxy runs with online-mode=false; the proxy does the checking. |
+| `net-real-online-mode-behind-proxy-proxy` | PROXY_FORWARDING |  | https://www.gameserverkings.com/knowledge-base/minecraft/error-failed-to-verify-username/ | A server behind a proxy runs with online-mode=false; the proxy does the checking. |
+| `net-real-velocity-empty-secret-proxy` | PROXY_FORWARDING |  | https://forums.papermc.io/threads/how-to-solve-unable-to-read-load-save-your-velocity-toml.339/ | Write the secret inside the file named by forwarding-secret-file; the setting is a path, not the secret. |
+| `net-real-velocity-forwarding-off-backend` | PROXY_FORWARDING |  | https://github.com/PaperMC/Velocity/issues/1347 | Set player-info-forwarding-mode to modern on the proxy, and save the file before restarting. |
+| `net-real-velocity-forwarding-off-player` | PROXY_FORWARDING |  | https://github.com/PaperMC/Velocity/issues/1347 | Set player-info-forwarding-mode to modern on the proxy, and save the file before restarting. |
+| `net-real-velocity-forwarding-off-proxy` | PROXY_FORWARDING |  | https://github.com/PaperMC/Velocity/issues/1347 | Set player-info-forwarding-mode to modern on the proxy, and save the file before restarting. |
 
 51 cases.

@@ -819,14 +819,29 @@ def write_sources() -> int:
         rows.append((case.name, data.get("situation") or "clean start", data.get("culprit") or "", data["source"], data.get("fix", "")))
     doc = LAB_DIR.parent / "docs" / "REAL_CASES.md"
     lines = ["# Problems real people had, replayed here", "",
-             "Every case below was reported by someone on the web, rebuilt in the lab with the same versions,",
-             "and is replayed by the tests. The last column is what fixed it for them; CrashSleuth is expected",
-             "to lead to the same answer on its own.", "",
-             "| Case | What CrashSleuth must find | Culprit | Reported at | What fixed it |",
-             "| --- | --- | --- | --- | --- |"]
-    for name, situation, culprit, source, fix in rows:
-        lines.append(f"| `{name}` | {situation} | {culprit} | {source} | {fix} |")
-    lines += ["", f"{len(rows)} cases.", ""]
+             "Every case below was reported by someone on the web, rebuilt in the lab with the same versions",
+             "and the same jars, and is replayed by the tests. The last column is what fixed it for them;",
+             "CrashSleuth is expected to reach the same answer on its own, from the logs alone.", "",
+             "Written by `python3 lab/lab.py sources`, from the corpus itself.", ""]
+
+    def family(name: str) -> str:
+        if name.startswith("client-"):
+            return "In the game"
+        if name.startswith("net-"):
+            return "Between a proxy and a server"
+        return "On a server"
+
+    for title in ("On a server", "In the game", "Between a proxy and a server"):
+        part = [row for row in rows if family(row[0]) == title]
+        if not part:
+            continue
+        lines += [f"## {title}", "",
+                  "| Case | What CrashSleuth must find | Culprit | Reported at | What fixed it |",
+                  "| --- | --- | --- | --- | --- |"]
+        for name, situation, culprit, source, fix in part:
+            lines.append(f"| `{name}` | {situation} | {culprit} | {source} | {fix} |")
+        lines.append("")
+    lines += [f"{len(rows)} cases.", ""]
     doc.write_text("\n".join(lines))
     print(f"{doc}: {len(rows)} cases")
     return 0
