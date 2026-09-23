@@ -633,9 +633,40 @@
       "source": "lab: net proxy-backend-down (message the player gets from Velocity; the second is BungeeCord's)"
     },
     {
-      "id": "fabric-registry-unknown",
+      "id": "registry-entries-named-by-their-mod",
       "situation": "REGISTRY_MISMATCH",
       "confidence": "CERTAIN",
+      "pattern": "registry entries that are unknown to this client\\.[\\s\\S]{0,300}?The following registry entry namespaces may be related:\\s*\\n\\s*\\n\\s*([A-Za-z0-9_.\\-]+)",
+      "culprits": [
+        {
+          "group": 1,
+          "kind": "MOD"
+        }
+      ],
+      "advice": "signature.registry-entries-named-by-their-mod.advice",
+      "source": "lab: net mod-missing-on-client (Fabric 1.21.1 server with Farmer's Delight Refabricated, player without it)"
+    },
+    {
+      "id": "registry-ids-the-other-side-does-not-know",
+      "situation": "REGISTRY_MISMATCH",
+      "confidence": "CERTAIN",
+      "pattern": "RemapException: Received ID map for (\\S+) contains IDs unknown to the receiver![\\s\\S]{0,200}?\\n\\s*-\\s*([A-Za-z0-9_.\\-]+):",
+      "culprits": [
+        {
+          "group": 2,
+          "kind": "MOD"
+        }
+      ],
+      "details": {
+        "registry": 1
+      },
+      "advice": "signature.registry-entries-named-by-their-mod.advice",
+      "source": "https://github.com/GStefanowich/MC-Server-Protection/issues/41"
+    },
+    {
+      "id": "fabric-registry-unknown",
+      "situation": "REGISTRY_MISMATCH",
+      "confidence": "HIGH",
       "pattern": "Received (\\d+) registry entries that are unknown to this client",
       "details": {
         "count": 1
@@ -1082,6 +1113,39 @@
       },
       "advice": "signature.plugin-database-did-not-answer.advice",
       "source": "https://github.com/TuxCoding/FastLogin/issues/1329"
+    },
+    {
+      "id": "one-jar-with-a-class-twice-stopped-them-all",
+      "situation": "CORRUPT_JAR",
+      "confidence": "CERTAIN",
+      "pattern": "Failed to remap plugin jar '[^']*?([^'/\\\\]+\\.jar)'[\\s\\S]{0,800}?Duplicate entries detected: (\\S+)",
+      "culprits": [
+        {
+          "group": 1,
+          "kind": "PLUGIN",
+          "fromJar": true
+        }
+      ],
+      "details": {
+        "name": 2
+      },
+      "advice": "signature.one-jar-with-a-class-twice-stopped-them-all.advice",
+      "source": "https://github.com/PaperMC/Paper/issues/11152 (replayed in the lab: Paper 1.21 with a plugin jar holding the same class twice)"
+    },
+    {
+      "id": "a-jar-the-remapper-refused",
+      "situation": "CORRUPT_JAR",
+      "confidence": "HIGH",
+      "pattern": "\\[PluginRemapper\\][\\s\\S]{0,200}?Failed to remap plugin jar '[^']*?([^'/\\\\]+\\.jar)'",
+      "culprits": [
+        {
+          "group": 1,
+          "kind": "PLUGIN",
+          "fromJar": true
+        }
+      ],
+      "advice": "signature.a-jar-the-remapper-refused.advice",
+      "source": "https://github.com/PaperMC/Paper/issues/11152"
     }
   ]
 }

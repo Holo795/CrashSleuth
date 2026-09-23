@@ -537,9 +537,13 @@ def prepare(scenario: Scenario, directory: Path) -> list[str]:
 def apply_mutations(scenario: Scenario, directory: Path) -> None:
     """Breaks files on purpose once a first clean start has created them."""
     for action in scenario.mutate:
-        kind = next(k for k in ("garble", "truncate", "delete", "write", "corrupt_chunks", "chmod", "copy") if k in action)
+        kind = next(k for k in ("garble", "truncate", "delete", "write", "corrupt_chunks", "chmod", "copy",
+                                "duplicate_class") if k in action)
         target = directory / action[kind]
-        if kind == "copy":
+        if kind == "duplicate_class":
+            # The same class written twice in a jar: what a build that exports two folders of classes gives.
+            duplicate_class(target)
+        elif kind == "copy":
             # The same file in two worlds: how a copied world ends up with the identity of another.
             (directory / action["to"]).parent.mkdir(parents=True, exist_ok=True)
             shutil.copy(target, directory / action["to"])
@@ -562,6 +566,23 @@ def apply_mutations(scenario: Scenario, directory: Path) -> None:
         else:
             target.parent.mkdir(parents=True, exist_ok=True)
             target.write_text(action["text"])
+
+
+def duplicate_class(jar: Path) -> None:
+    """Writes one of the jar's classes a second time: Paper's remapper refuses such a jar, and with it
+    every other plugin (https://github.com/PaperMC/Paper/issues/11152)."""
+    import warnings, zipfile
+    source = jar.with_suffix(".jar.original")
+    jar.rename(source)
+    with zipfile.ZipFile(source) as zin:
+        name = sorted(n for n in zin.namelist() if n.endswith(".class"))[0]
+        payload, info = zin.read(name), zin.getinfo(name)
+        warnings.filterwarnings("ignore", message="Duplicate name")  # the duplicate is the point
+        with zipfile.ZipFile(jar, "w", zipfile.ZIP_DEFLATED) as zout:
+            for item in zin.infolist():
+                zout.writestr(item, zin.read(item.filename))
+            zout.writestr(info, payload)
+    source.unlink()
 
 
 def corrupt_chunks(region: Path, every: int, how: str) -> None:

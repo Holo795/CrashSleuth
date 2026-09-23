@@ -12,7 +12,7 @@ class SignatureTest {
 
     @Test
     fun `all signatures load`() {
-        assertEquals(85, SignatureDetector.load(javaClass.classLoader.getResource("crashsleuth/signatures.json")!!.readText()).size)
+        assertEquals(89, SignatureDetector.load(javaClass.classLoader.getResource("crashsleuth/signatures.json")!!.readText()).size)
     }
 
     @Test
@@ -106,6 +106,37 @@ class SignatureTest {
                     "fastlogin.hikari.pool.HikariPool${'$'}PoolInitializationException: " +
                     "Failed to initialize pool: Communications link failure\n" +
                     "Caused by: java.net.UnknownHostException: localhost:3306: Name or service not known\n",
+            ),
+        )
+    }
+
+    /** https://github.com/PaperMC/Paper/issues/11152 : one jar Paper cannot rewrite stops every plugin. */
+    @Test
+    fun `one jar with a class twice and no plugin loads`() {
+        assertEquals(
+            Situation.CORRUPT_JAR to listOf("IslandsWorldGen"),
+            primary(
+                "[20:31:06] [ServerMain/ERROR]: [PluginRemapper] Encountered exception remapping plugins\n" +
+                    "java.util.concurrent.CompletionException: java.lang.RuntimeException: " +
+                    "Failed to remap plugin jar 'plugins\\IslandsWorldGen.jar'\n" +
+                    "Caused by: java.lang.IllegalStateException: Duplicate entries detected: " +
+                    "me/ryanhamshire/BigScaryIslands/EmptyWorldGenerator.class\n" +
+                    "[20:31:06] [ServerMain/INFO]: [PluginInitializerManager] Initialized 0 plugins\n",
+            ),
+        )
+    }
+
+    /** https://github.com/GStefanowich/MC-Server-Protection/issues/41 : the log names the mod, so we do too. */
+    @Test
+    fun `a registry mismatch names the mod the other side is missing`() {
+        assertEquals(
+            Situation.REGISTRY_MISMATCH to listOf("sewing-machine"),
+            primary(
+                "[14:38:17] [Render thread/ERROR]: Registry remapping failed!\n" +
+                    "net.fabricmc.fabric.impl.registry.sync.RemapException: Received ID map for " +
+                    "minecraft:block_entity_type contains IDs unknown to the receiver!\n" +
+                    " - sewing-machine:warps_lectern\n" +
+                    " - sewing-machine:guide_lectern\n",
             ),
         )
     }

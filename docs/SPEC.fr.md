@@ -13,7 +13,9 @@
   - `[LoadOrderTree] Circular plugin loading detected` ne donnait rien : le premier plugin de la boucle est désormais nommé, comme le message lui-même le conseille ;
   - « We will assume the Server version is V_1_8_8 » ne donnait rien non plus : une bibliothèque embarquée qui ne sait pas lire la numérotation 26.x invente une version, et tout ce qui suit découle de cette erreur ;
   - une base injoignable faisait répondre « l'erreur vient de ce plugin, mettez-le à jour » : le port laissé dans le champ d'adresse (`UnknownHostException: localhost:3306`) est maintenant nommé pour ce qu'il est, un réglage.
-- **Cas réels rejoués : 57** (`docs/REAL_CASES.md`), corpus de 391 cas, 85 signatures.
+- **Un seul jar mal formé empêche tous les plugins de se charger.** Paper réécrit chaque plugin avant d'en charger un seul : un jar contenant deux fois la même classe fait échouer l'opération entière, le journal affiche « Initialized 0 plugins », et le serveur démarre normalement. Rejoué au labo (Paper 1.21) : le jar fautif est nommé, et il est dit que les autres n'ont rien.
+- **Un désaccord de registre nomme enfin le mod.** Fabric écrit le nom du mod concerné dans les deux formulations du message ; on ne rapportait qu'un nombre d'entrées (« 362 »). C'est maintenant « installez farmersdelight, dans la même version que le serveur », avec le rappel que deux versions différentes font la même chose qu'un mod absent.
+- **Cas réels rejoués : 58** (`docs/REAL_CASES.md`), corpus de 392 cas, 89 signatures.
 
 ### Changements de la v20 (rappel)
 - **Qui nomme n'est pas qui est fautif.** Dans cet écosystème, presque toutes les lignes qui nomment un mod nomment celui qui a *remarqué* le problème. Corrigé sur quatre cas, chacun tiré d'un signalement réel :

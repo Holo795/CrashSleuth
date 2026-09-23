@@ -2041,5 +2041,29 @@
     "expect": {
       "situation": "PLUGIN_API"
     }
+  },
+  {
+    "platform": "paper",
+    "minecraft": "1.21",
+    "java": 21,
+    "name": "real-one-bad-jar-stops-every-plugin",
+    "description": "Paper 1.21 where a single plugin jar holds the same class twice, and no plugin loads at all",
+    "extra": [
+      {
+        "url": "https://github.com/Jannyboy11/InvSee-plus-plus/releases/download/v0.24.6/InvSee%2B%2B.jar",
+        "file": "InvSeePlusPlus.jar"
+      }
+    ],
+    "mutate": [
+      {
+        "duplicate_class": "plugins/InvSeePlusPlus.jar"
+      }
+    ],
+    "source": "https://github.com/PaperMC/Paper/issues/11152",
+    "fix": "Rebuild or remove that one jar: Paper rewrites every plugin before loading any, so one it cannot read blocks them all.",
+    "expect": {
+      "situation": "CORRUPT_JAR",
+      "culprit": "InvSee"
+    }
   }
 ]

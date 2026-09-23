@@ -1,0 +1,9 @@
+{
+  "situation": "CORRUPT_JAR",
+  "culprit": "InvSee",
+  "logs": [
+    "latest.log"
+  ],
+  "source": "https://github.com/PaperMC/Paper/issues/11152",
+  "fix": "Rebuild or remove that one jar: Paper rewrites every plugin before loading any, so one it cannot read blocks them all."
+}

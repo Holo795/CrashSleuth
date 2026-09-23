@@ -32,6 +32,7 @@ Written by `python3 lab/lab.py sources`, from the corpus itself.
 | `real-luckperms-storage-unreachable` | SILENT_ERROR | LuckPerms | https://github.com/LuckPerms/LuckPerms/issues/4019 | The database refused the connection: open it to this machine (bind-address, firewall, user host), or keep the default H2 storage. |
 | `real-midnightlib-metadata-broken` | CORRUPT_JAR | midnightlib | https://github.com/TeamMidnightDust/MidnightLib/issues/145 | Take 1.9.3.1: the range in the published jar was written wrong. |
 | `real-modernfix-loader-too-old` | DEP_VERSION | fabric | https://github.com/orgs/FabricMC/discussions/4410 | Run the Fabric installer again and pick loader 0.16.10 or later. |
+| `real-one-bad-jar-stops-every-plugin` | CORRUPT_JAR | InvSee | https://github.com/PaperMC/Paper/issues/11152 | Rebuild or remove that one jar: Paper rewrites every plugin before loading any, so one it cannot read blocks them all. |
 | `real-paper-needs-java21` | JAVA_VERSION | java | https://github.com/itzg/docker-minecraft-server/issues/2905 | Run Minecraft 1.20.5 and later with Java 21. |
 | `real-plugin-api-too-new` | PLUGIN_API | InvSee | https://github.com/Spottedleaf/OldGenerator/issues/9 | Run a server at least as recent as the plugin's api-version, or take an older build of the plugin. |
 | `real-plugin-api-too-new-26` | PLUGIN_API | namefilterhopper | https://github.com/kcbleeker/NameFilterHopper/issues/1 | Run a server at least as recent as the plugin's api-version, or take the build made for yours. |
@@ -78,4 +79,4 @@ Written by `python3 lab/lab.py sources`, from the corpus itself.
 | `net-real-velocity-forwarding-off-player` | PROXY_FORWARDING |  | https://github.com/PaperMC/Velocity/issues/1347 | Set player-info-forwarding-mode to modern on the proxy, and save the file before restarting. |
 | `net-real-velocity-forwarding-off-proxy` | PROXY_FORWARDING |  | https://github.com/PaperMC/Velocity/issues/1347 | Set player-info-forwarding-mode to modern on the proxy, and save the file before restarting. |
 
-57 cases.
+58 cases.
