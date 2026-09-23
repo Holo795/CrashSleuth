@@ -1952,5 +1952,94 @@
       "situation": "DUPLICATE",
       "culprit": "InvSee"
     }
+  },
+  {
+    "platform": "paper",
+    "minecraft": "1.21.1",
+    "java": 21,
+    "name": "real-coreprotect-database-unreachable",
+    "description": "Paper 1.21.1 where CoreProtect is pointed at a database that never answers",
+    "extra": [
+      {
+        "url": "https://cdn.modrinth.com/data/Lu3KuzdV/versions/Kma0kBsY/CoreProtect-CE-24.0.jar",
+        "file": "CoreProtect-CE-24.0.jar"
+      }
+    ],
+    "mutate": [
+      {
+        "write": "plugins/CoreProtect/config.yml",
+        "text": "use-mysql: true\ntable-prefix: co_\nmysql-host: db.invalid.local\nmysql-port: 3306\nmysql-database: coreprotect\nmysql-username: mc\nmysql-password: secret\n"
+      }
+    ],
+    "after_ready": 5,
+    "source": "https://github.com/PlayPro/CoreProtect/issues/476",
+    "fix": "Point CoreProtect at a database that answers, or set use-mysql: false; the server starting is no sign that it is logging.",
+    "expect": {
+      "situation": "SILENT_ERROR",
+      "culprit": "CoreProtect"
+    }
+  },
+  {
+    "platform": "paper",
+    "minecraft": "1.21.1",
+    "java": 21,
+    "name": "real-luckperms-storage-unreachable",
+    "description": "Paper 1.21.1 where LuckPerms says it started while its database never answered",
+    "extra": [
+      {
+        "url": "https://download.luckperms.net/1672/bukkit/loader/LuckPerms-Bukkit-5.5.85.jar",
+        "file": "LuckPerms-Bukkit-5.5.85.jar"
+      }
+    ],
+    "mutate": [
+      {
+        "write": "plugins/LuckPerms/config.yml",
+        "text": "storage-method: MySQL\ndata:\n  address: db.invalid.local\n  database: luckperms\n  username: mc\n  password: secret\n  pool-settings:\n    maximum-pool-size: 4\n    connection-timeout: 5000\n  table-prefix: 'luckperms_'\n"
+      }
+    ],
+    "after_ready": 5,
+    "source": "https://github.com/LuckPerms/LuckPerms/issues/4019",
+    "fix": "The database refused the connection: open it to this machine (bind-address, firewall, user host), or keep the default H2 storage.",
+    "expect": {
+      "situation": "SILENT_ERROR",
+      "culprit": "LuckPerms"
+    }
+  },
+  {
+    "platform": "paper",
+    "minecraft": "1.21.1",
+    "java": 21,
+    "name": "real-config-keeps-an-old-block-name",
+    "description": "Paper 1.21.1 whose anti-xray list still names a block from before the flattening",
+    "mutate": [
+      {
+        "write": "config/paper-world-defaults.yml",
+        "text": "anticheat:\n  anti-xray:\n    enabled: true\n    engine-mode: 1\n    hidden-blocks:\n    - minecraft:lit_redstone_ore\n"
+      }
+    ],
+    "source": "https://github.com/PaperMC/Paper/issues/10909",
+    "fix": "Nothing migrates these files: back up config/, let the server write fresh ones, then re-apply the settings by hand.",
+    "expect": {
+      "situation": "CONFIG_BROKEN"
+    }
+  },
+  {
+    "platform": "paper",
+    "minecraft": "26.2",
+    "java": 25,
+    "name": "real-plugin-reads-the-version-as-1-8-8",
+    "description": "Paper 26.2 with a GrimAC build whose shaded library cannot read the new version numbering",
+    "extra": [
+      {
+        "url": "https://cdn.modrinth.com/data/LJNGWSvH/versions/tRGpard9/grimac-bukkit-2.3.74-e37b7e3.jar",
+        "file": "grimac-bukkit-2.3.74-e37b7e3.jar"
+      }
+    ],
+    "after_ready": 5,
+    "source": "https://github.com/GrimAnticheat/Grim/issues/2745",
+    "fix": "Use a Grim build that ships packetevents 2.12.3 or later: the server is fine, the library inside the plugin is not.",
+    "expect": {
+      "situation": "PLUGIN_API"
+    }
   }
 ]

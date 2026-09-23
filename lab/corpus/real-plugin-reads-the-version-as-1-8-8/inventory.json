@@ -1,35 +1,77 @@
 {
  "platform": "PAPER",
- "minecraftVersion": "1.20.1",
+ "minecraftVersion": "26.2",
  "loaderVersion": null,
  "side": "SERVER",
  "jars": [
   {
-   "file": "InvSeePlusPlus (1).jar",
+   "file": "grimac-bukkit-2.3.74-e37b7e3.jar",
    "folder": "plugins",
-   "size": 1076448,
+   "size": 12207021,
    "mods": [
     {
      "format": "BUKKIT",
-     "id": "InvSeePlusPlus",
+     "id": "GrimAC",
      "name": null,
-     "version": "0.24.6",
+     "version": "2.3.74-e37b7e3",
      "environment": "UNKNOWN",
      "dependencies": [
       {
-       "id": "Vault",
+       "id": "ProtocolLib",
        "versionRange": null,
        "required": false,
        "side": "UNKNOWN"
       },
       {
-       "id": "PerWorldInventory",
+       "id": "ProtocolSupport",
        "versionRange": null,
        "required": false,
        "side": "UNKNOWN"
       },
       {
-       "id": "Multiverse-Inventories",
+       "id": "Essentials",
+       "versionRange": null,
+       "required": false,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "ViaVersion",
+       "versionRange": null,
+       "required": false,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "ViaBackwards",
+       "versionRange": null,
+       "required": false,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "ViaRewind",
+       "versionRange": null,
+       "required": false,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "Geyser-Spigot",
+       "versionRange": null,
+       "required": false,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "floodgate",
+       "versionRange": null,
+       "required": false,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "FastLogin",
+       "versionRange": null,
+       "required": false,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "PlaceholderAPI",
        "versionRange": null,
        "required": false,
        "side": "UNKNOWN"
@@ -41,19 +83,31 @@
        "side": "UNKNOWN"
       },
       {
-       "id": "GroupManager",
+       "id": "sqlite-jdbc",
        "versionRange": null,
        "required": false,
        "side": "UNKNOWN"
       },
       {
-       "id": "BungeePerms",
+       "id": "mysql-jdbc",
        "versionRange": null,
        "required": false,
        "side": "UNKNOWN"
       },
       {
-       "id": "UltraPermissions",
+       "id": "postgresql-jdbc",
+       "versionRange": null,
+       "required": false,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "mongodb-driver",
+       "versionRange": null,
+       "required": false,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "jedis",
        "versionRange": null,
        "required": false,
        "side": "UNKNOWN"
@@ -61,9 +115,9 @@
      ],
      "breaks": [],
      "provides": [],
-     "apiVersion": "1.15",
+     "apiVersion": "1.13",
      "entrypoints": [
-      "com.janboerman.invsee.spigot.InvseePlusPlus"
+      "ac.grim.grimac.platform.bukkit.GrimACBukkitLoaderPlugin"
      ],
      "addsContent": false,
      "optionalOnClient": false
@@ -71,76 +125,7 @@
    ],
    "nested": [],
    "error": null,
-   "javaVersion": 11
-  },
-  {
-   "file": "InvSeePlusPlus.jar",
-   "folder": "plugins",
-   "size": 1076448,
-   "mods": [
-    {
-     "format": "BUKKIT",
-     "id": "InvSeePlusPlus",
-     "name": null,
-     "version": "0.24.6",
-     "environment": "UNKNOWN",
-     "dependencies": [
-      {
-       "id": "Vault",
-       "versionRange": null,
-       "required": false,
-       "side": "UNKNOWN"
-      },
-      {
-       "id": "PerWorldInventory",
-       "versionRange": null,
-       "required": false,
-       "side": "UNKNOWN"
-      },
-      {
-       "id": "Multiverse-Inventories",
-       "versionRange": null,
-       "required": false,
-       "side": "UNKNOWN"
-      },
-      {
-       "id": "LuckPerms",
-       "versionRange": null,
-       "required": false,
-       "side": "UNKNOWN"
-      },
-      {
-       "id": "GroupManager",
-       "versionRange": null,
-       "required": false,
-       "side": "UNKNOWN"
-      },
-      {
-       "id": "BungeePerms",
-       "versionRange": null,
-       "required": false,
-       "side": "UNKNOWN"
-      },
-      {
-       "id": "UltraPermissions",
-       "versionRange": null,
-       "required": false,
-       "side": "UNKNOWN"
-      }
-     ],
-     "breaks": [],
-     "provides": [],
-     "apiVersion": "1.15",
-     "entrypoints": [
-      "com.janboerman.invsee.spigot.InvseePlusPlus"
-     ],
-     "addsContent": false,
-     "optionalOnClient": false
-    }
-   ],
-   "nested": [],
-   "error": null,
-   "javaVersion": 11
+   "javaVersion": 17
   }
  ],
  "skipped": [],
@@ -148,39 +133,13 @@
   "worlds": [
    {
     "name": "world",
-    "versionName": "1.20.1",
-    "dataVersion": 3465,
+    "versionName": "26.2",
+    "dataVersion": 4903,
     "unreadable": null,
-    "hasBackup": false,
+    "hasBackup": true,
     "locked": false,
     "damagedChunks": [],
-    "chunksChecked": 1097,
-    "oversizedChunks": [],
-    "chunksComplete": true,
-    "damagedPlayers": []
-   },
-   {
-    "name": "world_nether",
-    "versionName": "1.20.1",
-    "dataVersion": 3465,
-    "unreadable": null,
-    "hasBackup": false,
-    "locked": false,
-    "damagedChunks": [],
-    "chunksChecked": 1093,
-    "oversizedChunks": [],
-    "chunksComplete": true,
-    "damagedPlayers": []
-   },
-   {
-    "name": "world_the_end",
-    "versionName": "1.20.1",
-    "dataVersion": 3465,
-    "unreadable": null,
-    "hasBackup": false,
-    "locked": false,
-    "damagedChunks": [],
-    "chunksChecked": 1099,
+    "chunksChecked": 1587,
     "oversizedChunks": [],
     "chunksComplete": true,
     "damagedPlayers": []

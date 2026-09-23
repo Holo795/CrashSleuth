@@ -1,8 +1,21 @@
 # CrashSleuth — Spécification
 
-**Version 20 — 23/09/2026** — v19 + les conseils répandus qui sont faux, et « qui a remarqué » distingué de « qui est fautif ».
+**Version 21 — 23/09/2026** — v20 + le niveau d'une ligne ne dit rien de sa gravité : un plugin qui a renoncé pendant que le serveur affiche « Done ».
 
-### Changements depuis la v19
+### Changements depuis la v20
+- **Un plugin peut renoncer sans hausser le ton.** Deux cas réels rejoués avec une base de données qui ne répond jamais :
+  - CoreProtect écrit `CoreProtect was unable to start.` **en INFO**, entre deux lignes ordinaires, puis le serveur affiche `Done` : plus rien n'est enregistré, et il n'y aura rien à restaurer ;
+  - LuckPerms écrit `Failed to init storage implementation`, puis **`Successfully enabled`** quinze secondes plus tard, et le serveur démarre comme d'habitude.
+  Le niveau porté par une ligne n'est jamais lu comme le poids de ce qu'elle dit.
+- **La cause précise passe devant la conséquence** : `Database is already in use. Please try again.` (deux serveurs sur une même base) est donné en confiance certaine et passe avant le « n'a pas pu démarrer » qui le suit, avec le conseil de ne pas désactiver le verrou pour faire taire le message.
+- **Quatre réponses manquantes ou fausses, trouvées en passant de vrais rapports dans l'outil** :
+  - un fichier de réglages qui nomme encore un bloc disparu (`Missing value in Registry… with key minecraft:lit_redstone_ore`) était classé « erreur non gérée, confiance faible » ; c'est maintenant un fichier à corriger, avec le réglage exact ;
+  - `[LoadOrderTree] Circular plugin loading detected` ne donnait rien : le premier plugin de la boucle est désormais nommé, comme le message lui-même le conseille ;
+  - « We will assume the Server version is V_1_8_8 » ne donnait rien non plus : une bibliothèque embarquée qui ne sait pas lire la numérotation 26.x invente une version, et tout ce qui suit découle de cette erreur ;
+  - une base injoignable faisait répondre « l'erreur vient de ce plugin, mettez-le à jour » : le port laissé dans le champ d'adresse (`UnknownHostException: localhost:3306`) est maintenant nommé pour ce qu'il est, un réglage.
+- **Cas réels rejoués : 57** (`docs/REAL_CASES.md`), corpus de 391 cas, 85 signatures.
+
+### Changements de la v20 (rappel)
 - **Qui nomme n'est pas qui est fautif.** Dans cet écosystème, presque toutes les lignes qui nomment un mod nomment celui qui a *remarqué* le problème. Corrigé sur quatre cas, chacun tiré d'un signalement réel :
   - `Mixin apply for mod X failed … merged by Y` : X est celui qui a perdu ; c'est le propriétaire de Y qu'on nomme maintenant en premier ;
   - `Could not pass event … to X` : X a seulement enregistré l'écouteur ; si rien de X n'est dans la trace, on nomme le code qui a réellement échoué ;

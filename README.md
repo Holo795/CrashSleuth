@@ -37,6 +37,9 @@ Most lines that name a mod name the one that *noticed*, not the one at fault, an
 - a watchdog that fires while the server thread is waiting for its next tick means the clock jumped, not that anything is stuck, and a short watchdog warning is not a crash;
 - "give it more RAM" is not said when an environment variable is overriding the memory that was set, and never from a lag warning alone;
 - the game's own line about updating graphics drivers is printed for every window failure and is treated as boilerplate;
+- a plugin that says the server version is wrong is reading it wrong: when a shaded library announces it will “assume the Server version is V_1_8_8”, everything it does next is built on that, and the crash that follows is named as a consequence, not a cause;
+- a plugin whose database never answered is not out of date: “update the plugin” is not said when the failure is an address, a port or a credential;
+- a plugin that gave up is not always loud: CoreProtect writes `CoreProtect was unable to start.` at INFO level and the server goes on to print `Done`, and LuckPerms writes `Successfully enabled` after its database never answered — the level a line carries is never read as the weight of what it says;
 - missing models, resource packs that come inside mods, connections that never said hello, and illegal-reflective-access warnings are not reported at all.
 
 Everything is **local by default**: nothing leaves the computer unless you ask (update check, share link, mappings download).

@@ -14,7 +14,9 @@ Written by `python3 lab/lab.py sources`, from the corpus itself.
 | `real-bluemap-eventbus7` | UNCAUGHT_EXCEPTION | bluemap | https://github.com/BlueMap-Minecraft/BlueMap/issues/743 | Update BlueMap past 5.12: Forge EventBus 7 refuses its old listener. |
 | `real-broken-version-range-in-metadata` | CORRUPT_JAR | tenshilib | https://github.com/Flemmli97/TenshiLib/issues/17 | Take the rebuilt jar (2.3.0.b): the range in its metadata was written wrong. |
 | `real-chunks-in-wrong-file` | CORRUPT_CHUNK |  | https://github.com/Amulet-Team/Amulet-Core/issues/235 | Those chunks do not belong to that file: the server moves them, which loses what was there. |
+| `real-config-keeps-an-old-block-name` | CONFIG_BROKEN |  | https://github.com/PaperMC/Paper/issues/10909 | Nothing migrates these files: back up config/, let the server write fresh ones, then re-apply the settings by hand. |
 | `real-connector-transform-failure` | MOD_CONFLICT | Connector | https://github.com/Sinytra/Connector/issues/2002 | Move to a later Connector build: this one cannot read that mod's mixin settings. |
+| `real-coreprotect-database-unreachable` | SILENT_ERROR | CoreProtect | https://github.com/PlayPro/CoreProtect/issues/476 | Point CoreProtect at a database that answers, or set use-mysql: false; the server starting is no sign that it is logging. |
 | `real-corrupt-server-jar` | CORRUPT_JAR |  | https://github.com/itzg/docker-minecraft-server/discussions/2786 | Delete the jar and download it again: the file is incomplete. |
 | `real-densefuel-language-provider-pinned` | DEP_VERSION | densefuel | https://github.com/legoaggelos/densefuel/issues/1 | Stay below NeoForge 21.1.235, or the mod must widen the javafml range it asks for. |
 | `real-entity-pileup-lag` | LAG |  | https://forums.papermc.io/threads/server-lag-and-rollback-every-5-min.1041/ | Remove the crowd of entities (or the world holding it): chunks keep ticking even with nobody there. |
@@ -27,12 +29,14 @@ Written by `python3 lab/lab.py sources`, from the corpus itself.
 | `real-kotlin-language-provider-missing` | DEP_MISSING | kotlinforforge | https://github.com/thedarkcolour/KotlinForForge/issues/154 | Install the Kotlin for Forge language provider the mod asks for. |
 | `real-level-type-legacy` | clean start |  | https://github.com/itzg/docker-minecraft-server/issues/1445 | Nothing breaks: since 22w12a the value is minecraft:normal, and anything else falls back to it. |
 | `real-library-too-old-for-bundle` | DEP_VERSION | collective | https://github.com/Serilum/.issue-tracker/issues/3229 | Install Collective 8.4, or go back to the bundle built for 8.3. |
+| `real-luckperms-storage-unreachable` | SILENT_ERROR | LuckPerms | https://github.com/LuckPerms/LuckPerms/issues/4019 | The database refused the connection: open it to this machine (bind-address, firewall, user host), or keep the default H2 storage. |
 | `real-midnightlib-metadata-broken` | CORRUPT_JAR | midnightlib | https://github.com/TeamMidnightDust/MidnightLib/issues/145 | Take 1.9.3.1: the range in the published jar was written wrong. |
 | `real-modernfix-loader-too-old` | DEP_VERSION | fabric | https://github.com/orgs/FabricMC/discussions/4410 | Run the Fabric installer again and pick loader 0.16.10 or later. |
 | `real-paper-needs-java21` | JAVA_VERSION | java | https://github.com/itzg/docker-minecraft-server/issues/2905 | Run Minecraft 1.20.5 and later with Java 21. |
 | `real-plugin-api-too-new` | PLUGIN_API | InvSee | https://github.com/Spottedleaf/OldGenerator/issues/9 | Run a server at least as recent as the plugin's api-version, or take an older build of the plugin. |
 | `real-plugin-api-too-new-26` | PLUGIN_API | namefilterhopper | https://github.com/kcbleeker/NameFilterHopper/issues/1 | Run a server at least as recent as the plugin's api-version, or take the build made for yours. |
 | `real-plugin-missing-vault` | DEP_MISSING | Vault | https://github.com/Lenni0451/SpigotPluginManager/issues/26 | Install the plugin it names (Vault): a hard dependency must be there before it loads. |
+| `real-plugin-reads-the-version-as-1-8-8` | PLUGIN_API |  | https://github.com/GrimAnticheat/Grim/issues/2745 | Use a Grim build that ships packetevents 2.12.3 or later: the server is fine, the library inside the plugin is not. |
 | `real-protocollib-too-old` | WRONG_MC | ProtocolLib | https://github.com/dmulloy2/ProtocolLib/issues/3073 | Update ProtocolLib: it reads the server's packet registry, which changes with every Minecraft version. |
 | `real-rcon-port-taken` | PORT_IN_USE |  | https://www.gameserverkings.com/knowledge-base/minecraft/setting-up-rcon/ | Give RCON a port of its own, different from server-port. |
 | `real-rcon-without-password` | CONFIG_BROKEN |  | https://github.com/itzg/docker-minecraft-server/issues/518 | Set rcon.password: with an empty one, RCON does not start at all, which looks like a refused connection. |
@@ -74,4 +78,4 @@ Written by `python3 lab/lab.py sources`, from the corpus itself.
 | `net-real-velocity-forwarding-off-player` | PROXY_FORWARDING |  | https://github.com/PaperMC/Velocity/issues/1347 | Set player-info-forwarding-mode to modern on the proxy, and save the file before restarting. |
 | `net-real-velocity-forwarding-off-proxy` | PROXY_FORWARDING |  | https://github.com/PaperMC/Velocity/issues/1347 | Set player-info-forwarding-mode to modern on the proxy, and save the file before restarting. |
 
-53 cases.
+57 cases.

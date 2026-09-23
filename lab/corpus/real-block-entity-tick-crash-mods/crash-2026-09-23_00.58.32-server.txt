@@ -1,7 +1,7 @@
 ---- Minecraft Crash Report ----
-// Don't be sad. I'll do better next time, I promise!
+// I'm sorry, Dave.
 
-Time: 2026-09-23 00:24:43
+Time: 2026-09-23 00:58:32
 Description: Ticking block entity
 
 java.lang.NoClassDefFoundError: net/p3pp3rf1y/sophisticatedcore/util/IDoubleBlock
@@ -66,16 +66,16 @@ Details:
 	All players: 0 total; 
 	Chunk stats: 729
 	Level dimension: minecraft:overworld
-	Level spawn location: World: (0,88,0), Section: (at 0,8,0 in 0,5,0; chunk contains blocks 0,-64,0 to 15,319,15), Region: (0,0; contains chunks 0,0 to 31,31, blocks 0,-64,0 to 511,319,511)
+	Level spawn location: World: (0,64,0), Section: (at 0,0,0 in 0,4,0; chunk contains blocks 0,-64,0 to 15,319,15), Region: (0,0; contains chunks 0,0 to 31,31, blocks 0,-64,0 to 511,319,511)
 	Level time: 231 game time, 231 day time
 	Level name: world
 	Level game mode: Game mode: survival (ID 0). Hardcore: false. Commands: false
-	Level weather: Rain time: 35301 (now: false), thunder time: 157968 (now: false)
+	Level weather: Rain time: 86124 (now: false), thunder time: 63120 (now: false)
 	Known server brands: neoforge
 	Removed feature flags: 
 	Level was modded: true
 	Level storage version: 0x04ABD - Anvil
-	Loaded entity count: 13
+	Loaded entity count: 4
 Stacktrace:
 	at TRANSFORMER/minecraft@1.21.11/net.minecraft.server.level.ServerLevel.fillReportDetails(ServerLevel.java:1873) ~[minecraft-server-patched-21.11.45.jar:?] {neoforge:access_transformer}
 	at TRANSFORMER/minecraft@1.21.11/net.minecraft.server.MinecraftServer.tickChildren(MinecraftServer.java:1168) ~[minecraft-server-patched-21.11.45.jar:?] {neoforge:access_transformer}
@@ -94,7 +94,7 @@ Details:
 	Operating System: Linux (aarch64) version 7.0.14-orbstack-00380-ga7e0a2dc9535
 	Java Version: 21.0.12, Eclipse Adoptium
 	Java VM Version: OpenJDK 64-Bit Server VM (mixed mode, sharing), Eclipse Adoptium
-	Memory: 104375752 bytes (99 MiB) / 377487360 bytes (360 MiB) up to 2147483648 bytes (2048 MiB)
+	Memory: 169212912 bytes (161 MiB) / 433061888 bytes (413 MiB) up to 2147483648 bytes (2048 MiB)
 	CPUs: 12
 	Processor Vendor: Apple
 	Processor Name: -
@@ -110,14 +110,14 @@ Details:
 	Graphics card #0 deviceId: unknown
 	Graphics card #0 versionInfo: unknown
 	Virtual memory max (MiB): 19048.21
-	Virtual memory used (MiB): 2077.91
+	Virtual memory used (MiB): 2217.33
 	Swap memory total (MiB): 13040.14
 	Swap memory used (MiB): 0.00
 	Space in storage for jna.tmpdir (MiB): <path not set>
 	Space in storage for org.lwjgl.system.SharedLibraryExtractPath (MiB): <path not set>
 	Space in storage for io.netty.native.workdir (MiB): <path not set>
-	Space in storage for java.io.tmpdir (MiB): available: 133269.56, total: 146944.00
-	Space in storage for workdir (MiB): available: 142228.55, total: 471482.09
+	Space in storage for java.io.tmpdir (MiB): available: 133077.61, total: 146752.00
+	Space in storage for workdir (MiB): available: 141694.91, total: 471482.09
 	JVM Flags: 2 total; -Xms256M -Xmx2G
 	Debug Flags: 0 total; 
 	Server Running: true
@@ -126,7 +126,7 @@ Details:
 	Available Data Packs: minecart_improvements, redstone_experiments, trade_rebalance, vanilla, mod/neoforge, mod/sophisticatedcore (incompatible), mod/toms_storage (incompatible), mod_data
 	Enabled Feature Flags: minecraft:vanilla
 	World Generation: Stable
-	World Seed: -8607153029562423445
+	World Seed: 1898045983376516237
 	Suppressed Exceptions: ~~NONE~~
 	Is Modded: Definitely; Server brand changed to 'neoforge'
 	Type: Dedicated Server (map_server.txt)
@@ -145,6 +145,6 @@ Details:
 		neoforge-21.11.45-universal.jar                   |NeoForge                      |neoforge                      |21.11.45            |Manifest: 0d9ab82c37319ed6514e8e28e5ab357ba5e9b8043ee4621333cf45b743039cba
 		sophisticatedcore-1.21.11-1.4.48.jar              |Sophisticated Core            |sophisticatedcore             |1.4.48              |Manifest: 4be7255843e9ebe58fbb8f240ff0a1c5eca1876efeda7ee4e19a37b1d69d3208
 		toms_storage-1.21.11-2.8.0.jar                    |Tom's Simple Storage Mod      |toms_storage                  |2.8.0               |Manifest: 89ea79ba620bda987cee7f2387dbde22693d82bea50698b421c489ac4f991815
-	Crash Report UUID: a94d0b86-b9c4-46e2-ac5a-a073ec55ad6e
+	Crash Report UUID: 4e77d4f3-ee83-4c2b-b17e-665357762564
 	FML: 10.0.36
 	NeoForge: 21.11.45

@@ -1,26 +1,26 @@
 Starting org.bukkit.craftbukkit.Main
-2026-09-23T00:28:33.012838931Z ServerMain WARN Advanced terminal features are not available in this environment
-[00:28:33 INFO]: [bootstrap] Running Java 25 (OpenJDK 64-Bit Server VM 25.0.4+7-LTS; Eclipse Adoptium Temurin-25.0.4+7) on Linux 7.0.14-orbstack-00380-ga7e0a2dc9535 (aarch64)
-[00:28:33 INFO]: [bootstrap] Loading Paper 26.2-128-ver/26.2@5749698 (2026-09-22T12:09:59Z) for Minecraft 26.2
-[00:28:33 INFO]: [PluginInitializerManager] Initializing plugins...
-[00:28:33 INFO]: [PluginInitializerManager] Initialized 0 plugins
+2026-09-23T01:02:19.674643983Z ServerMain WARN Advanced terminal features are not available in this environment
+[01:02:19 INFO]: [bootstrap] Running Java 25 (OpenJDK 64-Bit Server VM 25.0.4+7-LTS; Eclipse Adoptium Temurin-25.0.4+7) on Linux 7.0.14-orbstack-00380-ga7e0a2dc9535 (aarch64)
+[01:02:19 INFO]: [bootstrap] Loading Paper 26.2-128-ver/26.2@5749698 (2026-09-22T12:09:59Z) for Minecraft 26.2
+[01:02:19 INFO]: [PluginInitializerManager] Initializing plugins...
+[01:02:19 INFO]: [PluginInitializerManager] Initialized 0 plugins
 WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
 WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.joml.MemUtil$MemUtilUnsafe (file:/srv/libraries/org/joml/joml/1.10.8/joml-1.10.8.jar)
 WARNING: Please consider reporting this to the maintainers of class org.joml.MemUtil$MemUtilUnsafe
 WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
-[00:28:34 INFO]: [ca.spottedleaf.dataconverter.minecraft.datatypes.MCTypeRegistry] Initialising converters for DataConverter...
-[00:28:34 INFO]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, profilesHost=https://api.mojang.com, name=PROD]
-[00:28:34 INFO]: [ca.spottedleaf.dataconverter.minecraft.datatypes.MCTypeRegistry] Finished initialising converters for DataConverter in 197.7ms
-[00:28:35 WARN]: [WorldFolderMigration] ===================== ! ALERT ! =====================
-[00:28:35 WARN]: [WorldFolderMigration] World storage migration is required during startup.
-[00:28:35 WARN]: [WorldFolderMigration] If you do not have a backup: interrupt the server now. Use Ctrl+C, your panel kill function, etc.
-[00:28:35 WARN]: [WorldFolderMigration] =====================================================
-[00:28:35 WARN]: [WorldFolderMigration] Continuing in 30 seconds...
-[00:29:05 INFO]: [WorldFolderMigration] Continuing with startup world migration.
-[00:29:05 INFO]: [VanillaWorldMigration] Starting Vanilla import for world 'world' (minecraft:overworld)
-[00:29:05 INFO]: [VanillaWorldMigration] Completed Vanilla import for world 'world' (minecraft:overworld)
-[00:29:05 ERROR]: Unable to read or access the world gen settings file! Falling back to the default settings with a random world seed. ./world/dimensions/minecraft/overworld/data/minecraft/world_gen_settings.dat
-[00:29:05 WARN]: Failed to load datapacks, can't proceed with server load. You can either fix your datapacks or reset to vanilla with --safeMode
+[01:02:21 INFO]: [ca.spottedleaf.dataconverter.minecraft.datatypes.MCTypeRegistry] Initialising converters for DataConverter...
+[01:02:21 INFO]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, profilesHost=https://api.mojang.com, name=PROD]
+[01:02:21 INFO]: [ca.spottedleaf.dataconverter.minecraft.datatypes.MCTypeRegistry] Finished initialising converters for DataConverter in 203.1ms
+[01:02:21 WARN]: [WorldFolderMigration] ===================== ! ALERT ! =====================
+[01:02:21 WARN]: [WorldFolderMigration] World storage migration is required during startup.
+[01:02:21 WARN]: [WorldFolderMigration] If you do not have a backup: interrupt the server now. Use Ctrl+C, your panel kill function, etc.
+[01:02:21 WARN]: [WorldFolderMigration] =====================================================
+[01:02:21 WARN]: [WorldFolderMigration] Continuing in 30 seconds...
+[01:02:51 INFO]: [WorldFolderMigration] Continuing with startup world migration.
+[01:02:51 INFO]: [VanillaWorldMigration] Starting Vanilla import for world 'world' (minecraft:overworld)
+[01:02:51 INFO]: [VanillaWorldMigration] Completed Vanilla import for world 'world' (minecraft:overworld)
+[01:02:51 ERROR]: Unable to read or access the world gen settings file! Falling back to the default settings with a random world seed. ./world/dimensions/minecraft/overworld/data/minecraft/world_gen_settings.dat
+[01:02:51 WARN]: Failed to load datapacks, can't proceed with server load. You can either fix your datapacks or reset to vanilla with --safeMode
 java.util.concurrent.ExecutionException: java.lang.IllegalStateException: Overworld settings missing
 	at java.base/java.util.concurrent.CompletableFuture.wrapInExecutionException(CompletableFuture.java:345) ~[?:?]
 	at java.base/java.util.concurrent.CompletableFuture.reportGet(CompletableFuture.java:440) ~[?:?]

@@ -12,7 +12,7 @@ class SignatureTest {
 
     @Test
     fun `all signatures load`() {
-        assertEquals(77, SignatureDetector.load(javaClass.classLoader.getResource("crashsleuth/signatures.json")!!.readText()).size)
+        assertEquals(85, SignatureDetector.load(javaClass.classLoader.getResource("crashsleuth/signatures.json")!!.readText()).size)
     }
 
     @Test
@@ -40,6 +40,73 @@ class SignatureTest {
         assertEquals(
             Situation.DEP_MISSING to listOf("mymod", "kotlinforforge"),
             primary("Mod File mymod-1.0.jar needs language provider kotlinforforge:4.0 to load\nWe have found 0"),
+        )
+    }
+
+    /** A plugin whose database never answered: the lines are verbatim from the two reports. */
+    @Test
+    fun `a plugin that gave up on its database says so quietly`() {
+        // https://github.com/PlayPro/CoreProtect/issues/476
+        assertEquals(
+            Situation.SILENT_ERROR to listOf("CoreProtect"),
+            primary(
+                "[11:00:51] [Server thread/INFO]: [CoreProtect] Database is already in use. Please try again.\n" +
+                    "[11:00:51] [Server thread/INFO]: [CoreProtect] To disable database locking, set \"database-lock: false\".\n" +
+                    "[11:00:51] [Server thread/INFO]: [CoreProtect] CoreProtect was unable to start.\n" +
+                    "[11:00:51] [Server thread/INFO]: [CoreProtect] Disabling CoreProtect v22.2\n",
+            ),
+        )
+        // https://github.com/LuckPerms/LuckPerms/issues/4019
+        assertEquals(
+            Situation.SILENT_ERROR to listOf("LuckPerms"),
+            primary(
+                "[12:08:02 ERROR]: [LuckPerms] Failed to init storage implementation\n" +
+                    "java.sql.SQLTransientConnectionException: luckperms-hikari - Connection is not available, " +
+                    "request timed out after 5001ms.\n" +
+                    "\tat me.lucko.luckperms.lib.hikari.pool.HikariPool.createTimeoutException(HikariPool.java:696) ~[?:?]\n",
+            ),
+        )
+    }
+
+    /** Four reports where the answer was somewhere other than where the log pointed. */
+    @Test
+    fun `the line that names the cause is not always the loudest one`() {
+        // https://github.com/PaperMC/Paper/issues/10909 : a settings file kept a block name from before 1.13.
+        assertEquals(
+            Situation.CONFIG_BROKEN to emptyList(),
+            primary(
+                "[21:21:11] [Server thread/ERROR]: Encountered an unexpected exception\n" +
+                    "org.spongepowered.configurate.serialize.SerializationException: " +
+                    "[anticheat, anti-xray, hidden-blocks, 9] of type java.util.List<net.minecraft.world.level.block.Block>: " +
+                    "Missing value in Registry[ResourceKey[minecraft:root / minecraft:block] (Stable)] with key minecraft:lit_redstone_ore\n",
+            ),
+        )
+        // https://github.com/Archy-X/AuraSkills/issues/407 : the first plugin of the loop is the one to change.
+        assertEquals(
+            Situation.DEP_CYCLE to listOf("AuraSkills"),
+            primary(
+                "[21:49:43 ERROR]: [LoadOrderTree] Circular plugin loading detected:\n" +
+                    "[21:49:43 ERROR]: [LoadOrderTree] 1) AuraSkills -> Nexo -> MMOItems -> AuraSkills\n",
+            ),
+        )
+        // https://github.com/GrimAnticheat/Grim/issues/2745 : a shaded library cannot read "26.2" and falls back to 1.8.8.
+        assertEquals(
+            Situation.PLUGIN_API to listOf("packetevents"),
+            primary(
+                "[19:17:12 INFO]: [packetevents] Your server software is preventing us from checking the " +
+                    "Minecraft Server version. This is what we found: 26.2.build.24-alpha. " +
+                    "We will assume the Server version is V_1_8_8...\n",
+            ),
+        )
+        // https://github.com/TuxCoding/FastLogin/issues/1329 : the port was left inside the address field.
+        assertEquals(
+            Situation.CONFIG_BROKEN to emptyList(),
+            primary(
+                "[02:38:35 ERROR]: Error occurred while enabling FastLogin v1.12-SNAPSHOT-65a379c (Is it up to date?)\n" +
+                    "fastlogin.hikari.pool.HikariPool${'$'}PoolInitializationException: " +
+                    "Failed to initialize pool: Communications link failure\n" +
+                    "Caused by: java.net.UnknownHostException: localhost:3306: Name or service not known\n",
+            ),
         )
     }
 }

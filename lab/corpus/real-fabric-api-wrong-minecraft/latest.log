@@ -1,11 +1,11 @@
-[00:18:18] [main/INFO]: Loading Minecraft 1.21.4 with Fabric Loader 0.19.5
-[00:18:18] [main/INFO]: Fabric is preparing JARs on first launch, this may take a few seconds...
-[00:18:18] [main/WARN]: Mod resolution failed
-[00:18:18] [main/INFO]: Immediate reason: [HARD_DEP_INCOMPATIBLE_PRESELECTED fabric-api 0.128.2+1.21.5 {depends minecraft @ [>=1.21.5- <1.21.6-]}, ROOT_FORCELOAD_SINGLE fabric-api 0.128.2+1.21.5]
-[00:18:18] [main/INFO]: Reason: [HARD_DEP fabric-api 0.128.2+1.21.5 {depends minecraft @ [>=1.21.5- <1.21.6-]}]
-[00:18:18] [main/INFO]: SERVER environment disabled: [fabric-model-loading-api-v1, fabric-renderer-api-v1, fabric-keybindings-v0, fabric-client-tags-api-v1, fabric-sound-api-v1, fabric-screen-api-v1, fabric-rendering-v1, fabric-key-binding-api-v1, fabric-renderer-indigo, fabric-blockrenderlayer-v1]
-[00:18:18] [main/INFO]: Fix: add [], remove [], replace [[minecraft 1.21.4] -> add:minecraft 1.21.5- ([[1.21.5-,1.21.6-)])]
-[00:18:18] [main/ERROR]: Incompatible mods found!
+[00:51:57] [main/INFO]: Loading Minecraft 1.21.4 with Fabric Loader 0.19.5
+[00:51:57] [main/INFO]: Fabric is preparing JARs on first launch, this may take a few seconds...
+[00:51:57] [main/WARN]: Mod resolution failed
+[00:51:57] [main/INFO]: Immediate reason: [HARD_DEP_INCOMPATIBLE_PRESELECTED fabric-api 0.128.2+1.21.5 {depends minecraft @ [>=1.21.5- <1.21.6-]}, ROOT_FORCELOAD_SINGLE fabric-api 0.128.2+1.21.5]
+[00:51:57] [main/INFO]: Reason: [HARD_DEP fabric-api 0.128.2+1.21.5 {depends minecraft @ [>=1.21.5- <1.21.6-]}]
+[00:51:57] [main/INFO]: SERVER environment disabled: [fabric-model-loading-api-v1, fabric-renderer-api-v1, fabric-keybindings-v0, fabric-client-tags-api-v1, fabric-sound-api-v1, fabric-screen-api-v1, fabric-key-binding-api-v1, fabric-rendering-v1, fabric-renderer-indigo, fabric-blockrenderlayer-v1]
+[00:51:57] [main/INFO]: Fix: add [], remove [], replace [[minecraft 1.21.4] -> add:minecraft 1.21.5- ([[1.21.5-,1.21.6-)])]
+[00:51:57] [main/ERROR]: Incompatible mods found!
 net.fabricmc.loader.impl.FormattedException: Some of your mods are incompatible with the game or each other!
 A potential solution has been determined, this may resolve your problem:
 	 - Replace 'Minecraft' (minecraft) 1.21.4 with any version between 1.21.5- (inclusive) and 1.21.6- (exclusive).

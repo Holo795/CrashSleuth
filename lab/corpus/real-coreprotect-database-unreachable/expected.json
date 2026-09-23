@@ -1,0 +1,9 @@
+{
+  "situation": "SILENT_ERROR",
+  "culprit": "CoreProtect",
+  "logs": [
+    "latest.log"
+  ],
+  "source": "https://github.com/PlayPro/CoreProtect/issues/476",
+  "fix": "Point CoreProtect at a database that answers, or set use-mysql: false; the server starting is no sign that it is logging."
+}

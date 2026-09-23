@@ -1,11 +1,11 @@
-[32m[00:22:21.658] [main/INFO] [Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgeserver, --fml.neoForgeVersion, 21.1.251, --fml.fmlVersion, 4.0.44, --fml.mcVersion, 1.21.1, --fml.neoFormVersion, 20240808.144430, nogui] 
-[m[32m[00:22:21.659] [main/INFO] [Launcher/MODLAUNCHER]: JVM identified as Eclipse Adoptium OpenJDK 64-Bit Server VM 21.0.12+8-LTS 
-[m[32m[00:22:21.659] [main/INFO] [Launcher/MODLAUNCHER]: ModLauncher 11.0.5+main.901c6ea8 starting: java version 21.0.12 by Eclipse Adoptium; OS Linux arch aarch64 version 7.0.14-orbstack-00380-ga7e0a2dc9535 
-[m[32m[00:22:21.694] [main/INFO] [loading.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forgeserver 
-[m[32m[00:22:21.710] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=union:/srv/libraries/net/fabricmc/sponge-mixin/0.15.2+mixin.0.8.7/sponge-mixin-0.15.2+mixin.0.8.7.jar%2373!/ Service=ModLauncher Env=SERVER 
-[m[32m[00:22:21.830] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "server-1.21.1-20240808.144430-srg.jar" [locator: production server provider +net.neoforged:neoforge:21.1.251:server] 
-[m[32m[00:22:21.839] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "neoforge-21.1.251-universal.jar" [locator: PathBasedLocator[name=neoforge, paths=[libraries/net/neoforged/neoforge/21.1.251/neoforge-21.1.251-universal.jar]], reader: mod manifest] 
-[m[1;31m[00:22:21.841] [main/FATAL] [language.MavenVersionAdapter/]: Failed to parse version spec [,) org.apache.maven.artifact.versioning.InvalidVersionSpecificationException: Range cannot have identical boundaries: [,)
+[32m[00:56:07.043] [main/INFO] [Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgeserver, --fml.neoForgeVersion, 21.1.251, --fml.fmlVersion, 4.0.44, --fml.mcVersion, 1.21.1, --fml.neoFormVersion, 20240808.144430, nogui] 
+[m[32m[00:56:07.044] [main/INFO] [Launcher/MODLAUNCHER]: JVM identified as Eclipse Adoptium OpenJDK 64-Bit Server VM 21.0.12+8-LTS 
+[m[32m[00:56:07.044] [main/INFO] [Launcher/MODLAUNCHER]: ModLauncher 11.0.5+main.901c6ea8 starting: java version 21.0.12 by Eclipse Adoptium; OS Linux arch aarch64 version 7.0.14-orbstack-00380-ga7e0a2dc9535 
+[m[32m[00:56:07.077] [main/INFO] [loading.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forgeserver 
+[m[32m[00:56:07.094] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=union:/srv/libraries/net/fabricmc/sponge-mixin/0.15.2+mixin.0.8.7/sponge-mixin-0.15.2+mixin.0.8.7.jar%2373!/ Service=ModLauncher Env=SERVER 
+[m[32m[00:56:07.220] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "server-1.21.1-20240808.144430-srg.jar" [locator: production server provider +net.neoforged:neoforge:21.1.251:server] 
+[m[32m[00:56:07.229] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "neoforge-21.1.251-universal.jar" [locator: PathBasedLocator[name=neoforge, paths=[libraries/net/neoforged/neoforge/21.1.251/neoforge-21.1.251-universal.jar]], reader: mod manifest] 
+[m[1;31m[00:56:07.231] [main/FATAL] [language.MavenVersionAdapter/]: Failed to parse version spec [,) org.apache.maven.artifact.versioning.InvalidVersionSpecificationException: Range cannot have identical boundaries: [,)
 	at MC-BOOTSTRAP/maven.artifact@3.8.5/org.apache.maven.artifact.versioning.VersionRange.parseRestriction(VersionRange.java:217) ~[maven-artifact-3.8.5.jar%2370!/:3.8.5] {}
 	at MC-BOOTSTRAP/maven.artifact@3.8.5/org.apache.maven.artifact.versioning.VersionRange.createFromVersionSpec(VersionRange.java:146) ~[maven-artifact-3.8.5.jar%2370!/:3.8.5] {}
 	at MC-BOOTSTRAP/fml_loader@4.0.44/net.neoforged.neoforgespi.language.MavenVersionAdapter.createFromVersionSpec(MavenVersionAdapter.java:20) ~[loader-4.0.44.jar%2359!/:4.0] {}
@@ -44,19 +44,19 @@
 	at cpw.mods.bootstraplauncher@2.0.2/cpw.mods.bootstraplauncher.BootstrapLauncher.run(BootstrapLauncher.java:210) [bootstraplauncher-2.0.2.jar:?] {}
 	at cpw.mods.bootstraplauncher@2.0.2/cpw.mods.bootstraplauncher.BootstrapLauncher.main(BootstrapLauncher.java:69) [bootstraplauncher-2.0.2.jar:?] {}
 
-[m[32m[00:22:21.887] [main/INFO] [loading.moddiscovery.locators.JarInJarDependencyLocator/]: Found 2 dependencies adding them to mods collection 
-[m[32m[00:22:21.887] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found gamelibrary file "mixinextras-neoforge-0.5.3.jar" [parent: neoforge-21.1.251-universal.jar, locator: jarinjar, reader: mod manifest] 
-[m[32m[00:22:21.888] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found library file "net.neoforged.neoforge-coremods-21.1.251.jar" [parent: neoforge-21.1.251-universal.jar, locator: jarinjar, reader: mod manifest] 
-[m[32m[00:22:21.888] [main/INFO] [loading.moddiscovery.ModDiscoverer/]: 
+[m[32m[00:56:07.277] [main/INFO] [loading.moddiscovery.locators.JarInJarDependencyLocator/]: Found 2 dependencies adding them to mods collection 
+[m[32m[00:56:07.277] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found gamelibrary file "mixinextras-neoforge-0.5.3.jar" [parent: neoforge-21.1.251-universal.jar, locator: jarinjar, reader: mod manifest] 
+[m[32m[00:56:07.277] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found library file "net.neoforged.neoforge-coremods-21.1.251.jar" [parent: neoforge-21.1.251-universal.jar, locator: jarinjar, reader: mod manifest] 
+[m[32m[00:56:07.277] [main/INFO] [loading.moddiscovery.ModDiscoverer/]: 
      Mod List:
 		Name Version (Mod Id)
 
 		Minecraft 1.21.1 (minecraft)
 		NeoForge 21.1.251 (neoforge) 
-[m[32m[00:22:22.082] [main/INFO] [LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgeserver' with arguments [nogui] 
+[m[32m[00:56:07.464] [main/INFO] [LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgeserver' with arguments [nogui] 
 [mWARN StatusConsoleListener Advanced terminal features are not available in this environment
-[00:22:22] [main/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.5.3).
-[00:22:24] [main/FATAL] [ne.ne.fm.ModLoader/CORE]: Error during pre-loading phase: File /srv/mods/tenshilib-1.21.1-2.3.0-neoforge.jar is not a valid mod file
+[00:56:07] [main/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.5.3).
+[00:56:09] [main/FATAL] [ne.ne.fm.ModLoader/CORE]: Error during pre-loading phase: File /srv/mods/tenshilib-1.21.1-2.3.0-neoforge.jar is not a valid mod file
 java.lang.RuntimeException: Failed to parse spec
 	at MC-BOOTSTRAP/fml_loader@4.0.44/net.neoforged.neoforgespi.language.MavenVersionAdapter.createFromVersionSpec(MavenVersionAdapter.java:23) ~[loader-4.0.44.jar%2359!/:4.0] {}
 	at java.base/java.util.Optional.map(Optional.java:260) ~[?:?] {}
@@ -98,12 +98,12 @@ Caused by: org.apache.maven.artifact.versioning.InvalidVersionSpecificationExcep
 	at MC-BOOTSTRAP/maven.artifact@3.8.5/org.apache.maven.artifact.versioning.VersionRange.createFromVersionSpec(VersionRange.java:146) ~[maven-artifact-3.8.5.jar%2370!/:3.8.5] {}
 	at MC-BOOTSTRAP/fml_loader@4.0.44/net.neoforged.neoforgespi.language.MavenVersionAdapter.createFromVersionSpec(MavenVersionAdapter.java:20) ~[loader-4.0.44.jar%2359!/:4.0] {}
 	... 34 more
-[00:22:24] [main/ERROR] [minecraft/CrashReport]: Negative index in crash report handler (0/18)
-[00:22:24] [main/FATAL] [ne.ne.ne.se.lo.ServerModLoader/]: Crash report saved to ./crash-reports/crash-2026-09-23_00.22.24-fml.txt
+[00:56:09] [main/ERROR] [minecraft/CrashReport]: Negative index in crash report handler (0/18)
+[00:56:09] [main/FATAL] [ne.ne.ne.se.lo.ServerModLoader/]: Crash report saved to ./crash-reports/crash-2026-09-23_00.56.09-fml.txt
 ---- Minecraft Crash Report ----
-// Uh... Did I do that?
+// My bad.
 
-Time: 2026-09-23 00:22:24
+Time: 2026-09-23 00:56:09
 Description: Mod loading failures have occurred; consult the issue messages for more details
 
 net.neoforged.neoforge.logging.CrashReportExtender$ModLoadingCrashException: Mod loading has failed
@@ -207,7 +207,7 @@ Details:
 	Operating System: Linux (aarch64) version 7.0.14-orbstack-00380-ga7e0a2dc9535
 	Java Version: 21.0.12, Eclipse Adoptium
 	Java VM Version: OpenJDK 64-Bit Server VM (mixed mode, sharing), Eclipse Adoptium
-	Memory: 166144808 bytes (158 MiB) / 440401920 bytes (420 MiB) up to 2147483648 bytes (2048 MiB)
+	Memory: 164323280 bytes (156 MiB) / 440401920 bytes (420 MiB) up to 2147483648 bytes (2048 MiB)
 	CPUs: 12
 	Processor Vendor: Apple
 	Processor Name: 
@@ -223,14 +223,14 @@ Details:
 	Graphics card #0 deviceId: unknown
 	Graphics card #0 versionInfo: unknown
 	Virtual memory max (MiB): 19048.21
-	Virtual memory used (MiB): 2003.56
+	Virtual memory used (MiB): 2001.71
 	Swap memory total (MiB): 13040.14
 	Swap memory used (MiB): 0.00
 	Space in storage for jna.tmpdir (MiB): <path not set>
 	Space in storage for org.lwjgl.system.SharedLibraryExtractPath (MiB): <path not set>
 	Space in storage for io.netty.native.workdir (MiB): <path not set>
-	Space in storage for java.io.tmpdir (MiB): available: 132565.58, total: 146240.00
-	Space in storage for workdir (MiB): available: 141141.53, total: 471482.09
+	Space in storage for java.io.tmpdir (MiB): available: 133205.63, total: 146880.00
+	Space in storage for workdir (MiB): available: 141801.41, total: 471482.09
 	JVM Flags: 2 total; -Xms256M -Xmx2G
 	ModLauncher: 11.0.5+main.901c6ea8
 	ModLauncher launch target: forgeserver
@@ -249,7 +249,7 @@ Details:
 	Mod List: 
 		server-1.21.1-20240808.144430-srg.jar             |Minecraft                     |minecraft                     |1.21.1              |Manifest: NOSIGNATURE
 		neoforge-21.1.251-universal.jar                   |NeoForge                      |neoforge                      |21.1.251            |Manifest: NOSIGNATURE
-[00:22:24] [main/ERROR] [minecraft/Main]: Failed to start the minecraft server
+[00:56:09] [main/ERROR] [minecraft/Main]: Failed to start the minecraft server
 net.neoforged.fml.ModLoadingException: Loading errors encountered:
 	- File /srv/mods/tenshilib-1.21.1-2.3.0-neoforge.jar is not a valid mod file
 

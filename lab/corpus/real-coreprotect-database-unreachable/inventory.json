@@ -1,26 +1,33 @@
 {
  "platform": "PAPER",
- "minecraftVersion": "1.21.5",
+ "minecraftVersion": "1.21.1",
  "loaderVersion": null,
  "side": "SERVER",
  "jars": [
   {
-   "file": "ProtocolLib.jar",
+   "file": "CoreProtect-CE-24.0.jar",
    "folder": "plugins",
-   "size": 5260270,
+   "size": 1102175,
    "mods": [
     {
      "format": "BUKKIT",
-     "id": "ProtocolLib",
+     "id": "CoreProtect",
      "name": null,
-     "version": "5.2.0-SNAPSHOT-679",
+     "version": "24.0",
      "environment": "UNKNOWN",
-     "dependencies": [],
+     "dependencies": [
+      {
+       "id": "WorldEdit",
+       "versionRange": null,
+       "required": false,
+       "side": "UNKNOWN"
+      }
+     ],
      "breaks": [],
      "provides": [],
-     "apiVersion": "1.13",
+     "apiVersion": "1.16",
      "entrypoints": [
-      "com.comphenix.protocol.ProtocolLib"
+      "net.coreprotect.CoreProtect"
      ],
      "addsContent": false,
      "optionalOnClient": false
@@ -28,7 +35,7 @@
    ],
    "nested": [],
    "error": null,
-   "javaVersion": 8
+   "javaVersion": 11
   }
  ],
  "skipped": [],
@@ -36,10 +43,10 @@
   "worlds": [
    {
     "name": "world",
-    "versionName": "1.21.5",
-    "dataVersion": 4325,
+    "versionName": "1.21.1",
+    "dataVersion": 3955,
     "unreadable": null,
-    "hasBackup": false,
+    "hasBackup": true,
     "locked": false,
     "damagedChunks": [],
     "chunksChecked": 847,
@@ -49,23 +56,23 @@
    },
    {
     "name": "world_nether",
-    "versionName": "1.21.5",
-    "dataVersion": 4325,
+    "versionName": "1.21.1",
+    "dataVersion": 3955,
     "unreadable": null,
-    "hasBackup": false,
+    "hasBackup": true,
     "locked": false,
     "damagedChunks": [],
-    "chunksChecked": 843,
+    "chunksChecked": 841,
     "oversizedChunks": [],
     "chunksComplete": true,
     "damagedPlayers": []
    },
    {
     "name": "world_the_end",
-    "versionName": "1.21.5",
-    "dataVersion": 4325,
+    "versionName": "1.21.1",
+    "dataVersion": 3955,
     "unreadable": null,
-    "hasBackup": false,
+    "hasBackup": true,
     "locked": false,
     "damagedChunks": [],
     "chunksChecked": 851,

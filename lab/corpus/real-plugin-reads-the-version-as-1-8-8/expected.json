@@ -1,0 +1,9 @@
+{
+  "situation": "PLUGIN_API",
+  "culprit": null,
+  "logs": [
+    "latest.log"
+  ],
+  "source": "https://github.com/GrimAnticheat/Grim/issues/2745",
+  "fix": "Use a Grim build that ships packetevents 2.12.3 or later: the server is fine, the library inside the plugin is not."
+}

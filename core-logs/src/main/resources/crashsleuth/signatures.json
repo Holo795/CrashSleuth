@@ -971,6 +971,117 @@
       },
       "advice": "signature.data-folder-not-writable.advice",
       "source": "https://github.com/itzg/docker-minecraft-server/issues/1269 and /issues/390"
+    },
+    {
+      "id": "coreprotect-database-already-in-use",
+      "situation": "SILENT_ERROR",
+      "confidence": "CERTAIN",
+      "pattern": "\\[(CoreProtect)\\] Database is already in use\\. Please try again\\.",
+      "culprits": [
+        {
+          "group": 1,
+          "kind": "PLUGIN"
+        }
+      ],
+      "advice": "signature.coreprotect-database-already-in-use.advice",
+      "source": "https://github.com/PlayPro/CoreProtect/issues/476"
+    },
+    {
+      "id": "coreprotect-could-not-start",
+      "situation": "SILENT_ERROR",
+      "confidence": "CERTAIN",
+      "pattern": "\\[(CoreProtect)\\] CoreProtect(?: Community Edition)? was unable to start\\.",
+      "culprits": [
+        {
+          "group": 1,
+          "kind": "PLUGIN"
+        }
+      ],
+      "advice": "signature.coreprotect-could-not-start.advice",
+      "source": "https://github.com/PlayPro/CoreProtect/issues/476 (replayed in the lab: CoreProtect 24.0 on Paper 1.21.1 with a MySQL host that does not resolve)"
+    },
+    {
+      "id": "luckperms-storage-never-started",
+      "situation": "SILENT_ERROR",
+      "confidence": "CERTAIN",
+      "pattern": "\\[(LuckPerms)\\] Failed to init storage implementation",
+      "culprits": [
+        {
+          "group": 1,
+          "kind": "PLUGIN"
+        }
+      ],
+      "advice": "signature.luckperms-storage-never-started.advice",
+      "source": "https://github.com/LuckPerms/LuckPerms/issues/4019 (replayed in the lab: LuckPerms 5.5.85 on Paper 1.21.1 with a MySQL host that does not resolve)"
+    },
+    {
+      "id": "config-names-a-block-that-is-gone",
+      "situation": "CONFIG_BROKEN",
+      "confidence": "CERTAIN",
+      "pattern": "SerializationException: \\[([^\\]]+)\\][^\\n]*Missing value in Registry\\[[^\\n]*?\\] with key (\\S+)",
+      "details": {
+        "setting": 1,
+        "name": 2
+      },
+      "advice": "signature.config-names-a-block-that-is-gone.advice",
+      "source": "https://github.com/PaperMC/Paper/issues/10909"
+    },
+    {
+      "id": "plugins-wait-for-each-other",
+      "situation": "DEP_CYCLE",
+      "confidence": "CERTAIN",
+      "pattern": "\\[LoadOrderTree\\] Circular plugin loading detected:[\\s\\S]{0,400}?\\d\\) ([\\w.\\-]+) -> ([^\\n]+)",
+      "culprits": [
+        {
+          "group": 1,
+          "kind": "PLUGIN"
+        }
+      ],
+      "details": {
+        "loop": 2
+      },
+      "advice": "signature.plugins-wait-for-each-other.advice",
+      "source": "https://github.com/Archy-X/AuraSkills/issues/407"
+    },
+    {
+      "id": "plugin-cannot-read-the-version-number",
+      "situation": "PLUGIN_API",
+      "confidence": "HIGH",
+      "pattern": "\\[([\\w.\\-]+)\\] Your server software is preventing us from checking the Minecraft Server version\\. This is what we found: (\\S+)\\. We will assume the Server version is (\\S+)",
+      "culprits": [
+        {
+          "group": 1,
+          "kind": "PLUGIN"
+        }
+      ],
+      "details": {
+        "found": 2,
+        "assumed": 3
+      },
+      "advice": "signature.plugin-cannot-read-the-version-number.advice",
+      "source": "https://github.com/GrimAnticheat/Grim/issues/2745 and https://github.com/kernitus/BukkitOldCombatMechanics/issues/866"
+    },
+    {
+      "id": "database-address-carries-the-port",
+      "situation": "CONFIG_BROKEN",
+      "confidence": "CERTAIN",
+      "pattern": "UnknownHostException: (\\S+:\\d+):",
+      "details": {
+        "address": 1
+      },
+      "advice": "signature.database-address-carries-the-port.advice",
+      "source": "https://github.com/TuxCoding/FastLogin/issues/1329"
+    },
+    {
+      "id": "plugin-database-did-not-answer",
+      "situation": "CONFIG_BROKEN",
+      "confidence": "HIGH",
+      "pattern": "HikariPool\\$PoolInitializationException: Failed to initialize pool: (Communications link failure|[^\\n]{0,60})",
+      "details": {
+        "reason": 1
+      },
+      "advice": "signature.plugin-database-did-not-answer.advice",
+      "source": "https://github.com/TuxCoding/FastLogin/issues/1329"
     }
   ]
 }
