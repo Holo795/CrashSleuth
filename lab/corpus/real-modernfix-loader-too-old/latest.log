@@ -1,10 +1,10 @@
-[00:52:12] [main/INFO]: Loading Minecraft 1.21.4 with Fabric Loader 0.16.9
-[00:52:12] [main/INFO]: Fabric is preparing JARs on first launch, this may take a few seconds...
-[00:52:12] [main/WARN]: Mod resolution failed
-[00:52:12] [main/INFO]: Immediate reason: [HARD_DEP_NO_CANDIDATE modernfix 5.20.2+mc1.21.4 {depends fabricloader @ [>=0.16.10]}, ROOT_FORCELOAD_SINGLE modernfix 5.20.2+mc1.21.4]
-[00:52:12] [main/INFO]: Reason: [HARD_DEP modernfix 5.20.2+mc1.21.4 {depends fabricloader @ [>=0.16.10]}]
-[00:52:12] [main/INFO]: Fix: add [], remove [], replace [[fabricloader 0.16.9] -> add:fabricloader 0.16.10 ([[0.16.10,∞)])]
-[00:52:12] [main/ERROR]: Incompatible mods found!
+[01:46:01] [main/INFO]: Loading Minecraft 1.21.4 with Fabric Loader 0.16.9
+[01:46:01] [main/INFO]: Fabric is preparing JARs on first launch, this may take a few seconds...
+[01:46:01] [main/WARN]: Mod resolution failed
+[01:46:01] [main/INFO]: Immediate reason: [HARD_DEP_NO_CANDIDATE modernfix 5.20.2+mc1.21.4 {depends fabricloader @ [>=0.16.10]}, ROOT_FORCELOAD_SINGLE modernfix 5.20.2+mc1.21.4]
+[01:46:01] [main/INFO]: Reason: [HARD_DEP modernfix 5.20.2+mc1.21.4 {depends fabricloader @ [>=0.16.10]}]
+[01:46:01] [main/INFO]: Fix: add [], remove [], replace [[fabricloader 0.16.9] -> add:fabricloader 0.16.10 ([[0.16.10,∞)])]
+[01:46:01] [main/ERROR]: Incompatible mods found!
 net.fabricmc.loader.impl.FormattedException: Some of your mods are incompatible with the game or each other!
 A potential solution has been determined, this may resolve your problem:
 	 - Replace mod 'Fabric Loader' (fabricloader) 0.16.9 with version 0.16.10 or later.

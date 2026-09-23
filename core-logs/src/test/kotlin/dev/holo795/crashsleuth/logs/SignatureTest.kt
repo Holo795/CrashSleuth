@@ -12,7 +12,7 @@ class SignatureTest {
 
     @Test
     fun `all signatures load`() {
-        assertEquals(96, SignatureDetector.load(javaClass.classLoader.getResource("crashsleuth/signatures.json")!!.readText()).size)
+        assertEquals(98, SignatureDetector.load(javaClass.classLoader.getResource("crashsleuth/signatures.json")!!.readText()).size)
     }
 
     @Test
@@ -231,6 +231,29 @@ class SignatureTest {
                     "loader 'bootstrap'; com.electronwill.nightconfig.core.Config is in unnamed module of " +
                     "loader 'app')\n" +
                     "  at com.velocitypowered.proxy.config.VelocityConfiguration.read(VelocityConfiguration.java:560)\n",
+            ),
+        )
+    }
+
+    /** Two messages that name something which is not installed, or nothing at all. */
+    @Test
+    fun `a message that names the wrong thing`() {
+        // https://github.com/streamlinecloud/StreamlineCloud/issues/56 : BungeeCord is nowhere in this network.
+        assertEquals(
+            Situation.PROXY_FORWARDING to emptyList(),
+            primary(
+                "[19:58:56 ERROR]: [connected player] FiftyTowe (/127.0.0.1:55620): disconnected while " +
+                    "connecting to lobby-1: If you wish to use IP forwarding, please enable it in your " +
+                    "BungeeCord config as well!\n",
+            ),
+        )
+        // https://github.com/itzg/docker-minecraft-server/issues/4025 : the change was skipped, the server started.
+        assertEquals(
+            Situation.SILENT_ERROR to emptyList(),
+            primary(
+                "[mc-image-helper] 09:55:55.969 WARN  : Unable to patch /data/paper-global.yml " +
+                    "it is not an existing file\n" +
+                    "[09:56:20 INFO]: Done (18.000s)! For help, type \"help\"\n",
             ),
         )
     }

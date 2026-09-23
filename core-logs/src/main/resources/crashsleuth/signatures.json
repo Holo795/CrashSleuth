@@ -833,7 +833,8 @@
       "confidence": "CERTAIN",
       "pattern": "java\\.nio\\.file\\.AccessDeniedException:\\s*(\\S+)",
       "details": {
-        "file": 1
+        "path": 1,
+        "titleKey": "file.not-writable.title"
       },
       "advice": "signature.file-access-denied.advice",
       "source": "https://github.com/itzg/docker-minecraft-server/issues/1080 (replayed in the lab: the world folder made unreadable for the user the server runs as)"
@@ -1228,6 +1229,26 @@
       },
       "advice": "signature.a-datapack-that-lives-inside-a-mod.advice",
       "source": "https://github.com/wdiscute/starcatcher/issues/145"
+    },
+    {
+      "id": "server-waits-for-bungeecord-that-is-not-there",
+      "situation": "PROXY_FORWARDING",
+      "confidence": "CERTAIN",
+      "pattern": "If you wish to use IP forwarding, please enable it in your BungeeCord config as well!",
+      "advice": "signature.server-waits-for-bungeecord-that-is-not-there.advice",
+      "source": "https://github.com/streamlinecloud/StreamlineCloud/issues/56"
+    },
+    {
+      "id": "a-settings-patch-that-was-skipped",
+      "situation": "SILENT_ERROR",
+      "confidence": "HIGH",
+      "pattern": "Unable to patch (\\S+) it is not an existing file",
+      "details": {
+        "path": 1,
+        "titleKey": "patch.skipped.title"
+      },
+      "advice": "signature.a-settings-patch-that-was-skipped.advice",
+      "source": "https://github.com/itzg/docker-minecraft-server/issues/4025"
     }
   ]
 }

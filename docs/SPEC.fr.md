@@ -24,7 +24,10 @@
   - `No key dimensions in MapLike[{}]` : le monde revient d'une version plus récente, ce n'est pas un datapack.
 - **Deux défauts de l'outil trouvés en chemin** : de deux constats identiques, c'était le *premier* qui était gardé et non le plus sûr (l'ordre est corrigé) ; et un filtre écrit pour taire la recette d'un mod taisait aussi un démarrage impossible.
 - **Velocity : « corrigez la ligne qu'il indique » alors qu'il n'en indique aucune.** Un `ClassCastException` sur une classe interne de la bibliothèque de configuration voulait dire qu'un réglage avait gardé son ancienne forme, parce que `config-version` avait été augmenté à la main et que la conversion avait donc été sautée. Rejoué au labo sur Velocity 4.2.0.
-- **Cas réels rejoués : 61** (`docs/REAL_CASES.md`), corpus de 395 cas, 96 signatures.
+- **Un message qui nomme ce qui n'est pas installé** : « enable it in your BungeeCord config as well! » arrive sur des réseaux où BungeeCord n'existe nulle part ; c'est le réglage que le serveur a lu, pas un logiciel présent. Dit tel quel, avec les deux réglages à accorder.
+- **Un réglage jamais appliqué, dit une seule fois** : l'image Docker prévient qu'elle ne peut pas modifier un fichier absent, puis démarre le serveur ; plus rien ne le rappellera ensuite.
+- **Un titre qui mentait** : un fichier illisible s'affichait sous « Le monde est déjà utilisé » alors que le conseil parlait de droits.
+- **Cas réels rejoués : 61** (`docs/REAL_CASES.md`), corpus de 395 cas, 98 signatures.
 
 ### Changements de la v20 (rappel)
 - **Qui nomme n'est pas qui est fautif.** Dans cet écosystème, presque toutes les lignes qui nomment un mod nomment celui qui a *remarqué* le problème. Corrigé sur quatre cas, chacun tiré d'un signalement réel :
