@@ -1249,6 +1249,18 @@
       },
       "advice": "signature.a-settings-patch-that-was-skipped.advice",
       "source": "https://github.com/itzg/docker-minecraft-server/issues/4025"
+    },
+    {
+      "id": "opengl-said-unsupported-on-a-card-that-has-it",
+      "situation": "RENDER",
+      "confidence": "HIGH",
+      "pattern": "BackendCreationException: OpenGL is not supported(?:: ([^\\n]+))?",
+      "details": {
+        "name": 1,
+        "titleKey": "render.backend-refused.title"
+      },
+      "advice": "signature.opengl-said-unsupported-on-a-card-that-has-it.advice",
+      "source": "https://github.com/IrisShaders/Iris/issues/3345"
     }
   ]
 }

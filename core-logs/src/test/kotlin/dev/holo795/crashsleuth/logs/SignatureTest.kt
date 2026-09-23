@@ -12,7 +12,7 @@ class SignatureTest {
 
     @Test
     fun `all signatures load`() {
-        assertEquals(98, SignatureDetector.load(javaClass.classLoader.getResource("crashsleuth/signatures.json")!!.readText()).size)
+        assertEquals(99, SignatureDetector.load(javaClass.classLoader.getResource("crashsleuth/signatures.json")!!.readText()).size)
     }
 
     @Test
@@ -276,6 +276,19 @@ class SignatureTest {
                 "[Worker-Main-4/ERROR] (Minecraft) Registry loading errors:\n" +
                     "java.lang.IllegalStateException: Unbound values in registry " +
                     "ResourceKey[minecraft:root / minecraft:recipe]: [mclegendaries:blanked_spear]\n",
+            ),
+        )
+    }
+
+    /** https://github.com/IrisShaders/Iris/issues/3345 : an RX 5700 XT told it has no OpenGL. */
+    @Test
+    fun `opengl said unsupported on a card that has it`() {
+        assertEquals(
+            Situation.RENDER to emptyList(),
+            primary(
+                "[23:06:50] [Render thread/ERROR]: Failed to create backend OpenGL\n" +
+                    "com.mojang.renderpearl.api.device.BackendCreationException: OpenGL is not supported: " +
+                    "Could not retrieve OpenGL functions\n",
             ),
         )
     }

@@ -1,37 +1,37 @@
-[01:31:41] [ServerMain/INFO]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
-[01:31:41] [ServerMain/INFO]: Found new data pack file/bukkit, loading it automatically
-[01:31:41] [ServerMain/INFO]: No existing world data, creating new world
-[01:31:42] [ServerMain/INFO]: Loaded 1174 recipes
-[01:31:42] [ServerMain/INFO]: Loaded 1271 advancements
-[01:31:42] [Server thread/INFO]: Starting minecraft server version 1.20.4
-[01:31:42] [Server thread/INFO]: Loading properties
-[01:31:42] [Server thread/INFO]: This server is running Paper version git-Paper-499 (MC: 1.20.4) (Implementing API version 1.20.4-R0.1-SNAPSHOT) (Git: 9de3f75 on ver/1.20.4)
-[01:31:42] [Server thread/INFO]: Server Ping Player Sample Count: 12
-[01:31:42] [Server thread/INFO]: Using 4 threads for Netty based IO
-[01:31:42] [Server thread/INFO]: [ChunkTaskScheduler] Chunk system is using 1 I/O threads, 3 worker threads, and gen parallelism of 3 threads
-[01:31:42] [Server thread/WARN]: [!] The timings profiler has been enabled but has been scheduled for removal from Paper in the future.
+[01:55:18] [ServerMain/INFO]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
+[01:55:18] [ServerMain/INFO]: Found new data pack file/bukkit, loading it automatically
+[01:55:18] [ServerMain/INFO]: No existing world data, creating new world
+[01:55:18] [ServerMain/INFO]: Loaded 1174 recipes
+[01:55:18] [ServerMain/INFO]: Loaded 1271 advancements
+[01:55:18] [Server thread/INFO]: Starting minecraft server version 1.20.4
+[01:55:18] [Server thread/INFO]: Loading properties
+[01:55:18] [Server thread/INFO]: This server is running Paper version git-Paper-499 (MC: 1.20.4) (Implementing API version 1.20.4-R0.1-SNAPSHOT) (Git: 9de3f75 on ver/1.20.4)
+[01:55:19] [Server thread/INFO]: Server Ping Player Sample Count: 12
+[01:55:19] [Server thread/INFO]: Using 4 threads for Netty based IO
+[01:55:19] [Server thread/INFO]: [ChunkTaskScheduler] Chunk system is using 1 I/O threads, 3 worker threads, and gen parallelism of 3 threads
+[01:55:19] [Server thread/WARN]: [!] The timings profiler has been enabled but has been scheduled for removal from Paper in the future.
     We recommend installing the spark profiler as a replacement: https://spark.lucko.me/
     For more information please visit: https://github.com/PaperMC/Paper/issues/8948
-[01:31:42] [Server thread/INFO]: Default game type: SURVIVAL
-[01:31:42] [Server thread/INFO]: Generating keypair
-[01:31:42] [Server thread/INFO]: Starting Minecraft server on *:25565
-[01:31:42] [Server thread/INFO]: Using epoll channel type
-[01:31:42] [Server thread/INFO]: Paper: Using libdeflate (Linux aarch64) compression from Velocity.
-[01:31:42] [Server thread/INFO]: Paper: Using OpenSSL (Linux aarch64) cipher from Velocity.
-[01:31:42] [Server thread/INFO]: [TooNewForThisJava] Loading server plugin TooNewForThisJava v1.0.0
-[01:31:42] [Server thread/WARN]: **** SERVER IS RUNNING IN OFFLINE/INSECURE MODE!
-[01:31:42] [Server thread/WARN]: The server will make no attempt to authenticate usernames. Beware.
-[01:31:42] [Server thread/WARN]: While this makes the game possible to play without internet access, it also opens up the ability for hackers to connect with any username they choose.
-[01:31:42] [Server thread/WARN]: To change this, set "online-mode" to "true" in the server.properties file.
-[01:31:42] [Server thread/INFO]: Preparing level "world"
-[01:31:45] [Server thread/INFO]: Preparing start region for dimension minecraft:overworld
-[01:31:45] [Server thread/INFO]: Time elapsed: 14 ms
-[01:31:45] [Server thread/INFO]: Preparing start region for dimension minecraft:the_nether
-[01:31:45] [Server thread/INFO]: Time elapsed: 3 ms
-[01:31:45] [Server thread/INFO]: Preparing start region for dimension minecraft:the_end
-[01:31:45] [Server thread/INFO]: Time elapsed: 4 ms
-[01:31:45] [Server thread/INFO]: [TooNewForThisJava] Enabling TooNewForThisJava v1.0.0
-[01:31:45] [Server thread/ERROR]: Error occurred while enabling TooNewForThisJava v1.0.0 (Is it up to date?)
+[01:55:19] [Server thread/INFO]: Default game type: SURVIVAL
+[01:55:19] [Server thread/INFO]: Generating keypair
+[01:55:19] [Server thread/INFO]: Starting Minecraft server on *:25565
+[01:55:19] [Server thread/INFO]: Using epoll channel type
+[01:55:19] [Server thread/INFO]: Paper: Using libdeflate (Linux aarch64) compression from Velocity.
+[01:55:19] [Server thread/INFO]: Paper: Using OpenSSL (Linux aarch64) cipher from Velocity.
+[01:55:19] [Server thread/INFO]: [TooNewForThisJava] Loading server plugin TooNewForThisJava v1.0.0
+[01:55:19] [Server thread/WARN]: **** SERVER IS RUNNING IN OFFLINE/INSECURE MODE!
+[01:55:19] [Server thread/WARN]: The server will make no attempt to authenticate usernames. Beware.
+[01:55:19] [Server thread/WARN]: While this makes the game possible to play without internet access, it also opens up the ability for hackers to connect with any username they choose.
+[01:55:19] [Server thread/WARN]: To change this, set "online-mode" to "true" in the server.properties file.
+[01:55:19] [Server thread/INFO]: Preparing level "world"
+[01:55:21] [Server thread/INFO]: Preparing start region for dimension minecraft:overworld
+[01:55:21] [Server thread/INFO]: Time elapsed: 19 ms
+[01:55:21] [Server thread/INFO]: Preparing start region for dimension minecraft:the_nether
+[01:55:21] [Server thread/INFO]: Time elapsed: 7 ms
+[01:55:21] [Server thread/INFO]: Preparing start region for dimension minecraft:the_end
+[01:55:21] [Server thread/INFO]: Time elapsed: 3 ms
+[01:55:21] [Server thread/INFO]: [TooNewForThisJava] Enabling TooNewForThisJava v1.0.0
+[01:55:21] [Server thread/ERROR]: Error occurred while enabling TooNewForThisJava v1.0.0 (Is it up to date?)
 java.lang.NoSuchMethodError: 'java.lang.Object java.util.List.removeFirst()'
 	at dev.holo795.crashsleuth.fixture.TooNewForThisJava.onEnable(TooNewForThisJava.java:13) ~[TooNewForThisJava-1.0.0.jar:?]
 	at org.bukkit.plugin.java.JavaPlugin.setEnabled(JavaPlugin.java:287) ~[paper-api-1.20.4-R0.1-SNAPSHOT.jar:?]
@@ -46,38 +46,38 @@ java.lang.NoSuchMethodError: 'java.lang.Object java.util.List.removeFirst()'
 	at net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:1131) ~[paper-1.20.4.jar:git-Paper-499]
 	at net.minecraft.server.MinecraftServer.lambda$spin$0(MinecraftServer.java:319) ~[paper-1.20.4.jar:git-Paper-499]
 	at java.lang.Thread.run(Thread.java:840) ~[?:?]
-[01:31:45] [Server thread/INFO]: [TooNewForThisJava] Disabling TooNewForThisJava v1.0.0
-[01:31:45] [Server thread/INFO]: Running delayed init tasks
-[01:31:45] [Server thread/INFO]: Done (3.177s)! For help, type "help"
-[01:31:45] [Server thread/INFO]: *************************************************************************************
-[01:31:45] [Server thread/INFO]: This is the first time you're starting this server.
-[01:31:45] [Server thread/INFO]: It's recommended you read our 'Getting Started' documentation for guidance.
-[01:31:45] [Server thread/INFO]: View this and more helpful information here: https://docs.papermc.io/paper/next-steps
-[01:31:45] [Server thread/INFO]: *************************************************************************************
-[01:31:45] [Server thread/INFO]: Timings Reset
-[01:31:48] [Server thread/INFO]: Stopping the server
-[01:31:48] [Server thread/INFO]: Stopping server
-[01:31:48] [Server thread/INFO]: Saving players
-[01:31:48] [Server thread/INFO]: Saving worlds
-[01:31:48] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:overworld
-[01:31:48] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk system to halt for world 'world'
-[01:31:48] [Server thread/INFO]: [ChunkHolderManager] Halted chunk system for world 'world'
-[01:31:48] [Server thread/INFO]: [ChunkHolderManager] Saving all chunkholders for world 'world'
-[01:31:49] [Server thread/INFO]: [ChunkHolderManager] Saved 1089 block chunks, 121 entity chunks, 7 poi chunks in world 'world' in 0.31s
-[01:31:49] [Server thread/INFO]: ThreadedAnvilChunkStorage (world): All chunks are saved
-[01:31:49] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world_nether]'/minecraft:the_nether
-[01:31:49] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk system to halt for world 'world_nether'
-[01:31:49] [Server thread/INFO]: [ChunkHolderManager] Halted chunk system for world 'world_nether'
-[01:31:49] [Server thread/INFO]: [ChunkHolderManager] Saving all chunkholders for world 'world_nether'
-[01:31:49] [Server thread/INFO]: [ChunkHolderManager] Saved 1089 block chunks, 121 entity chunks, 0 poi chunks in world 'world_nether' in 0.19s
-[01:31:49] [Server thread/INFO]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
-[01:31:49] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world_the_end]'/minecraft:the_end
-[01:31:49] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk system to halt for world 'world_the_end'
-[01:31:49] [Server thread/INFO]: [ChunkHolderManager] Halted chunk system for world 'world_the_end'
-[01:31:49] [Server thread/INFO]: [ChunkHolderManager] Saving all chunkholders for world 'world_the_end'
-[01:31:49] [Server thread/INFO]: [ChunkHolderManager] Saved 1089 block chunks, 121 entity chunks, 0 poi chunks in world 'world_the_end' in 0.13s
-[01:31:49] [Server thread/INFO]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
-[01:31:49] [Server thread/INFO]: ThreadedAnvilChunkStorage: All dimensions are saved
-[01:31:49] [Server thread/INFO]: Flushing Chunk IO
-[01:31:49] [Server thread/INFO]: Closing Thread Pool
-[01:31:49] [Server thread/INFO]: Closing Server
+[01:55:21] [Server thread/INFO]: [TooNewForThisJava] Disabling TooNewForThisJava v1.0.0
+[01:55:21] [Server thread/INFO]: Running delayed init tasks
+[01:55:21] [Server thread/INFO]: Done (2.595s)! For help, type "help"
+[01:55:21] [Server thread/INFO]: *************************************************************************************
+[01:55:21] [Server thread/INFO]: This is the first time you're starting this server.
+[01:55:21] [Server thread/INFO]: It's recommended you read our 'Getting Started' documentation for guidance.
+[01:55:21] [Server thread/INFO]: View this and more helpful information here: https://docs.papermc.io/paper/next-steps
+[01:55:21] [Server thread/INFO]: *************************************************************************************
+[01:55:21] [Server thread/INFO]: Timings Reset
+[01:55:25] [Server thread/INFO]: Stopping the server
+[01:55:25] [Server thread/INFO]: Stopping server
+[01:55:25] [Server thread/INFO]: Saving players
+[01:55:25] [Server thread/INFO]: Saving worlds
+[01:55:25] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:overworld
+[01:55:25] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk system to halt for world 'world'
+[01:55:25] [Server thread/INFO]: [ChunkHolderManager] Halted chunk system for world 'world'
+[01:55:25] [Server thread/INFO]: [ChunkHolderManager] Saving all chunkholders for world 'world'
+[01:55:25] [Server thread/INFO]: [ChunkHolderManager] Saved 1089 block chunks, 121 entity chunks, 0 poi chunks in world 'world' in 0.34s
+[01:55:25] [Server thread/INFO]: ThreadedAnvilChunkStorage (world): All chunks are saved
+[01:55:25] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world_nether]'/minecraft:the_nether
+[01:55:25] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk system to halt for world 'world_nether'
+[01:55:25] [Server thread/INFO]: [ChunkHolderManager] Halted chunk system for world 'world_nether'
+[01:55:25] [Server thread/INFO]: [ChunkHolderManager] Saving all chunkholders for world 'world_nether'
+[01:55:25] [Server thread/INFO]: [ChunkHolderManager] Saved 1089 block chunks, 121 entity chunks, 0 poi chunks in world 'world_nether' in 0.18s
+[01:55:26] [Server thread/INFO]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[01:55:26] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world_the_end]'/minecraft:the_end
+[01:55:26] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk system to halt for world 'world_the_end'
+[01:55:26] [Server thread/INFO]: [ChunkHolderManager] Halted chunk system for world 'world_the_end'
+[01:55:26] [Server thread/INFO]: [ChunkHolderManager] Saving all chunkholders for world 'world_the_end'
+[01:55:26] [Server thread/INFO]: [ChunkHolderManager] Saved 1089 block chunks, 121 entity chunks, 0 poi chunks in world 'world_the_end' in 0.14s
+[01:55:26] [Server thread/INFO]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[01:55:26] [Server thread/INFO]: ThreadedAnvilChunkStorage: All dimensions are saved
+[01:55:26] [Server thread/INFO]: Flushing Chunk IO
+[01:55:26] [Server thread/INFO]: Closing Thread Pool
+[01:55:26] [Server thread/INFO]: Closing Server

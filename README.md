@@ -36,6 +36,7 @@ Most lines that name a mod name the one that *noticed*, not the one at fault, an
 - Forge's `Suspected Mods` is a list of everything in the stack, by its own authors' description, and is presented as a lead;
 - a watchdog that fires while the server thread is waiting for its next tick means the clock jumped, not that anything is stuck, and a short watchdog warning is not a crash;
 - "give it more RAM" is not said when an environment variable is overriding the memory that was set, and never from a lag warning alone;
+- “OpenGL is not supported” on a card made in the last decade is not about the card: on Linux the game often runs through XWayland, and the players who hit it start with SDL_VIDEO_DRIVER=wayland;
 - the game's own line about updating graphics drivers is printed for every window failure and is treated as boilerplate;
 - “fix your datapacks or use --safeMode” is the game's generic line, not a diagnosis: it is printed for a mod's own sealed data, for a world coming back from a newer version, and for ids one mod asks of another — none of which live in your datapacks folder;
 - a method of Java itself that is missing is not a broken mod: `List.removeFirst()` arrived in Java 21, and the mod in the trace is only where the call happens;
