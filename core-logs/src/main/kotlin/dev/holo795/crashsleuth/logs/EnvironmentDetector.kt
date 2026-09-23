@@ -13,7 +13,7 @@ object EnvironmentDetector {
     private val HYBRID_EARLY = Regex("""com\.mohistmc\.youer|youer\.mixins\.json|Thanks for using Youer|com\.mohistmc|Mohist mod loading|Thanks for using Mohist|\[Arclight|io\.izzel\.arclight|Minecraft [\w.]+ Arclight""")
     private val VELOCITY = Regex("""Booting up Velocity (\S+)""")
     private val BUNGEE = Regex("""Enabled (?:BungeeCord|Waterfall) version (\S+)""")
-    private val CRAFTBUKKIT = Regex("""This server is running CraftBukkit version (\S+)""")
+    private val CRAFTBUKKIT = Regex("""This server is running (?:CraftBukkit|Spigot) version (\S+)""")
     private val MC_TAG = Regex("""\(MC: ([\w.-]+)\)|Implementing API version (\d[\w.]*?)-R""")
     private val VANILLA_SERVER = Regex("""Starting minecraft server version ([\w.-]+)""")
     // Not inside another jar's name ("sodium-neoforge-0.8.13+mc1.21.1.jar" is Sodium's version).

@@ -81,7 +81,7 @@ class LogDocument(rawText: String) {
 
     /** An exception line counts only if a stack frame follows it. */
     private fun looksLikeTraceStart(index: Int): Boolean =
-        lines.drop(index + 1).take(3).any { FRAME.containsMatchIn(it) }
+        lines.drop(index + 1).take(3).any { FRAME.containsMatchIn(body(it)) }
 
     private fun readTrace(start: Int): Pair<StackTrace, Int> = readTrace(start, stripPrefix(lines[start]))
 
@@ -91,7 +91,7 @@ class LogDocument(rawText: String) {
         val frames = mutableListOf<Frame>()
         var index = start + 1
         while (index < lines.size) {
-            val line = lines[index]
+            val line = body(lines[index])
             val frame = FRAME.find(line)
             when {
                 frame != null -> {
@@ -103,7 +103,7 @@ class LogDocument(rawText: String) {
             }
         }
         var cause: StackTrace? = null
-        val causedBy = lines.getOrNull(index)?.let { CAUSED_BY.find(it) }
+        val causedBy = lines.getOrNull(index)?.let { CAUSED_BY.find(body(it)) }
         if (causedBy != null) {
             val (nested, next) = readTrace(index, causedBy.groupValues[1])
             cause = nested
@@ -140,6 +140,12 @@ class LogDocument(rawText: String) {
             moduleVersion = moduleVersion,
         )
     }
+
+    /**
+     * A trace line without its Log4j prefix. A plugin's `printStackTrace()` goes through the server logger line by
+     * line, so every frame arrives as `[16:32:21] [Server thread/WARN]: \tat dansplugins...` (Spigot 26.2).
+     */
+    private fun body(line: String): String = LOG_PREFIX.replace(line, "")
 
     /** Removes the Log4j prefix such as `[12:00:00] [main/ERROR]: ` and `Exception in thread "main" `. */
     internal fun stripPrefix(line: String): String = THREAD_PREFIX.replace(LOG_PREFIX.replace(line, "").trim(), "").trim()

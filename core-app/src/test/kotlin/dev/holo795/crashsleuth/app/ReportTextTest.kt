@@ -28,5 +28,15 @@ class ReportTextTest {
         assertTrue(text.noFindingHints(report(Platform.PAPER, "1.21.1")).isEmpty())
         assertTrue(text.noFindingHints(report(Platform.FABRIC, "1.21.11")).isEmpty())
         assertTrue(text.noFindingHints(report(Platform.PAPER, null)).isEmpty())
+        // Spigot runs the vanilla tick loop, which still writes "Can't keep up!".
+        assertTrue(text.noFindingHints(report(Platform.SPIGOT, "26.2")).isEmpty())
+    }
+
+    @Test
+    fun `no English text shows a doubled apostrophe`() {
+        // Messages replaces {0} by hand, so the MessageFormat habit of writing '' shows up as it is.
+        val bundle = java.util.ResourceBundle.getBundle("crashsleuth/messages", java.util.Locale.ROOT)
+        val doubled = bundle.keySet().filter { bundle.getString(it).contains("''") }
+        assertTrue(doubled.isEmpty(), "$doubled")
     }
 }

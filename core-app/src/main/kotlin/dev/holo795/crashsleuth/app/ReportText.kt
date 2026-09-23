@@ -4,6 +4,7 @@ import dev.holo795.crashsleuth.model.Culprit
 import dev.holo795.crashsleuth.model.CulpritKind
 import dev.holo795.crashsleuth.model.Finding
 import dev.holo795.crashsleuth.model.Messages
+import dev.holo795.crashsleuth.model.Platform
 import dev.holo795.crashsleuth.model.Situation
 
 /** The words of a finding, the same in the command line, the desktop app and shared reports. */
@@ -31,8 +32,9 @@ class ReportText(val messages: Messages) {
      */
     fun noFindingHints(report: dev.holo795.crashsleuth.model.Report): List<String> {
         val environment = report.environment
-        val silent = environment.platform.kind == dev.holo795.crashsleuth.model.PlatformKind.PLUGINS &&
-            atLeast(environment.minecraftVersion, 21, 9)
+        // Paper and its forks dropped the line; Spigot runs the vanilla code and still writes it.
+        val paperFamily = setOf(Platform.PAPER, Platform.PURPUR, Platform.FOLIA)
+        val silent = environment.platform in paperFamily && atLeast(environment.minecraftVersion, 21, 9)
         return if (silent) listOf(messages.get("report.hint.silentLag")) else emptyList()
     }
 
@@ -48,10 +50,11 @@ class ReportText(val messages: Messages) {
     fun advice(finding: Finding): String {
         val details = finding.details
         val first = culprits(finding).firstOrNull()?.let { describe(it) } ?: "?"
-        // Advice of a signature or a special case: {0} culprit, {1} player, {2} server, {3} percent, {4} method, {5} behindMs, {6} count.
+        // Advice of a signature or a special case: {0} culprit, {1} player, {2} server, {3} percent, {4} method, {5} behindMs, {6} count,
+        // {7} element, {8} registry.
         details["adviceKey"]?.let {
             val second = culprits(finding).getOrNull(1)?.let { culprit -> describe(culprit) }
-            return messages.get(it, first, details["player"] ?: second, details["server"], details["percent"], details["method"] ?: details["drawing"]?.let { messages.get("render.what.$it") }, details["behindMs"], details["count"])
+            return messages.get(it, first, details["player"] ?: second, details["server"], details["percent"], details["method"] ?: details["drawing"]?.let { messages.get("render.what.$it") }, details["behindMs"], details["count"], details["element"], details["registry"])
         }
         // Naming nobody is better than naming "?": say what is known and what to do next instead.
         if (culprits(finding).isEmpty() && finding.situation == Situation.UNCAUGHT_EXCEPTION) {
