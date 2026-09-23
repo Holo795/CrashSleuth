@@ -154,6 +154,7 @@ SCENARIOS = {
     "real-velocity-forwarding-off": "Velocity forwarding nothing, in front of a server that waits for it",
     "real-bungee-forwarding-one-sided": "BungeeCord forwards, but the server behind it was never told to accept it",
     "real-online-mode-behind-proxy": "A server behind Velocity left at online-mode=true",
+    "real-velocity-config-version-raised": "Velocity 4 with config-version raised by hand, so the setting it would have converted is read as it stands",
 }
 
 
@@ -233,6 +234,28 @@ def run_scenario(name: str, cli: str, java: str) -> tuple[bool, str]:
             # Waterfall leaves the player waiting without a word: only its end of life can be said.
             expected = "OUTDATED" if project == "waterfall" else "PROXY_BACKEND"
             return outcome != "READY" and expected in situations, text
+        if name == "real-velocity-config-version-raised":
+            # https://github.com/PaperMC/Velocity/issues/1876 : raising config-version skips the
+            # migration that turns ping-passthrough into a table, and the proxy refuses to start.
+            proxy = base / "proxy"
+            proxy.mkdir(parents=True)
+            shutil.copy(lab.paper_server("4.2.0", "velocity"), proxy / "velocity.jar")
+            (proxy / "forwarding.secret").write_text("right-secret")
+            (proxy / "velocity.toml").write_text(
+                'config-version = "3.0"\n'
+                f'bind = "0.0.0.0:{PROXY_PORT}"\n'
+                'online-mode = false\n'
+                'player-info-forwarding-mode = "none"\n'
+                'ping-passthrough = "all"\n'
+                '\n[servers]\nlobby = "127.0.0.1:25566"\ntry = ["lobby"]\n'
+                '\n[advanced]\n\n[query]\nenabled = false\n'
+            )
+            start_container("cs-proxy", proxy, "java -Xmx512M -jar velocity.jar", PROXY_PORT, java=25)
+            started = wait_for(proxy, "Done (", "cs-proxy", 30)
+            report = analyse(cli, proxy)
+            text = f"started={started} | proxy: {summary(report)}"
+            situations = {f["situation"] for f in report["findings"]}
+            return not started and "CONFIG_BROKEN" in situations, text
         if name == "real-velocity-forwarding-off":
             # https://github.com/PaperMC/Velocity/issues/1347 : the proxy was left in "none" mode.
             backend, proxy = base / "backend", base / "proxy"
@@ -343,6 +366,8 @@ EXPECTED = {
     "real-bungee-forwarding-one-sided": {"backend": "PROXY_FORWARDING", "proxy": "PROXY_FORWARDING"},
     # The server behind the proxy is never told why the proxy gave up: only the proxy knows.
     "real-online-mode-behind-proxy": {"backend": None, "proxy": "PROXY_FORWARDING"},
+    # The proxy never starts, so it is the only side with anything to say.
+    "real-velocity-config-version-raised": {"proxy": "CONFIG_BROKEN"},
 }
 
 
@@ -356,6 +381,8 @@ SOURCES = {
                                       "A server behind a proxy runs with online-mode=false; the proxy does the checking."),
     "real-velocity-empty-secret": ("https://forums.papermc.io/threads/how-to-solve-unable-to-read-load-save-your-velocity-toml.339/",
                                    "Write the secret inside the file named by forwarding-secret-file; the setting is a path, not the secret."),
+    "real-velocity-config-version-raised": ("https://github.com/PaperMC/Velocity/issues/1876",
+                                            "Leave config-version alone: it is what tells Velocity which old settings it still has to convert."),
 }
 
 

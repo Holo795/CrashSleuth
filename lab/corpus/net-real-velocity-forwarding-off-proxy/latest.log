@@ -1,19 +1,19 @@
-[23:51:05] [main/INFO] [com.velocitypowered.proxy.VelocityServer]: Booting up Velocity 3.4.0...
-[23:51:05] [main/INFO] [com.velocitypowered.proxy.VelocityServer]: Loading localizations...
-[23:51:05] [main/INFO] [com.velocitypowered.proxy.network.ConnectionManager]: Connections will use epoll channels, libdeflate (Linux aarch64) compression, OpenSSL 3.x.x (Linux aarch64) ciphers
-[23:51:05] [main/WARN] [com.velocitypowered.proxy.config.VelocityConfiguration]: The proxy is running in offline mode! This is a security risk and you will NOT receive any support!
-[23:51:05] [main/WARN] [com.velocitypowered.proxy.config.VelocityConfiguration]: Player info forwarding is disabled! All players will appear to be connecting from the proxy and will have offline-mode UUIDs.
-[23:51:05] [main/INFO] [com.velocitypowered.proxy.VelocityServer]: Loading plugins...
-[23:51:05] [main/INFO] [com.velocitypowered.proxy.VelocityServer]: Loaded 1 plugins
-[23:51:05] [Netty epoll Boss #0/INFO] [com.velocitypowered.proxy.network.ConnectionManager]: Listening on /[0:0:0:0:0:0:0:0]:25577
-[23:51:05] [main/INFO] [com.velocitypowered.proxy.Metrics]: Velocity and some of its plugins collect metrics and send them to bStats (https://bStats.org).
-[23:51:05] [main/INFO] [com.velocitypowered.proxy.Metrics]: bStats collects some basic information for plugin authors, like how many people use
-[23:51:05] [main/INFO] [com.velocitypowered.proxy.Metrics]: their plugin and their total player count. It's recommended to keep bStats enabled, but
-[23:51:05] [main/INFO] [com.velocitypowered.proxy.Metrics]: if you're not comfortable with this, you can opt-out by editing the config.txt file in
-[23:51:05] [main/INFO] [com.velocitypowered.proxy.Metrics]: the '/plugins/bStats/' folder and setting enabled to false.
-[23:51:05] [main/INFO] [com.velocitypowered.proxy.Velocity]: Done (0.27s)!
-[23:51:11] [Netty epoll Worker #0/INFO] [com.velocitypowered.proxy.connection.client.AuthSessionHandler]: [connected player] CrashSleuth (/0.0.0.0:45566) has connected
-[23:51:11] [Netty epoll Worker #0/INFO] [com.velocitypowered.proxy.connection.MinecraftConnection]: [server connection] CrashSleuth -> lobby has connected
-[23:51:11] [Netty epoll Worker #0/INFO] [com.velocitypowered.proxy.connection.MinecraftConnection]: [server connection] CrashSleuth -> lobby has disconnected
-[23:51:11] [Netty epoll Worker #0/ERROR] [com.velocitypowered.proxy.connection.client.ConnectedPlayer]: [connected player] CrashSleuth (/0.0.0.0:45566): disconnected while connecting to lobby: This server requires you to connect with Velocity.
-[23:51:11] [Netty epoll Worker #0/INFO] [com.velocitypowered.proxy.connection.client.ConnectedPlayer]: [connected player] CrashSleuth (/0.0.0.0:45566) has disconnected: Unable to connect to lobby: This server requires you to connect with Velocity.
+[01:43:22] [main/INFO] [com.velocitypowered.proxy.VelocityServer]: Booting up Velocity 3.4.0...
+[01:43:22] [main/INFO] [com.velocitypowered.proxy.VelocityServer]: Loading localizations...
+[01:43:22] [main/INFO] [com.velocitypowered.proxy.network.ConnectionManager]: Connections will use epoll channels, libdeflate (Linux aarch64) compression, OpenSSL 3.x.x (Linux aarch64) ciphers
+[01:43:22] [main/WARN] [com.velocitypowered.proxy.config.VelocityConfiguration]: The proxy is running in offline mode! This is a security risk and you will NOT receive any support!
+[01:43:22] [main/WARN] [com.velocitypowered.proxy.config.VelocityConfiguration]: Player info forwarding is disabled! All players will appear to be connecting from the proxy and will have offline-mode UUIDs.
+[01:43:22] [main/INFO] [com.velocitypowered.proxy.VelocityServer]: Loading plugins...
+[01:43:22] [main/INFO] [com.velocitypowered.proxy.VelocityServer]: Loaded 1 plugins
+[01:43:22] [Netty epoll Boss #0/INFO] [com.velocitypowered.proxy.network.ConnectionManager]: Listening on /[0:0:0:0:0:0:0:0]:25577
+[01:43:22] [main/INFO] [com.velocitypowered.proxy.Metrics]: Velocity and some of its plugins collect metrics and send them to bStats (https://bStats.org).
+[01:43:22] [main/INFO] [com.velocitypowered.proxy.Metrics]: bStats collects some basic information for plugin authors, like how many people use
+[01:43:22] [main/INFO] [com.velocitypowered.proxy.Metrics]: their plugin and their total player count. It's recommended to keep bStats enabled, but
+[01:43:22] [main/INFO] [com.velocitypowered.proxy.Metrics]: if you're not comfortable with this, you can opt-out by editing the config.txt file in
+[01:43:22] [main/INFO] [com.velocitypowered.proxy.Metrics]: the '/plugins/bStats/' folder and setting enabled to false.
+[01:43:22] [main/INFO] [com.velocitypowered.proxy.Velocity]: Done (0.3s)!
+[01:43:28] [Netty epoll Worker #0/INFO] [com.velocitypowered.proxy.connection.client.AuthSessionHandler]: [connected player] CrashSleuth (/0.0.0.0:47516) has connected
+[01:43:28] [Netty epoll Worker #0/INFO] [com.velocitypowered.proxy.connection.MinecraftConnection]: [server connection] CrashSleuth -> lobby has connected
+[01:43:28] [Netty epoll Worker #0/INFO] [com.velocitypowered.proxy.connection.MinecraftConnection]: [server connection] CrashSleuth -> lobby has disconnected
+[01:43:28] [Netty epoll Worker #0/ERROR] [com.velocitypowered.proxy.connection.client.ConnectedPlayer]: [connected player] CrashSleuth (/0.0.0.0:47516): disconnected while connecting to lobby: This server requires you to connect with Velocity.
+[01:43:28] [Netty epoll Worker #0/INFO] [com.velocitypowered.proxy.connection.client.ConnectedPlayer]: [connected player] CrashSleuth (/0.0.0.0:47516) has disconnected: Unable to connect to lobby: This server requires you to connect with Velocity.

@@ -1,0 +1,8 @@
+[01:42:02] [main/INFO] [com.velocitypowered.proxy.VelocityServer]: Booting up Velocity 4.2.0...
+[01:42:02] [main/INFO] [com.velocitypowered.proxy.network.ConnectionManager]: Connections will use epoll channels, libdeflate (Linux aarch64) compression, OpenSSL 3.x.x (Linux aarch64) ciphers
+[01:42:02] [main/ERROR] [com.velocitypowered.proxy.VelocityServer]: Unable to read/load/save your velocity.toml. The server will shut down.
+java.lang.ClassCastException: class java.lang.String cannot be cast to class com.electronwill.nightconfig.core.Config (java.lang.String is in module java.base of loader 'bootstrap'; com.electronwill.nightconfig.core.Config is in unnamed module of loader 'app')
+	at com.velocitypowered.proxy.config.VelocityConfiguration.read(VelocityConfiguration.java:560)
+	at com.velocitypowered.proxy.VelocityServer.doStartupConfigLoad(VelocityServer.java:407)
+	at com.velocitypowered.proxy.VelocityServer.start(VelocityServer.java:293)
+	at com.velocitypowered.proxy.Velocity.main(Velocity.java:71)

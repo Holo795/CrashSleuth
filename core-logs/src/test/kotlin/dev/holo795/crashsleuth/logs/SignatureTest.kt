@@ -12,7 +12,7 @@ class SignatureTest {
 
     @Test
     fun `all signatures load`() {
-        assertEquals(95, SignatureDetector.load(javaClass.classLoader.getResource("crashsleuth/signatures.json")!!.readText()).size)
+        assertEquals(96, SignatureDetector.load(javaClass.classLoader.getResource("crashsleuth/signatures.json")!!.readText()).size)
     }
 
     @Test
@@ -215,6 +215,22 @@ class SignatureTest {
                 "[20:29:42] [ServerMain/WARN]: Failed to load datapacks, can't proceed with server load.\n" +
                     "java.util.concurrent.ExecutionException: java.lang.IllegalStateException: " +
                     "No key dimensions in MapLike[{}]; No key seed in MapLike[{}]\n",
+            ),
+        )
+    }
+
+    /** https://github.com/PaperMC/Velocity/issues/1876 : the message names no line, and the file is fine. */
+    @Test
+    fun `a velocity setting left in its old shape`() {
+        assertEquals(
+            Situation.CONFIG_BROKEN to emptyList(),
+            primary(
+                "[13:38:01 ERROR]: Unable to read/load/save your velocity.toml. The server will shut down.\n" +
+                    "java.lang.ClassCastException: class java.lang.String cannot be cast to class " +
+                    "com.electronwill.nightconfig.core.Config (java.lang.String is in module java.base of " +
+                    "loader 'bootstrap'; com.electronwill.nightconfig.core.Config is in unnamed module of " +
+                    "loader 'app')\n" +
+                    "  at com.velocitypowered.proxy.config.VelocityConfiguration.read(VelocityConfiguration.java:560)\n",
             ),
         )
     }

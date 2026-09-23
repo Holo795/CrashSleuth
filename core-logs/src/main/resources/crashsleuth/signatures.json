@@ -801,6 +801,14 @@
       "source": "https://forums.papermc.io/threads/how-to-solve-unable-to-read-load-save-your-velocity-toml.339/ (replayed in the lab: Velocity 3.4.0, modern forwarding, empty forwarding.secret)"
     },
     {
+      "id": "velocity-setting-kept-its-old-shape",
+      "situation": "CONFIG_BROKEN",
+      "confidence": "CERTAIN",
+      "pattern": "ClassCastException: class java\\.lang\\.String cannot be cast to class com\\.electronwill\\.nightconfig\\.core\\.Config[\\s\\S]{0,400}?VelocityConfiguration\\.read",
+      "advice": "signature.velocity-setting-kept-its-old-shape.advice",
+      "source": "https://github.com/PaperMC/Velocity/issues/1876 (replayed in the lab on Velocity 4.2.0)"
+    },
+    {
       "id": "velocity-config-unreadable",
       "situation": "CONFIG_BROKEN",
       "confidence": "CERTAIN",

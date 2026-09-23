@@ -23,7 +23,8 @@
   - `from pack mod/starcatcher:built_in_datapacks/…` : le fichier est scellé dans le jar du mod, vider le dossier datapacks ou démarrer en mode sûr n'y change rien ;
   - `No key dimensions in MapLike[{}]` : le monde revient d'une version plus récente, ce n'est pas un datapack.
 - **Deux défauts de l'outil trouvés en chemin** : de deux constats identiques, c'était le *premier* qui était gardé et non le plus sûr (l'ordre est corrigé) ; et un filtre écrit pour taire la recette d'un mod taisait aussi un démarrage impossible.
-- **Cas réels rejoués : 60** (`docs/REAL_CASES.md`), corpus de 394 cas, 95 signatures.
+- **Velocity : « corrigez la ligne qu'il indique » alors qu'il n'en indique aucune.** Un `ClassCastException` sur une classe interne de la bibliothèque de configuration voulait dire qu'un réglage avait gardé son ancienne forme, parce que `config-version` avait été augmenté à la main et que la conversion avait donc été sautée. Rejoué au labo sur Velocity 4.2.0.
+- **Cas réels rejoués : 61** (`docs/REAL_CASES.md`), corpus de 395 cas, 96 signatures.
 
 ### Changements de la v20 (rappel)
 - **Qui nomme n'est pas qui est fautif.** Dans cet écosystème, presque toutes les lignes qui nomment un mod nomment celui qui a *remarqué* le problème. Corrigé sur quatre cas, chacun tiré d'un signalement réel :

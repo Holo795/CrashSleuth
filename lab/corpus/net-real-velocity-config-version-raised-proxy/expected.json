@@ -1,0 +1,8 @@
+{
+  "situation": "CONFIG_BROKEN",
+  "logs": [
+    "latest.log"
+  ],
+  "source": "https://github.com/PaperMC/Velocity/issues/1876",
+  "fix": "Leave config-version alone: it is what tells Velocity which old settings it still has to convert."
+}
