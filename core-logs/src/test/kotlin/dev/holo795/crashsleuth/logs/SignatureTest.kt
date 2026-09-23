@@ -12,7 +12,7 @@ class SignatureTest {
 
     @Test
     fun `all signatures load`() {
-        assertEquals(89, SignatureDetector.load(javaClass.classLoader.getResource("crashsleuth/signatures.json")!!.readText()).size)
+        assertEquals(90, SignatureDetector.load(javaClass.classLoader.getResource("crashsleuth/signatures.json")!!.readText()).size)
     }
 
     @Test
@@ -137,6 +137,34 @@ class SignatureTest {
                     "minecraft:block_entity_type contains IDs unknown to the receiver!\n" +
                     " - sewing-machine:warps_lectern\n" +
                     " - sewing-machine:guide_lectern\n",
+            ),
+        )
+    }
+
+    /** https://github.com/Glytch10/noxlights-1.21.1/issues/3 : the loader names the mod, not the class. */
+    @Test
+    fun `a mod that reached for the client half of the game on a server`() {
+        assertEquals(
+            Situation.CLIENT_ONLY_ON_SERVER to listOf("noxlights"),
+            primary(
+                "[19:07:34] [main/ERROR] [minecraft/Main]: Failed to start the minecraft server\n" +
+                    "net.neoforged.fml.ModLoadingException: Loading errors encountered:\n" +
+                    "\t- Nox Lights (noxlights) encountered an error while dispatching the " +
+                    "net.neoforged.neoforge.registries.RegisterEvent event\n" +
+                    "\t  java.lang.BootstrapMethodError: java.lang.RuntimeException: Attempted to load class " +
+                    "net/minecraft/client/particle/ParticleRenderType for invalid dist DEDICATED_SERVER\n",
+            ),
+        )
+        // https://github.com/andersblomqvist/enhanced-mob-spawners/issues/123 : one entry, same answer.
+        assertEquals(
+            Situation.REGISTRY_MISMATCH to listOf("spawnermod"),
+            primary(
+                "[11:03:30] [Render thread/ERROR]: Registry remapping failed!\n" +
+                    "net.fabricmc.fabric.impl.registry.sync.RemapException: Received a registry entry that is " +
+                    "unknown to this client.\n" +
+                    "This is usually caused by a mismatched mod set between the client and server.\n" +
+                    "The following registry entry namespaces may be related:\n" +
+                    "spawnermod\n",
             ),
         )
     }

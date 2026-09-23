@@ -636,7 +636,7 @@
       "id": "registry-entries-named-by-their-mod",
       "situation": "REGISTRY_MISMATCH",
       "confidence": "CERTAIN",
-      "pattern": "registry entries that are unknown to this client\\.[\\s\\S]{0,300}?The following registry entry namespaces may be related:\\s*\\n\\s*\\n\\s*([A-Za-z0-9_.\\-]+)",
+      "pattern": "unknown to this client\\.[\\s\\S]{0,300}?The following registry entry namespaces may be related:\\s*([A-Za-z0-9_.\\-]+)",
       "culprits": [
         {
           "group": 1,
@@ -1146,6 +1146,24 @@
       ],
       "advice": "signature.a-jar-the-remapper-refused.advice",
       "source": "https://github.com/PaperMC/Paper/issues/11152"
+    },
+    {
+      "id": "mod-reached-for-the-client-half",
+      "situation": "CLIENT_ONLY_ON_SERVER",
+      "confidence": "CERTAIN",
+      "pattern": "-\\s+(.+?) \\(([\\w.\\-]+)\\) encountered an error[\\s\\S]{0,500}?Attempted to load class (\\S+) for invalid dist DEDICATED_SERVER",
+      "culprits": [
+        {
+          "group": 2,
+          "nameGroup": 1,
+          "kind": "MOD"
+        }
+      ],
+      "details": {
+        "name": 3
+      },
+      "advice": "signature.mod-reached-for-the-client-half.advice",
+      "source": "https://github.com/Glytch10/noxlights-1.21.1/issues/3"
     }
   ]
 }

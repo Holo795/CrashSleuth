@@ -15,7 +15,9 @@
   - une base injoignable faisait répondre « l'erreur vient de ce plugin, mettez-le à jour » : le port laissé dans le champ d'adresse (`UnknownHostException: localhost:3306`) est maintenant nommé pour ce qu'il est, un réglage.
 - **Un seul jar mal formé empêche tous les plugins de se charger.** Paper réécrit chaque plugin avant d'en charger un seul : un jar contenant deux fois la même classe fait échouer l'opération entière, le journal affiche « Initialized 0 plugins », et le serveur démarre normalement. Rejoué au labo (Paper 1.21) : le jar fautif est nommé, et il est dit que les autres n'ont rien.
 - **Un désaccord de registre nomme enfin le mod.** Fabric écrit le nom du mod concerné dans les deux formulations du message ; on ne rapportait qu'un nombre d'entrées (« 362 »). C'est maintenant « installez farmersdelight, dans la même version que le serveur », avec le rappel que deux versions différentes font la même chose qu'un mod absent.
-- **Cas réels rejoués : 58** (`docs/REAL_CASES.md`), corpus de 392 cas, 89 signatures.
+- **Un mod qui touche la moitié client du jeu sur un serveur est nommé.** NeoForge l'écrit noir sur blanc (`- Nox Lights (noxlights) encountered an error… Attempted to load class … for invalid dist DEDICATED_SERVER`) et rien n'était dit : le mod est désormais nommé, avec la distinction entre « c'est un défaut du mod » et « il n'a rien à faire côté serveur ».
+- **Méthode : passer de vrais rapports dans l'outil pour trouver ses silences.** 60 signalements publics analysés tels quels ; les silences réels ont donné les règles ci-dessus, et ce qui reste muet est surtout du texte sans journal, ce qui est le comportement voulu.
+- **Cas réels rejoués : 58** (`docs/REAL_CASES.md`), corpus de 392 cas, 90 signatures.
 
 ### Changements de la v20 (rappel)
 - **Qui nomme n'est pas qui est fautif.** Dans cet écosystème, presque toutes les lignes qui nomment un mod nomment celui qui a *remarqué* le problème. Corrigé sur quatre cas, chacun tiré d'un signalement réel :
