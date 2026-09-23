@@ -2195,5 +2195,121 @@
     "expect": {
       "situation": "MIXIN_CONFLICT"
     }
+  },
+  {
+    "name": "real-plugin-reaches-into-craftbukkit",
+    "description": "Spigot 26.2 with Medieval Cookery 0.2.0, which calls a CraftBukkit method by reflection that no longer exists",
+    "platform": "spigot",
+    "minecraft": "26.2",
+    "java": 25,
+    "extra": [
+      {
+        "url": "https://github.com/Dans-Plugins/Medieval-Cookery/releases/download/v0.2.0/Medieval-Cookery-0.2.0.jar",
+        "file": "Medieval-Cookery-0.2.0.jar"
+      }
+    ],
+    "source": "https://github.com/Dans-Plugins/Medieval-Cookery/issues/16",
+    "fix": "Update the plugin: it must use the PlayerProfile API (SkullMeta#setOwnerProfile) instead of reaching into CraftBukkit.",
+    "expect": {
+      "situation": "WRONG_MC",
+      "culprit": "MedievalCookery"
+    }
+  },
+  {
+    "name": "real-datapack-function-names-what-the-pack-lacks",
+    "description": "Vanilla 26.2 with Matcha Flavoured as it was before its fix: some functions apply item modifiers the pack never defines",
+    "platform": "vanilla",
+    "minecraft": "26.2",
+    "java": 25,
+    "mutate": [
+      {
+        "unzip": "world/datapacks/matcha",
+        "url": "https://codeload.github.com/kleiwright/matcha-flavoured/zip/737449fb46887624d1bdb11b9186ef9a158b5601",
+        "name": "matcha-flavoured-737449f.zip",
+        "inside": "matcha-flavoured-737449fb46887624d1bdb11b9186ef9a158b5601/MF_datapack"
+      }
+    ],
+    "source": "https://github.com/kleiwright/matcha-flavoured/issues/188",
+    "fix": "The pack author removed the functions that pointed at item modifiers never written (commit ceb43fe).",
+    "expect": {
+      "situation": "DATAPACK_BROKEN",
+      "culprit": "main:update_fire_proof"
+    }
+  },
+  {
+    "name": "real-slf4j-warning-only",
+    "description": "Paper 26.2 with Simple Voice Chat 2.6.23, Geyser and SimpleVoice-Geyser 0.1.4, whose web server finds no SLF4J logger and says so in red",
+    "platform": "paper",
+    "minecraft": "26.2",
+    "java": 25,
+    "extra": [
+      {
+        "slug": "simple-voice-chat",
+        "loader": "paper",
+        "minecraft": "26.2",
+        "index": 1
+      },
+      {
+        "slug": "geyser",
+        "loader": "paper",
+        "minecraft": "26.2"
+      },
+      {
+        "slug": "simplevoice-geyser",
+        "loader": "paper",
+        "minecraft": "26.2"
+      }
+    ],
+    "after_ready": 10,
+    "source": "https://github.com/TheodoreMeyer/SimpleVoice-Geyser/issues/97",
+    "fix": "Nothing is broken: the addon's web server only has no logger; the author ships one in the next release."
+  },
+  {
+    "name": "real-block-entity-type-gone-empties-the-chest",
+    "description": "Vanilla 1.21.11 opening a world where NeoForge 1.21.1 with Vanilla Backport placed a copper chest full of diamonds under its own block entity type",
+    "platform": "vanilla",
+    "minecraft": "1.21.11",
+    "java": 21,
+    "seed": {
+      "platform": "neoforge",
+      "minecraft": "1.21.1",
+      "java": 21,
+      "loader_version": "21.1.250",
+      "extra": [
+        {
+          "build": "vanillabackport",
+          "file": "Platform-neoforge-1.21.1-1.4.0.2637.2.jar"
+        },
+        {
+          "build": "vanillabackport",
+          "file": "VanillaBackport-neoforge-1.21.1-1.2.0.2637.5.jar"
+        }
+      ],
+      "after_ready": 30,
+      "console": [
+        {
+          "after": 2,
+          "command": "forceload add 0 0"
+        },
+        {
+          "after": 6,
+          "command": "setblock 1 100 1 minecraft:copper_chest{Items:[{Slot:0b,id:\"minecraft:diamond\",count:5}]}"
+        },
+        {
+          "after": 9,
+          "command": "data get block 1 100 1"
+        },
+        {
+          "after": 12,
+          "command": "save-all flush"
+        }
+      ]
+    },
+    "source": "https://github.com/ItsBlackGear/VanillaBackport/issues/440",
+    "fix": "Stop before the world is saved and restore a backup; the backport has to store its copper chest the way the real game does (as a plain chest).",
+    "expect": {
+      "situation": "CORRUPT_CHUNK",
+      "culprit": "minecraft:copper_chest"
+    }
   }
 ]

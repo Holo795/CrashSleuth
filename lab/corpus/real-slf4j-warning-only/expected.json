@@ -1,0 +1,9 @@
+{
+  "situation": null,
+  "culprit": null,
+  "logs": [
+    "latest.log"
+  ],
+  "source": "https://github.com/TheodoreMeyer/SimpleVoice-Geyser/issues/97",
+  "fix": "Nothing is broken: the addon's web server only has no logger; the author ships one in the next release."
+}

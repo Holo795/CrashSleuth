@@ -12,7 +12,7 @@ class SignatureTest {
 
     @Test
     fun `all signatures load`() {
-        assertEquals(102, SignatureDetector.load(javaClass.classLoader.getResource("crashsleuth/signatures.json")!!.readText()).size)
+        assertEquals(105, SignatureDetector.load(javaClass.classLoader.getResource("crashsleuth/signatures.json")!!.readText()).size)
     }
 
     @Test
@@ -356,5 +356,37 @@ class SignatureTest {
         // Not one of the user's mods: nobody is to be removed.
         assertEquals(emptyList(), found.culprits)
         assertEquals("hybrid.own-mixin-failed.title", found.details["titleKey"])
+    }
+
+    /** https://github.com/kleiwright/matcha-flavoured/issues/188 : a function that uses an item modifier nobody wrote. */
+    @Test
+    fun `a datapack function that uses what no pack defines, in both wordings`() {
+        val newer = LogAnalyzer().analyze(
+            "[Render thread/ERROR]: Failed to load function main:update_fire_proof\n" +
+                "java.util.concurrent.CompletionException: java.lang.IllegalArgumentException: Whilst parsing command on line 1: " +
+                "Can't find element 'main:update_fire_proof' in registry 'minecraft:item_modifier' at position 55: ...fire_proof<--[HERE]\n",
+        ).primary!!
+        assertEquals(Situation.DATAPACK_BROKEN to listOf("main:update_fire_proof"), newer.situation to newer.culprits.map { it.id })
+        assertEquals("minecraft:item_modifier", newer.details["registry"])
+        // Minecraft 1.21.1 says the same thing another way (replayed in the lab).
+        val older = LogAnalyzer().analyze(
+            "[10:52:17] [ServerMain/ERROR]: Failed to load function main:update_fire_proof\n" +
+                "java.util.concurrent.CompletionException: java.lang.IllegalArgumentException: Whilst parsing command on line 1: Failed to parse structure: " +
+                "Failed to get element ResourceKey[minecraft:item_modifier / main:update_fire_proof] at position 55: ...fire_proof<--[HERE]\n",
+        ).primary!!
+        assertEquals(newer.details["element"], older.details["element"])
+        assertEquals(newer.details["registry"], older.details["registry"])
+    }
+
+    /** https://github.com/ItsBlackGear/VanillaBackport/issues/440 : the chest loads, its items do not. */
+    @Test
+    fun `a block whose type is unknown loses what it held`() {
+        val found = LogAnalyzer().analyze(
+            "[18:52:22] [Server thread/ERROR]: Failed to read field (id=\"minecraft:copper_chest\"): Unknown registry key in " +
+                "ResourceKey[minecraft:root / minecraft:block_entity_type]: minecraft:copper_chest\n" +
+                "[18:52:22] [Server thread/ERROR]: Skipping block entity with invalid type: \"minecraft:copper_chest\"\n",
+        ).primary!!
+        assertEquals(Situation.CORRUPT_CHUNK to listOf("minecraft:copper_chest"), found.situation to found.culprits.map { it.id })
+        assertEquals("world.block-contents-dropped.title", found.details["titleKey"])
     }
 }

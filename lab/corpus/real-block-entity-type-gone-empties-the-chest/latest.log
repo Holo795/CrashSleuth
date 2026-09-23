@@ -1,0 +1,32 @@
+[11:06:22] [ServerMain/INFO]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, profilesHost=https://api.mojang.com, name=PROD]
+[11:06:22] [ServerMain/WARN]: Missing data pack mod_data
+[11:06:22] [ServerMain/INFO]: Loaded 1470 recipes
+[11:06:22] [ServerMain/INFO]: Loaded 1584 advancements
+[11:06:23] [Server thread/INFO]: Starting minecraft server version 1.21.11
+[11:06:23] [Server thread/INFO]: Loading properties
+[11:06:23] [Server thread/INFO]: Default game type: SURVIVAL
+[11:06:23] [Server thread/INFO]: Generating keypair
+[11:06:23] [Server thread/INFO]: Starting Minecraft server on *:25565
+[11:06:23] [Server thread/WARN]: **** SERVER IS RUNNING IN OFFLINE/INSECURE MODE!
+[11:06:23] [Server thread/WARN]: The server will make no attempt to authenticate usernames. Beware.
+[11:06:23] [Server thread/WARN]: While this makes the game possible to play without internet access, it also opens up the ability for hackers to connect with any username they choose.
+[11:06:23] [Server thread/WARN]: To change this, set "online-mode" to "true" in the server.properties file.
+[11:06:23] [Server thread/INFO]: Preparing level "world"
+[11:06:23] [Server thread/INFO]: Loading 25 persistent chunks...
+[11:06:23] [Server thread/INFO]: Preparing spawn area: 28%
+[11:06:23] [Server thread/INFO]: Preparing spawn area: 28%
+[11:06:23] [Server thread/ERROR]: Failed to read field (id="minecraft:copper_chest"): Unknown registry key in ResourceKey[minecraft:root / minecraft:block_entity_type]: minecraft:copper_chest
+[11:06:23] [Server thread/ERROR]: Skipping block entity with invalid type: "minecraft:copper_chest"
+[11:06:24] [Server thread/INFO]: Time elapsed: 775 ms
+[11:06:24] [Server thread/INFO]: Done (0.937s)! For help, type "help"
+[11:06:25] [Server thread/INFO]: Stopping the server
+[11:06:25] [Server thread/INFO]: Stopping server
+[11:06:25] [Server thread/INFO]: Saving players
+[11:06:25] [Server thread/INFO]: Saving worlds
+[11:06:25] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:overworld
+[11:06:25] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:the_end
+[11:06:25] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:the_nether
+[11:06:25] [Server thread/INFO]: ThreadedAnvilChunkStorage (world): All chunks are saved
+[11:06:25] [Server thread/INFO]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[11:06:25] [Server thread/INFO]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[11:06:25] [Server thread/INFO]: ThreadedAnvilChunkStorage: All dimensions are saved

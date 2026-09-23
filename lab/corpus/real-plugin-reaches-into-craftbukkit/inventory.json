@@ -3,14 +3,41 @@
  "minecraftVersion": null,
  "loaderVersion": null,
  "side": "SERVER",
- "jars": [],
+ "jars": [
+  {
+   "file": "Medieval-Cookery-0.2.0.jar",
+   "folder": "plugins",
+   "size": 30770,
+   "mods": [
+    {
+     "format": "BUKKIT",
+     "id": "MedievalCookery",
+     "name": null,
+     "version": "0.2.0",
+     "environment": "UNKNOWN",
+     "dependencies": [],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": "1.16",
+     "entrypoints": [
+      "dansplugins.medievalcookery.MedievalCookery"
+     ],
+     "addsContent": false,
+     "optionalOnClient": false
+    }
+   ],
+   "nested": [],
+   "error": null,
+   "javaVersion": 8
+  }
+ ],
  "skipped": [],
  "files": {
   "worlds": [
    {
     "name": "world",
-    "versionName": "26.3",
-    "dataVersion": 5023,
+    "versionName": "26.2",
+    "dataVersion": 4903,
     "unreadable": null,
     "hasBackup": true,
     "locked": false,
@@ -22,8 +49,8 @@
    },
    {
     "name": "world_nether",
-    "versionName": "26.3",
-    "dataVersion": 5023,
+    "versionName": "26.2",
+    "dataVersion": 4903,
     "unreadable": null,
     "hasBackup": true,
     "locked": false,
@@ -35,8 +62,8 @@
    },
    {
     "name": "world_the_end",
-    "versionName": "26.3",
-    "dataVersion": 5023,
+    "versionName": "26.2",
+    "dataVersion": 4903,
     "unreadable": null,
     "hasBackup": true,
     "locked": false,

@@ -483,7 +483,7 @@ class Scenario:
     java: int
     mods: list[str] = field(default_factory=list)       # Modrinth slugs (mods or plugins)
     skip: list[str] = field(default_factory=list)       # dependencies deliberately left out
-    extra: list[dict] = field(default_factory=list)     # {"slug", "loader", "minecraft"?, "index"?} or {"url", "file"?}: extra files as they are
+    extra: list[dict] = field(default_factory=list)     # {"slug", "loader", "minecraft"?, "index"?}, {"url", "file"?} or {"build", "file"}: extra files as they are
     modpack: str | None = None                          # Modrinth modpack slug, server side installed
     remove: list[str] = field(default_factory=list)     # modpack files removed on purpose (name substrings)
     fixture: str | None = None                          # fixture mode: Paper plugin (enable-npe, lag...) or Fabric mod (entity-tick...)
@@ -495,8 +495,8 @@ class Scenario:
     jvm_extra: str = ""                                 # extra JVM options on the start command
     pre: str = ""                                       # shell run in the container before the server (a port taken, a lock held)
     docker_args: list[str] = field(default_factory=list)  # extra docker run options (a tiny disk, for instance)
-    seed: dict | None = None                            # {"platform", "minecraft"}: a server of another version creates the world first
-    mutate: list[dict] = field(default_factory=list)    # after a first clean start: {"garble"|"truncate"|"delete"|"write": path, ...}
+    seed: dict | None = None                            # {"platform", "minecraft", ...}: another server (any field) creates the world first
+    mutate: list[dict] = field(default_factory=list)    # after a first clean start: {"garble"|"truncate"|"delete"|"write"|"unzip": path, ...}
     log: str | None = None                              # file to analyse instead of the usual pick (console.log: all a panel shows)
     console: list[dict] = field(default_factory=list)   # once ready: {"after": seconds, "command": "spark profiler start"}
     auto_missing: bool = False                          # a real mod or plugin of this version, without a required dependency
@@ -594,7 +594,9 @@ def prepare(scenario: Scenario, directory: Path) -> list[str]:
     for item in scenario.extra:
         mods_dir.mkdir(exist_ok=True)
         # Real cases often name a jar that is not on Modrinth (a GitHub release, a build of a forum thread).
-        if item.get("url"):
+        if item.get("build"):
+            path = build_from_source(item["build"]) / item["file"]
+        elif item.get("url"):
             path = download(item["url"], item.get("file"))
         else:
             version = modrinth_version(item["slug"], item["loader"], item.get("minecraft", scenario.minecraft), item.get("index", 0))
@@ -623,13 +625,58 @@ def prepare(scenario: Scenario, directory: Path) -> list[str]:
     return ["sh", "-c", command]
 
 
+# Jars nobody published, built from their sources at a fixed commit: {name: (sources, script in lab/builds)}.
+BUILDS = {
+    "vanillabackport": ({"pf-src": ("ItsBlackGear/Platform", "c0e05e88e3b1c48c590b888f140157a6a3dd8a25"),
+                         "vb-src": ("ItsBlackGear/VanillaBackport", "4128ea21b844b0af0fa3de0880be76c68d6ee322")},
+                        "vanillabackport.sh"),
+}
+
+
+def build_from_source(name: str) -> Path:
+    """Builds once, in a Java container, and keeps the jars in the cache (CACHE/built/<name>)."""
+    import zipfile
+    out = CACHE / "built" / name
+    if out.exists() and any(out.glob("*.jar")):
+        return out
+    sources, script = BUILDS[name]
+    work = CACHE / "built" / f"{name}-work"
+    shutil.rmtree(work, ignore_errors=True)
+    work.mkdir(parents=True)
+    for folder, (repo, commit) in sources.items():
+        archive = download(f"https://codeload.github.com/{repo}/zip/{commit}", f"{repo.replace('/', '-')}-{commit[:7]}.zip")
+        with zipfile.ZipFile(archive) as content:
+            content.extractall(work)
+        (work / f"{repo.split('/')[1]}-{commit}").rename(work / folder)
+    shutil.copy(LAB_DIR / "builds" / script, work / script)
+    (work / "libs").mkdir()
+    subprocess.run(["docker", "run", "--rm", "-v", f"{work}:/work", "-v", f"{work / 'libs'}:/libs",
+                    "-v", f"{CACHE / 'gradle'}:/root/.gradle", "-w", "/work", "eclipse-temurin:21-jdk",
+                    "bash", f"/work/{script}"], check=True)
+    out.mkdir(parents=True, exist_ok=True)
+    for jar in (work / "out").glob("*.jar"):
+        shutil.copy(jar, out / jar.name)
+    shutil.rmtree(work, ignore_errors=True)
+    return out
+
+
 def apply_mutations(scenario: Scenario, directory: Path) -> None:
     """Breaks files on purpose once a first clean start has created them."""
     for action in scenario.mutate:
         kind = next(k for k in ("garble", "truncate", "delete", "write", "corrupt_chunks", "chmod", "copy",
-                                "duplicate_class") if k in action)
+                                "duplicate_class", "unzip") if k in action)
         target = directory / action[kind]
-        if kind == "duplicate_class":
+        if kind == "unzip":
+            # A real datapack as its author published it: one folder of a repository archive, at one commit.
+            import zipfile
+            prefix = action["inside"].rstrip("/") + "/"
+            with zipfile.ZipFile(download(action["url"], action.get("name"))) as archive:
+                for item in archive.infolist():
+                    if item.filename.startswith(prefix) and not item.is_dir():
+                        out = target / item.filename[len(prefix):]
+                        out.parent.mkdir(parents=True, exist_ok=True)
+                        out.write_bytes(archive.read(item))
+        elif kind == "duplicate_class":
             # The same class written twice in a jar: what a build that exports two folders of classes gives.
             duplicate_class(target)
         elif kind == "copy":
@@ -701,8 +748,9 @@ def prepare_command_without_pre(command: list[str], pre: str) -> list[str]:
 
 def seed_world(scenario: Scenario, directory: Path) -> None:
     """Creates the world with another server version, then leaves only the world behind."""
-    seed = Scenario(name=f"{scenario.name}-seed", description="seed", platform=scenario.seed["platform"],
-                    minecraft=scenario.seed["minecraft"], java=scenario.seed.get("java", 21), timeout=600)
+    # The seed takes any scenario field: mods, console commands (blocks placed before the move)...
+    seed = Scenario(**{"java": 21, "timeout": 600, **scenario.seed,
+                       "name": f"{scenario.name}-seed", "description": "seed"})
     seed_dir = directory.parent / f"{scenario.name}-seed"
     shutil.rmtree(seed_dir, ignore_errors=True)
     outcome, _ = run_server(seed, seed_dir, prepare(seed, seed_dir))

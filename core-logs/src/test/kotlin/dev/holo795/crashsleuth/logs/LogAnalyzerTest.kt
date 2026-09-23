@@ -258,4 +258,77 @@ class LogAnalyzerTest {
         val finding = LogAnalyzer().analyze(log).find(Situation.JVM_OPTIONS)
         assertTrue(finding.evidence.any { it.contains("insufficient memory") || it.contains("mmap") }, "${finding.evidence}")
     }
+
+    /**
+     * https://github.com/Dans-Plugins/Medieval-Cookery/issues/16, replayed on Spigot 26.2: recent Spigot names itself
+     * "Spigot" (no longer "CraftBukkit"), and a plugin's printStackTrace() arrives with the log prefix on every line.
+     */
+    @Test
+    fun `a plugin reaching into CraftBukkit on a recent Spigot`() {
+        val report = analyzer.analyze(
+            """
+            [10:54:41] [Server thread/INFO]: This server is running Spigot version 4648-Spigot-8db49a2-96ae8cd (MC: 26.2) (Implementing API version 26.2-R0.1-SNAPSHOT)
+            [10:54:46] [Server thread/INFO]: [MedievalCookery] Enabling MedievalCookery v0.2.0
+            [10:54:46] [Server thread/WARN]: java.lang.NoSuchMethodException: org.bukkit.craftbukkit.inventory.CraftMetaSkull.setProfile(com.mojang.authlib.GameProfile)
+            [10:54:46] [Server thread/WARN]: 	at java.base/java.lang.Class.getDeclaredMethod(Class.java:2422)
+            [10:54:46] [Server thread/WARN]: 	at dansplugins.medievalcookery.CustomFoodRecipe.itemWithBase64(CustomFoodRecipe.java:46)
+            [10:54:46] [Server thread/WARN]: 	at dansplugins.medievalcookery.CustomFoodRecipe.<init>(CustomFoodRecipe.java:78)
+            [10:54:46] [Server thread/WARN]: 	at dansplugins.medievalcookery.MedievalCookery.onEnable(MedievalCookery.java:35)
+            [10:54:46] [Server thread/WARN]: 	at org.bukkit.plugin.java.JavaPlugin.setEnabled(JavaPlugin.java:267)
+            """.trimIndent(),
+        )
+        assertEquals(Platform.SPIGOT, report.environment.platform)
+        assertEquals("26.2", report.environment.minecraftVersion)
+        val found = report.find(Situation.WRONG_MC)
+        assertEquals("MedievalCookery", found.culprits.single().id)
+        assertEquals("0.2.0", found.culprits.single().version)
+    }
+
+    /** https://github.com/TheodoreMeyer/SimpleVoice-Geyser/issues/97 : red, loud, and harmless. */
+    @Test
+    fun `a library without a logger is not a problem`() {
+        val report = analyzer.analyze(
+            """
+            [12:16:59] [Server thread/ERROR]: [SVG] [STDERR] SLF4J(W): No SLF4J providers were found.
+            [12:16:59] [Server thread/WARN]: Nag author(s): '[TheodoreMeyer]' of 'SimpleVoice-Geyser v0.1.4' about their usage of System.out/err.print. Please use your plugin's logger instead (JavaPlugin#getLogger).
+            [12:16:59] [Server thread/ERROR]: [SVG] [STDERR] SLF4J(W): Defaulting to no-operation (NOP) logger implementation
+            [12:16:59] [Server thread/ERROR]: [SVG] [STDERR] SLF4J(W): See https://www.slf4j.org/codes.html#noProviders for further details.
+            """.trimIndent(),
+        )
+        assertEquals(emptyList(), report.findings.map { it.situation })
+    }
+
+    /**
+     * https://github.com/k5sha/k5launcher/issues/7 : an account Mojang does not know (401), then a normal stop. The
+     * refused login changes nothing for a local game, and the error while closing only follows the stop.
+     */
+    @Test
+    fun `a refused login and an error while closing blame nobody`() {
+        val report = analyzer.analyze(
+            """
+            [09:27:27] [main/INFO]: Loading Minecraft 1.19.1 with Fabric Loader 0.19.5
+            [09:27:46] [Render thread/ERROR]: Failed to verify authentication
+            com.mojang.authlib.exceptions.InvalidCredentialsException: Status: 401
+            	at com.mojang.authlib.exceptions.MinecraftClientHttpException.toAuthenticationException(MinecraftClientHttpException.java:56) ~[authlib-3.11.50.jar:?]
+            	at com.mojang.authlib.yggdrasil.YggdrasilUserApiService.fetchProperties(YggdrasilUserApiService.java:155) ~[authlib-3.11.50.jar:?]
+            	at net.minecraft.class_310.<init>(class_310.java:430) [client-intermediary.jar:?]
+            Caused by: com.mojang.authlib.exceptions.MinecraftClientHttpException: Status: 401
+            	at com.mojang.authlib.minecraft.client.MinecraftClient.readInputStream(MinecraftClient.java:85) ~[authlib-3.11.50.jar:?]
+            	... 9 more
+            [09:27:46] [Render thread/INFO]: Setting user: k5sha
+            [09:27:50] [Worker-Main-8/ERROR]: Failed to retrieve profile key pair
+            java.io.IOException: Could not retrieve profile key pair
+            	at net.minecraft.class_7434.method_43605(class_7434.java:122) ~[client-intermediary.jar:?]
+            	at java.util.concurrent.CompletableFuture${'$'}AsyncSupply.run(Unknown Source) [?:?]
+            [09:27:51] [Realms Notification Availability checker #1/INFO]: Could not authorize you against Realms server: java.lang.RuntimeException: Failed to parse into SignedJWT: null
+            [09:27:52] [Render thread/INFO]: Stopping!
+            [09:27:52] [Render thread/ERROR]: Shutdown failure!
+            java.util.ConcurrentModificationException: null
+            	at java.util.HashMap.forEach(Unknown Source) ~[?:?]
+            	at net.minecraft.class_1060.close(class_1060.java:173) ~[client-intermediary.jar:?]
+            	at net.minecraft.class_310.close(class_310.java:1091) [client-intermediary.jar:?]
+            """.trimIndent(),
+        )
+        assertEquals(emptyList(), report.findings.map { it.situation to it.culprits.map { c -> c.id } })
+    }
 }

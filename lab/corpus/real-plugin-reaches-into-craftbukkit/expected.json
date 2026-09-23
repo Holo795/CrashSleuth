@@ -1,0 +1,9 @@
+{
+  "situation": "WRONG_MC",
+  "culprit": "MedievalCookery",
+  "logs": [
+    "latest.log"
+  ],
+  "source": "https://github.com/Dans-Plugins/Medieval-Cookery/issues/16",
+  "fix": "Update the plugin: it must use the PlayerProfile API (SkullMeta#setOwnerProfile) instead of reaching into CraftBukkit."
+}

@@ -1,0 +1,9 @@
+{
+  "situation": "CORRUPT_CHUNK",
+  "culprit": "minecraft:copper_chest",
+  "logs": [
+    "latest.log"
+  ],
+  "source": "https://github.com/ItsBlackGear/VanillaBackport/issues/440",
+  "fix": "Stop before the world is saved and restore a backup; the backport has to store its copper chest the way the real game does (as a plain chest)."
+}

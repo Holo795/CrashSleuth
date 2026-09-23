@@ -283,6 +283,23 @@
       "source": "codex-minecraft"
     },
     {
+      "id": "block-contents-dropped-at-load",
+      "situation": "CORRUPT_CHUNK",
+      "confidence": "CERTAIN",
+      "pattern": "Skipping block entity with invalid type: \"?([\\w.-]+:[\\w./-]+)\"?",
+      "culprits": [
+        {
+          "group": 1,
+          "kind": "SYSTEM"
+        }
+      ],
+      "details": {
+        "titleKey": "world.block-contents-dropped.title"
+      },
+      "advice": "signature.block-contents-dropped-at-load.advice",
+      "source": "https://github.com/ItsBlackGear/VanillaBackport/issues/440 (replayed in the lab: the backport's copper chest placed on NeoForge 1.21.1, the world opened on vanilla 1.21.11)"
+    },
+    {
       "id": "multiverse-world-corrupt",
       "situation": "CORRUPT_CHUNK",
       "confidence": "HIGH",
@@ -527,6 +544,42 @@
       },
       "advice": "signature.world-gen-settings-unreadable.advice",
       "source": "https://github.com/PaperMC/Paper/issues/14066 (replayed in the lab: Paper 26.2 with that file deleted)"
+    },
+    {
+      "id": "function-uses-what-no-pack-defines",
+      "situation": "DATAPACK_BROKEN",
+      "confidence": "CERTAIN",
+      "pattern": "Failed to load function ([\\w.-]+:[\\w./-]+)[\\s\\S]{0,600}?Can't find element '([\\w.-]+:[\\w./-]+)' in registry '([\\w.-]+:[\\w./-]+)'",
+      "culprits": [
+        {
+          "group": 1,
+          "kind": "SYSTEM"
+        }
+      ],
+      "details": {
+        "element": 2,
+        "registry": 3
+      },
+      "advice": "signature.function-uses-what-no-pack-defines.advice",
+      "source": "https://github.com/kleiwright/matcha-flavoured/issues/188 (replayed in the lab: the pack itself, one commit before its fix, on vanilla 26.2 and a copy of the fault on 1.21.1)"
+    },
+    {
+      "id": "function-uses-what-no-pack-defines-older-wording",
+      "situation": "DATAPACK_BROKEN",
+      "confidence": "CERTAIN",
+      "pattern": "Failed to load function ([\\w.-]+:[\\w./-]+)[\\s\\S]{0,600}?Failed to get element ResourceKey\\[([\\w.-]+:[\\w./-]+) / ([\\w.-]+:[\\w./-]+)\\]",
+      "culprits": [
+        {
+          "group": 1,
+          "kind": "SYSTEM"
+        }
+      ],
+      "details": {
+        "registry": 2,
+        "element": 3
+      },
+      "advice": "signature.function-uses-what-no-pack-defines.advice",
+      "source": "https://github.com/kleiwright/matcha-flavoured/issues/188 (replayed in the lab: the pack itself, one commit before its fix, on vanilla 26.2 and a copy of the fault on 1.21.1)"
     },
     {
       "id": "recipe-old-item-stack-format",

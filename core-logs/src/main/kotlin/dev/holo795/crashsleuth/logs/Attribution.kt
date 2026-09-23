@@ -131,6 +131,23 @@ object Attribution {
     }
 
     /** `com.simibubi.create.content.Foo` gives `com.simibubi.create`. */
+    private val STARTING = Regex("""\[([\w-]+)] (?:Enabling|Loading) \1 v(\S+)""")
+
+    /**
+     * A package root such as `dansplugins.medievalcookery` has no name a person recognises. When the server
+     * announced the plugin just before the trace (`[MedievalCookery] Enabling MedievalCookery v0.2.0`) and the
+     * package carries that name, the plugin is named as the server lists it.
+     */
+    fun namedFromLog(culprit: Culprit, document: LogDocument, trace: StackTrace): Culprit {
+        val packageName = culprit.id.lowercase().replace("-", "").replace("_", "")
+        val announced = document.lines.subList(0, trace.lineIndex.coerceIn(0, document.lines.size)).asReversed()
+            .firstNotNullOfOrNull { STARTING.find(it) } ?: return culprit
+        val name = announced.groupValues[1]
+        val key = name.lowercase().replace("-", "").replace("_", "")
+        if (key.length < 4 || !packageName.split('.').any { it == key }) return culprit
+        return culprit.copy(id = name, name = name, version = announced.groupValues[2])
+    }
+
     fun packageRoot(className: String): String {
         val parts = className.split('.')
         return parts.take(minOf(3, (parts.size - 1).coerceAtLeast(1))).joinToString(".")

@@ -1,0 +1,154 @@
+{
+ "platform": "PAPER",
+ "minecraftVersion": "26.2",
+ "loaderVersion": null,
+ "side": "SERVER",
+ "jars": [
+  {
+   "file": "Geyser-Spigot.jar",
+   "folder": "plugins",
+   "size": 47113745,
+   "mods": [
+    {
+     "format": "BUKKIT",
+     "id": "Geyser-Spigot",
+     "name": null,
+     "version": "2.11.3-SNAPSHOT",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "ViaVersion",
+       "versionRange": null,
+       "required": false,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "floodgate",
+       "versionRange": null,
+       "required": false,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": "1.13",
+     "entrypoints": [
+      "org.geysermc.geyser.platform.spigot.GeyserSpigotPlugin"
+     ],
+     "addsContent": false,
+     "optionalOnClient": false
+    }
+   ],
+   "nested": [],
+   "error": null,
+   "javaVersion": 21
+  },
+  {
+   "file": "Svg-Spigot-0.1.4.jar",
+   "folder": "plugins",
+   "size": 4202546,
+   "mods": [
+    {
+     "format": "BUKKIT",
+     "id": "SimpleVoice-Geyser",
+     "name": null,
+     "version": "0.1.4",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "voicechat",
+       "versionRange": null,
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "Geyser-Spigot",
+       "versionRange": null,
+       "required": false,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "floodgate",
+       "versionRange": null,
+       "required": false,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": "1.20.1",
+     "entrypoints": [
+      "io.github.theodoremeyer.simplevoicegeyser.spigotmc.SvgPlugin"
+     ],
+     "addsContent": false,
+     "optionalOnClient": false
+    }
+   ],
+   "nested": [],
+   "error": null,
+   "javaVersion": 21
+  },
+  {
+   "file": "voicechat-bukkit-2.6.23.jar",
+   "folder": "plugins",
+   "size": 939356,
+   "mods": [
+    {
+     "format": "BUKKIT",
+     "id": "voicechat",
+     "name": null,
+     "version": "2.6.23",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "PlaceholderAPI",
+       "versionRange": null,
+       "required": false,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "ViaVersion",
+       "versionRange": null,
+       "required": false,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": "1.13",
+     "entrypoints": [
+      "de.maxhenkel.voicechat.Voicechat"
+     ],
+     "addsContent": false,
+     "optionalOnClient": false
+    }
+   ],
+   "nested": [],
+   "error": null,
+   "javaVersion": 8
+  }
+ ],
+ "skipped": [],
+ "files": {
+  "worlds": [
+   {
+    "name": "world",
+    "versionName": "26.2",
+    "dataVersion": 4903,
+    "unreadable": null,
+    "hasBackup": true,
+    "locked": false,
+    "damagedChunks": [],
+    "chunksChecked": 1587,
+    "oversizedChunks": [],
+    "chunksComplete": true,
+    "damagedPlayers": []
+   }
+  ],
+  "eulaAccepted": true,
+  "configErrors": [],
+  "rootJars": [
+   "server.jar"
+  ]
+ }
+}

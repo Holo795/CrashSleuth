@@ -1,0 +1,9 @@
+{
+  "situation": "DATAPACK_BROKEN",
+  "culprit": "main:update_fire_proof",
+  "logs": [
+    "latest.log"
+  ],
+  "source": "https://github.com/kleiwright/matcha-flavoured/issues/188",
+  "fix": "The pack author removed the functions that pointed at item modifiers never written (commit ceb43fe)."
+}

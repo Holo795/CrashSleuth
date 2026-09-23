@@ -1,0 +1,238 @@
+[11:06:43] [ServerMain/INFO]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, profilesHost=https://api.mojang.com, name=PROD]
+[11:06:43] [ServerMain/INFO]: Found new data pack file/bukkit, loading it automatically
+[11:06:43] [Worker-Main-4/INFO]: No existing world data, creating new world
+[11:06:44] [ServerMain/INFO]: Loaded 1585 recipes
+[11:06:44] [Server thread/INFO]: Starting minecraft server version 26.2
+[11:06:44] [Server thread/INFO]: Loading properties
+[11:06:44] [Server thread/INFO]: This server is running Spigot version 4648-Spigot-8db49a2-96ae8cd (MC: 26.2) (Implementing API version 26.2-R0.1-SNAPSHOT)
+[11:06:44] [Server thread/INFO]: *** This version of Spigot contains changes to some enums. If you notice that plugins no longer work after updating, please report this to the developers of those plugins first. ***
+[11:06:44] [Server thread/INFO]: *** If you cannot update those plugins, you can try setting `settings.compatibility.enum-compatibility-mode` to `true` in `bukkit.yml`. ***
+[11:06:44] [Server thread/INFO]: Debug logging is disabled
+[11:06:44] [Server thread/INFO]: Server Ping Player Sample Count: 12
+[11:06:44] [Server thread/INFO]: Using 4 threads for Netty based IO
+[11:06:44] [Server thread/INFO]: Default game type: SURVIVAL
+[11:06:44] [Server thread/INFO]: Generating keypair
+[11:06:44] [Server thread/INFO]: Starting Minecraft server on *:25565
+[11:06:44] [Server thread/INFO]: Config file plugins/MedievalCookery/recipes.yml loaded.
+[11:06:44] [Server thread/INFO]: [MedievalCookery] Loading MedievalCookery v0.2.0
+[11:06:44] [Server thread/WARN]: **** SERVER IS RUNNING IN OFFLINE/INSECURE MODE!
+[11:06:44] [Server thread/WARN]: The server will make no attempt to authenticate usernames. Beware.
+[11:06:44] [Server thread/WARN]: While this makes the game possible to play without internet access, it also opens up the ability for hackers to connect with any username they choose.
+[11:06:44] [Server thread/WARN]: To change this, set "online-mode" to "true" in the server.properties file.
+[11:06:44] [Server thread/INFO]: Preparing level "world"
+[11:06:44] [Server thread/INFO]: -------- World Settings For [world] --------
+[11:06:44] [Server thread/INFO]: Cactus Growth Modifier: 100%
+[11:06:44] [Server thread/INFO]: Cane Growth Modifier: 100%
+[11:06:44] [Server thread/INFO]: Melon Growth Modifier: 100%
+[11:06:44] [Server thread/INFO]: Mushroom Growth Modifier: 100%
+[11:06:44] [Server thread/INFO]: Pumpkin Growth Modifier: 100%
+[11:06:44] [Server thread/INFO]: Sapling Growth Modifier: 100%
+[11:06:44] [Server thread/INFO]: Beetroot Growth Modifier: 100%
+[11:06:44] [Server thread/INFO]: Carrot Growth Modifier: 100%
+[11:06:44] [Server thread/INFO]: Potato Growth Modifier: 100%
+[11:06:44] [Server thread/INFO]: Wheat Growth Modifier: 100%
+[11:06:44] [Server thread/INFO]: NetherWart Growth Modifier: 100%
+[11:06:44] [Server thread/INFO]: Vine Growth Modifier: 100%
+[11:06:44] [Server thread/INFO]: Cocoa Growth Modifier: 100%
+[11:06:44] [Server thread/INFO]: Bamboo Growth Modifier: 100%
+[11:06:44] [Server thread/INFO]: SweetBerry Growth Modifier: 100%
+[11:06:44] [Server thread/INFO]: Kelp Growth Modifier: 100%
+[11:06:44] [Server thread/INFO]: TwistingVines Growth Modifier: 100%
+[11:06:44] [Server thread/INFO]: WeepingVines Growth Modifier: 100%
+[11:06:44] [Server thread/INFO]: CaveVines Growth Modifier: 100%
+[11:06:44] [Server thread/INFO]: Entity Tracking Range: Pl 48 / An 48 / Mo 48 / Mi 32 / Di 128 / Other 64
+[11:06:44] [Server thread/INFO]: Hopper Transfer: 8 Hopper Check: 1 Hopper Amount: 1 Hopper Can Load Chunks: false
+[11:06:44] [Server thread/INFO]: Custom Map Seeds:  Village: 10387312 Desert: 14357617 Igloo: 14357618 Jungle: 14357619 Swamp: 14357620 Monument: 10387313 Ocean: 14357621 Shipwreck: 165745295 End City: 10387313 Slime: 987234911 Nether: 30084232 Mansion: 10387319 Fossil: 14357921 Portal: 34222645
+[11:06:44] [Server thread/INFO]: Max TNT Explosions: 100
+[11:06:44] [Server thread/INFO]: Tile Max Tick Time: 50ms Entity max Tick Time: 50ms
+[11:06:44] [Server thread/INFO]: Experience Merge Radius: 3.0
+[11:06:44] [Server thread/INFO]: Mob Spawn Range: 6
+[11:06:44] [Server thread/INFO]: View Distance: 4
+[11:06:44] [Server thread/INFO]: Simulation Distance: 4
+[11:06:44] [Server thread/INFO]: Item Despawn Rate: 6000
+[11:06:44] [Server thread/INFO]: Item Merge Radius: 2.5
+[11:06:44] [Server thread/INFO]: Entity Activation Range: An 32 / Mo 32 / Ra 48 / Mi 16 / Tiv true / Isa false
+[11:06:44] [Server thread/INFO]: Arrow Despawn Rate: 1200 Trident Respawn Rate:1200
+[11:06:44] [Server thread/INFO]: Allow Zombie Pigmen to spawn from portal blocks: true
+[11:06:44] [Server thread/INFO]: Zombie Aggressive Towards Villager: true
+[11:06:44] [Server thread/INFO]: Nerfing mobs spawned from spawners: false
+[11:06:44] [Server thread/INFO]: Selecting global world spawn...
+[11:06:45] [Server thread/INFO]: -------- World Settings For [world_nether] --------
+[11:06:45] [Server thread/INFO]: Cactus Growth Modifier: 100%
+[11:06:45] [Server thread/INFO]: Cane Growth Modifier: 100%
+[11:06:45] [Server thread/INFO]: Melon Growth Modifier: 100%
+[11:06:45] [Server thread/INFO]: Mushroom Growth Modifier: 100%
+[11:06:45] [Server thread/INFO]: Pumpkin Growth Modifier: 100%
+[11:06:45] [Server thread/INFO]: Sapling Growth Modifier: 100%
+[11:06:45] [Server thread/INFO]: Beetroot Growth Modifier: 100%
+[11:06:45] [Server thread/INFO]: Carrot Growth Modifier: 100%
+[11:06:45] [Server thread/INFO]: Potato Growth Modifier: 100%
+[11:06:45] [Server thread/INFO]: Wheat Growth Modifier: 100%
+[11:06:45] [Server thread/INFO]: NetherWart Growth Modifier: 100%
+[11:06:45] [Server thread/INFO]: Vine Growth Modifier: 100%
+[11:06:45] [Server thread/INFO]: Cocoa Growth Modifier: 100%
+[11:06:45] [Server thread/INFO]: Bamboo Growth Modifier: 100%
+[11:06:45] [Server thread/INFO]: SweetBerry Growth Modifier: 100%
+[11:06:45] [Server thread/INFO]: Kelp Growth Modifier: 100%
+[11:06:45] [Server thread/INFO]: TwistingVines Growth Modifier: 100%
+[11:06:45] [Server thread/INFO]: WeepingVines Growth Modifier: 100%
+[11:06:45] [Server thread/INFO]: CaveVines Growth Modifier: 100%
+[11:06:45] [Server thread/INFO]: Entity Tracking Range: Pl 48 / An 48 / Mo 48 / Mi 32 / Di 128 / Other 64
+[11:06:45] [Server thread/INFO]: Hopper Transfer: 8 Hopper Check: 1 Hopper Amount: 1 Hopper Can Load Chunks: false
+[11:06:45] [Server thread/INFO]: Custom Map Seeds:  Village: 10387312 Desert: 14357617 Igloo: 14357618 Jungle: 14357619 Swamp: 14357620 Monument: 10387313 Ocean: 14357621 Shipwreck: 165745295 End City: 10387313 Slime: 987234911 Nether: 30084232 Mansion: 10387319 Fossil: 14357921 Portal: 34222645
+[11:06:45] [Server thread/INFO]: Max TNT Explosions: 100
+[11:06:45] [Server thread/INFO]: Tile Max Tick Time: 50ms Entity max Tick Time: 50ms
+[11:06:45] [Server thread/INFO]: Experience Merge Radius: 3.0
+[11:06:45] [Server thread/INFO]: Mob Spawn Range: 6
+[11:06:45] [Server thread/INFO]: View Distance: 4
+[11:06:45] [Server thread/INFO]: Simulation Distance: 4
+[11:06:45] [Server thread/INFO]: Item Despawn Rate: 6000
+[11:06:45] [Server thread/INFO]: Item Merge Radius: 2.5
+[11:06:45] [Server thread/INFO]: Entity Activation Range: An 32 / Mo 32 / Ra 48 / Mi 16 / Tiv true / Isa false
+[11:06:45] [Server thread/INFO]: Arrow Despawn Rate: 1200 Trident Respawn Rate:1200
+[11:06:45] [Server thread/INFO]: Allow Zombie Pigmen to spawn from portal blocks: true
+[11:06:45] [Server thread/INFO]: Zombie Aggressive Towards Villager: true
+[11:06:45] [Server thread/INFO]: Nerfing mobs spawned from spawners: false
+[11:06:45] [Server thread/INFO]: Selecting global world spawn...
+[11:06:46] [Server thread/INFO]: -------- World Settings For [world_the_end] --------
+[11:06:46] [Server thread/INFO]: Cactus Growth Modifier: 100%
+[11:06:46] [Server thread/INFO]: Cane Growth Modifier: 100%
+[11:06:46] [Server thread/INFO]: Melon Growth Modifier: 100%
+[11:06:46] [Server thread/INFO]: Mushroom Growth Modifier: 100%
+[11:06:46] [Server thread/INFO]: Pumpkin Growth Modifier: 100%
+[11:06:46] [Server thread/INFO]: Sapling Growth Modifier: 100%
+[11:06:46] [Server thread/INFO]: Beetroot Growth Modifier: 100%
+[11:06:46] [Server thread/INFO]: Carrot Growth Modifier: 100%
+[11:06:46] [Server thread/INFO]: Potato Growth Modifier: 100%
+[11:06:46] [Server thread/INFO]: Wheat Growth Modifier: 100%
+[11:06:46] [Server thread/INFO]: NetherWart Growth Modifier: 100%
+[11:06:46] [Server thread/INFO]: Vine Growth Modifier: 100%
+[11:06:46] [Server thread/INFO]: Cocoa Growth Modifier: 100%
+[11:06:46] [Server thread/INFO]: Bamboo Growth Modifier: 100%
+[11:06:46] [Server thread/INFO]: SweetBerry Growth Modifier: 100%
+[11:06:46] [Server thread/INFO]: Kelp Growth Modifier: 100%
+[11:06:46] [Server thread/INFO]: TwistingVines Growth Modifier: 100%
+[11:06:46] [Server thread/INFO]: WeepingVines Growth Modifier: 100%
+[11:06:46] [Server thread/INFO]: CaveVines Growth Modifier: 100%
+[11:06:46] [Server thread/INFO]: Entity Tracking Range: Pl 48 / An 48 / Mo 48 / Mi 32 / Di 128 / Other 64
+[11:06:46] [Server thread/INFO]: Hopper Transfer: 8 Hopper Check: 1 Hopper Amount: 1 Hopper Can Load Chunks: false
+[11:06:46] [Server thread/INFO]: Custom Map Seeds:  Village: 10387312 Desert: 14357617 Igloo: 14357618 Jungle: 14357619 Swamp: 14357620 Monument: 10387313 Ocean: 14357621 Shipwreck: 165745295 End City: 10387313 Slime: 987234911 Nether: 30084232 Mansion: 10387319 Fossil: 14357921 Portal: 34222645
+[11:06:46] [Server thread/INFO]: Max TNT Explosions: 100
+[11:06:46] [Server thread/INFO]: Tile Max Tick Time: 50ms Entity max Tick Time: 50ms
+[11:06:46] [Server thread/INFO]: Experience Merge Radius: 3.0
+[11:06:46] [Server thread/INFO]: Mob Spawn Range: 6
+[11:06:46] [Server thread/INFO]: View Distance: 4
+[11:06:46] [Server thread/INFO]: Simulation Distance: 4
+[11:06:46] [Server thread/INFO]: Item Despawn Rate: 6000
+[11:06:46] [Server thread/INFO]: Item Merge Radius: 2.5
+[11:06:46] [Server thread/INFO]: Entity Activation Range: An 32 / Mo 32 / Ra 48 / Mi 16 / Tiv true / Isa false
+[11:06:46] [Server thread/INFO]: Arrow Despawn Rate: 1200 Trident Respawn Rate:1200
+[11:06:46] [Server thread/INFO]: Allow Zombie Pigmen to spawn from portal blocks: true
+[11:06:46] [Server thread/INFO]: Zombie Aggressive Towards Villager: true
+[11:06:46] [Server thread/INFO]: Nerfing mobs spawned from spawners: false
+[11:06:46] [Server thread/INFO]: Selecting global world spawn...
+[11:06:46] [Server thread/INFO]: Loading 0 persistent chunks...
+[11:06:46] [Server thread/INFO]: Preparing spawn area: 100%
+[11:06:46] [Server thread/INFO]: Time elapsed: 2030 ms
+[11:06:46] [Server thread/INFO]: [MedievalCookery] Enabling MedievalCookery v0.2.0
+[11:06:46] [Server thread/WARN]: java.lang.NoSuchMethodException: org.bukkit.craftbukkit.inventory.CraftMetaSkull.setProfile(com.mojang.authlib.GameProfile)
+[11:06:46] [Server thread/WARN]: 	at java.base/java.lang.Class.getDeclaredMethod(Class.java:2422)
+[11:06:46] [Server thread/WARN]: 	at dansplugins.medievalcookery.CustomFoodRecipe.itemWithBase64(CustomFoodRecipe.java:46)
+[11:06:46] [Server thread/WARN]: 	at dansplugins.medievalcookery.CustomFoodRecipe.<init>(CustomFoodRecipe.java:78)
+[11:06:46] [Server thread/WARN]: 	at dansplugins.medievalcookery.services.ConfigService.loadRecipes(ConfigService.java:102)
+[11:06:46] [Server thread/WARN]: 	at dansplugins.medievalcookery.MedievalCookery.onEnable(MedievalCookery.java:35)
+[11:06:46] [Server thread/WARN]: 	at org.bukkit.plugin.java.JavaPlugin.setEnabled(JavaPlugin.java:267)
+[11:06:46] [Server thread/WARN]: 	at org.bukkit.plugin.java.JavaPluginLoader.enablePlugin(JavaPluginLoader.java:342)
+[11:06:46] [Server thread/WARN]: 	at org.bukkit.plugin.SimplePluginManager.enablePlugin(SimplePluginManager.java:492)
+[11:06:46] [Server thread/WARN]: 	at org.bukkit.craftbukkit.CraftServer.enablePlugin(CraftServer.java:584)
+[11:06:46] [Server thread/WARN]: 	at org.bukkit.craftbukkit.CraftServer.enablePlugins(CraftServer.java:498)
+[11:06:46] [Server thread/WARN]: 	at net.minecraft.server.MinecraftServer.loadWorld0(MinecraftServer.java:719)
+[11:06:46] [Server thread/WARN]: 	at net.minecraft.server.MinecraftServer.loadLevel(MinecraftServer.java:514)
+[11:06:46] [Server thread/WARN]: 	at net.minecraft.server.dedicated.DedicatedServer.initServer(DedicatedServer.java:328)
+[11:06:46] [Server thread/WARN]: 	at net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:1090)
+[11:06:46] [Server thread/WARN]: 	at net.minecraft.server.MinecraftServer.lambda$spin$0(MinecraftServer.java:357)
+[11:06:46] [Server thread/WARN]: 	at java.base/java.lang.Thread.run(Thread.java:1474)
+[11:06:46] [Server thread/INFO]: Registered custom recipe salmon_roll with Bukkit
+[11:06:46] [Server thread/INFO]: Loaded recipe Salmon Roll
+[11:06:46] [Server thread/INFO]: Error in recipe 'beet_salad': the symbol 'G' references a material 'GRASS' which could not be found.
+[11:06:46] [Server thread/INFO]: Error loading recipe beet_salad
+[11:06:46] [Server thread/WARN]: java.lang.NoSuchMethodException: org.bukkit.craftbukkit.inventory.CraftMetaSkull.setProfile(com.mojang.authlib.GameProfile)
+[11:06:46] [Server thread/WARN]: 	at java.base/java.lang.Class.getDeclaredMethod(Class.java:2422)
+[11:06:46] [Server thread/WARN]: 	at dansplugins.medievalcookery.CustomFoodRecipe.itemWithBase64(CustomFoodRecipe.java:46)
+[11:06:46] [Server thread/WARN]: 	at dansplugins.medievalcookery.CustomFoodRecipe.<init>(CustomFoodRecipe.java:78)
+[11:06:46] [Server thread/WARN]: 	at dansplugins.medievalcookery.services.ConfigService.loadRecipes(ConfigService.java:102)
+[11:06:46] [Server thread/WARN]: 	at dansplugins.medievalcookery.MedievalCookery.onEnable(MedievalCookery.java:35)
+[11:06:46] [Server thread/WARN]: 	at org.bukkit.plugin.java.JavaPlugin.setEnabled(JavaPlugin.java:267)
+[11:06:46] [Server thread/WARN]: 	at org.bukkit.plugin.java.JavaPluginLoader.enablePlugin(JavaPluginLoader.java:342)
+[11:06:46] [Server thread/WARN]: 	at org.bukkit.plugin.SimplePluginManager.enablePlugin(SimplePluginManager.java:492)
+[11:06:46] [Server thread/WARN]: 	at org.bukkit.craftbukkit.CraftServer.enablePlugin(CraftServer.java:584)
+[11:06:46] [Server thread/WARN]: 	at org.bukkit.craftbukkit.CraftServer.enablePlugins(CraftServer.java:498)
+[11:06:46] [Server thread/WARN]: 	at net.minecraft.server.MinecraftServer.loadWorld0(MinecraftServer.java:719)
+[11:06:46] [Server thread/WARN]: 	at net.minecraft.server.MinecraftServer.loadLevel(MinecraftServer.java:514)
+[11:06:46] [Server thread/WARN]: 	at net.minecraft.server.dedicated.DedicatedServer.initServer(DedicatedServer.java:328)
+[11:06:46] [Server thread/WARN]: 	at net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:1090)
+[11:06:46] [Server thread/WARN]: 	at net.minecraft.server.MinecraftServer.lambda$spin$0(MinecraftServer.java:357)
+[11:06:46] [Server thread/WARN]: 	at java.base/java.lang.Thread.run(Thread.java:1474)
+[11:06:46] [Server thread/INFO]: Registered custom recipe rice_bowl with Bukkit
+[11:06:46] [Server thread/INFO]: Loaded recipe Bowl of Rice
+[11:06:46] [Server thread/WARN]: java.lang.NoSuchMethodException: org.bukkit.craftbukkit.inventory.CraftMetaSkull.setProfile(com.mojang.authlib.GameProfile)
+[11:06:46] [Server thread/WARN]: 	at java.base/java.lang.Class.getDeclaredMethod(Class.java:2422)
+[11:06:46] [Server thread/WARN]: 	at dansplugins.medievalcookery.CustomFoodRecipe.itemWithBase64(CustomFoodRecipe.java:46)
+[11:06:46] [Server thread/WARN]: 	at dansplugins.medievalcookery.CustomFoodRecipe.<init>(CustomFoodRecipe.java:78)
+[11:06:46] [Server thread/WARN]: 	at dansplugins.medievalcookery.services.ConfigService.loadRecipes(ConfigService.java:102)
+[11:06:46] [Server thread/WARN]: 	at dansplugins.medievalcookery.MedievalCookery.onEnable(MedievalCookery.java:35)
+[11:06:46] [Server thread/WARN]: 	at org.bukkit.plugin.java.JavaPlugin.setEnabled(JavaPlugin.java:267)
+[11:06:46] [Server thread/WARN]: 	at org.bukkit.plugin.java.JavaPluginLoader.enablePlugin(JavaPluginLoader.java:342)
+[11:06:46] [Server thread/WARN]: 	at org.bukkit.plugin.SimplePluginManager.enablePlugin(SimplePluginManager.java:492)
+[11:06:46] [Server thread/WARN]: 	at org.bukkit.craftbukkit.CraftServer.enablePlugin(CraftServer.java:584)
+[11:06:46] [Server thread/WARN]: 	at org.bukkit.craftbukkit.CraftServer.enablePlugins(CraftServer.java:498)
+[11:06:46] [Server thread/WARN]: 	at net.minecraft.server.MinecraftServer.loadWorld0(MinecraftServer.java:719)
+[11:06:46] [Server thread/WARN]: 	at net.minecraft.server.MinecraftServer.loadLevel(MinecraftServer.java:514)
+[11:06:46] [Server thread/WARN]: 	at net.minecraft.server.dedicated.DedicatedServer.initServer(DedicatedServer.java:328)
+[11:06:46] [Server thread/WARN]: 	at net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:1090)
+[11:06:46] [Server thread/WARN]: 	at net.minecraft.server.MinecraftServer.lambda$spin$0(MinecraftServer.java:357)
+[11:06:46] [Server thread/WARN]: 	at java.base/java.lang.Thread.run(Thread.java:1474)
+[11:06:46] [Server thread/INFO]: Registered custom recipe steak_sandwich with Bukkit
+[11:06:46] [Server thread/INFO]: Loaded recipe Steak Sandwich
+[11:06:46] [Server thread/WARN]: java.lang.NoSuchMethodException: org.bukkit.craftbukkit.inventory.CraftMetaSkull.setProfile(com.mojang.authlib.GameProfile)
+[11:06:46] [Server thread/WARN]: 	at java.base/java.lang.Class.getDeclaredMethod(Class.java:2422)
+[11:06:46] [Server thread/WARN]: 	at dansplugins.medievalcookery.CustomFoodRecipe.itemWithBase64(CustomFoodRecipe.java:46)
+[11:06:46] [Server thread/WARN]: 	at dansplugins.medievalcookery.CustomFoodRecipe.<init>(CustomFoodRecipe.java:78)
+[11:06:46] [Server thread/WARN]: 	at dansplugins.medievalcookery.services.ConfigService.loadRecipes(ConfigService.java:102)
+[11:06:46] [Server thread/WARN]: 	at dansplugins.medievalcookery.MedievalCookery.onEnable(MedievalCookery.java:35)
+[11:06:46] [Server thread/WARN]: 	at org.bukkit.plugin.java.JavaPlugin.setEnabled(JavaPlugin.java:267)
+[11:06:46] [Server thread/WARN]: 	at org.bukkit.plugin.java.JavaPluginLoader.enablePlugin(JavaPluginLoader.java:342)
+[11:06:46] [Server thread/WARN]: 	at org.bukkit.plugin.SimplePluginManager.enablePlugin(SimplePluginManager.java:492)
+[11:06:46] [Server thread/WARN]: 	at org.bukkit.craftbukkit.CraftServer.enablePlugin(CraftServer.java:584)
+[11:06:46] [Server thread/WARN]: 	at org.bukkit.craftbukkit.CraftServer.enablePlugins(CraftServer.java:498)
+[11:06:46] [Server thread/WARN]: 	at net.minecraft.server.MinecraftServer.loadWorld0(MinecraftServer.java:719)
+[11:06:46] [Server thread/WARN]: 	at net.minecraft.server.MinecraftServer.loadLevel(MinecraftServer.java:514)
+[11:06:46] [Server thread/WARN]: 	at net.minecraft.server.dedicated.DedicatedServer.initServer(DedicatedServer.java:328)
+[11:06:46] [Server thread/WARN]: 	at net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:1090)
+[11:06:46] [Server thread/WARN]: 	at net.minecraft.server.MinecraftServer.lambda$spin$0(MinecraftServer.java:357)
+[11:06:46] [Server thread/WARN]: 	at java.base/java.lang.Thread.run(Thread.java:1474)
+[11:06:46] [Server thread/INFO]: Registered custom recipe salted_herring with Bukkit
+[11:06:46] [Server thread/INFO]: Loaded recipe Salted Herring
+[11:06:46] [Server thread/INFO]: Loaded 4 custom recipes.
+[11:06:46] [Server thread/INFO]: [MedievalCookery] Usage reporting is on: MedievalCookery sends its name and version to https://trace.danielstephenson.dev - nothing about players or the server. Turn it off with usage-reporting.enabled: false in this plugin's config.yml, or for every plugin with enabled: false in plugins/trace/config.yml. Details: https://github.com/Stephenson-Software/trace#usage-reporting
+[11:06:46] [Server thread/INFO]: Done (2.296s)! For help, type "help"
+[11:06:46] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:overworld
+[11:06:46] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world_nether]'/minecraft:the_nether
+[11:06:46] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world_the_end]'/minecraft:the_end
+[11:06:46] [Server thread/INFO]: ThreadedAnvilChunkStorage (world): All chunks are saved
+[11:06:46] [Server thread/INFO]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[11:06:46] [Server thread/INFO]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[11:06:46] [Server thread/INFO]: ThreadedAnvilChunkStorage: All dimensions are saved
+[11:06:48] [Server thread/INFO]: Stopping the server
+[11:06:48] [Server thread/INFO]: Stopping server
+[11:06:48] [Server thread/INFO]: [MedievalCookery] Disabling MedievalCookery v0.2.0
+[11:06:48] [Server thread/INFO]: --- Disabling Medieval-Cookery --------
+[11:06:48] [Server thread/INFO]: Saving players
+[11:06:48] [Server thread/INFO]: Saving worlds
+[11:06:48] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:overworld
+[11:06:48] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world_nether]'/minecraft:the_nether
+[11:06:48] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world_the_end]'/minecraft:the_end
+[11:06:48] [Server thread/INFO]: ThreadedAnvilChunkStorage (world): All chunks are saved
+[11:06:48] [Server thread/INFO]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[11:06:48] [Server thread/INFO]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[11:06:48] [Server thread/INFO]: ThreadedAnvilChunkStorage: All dimensions are saved

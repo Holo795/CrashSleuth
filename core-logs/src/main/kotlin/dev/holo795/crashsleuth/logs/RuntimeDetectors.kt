@@ -304,15 +304,20 @@ object FoliaSupportDetector : Detector {
 object PluginInternalsDetector : Detector {
     private val REFLECTION = Regex("""(?:IllegalArgumentException|IllegalStateException|NoSuchFieldException|NoSuchMethodException|RuntimeException):\s*(Unable to find (?:a )?(?:field|method|class|constructor)[^\n]*)""")
 
+    // The member asked for by name, straight from the JDK: `NoSuchMethodException: org.bukkit.craftbukkit.inventory
+    // .CraftMetaSkull.setProfile(com.mojang.authlib.GameProfile)`. Seen for real with Medieval Cookery 0.2.0 on
+    // Spigot 26.2: the plugin enables, and its custom heads silently stay plain.
+    private val MEMBER = Regex("""(?:NoSuchFieldException|NoSuchMethodException):\s*((?:org\.bukkit\.craftbukkit|net\.minecraft)\.[\w.$]+(?:\([^)\n]*\))?)""")
+
     override fun detect(document: LogDocument, environment: Environment): List<Finding> =
         document.stackTraces.mapNotNull { trace ->
-            val match = trace.chain().firstNotNullOfOrNull { REFLECTION.find(it.headline) } ?: return@mapNotNull null
+            val match = trace.chain().firstNotNullOfOrNull { REFLECTION.find(it.headline) ?: MEMBER.find(it.headline) } ?: return@mapNotNull null
             // Only when the search happens inside someone's plugin or mod, never inside the server itself.
             val culprits = Attribution.culprits(trace, environment, 1).ifEmpty { return@mapNotNull null }
             Finding(
                 situation = Situation.WRONG_MC,
                 confidence = Confidence.HIGH,
-                culprits = culprits.map { it.copy(kind = Attribution.kindFor(environment)) },
+                culprits = culprits.map { Attribution.namedFromLog(it, document, trace).copy(kind = Attribution.kindFor(environment)) },
                 evidence = listOf(match.groupValues[1].take(200)),
                 details = mapOfNotNull("adviceKey" to "advice.plugin.old-internals", "actual" to environment.minecraftVersion),
             )

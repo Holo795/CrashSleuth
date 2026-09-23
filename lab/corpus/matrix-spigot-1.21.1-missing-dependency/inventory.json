@@ -55,7 +55,8 @@
     "hasBackup": false,
     "locked": false,
     "damagedChunks": [],
-    "chunksChecked": 845,
+    "chunksChecked": 843,
+    "oversizedChunks": [],
     "chunksComplete": true,
     "damagedPlayers": []
    },
@@ -68,6 +69,7 @@
     "locked": false,
     "damagedChunks": [],
     "chunksChecked": 841,
+    "oversizedChunks": [],
     "chunksComplete": true,
     "damagedPlayers": []
    },
@@ -80,6 +82,7 @@
     "locked": false,
     "damagedChunks": [],
     "chunksChecked": 851,
+    "oversizedChunks": [],
     "chunksComplete": true,
     "damagedPlayers": []
    }
