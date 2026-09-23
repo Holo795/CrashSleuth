@@ -17,8 +17,9 @@ The app is then in the Start menu under **CrashSleuth**.
 
 ## macOS
 
-1. Download `CrashSleuth-<version>-macos-arm64.dmg` on an Apple-silicon Mac (M1 and later), or
-   `-macos-x64.dmg` on an Intel one. If you are unsure:  → **About This Mac** tells you.
+1. Download `CrashSleuth-<version>-macos-arm64.dmg`. It is built for **Apple silicon** (M1 and later);
+   on an older Intel Mac, use the [portable version](#portable--any-system-with-java-21) instead, because
+   GitHub no longer offers Intel macOS machines to build on.
 2. Open the `.dmg` and drag **CrashSleuth** into **Applications**.
 3. The first launch is refused: *"CrashSleuth cannot be opened because the developer cannot be verified."*
    Open **System Settings → Privacy & Security**, scroll to the bottom, and click **Open Anyway**.

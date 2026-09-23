@@ -15,8 +15,7 @@ culprit is the only explanation left. You never have to answer "did it crash?" a
 | Your system | File |
 | --- | --- |
 | Windows 10 / 11 | [`.msi` installer](https://github.com/Holo795/CrashSleuth/releases/latest) |
-| macOS (Apple silicon) | [`.dmg` for arm64](https://github.com/Holo795/CrashSleuth/releases/latest) |
-| macOS (Intel) | [`.dmg` for x64](https://github.com/Holo795/CrashSleuth/releases/latest) |
+| macOS (Apple silicon) | [`.dmg`](https://github.com/Holo795/CrashSleuth/releases/latest) |
 | Linux (Debian, Ubuntu, Mint) | [`.deb` package](https://github.com/Holo795/CrashSleuth/releases/latest) |
 | Anything with Java 21 | [portable `.zip`](https://github.com/Holo795/CrashSleuth/releases/latest) |
 | Terminal and assistants | [command-line `.zip`](https://github.com/Holo795/CrashSleuth/releases/latest) |

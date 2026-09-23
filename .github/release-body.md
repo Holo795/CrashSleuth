@@ -5,7 +5,7 @@ the checksum of each file.
 | --- | --- |
 | Windows 10/11 | `CrashSleuth-<version>-windows-x64.msi` |
 | macOS (Apple silicon) | `CrashSleuth-<version>-macos-arm64.dmg` |
-| macOS (Intel) | `CrashSleuth-<version>-macos-x64.dmg` |
+| macOS (Intel) | the portable zip below; GitHub no longer builds Intel Macs |
 | Linux (Debian, Ubuntu, Mint) | `CrashSleuth-<version>-linux-x64.deb` |
 | Any system with Java 21 | `CrashSleuth-portable-<version>.zip` |
 | Command line and MCP server | `CrashSleuth-cli-<version>.zip` |
