@@ -22,6 +22,7 @@ object HangDetector : Detector {
 
     override fun detect(document: LogDocument, environment: Environment): List<Finding> {
         val anchor = document.find(ANCHOR) ?: return emptyList()
+        val earlyWarning = !document.text.contains("has stopped responding") && document.text.contains("NOT A BUG OR A CRASH")
         val start = document.text.substring(0, anchor.range.first).count { it == '\n' }
         val threadLine = (start until minOf(document.lines.size, start + 400)).firstOrNull { SERVER_THREAD.containsMatchIn(document.lines[it]) }
         val frames = threadLine?.let { first ->
@@ -46,12 +47,20 @@ object HangDetector : Detector {
         return listOf(
             Finding(
                 situation = Situation.HANG,
-                confidence = if (blocker != null) Confidence.HIGH else Confidence.MEDIUM,
+                confidence = when {
+                    earlyWarning && blocker == null -> Confidence.LOW
+                    blocker != null -> Confidence.HIGH
+                    else -> Confidence.MEDIUM
+                },
                 culprits = listOfNotNull(blocker),
                 evidence = listOfNotNull(document.lineContaining(anchor.value), frames.firstOrNull { blocker?.file?.let(it.value::contains) == true }?.value),
                 // A parked server thread is a server waiting for its next tick: it is not stuck at all,
                 // and the watchdog fired because the clock jumped (a virtual machine, usually).
                 details = when {
+                    // Paper prints two different dumps: one that says "NOT A BUG OR A CRASH" while the
+                    // server keeps running, and one that stops it. They do not deserve the same answer.
+                    earlyWarning -> mapOf("adviceKey" to "hang.early-warning", "titleKey" to "hang.early-warning.title") +
+                        (blocker?.let { emptyMap() } ?: emptyMap())
                     blocker != null -> emptyMap()
                     frames.take(6).any { IDLE.containsMatchIn(it.value) } ->
                         mapOf("adviceKey" to "hang.idle-thread", "titleKey" to "hang.idle-thread.title")
