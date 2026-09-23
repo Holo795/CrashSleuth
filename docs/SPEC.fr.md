@@ -33,7 +33,9 @@
   - « removing all selected resourcepacks » ne donnait rien : le jeu éteint tous les packs d'un coup pour un seul fautif ;
   - « OpenGL is not supported » sur une carte récente : c'est XWayland, pas la carte.
 - **Rejoué sur un vrai client** : un pack dont le shader de base redéclare `FogColor` — le jeu **démarre normalement** et éteint au passage tous les packs sélectionnés. Mêmes lignes que le signalement (`already declared`, `undeclared identifier 'linear_fog'`, `removing all selected resourcepacks`).
-- **Cas réels rejoués : 62** (`docs/REAL_CASES.md`), corpus de 396 cas, 100 signatures.
+- **Trois règles adossées à un rapport ont été rejouées pour de vrai** : un monde qui revient d'une version plus récente (Paper 26.1.2 puis 1.21.11 sur le même monde, `No key dimensions in MapLike[{}]` au mot près), un serveur réglé pour BungeeCord derrière un proxy Velocity moderne (le message arrive des deux côtés), et un pack de ressources dont le shader de base éteint tous les packs.
+- **Une quatrième n'a pas été reproduite et l'assume** : la boucle de chargement entre plugins. Essayé avec `softdepend`, `loadbefore` puis `depend` sur Paper 1.21.8 : les trois plugins se chargent sans un mot. Le message `LoadOrderTree` vient d'un autre chemin de code ; la règle reste, adossée au signalement et à son test verbatim.
+- **Cas réels rejoués : 65** (`docs/REAL_CASES.md`), corpus de 399 cas, 100 signatures.
 
 ### Changements de la v20 (rappel)
 - **Qui nomme n'est pas qui est fautif.** Dans cet écosystème, presque toutes les lignes qui nomment un mod nomment celui qui a *remarqué* le problème. Corrigé sur quatre cas, chacun tiré d'un signalement réel :

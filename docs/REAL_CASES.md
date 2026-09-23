@@ -49,6 +49,7 @@ Written by `python3 lab/lab.py sources`, from the corpus itself.
 | `real-sodium-on-server` | CLIENT_ONLY_ON_SERVER | sodium | https://github.com/CaffeineMC/sodium/issues/3791 | Sodium only works in the game: take it out of the server's mods folder. |
 | `real-velocity-support-without-secret` | PROXY_FORWARDING |  | https://github.com/PaperMC/Velocity/issues/1043 | Put the proxy's forwarding secret in proxies.velocity.secret, or turn Velocity support off. |
 | `real-viaversion-warning-only` | clean start |  | https://github.com/ViaVersion/ViaVersion/issues/3917 | Nothing to fix: ViaVersion only lets newer clients in; older ones need ViaBackwards. |
+| `real-world-back-from-a-newer-version` | WORLD_DOWNGRADE |  | https://github.com/Winds-Studio/Leaf/issues/777 | Put the newer version back, or restore a backup from before the move: going back is not supported and damages worlds. |
 | `real-world-duplicate-uid` | WORLD_DUPLICATE |  | https://github.com/Multiverse/Multiverse-Core/issues/1877 | Delete uid.dat in the copied world: it is what says which world it is. |
 | `real-world-not-writable` | WORLD_LOCKED |  | https://github.com/itzg/docker-minecraft-server/issues/1080 | Give the folder to the user the server runs as (chown), or set the container's UID and GID to the owner's. |
 | `real-worldgen-settings-deleted` | WORLD_CORRUPT |  | https://github.com/PaperMC/Paper/issues/14066 | Restore that file from a backup: the server cannot start without it, and --safeMode does not help. |
@@ -77,10 +78,12 @@ Written by `python3 lab/lab.py sources`, from the corpus itself.
 | `net-real-bungee-forwarding-one-sided-proxy` | PROXY_FORWARDING |  | https://docs.papermc.io/velocity/faq/ | Turn IP forwarding on on both sides, or on neither: the proxy and the server must agree. |
 | `net-real-online-mode-behind-proxy-backend` | clean start |  | https://www.gameserverkings.com/knowledge-base/minecraft/error-failed-to-verify-username/ | A server behind a proxy runs with online-mode=false; the proxy does the checking. |
 | `net-real-online-mode-behind-proxy-proxy` | PROXY_FORWARDING |  | https://www.gameserverkings.com/knowledge-base/minecraft/error-failed-to-verify-username/ | A server behind a proxy runs with online-mode=false; the proxy does the checking. |
+| `net-real-server-waits-for-bungeecord-backend` | PROXY_FORWARDING |  | https://github.com/streamlinecloud/StreamlineCloud/issues/56 | Pick one forwarding scheme and set it on both sides: BungeeCord is named because of the setting, not because it is installed. |
+| `net-real-server-waits-for-bungeecord-proxy` | PROXY_FORWARDING |  | https://github.com/streamlinecloud/StreamlineCloud/issues/56 | Pick one forwarding scheme and set it on both sides: BungeeCord is named because of the setting, not because it is installed. |
 | `net-real-velocity-config-version-raised-proxy` | CONFIG_BROKEN |  | https://github.com/PaperMC/Velocity/issues/1876 | Leave config-version alone: it is what tells Velocity which old settings it still has to convert. |
 | `net-real-velocity-empty-secret-proxy` | PROXY_FORWARDING |  | https://forums.papermc.io/threads/how-to-solve-unable-to-read-load-save-your-velocity-toml.339/ | Write the secret inside the file named by forwarding-secret-file; the setting is a path, not the secret. |
 | `net-real-velocity-forwarding-off-backend` | PROXY_FORWARDING |  | https://github.com/PaperMC/Velocity/issues/1347 | Set player-info-forwarding-mode to modern on the proxy, and save the file before restarting. |
 | `net-real-velocity-forwarding-off-player` | PROXY_FORWARDING |  | https://github.com/PaperMC/Velocity/issues/1347 | Set player-info-forwarding-mode to modern on the proxy, and save the file before restarting. |
 | `net-real-velocity-forwarding-off-proxy` | PROXY_FORWARDING |  | https://github.com/PaperMC/Velocity/issues/1347 | Set player-info-forwarding-mode to modern on the proxy, and save the file before restarting. |
 
-62 cases.
+65 cases.

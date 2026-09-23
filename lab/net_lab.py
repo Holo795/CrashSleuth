@@ -155,6 +155,7 @@ SCENARIOS = {
     "real-bungee-forwarding-one-sided": "BungeeCord forwards, but the server behind it was never told to accept it",
     "real-online-mode-behind-proxy": "A server behind Velocity left at online-mode=true",
     "real-velocity-config-version-raised": "Velocity 4 with config-version raised by hand, so the setting it would have converted is read as it stands",
+    "real-server-waits-for-bungeecord": "A server set to accept BungeeCord forwarding, behind a Velocity proxy using the modern kind",
 }
 
 
@@ -234,6 +235,26 @@ def run_scenario(name: str, cli: str, java: str) -> tuple[bool, str]:
             # Waterfall leaves the player waiting without a word: only its end of life can be said.
             expected = "OUTDATED" if project == "waterfall" else "PROXY_BACKEND"
             return outcome != "READY" and expected in situations, text
+        if name == "real-server-waits-for-bungeecord":
+            # https://github.com/streamlinecloud/StreamlineCloud/issues/56 : the server names BungeeCord,
+            # which is installed nowhere; it is the setting it read, not a program that is present.
+            backend, proxy = base / "backend", base / "proxy"
+            paper_backend(backend, None, [])
+            (backend / "spigot.yml").write_text("settings:\n  bungeecord: true\n")
+            start_container("cs-backend", backend, "java -Xmx1G -jar server.jar nogui", None)
+            if not wait_for(backend, "Done (", "cs-backend"):
+                return False, "backend did not start"
+            velocity_proxy(proxy, "right-secret", "cs-backend", mode="modern")
+            start_container("cs-proxy", proxy, "java -Xmx512M -jar velocity.jar", PROXY_PORT)
+            if not wait_for(proxy, "Done (", "cs-proxy"):
+                return False, "proxy did not start"
+            client_folder(player, [])
+            outcome = join(cli, java, player, "vanilla", PROXY_PORT)
+            time.sleep(3)
+            reports = {"proxy": analyse(cli, proxy), "backend": analyse(cli, backend)}
+            text = f"join={outcome} | " + " | ".join(f"{side}: {summary(report)}" for side, report in reports.items())
+            situations = {f["situation"] for report in reports.values() for f in report["findings"]}
+            return outcome != "READY" and "PROXY_FORWARDING" in situations, text
         if name == "real-velocity-config-version-raised":
             # https://github.com/PaperMC/Velocity/issues/1876 : raising config-version skips the
             # migration that turns ping-passthrough into a table, and the proxy refuses to start.
@@ -368,6 +389,7 @@ EXPECTED = {
     "real-online-mode-behind-proxy": {"backend": None, "proxy": "PROXY_FORWARDING"},
     # The proxy never starts, so it is the only side with anything to say.
     "real-velocity-config-version-raised": {"proxy": "CONFIG_BROKEN"},
+    "real-server-waits-for-bungeecord": {"backend": "PROXY_FORWARDING", "proxy": "PROXY_FORWARDING"},
 }
 
 
@@ -381,6 +403,8 @@ SOURCES = {
                                       "A server behind a proxy runs with online-mode=false; the proxy does the checking."),
     "real-velocity-empty-secret": ("https://forums.papermc.io/threads/how-to-solve-unable-to-read-load-save-your-velocity-toml.339/",
                                    "Write the secret inside the file named by forwarding-secret-file; the setting is a path, not the secret."),
+    "real-server-waits-for-bungeecord": ("https://github.com/streamlinecloud/StreamlineCloud/issues/56",
+                                         "Pick one forwarding scheme and set it on both sides: BungeeCord is named because of the setting, not because it is installed."),
     "real-velocity-config-version-raised": ("https://github.com/PaperMC/Velocity/issues/1876",
                                             "Leave config-version alone: it is what tells Velocity which old settings it still has to convert."),
 }

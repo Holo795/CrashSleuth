@@ -1,0 +1,30 @@
+{
+ "platform": "PAPER",
+ "minecraftVersion": "1.21.11",
+ "loaderVersion": null,
+ "side": "SERVER",
+ "jars": [],
+ "skipped": [],
+ "files": {
+  "worlds": [
+   {
+    "name": "world",
+    "versionName": "26.1.2",
+    "dataVersion": 4790,
+    "unreadable": null,
+    "hasBackup": true,
+    "locked": false,
+    "damagedChunks": [],
+    "chunksChecked": 1587,
+    "oversizedChunks": [],
+    "chunksComplete": true,
+    "damagedPlayers": []
+   }
+  ],
+  "eulaAccepted": true,
+  "configErrors": [],
+  "rootJars": [
+   "server.jar"
+  ]
+ }
+}

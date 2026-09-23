@@ -1,0 +1,8 @@
+{
+  "situation": "PROXY_FORWARDING",
+  "logs": [
+    "latest.log"
+  ],
+  "source": "https://github.com/streamlinecloud/StreamlineCloud/issues/56",
+  "fix": "Pick one forwarding scheme and set it on both sides: BungeeCord is named because of the setting, not because it is installed."
+}

@@ -1,0 +1,27 @@
+[09:19:51] [ServerMain/INFO]: [bootstrap] Running Java 21 (OpenJDK 64-Bit Server VM 21.0.12+8-LTS; Eclipse Adoptium Temurin-21.0.12+8) on Linux 7.0.14-orbstack-00380-ga7e0a2dc9535 (aarch64)
+[09:19:51] [ServerMain/INFO]: [bootstrap] Loading Paper 1.21.11-132-ver/1.21.11@c5eb079 (2026-05-11T11:43:09Z) for Minecraft 1.21.11
+[09:19:51] [ServerMain/INFO]: [PluginInitializerManager] Initializing plugins...
+[09:19:51] [ServerMain/INFO]: [PluginInitializerManager] Initialized 0 plugins
+[09:19:51] [Paper Plugin Remapper Thread - 0/INFO]: [ReobfServer] Remapping server...
+[09:19:53] [ServerMain/INFO]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, profilesHost=https://api.mojang.com, name=PROD]
+[09:19:53] [ServerMain/WARN]: Failed to load datapacks, can't proceed with server load. You can either fix your datapacks or reset to vanilla with --safeMode
+java.util.concurrent.ExecutionException: java.lang.IllegalStateException: No key dimensions in MapLike[{}]; No key seed in MapLike[{}]
+	at java.base/java.util.concurrent.CompletableFuture.reportGet(CompletableFuture.java:396) ~[?:?]
+	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2073) ~[?:?]
+	at net.minecraft.server.Main.main(Main.java:283) ~[paper-1.21.11.jar:1.21.11-132-c5eb079]
+	at io.papermc.paper.PaperBootstrap.boot(PaperBootstrap.java:21) ~[paper-1.21.11.jar:1.21.11-132-c5eb079]
+	at org.bukkit.craftbukkit.Main.main(Main.java:204) ~[paper-1.21.11.jar:1.21.11-132-c5eb079]
+	at io.papermc.paperclip.Paperclip.lambda$main$0(Paperclip.java:42) ~[?:?]
+	at java.base/java.lang.Thread.run(Thread.java:1583) ~[?:?]
+Caused by: java.lang.IllegalStateException: No key dimensions in MapLike[{}]; No key seed in MapLike[{}]
+	at com.mojang.serialization.DataResult$Error.getOrThrow(DataResult.java:287) ~[datafixerupper-9.0.19.jar:?]
+	at com.mojang.serialization.DataResult.getOrThrow(DataResult.java:81) ~[datafixerupper-9.0.19.jar:?]
+	at net.minecraft.world.level.storage.LevelStorageSource.getLevelDataAndDimensions(LevelStorageSource.java:138) ~[paper-1.21.11.jar:1.21.11-132-c5eb079]
+	at net.minecraft.server.Main.lambda$main$0(Main.java:265) ~[paper-1.21.11.jar:1.21.11-132-c5eb079]
+	at net.minecraft.server.WorldLoader.load(WorldLoader.java:50) ~[paper-1.21.11.jar:1.21.11-132-c5eb079]
+	at net.minecraft.server.Main.lambda$main$1(Main.java:259) ~[paper-1.21.11.jar:1.21.11-132-c5eb079]
+	at net.minecraft.util.Util.blockUntilDone(Util.java:1057) ~[paper-1.21.11.jar:1.21.11-132-c5eb079]
+	at net.minecraft.util.Util.blockUntilDone(Util.java:1052) ~[paper-1.21.11.jar:1.21.11-132-c5eb079]
+	at net.minecraft.server.Main.main(Main.java:258) ~[paper-1.21.11.jar:1.21.11-132-c5eb079]
+	... 4 more
+[09:19:54] [Paper Plugin Remapper Thread - 0/INFO]: [ReobfServer] Done remapping server in 2915ms.

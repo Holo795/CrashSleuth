@@ -1,0 +1,9 @@
+{
+  "situation": "WORLD_DOWNGRADE",
+  "culprit": null,
+  "logs": [
+    "latest.log"
+  ],
+  "source": "https://github.com/Winds-Studio/Leaf/issues/777",
+  "fix": "Put the newer version back, or restore a backup from before the move: going back is not supported and damages worlds."
+}

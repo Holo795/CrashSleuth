@@ -2110,5 +2110,22 @@
     "expect": {
       "situation": "DATAPACK_BROKEN"
     }
+  },
+  {
+    "platform": "paper",
+    "minecraft": "1.21.11",
+    "java": 21,
+    "name": "real-world-back-from-a-newer-version",
+    "description": "Paper 1.21.11 opening a world last used by a 26.1.2 server, which moved the generation settings elsewhere",
+    "seed": {
+      "platform": "paper",
+      "minecraft": "26.1.2",
+      "java": 25
+    },
+    "source": "https://github.com/Winds-Studio/Leaf/issues/777",
+    "fix": "Put the newer version back, or restore a backup from before the move: going back is not supported and damages worlds.",
+    "expect": {
+      "situation": "WORLD_DOWNGRADE"
+    }
   }
 ]
