@@ -1,0 +1,75 @@
+name: lab replay
+
+# Rebuilds a reported problem in the lab, on GitHub's machines, so that anyone can see it reproduce:
+# by hand for any scenario, and on its own for the scenarios a pull request adds or changes.
+on:
+  workflow_dispatch:
+    inputs:
+      scenarios:
+        description: "Scenario names or patterns, separated by spaces (real-coreprotect-*)"
+        required: true
+  pull_request:
+    paths: ["lab/scenarios.json"]
+
+permissions:
+  contents: read
+
+jobs:
+  replay:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-java@v6
+        with:
+          distribution: temurin
+          java-version: 21
+      - uses: gradle/actions/setup-gradle@v6
+
+      - name: Build the command line
+        run: ./gradlew :cli:installDist --no-daemon
+
+      # On a pull request, only what it adds or changes: the rest is already known to pass.
+      - name: Which scenarios
+        id: pick
+        env:
+          ASKED: ${{ inputs.scenarios }}
+          BASE: ${{ github.event.pull_request.base.sha }}
+        run: |
+          if [ -n "$ASKED" ]; then
+            echo "names=$ASKED" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          names=$(python3 - <<'EOF'
+          import json, os, subprocess
+          def load(text):
+              return {s["name"]: s for s in json.loads(text)}
+          before = load(subprocess.run(["git", "show", f"{os.environ['BASE']}:lab/scenarios.json"],
+                                       capture_output=True, text=True).stdout or "[]")
+          after = load(open("lab/scenarios.json").read())
+          print(" ".join(name for name, s in after.items() if before.get(name) != s))
+          EOF
+          )
+          echo "names=$names" >> "$GITHUB_OUTPUT"
+
+      - name: Replay
+        if: steps.pick.outputs.names != ''
+        run: |
+          python3 lab/lab.py run --keep \
+            --cli "$PWD/cli/build/install/crashsleuth/bin/crashsleuth" \
+            ${{ steps.pick.outputs.names }} | tee replay.txt
+          grep -q "scenarios passed" replay.txt
+          ! grep -q "FAIL" replay.txt
+
+      # The logs the verdict rests on, for anyone who wants to read them.
+      - uses: actions/upload-artifact@v6
+        if: always()
+        with:
+          name: lab-replay
+          path: |
+            replay.txt
+            /tmp/crashsleuth-lab-runs/*/logs/latest.log
+            /tmp/crashsleuth-lab-runs/*/console.log
+          if-no-files-found: ignore
