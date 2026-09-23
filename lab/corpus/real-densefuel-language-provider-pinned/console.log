@@ -1,33 +1,33 @@
-[32m[21:08:33.880] [main/INFO] [Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgeserver, --fml.neoForgeVersion, 21.1.236, --fml.fmlVersion, 4.0.43, --fml.mcVersion, 1.21.1, --fml.neoFormVersion, 20240808.144430, nogui] 
-[m[32m[21:08:33.881] [main/INFO] [Launcher/MODLAUNCHER]: JVM identified as Eclipse Adoptium OpenJDK 64-Bit Server VM 21.0.12+8-LTS 
-[m[32m[21:08:33.882] [main/INFO] [Launcher/MODLAUNCHER]: ModLauncher 11.0.5+main.901c6ea8 starting: java version 21.0.12 by Eclipse Adoptium; OS Linux arch aarch64 version 7.0.14-orbstack-00380-ga7e0a2dc9535 
-[m[32m[21:08:33.920] [main/INFO] [loading.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forgeserver 
-[m[32m[21:08:33.937] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=union:/srv/libraries/net/fabricmc/sponge-mixin/0.15.2+mixin.0.8.7/sponge-mixin-0.15.2+mixin.0.8.7.jar%2373!/ Service=ModLauncher Env=SERVER 
-[m[32m[21:08:34.065] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "server-1.21.1-20240808.144430-srg.jar" [locator: production server provider +net.neoforged:neoforge:21.1.236:server] 
-[m[32m[21:08:34.075] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "neoforge-21.1.236-universal.jar" [locator: PathBasedLocator[name=neoforge, paths=[libraries/net/neoforged/neoforge/21.1.236/neoforge-21.1.236-universal.jar]], reader: mod manifest] 
-[m[32m[21:08:34.078] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "densefuel-1.0.0.jar" [locator: {mods folder locator at /srv/mods}, reader: mod manifest] 
-[m[32m[21:08:34.123] [main/INFO] [loading.moddiscovery.locators.JarInJarDependencyLocator/]: Found 2 dependencies adding them to mods collection 
-[m[32m[21:08:34.123] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found gamelibrary file "mixinextras-neoforge-0.5.3.jar" [parent: neoforge-21.1.236-universal.jar, locator: jarinjar, reader: mod manifest] 
-[m[32m[21:08:34.123] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found library file "net.neoforged.neoforge-coremods-21.1.236.jar" [parent: neoforge-21.1.236-universal.jar, locator: jarinjar, reader: mod manifest] 
-[m[32m[21:08:34.123] [main/INFO] [loading.moddiscovery.ModDiscoverer/]: 
+[32m[00:20:54.591] [main/INFO] [Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgeserver, --fml.neoForgeVersion, 21.1.236, --fml.fmlVersion, 4.0.43, --fml.mcVersion, 1.21.1, --fml.neoFormVersion, 20240808.144430, nogui] 
+[m[32m[00:20:54.592] [main/INFO] [Launcher/MODLAUNCHER]: JVM identified as Eclipse Adoptium OpenJDK 64-Bit Server VM 21.0.12+8-LTS 
+[m[32m[00:20:54.592] [main/INFO] [Launcher/MODLAUNCHER]: ModLauncher 11.0.5+main.901c6ea8 starting: java version 21.0.12 by Eclipse Adoptium; OS Linux arch aarch64 version 7.0.14-orbstack-00380-ga7e0a2dc9535 
+[m[32m[00:20:54.625] [main/INFO] [loading.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forgeserver 
+[m[32m[00:20:54.642] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=union:/srv/libraries/net/fabricmc/sponge-mixin/0.15.2+mixin.0.8.7/sponge-mixin-0.15.2+mixin.0.8.7.jar%2373!/ Service=ModLauncher Env=SERVER 
+[m[32m[00:20:54.757] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "server-1.21.1-20240808.144430-srg.jar" [locator: production server provider +net.neoforged:neoforge:21.1.236:server] 
+[m[32m[00:20:54.766] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "neoforge-21.1.236-universal.jar" [locator: PathBasedLocator[name=neoforge, paths=[libraries/net/neoforged/neoforge/21.1.236/neoforge-21.1.236-universal.jar]], reader: mod manifest] 
+[m[32m[00:20:54.770] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "densefuel-1.0.0.jar" [locator: {mods folder locator at /srv/mods}, reader: mod manifest] 
+[m[32m[00:20:54.812] [main/INFO] [loading.moddiscovery.locators.JarInJarDependencyLocator/]: Found 2 dependencies adding them to mods collection 
+[m[32m[00:20:54.812] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found gamelibrary file "mixinextras-neoforge-0.5.3.jar" [parent: neoforge-21.1.236-universal.jar, locator: jarinjar, reader: mod manifest] 
+[m[32m[00:20:54.813] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found library file "net.neoforged.neoforge-coremods-21.1.236.jar" [parent: neoforge-21.1.236-universal.jar, locator: jarinjar, reader: mod manifest] 
+[m[32m[00:20:54.813] [main/INFO] [loading.moddiscovery.ModDiscoverer/]: 
      Mod List:
 		Name Version (Mod Id)
 
 		Compressed Fuel 1.0.0 (densefuel)
 		Minecraft 1.21.1 (minecraft)
 		NeoForge 21.1.236 (neoforge) 
-[m[1;31m[21:08:34.134] [main/ERROR] [loading.LanguageProviderLoader/LOADING]: Missing language javafml version [4.0.44,4.0.44] wanted by densefuel-1.0.0.jar, found 4.0.43 
-[m[32m[21:08:34.333] [main/INFO] [LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgeserver' with arguments [nogui] 
+[m[1;31m[00:20:54.823] [main/ERROR] [loading.LanguageProviderLoader/LOADING]: Missing language javafml version [4.0.44,4.0.44] wanted by densefuel-1.0.0.jar, found 4.0.43 
+[m[32m[00:20:55.002] [main/INFO] [LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgeserver' with arguments [nogui] 
 [mWARN StatusConsoleListener Advanced terminal features are not available in this environment
-[21:08:34] [main/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.5.3).
-[21:08:36] [main/FATAL] [ne.ne.fm.ModLoader/CORE]: Error during pre-loading phase: Mod File /srv/mods/densefuel-1.0.0.jar needs language provider javafml:4.0.44 to load
+[00:20:55] [main/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.5.3).
+[00:20:57] [main/FATAL] [ne.ne.fm.ModLoader/CORE]: Error during pre-loading phase: Mod File /srv/mods/densefuel-1.0.0.jar needs language provider javafml:4.0.44 to load
 We have found 4.0.43
-[21:08:36] [main/ERROR] [minecraft/CrashReport]: Negative index in crash report handler (0/18)
-[21:08:36] [main/FATAL] [ne.ne.ne.se.lo.ServerModLoader/]: Crash report saved to ./crash-reports/crash-2026-09-22_21.08.36-fml.txt
+[00:20:57] [main/ERROR] [minecraft/CrashReport]: Negative index in crash report handler (0/18)
+[00:20:57] [main/FATAL] [ne.ne.ne.se.lo.ServerModLoader/]: Crash report saved to ./crash-reports/crash-2026-09-23_00.20.57-fml.txt
 ---- Minecraft Crash Report ----
-// Daisy, daisy...
+// I feel sad now :(
 
-Time: 2026-09-22 21:08:36
+Time: 2026-09-23 00:20:57
 Description: Mod loading failures have occurred; consult the issue messages for more details
 
 net.neoforged.neoforge.logging.CrashReportExtender$ModLoadingCrashException: Mod loading has failed
@@ -52,7 +52,7 @@ Details:
 	Operating System: Linux (aarch64) version 7.0.14-orbstack-00380-ga7e0a2dc9535
 	Java Version: 21.0.12, Eclipse Adoptium
 	Java VM Version: OpenJDK 64-Bit Server VM (mixed mode, sharing), Eclipse Adoptium
-	Memory: 170304776 bytes (162 MiB) / 444596224 bytes (424 MiB) up to 2147483648 bytes (2048 MiB)
+	Memory: 136143240 bytes (129 MiB) / 409993216 bytes (391 MiB) up to 2147483648 bytes (2048 MiB)
 	CPUs: 12
 	Processor Vendor: Apple
 	Processor Name: 
@@ -68,14 +68,14 @@ Details:
 	Graphics card #0 deviceId: unknown
 	Graphics card #0 versionInfo: unknown
 	Virtual memory max (MiB): 19048.21
-	Virtual memory used (MiB): 2109.22
+	Virtual memory used (MiB): 1967.65
 	Swap memory total (MiB): 13040.14
 	Swap memory used (MiB): 0.00
 	Space in storage for jna.tmpdir (MiB): <path not set>
 	Space in storage for org.lwjgl.system.SharedLibraryExtractPath (MiB): <path not set>
 	Space in storage for io.netty.native.workdir (MiB): <path not set>
-	Space in storage for java.io.tmpdir (MiB): available: 136083.19, total: 149760.00
-	Space in storage for workdir (MiB): available: 144801.61, total: 471482.09
+	Space in storage for java.io.tmpdir (MiB): available: 132053.59, total: 145728.00
+	Space in storage for workdir (MiB): available: 140685.16, total: 471482.09
 	JVM Flags: 2 total; -Xms256M -Xmx2G
 	ModLauncher: 11.0.5+main.901c6ea8
 	ModLauncher launch target: forgeserver
@@ -94,7 +94,7 @@ Details:
 	Mod List: 
 		server-1.21.1-20240808.144430-srg.jar             |Minecraft                     |minecraft                     |1.21.1              |Manifest: NOSIGNATURE
 		neoforge-21.1.236-universal.jar                   |NeoForge                      |neoforge                      |21.1.236            |Manifest: NOSIGNATURE
-[21:08:36] [main/ERROR] [minecraft/Main]: Failed to start the minecraft server
+[00:20:57] [main/ERROR] [minecraft/Main]: Failed to start the minecraft server
 net.neoforged.fml.ModLoadingException: Loading errors encountered:
 	- Mod File /srv/mods/densefuel-1.0.0.jar needs language provider javafml:4.0.44 to load
 	  We have found 4.0.43

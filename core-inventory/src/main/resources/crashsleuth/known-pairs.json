@@ -78,6 +78,12 @@
       "b": "GroupManager",
       "why": "EssentialsX's own FAQ: GroupManager is not supported, and LuckPerms is the maintained replacement.",
       "source": "https://essentialsx.net/wiki/faq"
+    },
+    {
+      "a": "toofast",
+      "b": "randompatches",
+      "why": "Too Fast's page: it changes the same speed limits as Random Patches, and its author asks people not to install both. Both ids were read from the published jars.",
+      "source": "https://modrinth.com/mod/too-fast"
     }
   ],
   "needs": [
