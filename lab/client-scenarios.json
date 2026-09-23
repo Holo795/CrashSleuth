@@ -483,5 +483,26 @@
       "situation": "RENDER",
       "culprit": "old.zip"
     }
+  },
+  {
+    "name": "real-client-one-pack-turns-off-all-packs",
+    "description": "Vanilla 1.21.8 client with a resource pack whose core shader was written for an older version",
+    "minecraft": "1.21.8",
+    "loader": "vanilla",
+    "files": [
+      {
+        "path": "resourcepacks/oldshader.zip",
+        "zip": {
+          "pack.mcmeta": "{\"pack\": {\"description\": \"lab\", \"pack_format\": 34, \"supported_formats\": {\"min_inclusive\": 1, \"max_inclusive\": 99}}}",
+          "assets/minecraft/shaders/core/rendertype_text.fsh": "#version 150\n#moj_import <minecraft:fog.glsl>\nuniform vec4 FogColor;\nuniform sampler2D Sampler0;\nin vec2 texCoord0;\nin vec4 vertexColor;\nout vec4 fragColor;\nvoid main() {\n    vec4 color = texture(Sampler0, texCoord0) * vertexColor;\n    fragColor = linear_fog(color, 0.0, 1.0, 1.0, FogColor);\n}\n"
+        }
+      }
+    ],
+    "options": "resourcePacks:[\"vanilla\",\"file/oldshader.zip\"]\n",
+    "source": "https://github.com/sp614x/optifine/issues/7945",
+    "fix": "Take that one pack out: the game switches every selected pack off for a single bad file, and the others were fine.",
+    "expect": {
+      "situation": "SILENT_ERROR"
+    }
   }
 ]

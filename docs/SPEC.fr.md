@@ -32,7 +32,8 @@
   - « Out of stack space » recevait « donnez plus de mémoire à Java » : c'est l'espace natif de LWJGL, que ni `-Xmx` ni `-Xss` ne touchent ;
   - « removing all selected resourcepacks » ne donnait rien : le jeu éteint tous les packs d'un coup pour un seul fautif ;
   - « OpenGL is not supported » sur une carte récente : c'est XWayland, pas la carte.
-- **Cas réels rejoués : 61** (`docs/REAL_CASES.md`), corpus de 395 cas, 100 signatures.
+- **Rejoué sur un vrai client** : un pack dont le shader de base redéclare `FogColor` — le jeu **démarre normalement** et éteint au passage tous les packs sélectionnés. Mêmes lignes que le signalement (`already declared`, `undeclared identifier 'linear_fog'`, `removing all selected resourcepacks`).
+- **Cas réels rejoués : 62** (`docs/REAL_CASES.md`), corpus de 396 cas, 100 signatures.
 
 ### Changements de la v20 (rappel)
 - **Qui nomme n'est pas qui est fautif.** Dans cet écosystème, presque toutes les lignes qui nomment un mod nomment celui qui a *remarqué* le problème. Corrigé sur quatre cas, chacun tiré d'un signalement réel :

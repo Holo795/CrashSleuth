@@ -64,6 +64,7 @@ Written by `python3 lab/lab.py sources`, from the corpus itself.
 | `client-real-client-fabric-api-wrong-point-release` | WRONG_MC | fabric-api | https://github.com/orgs/FabricMC/discussions/4034 | Take the Fabric API built for the exact point release you play. |
 | `client-real-client-forge-config-truncated` | CONFIG_BROKEN |  | https://forums.minecraftforge.net/topic/120264-the-game-crashed-whilst-initializing-game-error-javalangexceptionininitializererror-null-exit-code-1/ | Delete config/forge-resource-caching.toml: Forge writes a new one. |
 | `client-real-client-iris-needs-older-sodium` | DEP_VERSION | sodium | https://github.com/IrisShaders/Iris/issues/3136 | Iris 1.8.8 only works with Sodium 0.6.x: install that branch, or a newer Iris. |
+| `client-real-client-one-pack-turns-off-all-packs` | SILENT_ERROR |  | https://github.com/sp614x/optifine/issues/7945 | Take that one pack out: the game switches every selected pack off for a single bad file, and the others were fine. |
 | `client-real-client-opengl-too-old` | RENDER |  | https://github.com/PrismLauncher/PrismLauncher/issues/3264 | Minecraft has needed OpenGL 3.2 since 1.17: update the graphics driver, or play a version below 1.17. |
 | `client-real-client-pack-format-too-old` | RENDER | old.zip | https://github.com/Godlander/objmc/issues/102 | Take the pack built for the Minecraft version you play: its pack_format says which one it is for. |
 | `client-real-client-sodium-breaks-iris-recent` | MOD_CONFLICT | sodium | https://github.com/IrisShaders/Iris/issues/3349 | Update Iris past 1.10.7, or drop Sodium to a build that accepts it. |
@@ -82,4 +83,4 @@ Written by `python3 lab/lab.py sources`, from the corpus itself.
 | `net-real-velocity-forwarding-off-player` | PROXY_FORWARDING |  | https://github.com/PaperMC/Velocity/issues/1347 | Set player-info-forwarding-mode to modern on the proxy, and save the file before restarting. |
 | `net-real-velocity-forwarding-off-proxy` | PROXY_FORWARDING |  | https://github.com/PaperMC/Velocity/issues/1347 | Set player-info-forwarding-mode to modern on the proxy, and save the file before restarting. |
 
-61 cases.
+62 cases.

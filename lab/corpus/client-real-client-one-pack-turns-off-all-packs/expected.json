@@ -1,0 +1,10 @@
+{
+  "situation": "SILENT_ERROR",
+  "culprit": null,
+  "logs": [
+    "latest.log",
+    "console.log"
+  ],
+  "source": "https://github.com/sp614x/optifine/issues/7945",
+  "fix": "Take that one pack out: the game switches every selected pack off for a single bad file, and the others were fine."
+}
