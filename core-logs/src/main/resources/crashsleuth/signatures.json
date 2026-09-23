@@ -1197,7 +1197,7 @@
       "id": "ids-that-nothing-registered",
       "situation": "DATAPACK_BROKEN",
       "confidence": "CERTAIN",
-      "pattern": "Unbound values in registry ResourceKey\\[[^\\]\\n]*\\]: \\[([\\w.\\-]+):(\\S+?)[,\\]]",
+      "pattern": "Unbound values in registry ResourceKey\\[[^\\]\\n]*\\]:[\\s`]*\\[#?([\\w.\\-]+):(\\S+?)[,\\]]",
       "details": {
         "prefix": 1,
         "name": 2

@@ -1,14 +1,14 @@
-2026-09-23T00:57:27.957656882Z main WARN Advanced terminal features are not available in this environment
-[00:57:27] [main/INFO] [ne.ne.fm.st.Entrypoint/]: JVM Uptime at startup: 29ms
-[00:57:27] [main/INFO] [ne.ne.fm.lo.FMLLoader/]: Starting FancyModLoader version 12.0.0 (DEDICATED_SERVER in PROD)
-[00:57:27] [main/INFO] [ne.ne.fm.lo.FMLLoader/]: Game directory: /srv
-[00:57:28] [main/INFO] [ne.ne.fm.lo.EarlyServiceDiscovery/]: Found 2 early service jars (out of 67) in 9ms
-[00:57:28] [main/INFO] [ne.ne.fm.lo.FMLLoader/]: Loading FML Early Services:
-[00:57:28] [main/INFO] [ne.ne.fm.lo.FMLLoader/]:  - libraries/net/neoforged/fancymodloader/loader/12.0.0/loader-12.0.0.jar
-[00:57:28] [main/INFO] [ne.ne.fm.lo.FMLLoader/]:  - libraries/net/neoforged/fancymodloader/earlydisplay/12.0.0/earlydisplay-12.0.0.jar
-[00:57:28] [main/INFO] [ne.ne.fm.lo.ImmediateWindowHandler/]: Not loading early display in headless mode.
-[00:57:28] [main/INFO] [ne.ne.fm.lo.mo.lo.GameLocator/]: Failed to find common Minecraft classes and resources on the classpath. Assuming we're launching production.
-[00:57:28] [main/FATAL] [ne.ne.ne.la.MavenVersionAdapter/]: Failed to parse version spec [26.3)
+2026-09-23T01:51:05.159032974Z main WARN Advanced terminal features are not available in this environment
+[01:51:05] [main/INFO] [ne.ne.fm.st.Entrypoint/]: JVM Uptime at startup: 30ms
+[01:51:05] [main/INFO] [ne.ne.fm.lo.FMLLoader/]: Starting FancyModLoader version 12.0.0 (DEDICATED_SERVER in PROD)
+[01:51:05] [main/INFO] [ne.ne.fm.lo.FMLLoader/]: Game directory: /srv
+[01:51:05] [main/INFO] [ne.ne.fm.lo.EarlyServiceDiscovery/]: Found 2 early service jars (out of 67) in 8ms
+[01:51:05] [main/INFO] [ne.ne.fm.lo.FMLLoader/]: Loading FML Early Services:
+[01:51:05] [main/INFO] [ne.ne.fm.lo.FMLLoader/]:  - libraries/net/neoforged/fancymodloader/loader/12.0.0/loader-12.0.0.jar
+[01:51:05] [main/INFO] [ne.ne.fm.lo.FMLLoader/]:  - libraries/net/neoforged/fancymodloader/earlydisplay/12.0.0/earlydisplay-12.0.0.jar
+[01:51:05] [main/INFO] [ne.ne.fm.lo.ImmediateWindowHandler/]: Not loading early display in headless mode.
+[01:51:05] [main/INFO] [ne.ne.fm.lo.mo.lo.GameLocator/]: Failed to find common Minecraft classes and resources on the classpath. Assuming we're launching production.
+[01:51:05] [main/FATAL] [ne.ne.ne.la.MavenVersionAdapter/]: Failed to parse version spec [26.3)
 org.apache.maven.artifact.versioning.InvalidVersionSpecificationException: Single version must be surrounded by []: [26.3)
 	at org.apache.maven.artifact.versioning.VersionRange.parseRestriction(VersionRange.java:176) ~[maven-artifact-3.9.16.jar:3.9.16] {}
 	at org.apache.maven.artifact.versioning.VersionRange.createFromVersionSpec(VersionRange.java:129) ~[maven-artifact-3.9.16.jar:3.9.16] {}
@@ -52,14 +52,14 @@ org.apache.maven.artifact.versioning.InvalidVersionSpecificationException: Singl
 	at net.neoforged.fml.loading.FMLLoader.create(FMLLoader.java:346) [loader-12.0.0.jar:12.0] {}
 	at net.neoforged.fml.startup.Entrypoint.startup(Entrypoint.java:65) [loader-12.0.0.jar:12.0] {}
 	at net.neoforged.fml.startup.Server.main(Server.java:17) [loader-12.0.0.jar:12.0] {}
-[00:57:28] [main/INFO] [ne.ne.fm.lo.mo.lo.JarInJarDependencyLocator/]: Found 2 dependencies adding them to mods collection
-[00:57:28] [main/INFO] [ne.ne.fm.lo.mo.ModDiscoverer/]: 
+[01:51:05] [main/INFO] [ne.ne.fm.lo.mo.lo.JarInJarDependencyLocator/]: Found 2 dependencies adding them to mods collection
+[01:51:05] [main/INFO] [ne.ne.fm.lo.mo.ModDiscoverer/]: 
      Mod List:
 		Name Version (Mod Id)
 
 		Minecraft 26.3 (minecraft)
 		NeoForge 26.3.0.1-beta (neoforge)
-[00:57:28] [main/ERROR] [ne.ne.fm.lo.FMLLoader/]: File mods/midnightlib-neoforge-1.9.3+26.3.jar is not a valid mod file
+[01:51:05] [main/ERROR] [ne.ne.fm.lo.FMLLoader/]: File mods/midnightlib-neoforge-1.9.3+26.3.jar is not a valid mod file
 java.lang.RuntimeException: Failed to parse spec
 	at net.neoforged.neoforgespi.language.MavenVersionAdapter.createFromVersionSpec(MavenVersionAdapter.java:23) ~[loader-12.0.0.jar:12.0] {}
 	at java.base/java.util.Optional.map(Optional.java:260) ~[?:?] {}
@@ -106,8 +106,8 @@ Caused by: org.apache.maven.artifact.versioning.InvalidVersionSpecificationExcep
 	at org.apache.maven.artifact.versioning.VersionRange.createFromVersionSpec(VersionRange.java:129) ~[maven-artifact-3.9.16.jar:3.9.16] {}
 	at net.neoforged.neoforgespi.language.MavenVersionAdapter.createFromVersionSpec(MavenVersionAdapter.java:20) ~[loader-12.0.0.jar:12.0] {}
 	... 39 more
-[00:57:28] [main/INFO] [ne.ne.fm.lo.FMLLoader/]: Closing FML Loader abf688e
-[00:57:28] [main/ERROR] [ne.ne.fm.lo.mo.BackgroundScanHandler/SCAN]: An error occurred scanning file jar(~libraries/net/neoforged/minecraft-server-patched/0.0.0.0-beta/minecraft-server-patched-26.3.0.1-beta.jar)
+[01:51:05] [main/INFO] [ne.ne.fm.lo.FMLLoader/]: Closing FML Loader abf688e
+[01:51:05] [main/ERROR] [ne.ne.fm.lo.mo.BackgroundScanHandler/SCAN]: An error occurred scanning file jar(~libraries/net/neoforged/minecraft-server-patched/0.0.0.0-beta/minecraft-server-patched-26.3.0.1-beta.jar)
 java.util.concurrent.CancellationException: null
 	at java.base/java.util.concurrent.CompletableFuture.cancel(CompletableFuture.java:2552) [?:?] {}
 	at net.neoforged.fml.loading.moddiscovery.ModFile.close(ModFile.java:246) [loader-12.0.0.jar:12.0] {}
@@ -115,7 +115,7 @@ java.util.concurrent.CancellationException: null
 	at net.neoforged.fml.loading.FMLLoader.create(FMLLoader.java:415) [loader-12.0.0.jar:12.0] {}
 	at net.neoforged.fml.startup.Entrypoint.startup(Entrypoint.java:65) [loader-12.0.0.jar:12.0] {}
 	at net.neoforged.fml.startup.Server.main(Server.java:17) [loader-12.0.0.jar:12.0] {}
-[00:57:28] [main/ERROR] [ne.ne.fm.lo.mo.BackgroundScanHandler/SCAN]: An error occurred scanning file jar(~libraries/net/neoforged/neoforge/0.0.0.0-beta/neoforge-26.3.0.1-beta-universal.jar)
+[01:51:05] [main/ERROR] [ne.ne.fm.lo.mo.BackgroundScanHandler/SCAN]: An error occurred scanning file jar(~libraries/net/neoforged/neoforge/0.0.0.0-beta/neoforge-26.3.0.1-beta-universal.jar)
 java.util.concurrent.CancellationException: null
 	at java.base/java.util.concurrent.CompletableFuture.cancel(CompletableFuture.java:2552) [?:?] {}
 	at net.neoforged.fml.loading.moddiscovery.ModFile.close(ModFile.java:246) [loader-12.0.0.jar:12.0] {}
@@ -123,7 +123,7 @@ java.util.concurrent.CancellationException: null
 	at net.neoforged.fml.loading.FMLLoader.create(FMLLoader.java:415) [loader-12.0.0.jar:12.0] {}
 	at net.neoforged.fml.startup.Entrypoint.startup(Entrypoint.java:65) [loader-12.0.0.jar:12.0] {}
 	at net.neoforged.fml.startup.Server.main(Server.java:17) [loader-12.0.0.jar:12.0] {}
-[00:57:28] [main/ERROR] [ne.ne.fm.lo.mo.BackgroundScanHandler/SCAN]: An error occurred scanning file jar(~libraries/net/neoforged/neoforge/0.0.0.0-beta/neoforge-26.3.0.1-beta-universal.jar) > jar(~libraries/net/neoforged/neoforge/0.0.0.0-beta/neoforge-26.3.0.1-beta-universal.jar > mixinextras-neoforge-0.5.4.jar)
+[01:51:05] [main/ERROR] [ne.ne.fm.lo.mo.BackgroundScanHandler/SCAN]: An error occurred scanning file jar(~libraries/net/neoforged/neoforge/0.0.0.0-beta/neoforge-26.3.0.1-beta-universal.jar) > jar(~libraries/net/neoforged/neoforge/0.0.0.0-beta/neoforge-26.3.0.1-beta-universal.jar > mixinextras-neoforge-0.5.4.jar)
 java.util.concurrent.CancellationException: null
 	at java.base/java.util.concurrent.CompletableFuture.cancel(CompletableFuture.java:2552) [?:?] {}
 	at net.neoforged.fml.loading.moddiscovery.ModFile.close(ModFile.java:246) [loader-12.0.0.jar:12.0] {}
@@ -131,40 +131,8 @@ java.util.concurrent.CancellationException: null
 	at net.neoforged.fml.loading.FMLLoader.create(FMLLoader.java:415) [loader-12.0.0.jar:12.0] {}
 	at net.neoforged.fml.startup.Entrypoint.startup(Entrypoint.java:65) [loader-12.0.0.jar:12.0] {}
 	at net.neoforged.fml.startup.Server.main(Server.java:17) [loader-12.0.0.jar:12.0] {}
-[00:57:28] [background-scan-handler-1/ERROR] [ne.ne.fm.lo.mo.Scanner/SCAN]: Exception scanning jar(~libraries/net/neoforged/neoforge/0.0.0.0-beta/neoforge-26.3.0.1-beta-universal.jar) > jar(~libraries/net/neoforged/neoforge/0.0.0.0-beta/neoforge-26.3.0.1-beta-universal.jar > mixinextras-neoforge-0.5.4.jar) path com/llamalad7/mixinextras/lib/antlr/runtime/Parser.class
-java.io.IOException: Stream closed
-	at java.base/java.util.zip.InflaterInputStream.ensureOpen(InflaterInputStream.java:85) ~[?:?] {null}
-	at java.base/java.util.zip.InflaterInputStream.read(InflaterInputStream.java:187) ~[?:?] {null}
-	at org.objectweb.asm.ClassReader.readStream(ClassReader.java:323) ~[asm-9.10.1.jar:9.10.1] {null}
-	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:288) ~[asm-9.10.1.jar:9.10.1] {null}
-	at net.neoforged.fml.loading.modscan.Scanner.lambda$scan$0(Scanner.java:31) [loader-12.0.0.jar:12.0] {null}
-	at net.neoforged.fml.jarcontents.JarFileContents.visitContent(JarFileContents.java:162) [loader-12.0.0.jar:12.0] {null}
-	at net.neoforged.fml.jarcontents.JarContents.visitContent(JarContents.java:215) [loader-12.0.0.jar:12.0] {null}
-	at net.neoforged.fml.loading.modscan.Scanner.scan(Scanner.java:27) [loader-12.0.0.jar:12.0] {null}
-	at net.neoforged.fml.loading.moddiscovery.ModFile.lambda$startScan$0(ModFile.java:160) [loader-12.0.0.jar:12.0] {null}
-	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1789) [?:?] {null}
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090) [?:?] {null}
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614) [?:?] {null}
-	at java.base/java.lang.Thread.run(Thread.java:1474) [?:?] {null}
-[00:57:28] [background-scan-handler-2/ERROR] [ne.ne.fm.lo.mo.Scanner/SCAN]: Exception scanning jar(~libraries/net/neoforged/minecraft-server-patched/0.0.0.0-beta/minecraft-server-patched-26.3.0.1-beta.jar) path net/minecraft/advancements/predicates/entity/EntityPredicate$Builder.class
-java.util.zip.ZipException: ZipFile closed
-	at java.base/java.util.zip.ZipFile.ensureOpenOrZipException(ZipFile.java:835) ~[?:?] {null}
-	at java.base/java.util.zip.ZipFile$ZipFileInputStream.read(ZipFile.java:925) ~[?:?] {null}
-	at java.base/java.util.zip.ZipFile$ZipFileInflaterInputStream.fill(ZipFile.java:449) ~[?:?] {null}
-	at java.base/java.util.zip.InflaterInputStream.read(InflaterInputStream.java:208) ~[?:?] {null}
-	at org.objectweb.asm.ClassReader.readStream(ClassReader.java:323) ~[asm-9.10.1.jar:9.10.1] {null}
-	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:288) ~[asm-9.10.1.jar:9.10.1] {null}
-	at net.neoforged.fml.loading.modscan.Scanner.lambda$scan$0(Scanner.java:31) [loader-12.0.0.jar:12.0] {null}
-	at net.neoforged.fml.jarcontents.JarFileContents.visitContent(JarFileContents.java:162) [loader-12.0.0.jar:12.0] {null}
-	at net.neoforged.fml.jarcontents.JarContents.visitContent(JarContents.java:215) [loader-12.0.0.jar:12.0] {null}
-	at net.neoforged.fml.loading.modscan.Scanner.scan(Scanner.java:27) [loader-12.0.0.jar:12.0] {null}
-	at net.neoforged.fml.loading.moddiscovery.ModFile.lambda$startScan$0(ModFile.java:160) [loader-12.0.0.jar:12.0] {null}
-	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1789) [?:?] {null}
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090) [?:?] {null}
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614) [?:?] {null}
-	at java.base/java.lang.Thread.run(Thread.java:1474) [?:?] {null}
-[00:57:28] [main/INFO] [ne.ne.fm.ModLoader/]: Clearing ModLoader
-[00:57:28] [main/ERROR] [ne.ne.fm.st.Entrypoint/]: Failed to start FML: net.neoforged.fml.ModLoadingException: Loading errors encountered:
+[01:51:05] [main/INFO] [ne.ne.fm.ModLoader/]: Clearing ModLoader
+[01:51:05] [main/ERROR] [ne.ne.fm.st.Entrypoint/]: Failed to start FML: net.neoforged.fml.ModLoadingException: Loading errors encountered:
 	- File mods/midnightlib-neoforge-1.9.3+26.3.jar is not a valid mod file
 
 	at net.neoforged.fml.loading.FMLLoader.create(FMLLoader.java:356)

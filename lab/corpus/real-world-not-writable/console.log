@@ -2,12 +2,12 @@ Starting org.bukkit.craftbukkit.Main
 *** Warning, you've not updated in a while! ***
 *** Please download a new build as per instructions from https://papermc.io/downloads/paper ***
 WARN StatusConsoleListener Advanced terminal features are not available in this environment
-[00:54:55 INFO]: [bootstrap] Running Java 21 (OpenJDK 64-Bit Server VM 21.0.12+8-LTS; Eclipse Adoptium Temurin-21.0.12+8) on Linux 7.0.14-orbstack-00380-ga7e0a2dc9535 (aarch64)
-[00:54:55 INFO]: [bootstrap] Loading Paper 1.21.1-133-ver/1.21.1@3cb8529 (2025-03-28T16:14:36Z) for Minecraft 1.21.1
-[00:54:55 INFO]: [PluginInitializerManager] Initializing plugins...
-[00:54:55 INFO]: [PluginInitializerManager] Initialized 0 plugins
-[00:54:57 INFO]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
-[00:54:57 ERROR]: Failed to start the minecraft server
+[01:48:37 INFO]: [bootstrap] Running Java 21 (OpenJDK 64-Bit Server VM 21.0.12+8-LTS; Eclipse Adoptium Temurin-21.0.12+8) on Linux 7.0.14-orbstack-00380-ga7e0a2dc9535 (aarch64)
+[01:48:37 INFO]: [bootstrap] Loading Paper 1.21.1-133-ver/1.21.1@3cb8529 (2025-03-28T16:14:36Z) for Minecraft 1.21.1
+[01:48:37 INFO]: [PluginInitializerManager] Initializing plugins...
+[01:48:37 INFO]: [PluginInitializerManager] Initialized 0 plugins
+[01:48:38 INFO]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
+[01:48:38 ERROR]: Failed to start the minecraft server
 java.nio.file.AccessDeniedException: ./world
 	at java.base/sun.nio.fs.UnixException.translateToIOException(UnixException.java:90) ~[?:?]
 	at java.base/sun.nio.fs.UnixException.asIOException(UnixException.java:115) ~[?:?]

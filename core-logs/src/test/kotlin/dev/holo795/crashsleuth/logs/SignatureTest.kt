@@ -257,4 +257,26 @@ class SignatureTest {
             ),
         )
     }
+
+    /** The same failure, written three ways across three reports. */
+    @Test
+    fun `names nothing registered, whichever way the list is written`() {
+        // https://github.com/AlexModGuy/AlexsCaves/issues/1589 : tags, with a hash in front.
+        assertEquals(
+            Situation.DATAPACK_BROKEN to emptyList(),
+            primary(
+                "java.lang.IllegalStateException: Unbound values in registry " +
+                    "ResourceKey[minecraft:root / minecraft:worldgen/biome]: [#forge:is_underground, #forge:is_wet]\n",
+            ),
+        )
+        // https://github.com/dbaggott/mc-legendaries/issues/24 : recipes, on a dedicated server.
+        assertEquals(
+            Situation.DATAPACK_BROKEN to emptyList(),
+            primary(
+                "[Worker-Main-4/ERROR] (Minecraft) Registry loading errors:\n" +
+                    "java.lang.IllegalStateException: Unbound values in registry " +
+                    "ResourceKey[minecraft:root / minecraft:recipe]: [mclegendaries:blanked_spear]\n",
+            ),
+        )
+    }
 }
