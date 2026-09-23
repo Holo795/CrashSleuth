@@ -47,7 +47,7 @@ Most tools repeat the loudest line of the log. In this ecosystem that line almos
 **noticed** the problem, not the one that caused it. CrashSleuth is built against that:
 
 - a mixin that could not be applied names the mod that **lost**; the one that got there first is named instead;
-- Fabric's crash screen names the mod whose entrypoint was running — one author renamed his class to
+- Fabric's crash screen names the mod whose entrypoint was running — one author renamed a class to
   `Crash_Is_Not_Caused_By_BetterClouds` over it — so the `Caused by` chain is read instead;
 - "fix your datapacks or use `--safeMode`" is the game's stock sentence, printed for a mod's own sealed
   data and for a world coming back from a newer version; neither lives in your datapacks folder;

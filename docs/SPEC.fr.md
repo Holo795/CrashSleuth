@@ -1,8 +1,23 @@
 # CrashSleuth — Spécification
 
-**Version 22 — 23/09/2026** — v21 + un éclaireur qui cherche chaque semaine les cas que l'outil ne sait pas encore lire, les serveurs hybrides (Mohist, Youer, Arclight), et une page publique des versions réellement testées.
+**Version 23 — 23/09/2026** — v22 + la première issue de l'éclaireur traitée de bout en bout : six pistes lues, quatre rejouées au labo avec les jars des signalements, trois règles, deux garde-fous, trois défauts de lecture corrigés.
 
-### Changements depuis la v21
+### Changements depuis la v22
+- **Première semaine de l'éclaireur (issue n°1, 6 pistes), traitée puis fermée.** Chaque piste a été lue avec son fil de discussion, puis rejouée au labo avec les versions et les jars du signalement :
+  - **Un coffre vidé au chargement du monde** (Vanilla Backport) : un monde créé sous NeoForge 1.21.1 avec le coffre en cuivre du mod, rouvert en 1.21.11. Le jeu ne connaît plus ce type de bloc et jette son contenu (`Skipping block entity with invalid type: "minecraft:copper_chest"`), et le serveur démarre comme si de rien n'était. Nouvelle règle (confiance certaine) : le contenu est perdu dès la prochaine sauvegarde, il faut restaurer avant de jouer. Le build du signalement n'étant pas publié, le labo le **compile depuis les sources à un commit fixé** (nouveau : `BUILDS` + `lab/builds/*.sh`).
+  - **Une fonction de datapack qui utilise ce qu'aucun pack ne définit** (Matcha Flavoured, rejoué avec le vrai pack, un commit avant son correctif, sur Minecraft 26.2 : 23 fonctions refusées) : la fonction n'est pas chargée du tout, et tout ce qui l'appelle ne fait plus rien, sans un mot. Deux formulations reconnues (26.x et 1.21.1). Nouveau dans le labo : un datapack réel tiré d'une archive GitHub (`unzip`).
+  - **Un plugin qui fouille l'intérieur de Spigot** (Medieval Cookery 0.2.0 sur Spigot 26.2) : `NoSuchMethodException: org.bukkit.craftbukkit…` — le plugin démarre, mais une partie ne marche plus. Nommé comme le serveur l'annonce (« MedievalCookery 0.2.0 »), pas par son paquet Java.
+  - **Deux garde-fous « rien à signaler »** : SLF4J sans journal (SimpleVoice-Geyser, rejoué sur Paper 26.2 avec les trois mêmes jars : rouge, bruyant, inoffensif), et une connexion refusée par Mojang suivie d'un arrêt normal (lanceur tiers).
+  - Laissée sans suite : une ligne unique « Failed to handle packet », trop peu pour dire quoi que ce soit.
+- **Trois défauts de lecture trouvés en chemin** :
+  - Spigot récent s'annonce « This server is running **Spigot** version … » (et non plus CraftBukkit) : il était pris pour un Vanilla ;
+  - une trace de plugin passée par `printStackTrace()` porte le préfixe du journal sur **chaque** ligne (`[..WARN]: \tat …`) : elle était ignorée ;
+  - l'astuce « Paper n'écrit plus Can't keep up! » s'affichait aussi sur Spigot, qui l'écrit toujours.
+- **Sept textes anglais affichaient une apostrophe doublée** (« world''s ») ; corrigé, et un test l'empêche de revenir.
+- **Chaque lundi** : le traitement de l'issue de l'éclaireur est programmé (lecture, reproduction au labo, règle seulement si le scénario passe, clôture commentée).
+- **Cas réels rejoués : 72** (`docs/REAL_CASES.md`), corpus de 437 cas, 105 signatures.
+
+### Changements de la v22 (rappel)
 - **L'outil se nourrit au fil du temps, sans jamais s'écrire lui-même.** Chaque lundi, un « éclaireur » (`scout/scout.py`, workflow `scout.yml`) :
   - cherche dans les issues GitHub publiques de la semaine les phrases typiques d'un plantage Minecraft, garde celles qui contiennent un vrai journal (au moins 4 lignes) ;
   - passe chaque journal dans CrashSleuth et ne retient **que ceux où il ne dit rien** ;

@@ -33,7 +33,7 @@ plainly what happens here.
 
 **The name in the log is usually the one that noticed, not the one at fault.** A mixin that failed names the
 mod that *lost* the race. `Could not pass event … to X` names whoever registered the listener. Fabric's
-crash screen names the mod whose entrypoint happened to be running — one author ended up renaming his class
+crash screen names the mod whose entrypoint happened to be running — one author ended up renaming a class
 to `Crash_Is_Not_Caused_By_BetterClouds` over it.
 
 In each of those cases CrashSleuth looks past the loud name, reports the code that actually failed, **says

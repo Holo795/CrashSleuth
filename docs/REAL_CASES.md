@@ -12,6 +12,7 @@ Written by `python3 lab/lab.py sources`, from the corpus itself.
 | --- | --- | --- | --- | --- |
 | `real-a-method-java-21-brought` | JAVA_VERSION |  | https://github.com/opanel-mc/opanel/issues/273 | Run the server on Java 21, or use a build made for the Java in place: the method belongs to Java, not to the plugin. |
 | `real-block-entity-tick-crash-mods` | TICK_BLOCK_ENTITY | toms_storage | https://github.com/tom5454/Toms-Storage/issues/753 | Update Tom's Storage to 2.8.1, or go back to the Sophisticated Core it was built against. |
+| `real-block-entity-type-gone-empties-the-chest` | CORRUPT_CHUNK | minecraft:copper_chest | https://github.com/ItsBlackGear/VanillaBackport/issues/440 | Stop before the world is saved and restore a backup; the backport has to store its copper chest the way the real game does (as a plain chest). |
 | `real-bluemap-eventbus7` | UNCAUGHT_EXCEPTION | bluemap | https://github.com/BlueMap-Minecraft/BlueMap/issues/743 | Update BlueMap past 5.12: Forge EventBus 7 refuses its old listener. |
 | `real-broken-version-range-in-metadata` | CORRUPT_JAR | tenshilib | https://github.com/Flemmli97/TenshiLib/issues/17 | Take the rebuilt jar (2.3.0.b): the range in its metadata was written wrong. |
 | `real-chunks-in-wrong-file` | CORRUPT_CHUNK |  | https://github.com/Amulet-Team/Amulet-Core/issues/235 | Those chunks do not belong to that file: the server moves them, which loses what was there. |
@@ -19,6 +20,7 @@ Written by `python3 lab/lab.py sources`, from the corpus itself.
 | `real-connector-transform-failure` | MOD_CONFLICT | Connector | https://github.com/Sinytra/Connector/issues/2002 | Move to a later Connector build: this one cannot read that mod's mixin settings. |
 | `real-coreprotect-database-unreachable` | SILENT_ERROR | CoreProtect | https://github.com/PlayPro/CoreProtect/issues/476 | Point CoreProtect at a database that answers, or set use-mysql: false; the server starting is no sign that it is logging. |
 | `real-corrupt-server-jar` | CORRUPT_JAR |  | https://github.com/itzg/docker-minecraft-server/discussions/2786 | Delete the jar and download it again: the file is incomplete. |
+| `real-datapack-function-names-what-the-pack-lacks` | DATAPACK_BROKEN | main:update_fire_proof | https://github.com/kleiwright/matcha-flavoured/issues/188 | The pack author removed the functions that pointed at item modifiers never written (commit ceb43fe). |
 | `real-densefuel-language-provider-pinned` | DEP_VERSION | densefuel | https://github.com/legoaggelos/densefuel/issues/1 | Stay below NeoForge 21.1.235, or the mod must widen the javafml range it asks for. |
 | `real-entity-pileup-lag` | LAG |  | https://forums.papermc.io/threads/server-lag-and-rollback-every-5-min.1041/ | Remove the crowd of entities (or the world holding it): chunks keep ticking even with nobody there. |
 | `real-fabric-api-missing-journeymap` | DEP_MISSING | fabric | https://github.com/itzg/docker-minecraft-server/discussions/2661 | Install the Fabric API jar: nothing pulls it in for you. |
@@ -42,12 +44,14 @@ Written by `python3 lab/lab.py sources`, from the corpus itself.
 | `real-plugin-api-too-new` | PLUGIN_API | InvSee | https://github.com/Spottedleaf/OldGenerator/issues/9 | Run a server at least as recent as the plugin's api-version, or take an older build of the plugin. |
 | `real-plugin-api-too-new-26` | PLUGIN_API | namefilterhopper | https://github.com/kcbleeker/NameFilterHopper/issues/1 | Run a server at least as recent as the plugin's api-version, or take the build made for yours. |
 | `real-plugin-missing-vault` | DEP_MISSING | Vault | https://github.com/Lenni0451/SpigotPluginManager/issues/26 | Install the plugin it names (Vault): a hard dependency must be there before it loads. |
+| `real-plugin-reaches-into-craftbukkit` | WRONG_MC | MedievalCookery | https://github.com/Dans-Plugins/Medieval-Cookery/issues/16 | Update the plugin: it must use the PlayerProfile API (SkullMeta#setOwnerProfile) instead of reaching into CraftBukkit. |
 | `real-plugin-reads-the-version-as-1-8-8` | PLUGIN_API |  | https://github.com/GrimAnticheat/Grim/issues/2745 | Use a Grim build that ships packetevents 2.12.3 or later: the server is fine, the library inside the plugin is not. |
 | `real-protocollib-too-old` | WRONG_MC | ProtocolLib | https://github.com/dmulloy2/ProtocolLib/issues/3073 | Update ProtocolLib: it reads the server's packet registry, which changes with every Minecraft version. |
 | `real-rcon-port-taken` | PORT_IN_USE |  | https://www.gameserverkings.com/knowledge-base/minecraft/setting-up-rcon/ | Give RCON a port of its own, different from server-port. |
 | `real-rcon-without-password` | CONFIG_BROKEN |  | https://github.com/itzg/docker-minecraft-server/issues/518 | Set rcon.password: with an empty one, RCON does not start at all, which looks like a refused connection. |
 | `real-recipe-old-result-format` | DATAPACK_BROKEN |  | https://github.com/misode/misode.github.io/issues/822 | In the result, write id instead of item: the game changed how an item stack is written in 1.20.5. |
 | `real-same-plugin-twice` | DUPLICATE | InvSee | https://github.com/XxDaShTixX/Minecraft-ArrowTNT/issues/7 | Delete one of the two copies: with both there, neither is loaded. |
+| `real-slf4j-warning-only` | clean start |  | https://github.com/TheodoreMeyer/SimpleVoice-Geyser/issues/97 | Nothing is broken: the addon's web server only has no logger; the author ships one in the next release. |
 | `real-sodium-extra-on-server` | CLIENT_ONLY_ON_SERVER | sodium | https://github.com/AllTheMods/ATM-10/issues/402 | Take the client-only rendering mods out of the server's mods folder. |
 | `real-sodium-on-server` | CLIENT_ONLY_ON_SERVER | sodium | https://github.com/CaffeineMC/sodium/issues/3791 | Sodium only works in the game: take it out of the server's mods folder. |
 | `real-velocity-support-without-secret` | PROXY_FORWARDING |  | https://github.com/PaperMC/Velocity/issues/1043 | Put the proxy's forwarding secret in proxies.velocity.secret, or turn Velocity support off. |
@@ -89,4 +93,4 @@ Written by `python3 lab/lab.py sources`, from the corpus itself.
 | `net-real-velocity-forwarding-off-player` | PROXY_FORWARDING |  | https://github.com/PaperMC/Velocity/issues/1347 | Set player-info-forwarding-mode to modern on the proxy, and save the file before restarting. |
 | `net-real-velocity-forwarding-off-proxy` | PROXY_FORWARDING |  | https://github.com/PaperMC/Velocity/issues/1347 | Set player-info-forwarding-mode to modern on the proxy, and save the file before restarting. |
 
-68 cases.
+72 cases.

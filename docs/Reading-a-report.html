@@ -26,7 +26,7 @@
 <p>A <strong>Low</strong> finding is still shown, because knowing where to look is worth something. It is never dressed up as a conclusion.</p>
 <h2 id="the-culprit">The culprit</h2>
 <p>The mod, plugin, file or setting to change. This is the part most tools get wrong, so it is worth saying plainly what happens here.</p>
-<p><strong>The name in the log is usually the one that noticed, not the one at fault.</strong> A mixin that failed names the mod that <em>lost</em> the race. <code>Could not pass event … to X</code> names whoever registered the listener. Fabric&#x27;s crash screen names the mod whose entrypoint happened to be running — one author ended up renaming his class to <code>Crash_Is_Not_Caused_By_BetterClouds</code> over it.</p>
+<p><strong>The name in the log is usually the one that noticed, not the one at fault.</strong> A mixin that failed names the mod that <em>lost</em> the race. <code>Could not pass event … to X</code> names whoever registered the listener. Fabric&#x27;s crash screen names the mod whose entrypoint happened to be running — one author ended up renaming a class to <code>Crash_Is_Not_Caused_By_BetterClouds</code> over it.</p>
 <p>In each of those cases CrashSleuth looks past the loud name, reports the code that actually failed, <strong>says that it did</strong>, and names the other one second so you can still check it:</p>
 <blockquote><code>badoptimizations</code> is the code that actually failed. The loader&#x27;s screen names <code>betterclouds</code> because the game was running its entrypoint at that moment, and that is the first and largest line people read: it is not a diagnosis.</blockquote>
 <p>When it genuinely cannot tell, it names nobody rather than picking someone.</p>

@@ -46,6 +46,11 @@ entities, damaged player saves.
 **From the logs** — crashes, startup failures, hangs, deadlocks, lag, proxy and connection problems, the
 launcher's or panel's own console, mixin conflicts, registry mismatches between client and server.
 
+**When nothing crashes** — the server says `Done` and something is still lost: a block whose contents are
+thrown away as the world loads (its type is unknown to this version or this set of mods), a datapack
+function that is never loaded because it uses something no pack defines, a plugin that gave up in a plain
+INFO line, a plugin reaching into the server for a method that no longer exists.
+
 **While playing** — a crash during the tick of an entity or a block names that entity or block, where it
 stands, and the mod behind it. A crash while the world is drawn names what was being drawn and the mod in
 the way.
@@ -62,7 +67,7 @@ often wrong. This is the part of the tool that took the most work:
 | The mixin that failed is the culprit | It names the mod that **lost**; the one that got there first is named instead |
 | The mod in `Could not pass event … to X` | X registered the listener; if none of X is in the trace, the code that threw is named |
 | The mod that wrote the `breaks` rule | The mod to change is the one being **refused**, not the one refusing |
-| The entrypoint owner on Fabric's crash screen | The `Caused by` chain is read instead — its own author renamed his class over this |
+| The entrypoint owner on Fabric's crash screen | The `Caused by` chain is read instead — its own author renamed a class over this |
 | Forge's `Suspected Mods` as an answer | Its authors say it is everything in the stack; it is offered as a lead |
 | "The server is stuck" on a watchdog warning | A watchdog firing while the thread waits means the clock jumped |
 | "Give it more RAM" | Never from a lag warning, and never while an environment variable overrides the memory you set |
