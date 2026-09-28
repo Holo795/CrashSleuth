@@ -10,6 +10,10 @@ Written by `python3 lab/lab.py sources`, from the corpus itself.
 
 | Case | What CrashSleuth must find | Culprit | Reported at | What fixed it |
 | --- | --- | --- | --- | --- |
+| `forge-1.20.1-immersive-vehicles-alone-on-server` | clean start |  | https://github.com/DonBruce64/MinecraftTransportSimulator/issues/2185 | Nothing to fix without vehicle packs: the jar alone starts cleanly. The PoseStack crash of the report comes from something it did not list (a pack or another mod). |
+| `paper-26.2-futuretech-world-creator` | PLUGIN_API | FutureTech | https://github.com/balugaq/FutureTech/issues/1 | Nobody has answered yet: FutureTech Build 7 passes a world name and a key to WorldCreator, which Paper 26.2 refuses; it needs a new build. |
+| `paper-26.2-obsidianexpansion-old-adventure` | PLUGIN_API | ObsidianExpansion | https://github.com/SlimefunGuguProject/ObsidianExpansion/issues/7 | Nobody has answered yet: the addon ships adventure-platform-bukkit built for an older Adventure than Paper 26.2 carries; it needs a build with an up-to-date copy. |
+| `paper-26.3-cushion-in-water` | TICK_ENTITY |  | https://github.com/PaperMC/Paper/issues/14295 | A bug of Paper 26.3 build 38 itself (no plugin involved): fixed in build 39 (PaperMC/Paper#14296), so updating Paper is the fix. |
 | `real-a-method-java-21-brought` | JAVA_VERSION |  | https://github.com/opanel-mc/opanel/issues/273 | Run the server on Java 21, or use a build made for the Java in place: the method belongs to Java, not to the plugin. |
 | `real-block-entity-tick-crash-mods` | TICK_BLOCK_ENTITY | toms_storage | https://github.com/tom5454/Toms-Storage/issues/753 | Update Tom's Storage to 2.8.1, or go back to the Sophisticated Core it was built against. |
 | `real-block-entity-type-gone-empties-the-chest` | CORRUPT_CHUNK | minecraft:copper_chest | https://github.com/ItsBlackGear/VanillaBackport/issues/440 | Stop before the world is saved and restore a backup; the backport has to store its copper chest the way the real game does (as a plain chest). |
@@ -93,4 +97,4 @@ Written by `python3 lab/lab.py sources`, from the corpus itself.
 | `net-real-velocity-forwarding-off-player` | PROXY_FORWARDING |  | https://github.com/PaperMC/Velocity/issues/1347 | Set player-info-forwarding-mode to modern on the proxy, and save the file before restarting. |
 | `net-real-velocity-forwarding-off-proxy` | PROXY_FORWARDING |  | https://github.com/PaperMC/Velocity/issues/1347 | Set player-info-forwarding-mode to modern on the proxy, and save the file before restarting. |
 
-72 cases.
+76 cases.

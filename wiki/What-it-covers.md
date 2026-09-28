@@ -49,7 +49,9 @@ launcher's or panel's own console, mixin conflicts, registry mismatches between 
 **When nothing crashes** — the server says `Done` and something is still lost: a block whose contents are
 thrown away as the world loads (its type is unknown to this version or this set of mods), a datapack
 function that is never loaded because it uses something no pack defines, a plugin that gave up in a plain
-INFO line, a plugin reaching into the server for a method that no longer exists.
+INFO line, a plugin reaching into the server for a method that no longer exists, an entity Paper removed
+because updating it failed (with the server's own build named as the culprit when no plugin is in the
+trace), a plugin switched off as it starts even when its version holds spaces (Slimefun addons).
 
 **While playing** — a crash during the tick of an entity or a block names that entity or block, where it
 stands, and the mod behind it. A crash while the world is drawn names what was being drawn and the mod in
