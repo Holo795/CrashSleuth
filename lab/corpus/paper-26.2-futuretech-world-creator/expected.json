@@ -1,0 +1,9 @@
+{
+  "situation": "PLUGIN_API",
+  "culprit": "FutureTech",
+  "logs": [
+    "latest.log"
+  ],
+  "source": "https://github.com/balugaq/FutureTech/issues/1",
+  "fix": "Nobody has answered yet: FutureTech Build 7 passes a world name and a key to WorldCreator, which Paper 26.2 refuses; it needs a new build."
+}

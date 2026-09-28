@@ -2311,5 +2311,106 @@
       "situation": "CORRUPT_CHUNK",
       "culprit": "minecraft:copper_chest"
     }
+  },
+  {
+    "name": "paper-26.3-cushion-in-water",
+    "description": "Paper 26.3 build 38, a cushion summoned in water: Paper throws in its own code and removes the entity (fixed in build 39)",
+    "platform": "paper",
+    "minecraft": "26.3",
+    "java": 25,
+    "loader_version": "38",
+    "after_ready": 30,
+    "console": [
+      {
+        "after": 2,
+        "command": "forceload add 0 0"
+      },
+      {
+        "after": 4,
+        "command": "setblock 0 -1 0 minecraft:stone"
+      },
+      {
+        "after": 5,
+        "command": "setblock 0 0 0 minecraft:water"
+      },
+      {
+        "after": 7,
+        "command": "summon minecraft:cushion 0.5 0 0.5 {block_pos:[I;0,0,0],color:\"red\",Tags:[\"water_repro\"]}"
+      },
+      {
+        "after": 20,
+        "command": "data get entity @e[type=minecraft:cushion,tag=water_repro,limit=1] UUID"
+      }
+    ],
+    "source": "https://github.com/PaperMC/Paper/issues/14295",
+    "fix": "A bug of Paper 26.3 build 38 itself (no plugin involved): fixed in build 39 (PaperMC/Paper#14296), so updating Paper is the fix.",
+    "expect": {
+      "situation": "TICK_ENTITY"
+    }
+  },
+  {
+    "name": "forge-1.20.1-immersive-vehicles-alone-on-server",
+    "description": "Forge 1.20.1-47.4.18, Immersive Vehicles 22.18.1 alone on a dedicated server: it starts, and its own MTSERROR lines are no problem",
+    "platform": "forge",
+    "minecraft": "1.20.1",
+    "java": 17,
+    "loader_version": "47.4.18",
+    "timeout": 600,
+    "extra": [
+      {
+        "url": "https://cdn.modrinth.com/data/BCzBuhJ5/versions/ZRHHGzzE/Immersive%20Vehicles-1.20.1-22.18.1.jar",
+        "file": "Immersive Vehicles-1.20.1-22.18.1.jar"
+      }
+    ],
+    "source": "https://github.com/DonBruce64/MinecraftTransportSimulator/issues/2185",
+    "fix": "Nothing to fix without vehicle packs: the jar alone starts cleanly. The PoseStack crash of the report comes from something it did not list (a pack or another mod)."
+  },
+  {
+    "name": "paper-26.2-futuretech-world-creator",
+    "description": "Paper 26.2 build 128, Slimefun (Chinese fork) and FutureTech Build 7: the addon builds a world the way 26.2 refuses and is disabled",
+    "platform": "paper",
+    "minecraft": "26.2",
+    "java": 25,
+    "loader_version": "128",
+    "extra": [
+      {
+        "url": "https://github.com/SlimefunGuguProject/Slimefun4/releases/download/2026.1/Slimefun-2026.1.jar",
+        "file": "Slimefun-2026.1.jar"
+      },
+      {
+        "url": "https://builds.guizhanss.com/api/download/balugaq/FutureTech/main/7",
+        "file": "FutureTech-Build 7 (git 5fc562a).jar"
+      }
+    ],
+    "source": "https://github.com/balugaq/FutureTech/issues/1",
+    "fix": "Nobody has answered yet: FutureTech Build 7 passes a world name and a key to WorldCreator, which Paper 26.2 refuses; it needs a new build.",
+    "expect": {
+      "situation": "PLUGIN_API",
+      "culprit": "FutureTech"
+    }
+  },
+  {
+    "name": "paper-26.2-obsidianexpansion-old-adventure",
+    "description": "Paper 26.2 build 128, Slimefun (Chinese fork) and ObsidianExpansion Build 6: the addon carries an old copy of Adventure's Bukkit platform and is disabled",
+    "platform": "paper",
+    "minecraft": "26.2",
+    "java": 25,
+    "loader_version": "128",
+    "extra": [
+      {
+        "url": "https://github.com/SlimefunGuguProject/Slimefun4/releases/download/2026.1/Slimefun-2026.1.jar",
+        "file": "Slimefun-2026.1.jar"
+      },
+      {
+        "url": "https://builds.guizhanss.com/api/download/SlimefunGuguProject/ObsidianExpansion/master/6",
+        "file": "ObsidianExpansion-Build 6 zh-CN(SlimefunGuguProject) (git 72ba142).jar"
+      }
+    ],
+    "source": "https://github.com/SlimefunGuguProject/ObsidianExpansion/issues/7",
+    "fix": "Nobody has answered yet: the addon ships adventure-platform-bukkit built for an older Adventure than Paper 26.2 carries; it needs a build with an up-to-date copy.",
+    "expect": {
+      "situation": "PLUGIN_API",
+      "culprit": "ObsidianExpansion"
+    }
   }
 ]

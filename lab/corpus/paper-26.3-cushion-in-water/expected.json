@@ -1,0 +1,9 @@
+{
+  "situation": "TICK_ENTITY",
+  "culprit": null,
+  "logs": [
+    "latest.log"
+  ],
+  "source": "https://github.com/PaperMC/Paper/issues/14295",
+  "fix": "A bug of Paper 26.3 build 38 itself (no plugin involved): fixed in build 39 (PaperMC/Paper#14296), so updating Paper is the fix."
+}

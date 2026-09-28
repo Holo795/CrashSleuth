@@ -1,0 +1,9 @@
+{
+  "situation": null,
+  "culprit": null,
+  "logs": [
+    "latest.log"
+  ],
+  "source": "https://github.com/DonBruce64/MinecraftTransportSimulator/issues/2185",
+  "fix": "Nothing to fix without vehicle packs: the jar alone starts cleanly. The PoseStack crash of the report comes from something it did not list (a pack or another mod)."
+}

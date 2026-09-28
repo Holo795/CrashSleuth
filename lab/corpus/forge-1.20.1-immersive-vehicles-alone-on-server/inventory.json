@@ -1,0 +1,60 @@
+{
+ "platform": "FORGE",
+ "minecraftVersion": "1.20.1",
+ "loaderVersion": "47.4.18",
+ "side": "SERVER",
+ "jars": [
+  {
+   "file": "Immersive Vehicles-1.20.1-22.18.1.jar",
+   "folder": "mods",
+   "size": 6210313,
+   "mods": [
+    {
+     "format": "FORGE",
+     "id": "mts",
+     "name": "Immersive Vehicles (formerly MTS)",
+     "version": null,
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "forge",
+       "versionRange": "[47.1.47,)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [],
+     "addsContent": true,
+     "optionalOnClient": false
+    }
+   ],
+   "nested": [],
+   "error": null,
+   "javaVersion": 8
+  }
+ ],
+ "skipped": [],
+ "files": {
+  "worlds": [
+   {
+    "name": "world",
+    "versionName": "1.20.1",
+    "dataVersion": 3465,
+    "unreadable": null,
+    "hasBackup": true,
+    "locked": false,
+    "damagedChunks": [],
+    "chunksChecked": 2037,
+    "oversizedChunks": [],
+    "chunksComplete": true,
+    "damagedPlayers": []
+   }
+  ],
+  "eulaAccepted": true,
+  "configErrors": [],
+  "rootJars": []
+ }
+}

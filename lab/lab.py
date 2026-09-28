@@ -72,8 +72,9 @@ def vanilla_server(version: str) -> Path:
     return download(server["url"], f"minecraft-server-{version}.jar", server["sha1"])
 
 
-def paper_server(version: str, project: str = "paper") -> Path:
-    build = http_json(f"https://fill.papermc.io/v3/projects/{project}/versions/{version}/builds/latest")
+def paper_server(version: str, project: str = "paper", build_id: str | None = None) -> Path:
+    # A report names the build it ran ("26.3-38"): a bug fixed one build later only shows on that one.
+    build = http_json(f"https://fill.papermc.io/v3/projects/{project}/versions/{version}/builds/{build_id or 'latest'}")
     file = build["downloads"]["server:default"]
     return download(file["url"], f"{project}-{version}-{build['id']}.jar")
 
@@ -491,7 +492,7 @@ class Scenario:
     memory: str = "2G"
     timeout: int = 420
     crashes: bool = False                               # expected to crash without any explanation in its logs
-    loader_version: str | None = None                   # loader version to pin: Fabric Loader, NeoForge or Forge (default: latest)
+    loader_version: str | None = None                   # version to pin: Fabric Loader, NeoForge, Forge, or a Paper/Folia build (default: latest)
     jvm_extra: str = ""                                 # extra JVM options on the start command
     pre: str = ""                                       # shell run in the container before the server (a port taken, a lock held)
     docker_args: list[str] = field(default_factory=list)  # extra docker run options (a tiny disk, for instance)
@@ -550,7 +551,8 @@ def prepare(scenario: Scenario, directory: Path) -> list[str]:
         shutil.copy(vanilla_server(scenario.minecraft), directory / "server.jar")
         command = f"java {java} -jar server.jar nogui"
     elif scenario.platform in ("paper", "purpur", "folia", "spigot"):
-        jar = {"paper": lambda: paper_server(scenario.minecraft), "folia": lambda: paper_server(scenario.minecraft, "folia"),
+        jar = {"paper": lambda: paper_server(scenario.minecraft, "paper", scenario.loader_version),
+               "folia": lambda: paper_server(scenario.minecraft, "folia", scenario.loader_version),
                "purpur": lambda: purpur_server(scenario.minecraft), "spigot": lambda: spigot_server(scenario.minecraft)}[scenario.platform]()
         shutil.copy(jar, directory / "server.jar")
         command = f"java {java} -jar server.jar nogui"

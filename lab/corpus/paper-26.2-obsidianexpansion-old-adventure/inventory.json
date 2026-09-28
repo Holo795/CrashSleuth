@@ -1,0 +1,157 @@
+{
+ "platform": "PAPER",
+ "minecraftVersion": "26.2",
+ "loaderVersion": null,
+ "side": "SERVER",
+ "jars": [
+  {
+   "file": "ObsidianExpansion-Build 6 zh-CN(SlimefunGuguProject) (git 72ba142).jar",
+   "folder": "plugins",
+   "size": 1007000,
+   "mods": [
+    {
+     "format": "BUKKIT",
+     "id": "ObsidianExpansion",
+     "name": null,
+     "version": "Build 6 zh-CN(SlimefunGuguProject) (git 72ba142)",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "Slimefun",
+       "versionRange": null,
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "InfinityExpansion",
+       "versionRange": null,
+       "required": false,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "DynaTech",
+       "versionRange": null,
+       "required": false,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "FoxyMachines",
+       "versionRange": null,
+       "required": false,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "AlchimiaVitae",
+       "versionRange": null,
+       "required": false,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": "1.17",
+     "entrypoints": [
+      "me.lucasgithuber.obsidianexpansion.ObsidianExpansion"
+     ],
+     "addsContent": false,
+     "optionalOnClient": false
+    }
+   ],
+   "nested": [],
+   "error": null,
+   "javaVersion": 17
+  },
+  {
+   "file": "Slimefun-2026.1.jar",
+   "folder": "plugins",
+   "size": 6836280,
+   "mods": [
+    {
+     "format": "BUKKIT",
+     "id": "Slimefun",
+     "name": null,
+     "version": "2026.1",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "PlaceholderAPI",
+       "versionRange": null,
+       "required": false,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "WorldEdit",
+       "versionRange": null,
+       "required": false,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "ClearLag",
+       "versionRange": null,
+       "required": false,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "mcMMO",
+       "versionRange": null,
+       "required": false,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "ItemsAdder",
+       "versionRange": null,
+       "required": false,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "Vault",
+       "versionRange": null,
+       "required": false,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "Orebfuscator",
+       "versionRange": null,
+       "required": false,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": "1.16",
+     "entrypoints": [
+      "io.github.thebusybiscuit.slimefun4.implementation.Slimefun"
+     ],
+     "addsContent": false,
+     "optionalOnClient": false
+    }
+   ],
+   "nested": [],
+   "error": null,
+   "javaVersion": 21
+  }
+ ],
+ "skipped": [],
+ "files": {
+  "worlds": [
+   {
+    "name": "world",
+    "versionName": "26.2",
+    "dataVersion": 4903,
+    "unreadable": null,
+    "hasBackup": true,
+    "locked": false,
+    "damagedChunks": [],
+    "chunksChecked": 1587,
+    "oversizedChunks": [],
+    "chunksComplete": true,
+    "damagedPlayers": []
+   }
+  ],
+  "eulaAccepted": true,
+  "configErrors": [],
+  "rootJars": [
+   "server.jar"
+  ]
+ }
+}

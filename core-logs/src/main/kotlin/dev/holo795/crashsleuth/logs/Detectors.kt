@@ -138,7 +138,8 @@ object PluginLoadDetector : Detector {
     private val NO_PLUGIN_YML = Regex("""Jar does not contain plugin\.yml""")
     /** A line that opens a new log record: "[10:22:36 ERROR]:", "[23Sep2026 10:22:36.398] [Server thread/INFO]". */
     private val NEXT_RECORD = Regex("""\n\[(?:\d{2}:\d{2}:\d{2}|\d{2}\w{3}\d{4} )""")
-    private val ENABLING = Regex("""Error occurred while enabling (\S+) v?(\S+) \(Is it up to date\?\)""")
+    // Versions may hold spaces: "FutureTech vBuild 7 (git 5fc562a)", as Slimefun addons built by guizhanss are named.
+    private val ENABLING = Regex("""Error occurred while enabling (\S+) v?([^\n]+?) \(Is it up to date\?\)""")
 
     override fun detect(document: LogDocument, environment: Environment): List<Finding> {
         val findings = mutableListOf<Finding>()
@@ -428,8 +429,13 @@ object WrongLoaderDetector : Detector {
     }
 }
 
-/** Crash report sections `-- Entity being ticked --` and `-- Block entity being ticked --`. */
+/**
+ * Crash report sections `-- Entity being ticked --` and `-- Block entity being ticked --`, and Paper's own guard:
+ * it does not crash but removes the entity, with one line and a stack trace ("Entity threw exception at
+ * minecraft:overworld:0.5,0.0,0.5").
+ */
 object TickingDetector : Detector {
+    private val PAPER_ENTITY_THREW = Regex("""Entity threw exception at ([\w.-]+:[\w./-]+):(-?[\d.]+),(-?[\d.]+),(-?[\d.]+)""")
     private val ENTITY_TYPE = Regex("""Entity Type:\s*([\w.-]+:[\w./-]+)""")
     private val ENTITY_LOCATION = Regex("""Entity's Exact location:\s*([-\d.]+),\s*([-\d.]+),\s*([-\d.]+)""")
     private val BLOCK_NAME = Regex("""Name:\s*([\w.-]+:[\w./-]+)""")
@@ -447,7 +453,32 @@ object TickingDetector : Detector {
             val location = BLOCK_LOCATION.find(block)?.let { "${it.groupValues[1]}, ${it.groupValues[2]}, ${it.groupValues[3]}" }
             findings += ticking(Situation.TICK_BLOCK_ENTITY, name.groupValues[1], location, document, environment)
         }
+        if (findings.isEmpty()) document.find(PAPER_ENTITY_THREW)?.let { findings += discarded(it, document, environment) }
         return findings
+    }
+
+    /**
+     * The entity is gone (with whatever rode it or it carried), the server runs on. With only the server's own
+     * code in the trace, no plugin is to blame: it is a bug of that server build (PaperMC/Paper#14295, a cushion in
+     * water on 26.3 build 38, fixed in build 39).
+     */
+    private fun discarded(match: MatchResult, document: LogDocument, environment: Environment): Finding {
+        val line = lineOf(document, match.range.first)
+        val trace = document.stackTraces.firstOrNull { it.lineIndex > line }
+        val culprits = trace?.let { Attribution.culprits(it, environment, 2) }.orEmpty()
+        val (world, x, y, z) = match.destructured
+        return Finding(
+            situation = Situation.TICK_ENTITY,
+            confidence = Confidence.HIGH,
+            culprits = culprits,
+            evidence = listOfNotNull(match.value, trace?.root?.headline),
+            details = mapOf(
+                "object" to world, "location" to "$x, $y, $z", "element" to "$world $x, $y, $z",
+                "server" to environment.platform.displayName,
+                "titleKey" to "tick.entity-discarded.title",
+                "adviceKey" to if (culprits.isEmpty()) "tick.entity-discarded.server-bug" else "tick.entity-discarded",
+            ),
+        )
     }
 
     private fun ticking(situation: Situation, id: String, location: String?, document: LogDocument, environment: Environment): Finding {

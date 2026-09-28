@@ -12,7 +12,7 @@ class SignatureTest {
 
     @Test
     fun `all signatures load`() {
-        assertEquals(105, SignatureDetector.load(javaClass.classLoader.getResource("crashsleuth/signatures.json")!!.readText()).size)
+        assertEquals(107, SignatureDetector.load(javaClass.classLoader.getResource("crashsleuth/signatures.json")!!.readText()).size)
     }
 
     @Test
@@ -154,6 +154,15 @@ class SignatureTest {
                     "\t  java.lang.BootstrapMethodError: java.lang.RuntimeException: Attempted to load class " +
                     "net/minecraft/client/particle/ParticleRenderType for invalid dist DEDICATED_SERVER\n",
             ),
+        )
+        // The name the loader gives is kept with the id ("name", not "nameGroup", in signatures.json).
+        assertEquals(
+            "Nox Lights",
+            LogAnalyzer().analyze(
+                "\t- Nox Lights (noxlights) encountered an error while dispatching the net.neoforged.neoforge.registries.RegisterEvent event\n" +
+                    "\t  java.lang.BootstrapMethodError: java.lang.RuntimeException: Attempted to load class " +
+                    "net/minecraft/client/particle/ParticleRenderType for invalid dist DEDICATED_SERVER\n",
+            ).primary!!.culprits.first().name,
         )
         // https://github.com/andersblomqvist/enhanced-mob-spawners/issues/123 : one entry, same answer.
         assertEquals(
@@ -389,4 +398,31 @@ class SignatureTest {
         assertEquals(Situation.CORRUPT_CHUNK to listOf("minecraft:copper_chest"), found.situation to found.culprits.map { it.id })
         assertEquals("world.block-contents-dropped.title", found.details["titleKey"])
     }
+
+    /** https://github.com/balugaq/FutureTech/issues/1 : Paper refuses a world with both a name and a key since 26.1. */
+    @Test
+    fun `a plugin building its world with a name and a key`() {
+        val found = LogAnalyzer().analyze(
+            "[16:01:37] [Server thread/ERROR]: Error occurred while enabling FutureTech vBuild 7 (git 5fc562a) (Is it up to date?)\n" +
+                "java.lang.IllegalArgumentException: World name and key cannot both be specified\n" +
+                "\tat org.bukkit.WorldCreator.<init>(WorldCreator.java:81) ~[paper-api-26.2.build.128-stable.jar:?]\n" +
+                "\tat FutureTech-Build 7 (git 5fc562a).jar//net.bxx2004.futuretech.core.world.FutureWorld.<init>(FutureWorld.java:10) ~[?:?]\n",
+        ).primary!!
+        assertEquals(Situation.PLUGIN_API to listOf("FutureTech"), found.situation to found.culprits.map { it.id })
+        assertEquals("signature.plugin-world-name-and-key.advice", found.details["adviceKey"])
+    }
+
+    /** https://github.com/SlimefunGuguProject/ObsidianExpansion/issues/7 : the plugin's own old copy of Adventure. */
+    @Test
+    fun `a plugin carrying an old copy of Adventure`() {
+        val found = LogAnalyzer().analyze(
+            "[16:01:58] [Server thread/ERROR]: Error occurred while enabling ObsidianExpansion vBuild 6 zh-CN(SlimefunGuguProject) (git 72ba142) (Is it up to date?)\n" +
+                "java.lang.NoSuchMethodError: 'net.kyori.adventure.util.Buildable\$Builder net.kyori.adventure.text.flattener.ComponentFlattener.toBuilder()'\n" +
+                "\tat ObsidianExpansion-Build 6 zh-CN(SlimefunGuguProject) (git 72ba142).jar//net.kyori.adventure.platform.facet.FacetComponentFlattener.get(FacetComponentFlattener.java:65) ~[?:?]\n" +
+                "\tat ObsidianExpansion-Build 6 zh-CN(SlimefunGuguProject) (git 72ba142).jar//net.kyori.adventure.platform.bukkit.BukkitComponentSerializer.<clinit>(BukkitComponentSerializer.java:60) ~[?:?]\n",
+        ).primary!!
+        assertEquals(Situation.PLUGIN_API to listOf("ObsidianExpansion"), found.situation to found.culprits.map { it.id })
+        assertEquals("signature.plugin-bundles-old-adventure.advice", found.details["adviceKey"])
+    }
+
 }

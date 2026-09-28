@@ -331,4 +331,45 @@ class LogAnalyzerTest {
         )
         assertEquals(emptyList(), report.findings.map { it.situation to it.culprits.map { c -> c.id } })
     }
+
+    /** https://github.com/PaperMC/Paper/issues/14295 : Paper 26.3 build 38 removes a cushion in water, and blames nobody else. */
+    @Test
+    fun `Paper removing an entity it could not update, from its own code`() {
+        val found = analyzer.analyze(
+            """
+            [15:59:40] [ServerMain/INFO]: [bootstrap] Running Java 25 (OpenJDK 64-Bit Server VM 25.0.4+7-LTS; Eclipse Adoptium Temurin-25.0.4+7) on Linux 6.12.76-linuxkit (aarch64)
+            [15:59:40] [ServerMain/INFO]: [bootstrap] Loading Paper 26.3-38-main@d5cc7d4 (2026-09-23T18:16:03Z) for Minecraft 26.3
+            [16:00:00] [Server thread/ERROR]: Entity threw exception at minecraft:overworld:0.5,0.0,0.5
+            java.lang.NullPointerException: Cannot invoke "net.minecraft.core.BlockPos.immutable()" because "this.currentBlockPos" is null
+            	at net.minecraft.world.entity.InsideBlockEffectApplier${'$'}StepBasedCollector.recorded(InsideBlockEffectApplier.java:102) ~[paper-26.3.jar:26.3-38-d5cc7d4]
+            	at net.minecraft.world.entity.InsideBlockEffectApplier${'$'}StepBasedCollector.apply(InsideBlockEffectApplier.java:85) ~[paper-26.3.jar:26.3-38-d5cc7d4]
+            	at net.minecraft.world.level.material.WaterFluid.entityInside(WaterFluid.java:96) ~[paper-26.3.jar:26.3-38-d5cc7d4]
+            	at net.minecraft.world.level.material.FluidState.entityInside(FluidState.java:165) ~[paper-26.3.jar:26.3-38-d5cc7d4]
+            	at net.minecraft.world.entity.decoration.Cushion.tickAtCheckInterval(Cushion.java:125) ~[paper-26.3.jar:26.3-38-d5cc7d4]
+            	at net.minecraft.world.entity.decoration.BlockAttachedEntity.tick(BlockAttachedEntity.java:47) ~[paper-26.3.jar:26.3-38-d5cc7d4]
+            	at net.minecraft.server.level.ServerLevel.tickNonPassenger(ServerLevel.java:1411) ~[paper-26.3.jar:26.3-38-d5cc7d4]
+            	at net.minecraft.world.level.Level.guardEntityTick(Level.java:1523) ~[paper-26.3.jar:26.3-38-d5cc7d4]
+            	at java.base/java.lang.Thread.run(Thread.java:1474) ~[?:?]
+            [16:00:10] [Server thread/INFO]: System chat: No entity was found
+            """.trimIndent(),
+        ).primary!!
+        assertEquals(Situation.TICK_ENTITY to emptyList<String>(), found.situation to found.culprits.map { it.id })
+        assertEquals("tick.entity-discarded.server-bug", found.details["adviceKey"])
+        assertEquals("minecraft:overworld 0.5, 0.0, 0.5", found.details["element"])
+    }
+
+    /** https://github.com/balugaq/FutureTech/issues/1 : a version with spaces in it, as guizhanss builds name them. */
+    @Test
+    fun `a plugin that fails to enable, with spaces in its version`() {
+        val found = analyzer.analyze(
+            """
+            [16:01:37] [Server thread/ERROR]: Error occurred while enabling ObsidianExpansion vBuild 6 zh-CN(SlimefunGuguProject) (git 72ba142) (Is it up to date?)
+            java.lang.IllegalStateException: something else went wrong
+            	at ObsidianExpansion-Build 6 zh-CN(SlimefunGuguProject) (git 72ba142).jar//me.lucasgithuber.obsidianexpansion.ObsidianExpansion.enable(ObsidianExpansion.java:37) ~[?:?]
+            	at org.bukkit.plugin.java.JavaPlugin.setEnabled(JavaPlugin.java:279) ~[paper-api-26.2.build.128-stable.jar:?]
+            """.trimIndent(),
+        ).primary!!
+        assertEquals(Situation.UNCAUGHT_EXCEPTION to listOf("ObsidianExpansion"), found.situation to found.culprits.map { it.id })
+        assertEquals("Build 6 zh-CN(SlimefunGuguProject) (git 72ba142)", found.culprits.single().version)
+    }
 }

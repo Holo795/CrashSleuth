@@ -1205,6 +1205,36 @@
       "source": "https://github.com/PaperMC/Paper/issues/11152"
     },
     {
+      "id": "plugin-world-name-and-key",
+      "situation": "PLUGIN_API",
+      "confidence": "CERTAIN",
+      "pattern": "Error occurred while enabling (\\S+) v?([^\\n]+?) \\(Is it up to date\\?\\)\\s*\\n[^\\n]*IllegalArgumentException: World name and key cannot both be specified",
+      "culprits": [
+        {
+          "group": 1,
+          "version": 2,
+          "kind": "PLUGIN"
+        }
+      ],
+      "advice": "signature.plugin-world-name-and-key.advice",
+      "source": "https://github.com/balugaq/FutureTech/issues/1 (replayed in the lab: FutureTech Build 7 with the Chinese Slimefun on Paper 26.2 build 128)"
+    },
+    {
+      "id": "plugin-bundles-old-adventure",
+      "situation": "PLUGIN_API",
+      "confidence": "CERTAIN",
+      "pattern": "Error occurred while enabling (\\S+) v?([^\\n]+?) \\(Is it up to date\\?\\)\\s*\\n[^\\n]*NoSuchMethodError: '[^'\\n]*net\\.kyori\\.adventure\\.[^'\\n]*'\\s*\\n\\s*at [^\\n]*?\\.jar//net\\.kyori\\.adventure\\.",
+      "culprits": [
+        {
+          "group": 1,
+          "version": 2,
+          "kind": "PLUGIN"
+        }
+      ],
+      "advice": "signature.plugin-bundles-old-adventure.advice",
+      "source": "https://github.com/SlimefunGuguProject/ObsidianExpansion/issues/7 (replayed in the lab: ObsidianExpansion Build 6 with the Chinese Slimefun on Paper 26.2 build 128)"
+    },
+    {
       "id": "mod-reached-for-the-client-half",
       "situation": "CLIENT_ONLY_ON_SERVER",
       "confidence": "CERTAIN",
@@ -1212,7 +1242,7 @@
       "culprits": [
         {
           "group": 2,
-          "nameGroup": 1,
+          "name": 1,
           "kind": "MOD"
         }
       ],

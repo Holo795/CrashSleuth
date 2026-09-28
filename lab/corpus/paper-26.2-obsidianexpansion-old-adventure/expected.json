@@ -1,0 +1,9 @@
+{
+  "situation": "PLUGIN_API",
+  "culprit": "ObsidianExpansion",
+  "logs": [
+    "latest.log"
+  ],
+  "source": "https://github.com/SlimefunGuguProject/ObsidianExpansion/issues/7",
+  "fix": "Nobody has answered yet: the addon ships adventure-platform-bukkit built for an older Adventure than Paper 26.2 carries; it needs a build with an up-to-date copy."
+}

@@ -1,0 +1,165 @@
+[16:06:30] [ServerMain/INFO]: [bootstrap] Running Java 25 (OpenJDK 64-Bit Server VM 25.0.4+7-LTS; Eclipse Adoptium Temurin-25.0.4+7) on Linux 7.0.14-orbstack-00380-ga7e0a2dc9535 (aarch64)
+[16:06:30] [ServerMain/INFO]: [bootstrap] Loading Paper 26.2-128-ver/26.2@5749698 (2026-09-22T12:09:59Z) for Minecraft 26.2
+[16:06:30] [ServerMain/INFO]: [PluginInitializerManager] Initializing plugins...
+[16:06:30] [ServerMain/INFO]: [PluginInitializerManager] Initialized 2 plugins
+[16:06:30] [ServerMain/INFO]: [PluginInitializerManager] Bukkit plugins (2):
+ - ObsidianExpansion (Build 6 zh-CN(SlimefunGuguProject) (git 72ba142)), Slimefun (2026.1)
+[16:06:33] [DataConverter MCTypeRegistry init thread/INFO]: [ca.spottedleaf.dataconverter.minecraft.datatypes.MCTypeRegistry] Initialising converters for DataConverter...
+[16:06:33] [ServerMain/INFO]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, profilesHost=https://api.mojang.com, name=PROD]
+[16:06:33] [DataConverter MCTypeRegistry init thread/INFO]: [ca.spottedleaf.dataconverter.minecraft.datatypes.MCTypeRegistry] Finished initialising converters for DataConverter in 405.6ms
+[16:06:34] [ServerMain/INFO]: Found new data pack paper, loading it automatically
+[16:06:34] [Worker-Main-3/INFO]: No existing world data, creating new world
+[16:06:35] [ServerMain/INFO]: Loaded 1585 recipes
+[16:06:35] [ServerMain/INFO]: Loaded 1688 advancements
+[16:06:35] [Server thread/INFO]: Starting minecraft server version 26.2
+[16:06:35] [Server thread/INFO]: Loading properties
+[16:06:36] [Server thread/INFO]: This server is running Paper version 26.2-128-ver/26.2@5749698 (2026-09-22T12:09:59Z) (Implementing API version 26.2.build.128-stable)
+[16:06:36] [Server thread/INFO]: [spark] This server bundles the spark profiler. For more information please visit https://docs.papermc.io/paper/profiling
+[16:06:36] [Server thread/INFO]: Server Ping Player Sample Count: 12
+[16:06:36] [Server thread/INFO]: Using 4 threads for Netty based IO
+[16:06:36] [Server thread/INFO]: [MoonriseCommon] Paper is using 3 worker threads, 1 I/O threads
+[16:06:36] [Server thread/INFO]: Default game type: SURVIVAL
+[16:06:36] [Server thread/INFO]: Generating keypair
+[16:06:36] [Server thread/INFO]: Starting Minecraft server on *:25565
+[16:06:36] [Server thread/INFO]: Paper: Using libdeflate (Linux aarch64) compression from Velocity.
+[16:06:36] [Server thread/INFO]: Paper: Using OpenSSL 3.x.x (Linux aarch64) cipher from Velocity.
+[16:06:37] [Server thread/INFO]: [Slimefun] Loading server plugin Slimefun v2026.1
+[16:06:37] [Server thread/INFO]: [ObsidianExpansion] Loading server plugin ObsidianExpansion vBuild 6 zh-CN(SlimefunGuguProject) (git 72ba142)
+[16:06:37] [Server thread/WARN]: **** SERVER IS RUNNING IN OFFLINE/INSECURE MODE!
+[16:06:37] [Server thread/WARN]: The server will make no attempt to authenticate usernames. Beware.
+[16:06:37] [Server thread/WARN]: While this makes the game possible to play without internet access, it also opens up the ability for hackers to connect with any username they choose.
+[16:06:37] [Server thread/WARN]: To change this, set "online-mode" to "true" in the server.properties file.
+[16:06:37] [Server thread/INFO]: Preparing level "world"
+[16:06:37] [Server thread/INFO]: Selecting spawn point for level 'minecraft:overworld'...
+[16:06:39] [Server thread/INFO]: Selecting spawn point for level 'minecraft:the_nether'...
+[16:06:40] [Server thread/INFO]: Selecting spawn point for level 'minecraft:the_end'...
+[16:06:40] [Server thread/INFO]: Loading 0 persistent chunks for level 'minecraft:overworld'...
+[16:06:40] [Server thread/INFO]: Preparing spawn area: 100%
+[16:06:40] [Server thread/INFO]: Prepared spawn area in 2693 ms
+[16:06:40] [Server thread/INFO]: Loading 0 persistent chunks for level 'minecraft:the_nether'...
+[16:06:40] [Server thread/INFO]: Preparing spawn area: 100%
+[16:06:40] [Server thread/INFO]: Prepared spawn area in 533 ms
+[16:06:40] [Server thread/INFO]: Loading 0 persistent chunks for level 'minecraft:the_end'...
+[16:06:40] [Server thread/INFO]: Preparing spawn area: 100%
+[16:06:40] [Server thread/INFO]: Prepared spawn area in 157 ms
+[16:06:40] [Server thread/INFO]: Done preparing level "world" (3.043s)
+[16:06:40] [Server thread/INFO]: [Slimefun] Enabling Slimefun v2026.1
+[16:06:40] [Server thread/INFO]: [Slimefun] 正在创建文件夹...
+[16:06:40] [Server thread/INFO]: [Slimefun] 正在加载数据库...
+[16:06:40] [Server thread/WARN]: [Slimefun] 检测到 block-storage 连接池大小配置小于读写线程总和, 可能会导致性能问题
+[16:06:40] [Server thread/INFO]: [com.zaxxer.hikari.HikariDataSource] SlimefunHikariPool - Starting...
+[16:06:40] [Server thread/INFO]: [com.zaxxer.hikari.pool.HikariPool] SlimefunHikariPool - Added connection org.sqlite.jdbc4.JDBC4Connection@1f443932
+[16:06:40] [Server thread/INFO]: [com.zaxxer.hikari.HikariDataSource] SlimefunHikariPool - Start completed.
+[16:06:40] [Server thread/INFO]: [Slimefun] 当前数据库版本 2
+[16:06:40] [Server thread/INFO]: [Slimefun] 已启用延时写入功能
+[16:06:40] [Server thread/WARN]: [Slimefun] 检测到 profile-storage 连接池大小配置小于读写线程总和, 可能会导致性能问题
+[16:06:40] [Server thread/INFO]: [com.zaxxer.hikari.HikariDataSource] SlimefunHikariPool - Starting...
+[16:06:40] [Server thread/INFO]: [com.zaxxer.hikari.pool.HikariPool] SlimefunHikariPool - Added connection org.sqlite.jdbc4.JDBC4Connection@5c5bafb6
+[16:06:40] [Server thread/INFO]: [com.zaxxer.hikari.HikariDataSource] SlimefunHikariPool - Start completed.
+[16:06:40] [Server thread/INFO]: [Slimefun] 当前数据库版本 2
+[16:06:40] [Server thread/INFO]: [Slimefun] 正在加载语言文件...
+[16:06:40] [Server thread/INFO]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, profilesHost=https://api.mojang.com, name=PROD]
+[16:06:41] [Server thread/INFO]: [Slimefun] Loaded language "zh-CN"
+[16:06:41] [Server thread/INFO]: [Slimefun] Available languages: en, de, fr, it, es, ru, pl, uk, sv, nl, da, cs, ro, bg, pt, pt-BR, hu, lv, sk, vi, id, zh-CN, zh-TW, ja, ko, he, ar, tr, fa, th, tl
+[16:06:41] [Server thread/INFO]: [Slimefun] 加载矿物资源...
+[16:06:41] [Slimefun Metrics/INFO]: [Slimefun] MetricsModule does not exist, downloading...
+[16:06:41] [Server thread/INFO]: [Slimefun] 加载自定义标签...
+[16:06:41] [Slimefun Metrics/INFO]: [Slimefun] # Starting download of MetricsModule build: #29
+[16:06:41] [Server thread/INFO]: [Slimefun] 加载物品...
+[16:06:41] [Slimefun Metrics/WARN]: [Slimefun] Failed to start metrics as the file could not be downloaded.
+[16:06:41] [Server thread/INFO]: [Slimefun] 加载研究项目...
+[16:06:41] [Server thread/INFO]: [Slimefun] 加载 Wiki 页面...
+[16:06:41] [Server thread/INFO]: [Slimefun] 加载了 Slimefun 中 486 个物品的 Wiki 页面
+[16:06:41] [Server thread/INFO]: [Slimefun] 正在注册监听器...
+[16:06:41] [Server thread/WARN]: [Slimefun] 服务端未安装 Vault, 游戏币解锁研究特性将无法使用
+[16:06:42] [Server thread/INFO]: [Slimefun] 正在加载第三方插件支持...
+[16:06:42] [Server thread/INFO]: [Slimefun] Slimefun 完成加载, 耗时 1.58s
+[16:06:42] [Server thread/INFO]: [ObsidianExpansion] Enabling ObsidianExpansion vBuild 6 zh-CN(SlimefunGuguProject) (git 72ba142)
+[16:06:42] [Server thread/ERROR]: Error occurred while enabling ObsidianExpansion vBuild 6 zh-CN(SlimefunGuguProject) (git 72ba142) (Is it up to date?)
+java.lang.NoSuchMethodError: 'net.kyori.adventure.util.Buildable$Builder net.kyori.adventure.text.flattener.ComponentFlattener.toBuilder()'
+	at ObsidianExpansion-Build 6 zh-CN(SlimefunGuguProject) (git 72ba142).jar//net.kyori.adventure.platform.facet.FacetComponentFlattener.get(FacetComponentFlattener.java:65) ~[?:?]
+	at ObsidianExpansion-Build 6 zh-CN(SlimefunGuguProject) (git 72ba142).jar//net.kyori.adventure.platform.bukkit.BukkitComponentSerializer.<clinit>(BukkitComponentSerializer.java:60) ~[?:?]
+	at ObsidianExpansion-Build 6 zh-CN(SlimefunGuguProject) (git 72ba142).jar//me.lucasgithuber.obsidianexpansion.utils.Categories.<clinit>(Categories.java:19) ~[?:?]
+	at ObsidianExpansion-Build 6 zh-CN(SlimefunGuguProject) (git 72ba142).jar//me.lucasgithuber.obsidianexpansion.Setup.setup(Setup.java:10) ~[?:?]
+	at ObsidianExpansion-Build 6 zh-CN(SlimefunGuguProject) (git 72ba142).jar//me.lucasgithuber.obsidianexpansion.ObsidianExpansion.enable(ObsidianExpansion.java:37) ~[?:?]
+	at ObsidianExpansion-Build 6 zh-CN(SlimefunGuguProject) (git 72ba142).jar//me.lucasgithuber.obsidianexpansion.infinitylib.core.AbstractAddon.onEnable(AbstractAddon.java:194) ~[?:?]
+	at org.bukkit.plugin.java.JavaPlugin.setEnabled(JavaPlugin.java:279) ~[paper-api-26.2.build.128-stable.jar:?]
+	at io.papermc.paper.plugin.manager.PaperPluginInstanceManager.enablePlugin(PaperPluginInstanceManager.java:201) ~[paper-26.2.jar:26.2-128-5749698]
+	at io.papermc.paper.plugin.manager.PaperPluginManagerImpl.enablePlugin(PaperPluginManagerImpl.java:109) ~[paper-26.2.jar:26.2-128-5749698]
+	at org.bukkit.plugin.SimplePluginManager.enablePlugin(SimplePluginManager.java:519) ~[paper-api-26.2.build.128-stable.jar:?]
+	at org.bukkit.craftbukkit.CraftServer.enablePlugin(CraftServer.java:633) ~[paper-26.2.jar:26.2-128-5749698]
+	at org.bukkit.craftbukkit.CraftServer.enablePlugins(CraftServer.java:590) ~[paper-26.2.jar:26.2-128-5749698]
+	at net.minecraft.server.MinecraftServer.initPostWorld(MinecraftServer.java:648) ~[paper-26.2.jar:26.2-128-5749698]
+	at net.minecraft.server.dedicated.DedicatedServer.initServer(DedicatedServer.java:343) ~[paper-26.2.jar:26.2-128-5749698]
+	at net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:1266) ~[paper-26.2.jar:26.2-128-5749698]
+	at net.minecraft.server.MinecraftServer.lambda$spin$0(MinecraftServer.java:303) ~[paper-26.2.jar:26.2-128-5749698]
+	at java.base/java.lang.Thread.run(Thread.java:1474) ~[?:?]
+[16:06:42] [Server thread/INFO]: [ObsidianExpansion] Disabling ObsidianExpansion vBuild 6 zh-CN(SlimefunGuguProject) (git 72ba142)
+[16:06:42] [Server thread/INFO]: [spark] Starting background profiler...
+[16:06:42] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:overworld
+[16:06:42] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:the_nether
+[16:06:42] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:the_end
+[16:06:42] [Server thread/INFO]: ThreadedAnvilChunkStorage (world): All chunks are saved
+[16:06:42] [Server thread/INFO]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[16:06:42] [Server thread/INFO]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[16:06:42] [Server thread/INFO]: ThreadedAnvilChunkStorage: All dimensions are saved
+[16:06:42] [Server thread/INFO]: Running delayed init tasks
+[16:06:42] [Server thread/INFO]: [Slimefun] Collecting Snapshots of all Recipes...
+[16:06:42] [Server thread/INFO]: [Slimefun] Found 1,585 Recipes!
+[16:06:42] [Server thread/INFO]: 
+[16:06:42] [Server thread/INFO]: ######################### - Slimefun v2026.1 - #########################
+[16:06:42] [Server thread/INFO]: 
+[16:06:42] [Server thread/INFO]: 成功加载了 556 个物品和 258 个研究
+[16:06:42] [Server thread/INFO]: ( 556 物品来自本体, 0 个物品来自 1 扩展 )
+[16:06:42] [Server thread/INFO]: 
+[16:06:42] [Server thread/INFO]: 
+[16:06:42] [Server thread/INFO]:  - 源码:      https://github.com/SlimefunGuguProject/Slimefun4
+[16:06:42] [Server thread/INFO]:  - Bug 反馈:  https://github.com/SlimefunGuguProject/Slimefun4/issues
+[16:06:42] [Server thread/INFO]: 
+[16:06:42] [Server thread/INFO]: [dough: protection] Loading Protection Modules...
+[16:06:42] [Server thread/INFO]: [dough: protection] This may happen more than once.
+[16:06:42] [Server thread/INFO]: Done (13.046s)! For help, type "help"
+[16:06:42] [Server thread/INFO]: *************************************************************************************
+[16:06:42] [Server thread/INFO]: This is the first time you're starting this server.
+[16:06:42] [Server thread/INFO]: It's recommended you read our 'Getting Started' documentation for guidance.
+[16:06:42] [Server thread/INFO]: View this and more helpful information here: https://docs.papermc.io/paper/next-steps
+[16:06:42] [Server thread/INFO]: *************************************************************************************
+[16:06:43] [Paper Async Task Handler Thread - 1/INFO]: *** Currently you are 1 build behind ***
+[16:06:43] [Paper Async Task Handler Thread - 1/INFO]: *** It is highly recommended to download the latest build from https://papermc.io/downloads/paper ***
+[16:06:44] [Server thread/INFO]: Stopping the server
+[16:06:44] [Server thread/INFO]: Stopping server
+[16:06:44] [Server thread/INFO]: [Slimefun] Disabling Slimefun v2026.1
+[16:06:44] [Server thread/INFO]: [SF-PLAYER_PROFILE-Controller] 数据保存完成.
+[16:06:44] [Server thread/INFO]: [SF-BLOCK_STORAGE-Controller] 数据保存完成.
+[16:06:44] [Server thread/INFO]: [Slimefun] 已备份 Slimefun 数据至: 2026-09-28-16-06.zip
+[16:06:44] [Server thread/INFO]: Saving players
+[16:06:44] [Server thread/INFO]: Saving worlds
+[16:06:44] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:overworld
+[16:06:44] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk system to halt for world 'minecraft:overworld'
+[16:06:44] [Server thread/INFO]: [ChunkHolderManager] Halted chunk system for world 'minecraft:overworld'
+[16:06:44] [Server thread/INFO]: [ChunkHolderManager] Saving all chunkholders for world 'minecraft:overworld'
+[16:06:44] [Server thread/INFO]: [ChunkHolderManager] Saved 0 block chunks, 0 entity chunks, 0 poi chunks in world 'minecraft:overworld' in 0.01s
+[16:06:44] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk I/O to halt for world 'minecraft:overworld'
+[16:06:44] [Server thread/INFO]: [ChunkHolderManager] Halted I/O scheduler for world 'minecraft:overworld'
+[16:06:44] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:the_nether
+[16:06:44] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk system to halt for world 'minecraft:the_nether'
+[16:06:44] [Server thread/INFO]: [ChunkHolderManager] Halted chunk system for world 'minecraft:the_nether'
+[16:06:44] [Server thread/INFO]: [ChunkHolderManager] Saving all chunkholders for world 'minecraft:the_nether'
+[16:06:44] [Server thread/INFO]: [ChunkHolderManager] Saved 0 block chunks, 0 entity chunks, 0 poi chunks in world 'minecraft:the_nether' in 0.01s
+[16:06:44] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk I/O to halt for world 'minecraft:the_nether'
+[16:06:44] [Server thread/INFO]: [ChunkHolderManager] Halted I/O scheduler for world 'minecraft:the_nether'
+[16:06:44] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:the_end
+[16:06:44] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk system to halt for world 'minecraft:the_end'
+[16:06:44] [Server thread/INFO]: [ChunkHolderManager] Halted chunk system for world 'minecraft:the_end'
+[16:06:44] [Server thread/INFO]: [ChunkHolderManager] Saving all chunkholders for world 'minecraft:the_end'
+[16:06:44] [Server thread/INFO]: [ChunkHolderManager] Saved 0 block chunks, 0 entity chunks, 0 poi chunks in world 'minecraft:the_end' in 0.01s
+[16:06:44] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk I/O to halt for world 'minecraft:the_end'
+[16:06:44] [Server thread/INFO]: [ChunkHolderManager] Halted I/O scheduler for world 'minecraft:the_end'
+[16:06:44] [Server thread/INFO]: ThreadedAnvilChunkStorage (world): All chunks are saved
+[16:06:44] [Server thread/INFO]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[16:06:44] [Server thread/INFO]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[16:06:44] [Server thread/INFO]: ThreadedAnvilChunkStorage: All dimensions are saved
+[16:06:44] [Server thread/INFO]: Waiting for all RegionFile I/O tasks to complete...
+[16:06:44] [Server thread/INFO]: All RegionFile I/O tasks to complete
+[16:06:44] [Server thread/INFO]: [MoonriseCommon] Awaiting termination of worker pool for up to 60s...
+[16:06:44] [Server thread/INFO]: [MoonriseCommon] Awaiting termination of I/O pool for up to 60s...
