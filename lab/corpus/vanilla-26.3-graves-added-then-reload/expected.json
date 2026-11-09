@@ -1,0 +1,9 @@
+{
+  "situation": "DATAPACK_BROKEN",
+  "culprit": "Graves",
+  "logs": [
+    "latest.log"
+  ],
+  "source": "https://github.com/lullaby6/data-packs/issues/39",
+  "fix": "Nobody has answered yet: the pack adds an enchantment, and /reload cannot add registry entries to a running world; restart the server (or rejoin the world) with the pack in place."
+}

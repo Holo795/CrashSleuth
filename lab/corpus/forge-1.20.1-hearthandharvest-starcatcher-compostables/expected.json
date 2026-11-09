@@ -1,0 +1,9 @@
+{
+  "situation": "MOD_CONFLICT",
+  "culprit": "hearthandharvest",
+  "logs": [
+    "latest.log"
+  ],
+  "source": "https://github.com/AlabasterLeking/Hearth-And-Harvest/issues/102",
+  "fix": "Removing Hearth & Harvest (or going back to 1.0.12c) stops it: its compostables loader cannot read the tag entry Starcatcher ships; no fixed release yet."
+}

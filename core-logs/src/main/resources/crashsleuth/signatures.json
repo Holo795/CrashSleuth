@@ -1375,6 +1375,89 @@
       },
       "advice": "signature.hybrid-cannot-patch-its-own-loader.advice",
       "source": "https://github.com/IzzelAliz/Arclight/issues/1927 (replayed in the lab: Arclight 1.21.1 on Forge, build 1.0.1-8ec9529, no mod and no plugin)"
+    },
+    {
+      "id": "tgbridge-not-configured",
+      "situation": "CONFIG_BROKEN",
+      "confidence": "CERTAIN",
+      "pattern": "\\[(tgbridge)/\\]: Can't run with default config values: please fill in ([^\\n]+?), then run /tgbridge reload",
+      "culprits": [
+        {
+          "group": 1,
+          "kind": "MOD"
+        }
+      ],
+      "details": {
+        "fields": 2
+      },
+      "advice": "signature.tgbridge-not-configured.advice",
+      "source": "https://github.com/vanutp/tgbridge/issues/173 (replayed in the lab: tgbridge 0.9.14 on NeoForge 21.1.265, its first-run config, then stop)"
+    },
+    {
+      "id": "tgbridge-not-configured-crash-at-stop",
+      "situation": "CONFIG_BROKEN",
+      "confidence": "CERTAIN",
+      "pattern": "UninitializedPropertyAccessException: lateinit property bot has not been initialized\\s*\\n\\s*at (?:\\w+/)?(tgbridge)@([^/\\s]+)/dev\\.vanutp\\.tgbridge\\.common\\.TelegramBridge\\.getBot\\([^\\n]*\\n\\s*at [^\\n]*TelegramBridge[.$]shutdown",
+      "culprits": [
+        {
+          "group": 1,
+          "version": 2,
+          "kind": "MOD"
+        }
+      ],
+      "advice": "signature.tgbridge-not-configured.advice",
+      "source": "https://github.com/vanutp/tgbridge/issues/173 (replayed in the lab: tgbridge 0.9.14 on NeoForge 21.1.265, its first-run config, then stop)"
+    },
+    {
+      "id": "datapack-added-then-reloaded",
+      "situation": "DATAPACK_BROKEN",
+      "confidence": "CERTAIN",
+      "pattern": "from pack file/([^\\n]+?)\\n(?=[\\s\\S]{0,3000}?Failed to get element ([\\w.\\-]+:[\\w./\\-]+) from registry minecraft:(\\w+))(?=[\\s\\S]{0,30000}?Reload failed; keeping old data)",
+      "culprits": [
+        {
+          "group": 1,
+          "kind": "UNKNOWN"
+        }
+      ],
+      "details": {
+        "element": 2,
+        "registry": 3
+      },
+      "advice": "signature.datapack-added-then-reloaded.advice",
+      "source": "https://github.com/lullaby6/data-packs/issues/39 (replayed in the lab: Graves 3.0.1 dropped into a running vanilla 26.3 world, then /reload)"
+    },
+    {
+      "id": "a-mod-reads-a-tag-as-an-id",
+      "situation": "MOD_CONFLICT",
+      "confidence": "CERTAIN",
+      "pattern": "(?m)(?:^|Caused by: )net\\.minecraft\\.ResourceLocationException: Non \\[a-z0-9_.-\\] character in namespace of location: (#[\\w.\\-]+:\\S+)\\s*\\n(?:\\s*at (?:net\\.minecraft|com\\.mojang|java\\.|jdk\\.|net\\.minecraftforge|com\\.google)[^\\n]*\\n)*\\s*at [\\w.$]+\\([^)\\n]*\\) ~\\[([^\\]\\s%]+?\\.jar)",
+      "culprits": [
+        {
+          "group": 2,
+          "kind": "MOD",
+          "fromJar": true
+        }
+      ],
+      "details": {
+        "element": 1
+      },
+      "advice": "signature.a-mod-reads-a-tag-as-an-id.advice",
+      "source": "https://github.com/AlabasterLeking/Hearth-And-Harvest/issues/102 (replayed in the lab: Hearth & Harvest 1.4.2 with Starcatcher 2.3.19 on Forge 1.20.1-47.4.22)"
+    },
+    {
+      "id": "entity-search-in-an-infinite-box",
+      "situation": "LOG_SPAM",
+      "confidence": "CERTAIN",
+      "pattern": "Aborting entity get for abnormally large AABB: AABB\\[-Infinity[^\\n]*\\n(?:\\s*(?:java\\.lang\\.Throwable[^\\n]*|at (?:\\w+/)?(?:sable|minecraft|neoforge)@[^\\n]*)\\n)*\\s*at (?:\\w+/)?([\\w.\\-]+)@([^/\\s]+)/",
+      "culprits": [
+        {
+          "group": 1,
+          "version": 2,
+          "kind": "MOD"
+        }
+      ],
+      "advice": "signature.entity-search-in-an-infinite-box.advice",
+      "source": "https://github.com/IceWolfBG/maid-restaurant-business/issues/2 (replayed in the lab: Maid Restaurant Business 0.2.4-fix2 with Sable 2.0.6 on NeoForge 21.1.248)"
     }
   ]
 }

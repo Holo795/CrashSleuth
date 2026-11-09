@@ -1,0 +1,119 @@
+[09Nov2026 08:57:54.639] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgeserver, --fml.neoForgeVersion, 21.1.265, --fml.fmlVersion, 4.0.45, --fml.mcVersion, 1.21.1, --fml.neoFormVersion, 20240808.144430, nogui]
+[09Nov2026 08:57:54.641] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: JVM identified as Eclipse Adoptium OpenJDK 64-Bit Server VM 21.0.13+9-LTS
+[09Nov2026 08:57:54.642] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher 11.0.5+main.901c6ea8 starting: java version 21.0.13 by Eclipse Adoptium; OS Linux arch aarch64 version 7.2.12-orbstack-00394-gbecdd6130068
+[09Nov2026 08:57:54.699] [main/INFO] [net.neoforged.fml.loading.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forgeserver
+[09Nov2026 08:57:54.724] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=union:/srv/libraries/net/fabricmc/sponge-mixin/0.16.4+mixin.0.8.7/sponge-mixin-0.16.4+mixin.0.8.7.jar%2373!/ Service=ModLauncher Env=SERVER
+[09Nov2026 08:57:54.895] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "server-1.21.1-20240808.144430-srg.jar" [locator: production server provider +net.neoforged:neoforge:21.1.265:server]
+[09Nov2026 08:57:54.906] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "neoforge-21.1.265-universal.jar" [locator: PathBasedLocator[name=neoforge, paths=[libraries/net/neoforged/neoforge/21.1.265/neoforge-21.1.265-universal.jar]], reader: mod manifest]
+[09Nov2026 08:57:54.916] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "create-1.21.1-6.0.10.jar" [locator: {mods folder locator at /srv/mods}, reader: mod manifest]
+[09Nov2026 08:57:54.921] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "create_stats-1.15.0.jar" [locator: {mods folder locator at /srv/mods}, reader: mod manifest]
+[09Nov2026 08:57:54.923] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "sable-neoforge-1.21.1-2.0.6.jar" [locator: {mods folder locator at /srv/mods}, reader: mod manifest]
+[09Nov2026 08:57:55.129] [main/INFO] [net.neoforged.fml.loading.moddiscovery.locators.JarInJarDependencyLocator/]: Found 10 dependencies adding them to mods collection
+[09Nov2026 08:57:55.129] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found gamelibrary file "mixinextras-neoforge-0.5.5.jar" [parent: neoforge-21.1.265-universal.jar, locator: jarinjar, reader: mod manifest]
+[09Nov2026 08:57:55.129] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found library file "molang-compiler-3.1.1.19.jar" [parent: veil-neoforge-1.21.1-4.3.2.jar, locator: jarinjar]
+[09Nov2026 08:57:55.129] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found gamelibrary file "Registrate-MC1.21-1.3.0+67.jar" [parent: create-1.21.1-6.0.10.jar, locator: jarinjar, reader: mod manifest]
+[09Nov2026 08:57:55.130] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "veil-neoforge-1.21.1-4.3.2.jar" [parent: sable-neoforge-1.21.1-2.0.6.jar, locator: jarinjar, reader: mod manifest]
+[09Nov2026 08:57:55.130] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "flywheel-neoforge-1.21.1-1.0.6.jar" [parent: create-1.21.1-6.0.10.jar, locator: jarinjar, reader: mod manifest]
+[09Nov2026 08:57:55.130] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "sable-companion-common-1.21.1-1.6.0.jar" [parent: create_stats-1.15.0.jar, locator: jarinjar, reader: mod manifest]
+[09Nov2026 08:57:55.130] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found gamelibrary file "dev.ryanhcode.sable.sable-sable_rapier-1.21.1-2.0.6.jar" [parent: sable-neoforge-1.21.1-2.0.6.jar, locator: jarinjar, reader: mod manifest]
+[09Nov2026 08:57:55.130] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found library file "glsl-processor-0.2.3.jar" [parent: veil-neoforge-1.21.1-4.3.2.jar, locator: jarinjar]
+[09Nov2026 08:57:55.130] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "ponder-neoforge-1.0.82+mc1.21.1.jar" [parent: create-1.21.1-6.0.10.jar, locator: jarinjar, reader: mod manifest]
+[09Nov2026 08:57:55.131] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found library file "net.neoforged.neoforge-coremods-21.1.265.jar" [parent: neoforge-21.1.265-universal.jar, locator: jarinjar, reader: mod manifest]
+[09Nov2026 08:57:55.131] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/]: 
+     Mod List:
+		Name Version (Mod Id)
+
+		Create 6.0.10 (create)
+		Create: Stats & Power 1.15.0 (create_stats)
+		Flywheel 1.0.6 (flywheel)
+		Minecraft 1.21.1 (minecraft)
+		NeoForge 21.1.265 (neoforge)
+		Ponder 1.0.82+mc1.21.1 (ponder)
+		Sable 2.0.6 (sable)
+		Sable Companion 1.6.0 (sablecompanion)
+		Veil 4.3.2 (veil)
+[09Nov2026 08:57:55.472] [main/INFO] [mixin/]: Compatibility level set to JAVA_21
+[09Nov2026 08:57:55.507] [main/INFO] [cpw.mods.modlauncher.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgeserver' with arguments [nogui]
+[09Nov2026 08:57:55.547] [main/WARN] [mixin/]: Reference map 'ponder.refmap.json' for ponder-common.mixins.json could not be read. If this is a development environment you can ignore this message
+[09Nov2026 08:57:55.552] [main/INFO] [dev.ryanhcode.sable.mixin.AbstractSableMixinPlugin/]: Using Vanilla renderer mixins
+[09Nov2026 08:57:55.553] [main/INFO] [dev.ryanhcode.sable.mixin.AbstractSableMixinPlugin/]: Using Vanilla renderer mixins
+[09Nov2026 08:57:55.818] [main/WARN] [mixin/]: Error loading class: dev/ryanhcode/offroad/content/blocks/wheel_mount/WheelMountBlockEntity (java.lang.ClassNotFoundException: dev.ryanhcode.offroad.content.blocks.wheel_mount.WheelMountBlockEntity)
+[09Nov2026 08:57:55.818] [main/WARN] [mixin/]: @Mixin target dev.ryanhcode.offroad.content.blocks.wheel_mount.WheelMountBlockEntity was not found create_stats.mixins.json:WheelMountBlockEntityMixin from mod create_stats
+[09Nov2026 08:57:55.819] [main/WARN] [mixin/]: Error loading class: dev/ryanhcode/offroad/content/blocks/wheel_mount/WheelMountBlockEntity (java.lang.ClassNotFoundException: dev.ryanhcode.offroad.content.blocks.wheel_mount.WheelMountBlockEntity)
+[09Nov2026 08:57:55.819] [main/WARN] [mixin/]: @Mixin target dev.ryanhcode.offroad.content.blocks.wheel_mount.WheelMountBlockEntity was not found create_stats.mixins.json:WheelMountBrakeMixin from mod create_stats
+[09Nov2026 08:57:55.820] [main/WARN] [mixin/]: Error loading class: dev/ryanhcode/offroad/content/blocks/wheel_mount/WheelMountBlockEntity (java.lang.ClassNotFoundException: dev.ryanhcode.offroad.content.blocks.wheel_mount.WheelMountBlockEntity)
+[09Nov2026 08:57:55.820] [main/WARN] [mixin/]: @Mixin target dev.ryanhcode.offroad.content.blocks.wheel_mount.WheelMountBlockEntity was not found create_stats.mixins.json:WheelMountYawMixin from mod create_stats
+[09Nov2026 08:57:56.056] [main/WARN] [mixin/]: Error loading class: org/jetbrains/annotations/ApiStatus$ScheduledForRemoval (java.lang.ClassNotFoundException: org.jetbrains.annotations.ApiStatus$ScheduledForRemoval)
+[09Nov2026 08:57:56.196] [main/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.5.5).
+[09Nov2026 08:57:59.233] [modloading-worker-0/INFO] [Veil/]: Veil is initializing.
+[09Nov2026 08:57:59.247] [modloading-worker-0/INFO] [net.neoforged.neoforge.common.NeoForgeMod/NEOFORGE-MOD]: NeoForge mod loading, version 21.1.265, for MC 1.21.1
+[09Nov2026 08:57:59.252] [modloading-worker-0/INFO] [com.simibubi.create.Create/]: Create 6.0.10 initializing! Commit hash: ac0c444d9828da3453ae8cc65338e8de063286fb
+[09Nov2026 08:58:00.097] [modloading-worker-0/INFO] [Create: Stats & Power/]: Create: Stats & Power initializing!
+[09Nov2026 08:58:00.104] [modloading-worker-0/INFO] [dev.ryanhcode.sable.Sable/]: Sable loaded!
+[09Nov2026 08:58:02.816] [modloading-worker-0/INFO] [Create: Stats & Power/]: Create: Stats & Power common setup complete!
+[09Nov2026 08:58:02.826] [modloading-sync-worker/INFO] [Create: Stats & Power/]: [create_stats] Display Target registered: create_stats:stats_panel -> BY_BLOCK + BY_BLOCK_ENTITY
+[09Nov2026 08:58:02.827] [modloading-sync-worker/INFO] [Create: Stats & Power/]: [create_stats] Display Target registered: create_stats:inventory_display -> Inventory Display
+[09Nov2026 08:58:02.827] [modloading-sync-worker/INFO] [Create: Stats & Power/]: [create_stats] Display Target registered: create_stats:fcc_display -> FCC
+[09Nov2026 08:58:02.827] [modloading-sync-worker/INFO] [Create: Stats & Power/]: [create_stats] Display Target registered: create_stats:vcc_mk3_display -> VCC Mk III
+[09Nov2026 08:58:02.827] [modloading-sync-worker/INFO] [Create: Stats & Power/]: [create_stats] Display Target registered: create_stats:vcc_mk2_display -> VCC Mk II
+[09Nov2026 08:58:02.827] [modloading-sync-worker/INFO] [Create: Stats & Power/]: [create_stats] Display Target registered: create_stats:pathfinder_computer -> Pathfinder Computer
+[09Nov2026 08:58:02.827] [modloading-sync-worker/INFO] [Create: Stats & Power/]: [create_stats] Display Target registered: create_stats:eink_panel -> E-Ink Data Panel
+[09Nov2026 08:58:02.828] [modloading-sync-worker/INFO] [Create: Stats & Power/]: [create_stats] Display Source registered: Stats Link / Cargo Link -> supported display-link sources
+[09Nov2026 08:58:02.830] [modloading-sync-worker/INFO] [Create: Stats & Power/]: Registered Pilot Helmet as a goggles-equivalent for Create overlays.
+[09Nov2026 08:58:02.830] [modloading-sync-worker/INFO] [Create: Stats & Power/]: Registered Induction Heater as a boiler heat source.
+[09Nov2026 08:58:02.895] [NeoForge Version Check/INFO] [net.neoforged.fml.VersionChecker/]: [create] Starting version check at https://api.modrinth.com/updates/create/forge_updates.json?neoforge=only
+[09Nov2026 08:58:02.957] [main/INFO] [com.mojang.authlib.yggdrasil.YggdrasilAuthenticationService/]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
+[09Nov2026 08:58:02.986] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/srv/libraries/net/minecraft/server/1.21.1-20240808.144430/server-1.21.1-20240808.144430-srg.jar%23120!/assets/.mcassetsroot' uses unexpected schema
+[09Nov2026 08:58:02.987] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/srv/libraries/net/minecraft/server/1.21.1-20240808.144430/server-1.21.1-20240808.144430-srg.jar%23120!/data/.mcassetsroot' uses unexpected schema
+[09Nov2026 08:58:03.038] [main/INFO] [com.simibubi.create.Create/]: Created 157 recipes which will be injected into the game
+[09Nov2026 08:58:03.043] [main/INFO] [com.simibubi.create.Create/]: Created 0 tags which will be injected into the game
+[09Nov2026 08:58:03.081] [main/INFO] [net.minecraft.server.MinecraftServer/]: Found new data pack create:dynamic_data, loading it automatically
+[09Nov2026 08:58:03.317] [NeoForge Version Check/INFO] [net.neoforged.fml.VersionChecker/]: [create] Found status: OUTDATED Current: 6.0.10 Target: 6.0.10+mc1.21.1
+[09Nov2026 08:58:03.428] [main/INFO] [net.minecraft.server.Main/]: No existing world data, creating new world
+[09Nov2026 08:58:03.905] [main/INFO] [net.minecraft.world.item.crafting.RecipeManager/]: Loaded 3040 recipes
+[09Nov2026 08:58:04.031] [main/INFO] [net.minecraft.advancements.AdvancementTree/]: Loaded 2573 advancements
+[09Nov2026 08:58:05.013] [Server thread/INFO] [net.minecraft.server.dedicated.DedicatedServer/]: Starting minecraft server version 1.21.1
+[09Nov2026 08:58:05.014] [Server thread/INFO] [net.minecraft.server.dedicated.DedicatedServer/]: Loading properties
+[09Nov2026 08:58:05.014] [Server thread/INFO] [net.minecraft.server.dedicated.DedicatedServer/]: Default game type: SURVIVAL
+[09Nov2026 08:58:05.014] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Generating keypair
+[09Nov2026 08:58:05.068] [Server thread/INFO] [net.minecraft.server.dedicated.DedicatedServer/]: Starting Minecraft server on *:25565
+[09Nov2026 08:58:05.092] [Server thread/INFO] [dev.ryanhcode.sable.Sable/]: Adding UDP server channel future
+[09Nov2026 08:58:05.115] [Netty Epoll Server IO #0/INFO] [dev.ryanhcode.sable.Sable/]: Server UDP channel active
+[09Nov2026 08:58:05.115] [Server thread/INFO] [net.minecraft.server.network.ServerConnectionListener/]: Using epoll channel type
+[09Nov2026 08:58:05.119] [Server thread/WARN] [net.minecraft.server.dedicated.DedicatedServer/]: **** SERVER IS RUNNING IN OFFLINE/INSECURE MODE!
+[09Nov2026 08:58:05.119] [Server thread/WARN] [net.minecraft.server.dedicated.DedicatedServer/]: The server will make no attempt to authenticate usernames. Beware.
+[09Nov2026 08:58:05.119] [Server thread/WARN] [net.minecraft.server.dedicated.DedicatedServer/]: While this makes the game possible to play without internet access, it also opens up the ability for hackers to connect with any username they choose.
+[09Nov2026 08:58:05.119] [Server thread/WARN] [net.minecraft.server.dedicated.DedicatedServer/]: To change this, set "online-mode" to "true" in the server.properties file.
+[09Nov2026 08:58:05.163] [Server thread/INFO] [net.minecraft.server.dedicated.DedicatedServer/]: Preparing level "world"
+[09Nov2026 08:58:05.199] [Server thread/INFO] [dev.ryanhcode.sable.Sable/]: Creating physics pipeline for ResourceKey[minecraft:dimension / minecraft:overworld] using RapierPhysicsPipelineProvider
+[09Nov2026 08:58:05.206] [Server thread/INFO] [dev.ryanhcode.sable.Sable/]: Using game directory relative Sable Rapier native directory /srv/.sable/natives
+[09Nov2026 08:58:07.317] [Server thread/INFO] [dev.ryanhcode.sable.Sable/]: Creating physics pipeline for ResourceKey[minecraft:dimension / minecraft:the_nether] using RapierPhysicsPipelineProvider
+[09Nov2026 08:58:07.334] [Server thread/INFO] [dev.ryanhcode.sable.Sable/]: Creating physics pipeline for ResourceKey[minecraft:dimension / minecraft:the_end] using RapierPhysicsPipelineProvider
+[09Nov2026 08:58:07.353] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Preparing start region for dimension minecraft:overworld
+[09Nov2026 08:58:07.381] [Worker-Main-5/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Preparing spawn area: 2%
+[09Nov2026 08:58:07.858] [Worker-Main-7/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Preparing spawn area: 2%
+[09Nov2026 08:58:08.356] [Worker-Main-8/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Preparing spawn area: 18%
+[09Nov2026 08:58:08.856] [Worker-Main-2/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Preparing spawn area: 51%
+[09Nov2026 08:58:09.359] [Worker-Main-11/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Preparing spawn area: 51%
+[09Nov2026 08:58:09.466] [Server thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Time elapsed: 2112 ms
+[09Nov2026 08:58:09.467] [Server thread/INFO] [net.minecraft.server.dedicated.DedicatedServer/]: Done (4.339s)! For help, type "help"
+[09Nov2026 08:58:09.477] [LanServerPinger #1/WARN] [net.minecraft.client.server.LanServerPinger/]: LanServerPinger: Network is unreachable
+[09Nov2026 08:58:09.529] [Server thread/INFO] [net.neoforged.neoforge.server.permission.PermissionAPI/]: Successfully initialized permission handler neoforge:default_handler
+[09Nov2026 08:58:09.530] [Server thread/ERROR] [net.neoforged.fml.common.asm.RuntimeDistCleaner/DISTXFORM]: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER
+[09Nov2026 08:58:09.531] [Server thread/WARN] [Create: Stats & Power/]: [VCC Mk IV] route heldTickets unavailable: java.lang.RuntimeException: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER
+[09Nov2026 08:58:09.531] [Server thread/ERROR] [net.neoforged.fml.common.asm.RuntimeDistCleaner/DISTXFORM]: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER
+[09Nov2026 08:58:09.532] [Server thread/ERROR] [net.neoforged.fml.common.asm.RuntimeDistCleaner/DISTXFORM]: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER
+[09Nov2026 08:58:29.657] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Stopping the server
+[09Nov2026 08:58:29.688] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Stopping server
+[09Nov2026 08:58:29.691] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving players
+[09Nov2026 08:58:29.692] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving worlds
+[09Nov2026 08:58:29.932] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[world]'/minecraft:overworld
+[09Nov2026 08:58:29.933] [Server thread/INFO] [dev.ryanhcode.sable.Sable/]: Saving sub-levels for level 'ServerLevel[world]'/minecraft:overworld
+[09Nov2026 08:58:30.319] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[world]'/minecraft:the_nether
+[09Nov2026 08:58:30.320] [Server thread/INFO] [dev.ryanhcode.sable.Sable/]: Saving sub-levels for level 'ServerLevel[world]'/minecraft:the_nether
+[09Nov2026 08:58:30.322] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[world]'/minecraft:the_end
+[09Nov2026 08:58:30.323] [Server thread/INFO] [dev.ryanhcode.sable.Sable/]: Saving sub-levels for level 'ServerLevel[world]'/minecraft:the_end
+[09Nov2026 08:58:30.328] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: ThreadedAnvilChunkStorage (world): All chunks are saved
+[09Nov2026 08:58:30.328] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[09Nov2026 08:58:30.328] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[09Nov2026 08:58:30.328] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: ThreadedAnvilChunkStorage: All dimensions are saved

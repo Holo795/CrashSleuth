@@ -1,0 +1,127 @@
+{
+ "platform": "NEOFORGE",
+ "minecraftVersion": "26.1.2",
+ "loaderVersion": "26.1.2.122",
+ "side": "SERVER",
+ "jars": [
+  {
+   "file": "backpacked-neoforge-3.0.4+26.1.2-signed.jar",
+   "folder": "mods",
+   "size": 1307328,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "backpacked",
+     "name": "Backpacked",
+     "version": "3.0.4",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[26.1.2.4-beta,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[26.1.2,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "framework",
+       "versionRange": "[0.13.22,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "controllable",
+       "versionRange": "[0.17.0,)",
+       "required": false,
+       "side": "CLIENT"
+      },
+      {
+       "id": "yigd",
+       "versionRange": "[2.0.13,)",
+       "required": false,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "gravestone",
+       "versionRange": "[1.0.35,)",
+       "required": false,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [],
+     "addsContent": true,
+     "optionalOnClient": false
+    }
+   ],
+   "nested": [],
+   "error": null,
+   "javaVersion": 25
+  },
+  {
+   "file": "framework-neoforge-0.13.22+26.1.2-signed.jar",
+   "folder": "mods",
+   "size": 514288,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "framework",
+     "name": "Framework",
+     "version": "0.13.22",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[26.1.2.4-beta,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[26.1.2,)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
+    }
+   ],
+   "nested": [],
+   "error": null,
+   "javaVersion": 25
+  }
+ ],
+ "skipped": [],
+ "files": {
+  "worlds": [
+   {
+    "name": "world",
+    "versionName": "26.1.2",
+    "dataVersion": 4790,
+    "unreadable": null,
+    "hasBackup": true,
+    "locked": false,
+    "damagedChunks": [],
+    "chunksChecked": 529,
+    "oversizedChunks": [],
+    "chunksComplete": true,
+    "damagedPlayers": []
+   }
+  ],
+  "eulaAccepted": true,
+  "configErrors": [],
+  "rootJars": []
+ }
+}

@@ -1,0 +1,9 @@
+{
+  "situation": null,
+  "culprit": null,
+  "logs": [
+    "latest.log"
+  ],
+  "source": "https://github.com/lullaby6/data-packs/issues/39",
+  "fix": "Starting the server with the pack in place loads it without error."
+}

@@ -1,0 +1,9 @@
+{
+  "situation": null,
+  "culprit": null,
+  "logs": [
+    "latest.log"
+  ],
+  "source": "https://github.com/Erbell9520/Create-Graphs-Additions-public/issues/2",
+  "fix": "The author confirmed it and fixed it in a later build: update Create: Stats & Power."
+}

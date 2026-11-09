@@ -12,7 +12,7 @@ class SignatureTest {
 
     @Test
     fun `all signatures load`() {
-        assertEquals(107, SignatureDetector.load(javaClass.classLoader.getResource("crashsleuth/signatures.json")!!.readText()).size)
+        assertEquals(112, SignatureDetector.load(javaClass.classLoader.getResource("crashsleuth/signatures.json")!!.readText()).size)
     }
 
     @Test
@@ -425,4 +425,80 @@ class SignatureTest {
         assertEquals("signature.plugin-bundles-old-adventure.advice", found.details["adviceKey"])
     }
 
+    /** https://github.com/vanutp/tgbridge/issues/173 : tgbridge left with its first-run config. */
+    @Test
+    fun `tgbridge without a bot token`() {
+        val found = LogAnalyzer().analyze(
+                "[09Nov2026 08:45:49.060] [modloading-worker-0/ERROR] [tgbridge/]: Can't run with default config values: please fill in botToken and chatId, then run /tgbridge reload\n",
+        ).primary!!
+        assertEquals(Situation.CONFIG_BROKEN to listOf("tgbridge"), found.situation to found.culprits.map { it.id })
+        assertEquals("signature.tgbridge-not-configured.advice", found.details["adviceKey"])
+    }
+
+    /** https://github.com/vanutp/tgbridge/issues/173 : the crash report written when that server stops. */
+    @Test
+    fun `tgbridge crashing the server as it stops`() {
+        val found = LogAnalyzer().analyze(
+                "kotlin.UninitializedPropertyAccessException: lateinit property bot has not been initialized\n" +
+                "\tat TRANSFORMER/tgbridge@0.9.14/dev.vanutp.tgbridge.common.TelegramBridge.getBot(TelegramBridge.kt:29) ~[tgbridge-0.9.14-neoforge-1.21.jar%23122!/:?] {re:classloading}\n" +
+                "\tat TRANSFORMER/tgbridge@0.9.14/dev.vanutp.tgbridge.common.TelegramBridge\$shutdown\$1.invokeSuspend(TelegramBridge.kt:161) ~[tgbridge-0.9.14-neoforge-1.21.jar%23122!/:?] {re:classloading}\n",
+        ).primary!!
+        assertEquals(Situation.CONFIG_BROKEN to listOf("tgbridge"), found.situation to found.culprits.map { it.id })
+        assertEquals("0.9.14", found.culprits.single().version)
+    }
+
+    /** https://github.com/lullaby6/data-packs/issues/39 : a datapack with its own enchantment, added then reloaded. */
+    @Test
+    fun `a datapack added to a running world then reloaded`() {
+        val found = LogAnalyzer().analyze(
+                "[08:56:14] [Server thread/INFO]: System chat: Reloading!\n" +
+                "[08:56:14] [Server thread/ERROR]: Couldn't load tag soulbound_enchantment:exclusive_set/soulbound as it is missing following references: soulbound_enchantment:soulbound (from file/Graves v3.0.1 [26.3].zip)\n" +
+                "[08:56:15] [Worker-Main-11/ERROR]: Registry loading errors:\n" +
+                "> Errors in registry minecraft:predicate:\n" +
+                ">> Errors in element graves:compatibility/soulbound_enchantment/chest:\n" +
+                "java.lang.IllegalStateException: Failed to parse graves:compatibility/soulbound_enchantment/chest from pack file/Graves v3.0.1 [26.3].zip\n" +
+                "Caused by: java.lang.IllegalStateException: Failed to parse either. First: Not a tag id; Second: Failed to parse either. First: Not a json array: \"soulbound_enchantment:soulbound\"; Second: Failed to get element soulbound_enchantment:soulbound from registry minecraft:enchantment missed input: {\"minecraft:enchantments\":[{\"enchantments\":\"soulbound_enchantment:soulbound\"}]} missed input: {\"minecraft:equipment\":{\"chest\":{\"predicates\":{\"minecraft:enchantments\":[{\"enchantments\":\"soulbound_enchantment:soulbound\"}]}}}}\n" +
+                "[08:56:15] [Server thread/INFO]: System chat: Reload failed; keeping old data\n",
+        ).primary!!
+        assertEquals(Situation.DATAPACK_BROKEN to listOf("Graves v3.0.1 [26.3].zip"), found.situation to found.culprits.map { it.id })
+        assertEquals("soulbound_enchantment:soulbound", found.details["element"])
+        assertEquals("enchantment", found.details["registry"])
+    }
+
+    /** https://github.com/AlabasterLeking/Hearth-And-Harvest/issues/102 : a tag key read as an item id. */
+    @Test
+    fun `a mod reading a tag as an item id`() {
+        val found = LogAnalyzer().analyze(
+                "Caused by: net.minecraft.ResourceLocationException: Non [a-z0-9_.-] character in namespace of location: #starcatcher:bucketable_fishes\n" +
+                "\tat net.minecraft.resources.ResourceLocation.m_245413_(ResourceLocation.java:221) ~[server-1.20.1-20230612.114412-srg.jar%23107!/:?]\n" +
+                "\tat net.minecraft.resources.ResourceLocation.<init>(ResourceLocation.java:40) ~[server-1.20.1-20230612.114412-srg.jar%23107!/:?]\n" +
+                "\tat net.minecraft.resources.ResourceLocation.<init>(ResourceLocation.java:44) ~[server-1.20.1-20230612.114412-srg.jar%23107!/:?]\n" +
+                "\tat net.minecraft.resources.ResourceLocation.<init>(ResourceLocation.java:50) ~[server-1.20.1-20230612.114412-srg.jar%23107!/:?]\n" +
+                "\tat alabaster.hearthandharvest.common.registry.HHDataMaps.lambda\$applyCompostables\$7(HHDataMaps.java:134) ~[hearthandharvest-1.20.1-1.4.2.jar%23104!/:1.20.1-1.4.2]\n",
+        ).primary!!
+        assertEquals(Situation.MOD_CONFLICT to listOf("hearthandharvest"), found.situation to found.culprits.map { it.id })
+        assertEquals("#starcatcher:bucketable_fishes", found.details["element"])
+    }
+
+    /** https://github.com/IceWolfBG/maid-restaurant-business/issues/2 : entities searched in an infinite box, refused by Sable. */
+    @Test
+    fun `entities searched in an infinite box`() {
+        val found = LogAnalyzer().analyze(
+                "[09Nov2026 08:59:18.196] [Server thread/ERROR] [dev.ryanhcode.sable.Sable/]: Aborting entity get for abnormally large AABB: AABB[-Infinity, -Infinity, -Infinity] -> [Infinity, Infinity, Infinity]\n" +
+                "java.lang.Throwable: Stack Trace\n" +
+                "\tat TRANSFORMER/sable@2.0.6/dev.ryanhcode.sable.util.SubLevelInclusiveLevelEntityGetter.logError(SubLevelInclusiveLevelEntityGetter.java:36) ~[sable-neoforge-1.21.1-2.0.6.jar%23131!/:2.0.6]\n" +
+                "\tat TRANSFORMER/sable@2.0.6/dev.ryanhcode.sable.util.SubLevelInclusiveLevelEntityGetter.get(SubLevelInclusiveLevelEntityGetter.java:94) ~[sable-neoforge-1.21.1-2.0.6.jar%23131!/:2.0.6]\n" +
+                "\tat TRANSFORMER/minecraft@1.21.1/net.minecraft.world.level.Level.getEntities(Level.java:903) ~[server-1.21.1-20240808.144430-srg.jar%23124!/:?]\n" +
+                "\tat TRANSFORMER/minecraft@1.21.1/net.minecraft.world.level.Level.getEntities(Level.java:896) ~[server-1.21.1-20240808.144430-srg.jar%23124!/:?]\n" +
+                "\tat TRANSFORMER/minecraft@1.21.1/net.minecraft.world.level.Level.getEntities(Level.java:891) ~[server-1.21.1-20240808.144430-srg.jar%23124!/:?]\n" +
+                "\tat TRANSFORMER/minecraft@1.21.1/net.minecraft.world.level.EntityGetter.getEntitiesOfClass(EntityGetter.java:27) ~[server-1.21.1-20240808.144430-srg.jar%23124!/:?]\n" +
+                "\tat TRANSFORMER/minecraft@1.21.1/net.minecraft.world.level.EntityGetter.getEntitiesOfClass(EntityGetter.java:52) ~[server-1.21.1-20240808.144430-srg.jar%23124!/:?]\n" +
+                "\tat TRANSFORMER/maid_restaurant_business@0.2.4-fix2/com.icewolf.maidrestaurant.business.core.MaidUtils.updateBindingsFromBaubles(MaidUtils.java:651) ~[maid_restaurant_business-1.21.1-neoforge-0.2.4-fix2.jar%23129!/:0.2.4-fix2]\n" +
+                "\tat TRANSFORMER/maid_restaurant_business@0.2.4-fix2/com.icewolf.maidrestaurant.business.core.BusinessManager.tick(BusinessManager.java:65) ~[maid_restaurant_business-1.21.1-neoforge-0.2.4-fix2.jar%23129!/:0.2.4-fix2]\n" +
+                "\tat TRANSFORMER/maid_restaurant_business@0.2.4-fix2/com.icewolf.maidrestaurant.business.MaidRestaurantBusiness.onServerTick(MaidRestaurantBusiness.java:102) ~[maid_restaurant_business-1.21.1-neoforge-0.2.4-fix2.jar%23129!/:0.2.4-fix2]\n" +
+                "\tat MC-BOOTSTRAP/net.neoforged.bus/net.neoforged.bus.EventBus.post(EventBus.java:360) ~[bus-8.0.5.jar%2362!/:?]\n",
+        ).primary!!
+        assertEquals(Situation.LOG_SPAM to listOf("maid_restaurant_business"), found.situation to found.culprits.map { it.id })
+        assertEquals("0.2.4-fix2", found.culprits.single().version)
+    }
 }

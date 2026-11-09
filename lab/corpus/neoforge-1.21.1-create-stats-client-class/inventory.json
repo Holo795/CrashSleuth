@@ -1,0 +1,469 @@
+{
+ "platform": "NEOFORGE",
+ "minecraftVersion": "1.21.1",
+ "loaderVersion": "21.1.265",
+ "side": "SERVER",
+ "jars": [
+  {
+   "file": "create-1.21.1-6.0.10.jar",
+   "folder": "mods",
+   "size": 19123767,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "create",
+     "name": "Create",
+     "version": "6.0.10",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.219,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1]",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "flywheel",
+       "versionRange": "[1.0.0,2.0)",
+       "required": true,
+       "side": "CLIENT"
+      },
+      {
+       "id": "ponder",
+       "versionRange": "[1.0.82,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "sodium",
+       "versionRange": "[0.6.9,)",
+       "required": false,
+       "side": "CLIENT"
+      },
+      {
+       "id": "lithium",
+       "versionRange": "[0.14.7,)",
+       "required": false,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "journeymap",
+       "versionRange": "[1.21.1-6.0.0-beta.46,)",
+       "required": false,
+       "side": "CLIENT"
+      },
+      {
+       "id": "xaeroworldmap",
+       "versionRange": "[1.40.2,)",
+       "required": false,
+       "side": "CLIENT"
+      }
+     ],
+     "breaks": [
+      {
+       "id": "radium",
+       "versionRange": null,
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "palladium",
+       "versionRange": null,
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [],
+     "addsContent": true,
+     "optionalOnClient": false
+    }
+   ],
+   "nested": [
+    {
+     "format": "NEOFORGE",
+     "id": "flywheel",
+     "name": "Flywheel",
+     "version": "1.0.6",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.21.2)",
+       "required": true,
+       "side": "CLIENT"
+      },
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.66,)",
+       "required": true,
+       "side": "CLIENT"
+      },
+      {
+       "id": "embeddium",
+       "versionRange": "[0.3.25,)",
+       "required": false,
+       "side": "CLIENT"
+      },
+      {
+       "id": "sodium",
+       "versionRange": "[0.6.0-beta.2,)",
+       "required": false,
+       "side": "CLIENT"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": true
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "ponder",
+     "name": "Ponder",
+     "version": "1.0.82+mc1.21.1",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.206,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1]",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "flywheel",
+       "versionRange": "[1.0.0,2.0)",
+       "required": true,
+       "side": "CLIENT"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
+    }
+   ],
+   "error": null,
+   "javaVersion": 21
+  },
+  {
+   "file": "create_stats-1.15.0.jar",
+   "folder": "mods",
+   "size": 18667309,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "create_stats",
+     "name": "Create: Stats & Power",
+     "version": "1.15.0",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.219,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.22)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "create",
+       "versionRange": "[6.0.9,6.1.0)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "ponder",
+       "versionRange": "[1.0.81,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "flywheel",
+       "versionRange": "[1.0.0,2.0)",
+       "required": true,
+       "side": "CLIENT"
+      },
+      {
+       "id": "simulated",
+       "versionRange": "[1,)",
+       "required": false,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "geckolib",
+       "versionRange": "[4.8,)",
+       "required": false,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "linktablet",
+       "versionRange": "[1.10.0,)",
+       "required": false,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "aeronautics_bundled",
+       "versionRange": "[1,)",
+       "required": false,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "jei",
+       "versionRange": "[19.21.0,)",
+       "required": false,
+       "side": "CLIENT"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [],
+     "addsContent": true,
+     "optionalOnClient": false
+    }
+   ],
+   "nested": [
+    {
+     "format": "NEOFORGE",
+     "id": "sablecompanion",
+     "name": "Sable Companion",
+     "version": "1.6.0",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.80,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
+    }
+   ],
+   "error": null,
+   "javaVersion": 21
+  },
+  {
+   "file": "sable-neoforge-1.21.1-2.0.6.jar",
+   "folder": "mods",
+   "size": 12986135,
+   "mods": [
+    {
+     "format": "NEOFORGE",
+     "id": "sable",
+     "name": "Sable",
+     "version": "2.0.6",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.228,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1]",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "flywheel",
+       "versionRange": "[1.0.6,)",
+       "required": false,
+       "side": "CLIENT"
+      },
+      {
+       "id": "create",
+       "versionRange": "[6.0.10,6.1.0)",
+       "required": false,
+       "side": "CLIENT"
+      }
+     ],
+     "breaks": [
+      {
+       "id": "sablecompanion",
+       "versionRange": "(1.6.0,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "sodium",
+       "versionRange": "(,0.8.12-alpha.2+mc1.21.1)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "scalablelux",
+       "versionRange": null,
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
+    }
+   ],
+   "nested": [
+    {
+     "format": "FABRIC",
+     "id": "sable_rapier",
+     "name": null,
+     "version": "2.0.6",
+     "environment": "UNKNOWN",
+     "dependencies": [],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "sablecompanion",
+     "name": "Sable Companion",
+     "version": "1.6.0",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.80,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,)",
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
+    },
+    {
+     "format": "NEOFORGE",
+     "id": "veil",
+     "name": "Veil",
+     "version": "4.3.2",
+     "environment": "UNKNOWN",
+     "dependencies": [
+      {
+       "id": "neoforge",
+       "versionRange": "[21.1.1,)",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "minecraft",
+       "versionRange": "[1.21.1,1.21.3]",
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "sodium",
+       "versionRange": "[0.8.12-alpha.2+mc1.21.1,)",
+       "required": false,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "imguimc",
+       "versionRange": "[1.1.0,2.0.0)",
+       "required": false,
+       "side": "UNKNOWN"
+      }
+     ],
+     "breaks": [
+      {
+       "id": "rubidium",
+       "versionRange": null,
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "embeddium",
+       "versionRange": null,
+       "required": true,
+       "side": "UNKNOWN"
+      },
+      {
+       "id": "celeritas",
+       "versionRange": null,
+       "required": true,
+       "side": "UNKNOWN"
+      }
+     ],
+     "provides": [],
+     "apiVersion": null,
+     "entrypoints": [],
+     "addsContent": false,
+     "optionalOnClient": false
+    }
+   ],
+   "error": null,
+   "javaVersion": 21
+  }
+ ],
+ "skipped": [],
+ "files": {
+  "worlds": [
+   {
+    "name": "world",
+    "versionName": "1.21.1",
+    "dataVersion": 3955,
+    "unreadable": null,
+    "hasBackup": true,
+    "locked": false,
+    "damagedChunks": [],
+    "chunksChecked": 847,
+    "oversizedChunks": [],
+    "chunksComplete": true,
+    "damagedPlayers": []
+   }
+  ],
+  "eulaAccepted": true,
+  "configErrors": [],
+  "rootJars": []
+ }
+}

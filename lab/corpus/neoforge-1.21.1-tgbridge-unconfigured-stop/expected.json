@@ -1,0 +1,9 @@
+{
+  "situation": "CONFIG_BROKEN",
+  "culprit": "tgbridge",
+  "logs": [
+    "crash-2026-11-09_09.02.14-server.txt"
+  ],
+  "source": "https://github.com/vanutp/tgbridge/issues/173",
+  "fix": "Nobody has answered yet: tgbridge 0.9.14 skips its start without a bot token and chat id, then still calls the bot on stop; fill in botToken and chatId in config/tgbridge (or remove the mod) until a fixed build."
+}

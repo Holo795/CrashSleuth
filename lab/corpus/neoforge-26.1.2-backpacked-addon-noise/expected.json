@@ -1,0 +1,9 @@
+{
+  "situation": null,
+  "culprit": null,
+  "logs": [
+    "console.log"
+  ],
+  "source": "https://github.com/MrCrayfish/Backpacked/issues/323",
+  "fix": "Nothing to fix: the ERROR line is log noise, packs load normally."
+}

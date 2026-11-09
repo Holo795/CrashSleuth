@@ -1,0 +1,99 @@
+---- Minecraft Crash Report ----
+// Oops.
+
+Time: 2026-11-09 09:02:14
+Description: Exception in server tick loop
+
+kotlin.UninitializedPropertyAccessException: lateinit property bot has not been initialized
+	at TRANSFORMER/tgbridge@0.9.14/dev.vanutp.tgbridge.common.TelegramBridge.getBot(TelegramBridge.kt:29) ~[tgbridge-0.9.14-neoforge-1.21.jar%23122!/:?] {re:classloading}
+	at TRANSFORMER/tgbridge@0.9.14/dev.vanutp.tgbridge.common.TelegramBridge$shutdown$1.invokeSuspend(TelegramBridge.kt:161) ~[tgbridge-0.9.14-neoforge-1.21.jar%23122!/:?] {re:classloading}
+	at LAYER PLUGIN/kotlin.stdlib/kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:34) ~[kotlin-stdlib-2.4.0.jar%23148!/:2.4.0-release-281] {}
+	at LAYER PLUGIN/kotlinx.coroutines.core/kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:100) ~[kotlinx-coroutines-core-jvm-1.11.0.jar%23144!/:1.11.0] {}
+	at LAYER PLUGIN/kotlinx.coroutines.core/kotlinx.coroutines.EventLoopImplBase.processNextEvent(EventLoop.common.kt:256) ~[kotlinx-coroutines-core-jvm-1.11.0.jar%23144!/:1.11.0] {}
+	at LAYER PLUGIN/kotlinx.coroutines.core/kotlinx.coroutines.BlockingCoroutine.joinBlocking(Builders.kt:54) ~[kotlinx-coroutines-core-jvm-1.11.0.jar%23144!/:1.11.0] {}
+	at LAYER PLUGIN/kotlinx.coroutines.core/kotlinx.coroutines.BuildersKt__BuildersKt.runBlockingImpl(Builders.kt:30) ~[kotlinx-coroutines-core-jvm-1.11.0.jar%23144!/:1.11.0] {}
+	at LAYER PLUGIN/kotlinx.coroutines.core/kotlinx.coroutines.BuildersKt.runBlockingImpl(Unknown Source) ~[kotlinx-coroutines-core-jvm-1.11.0.jar%23144!/:1.11.0] {}
+	at LAYER PLUGIN/kotlinx.coroutines.core/kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK(Builders.concurrent.kt:172) ~[kotlinx-coroutines-core-jvm-1.11.0.jar%23144!/:1.11.0] {}
+	at LAYER PLUGIN/kotlinx.coroutines.core/kotlinx.coroutines.BuildersKt.runBlockingK(Unknown Source) ~[kotlinx-coroutines-core-jvm-1.11.0.jar%23144!/:1.11.0] {}
+	at LAYER PLUGIN/kotlinx.coroutines.core/kotlinx.coroutines.BuildersKt__BuildersKt.runBlocking(Builders.kt:22) ~[kotlinx-coroutines-core-jvm-1.11.0.jar%23144!/:1.11.0] {}
+	at LAYER PLUGIN/kotlinx.coroutines.core/kotlinx.coroutines.BuildersKt.runBlocking(Unknown Source) ~[kotlinx-coroutines-core-jvm-1.11.0.jar%23144!/:1.11.0] {}
+	at LAYER PLUGIN/kotlinx.coroutines.core/kotlinx.coroutines.BuildersKt__BuildersKt.runBlocking$default(Builders.kt:20) ~[kotlinx-coroutines-core-jvm-1.11.0.jar%23144!/:1.11.0] {}
+	at LAYER PLUGIN/kotlinx.coroutines.core/kotlinx.coroutines.BuildersKt.runBlocking$default(Unknown Source) ~[kotlinx-coroutines-core-jvm-1.11.0.jar%23144!/:1.11.0] {}
+	at TRANSFORMER/tgbridge@0.9.14/dev.vanutp.tgbridge.common.TelegramBridge.shutdown(TelegramBridge.kt:152) ~[tgbridge-0.9.14-neoforge-1.21.jar%23122!/:?] {re:classloading}
+	at TRANSFORMER/tgbridge@0.9.14/dev.vanutp.tgbridge.forge.NeoForgeTelegramBridge.lambda$1$1(NeoForgeTelegramBridge.kt:48) ~[tgbridge-0.9.14-neoforge-1.21.jar%23122!/:?] {re:classloading}
+	at MC-BOOTSTRAP/net.neoforged.bus/net.neoforged.bus.ConsumerEventHandler.invoke(ConsumerEventHandler.java:27) ~[bus-8.0.5.jar%2362!/:?] {}
+	at MC-BOOTSTRAP/net.neoforged.bus/net.neoforged.bus.EventBus.post(EventBus.java:360) ~[bus-8.0.5.jar%2362!/:?] {}
+	at MC-BOOTSTRAP/net.neoforged.bus/net.neoforged.bus.EventBus.post(EventBus.java:328) ~[bus-8.0.5.jar%2362!/:?] {}
+	at TRANSFORMER/neoforge@21.1.265/net.neoforged.neoforge.server.ServerLifecycleHooks.handleServerStopping(ServerLifecycleHooks.java:117) ~[neoforge-21.1.265-universal.jar%23120!/:?] {re:classloading}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:724) ~[server-1.21.1-20240808.144430-srg.jar%23119!/:?] {re:classloading,pl:accesstransformer:B}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.server.MinecraftServer.lambda$spin$2(MinecraftServer.java:267) ~[server-1.21.1-20240808.144430-srg.jar%23119!/:?] {re:classloading,pl:accesstransformer:B}
+	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?] {}
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- System Details --
+Details:
+	Minecraft Version: 1.21.1
+	Minecraft Version ID: 1.21.1
+	Operating System: Linux (aarch64) version 7.2.12-orbstack-00394-gbecdd6130068
+	Java Version: 21.0.13, Eclipse Adoptium
+	Java VM Version: OpenJDK 64-Bit Server VM (mixed mode, sharing), Eclipse Adoptium
+	Memory: 130848608 bytes (124 MiB) / 557842432 bytes (532 MiB) up to 2147483648 bytes (2048 MiB)
+	CPUs: 12
+	Processor Vendor: Apple
+	Processor Name: 
+	Identifier: Apple Family 8 Model 0x000 Stepping r0p0
+	Microarchitecture: unknown
+	Frequency (GHz): -0.00
+	Number of physical packages: 1
+	Number of physical CPUs: 12
+	Number of logical CPUs: 12
+	Graphics card #0 name: unknown
+	Graphics card #0 vendor: unknown
+	Graphics card #0 VRAM (MiB): 0.00
+	Graphics card #0 deviceId: unknown
+	Graphics card #0 versionInfo: unknown
+	Virtual memory max (MiB): 19047.32
+	Virtual memory used (MiB): 1701.61
+	Swap memory total (MiB): 13039.54
+	Swap memory used (MiB): 0.00
+	Space in storage for jna.tmpdir (MiB): <path not set>
+	Space in storage for org.lwjgl.system.SharedLibraryExtractPath (MiB): <path not set>
+	Space in storage for io.netty.native.workdir (MiB): <path not set>
+	Space in storage for java.io.tmpdir (MiB): available: 118129.89, total: 145536.00
+	Space in storage for workdir (MiB): available: 127276.77, total: 471482.09
+	JVM Flags: 2 total; -Xms256M -Xmx2G
+	Server Running: false
+	Player Count: 0 / 20; []
+	Active Data Packs: vanilla, mod_data, mod/tgbridge (incompatible), mod/kotlinforforge (incompatible), mod/neoforge
+	Available Data Packs: bundle, trade_rebalance, vanilla, mod/kotlinforforge (incompatible), mod/neoforge, mod/tgbridge (incompatible), mod_data
+	Enabled Feature Flags: minecraft:vanilla
+	World Generation: Stable
+	World Seed: -5979822005890759912
+	Is Modded: Definitely; Server brand changed to 'neoforge'
+	Type: Dedicated Server (map_server.txt)
+	ModLauncher: 11.0.5+main.901c6ea8
+	ModLauncher launch target: forgeserver
+	ModLauncher services: 
+		sponge-mixin-0.16.4+mixin.0.8.7.jar mixin PLUGINSERVICE 
+		loader-4.0.45.jar slf4jfixer PLUGINSERVICE 
+		loader-4.0.45.jar runtime_enum_extender PLUGINSERVICE 
+		at-modlauncher-10.0.1.jar accesstransformer PLUGINSERVICE 
+		loader-4.0.45.jar runtimedistcleaner PLUGINSERVICE 
+		modlauncher-11.0.5.jar mixin TRANSFORMATIONSERVICE 
+		modlauncher-11.0.5.jar fml TRANSFORMATIONSERVICE 
+	FML Language Providers: 
+		kotlinforforge@5.12.0
+		javafml@4.0
+		lowcodefml@4.0
+		minecraft@4.0
+	Mod List: 
+		thedarkcolour.kffmod-5.12.0.jar                   |Kotlin For Forge              |kotlinforforge                |5.12.0              |Manifest: NOSIGNATURE
+		server-1.21.1-20240808.144430-srg.jar             |Minecraft                     |minecraft                     |1.21.1              |Manifest: NOSIGNATURE
+		neoforge-21.1.265-universal.jar                   |NeoForge                      |neoforge                      |21.1.265            |Manifest: NOSIGNATURE
+		tgbridge-0.9.14-neoforge-1.21.jar                 |Telegram Bridge               |tgbridge                      |0.9.14              |Manifest: NOSIGNATURE
+	Crash Report UUID: 437154ee-ab1f-4326-9bb5-e5cda7fa300f
+	FML: 4.0.45
+	NeoForge: 21.1.265

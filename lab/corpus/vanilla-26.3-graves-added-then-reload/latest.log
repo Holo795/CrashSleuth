@@ -1,0 +1,139 @@
+[08:56:05] [ServerMain/INFO]: Environment: Environment[discoveryUrl=https://discovery.minecraftservices.com/minecraft/client, name=PROD]
+[08:56:06] [Worker-Main-9/INFO]: No existing world data, creating new world
+[08:56:06] [Worker-Main-8/INFO]: Loaded 1866 advancements
+[08:56:06] [Server thread/INFO]: Starting minecraft server version 26.3
+[08:56:06] [Server thread/INFO]: Loading properties
+[08:56:06] [Server thread/INFO]: Default game type: SURVIVAL
+[08:56:06] [Server thread/INFO]: Generating keypair
+[08:56:06] [Server thread/INFO]: Starting Minecraft server on *:25565
+[08:56:06] [Server thread/WARN]: **** SERVER IS RUNNING IN OFFLINE/INSECURE MODE!
+[08:56:06] [Server thread/WARN]: The server will make no attempt to authenticate usernames. Beware.
+[08:56:06] [Server thread/WARN]: While this makes the game possible to play without internet access, it also opens up the ability for hackers to connect with any username they choose.
+[08:56:06] [Server thread/WARN]: To change this, set "online-mode" to "true" in the server.properties file.
+[08:56:06] [Server thread/INFO]: Preparing level "world"
+[08:56:06] [Server thread/INFO]: Selecting global world spawn...
+[08:56:08] [Server thread/INFO]: Loading 0 persistent chunks...
+[08:56:08] [Server thread/INFO]: Preparing spawn area: 100%
+[08:56:08] [Server thread/INFO]: Time elapsed: 1574 ms
+[08:56:08] [Server thread/INFO]: Done (1.686s)! For help, type "help"
+[08:56:08] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:overworld
+[08:56:08] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:the_end
+[08:56:08] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:the_nether
+[08:56:14] [Server thread/INFO]: System chat: Reloading!
+[08:56:14] [Server thread/ERROR]: Couldn't load tag soulbound_enchantment:exclusive_set/soulbound as it is missing following references: soulbound_enchantment:soulbound (from file/Graves v3.0.1 [26.3].zip)
+[08:56:15] [Worker-Main-11/ERROR]: Registry loading errors:
+> Errors in registry minecraft:predicate:
+>> Errors in element graves:compatibility/soulbound_enchantment/chest:
+java.lang.IllegalStateException: Failed to parse graves:compatibility/soulbound_enchantment/chest from pack file/Graves v3.0.1 [26.3].zip
+	at net.minecraft.resources.RegistryLoadTask$PendingRegistration.loadFromResource(RegistryLoadTask.java:111)
+	at net.minecraft.resources.ResourceManagerRegistryLoadTask.lambda$load$2(ResourceManagerRegistryLoadTask.java:46)
+	at net.minecraft.util.thread.ParallelMapTransform$Container.applyOperation(ParallelMapTransform.java:89)
+	at net.minecraft.util.thread.ParallelMapTransform$SingleTaskSplitter.lambda$scheduleBatch$0(ParallelMapTransform.java:160)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1825)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncRun.exec(CompletableFuture.java:1817)
+	at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:511)
+	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1450)
+	at java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:2019)
+	at java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:187)
+Caused by: java.lang.IllegalStateException: Failed to parse either. First: Not a tag id; Second: Failed to parse either. First: Not a json array: "soulbound_enchantment:soulbound"; Second: Failed to get element soulbound_enchantment:soulbound from registry minecraft:enchantment missed input: {"minecraft:enchantments":[{"enchantments":"soulbound_enchantment:soulbound"}]} missed input: {"minecraft:equipment":{"chest":{"predicates":{"minecraft:enchantments":[{"enchantments":"soulbound_enchantment:soulbound"}]}}}}
+	at com.mojang.serialization.DataResult$Error.getOrThrow(DataResult.java:287)
+	at com.mojang.serialization.DataResult.getOrThrow(DataResult.java:81)
+	at net.minecraft.resources.RegistryLoadTask$PendingRegistration.loadFromResource(RegistryLoadTask.java:109)
+	... 9 more
+>> Errors in element graves:compatibility/soulbound_enchantment/feet:
+java.lang.IllegalStateException: Failed to parse graves:compatibility/soulbound_enchantment/feet from pack file/Graves v3.0.1 [26.3].zip
+	at net.minecraft.resources.RegistryLoadTask$PendingRegistration.loadFromResource(RegistryLoadTask.java:111)
+	at net.minecraft.resources.ResourceManagerRegistryLoadTask.lambda$load$2(ResourceManagerRegistryLoadTask.java:46)
+	at net.minecraft.util.thread.ParallelMapTransform$Container.applyOperation(ParallelMapTransform.java:89)
+	at net.minecraft.util.thread.ParallelMapTransform$SingleTaskSplitter.lambda$scheduleBatch$0(ParallelMapTransform.java:160)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1825)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncRun.exec(CompletableFuture.java:1817)
+	at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:511)
+	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1450)
+	at java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:2019)
+	at java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:187)
+Caused by: java.lang.IllegalStateException: Failed to parse either. First: Not a tag id; Second: Failed to parse either. First: Not a json array: "soulbound_enchantment:soulbound"; Second: Failed to get element soulbound_enchantment:soulbound from registry minecraft:enchantment missed input: {"minecraft:enchantments":[{"enchantments":"soulbound_enchantment:soulbound"}]} missed input: {"minecraft:equipment":{"feet":{"predicates":{"minecraft:enchantments":[{"enchantments":"soulbound_enchantment:soulbound"}]}}}}
+	at com.mojang.serialization.DataResult$Error.getOrThrow(DataResult.java:287)
+	at com.mojang.serialization.DataResult.getOrThrow(DataResult.java:81)
+	at net.minecraft.resources.RegistryLoadTask$PendingRegistration.loadFromResource(RegistryLoadTask.java:109)
+	... 9 more
+>> Errors in element graves:compatibility/soulbound_enchantment/head:
+java.lang.IllegalStateException: Failed to parse graves:compatibility/soulbound_enchantment/head from pack file/Graves v3.0.1 [26.3].zip
+	at net.minecraft.resources.RegistryLoadTask$PendingRegistration.loadFromResource(RegistryLoadTask.java:111)
+	at net.minecraft.resources.ResourceManagerRegistryLoadTask.lambda$load$2(ResourceManagerRegistryLoadTask.java:46)
+	at net.minecraft.util.thread.ParallelMapTransform$Container.applyOperation(ParallelMapTransform.java:89)
+	at net.minecraft.util.thread.ParallelMapTransform$SingleTaskSplitter.lambda$scheduleBatch$0(ParallelMapTransform.java:160)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1825)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncRun.exec(CompletableFuture.java:1817)
+	at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:511)
+	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1450)
+	at java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:2019)
+	at java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:187)
+Caused by: java.lang.IllegalStateException: Failed to parse either. First: Not a tag id; Second: Failed to parse either. First: Not a json array: "soulbound_enchantment:soulbound"; Second: Failed to get element soulbound_enchantment:soulbound from registry minecraft:enchantment missed input: {"minecraft:enchantments":[{"enchantments":"soulbound_enchantment:soulbound"}]} missed input: {"minecraft:equipment":{"head":{"predicates":{"minecraft:enchantments":[{"enchantments":"soulbound_enchantment:soulbound"}]}}}}
+	at com.mojang.serialization.DataResult$Error.getOrThrow(DataResult.java:287)
+	at com.mojang.serialization.DataResult.getOrThrow(DataResult.java:81)
+	at net.minecraft.resources.RegistryLoadTask$PendingRegistration.loadFromResource(RegistryLoadTask.java:109)
+	... 9 more
+>> Errors in element graves:compatibility/soulbound_enchantment/legs:
+java.lang.IllegalStateException: Failed to parse graves:compatibility/soulbound_enchantment/legs from pack file/Graves v3.0.1 [26.3].zip
+	at net.minecraft.resources.RegistryLoadTask$PendingRegistration.loadFromResource(RegistryLoadTask.java:111)
+	at net.minecraft.resources.ResourceManagerRegistryLoadTask.lambda$load$2(ResourceManagerRegistryLoadTask.java:46)
+	at net.minecraft.util.thread.ParallelMapTransform$Container.applyOperation(ParallelMapTransform.java:89)
+	at net.minecraft.util.thread.ParallelMapTransform$SingleTaskSplitter.lambda$scheduleBatch$0(ParallelMapTransform.java:160)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1825)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncRun.exec(CompletableFuture.java:1817)
+	at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:511)
+	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1450)
+	at java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:2019)
+	at java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:187)
+Caused by: java.lang.IllegalStateException: Failed to parse either. First: Not a tag id; Second: Failed to parse either. First: Not a json array: "soulbound_enchantment:soulbound"; Second: Failed to get element soulbound_enchantment:soulbound from registry minecraft:enchantment missed input: {"minecraft:enchantments":[{"enchantments":"soulbound_enchantment:soulbound"}]} missed input: {"minecraft:equipment":{"legs":{"predicates":{"minecraft:enchantments":[{"enchantments":"soulbound_enchantment:soulbound"}]}}}}
+	at com.mojang.serialization.DataResult$Error.getOrThrow(DataResult.java:287)
+	at com.mojang.serialization.DataResult.getOrThrow(DataResult.java:81)
+	at net.minecraft.resources.RegistryLoadTask$PendingRegistration.loadFromResource(RegistryLoadTask.java:109)
+	... 9 more
+>> Errors in element graves:compatibility/soulbound_enchantment/offhand:
+java.lang.IllegalStateException: Failed to parse graves:compatibility/soulbound_enchantment/offhand from pack file/Graves v3.0.1 [26.3].zip
+	at net.minecraft.resources.RegistryLoadTask$PendingRegistration.loadFromResource(RegistryLoadTask.java:111)
+	at net.minecraft.resources.ResourceManagerRegistryLoadTask.lambda$load$2(ResourceManagerRegistryLoadTask.java:46)
+	at net.minecraft.util.thread.ParallelMapTransform$Container.applyOperation(ParallelMapTransform.java:89)
+	at net.minecraft.util.thread.ParallelMapTransform$SingleTaskSplitter.lambda$scheduleBatch$0(ParallelMapTransform.java:160)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1825)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncRun.exec(CompletableFuture.java:1817)
+	at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:511)
+	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1450)
+	at java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:2019)
+	at java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:187)
+Caused by: java.lang.IllegalStateException: Failed to parse either. First: Not a tag id; Second: Failed to parse either. First: Not a json array: "soulbound_enchantment:soulbound"; Second: Failed to get element soulbound_enchantment:soulbound from registry minecraft:enchantment missed input: {"minecraft:enchantments":[{"enchantments":"soulbound_enchantment:soulbound"}]} missed input: {"minecraft:equipment":{"offhand":{"predicates":{"minecraft:enchantments":[{"enchantments":"soulbound_enchantment:soulbound"}]}}}}
+	at com.mojang.serialization.DataResult$Error.getOrThrow(DataResult.java:287)
+	at com.mojang.serialization.DataResult.getOrThrow(DataResult.java:81)
+	at net.minecraft.resources.RegistryLoadTask$PendingRegistration.loadFromResource(RegistryLoadTask.java:109)
+	... 9 more
+
+[08:56:15] [Server thread/WARN]: Failed to execute reload
+java.util.concurrent.CompletionException: net.minecraft.ReportedException: Registry Loading
+	at java.base/java.util.concurrent.CompletableFuture.wrapInCompletionException(CompletableFuture.java:323)
+	at java.base/java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:359)
+	at java.base/java.util.concurrent.CompletableFuture.completeThrowable(CompletableFuture.java:364)
+	at java.base/java.util.concurrent.CompletableFuture$UniApply.tryFire(CompletableFuture.java:670)
+	at java.base/java.util.concurrent.CompletableFuture$Completion.exec(CompletableFuture.java:504)
+	at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:511)
+	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1450)
+	at java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:2019)
+	at java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:187)
+Caused by: net.minecraft.ReportedException: Registry Loading
+	at net.minecraft.resources.RegistryDataLoader.createReportWithBriefInfo(RegistryDataLoader.java:329)
+	at net.minecraft.resources.RegistryDataLoader.logErrors(RegistryDataLoader.java:294)
+	at net.minecraft.resources.RegistryDataLoader.lambda$load$2(RegistryDataLoader.java:263)
+	at java.base/java.util.concurrent.CompletableFuture$UniApply.tryFire(CompletableFuture.java:667)
+	... 5 more
+Caused by: java.lang.IllegalStateException: Failed to load registries due to errors
+	at net.minecraft.resources.RegistryDataLoader.createReportWithBriefInfo(RegistryDataLoader.java:313)
+	... 8 more
+[08:56:15] [Server thread/INFO]: System chat: Reload failed; keeping old data
+[08:56:50] [Server thread/INFO]: System chat: Stopping the server
+[08:56:50] [Server thread/INFO]: Stopping server
+[08:56:50] [Server thread/INFO]: Saving players
+[08:56:50] [Server thread/INFO]: Saving worlds
+[08:56:50] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:overworld
+[08:56:50] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:the_end
+[08:56:50] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:the_nether

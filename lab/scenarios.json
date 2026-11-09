@@ -2412,5 +2412,194 @@
       "situation": "PLUGIN_API",
       "culprit": "ObsidianExpansion"
     }
+  },
+  {
+    "name": "neoforge-1.21.1-tgbridge-unconfigured-stop",
+    "description": "NeoForge 1.21.1, tgbridge 0.9.14 with its first-run config (no bot token): the server starts, then crashes when it is stopped",
+    "platform": "neoforge",
+    "minecraft": "1.21.1",
+    "java": 21,
+    "loader_version": "21.1.265",
+    "timeout": 600,
+    "after_ready": 15,
+    "extra": [
+      {
+        "url": "https://cdn.modrinth.com/data/QI59B2cO/versions/2KVucv5X/tgbridge-0.9.14-neoforge-1.21.jar"
+      },
+      {
+        "url": "https://cdn.modrinth.com/data/ordsPcFz/versions/uhJhCT7X/kotlinforforge-5.12.0-all.jar"
+      }
+    ],
+    "console": [
+      {
+        "after": 8,
+        "command": "stop"
+      }
+    ],
+    "source": "https://github.com/vanutp/tgbridge/issues/173",
+    "fix": "Nobody has answered yet: tgbridge 0.9.14 skips its start without a bot token and chat id, then still calls the bot on stop; fill in botToken and chatId in config/tgbridge (or remove the mod) until a fixed build.",
+    "expect": {
+      "situation": "CONFIG_BROKEN",
+      "culprit": "tgbridge"
+    }
+  },
+  {
+    "name": "vanilla-26.3-graves-added-then-reload",
+    "description": "Vanilla 26.3, the Graves 3.0.1 datapack dropped into a running world then /reload: its new enchantment is not registered, so the reload is refused",
+    "platform": "vanilla",
+    "minecraft": "26.3",
+    "java": 25,
+    "after_ready": 40,
+    "console": [
+      {
+        "after": 5,
+        "command": "reload",
+        "fetch": {
+          "url": "https://cdn.modrinth.com/data/kieAM9Us/versions/1MHy2q49/Graves%20v3.0.1%20%5B26.3%5D.zip",
+          "sha1": "5cc5170715b9a0b81b07274894be2f6e12696117",
+          "to": "world/datapacks/Graves v3.0.1 [26.3].zip"
+        }
+      }
+    ],
+    "source": "https://github.com/lullaby6/data-packs/issues/39",
+    "fix": "Nobody has answered yet: the pack adds an enchantment, and /reload cannot add registry entries to a running world; restart the server (or rejoin the world) with the pack in place.",
+    "expect": {
+      "situation": "DATAPACK_BROKEN",
+      "culprit": "Graves"
+    }
+  },
+  {
+    "name": "vanilla-26.3-graves-at-start",
+    "description": "Vanilla 26.3 started with the Graves 3.0.1 datapack already in the world: it loads cleanly",
+    "platform": "vanilla",
+    "minecraft": "26.3",
+    "java": 25,
+    "after_ready": 10,
+    "mutate": [
+      {
+        "fetch": "world/datapacks/Graves v3.0.1 [26.3].zip",
+        "url": "https://cdn.modrinth.com/data/kieAM9Us/versions/1MHy2q49/Graves%20v3.0.1%20%5B26.3%5D.zip",
+        "sha1": "5cc5170715b9a0b81b07274894be2f6e12696117"
+      }
+    ],
+    "source": "https://github.com/lullaby6/data-packs/issues/39",
+    "fix": "Starting the server with the pack in place loads it without error."
+  },
+  {
+    "name": "neoforge-1.21.1-create-stats-client-class",
+    "description": "NeoForge 1.21.1, Create 6.0.10, Sable 2.0.6 and Create: Stats & Power 1.15.0: its level tick touches a client class on a dedicated server, the mod catches it and the server runs on",
+    "platform": "neoforge",
+    "minecraft": "1.21.1",
+    "java": 21,
+    "timeout": 600,
+    "after_ready": 20,
+    "extra": [
+      {
+        "url": "https://cdn.modrinth.com/data/LNytGWDc/versions/UjX6dr61/create-1.21.1-6.0.10.jar"
+      },
+      {
+        "url": "https://cdn.modrinth.com/data/T9PomCSv/versions/fg9dTRz9/sable-neoforge-1.21.1-2.0.6.jar"
+      },
+      {
+        "url": "https://cdn.modrinth.com/data/inKFQSzo/versions/GxIRYBRQ/create_stats-1.15.0.jar"
+      }
+    ],
+    "source": "https://github.com/Erbell9520/Create-Graphs-Additions-public/issues/2",
+    "fix": "The author confirmed it and fixed it in a later build: update Create: Stats & Power."
+  },
+  {
+    "name": "neoforge-1.21.1-maid-restaurant-business-sable",
+    "description": "NeoForge 21.1.248, Maid Restaurant Business 0.2.4-fix2 with Sable 2.0.6: the addon asks for entities in an infinite box every 100 ticks, Sable refuses and logs a stack each time",
+    "platform": "neoforge",
+    "minecraft": "1.21.1",
+    "java": 21,
+    "loader_version": "21.1.248",
+    "timeout": 600,
+    "after_ready": 20,
+    "extra": [
+      {
+        "url": "https://github.com/IceWolfBG/maid-restaurant-business/releases/download/release/neoforge-1.21.1-0.2.4-fix2/maid_restaurant_business-1.21.1-neoforge-0.2.4-fix2.jar"
+      },
+      {
+        "url": "https://cdn.modrinth.com/data/RTiyYo0U/versions/vEgMAYm3/maid_restaurant-0.2.9.jar"
+      },
+      {
+        "url": "https://cdn.modrinth.com/data/R0bDWFAW/versions/tXG1TkGx/touhoulittlemaid-1.5.3-neoforge%2Bmc1.21.1.jar",
+        "file": "touhoulittlemaid-1.5.3-neoforge+mc1.21.1.jar"
+      },
+      {
+        "url": "https://cdn.modrinth.com/data/v17FatAc/versions/g8w0b2ly/kaleidoscopecookery-1.6.0-neoforge%2Bmc1.21.1.jar",
+        "file": "kaleidoscopecookery-1.6.0-neoforge+mc1.21.1.jar"
+      },
+      {
+        "url": "https://cdn.modrinth.com/data/SoAnzOY4/versions/2JGn0iYb/ordertocook-1.3.6-neoforge1.21.1.jar"
+      },
+      {
+        "url": "https://cdn.modrinth.com/data/8BmcQJ2H/versions/Grwn5rUB/geckolib-neoforge-1.21.1-4.9.3.jar"
+      },
+      {
+        "url": "https://cdn.modrinth.com/data/T9PomCSv/versions/fg9dTRz9/sable-neoforge-1.21.1-2.0.6.jar"
+      }
+    ],
+    "source": "https://github.com/IceWolfBG/maid-restaurant-business/issues/2",
+    "fix": "Fixed by the author in 0.2.4-fix3 (no more infinite search boxes).",
+    "expect": {
+      "situation": "LOG_SPAM",
+      "culprit": "maid_restaurant_business"
+    }
+  },
+  {
+    "name": "forge-1.20.1-hearthandharvest-starcatcher-compostables",
+    "description": "Forge 1.20.1-47.4.22, Hearth & Harvest 1.4.2 with Starcatcher 2.3.19: H&H reads a tag key in a compostables data map as an item id and the data reload fails",
+    "platform": "forge",
+    "minecraft": "1.20.1",
+    "java": 17,
+    "loader_version": "47.4.22",
+    "timeout": 600,
+    "extra": [
+      {
+        "url": "https://cdn.modrinth.com/data/8EEEXOzj/versions/lkP6dOqJ/hearthandharvest-1.20.1-1.4.2.jar"
+      },
+      {
+        "url": "https://cdn.modrinth.com/data/R2OftAxM/versions/SiIpcZzM/FarmersDelight-1.20.1-1.3.4.jar"
+      },
+      {
+        "url": "https://cdn.modrinth.com/data/h2jXvxNR/versions/99MYui4e/starcatcher-2.3.19-FORGE-1.20.1.jar"
+      }
+    ],
+    "source": "https://github.com/AlabasterLeking/Hearth-And-Harvest/issues/102",
+    "fix": "Removing Hearth & Harvest (or going back to 1.0.12c) stops it: its compostables loader cannot read the tag entry Starcatcher ships; no fixed release yet.",
+    "expect": {
+      "situation": "MOD_CONFLICT",
+      "culprit": "hearthandharvest"
+    }
+  },
+  {
+    "name": "neoforge-26.1.2-backpacked-addon-noise",
+    "description": "NeoForge 26.1.2.122, Backpacked 3.0.4 and Framework 0.13.22 with a plain datapack: Backpacked logs an ERROR for every pack that is not one of its addons, which is harmless",
+    "platform": "neoforge",
+    "minecraft": "26.1.2",
+    "java": 25,
+    "loader_version": "26.1.2.122",
+    "timeout": 600,
+    "after_ready": 10,
+    "extra": [
+      {
+        "url": "https://github.com/MrCrayfish/Backpacked/releases/download/v3.0.4%2B26.1.2/backpacked-neoforge-3.0.4%2B26.1.2-signed.jar",
+        "file": "backpacked-neoforge-3.0.4+26.1.2-signed.jar"
+      },
+      {
+        "url": "https://github.com/MrCrayfish/Framework/releases/download/v0.13.22%2B26.1.2/framework-neoforge-0.13.22%2B26.1.2-signed.jar",
+        "file": "framework-neoforge-0.13.22+26.1.2-signed.jar"
+      }
+    ],
+    "mutate": [
+      {
+        "write": "world/datapacks/test_dp/pack.mcmeta",
+        "text": "{\"pack\":{\"description\":\"plain pack\",\"min_format\":[101,0],\"max_format\":[101,0]}}"
+      }
+    ],
+    "source": "https://github.com/MrCrayfish/Backpacked/issues/323",
+    "fix": "Nothing to fix: the ERROR line is log noise, packs load normally."
   }
 ]

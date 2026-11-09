@@ -499,7 +499,7 @@ class Scenario:
     seed: dict | None = None                            # {"platform", "minecraft", ...}: another server (any field) creates the world first
     mutate: list[dict] = field(default_factory=list)    # after a first clean start: {"garble"|"truncate"|"delete"|"write"|"unzip": path, ...}
     log: str | None = None                              # file to analyse instead of the usual pick (console.log: all a panel shows)
-    console: list[dict] = field(default_factory=list)   # once ready: {"after": seconds, "command": "spark profiler start"}
+    console: list[dict] = field(default_factory=list)   # once ready: {"after": seconds, "command": "spark profiler start", "fetch"?: {"url", "to", "name"?}}
     auto_missing: bool = False                          # a real mod or plugin of this version, without a required dependency
     properties: str = ""                                # extra server.properties lines (a fixed level-seed)
     check_before: bool = False                          # judge the analysis made before the start (the server rewrites what it finds)
@@ -666,9 +666,13 @@ def apply_mutations(scenario: Scenario, directory: Path) -> None:
     """Breaks files on purpose once a first clean start has created them."""
     for action in scenario.mutate:
         kind = next(k for k in ("garble", "truncate", "delete", "write", "corrupt_chunks", "chmod", "copy",
-                                "duplicate_class", "unzip") if k in action)
+                                "duplicate_class", "unzip", "fetch") if k in action)
         target = directory / action[kind]
-        if kind == "unzip":
+        if kind == "fetch":
+            # A real file as its author published it (a datapack zip), put where the server reads it.
+            target.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy(download(action["url"], action.get("name"), action.get("sha1")), target)
+        elif kind == "unzip":
             # A real datapack as its author published it: one folder of a repository archive, at one commit.
             import zipfile
             prefix = action["inside"].rstrip("/") + "/"
@@ -785,10 +789,18 @@ def run_server(scenario: Scenario, directory: Path, command: list[str]) -> tuple
             ready_at = time.time()
             deadline = ready_at + scenario.after_ready
             pending = sorted(scenario.console, key=lambda c: c["after"])
+            # Files a command needs (a datapack added while the server runs) are downloaded beforehand.
+            fetched = {i: download(c["fetch"]["url"], c["fetch"].get("name"), c["fetch"].get("sha1"))
+                       for i, c in enumerate(pending) if "fetch" in c}
             while time.time() < deadline and process.poll() is None:
                 while pending and time.time() - ready_at >= pending[0]["after"]:
+                    entry = pending.pop(0)
+                    if "fetch" in entry:
+                        target = directory / entry["fetch"]["to"]
+                        target.parent.mkdir(parents=True, exist_ok=True)
+                        shutil.copy(fetched[len(scenario.console) - len(pending) - 1], target)
                     try:
-                        process.stdin.write((pending.pop(0)["command"] + "\n").encode())
+                        process.stdin.write((entry["command"] + "\n").encode())
                         process.stdin.flush()
                     except Exception:
                         pass

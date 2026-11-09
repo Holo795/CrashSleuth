@@ -1,0 +1,9 @@
+{
+  "situation": "LOG_SPAM",
+  "culprit": "maid_restaurant_business",
+  "logs": [
+    "latest.log"
+  ],
+  "source": "https://github.com/IceWolfBG/maid-restaurant-business/issues/2",
+  "fix": "Fixed by the author in 0.2.4-fix3 (no more infinite search boxes)."
+}
