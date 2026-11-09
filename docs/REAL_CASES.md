@@ -10,7 +10,12 @@ Written by `python3 lab/lab.py sources`, from the corpus itself.
 
 | Case | What CrashSleuth must find | Culprit | Reported at | What fixed it |
 | --- | --- | --- | --- | --- |
+| `forge-1.20.1-hearthandharvest-starcatcher-compostables` | MOD_CONFLICT | hearthandharvest | https://github.com/AlabasterLeking/Hearth-And-Harvest/issues/102 | Removing Hearth & Harvest (or going back to 1.0.12c) stops it: its compostables loader cannot read the tag entry Starcatcher ships; no fixed release yet. |
 | `forge-1.20.1-immersive-vehicles-alone-on-server` | clean start |  | https://github.com/DonBruce64/MinecraftTransportSimulator/issues/2185 | Nothing to fix without vehicle packs: the jar alone starts cleanly. The PoseStack crash of the report comes from something it did not list (a pack or another mod). |
+| `neoforge-1.21.1-create-stats-client-class` | clean start |  | https://github.com/Erbell9520/Create-Graphs-Additions-public/issues/2 | The author confirmed it and fixed it in a later build: update Create: Stats & Power. |
+| `neoforge-1.21.1-maid-restaurant-business-sable` | LOG_SPAM | maid_restaurant_business | https://github.com/IceWolfBG/maid-restaurant-business/issues/2 | Fixed by the author in 0.2.4-fix3 (no more infinite search boxes). |
+| `neoforge-1.21.1-tgbridge-unconfigured-stop` | CONFIG_BROKEN | tgbridge | https://github.com/vanutp/tgbridge/issues/173 | Nobody has answered yet: tgbridge 0.9.14 skips its start without a bot token and chat id, then still calls the bot on stop; fill in botToken and chatId in config/tgbridge (or remove the mod) until a fixed build. |
+| `neoforge-26.1.2-backpacked-addon-noise` | clean start |  | https://github.com/MrCrayfish/Backpacked/issues/323 | Nothing to fix: the ERROR line is log noise, packs load normally. |
 | `paper-26.2-futuretech-world-creator` | PLUGIN_API | FutureTech | https://github.com/balugaq/FutureTech/issues/1 | Nobody has answered yet: FutureTech Build 7 passes a world name and a key to WorldCreator, which Paper 26.2 refuses; it needs a new build. |
 | `paper-26.2-obsidianexpansion-old-adventure` | PLUGIN_API | ObsidianExpansion | https://github.com/SlimefunGuguProject/ObsidianExpansion/issues/7 | Nobody has answered yet: the addon ships adventure-platform-bukkit built for an older Adventure than Paper 26.2 carries; it needs a build with an up-to-date copy. |
 | `paper-26.3-cushion-in-water` | TICK_ENTITY |  | https://github.com/PaperMC/Paper/issues/14295 | A bug of Paper 26.3 build 38 itself (no plugin involved): fixed in build 39 (PaperMC/Paper#14296), so updating Paper is the fix. |
@@ -64,6 +69,8 @@ Written by `python3 lab/lab.py sources`, from the corpus itself.
 | `real-world-duplicate-uid` | WORLD_DUPLICATE |  | https://github.com/Multiverse/Multiverse-Core/issues/1877 | Delete uid.dat in the copied world: it is what says which world it is. |
 | `real-world-not-writable` | WORLD_LOCKED |  | https://github.com/itzg/docker-minecraft-server/issues/1080 | Give the folder to the user the server runs as (chown), or set the container's UID and GID to the owner's. |
 | `real-worldgen-settings-deleted` | WORLD_CORRUPT |  | https://github.com/PaperMC/Paper/issues/14066 | Restore that file from a backup: the server cannot start without it, and --safeMode does not help. |
+| `vanilla-26.3-graves-added-then-reload` | DATAPACK_BROKEN | Graves | https://github.com/lullaby6/data-packs/issues/39 | Nobody has answered yet: the pack adds an enchantment, and /reload cannot add registry entries to a running world; restart the server (or rejoin the world) with the pack in place. |
+| `vanilla-26.3-graves-at-start` | clean start |  | https://github.com/lullaby6/data-packs/issues/39 | Starting the server with the pack in place loads it without error. |
 
 ## In the game
 
@@ -97,4 +104,4 @@ Written by `python3 lab/lab.py sources`, from the corpus itself.
 | `net-real-velocity-forwarding-off-player` | PROXY_FORWARDING |  | https://github.com/PaperMC/Velocity/issues/1347 | Set player-info-forwarding-mode to modern on the proxy, and save the file before restarting. |
 | `net-real-velocity-forwarding-off-proxy` | PROXY_FORWARDING |  | https://github.com/PaperMC/Velocity/issues/1347 | Set player-info-forwarding-mode to modern on the proxy, and save the file before restarting. |
 
-76 cases.
+83 cases.
